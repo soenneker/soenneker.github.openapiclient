@@ -11,5 +11,13 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         #pragma warning disable CS1591
         Maven_repository,
         #pragma warning restore CS1591
+        [EnumMember(Value = "nuget_feed")]
+        #pragma warning disable CS1591
+        Nuget_feed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "goproxy_server")]
+        #pragma warning disable CS1591
+        Goproxy_server,
+        #pragma warning restore CS1591
     }
 }

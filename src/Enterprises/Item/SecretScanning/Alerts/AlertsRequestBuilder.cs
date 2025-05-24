@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/secret-scanning/alerts{?after*,before*,direction*,is_multi_repo*,is_publicly_leaked*,per_page*,resolution*,secret_type*,sort*,state*,validity*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/secret-scanning/alerts{?after*,before*,direction*,hide_secret*,is_multi_repo*,is_publicly_leaked*,per_page*,resolution*,secret_type*,sort*,state*,validity*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/secret-scanning/alerts{?after*,before*,direction*,is_multi_repo*,is_publicly_leaked*,per_page*,resolution*,secret_type*,sort*,state*,validity*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/secret-scanning/alerts{?after*,before*,direction*,hide_secret*,is_multi_repo*,is_publicly_leaked*,per_page*,resolution*,secret_type*,sort*,state*,validity*}", rawUrl)
         {
         }
         /// <summary>
@@ -128,6 +128,9 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning.Alerts
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning.Alerts.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            /// <summary>A boolean value representing whether or not to hide literal secrets in the results.</summary>
+            [QueryParameter("hide_secret")]
+            public bool? HideSecret { get; set; }
             /// <summary>A boolean value representing whether or not to filter alerts by the multi-repo tag being present.</summary>
             [QueryParameter("is_multi_repo")]
             public bool? IsMultiRepo { get; set; }

@@ -28,7 +28,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAlert_numberItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts/{alert_number}", pathParameters)
+        public WithAlert_numberItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts/{alert_number}{?hide_secret*}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAlert_numberItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts/{alert_number}", rawUrl)
+        public WithAlert_numberItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts/{alert_number}{?hide_secret*}", rawUrl)
         {
         }
         /// <summary>
@@ -49,11 +49,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder.WithAlert_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder.WithAlert_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -96,11 +96,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder.WithAlert_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder.WithAlert_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -140,11 +140,21 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Gets a single secret scanning alert detected in an eligible repository.The authenticated user must be an administrator for the repository or for the organization that owns the repository to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` or `security_events` scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the `public_repo` scope instead.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAlert_numberItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>A boolean value representing whether or not to hide literal secrets in the results.</summary>
+            [QueryParameter("hide_secret")]
+            public bool? HideSecret { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithAlert_numberItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithAlert_numberItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder.WithAlert_numberItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>
