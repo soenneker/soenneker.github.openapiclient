@@ -127869,6 +127869,12 @@
           "size": {
             "type": "integer"
           },
+          "digest": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "download_count": {
             "type": "integer"
           },
@@ -127896,6 +127902,7 @@
           "name",
           "content_type",
           "size",
+          "digest",
           "state",
           "url",
           "node_id",
@@ -144269,6 +144276,12 @@
                 "size": {
                   "type": "integer"
                 },
+                "digest": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
                 "state": {
                   "description": "State of the release asset.",
                   "type": "string",
@@ -144389,6 +144402,7 @@
                 "name",
                 "label",
                 "state",
+                "digest",
                 "content_type",
                 "size",
                 "download_count",
@@ -144693,6 +144707,7 @@
                 "state",
                 "content_type",
                 "size",
+                "digest",
                 "download_count",
                 "created_at",
                 "updated_at"
@@ -144730,6 +144745,12 @@
                 },
                 "size": {
                   "type": "integer"
+                },
+                "digest": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "state": {
                   "description": "State of the release asset.",
@@ -264771,6 +264792,7 @@
                     "name",
                     "label",
                     "state",
+                    "digest",
                     "content_type",
                     "size",
                     "download_count",
@@ -264810,6 +264832,12 @@
                     },
                     "size": {
                       "type": "integer"
+                    },
+                    "digest": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "state": {
                       "description": "State of the release asset.",
@@ -283267,7 +283295,7 @@
               "visibility": "all"
             },
             {
-              "name": "GH__TOKEN",
+              "name": "GH_TOKEN",
               "created_at": "2019-08-10T14:59:22Z",
               "updated_at": "2020-01-10T14:59:22Z",
               "visibility": "selected",
@@ -283284,7 +283312,7 @@
       },
       "organization-actions-secret": {
         "value": {
-          "name": "GH__TOKEN",
+          "name": "GH_TOKEN",
           "created_at": "2019-08-10T14:59:22Z",
           "updated_at": "2020-01-10T14:59:22Z",
           "visibility": "selected",
@@ -284462,7 +284490,7 @@
           "total_count": 2,
           "secrets": [
             {
-              "name": "GH__TOKEN",
+              "name": "GH_TOKEN",
               "created_at": "2019-08-10T14:59:22Z",
               "updated_at": "2020-01-10T14:59:22Z",
               "visibility": "all"
@@ -284484,7 +284512,7 @@
       },
       "repo-codespaces-secret": {
         "value": {
-          "name": "GH__TOKEN",
+          "name": "GH_TOKEN",
           "created_at": "2019-08-10T14:59:22Z",
           "updated_at": "2020-01-10T14:59:22Z",
           "visibility": "all"
@@ -284757,7 +284785,7 @@
               "visibility": "all"
             },
             {
-              "name": "GH__TOKEN",
+              "name": "GH_TOKEN",
               "created_at": "2021-08-10T14:59:22Z",
               "updated_at": "2021-12-10T14:59:22Z",
               "visibility": "selected",
@@ -289546,7 +289574,7 @@
           "total_count": 2,
           "secrets": [
             {
-              "name": "GH__TOKEN",
+              "name": "GH_TOKEN",
               "created_at": "2019-08-10T14:59:22Z",
               "updated_at": "2020-01-10T14:59:22Z"
             },
@@ -290365,7 +290393,7 @@
       },
       "actions-secret": {
         "value": {
-          "name": "GH__TOKEN",
+          "name": "GH_TOKEN",
           "created_at": "2019-08-10T14:59:22Z",
           "updated_at": "2020-01-10T14:59:22Z"
         }
@@ -301160,6 +301188,7 @@
                 "state": "uploaded",
                 "content_type": "application/zip",
                 "size": 1024,
+                "digest": "sha256:2151b604e3429bff440b9fbc03eb3617bc2603cda96c95b9bb05277f9ddba255",
                 "download_count": 42,
                 "created_at": "2013-02-27T19:35:32Z",
                 "updated_at": "2013-02-27T19:35:32Z",
@@ -301238,6 +301267,7 @@
               "state": "uploaded",
               "content_type": "application/zip",
               "size": 1024,
+              "digest": "sha256:2151b604e3429bff440b9fbc03eb3617bc2603cda96c95b9bb05277f9ddba255",
               "download_count": 42,
               "created_at": "2013-02-27T19:35:32Z",
               "updated_at": "2013-02-27T19:35:32Z",
@@ -301276,6 +301306,7 @@
           "state": "uploaded",
           "content_type": "application/zip",
           "size": 1024,
+          "digest": "sha256:2151b604e3429bff440b9fbc03eb3617bc2603cda96c95b9bb05277f9ddba255",
           "download_count": 42,
           "created_at": "2013-02-27T19:35:32Z",
           "updated_at": "2013-02-27T19:35:32Z",
@@ -301319,6 +301350,7 @@
             "state": "uploaded",
             "content_type": "application/zip",
             "size": 1024,
+            "digest": "sha256:2151b604e3429bff440b9fbc03eb3617bc2603cda96c95b9bb05277f9ddba255",
             "download_count": 42,
             "created_at": "2013-02-27T19:35:32Z",
             "updated_at": "2013-02-27T19:35:32Z",
@@ -301356,6 +301388,7 @@
           "state": "uploaded",
           "content_type": "application/zip",
           "size": 1024,
+          "digest": "sha256:2151b604e3429bff440b9fbc03eb3617bc2603cda96c95b9bb05277f9ddba255",
           "download_count": 42,
           "created_at": "2013-02-27T19:35:32Z",
           "updated_at": "2013-02-27T19:35:32Z",

@@ -33,6 +33,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The digest property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Digest { get; set; }
+#nullable restore
+#else
+        public string Digest { get; set; }
+#endif
         /// <summary>The download_count property</summary>
         public int? DownloadCount { get; set; }
         /// <summary>The id property</summary>
@@ -111,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "browser_download_url", n => { BrowserDownloadUrl = n.GetStringValue(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "digest", n => { Digest = n.GetStringValue(); } },
                 { "download_count", n => { DownloadCount = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
@@ -133,6 +142,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("browser_download_url", BrowserDownloadUrl);
             writer.WriteStringValue("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("digest", Digest);
             writer.WriteIntValue("download_count", DownloadCount);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("label", Label);
