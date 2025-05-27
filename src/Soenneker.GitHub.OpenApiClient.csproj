@@ -32,20 +32,29 @@
         <LangVersion>latest</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild></PropertyGroup>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
 
     <ItemGroup>
-
         <None Include="..\README.md" Pack="true" PackagePath="\" />
         <None Include="..\LICENSE" Pack="true" PackagePath="\" />
         <None Include="..\icon.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
         <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.3" />
         <PackageReference Include="Microsoft.Kiota.Serialization.Form" Version="1.17.3" />
         <PackageReference Include="Microsoft.Kiota.Serialization.Json" Version="1.17.3" />
         <PackageReference Include="Microsoft.Kiota.Serialization.Multipart" Version="1.17.3" />
         <PackageReference Include="Microsoft.Kiota.Serialization.Text" Version="1.17.3" />
+        <PackageReference Include="Sodium.Core" Version="1.4.0" />
+        <PackageReference Include="Soenneker.Extensions.DateTime" Version="1.0.0" />
+        <PackageReference Include="Soenneker.Extensions.DateTimeOffset" Version="1.0.0" />
+        <PackageReference Include="Soenneker.Extensions.Task" Version="1.0.0" />
+        <PackageReference Include="Soenneker.Extensions.ValueTask" Version="1.0.0" />
+        <PackageReference Include="Soenneker.GitHub.Repositories" Version="1.0.0" />
+        <PackageReference Include="Soenneker.GitHub.Repositories.PullRequests" Version="1.0.0" />
+        <PackageReference Include="Soenneker.GitHub.Repositories.Runs" Version="1.0.0" />
     </ItemGroup>
 </Project>
