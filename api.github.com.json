@@ -6333,6 +6333,124 @@
         }
       }
     },
+    "/organizations/{org}/dependabot/repository-access": {
+      "get": {
+        "summary": "Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.",
+        "description": "> [!NOTE]\n>    This operation supports both server-to-server and user-to-server access.\nUnauthorized users will not see the existence of this endpoint.",
+        "tags": [
+          "dependabot"
+        ],
+        "operationId": "dependabot/repository-access-for-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/repository-access#lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dependabot-repository-access-details"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/dependabot-repository-access-details"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "dependabot",
+          "subcategory": "repository-access"
+        }
+      }
+    },
+    "/organizations/{org}/dependabot/repository-access/default-level": {
+      "put": {
+        "summary": "Set the default repository access level for Dependabot",
+        "description": "> [!NOTE]\n>    This operation supports both server-to-server and user-to-server access.\nSets the default level of repository access Dependabot will have while performing an update.  Available values are:\n- 'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.\n- 'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.\n\nUnauthorized users will not see the existence of this endpoint.",
+        "tags": [
+          "dependabot"
+        ],
+        "operationId": "dependabot/set-repository-access-default-level",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/repository-access#set-the-default-repository-access-level-for-dependabot"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "default_level": {
+                    "type": "string",
+                    "description": "The default repository access level for Dependabot updates.",
+                    "enum": [
+                      "public",
+                      "internal"
+                    ],
+                    "examples": [
+                      "internal"
+                    ]
+                  }
+                },
+                "required": [
+                  "default_level"
+                ]
+              },
+              "examples": {
+                "204": {
+                  "summary": "Example with a 'succeeded' status.",
+                  "value": {
+                    "default_level": "public"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "dependabot",
+          "subcategory": "repository-access"
+        }
+      }
+    },
     "/organizations/{org}/settings/billing/usage": {
       "get": {
         "summary": "Get billing usage report for an organization",
@@ -96273,7 +96391,7 @@
             }
           },
           "events": {
-            "description": "The list of events for the GitHub app",
+            "description": "The list of events for the GitHub app. Note that the `installation_target`, `security_advisory`, and `meta` events are not included because they are global events and not specific to an installation.",
             "type": "array",
             "items": {
               "type": "string"
@@ -96284,31 +96402,10 @@
             ]
           },
           "installations_count": {
-            "description": "The number of installations associated with the GitHub app",
+            "description": "The number of installations associated with the GitHub app. Only returned when the integration is requesting details about itself.",
             "type": "integer",
             "examples": [
               5
-            ]
-          },
-          "client_secret": {
-            "type": "string",
-            "examples": [
-              "\"1d4b2097ac622ba702d19de498f005747a8b21d3\""
-            ]
-          },
-          "webhook_secret": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "examples": [
-              "\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\""
-            ]
-          },
-          "pem": {
-            "type": "string",
-            "examples": [
-              "\"-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEArYxrNYD/iT5CZVpRJu4rBKmmze3PVmT/gCo2ATUvDvZTPTey\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9/z9mWm\\nrJuNh+m5l320oBQY/Qq3A7wzdEfZw8qm/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\n6OH/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\nVxcna7B80J/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\nV95CLz8QUShuao6u/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB/e7qR1Rj9JhOGcZz+OQrl\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O/s7v\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q/k0BdHQ4h+zNwhk7+h\\nWtPYRAP1Xxnc/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+/3o\\nm5nNaSmczJesUYreH5San7/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP/MK5tyyBoT8zQEk2+vWDOw7H/Z\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra/8iAqCj+zeBw=\\n-----END RSA PRIVATE KEY-----\\n\""
             ]
           }
         },
@@ -103837,6 +103934,35 @@
           "avatar_url",
           "description"
         ]
+      },
+      "dependabot-repository-access-details": {
+        "title": "Dependabot Repository Access Details",
+        "description": "Information about repositories that Dependabot is able to access in an organization",
+        "type": "object",
+        "properties": {
+          "default_level": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The default repository access level for Dependabot updates.",
+            "enum": [
+              "public",
+              "internal",
+              null
+            ],
+            "examples": [
+              "internal"
+            ]
+          },
+          "accessible_repositories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-repository"
+            }
+          }
+        },
+        "additionalProperties": false
       },
       "billing-usage-report": {
         "type": "object",
@@ -118893,6 +119019,14 @@
               "extended"
             ]
           },
+          "threat_model": {
+            "description": "Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.",
+            "type": "string",
+            "enum": [
+              "remote",
+              "remote_and_local"
+            ]
+          },
           "updated_at": {
             "description": "Timestamp of latest configuration update.",
             "type": [
@@ -118953,6 +119087,14 @@
             "enum": [
               "default",
               "extended"
+            ]
+          },
+          "threat_model": {
+            "description": "Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.",
+            "type": "string",
+            "enum": [
+              "remote",
+              "remote_and_local"
             ]
           },
           "languages": {
@@ -282341,6 +282483,84 @@
           }
         ]
       },
+      "dependabot-repository-access-details": {
+        "value": {
+          "default_level": "public",
+          "accessible_repositories": [
+            {
+              "id": 123456,
+              "node_id": "MDEwOlJlcG9zaXRvcnkxMjM0NTY=",
+              "name": "example-repo",
+              "full_name": "octocat/example-repo",
+              "owner": {
+                "name": "octocat",
+                "email": "octo@github.com",
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
+                "gravatar_id": 1,
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat/example-repo",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false,
+                "starred_at": "\"2020-07-09T00:17:55Z\"",
+                "user_view_type": "default"
+              },
+              "private": false,
+              "html_url": "https://github.com/octocat/example-repo",
+              "description": "This is an example repository.",
+              "fork": false,
+              "url": "https://api.github.com/repos/octocat/example-repo",
+              "archive_url": "https://api.github.com/repos/octocat/example-repo/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/octocat/example-repo/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/octocat/example-repo/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/octocat/example-repo/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/octocat/example-repo/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/octocat/example-repo/comments{/number}",
+              "commits_url": "https://api.github.com/repos/octocat/example-repo/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/octocat/example-repo/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/octocat/example-repo/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/octocat/example-repo/contributors",
+              "deployments_url": "https://api.github.com/repos/octocat/example-repo/deployments",
+              "downloads_url": "https://api.github.com/repos/octocat/example-repo/downloads",
+              "events_url": "https://api.github.com/repos/octocat/example-repo/events",
+              "forks_url": "https://api.github.com/repos/octocat/example-repo/forks",
+              "git_commits_url": "https://api.github.com/repos/octocat/example-repo/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/octocat/example-repo/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/octocat/example-repo/git/tags{/sha}",
+              "issue_comment_url": "https://api.github.com/repos/octocat/example-repo/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/octocat/example-repo/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/octocat/example-repo/issues{/number}",
+              "keys_url": "https://api.github.com/repos/octocat/example-repo/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/octocat/example-repo/labels{/name}",
+              "languages_url": "https://api.github.com/repos/octocat/example-repo/languages",
+              "merges_url": "https://api.github.com/repos/octocat/example-repo/merges",
+              "milestones_url": "https://api.github.com/repos/octocat/example-repo/milestones{/number}",
+              "notifications_url": "https://api.github.com/repos/octocat/example-repo/notifications{?since,all,participating}",
+              "pulls_url": "https://api.github.com/repos/octocat/example-repo/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/octocat/example-repo/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/octocat/example-repo/stargazers",
+              "statuses_url": "https://api.github.com/repos/octocat/example-repo/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/octocat/example-repo/subscribers",
+              "subscription_url": "https://api.github.com/repos/octocat/example-repo/subscription",
+              "tags_url": "https://api.github.com/repos/octocat/example-repo/tags",
+              "teams_url": "https://api.github.com/repos/octocat/example-repo/teams",
+              "trees_url": "https://api.github.com/repos/octocat/example-repo/git/trees{/sha}",
+              "hooks_url": "https://api.github.com/repos/octocat/example-repo/hooks"
+            }
+          ]
+        }
+      },
       "billing-usage-report": {
         "value": {
           "usageItems": [
@@ -293101,13 +293321,15 @@
             "python"
           ],
           "query_suite": "default",
+          "threat_model": "remote",
           "updated_at": "2023-01-19T11:21:34Z",
           "schedule": "weekly"
         }
       },
       "code-scanning-default-setup-update": {
         "value": {
-          "state": "configured"
+          "state": "configured",
+          "threat_model": "remote_and_local"
         }
       },
       "code-scanning-default-setup-update-response": {

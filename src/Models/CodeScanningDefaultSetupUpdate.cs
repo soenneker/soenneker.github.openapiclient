@@ -35,6 +35,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_runner_type? RunnerType { get; set; }
         /// <summary>The desired state of code scanning default setup.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_state? State { get; set; }
+        /// <summary>Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_threat_model? ThreatModel { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -58,6 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
                 { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_runner_type>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_state>(); } },
+                { "threat_model", n => { ThreatModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_threat_model>(); } },
             };
         }
         /// <summary>
@@ -72,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("runner_label", RunnerLabel);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_runner_type>("runner_type", RunnerType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_threat_model>("threat_model", ThreatModel);
         }
     }
 }

@@ -13,6 +13,30 @@ namespace Soenneker.GitHub.OpenApiClient.AppManifests.Item.Conversions
     public partial class ConversionsPostResponse : global::Soenneker.GitHub.OpenApiClient.Models.Integration, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The client_secret property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientSecret { get; set; }
+#nullable restore
+#else
+        public string ClientSecret { get; set; }
+#endif
+        /// <summary>The pem property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Pem { get; set; }
+#nullable restore
+#else
+        public string Pem { get; set; }
+#endif
+        /// <summary>The webhook_secret property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookSecret { get; set; }
+#nullable restore
+#else
+        public string WebhookSecret { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,6 +55,9 @@ namespace Soenneker.GitHub.OpenApiClient.AppManifests.Item.Conversions
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
+                { "pem", n => { Pem = n.GetStringValue(); } },
+                { "webhook_secret", n => { WebhookSecret = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -41,6 +68,9 @@ namespace Soenneker.GitHub.OpenApiClient.AppManifests.Item.Conversions
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("client_secret", ClientSecret);
+            writer.WriteStringValue("pem", Pem);
+            writer.WriteStringValue("webhook_secret", WebhookSecret);
         }
     }
 }

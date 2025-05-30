@@ -39,6 +39,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_schedule? Schedule { get; set; }
         /// <summary>Code scanning default setup has been configured or not.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_state? State { get; set; }
+        /// <summary>Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_threat_model? ThreatModel { get; set; }
         /// <summary>Timestamp of latest configuration update.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -72,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_runner_type>(); } },
                 { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_schedule>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_state>(); } },
+                { "threat_model", n => { ThreatModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_threat_model>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -88,6 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_runner_type>("runner_type", RunnerType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_schedule>("schedule", Schedule);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetup_threat_model>("threat_model", ThreatModel);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

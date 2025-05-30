@@ -23,14 +23,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ClientId { get; set; }
 #endif
-        /// <summary>The client_secret property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ClientSecret { get; set; }
-#nullable restore
-#else
-        public string ClientSecret { get; set; }
-#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The description property</summary>
@@ -41,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The list of events for the GitHub app</summary>
+        /// <summary>The list of events for the GitHub app. Note that the `installation_target`, `security_advisory`, and `meta` events are not included because they are global events and not specific to an installation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Events { get; set; }
@@ -67,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Unique identifier of the GitHub app</summary>
         public int? Id { get; set; }
-        /// <summary>The number of installations associated with the GitHub app</summary>
+        /// <summary>The number of installations associated with the GitHub app. Only returned when the integration is requesting details about itself.</summary>
         public int? InstallationsCount { get; set; }
         /// <summary>The name of the GitHub app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,14 +85,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.Integration.Integration_owner Owner { get; set; }
 #endif
-        /// <summary>The pem property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Pem { get; set; }
-#nullable restore
-#else
-        public string Pem { get; set; }
-#endif
         /// <summary>The set of permissions for the GitHub app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,14 +103,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The webhook_secret property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? WebhookSecret { get; set; }
-#nullable restore
-#else
-        public string WebhookSecret { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Integration"/> and sets the default values.
         /// </summary>
@@ -153,7 +129,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
-                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -164,11 +139,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration.Integration_owner>(global::Soenneker.GitHub.OpenApiClient.Models.Integration.Integration_owner.CreateFromDiscriminatorValue); } },
-                { "pem", n => { Pem = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.Integration_permissions.CreateFromDiscriminatorValue); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "webhook_secret", n => { WebhookSecret = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -179,7 +152,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_id", ClientId);
-            writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
@@ -190,11 +162,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration.Integration_owner>("owner", Owner);
-            writer.WriteStringValue("pem", Pem);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration_permissions>("permissions", Permissions);
             writer.WriteStringValue("slug", Slug);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteStringValue("webhook_secret", WebhookSecret);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
