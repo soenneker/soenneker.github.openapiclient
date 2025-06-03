@@ -6379,6 +6379,81 @@
           "category": "dependabot",
           "subcategory": "repository-access"
         }
+      },
+      "patch": {
+        "summary": "Updates repositories to the list of repositories that organization admins have allowed Dependabot to access when updating dependencies.",
+        "description": "> [!NOTE]\n>    This operation supports both server-to-server and user-to-server access.\nUnauthorized users will not see the existence of this endpoint.",
+        "tags": [
+          "dependabot"
+        ],
+        "operationId": "dependabot/update-repository-access-for-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/repository-access#updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "required": [
+                      "repository_ids_to_add"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "repository_ids_to_remove"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "repository_ids_to_add": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "repository_ids_to_remove": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "204": {
+                  "summary": "Example with a 'succeeded' status."
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "dependabot",
+          "subcategory": "repository-access"
+        }
       }
     },
     "/organizations/{org}/dependabot/repository-access/default-level": {
