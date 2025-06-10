@@ -146,7 +146,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
             [QueryParameter("ref")]
             public string Ref { get; set; }
 #endif
-            /// <summary>The rule results to filter on. When specified, only suites with this result will be returned.</summary>
+            /// <summary>The rule suite results to filter on. When specified, only suites with this result will be returned.</summary>
             [Obsolete("This property is deprecated, use RuleSuiteResultAsGetRuleSuiteResultQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,10 +157,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
             [QueryParameter("rule_suite_result")]
             public string RuleSuiteResult { get; set; }
 #endif
-            /// <summary>The rule results to filter on. When specified, only suites with this result will be returned.</summary>
+            /// <summary>The rule suite results to filter on. When specified, only suites with this result will be returned.</summary>
             [QueryParameter("rule_suite_result")]
             public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.GetRule_suite_resultQueryParameterType? RuleSuiteResultAsGetRuleSuiteResultQueryParameterType { get; set; }
-            /// <summary>The time period to filter by.For example, `day` will filter for rule suites that occurred in the past 24 hours, and `week` will filter for insights that occurred in the past 7 days (168 hours).</summary>
+            /// <summary>The time period to filter by.For example, `day` will filter for rule suites that occurred in the past 24 hours, and `week` will filter for rule suites that occurred in the past 7 days (168 hours).</summary>
             [Obsolete("This property is deprecated, use TimePeriodAsGetTimePeriodQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
             [QueryParameter("time_period")]
             public string TimePeriod { get; set; }
 #endif
-            /// <summary>The time period to filter by.For example, `day` will filter for rule suites that occurred in the past 24 hours, and `week` will filter for insights that occurred in the past 7 days (168 hours).</summary>
+            /// <summary>The time period to filter by.For example, `day` will filter for rule suites that occurred in the past 24 hours, and `week` will filter for rule suites that occurred in the past 7 days (168 hours).</summary>
             [QueryParameter("time_period")]
             public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.GetTime_periodQueryParameterType? TimePeriodAsGetTimePeriodQueryParameterType { get; set; }
         }

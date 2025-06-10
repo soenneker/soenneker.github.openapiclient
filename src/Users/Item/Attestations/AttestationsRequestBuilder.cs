@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.DeleteRequest;
+using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -15,16 +17,39 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AttestationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The deleteRequest property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.DeleteRequest.DeleteRequestRequestBuilder DeleteRequest
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.DeleteRequest.DeleteRequestRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The digest property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.DigestRequestBuilder Digest
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.DigestRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.attestations.item collection</summary>
-        /// <param name="position">Subject Digest</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithSubject_digestItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithSubject_digestItemRequestBuilder this[string position]
+        /// <param name="position">Attestation ID</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("subject_digest", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithSubject_digestItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("attestation_%2Did", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.attestations.item collection</summary>
+        /// <param name="position">Attestation ID</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("attestation_%2Did", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

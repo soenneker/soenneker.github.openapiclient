@@ -16,6 +16,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
+        /// <summary>The first_location_detected property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation? FirstLocationDetected { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation FirstLocationDetected { get; set; }
+#endif
+        /// <summary>A boolean value representing whether or not the token in the alert was detected in more than one location.</summary>
+        public bool? HasMoreLocations { get; set; }
         /// <summary>The GitHub URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,6 +184,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "first_location_detected", n => { FirstLocationDetected = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation.CreateFromDiscriminatorValue); } },
+                { "has_more_locations", n => { HasMoreLocations = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "is_base64_encoded", n => { IsBase64Encoded = n.GetBoolValue(); } },
                 { "locations_url", n => { LocationsUrl = n.GetStringValue(); } },
@@ -207,6 +219,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation>("first_location_detected", FirstLocationDetected);
+            writer.WriteBoolValue("has_more_locations", HasMoreLocations);
             writer.WriteBoolValue("is_base64_encoded", IsBase64Encoded);
             writer.WriteStringValue("locations_url", LocationsUrl);
             writer.WriteBoolValue("multi_repo", MultiRepo);

@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AttestationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bulkList property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder BulkList
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.attestations.item collection</summary>
         /// <param name="position">The parameter should be set to the attestation&apos;s subject&apos;s SHA256 digest, in the form `sha256:HEX_DIGEST`.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestItemRequestBuilder"/></returns>

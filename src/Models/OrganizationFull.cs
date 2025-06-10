@@ -56,6 +56,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The default branch for repositories created in this organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DefaultRepositoryBranch { get; set; }
+#nullable restore
+#else
+        public string DefaultRepositoryBranch { get; set; }
+#endif
         /// <summary>The default_repository_permission property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +93,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The disk_usage property</summary>
         public int? DiskUsage { get; set; }
+        /// <summary>The display_commenter_full_name_setting_enabled property</summary>
+        public bool? DisplayCommenterFullNameSettingEnabled { get; set; }
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -161,6 +171,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string MembersAllowedRepositoryCreationType { get; set; }
 #endif
+        /// <summary>The members_can_change_repo_visibility property</summary>
+        public bool? MembersCanChangeRepoVisibility { get; set; }
         /// <summary>The members_can_create_internal_repositories property</summary>
         public bool? MembersCanCreateInternalRepositories { get; set; }
         /// <summary>The members_can_create_pages property</summary>
@@ -175,8 +187,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? MembersCanCreatePublicRepositories { get; set; }
         /// <summary>The members_can_create_repositories property</summary>
         public bool? MembersCanCreateRepositories { get; set; }
+        /// <summary>The members_can_create_teams property</summary>
+        public bool? MembersCanCreateTeams { get; set; }
+        /// <summary>The members_can_delete_issues property</summary>
+        public bool? MembersCanDeleteIssues { get; set; }
+        /// <summary>The members_can_delete_repositories property</summary>
+        public bool? MembersCanDeleteRepositories { get; set; }
         /// <summary>The members_can_fork_private_repositories property</summary>
         public bool? MembersCanForkPrivateRepositories { get; set; }
+        /// <summary>The members_can_invite_outside_collaborators property</summary>
+        public bool? MembersCanInviteOutsideCollaborators { get; set; }
+        /// <summary>The members_can_view_dependency_insights property</summary>
+        public bool? MembersCanViewDependencyInsights { get; set; }
         /// <summary>The members_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -225,6 +247,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The public_repos property</summary>
         public int? PublicRepos { get; set; }
+        /// <summary>The readers_can_create_discussions property</summary>
+        public bool? ReadersCanCreateDiscussions { get; set; }
         /// <summary>The repos_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -314,6 +338,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "collaborators", n => { Collaborators = n.GetIntValue(); } },
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "default_repository_branch", n => { DefaultRepositoryBranch = n.GetStringValue(); } },
                 { "default_repository_permission", n => { DefaultRepositoryPermission = n.GetStringValue(); } },
                 { "dependabot_alerts_enabled_for_new_repositories", n => { DependabotAlertsEnabledForNewRepositories = n.GetBoolValue(); } },
                 { "dependabot_security_updates_enabled_for_new_repositories", n => { DependabotSecurityUpdatesEnabledForNewRepositories = n.GetBoolValue(); } },
@@ -321,6 +346,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "deploy_keys_enabled_for_repositories", n => { DeployKeysEnabledForRepositories = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "disk_usage", n => { DiskUsage = n.GetIntValue(); } },
+                { "display_commenter_full_name_setting_enabled", n => { DisplayCommenterFullNameSettingEnabled = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "events_url", n => { EventsUrl = n.GetStringValue(); } },
                 { "followers", n => { Followers = n.GetIntValue(); } },
@@ -335,6 +361,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "location", n => { Location = n.GetStringValue(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
                 { "members_allowed_repository_creation_type", n => { MembersAllowedRepositoryCreationType = n.GetStringValue(); } },
+                { "members_can_change_repo_visibility", n => { MembersCanChangeRepoVisibility = n.GetBoolValue(); } },
                 { "members_can_create_internal_repositories", n => { MembersCanCreateInternalRepositories = n.GetBoolValue(); } },
                 { "members_can_create_pages", n => { MembersCanCreatePages = n.GetBoolValue(); } },
                 { "members_can_create_private_pages", n => { MembersCanCreatePrivatePages = n.GetBoolValue(); } },
@@ -342,7 +369,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "members_can_create_public_pages", n => { MembersCanCreatePublicPages = n.GetBoolValue(); } },
                 { "members_can_create_public_repositories", n => { MembersCanCreatePublicRepositories = n.GetBoolValue(); } },
                 { "members_can_create_repositories", n => { MembersCanCreateRepositories = n.GetBoolValue(); } },
+                { "members_can_create_teams", n => { MembersCanCreateTeams = n.GetBoolValue(); } },
+                { "members_can_delete_issues", n => { MembersCanDeleteIssues = n.GetBoolValue(); } },
+                { "members_can_delete_repositories", n => { MembersCanDeleteRepositories = n.GetBoolValue(); } },
                 { "members_can_fork_private_repositories", n => { MembersCanForkPrivateRepositories = n.GetBoolValue(); } },
+                { "members_can_invite_outside_collaborators", n => { MembersCanInviteOutsideCollaborators = n.GetBoolValue(); } },
+                { "members_can_view_dependency_insights", n => { MembersCanViewDependencyInsights = n.GetBoolValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -352,6 +384,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "public_gists", n => { PublicGists = n.GetIntValue(); } },
                 { "public_members_url", n => { PublicMembersUrl = n.GetStringValue(); } },
                 { "public_repos", n => { PublicRepos = n.GetIntValue(); } },
+                { "readers_can_create_discussions", n => { ReadersCanCreateDiscussions = n.GetBoolValue(); } },
                 { "repos_url", n => { ReposUrl = n.GetStringValue(); } },
                 { "secret_scanning_enabled_for_new_repositories", n => { SecretScanningEnabledForNewRepositories = n.GetBoolValue(); } },
                 { "secret_scanning_push_protection_custom_link", n => { SecretScanningPushProtectionCustomLink = n.GetStringValue(); } },
@@ -381,6 +414,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("collaborators", Collaborators);
             writer.WriteStringValue("company", Company);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("default_repository_branch", DefaultRepositoryBranch);
             writer.WriteStringValue("default_repository_permission", DefaultRepositoryPermission);
             writer.WriteBoolValue("dependabot_alerts_enabled_for_new_repositories", DependabotAlertsEnabledForNewRepositories);
             writer.WriteBoolValue("dependabot_security_updates_enabled_for_new_repositories", DependabotSecurityUpdatesEnabledForNewRepositories);
@@ -388,6 +422,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("deploy_keys_enabled_for_repositories", DeployKeysEnabledForRepositories);
             writer.WriteStringValue("description", Description);
             writer.WriteIntValue("disk_usage", DiskUsage);
+            writer.WriteBoolValue("display_commenter_full_name_setting_enabled", DisplayCommenterFullNameSettingEnabled);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("events_url", EventsUrl);
             writer.WriteIntValue("followers", Followers);
@@ -402,6 +437,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("location", Location);
             writer.WriteStringValue("login", Login);
             writer.WriteStringValue("members_allowed_repository_creation_type", MembersAllowedRepositoryCreationType);
+            writer.WriteBoolValue("members_can_change_repo_visibility", MembersCanChangeRepoVisibility);
             writer.WriteBoolValue("members_can_create_internal_repositories", MembersCanCreateInternalRepositories);
             writer.WriteBoolValue("members_can_create_pages", MembersCanCreatePages);
             writer.WriteBoolValue("members_can_create_private_pages", MembersCanCreatePrivatePages);
@@ -409,7 +445,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("members_can_create_public_pages", MembersCanCreatePublicPages);
             writer.WriteBoolValue("members_can_create_public_repositories", MembersCanCreatePublicRepositories);
             writer.WriteBoolValue("members_can_create_repositories", MembersCanCreateRepositories);
+            writer.WriteBoolValue("members_can_create_teams", MembersCanCreateTeams);
+            writer.WriteBoolValue("members_can_delete_issues", MembersCanDeleteIssues);
+            writer.WriteBoolValue("members_can_delete_repositories", MembersCanDeleteRepositories);
             writer.WriteBoolValue("members_can_fork_private_repositories", MembersCanForkPrivateRepositories);
+            writer.WriteBoolValue("members_can_invite_outside_collaborators", MembersCanInviteOutsideCollaborators);
+            writer.WriteBoolValue("members_can_view_dependency_insights", MembersCanViewDependencyInsights);
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
@@ -419,6 +460,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("public_gists", PublicGists);
             writer.WriteStringValue("public_members_url", PublicMembersUrl);
             writer.WriteIntValue("public_repos", PublicRepos);
+            writer.WriteBoolValue("readers_can_create_discussions", ReadersCanCreateDiscussions);
             writer.WriteStringValue("repos_url", ReposUrl);
             writer.WriteBoolValue("secret_scanning_enabled_for_new_repositories", SecretScanningEnabledForNewRepositories);
             writer.WriteStringValue("secret_scanning_push_protection_custom_link", SecretScanningPushProtectionCustomLink);
