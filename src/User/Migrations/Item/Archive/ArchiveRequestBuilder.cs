@@ -101,6 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item.Archive
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -119,6 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item.Archive
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

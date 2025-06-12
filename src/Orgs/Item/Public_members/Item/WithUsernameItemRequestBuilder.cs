@@ -144,6 +144,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Public_members.Item
 #endif
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

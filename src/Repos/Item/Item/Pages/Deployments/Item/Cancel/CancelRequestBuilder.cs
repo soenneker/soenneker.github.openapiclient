@@ -72,6 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Deployments.Item.
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

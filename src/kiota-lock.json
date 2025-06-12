@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "409D792BAD6275AF8B795293840CB0A4ECFC00424237168AF10B17A1DF3A4C3F4BEF171C512F2DCAD29379417E17A00F29B50AA77995AA4CB70B848E789A9792",
+  "descriptionHash": "DFFF0AEDD38DAD33021EA8B59788F300836CBBA2DDB3B165CB44FB8B9A7496E00DDF0D365000570C1C4547F0D098CF7B1548B14C6F1A881D52A43D5A42FA244E",
   "descriptionLocation": "../api.github.com.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.26.1",
+  "kiotaVersion": "1.27.0",
   "clientClassName": "GitHubOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.GitHub.OpenApiClient",

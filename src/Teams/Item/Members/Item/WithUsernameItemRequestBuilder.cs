@@ -150,6 +150,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Members.Item
 #endif
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

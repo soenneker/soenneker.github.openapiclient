@@ -125,6 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/scim+json");
             return requestInfo;
         }
         /// <summary>
@@ -164,6 +165,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
