@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Markdown
         {
         }
         /// <summary>
-        /// Render a Markdown document
+        /// Depending on what is rendered in the Markdown, you may need to provide additional token scopes for labels, such as `issues:read` or `pull_requests:read`.
         /// API method documentation <see href="https://docs.github.com/rest/markdown/markdown#render-a-markdown-document" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -58,6 +58,9 @@ namespace Soenneker.GitHub.OpenApiClient.Markdown
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Depending on what is rendered in the Markdown, you may need to provide additional token scopes for labels, such as `issues:read` or `pull_requests:read`.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

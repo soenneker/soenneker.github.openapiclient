@@ -5133,7 +5133,7 @@
     "/markdown": {
       "post": {
         "summary": "Render a Markdown document",
-        "description": "",
+        "description": "Depending on what is rendered in the Markdown, you may need to provide additional token scopes for labels, such as `issues:read` or `pull_requests:read`.",
         "operationId": "markdown/render",
         "tags": [
           "markdown"
@@ -128851,6 +128851,14 @@
             "examples": [
               2
             ]
+          },
+          "subject_type": {
+            "description": "The level at which the comment is targeted, can be a diff line or a file.",
+            "type": "string",
+            "enum": [
+              "line",
+              "file"
+            ]
           }
         },
         "required": [
@@ -185962,7 +185970,7 @@
             "$ref": "#/components/schemas/enterprise-webhooks"
           },
           "hook": {
-            "description": "The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.",
+            "description": "The deleted webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.",
             "type": "object",
             "properties": {
               "active": {
@@ -185999,6 +186007,7 @@
                 "type": "string"
               },
               "events": {
+                "description": "",
                 "type": "array",
                 "items": {
                   "type": "string",

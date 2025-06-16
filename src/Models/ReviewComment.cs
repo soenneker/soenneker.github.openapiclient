@@ -137,6 +137,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public int? StartLine { get; set; }
         /// <summary>The side of the first line of the range for a multi-line comment.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side? StartSide { get; set; }
+        /// <summary>The level at which the comment is targeted, can be a diff line or a file.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_subject_type? SubjectType { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The url property</summary>
@@ -207,6 +209,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "side", n => { Side = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_side>(); } },
                 { "start_line", n => { StartLine = n.GetIntValue(); } },
                 { "start_side", n => { StartSide = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side>(); } },
+                { "subject_type", n => { SubjectType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_subject_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
@@ -244,6 +247,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_side>("side", Side);
             writer.WriteIntValue("start_line", StartLine);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side>("start_side", StartSide);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_subject_type>("subject_type", SubjectType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
