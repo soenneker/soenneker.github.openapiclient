@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The mentions_count property</summary>
         public int? MentionsCount { get; set; }
         /// <summary>The name property</summary>
@@ -198,7 +198,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "discussion_url", n => { DiscussionUrl = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "mentions_count", n => { MentionsCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -230,7 +230,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("discussion_url", DiscussionUrl);
             writer.WriteBoolValue("draft", Draft);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("mentions_count", MentionsCount);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);

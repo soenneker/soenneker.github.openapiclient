@@ -66,6 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item
         public WithRelease_PatchRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            MakeLatest = global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.WithRelease_PatchRequestBody_make_latest.True;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

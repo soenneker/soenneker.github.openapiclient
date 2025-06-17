@@ -14,13 +14,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotSeatDetails : IParsable
     {
-        /// <summary>The assignee property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Assignee { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Assignee { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Assignee { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Assignee { get; set; }
 #endif
         /// <summary>The team through which the assignee is granted access to GitHub Copilot, if applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,13 +42,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string LastActivityEditor { get; set; }
 #endif
-        /// <summary>The organization property</summary>
+        /// <summary>A GitHub organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple? Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple? Organization { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple Organization { get; set; }
 #endif
         /// <summary>The pending cancellation date for the seat, in `YYYY-MM-DD` format. This will be null unless the assignee&apos;s Copilot access has been canceled during the current billing cycle. If the seat has been cancelled, this corresponds to the start of the organization&apos;s next billing cycle.</summary>
         public Date? PendingCancellationDate { get; set; }
@@ -75,12 +75,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "assigning_team", n => { AssigningTeam = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "last_activity_at", n => { LastActivityAt = n.GetDateTimeOffsetValue(); } },
                 { "last_activity_editor", n => { LastActivityEditor = n.GetStringValue(); } },
-                { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple.CreateFromDiscriminatorValue); } },
+                { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple.CreateFromDiscriminatorValue); } },
                 { "pending_cancellation_date", n => { PendingCancellationDate = n.GetDateValue(); } },
                 { "plan_type", n => { PlanType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails_plan_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -93,12 +93,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignee", Assignee);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("assignee", Assignee);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team>("assigning_team", AssigningTeam);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("last_activity_at", LastActivityAt);
             writer.WriteStringValue("last_activity_editor", LastActivityEditor);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>("organization", Organization);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple>("organization", Organization);
             writer.WriteDateValue("pending_cancellation_date", PendingCancellationDate);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails_plan_type>("plan_type", PlanType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

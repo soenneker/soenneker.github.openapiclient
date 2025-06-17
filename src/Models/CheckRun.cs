@@ -15,13 +15,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The app property</summary>
+        /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Integration? App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration? App { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Integration App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration App { get; set; }
 #endif
         /// <summary>The check_suite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +146,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>(global::Soenneker.GitHub.OpenApiClient.Models.Integration.CreateFromDiscriminatorValue); } },
+                { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "check_suite", n => { CheckSuite = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite>(global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite.CreateFromDiscriminatorValue); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_conclusion>(); } },
@@ -172,7 +172,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>("app", App);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("app", App);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite>("check_suite", CheckSuite);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_conclusion>("conclusion", Conclusion);

@@ -20,7 +20,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ephemeral property</summary>
         public bool? Ephemeral { get; set; }
         /// <summary>The ID of the runner.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "busy", n => { Busy = n.GetBoolValue(); } },
                 { "ephemeral", n => { Ephemeral = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel>(global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "os", n => { Os = n.GetStringValue(); } },
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("busy", Busy);
             writer.WriteBoolValue("ephemeral", Ephemeral);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("os", Os);

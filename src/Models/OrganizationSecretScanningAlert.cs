@@ -16,13 +16,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>The first_location_detected property</summary>
+        /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation? FirstLocationDetected { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation? FirstLocationDetected { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation FirstLocationDetected { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation FirstLocationDetected { get; set; }
 #endif
         /// <summary>A boolean value representing whether or not the token in the alert was detected in more than one location.</summary>
         public bool? HasMoreLocations { get; set; }
@@ -54,13 +54,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? PushProtectionBypassed { get; set; }
         /// <summary>The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? PushProtectionBypassedAt { get; set; }
-        /// <summary>The push_protection_bypassed_by property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? PushProtectionBypassedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PushProtectionBypassedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser PushProtectionBypassedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PushProtectionBypassedBy { get; set; }
 #endif
         /// <summary>An optional comment when requesting a push protection bypass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,13 +78,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string PushProtectionBypassRequestHtmlUrl { get; set; }
 #endif
-        /// <summary>The push_protection_bypass_request_reviewer property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? PushProtectionBypassRequestReviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? PushProtectionBypassRequestReviewer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser PushProtectionBypassRequestReviewer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser PushProtectionBypassRequestReviewer { get; set; }
 #endif
         /// <summary>An optional comment when reviewing a push protection bypass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,13 +114,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? ResolvedAt { get; set; }
-        /// <summary>The resolved_by property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? ResolvedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? ResolvedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser ResolvedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ResolvedBy { get; set; }
 #endif
         /// <summary>The secret that was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -148,14 +148,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? State { get; set; }
-        /// <summary>The updated_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt UpdatedAt { get; set; }
-#endif
+        /// <summary>The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The REST API URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,7 +186,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "first_location_detected", n => { FirstLocationDetected = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation.CreateFromDiscriminatorValue); } },
+                { "first_location_detected", n => { FirstLocationDetected = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation.CreateFromDiscriminatorValue); } },
                 { "has_more_locations", n => { HasMoreLocations = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "is_base64_encoded", n => { IsBase64Encoded = n.GetBoolValue(); } },
@@ -202,21 +196,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "publicly_leaked", n => { PubliclyLeaked = n.GetBoolValue(); } },
                 { "push_protection_bypass_request_comment", n => { PushProtectionBypassRequestComment = n.GetStringValue(); } },
                 { "push_protection_bypass_request_html_url", n => { PushProtectionBypassRequestHtmlUrl = n.GetStringValue(); } },
-                { "push_protection_bypass_request_reviewer", n => { PushProtectionBypassRequestReviewer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "push_protection_bypass_request_reviewer", n => { PushProtectionBypassRequestReviewer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "push_protection_bypass_request_reviewer_comment", n => { PushProtectionBypassRequestReviewerComment = n.GetStringValue(); } },
                 { "push_protection_bypassed", n => { PushProtectionBypassed = n.GetBoolValue(); } },
                 { "push_protection_bypassed_at", n => { PushProtectionBypassedAt = n.GetDateTimeOffsetValue(); } },
-                { "push_protection_bypassed_by", n => { PushProtectionBypassedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "push_protection_bypassed_by", n => { PushProtectionBypassedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
                 { "resolution", n => { Resolution = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution>(); } },
                 { "resolution_comment", n => { ResolutionComment = n.GetStringValue(); } },
                 { "resolved_at", n => { ResolvedAt = n.GetDateTimeOffsetValue(); } },
-                { "resolved_by", n => { ResolvedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "resolved_by", n => { ResolvedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "secret", n => { Secret = n.GetStringValue(); } },
                 { "secret_type", n => { SecretType = n.GetStringValue(); } },
                 { "secret_type_display_name", n => { SecretTypeDisplayName = n.GetStringValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>(); } },
-                { "updated_at", n => { UpdatedAt = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt>(global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt.CreateFromDiscriminatorValue); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "validity", n => { Validity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSecretScanningAlert_validity>(); } },
             };
@@ -228,7 +222,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningFirstDetectedLocation>("first_location_detected", FirstLocationDetected);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation>("first_location_detected", FirstLocationDetected);
             writer.WriteBoolValue("has_more_locations", HasMoreLocations);
             writer.WriteBoolValue("is_base64_encoded", IsBase64Encoded);
             writer.WriteStringValue("locations_url", LocationsUrl);
@@ -236,21 +230,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("publicly_leaked", PubliclyLeaked);
             writer.WriteBoolValue("push_protection_bypassed", PushProtectionBypassed);
             writer.WriteDateTimeOffsetValue("push_protection_bypassed_at", PushProtectionBypassedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("push_protection_bypassed_by", PushProtectionBypassedBy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("push_protection_bypassed_by", PushProtectionBypassedBy);
             writer.WriteStringValue("push_protection_bypass_request_comment", PushProtectionBypassRequestComment);
             writer.WriteStringValue("push_protection_bypass_request_html_url", PushProtectionBypassRequestHtmlUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("push_protection_bypass_request_reviewer", PushProtectionBypassRequestReviewer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("push_protection_bypass_request_reviewer", PushProtectionBypassRequestReviewer);
             writer.WriteStringValue("push_protection_bypass_request_reviewer_comment", PushProtectionBypassRequestReviewerComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("repository", Repository);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution>("resolution", Resolution);
             writer.WriteStringValue("resolution_comment", ResolutionComment);
             writer.WriteDateTimeOffsetValue("resolved_at", ResolvedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("resolved_by", ResolvedBy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("resolved_by", ResolvedBy);
             writer.WriteStringValue("secret", Secret);
             writer.WriteStringValue("secret_type", SecretType);
             writer.WriteStringValue("secret_type_display_name", SecretTypeDisplayName);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>("state", State);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt>("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSecretScanningAlert_validity>("validity", Validity);
             writer.WriteAdditionalData(AdditionalData);
         }

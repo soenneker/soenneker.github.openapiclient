@@ -11,7 +11,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// Provides details of a hosted runner image
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ActionsHostedRunnerPoolImage : IAdditionalDataHolder, IParsable
+    public partial class NullableActionsHostedRunnerPoolImage : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -34,23 +34,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Image size in GB.</summary>
         public int? SizeGb { get; set; }
         /// <summary>The image provider.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage_source? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage_source? Source { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage"/> and sets the default values.
         /// </summary>
-        public ActionsHostedRunnerPoolImage()
+        public NullableActionsHostedRunnerPoolImage()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "size_gb", n => { SizeGb = n.GetIntValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage_source>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("size_gb", SizeGb);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerPoolImage_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage_source>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

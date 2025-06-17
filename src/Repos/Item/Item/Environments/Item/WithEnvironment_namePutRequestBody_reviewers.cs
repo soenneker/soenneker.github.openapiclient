@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id of the user or team who can review the deployment</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The type of reviewer.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType? Type { get; set; }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType>(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

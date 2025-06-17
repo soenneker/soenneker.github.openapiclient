@@ -5,7 +5,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>The image provider.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ActionsHostedRunnerPoolImage_source
+    public enum NullableActionsHostedRunnerPoolImage_source
     {
         [EnumMember(Value = "github")]
         #pragma warning disable CS1591

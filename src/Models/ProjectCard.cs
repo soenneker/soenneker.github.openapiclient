@@ -43,13 +43,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The creator property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Creator { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Creator { get; set; }
 #endif
         /// <summary>The project card&apos;s ID</summary>
         public long? Id { get; set; }
@@ -125,7 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "column_url", n => { ColumnUrl = n.GetStringValue(); } },
                 { "content_url", n => { ContentUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("column_url", ColumnUrl);
             writer.WriteStringValue("content_url", ContentUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("creator", Creator);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("creator", Creator);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("note", Note);

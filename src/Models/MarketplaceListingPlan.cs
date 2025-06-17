@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The has_free_trial property</summary>
         public bool? HasFreeTrial { get; set; }
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The monthly_price_in_cents property</summary>
         public int? MonthlyPriceInCents { get; set; }
         /// <summary>The name property</summary>
@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "bullets", n => { Bullets = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "has_free_trial", n => { HasFreeTrial = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "monthly_price_in_cents", n => { MonthlyPriceInCents = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
@@ -134,7 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("bullets", Bullets);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("has_free_trial", HasFreeTrial);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("monthly_price_in_cents", MonthlyPriceInCents);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("number", Number);

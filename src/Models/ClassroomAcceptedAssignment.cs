@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Grade { get; set; }
 #endif
         /// <summary>Unique identifier of the repository.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Whether a submission passed.</summary>
         public bool? Passing { get; set; }
         /// <summary>A GitHub repository view for Classroom</summary>
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignment", n => { Assignment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment.CreateFromDiscriminatorValue); } },
                 { "commit_count", n => { CommitCount = n.GetIntValue(); } },
                 { "grade", n => { Grade = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "passing", n => { Passing = n.GetBoolValue(); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomRepository.CreateFromDiscriminatorValue); } },
                 { "students", n => { Students = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment>("assignment", Assignment);
             writer.WriteIntValue("commit_count", CommitCount);
             writer.WriteStringValue("grade", Grade);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("passing", Passing);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomRepository>("repository", Repository);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser>("students", Students);

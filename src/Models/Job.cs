@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id of the job.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Labels for the workflow job. Specified by the &quot;runs_on&quot; attribute in the action&apos;s workflow file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -203,7 +203,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteStringValue("head_sha", HeadSha);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);

@@ -24,13 +24,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The comment_count property</summary>
         public int? CommentCount { get; set; }
-        /// <summary>The committer property</summary>
+        /// <summary>Metaproperties for Git author/committer information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitUser? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitUser Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser Committer { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit_author>(global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit_author.CreateFromDiscriminatorValue); } },
                 { "comment_count", n => { CommentCount = n.GetIntValue(); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitUser>(global::Soenneker.GitHub.OpenApiClient.Models.GitUser.CreateFromDiscriminatorValue); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "tree", n => { Tree = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit_tree>(global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit_tree.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit_author>("author", Author);
             writer.WriteIntValue("comment_count", CommentCount);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitUser>("committer", Committer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>("committer", Committer);
             writer.WriteStringValue("message", Message);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit_tree>("tree", Tree);
             writer.WriteStringValue("url", Url);

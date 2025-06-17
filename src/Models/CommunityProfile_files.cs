@@ -14,61 +14,61 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The code_of_conduct property</summary>
+        /// <summary>Code of Conduct Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeOfConductSimple? CodeOfConduct { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple? CodeOfConduct { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeOfConductSimple CodeOfConduct { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple CodeOfConduct { get; set; }
 #endif
         /// <summary>The code_of_conduct_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile? CodeOfConductFile { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? CodeOfConductFile { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile CodeOfConductFile { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile CodeOfConductFile { get; set; }
 #endif
         /// <summary>The contributing property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile? Contributing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? Contributing { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile Contributing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile Contributing { get; set; }
 #endif
         /// <summary>The issue_template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile? IssueTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? IssueTemplate { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile IssueTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile IssueTemplate { get; set; }
 #endif
-        /// <summary>The license property</summary>
+        /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
 #endif
         /// <summary>The pull_request_template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile? PullRequestTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? PullRequestTemplate { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile PullRequestTemplate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile PullRequestTemplate { get; set; }
 #endif
         /// <summary>The readme property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile? Readme { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile? Readme { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile Readme { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile Readme { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfile_files"/> and sets the default values.
@@ -95,13 +95,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code_of_conduct", n => { CodeOfConduct = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeOfConductSimple>(global::Soenneker.GitHub.OpenApiClient.Models.CodeOfConductSimple.CreateFromDiscriminatorValue); } },
-                { "code_of_conduct_file", n => { CodeOfConductFile = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile.CreateFromDiscriminatorValue); } },
-                { "contributing", n => { Contributing = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile.CreateFromDiscriminatorValue); } },
-                { "issue_template", n => { IssueTemplate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile.CreateFromDiscriminatorValue); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple.CreateFromDiscriminatorValue); } },
-                { "pull_request_template", n => { PullRequestTemplate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile.CreateFromDiscriminatorValue); } },
-                { "readme", n => { Readme = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile.CreateFromDiscriminatorValue); } },
+                { "code_of_conduct", n => { CodeOfConduct = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple.CreateFromDiscriminatorValue); } },
+                { "code_of_conduct_file", n => { CodeOfConductFile = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile.CreateFromDiscriminatorValue); } },
+                { "contributing", n => { Contributing = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile.CreateFromDiscriminatorValue); } },
+                { "issue_template", n => { IssueTemplate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
+                { "pull_request_template", n => { PullRequestTemplate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile.CreateFromDiscriminatorValue); } },
+                { "readme", n => { Readme = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -111,13 +111,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeOfConductSimple>("code_of_conduct", CodeOfConduct);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>("code_of_conduct_file", CodeOfConductFile);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>("contributing", Contributing);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>("issue_template", IssueTemplate);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>("license", License);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>("pull_request_template", PullRequestTemplate);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityHealthFile>("readme", Readme);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodeOfConductSimple>("code_of_conduct", CodeOfConduct);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("code_of_conduct_file", CodeOfConductFile);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("contributing", Contributing);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("issue_template", IssueTemplate);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("pull_request_template", PullRequestTemplate);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCommunityHealthFile>("readme", Readme);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

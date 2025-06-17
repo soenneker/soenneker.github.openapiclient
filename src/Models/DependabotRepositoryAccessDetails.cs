@@ -16,10 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The accessible_repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>? AccessibleRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>? AccessibleRepositories { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository> AccessibleRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository> AccessibleRepositories { get; set; }
 #endif
         /// <summary>The default repository access level for Dependabot updates.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails_default_level? DefaultLevel { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accessible_repositories", n => { AccessibleRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "accessible_repositories", n => { AccessibleRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "default_level", n => { DefaultLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails_default_level>(); } },
             };
         }
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("accessible_repositories", AccessibleRepositories);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>("accessible_repositories", AccessibleRepositories);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails_default_level>("default_level", DefaultLevel);
         }
     }

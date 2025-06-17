@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> Events { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "deliveries_url", n => { DeliveriesUrl = n.GetStringValue(); } },
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "ping_url", n => { PingUrl = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -129,7 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("deliveries_url", DeliveriesUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("ping_url", PingUrl);
             writer.WriteStringValue("type", Type);

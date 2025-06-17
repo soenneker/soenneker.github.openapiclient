@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Returns whether classroom is archived or not.</summary>
         public bool? Archived { get; set; }
         /// <summary>Unique identifier of the classroom.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The name of the classroom.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

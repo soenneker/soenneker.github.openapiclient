@@ -25,13 +25,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The additions property</summary>
         public int? Additions { get; set; }
-        /// <summary>The assignee property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Assignee { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Assignee { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Assignee { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Assignee { get; set; }
 #endif
         /// <summary>The assignees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -173,21 +173,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? Merged { get; set; }
         /// <summary>The merged_at property</summary>
         public DateTimeOffset? MergedAt { get; set; }
-        /// <summary>The merged_by property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? MergedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? MergedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser MergedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser MergedBy { get; set; }
 #endif
-        /// <summary>The milestone property</summary>
+        /// <summary>A collection of related issues and pull requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Milestone? Milestone { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone? Milestone { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Milestone Milestone { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone Milestone { get; set; }
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -306,7 +306,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "active_lock_reason", n => { ActiveLockReason = n.GetStringValue(); } },
                 { "additions", n => { Additions = n.GetIntValue(); } },
-                { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "author_association", n => { AuthorAssociation = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>(); } },
                 { "auto_merge", n => { AutoMerge = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge>(global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge.CreateFromDiscriminatorValue); } },
@@ -335,8 +335,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "mergeable_state", n => { MergeableState = n.GetStringValue(); } },
                 { "merged", n => { Merged = n.GetBoolValue(); } },
                 { "merged_at", n => { MergedAt = n.GetDateTimeOffsetValue(); } },
-                { "merged_by", n => { MergedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Milestone>(global::Soenneker.GitHub.OpenApiClient.Models.Milestone.CreateFromDiscriminatorValue); } },
+                { "merged_by", n => { MergedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "patch_url", n => { PatchUrl = n.GetStringValue(); } },
@@ -363,7 +363,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("active_lock_reason", ActiveLockReason);
             writer.WriteIntValue("additions", Additions);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignee", Assignee);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("assignee", Assignee);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignees", Assignees);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>("author_association", AuthorAssociation);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge>("auto_merge", AutoMerge);
@@ -392,8 +392,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("merge_commit_sha", MergeCommitSha);
             writer.WriteBoolValue("merged", Merged);
             writer.WriteDateTimeOffsetValue("merged_at", MergedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("merged_by", MergedBy);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Milestone>("milestone", Milestone);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("merged_by", MergedBy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>("milestone", Milestone);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("patch_url", PatchUrl);

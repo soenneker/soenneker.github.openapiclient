@@ -7,30 +7,39 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AlertUpdatedAt : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class NullableRepository_permissions : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The admin property</summary>
+        public bool? Admin { get; set; }
+        /// <summary>The maintain property</summary>
+        public bool? Maintain { get; set; }
+        /// <summary>The pull property</summary>
+        public bool? Pull { get; set; }
+        /// <summary>The push property</summary>
+        public bool? Push { get; set; }
+        /// <summary>The triage property</summary>
+        public bool? Triage { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions"/> and sets the default values.
         /// </summary>
-        public AlertUpdatedAt()
+        public NullableRepository_permissions()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AlertUpdatedAt();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +49,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "admin", n => { Admin = n.GetBoolValue(); } },
+                { "maintain", n => { Maintain = n.GetBoolValue(); } },
+                { "pull", n => { Pull = n.GetBoolValue(); } },
+                { "push", n => { Push = n.GetBoolValue(); } },
+                { "triage", n => { Triage = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +63,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("admin", Admin);
+            writer.WriteBoolValue("maintain", Maintain);
+            writer.WriteBoolValue("pull", Pull);
+            writer.WriteBoolValue("push", Push);
+            writer.WriteBoolValue("triage", Triage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

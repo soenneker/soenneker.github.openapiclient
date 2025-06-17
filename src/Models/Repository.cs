@@ -324,13 +324,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string LanguagesUrl { get; set; }
 #endif
-        /// <summary>The license property</summary>
+        /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
 #endif
         /// <summary>The master_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -644,7 +644,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
                 { "master_branch", n => { MasterBranch = n.GetStringValue(); } },
                 { "merge_commit_message", n => { MergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_message>(); } },
                 { "merge_commit_title", n => { MergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_title>(); } },
@@ -749,7 +749,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", LanguagesUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
             writer.WriteStringValue("master_branch", MasterBranch);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_message>("merge_commit_message", MergeCommitMessage);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_title>("merge_commit_title", MergeCommitTitle);

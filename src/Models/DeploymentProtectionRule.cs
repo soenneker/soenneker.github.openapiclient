@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether the deployment protection rule is enabled for the environment.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The unique identifier for the deployment protection rule.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The node ID for the deployment protection rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp>(global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp.CreateFromDiscriminatorValue); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomDeploymentRuleApp>("app", App);
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteAdditionalData(AdditionalData);
         }

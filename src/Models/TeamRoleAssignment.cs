@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The members_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,13 +67,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string NotificationSetting { get; set; }
 #endif
-        /// <summary>The parent property</summary>
+        /// <summary>Groups of organization members that gives permissions on specified repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple? Parent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple? Parent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple Parent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple Parent { get; set; }
 #endif
         /// <summary>The permission property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,12 +151,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignment", n => { Assignment = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetStringValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple.CreateFromDiscriminatorValue); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_permissions.CreateFromDiscriminatorValue); } },
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
@@ -175,12 +175,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment>("assignment", Assignment);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("notification_setting", NotificationSetting);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple>("parent", Parent);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>("parent", Parent);
             writer.WriteStringValue("permission", Permission);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_permissions>("permissions", Permissions);
             writer.WriteStringValue("privacy", Privacy);

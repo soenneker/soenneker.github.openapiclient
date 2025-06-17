@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string ColumnName { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The previous_column_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "column_name", n => { ColumnName = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "previous_column_name", n => { PreviousColumnName = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetIntValue(); } },
                 { "project_url", n => { ProjectUrl = n.GetStringValue(); } },
@@ -91,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("column_name", ColumnName);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("previous_column_name", PreviousColumnName);
             writer.WriteIntValue("project_id", ProjectId);
             writer.WriteStringValue("project_url", ProjectUrl);

@@ -331,13 +331,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string LanguagesUrl { get; set; }
 #endif
-        /// <summary>The license property</summary>
+        /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
 #endif
         /// <summary>The master_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -405,13 +405,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public int? OpenIssues { get; set; }
         /// <summary>The open_issues_count property</summary>
         public int? OpenIssuesCount { get; set; }
-        /// <summary>The organization property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Organization { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Organization { get; set; }
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -555,13 +555,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string TempCloneToken { get; set; }
 #endif
-        /// <summary>The template_repository property</summary>
+        /// <summary>A repository on GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository? TemplateRepository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository? TemplateRepository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository TemplateRepository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository TemplateRepository { get; set; }
 #endif
         /// <summary>The topics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -686,7 +686,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
                 { "master_branch", n => { MasterBranch = n.GetStringValue(); } },
                 { "merge_commit_message", n => { MergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_merge_commit_message>(); } },
                 { "merge_commit_title", n => { MergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_merge_commit_title>(); } },
@@ -699,7 +699,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "notifications_url", n => { NotificationsUrl = n.GetStringValue(); } },
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
-                { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions.CreateFromDiscriminatorValue); } },
@@ -723,7 +723,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "tags_url", n => { TagsUrl = n.GetStringValue(); } },
                 { "teams_url", n => { TeamsUrl = n.GetStringValue(); } },
                 { "temp_clone_token", n => { TempCloneToken = n.GetStringValue(); } },
-                { "template_repository", n => { TemplateRepository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
+                { "template_repository", n => { TemplateRepository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository>(global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository.CreateFromDiscriminatorValue); } },
                 { "topics", n => { Topics = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "trees_url", n => { TreesUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -798,7 +798,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", LanguagesUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
             writer.WriteStringValue("master_branch", MasterBranch);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_merge_commit_message>("merge_commit_message", MergeCommitMessage);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_merge_commit_title>("merge_commit_title", MergeCommitTitle);
@@ -811,7 +811,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("notifications_url", NotificationsUrl);
             writer.WriteIntValue("open_issues", OpenIssues);
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("organization", Organization);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("organization", Organization);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("parent", Parent);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions>("permissions", Permissions);
@@ -835,7 +835,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("tags_url", TagsUrl);
             writer.WriteStringValue("teams_url", TeamsUrl);
             writer.WriteStringValue("temp_clone_token", TempCloneToken);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("template_repository", TemplateRepository);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository>("template_repository", TemplateRepository);
             writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);
             writer.WriteStringValue("trees_url", TreesUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

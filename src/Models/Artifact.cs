@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The expires_at property</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The name of the artifact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "digest", n => { Digest = n.GetStringValue(); } },
                 { "expired", n => { Expired = n.GetBoolValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "size_in_bytes", n => { SizeInBytes = n.GetIntValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("digest", Digest);
             writer.WriteBoolValue("expired", Expired);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("size_in_bytes", SizeInBytes);

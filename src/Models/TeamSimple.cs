@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the team</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Distinguished Name (DN) that team maps to within LDAP environment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,7 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "ldap_dn", n => { LdapDn = n.GetStringValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("ldap_dn", LdapDn);
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);

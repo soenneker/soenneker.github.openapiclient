@@ -15,13 +15,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The author property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Author { get; set; }
 #endif
         /// <summary>The comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,13 +39,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit Commit { get; set; }
 #endif
-        /// <summary>The committer property</summary>
+        /// <summary>Metaproperties for Git author/committer information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitUser? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitUser Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser Committer { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -130,10 +130,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },
                 { "commit", n => { Commit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit>(global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit.CreateFromDiscriminatorValue); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitUser>(global::Soenneker.GitHub.OpenApiClient.Models.GitUser.CreateFromDiscriminatorValue); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents>(global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -151,10 +151,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("author", Author);
             writer.WriteStringValue("comments_url", CommentsUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_commit>("commit", Commit);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitUser>("committer", Committer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>("committer", Committer);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents>("parents", Parents);

@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the review</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The _links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,7 +141,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_id", n => { CommitId = n.GetStringValue(); } },
                 { "event", n => { Event = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TimelineReviewedEvent__links>(global::Soenneker.GitHub.OpenApiClient.Models.TimelineReviewedEvent__links.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "pull_request_url", n => { PullRequestUrl = n.GetStringValue(); } },
@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_id", CommitId);
             writer.WriteStringValue("event", Event);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TimelineReviewedEvent__links>("_links", Links);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("pull_request_url", PullRequestUrl);

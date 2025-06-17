@@ -9,7 +9,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ScopedInstallation : IAdditionalDataHolder, IParsable
+    public partial class NullableScopedInstallation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A GitHub user.</summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoriesUrl { get; set; }
 #endif
         /// <summary>Describe whether all repositories have been selected or there&apos;s a selection involved</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation_repository_selection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation_repository_selection? RepositorySelection { get; set; }
         /// <summary>The single_file_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,21 +59,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> SingleFilePaths { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation"/> and sets the default values.
         /// </summary>
-        public ScopedInstallation()
+        public NullableScopedInstallation()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "has_multiple_single_files", n => { HasMultipleSingleFiles = n.GetBoolValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions.CreateFromDiscriminatorValue); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
-                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation_repository_selection>(); } },
+                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation_repository_selection>(); } },
                 { "single_file_name", n => { SingleFileName = n.GetStringValue(); } },
                 { "single_file_paths", n => { SingleFilePaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("has_multiple_single_files", HasMultipleSingleFiles);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>("permissions", Permissions);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ScopedInstallation_repository_selection>("repository_selection", RepositorySelection);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation_repository_selection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file_name", SingleFileName);
             writer.WriteCollectionOfPrimitiveValues<string>("single_file_paths", SingleFilePaths);
             writer.WriteAdditionalData(AdditionalData);

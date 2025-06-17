@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapsho
         public string CreatedAt { get; set; }
 #endif
         /// <summary>ID of the created snapshot.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>A message providing further details about the result, such as why the dependencies were not updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapsho
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetStringValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapsho
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("result", Result);
             writer.WriteAdditionalData(AdditionalData);

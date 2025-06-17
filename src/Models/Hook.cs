@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> Events { get; set; }
 #endif
         /// <summary>Unique identifier of the webhook.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The last_response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,7 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "deliveries_url", n => { DeliveriesUrl = n.GetStringValue(); } },
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "last_response", n => { LastResponse = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookResponse>(global::Soenneker.GitHub.OpenApiClient.Models.HookResponse.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "ping_url", n => { PingUrl = n.GetStringValue(); } },
@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("deliveries_url", DeliveriesUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookResponse>("last_response", LastResponse);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("ping_url", PingUrl);

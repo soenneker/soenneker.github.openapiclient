@@ -31,13 +31,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string RoleName { get; set; }
 #endif
-        /// <summary>The user property</summary>
+        /// <summary>Collaborator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Collaborator? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Collaborator User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryCollaboratorPermission"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Collaborator>(global::Soenneker.GitHub.OpenApiClient.Models.Collaborator.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("permission", Permission);
             writer.WriteStringValue("role_name", RoleName);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Collaborator>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

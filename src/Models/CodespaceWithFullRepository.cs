@@ -73,13 +73,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public DateTimeOffset? LastUsedAt { get; set; }
         /// <summary>The initally assigned location of a new codespace.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_location? Location { get; set; }
-        /// <summary>The machine property</summary>
+        /// <summary>A description of the machine powering a codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine? Machine { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine? Machine { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine Machine { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine Machine { get; set; }
 #endif
         /// <summary>API URL to access available alternate machine types for this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -233,7 +233,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "idle_timeout_notice", n => { IdleTimeoutNotice = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "location", n => { Location = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_location>(); } },
-                { "machine", n => { Machine = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine>(global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine.CreateFromDiscriminatorValue); } },
+                { "machine", n => { Machine = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine.CreateFromDiscriminatorValue); } },
                 { "machines_url", n => { MachinesUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
@@ -273,7 +273,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("idle_timeout_notice", IdleTimeoutNotice);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_location>("location", Location);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine>("machine", Machine);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine>("machine", Machine);
             writer.WriteStringValue("machines_url", MachinesUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);

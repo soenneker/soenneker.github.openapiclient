@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The reason for a failure of the variant analysis. This is only available if the variant analysis has failed.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason? FailureReason { get; set; }
         /// <summary>The ID of the variant analysis.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The language targeted by the CodeQL query</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? QueryLanguage { get; set; }
         /// <summary>The download url for the query pack.</summary>
@@ -102,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "controller_repo", n => { ControllerRepo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "failure_reason", n => { FailureReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason>(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "query_language", n => { QueryLanguage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>(); } },
                 { "query_pack_url", n => { QueryPackUrl = n.GetStringValue(); } },
                 { "scanned_repositories", n => { ScannedRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -124,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("controller_repo", ControllerRepo);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason>("failure_reason", FailureReason);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>("query_language", QueryLanguage);
             writer.WriteStringValue("query_pack_url", QueryPackUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>("scanned_repositories", ScannedRepositories);

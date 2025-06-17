@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The login property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
                 { "marketplace_pending_change", n => { MarketplacePendingChange = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change.CreateFromDiscriminatorValue); } },
                 { "marketplace_purchase", n => { MarketplacePurchaseProp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase.CreateFromDiscriminatorValue); } },
@@ -116,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("login", Login);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change>("marketplace_pending_change", MarketplacePendingChange);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase>("marketplace_purchase", MarketplacePurchaseProp);

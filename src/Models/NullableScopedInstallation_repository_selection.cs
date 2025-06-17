@@ -5,7 +5,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>Describe whether all repositories have been selected or there&apos;s a selection involved</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ScopedInstallation_repository_selection
+    public enum NullableScopedInstallation_repository_selection
     {
         [EnumMember(Value = "all")]
         #pragma warning disable CS1591

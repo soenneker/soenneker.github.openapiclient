@@ -250,7 +250,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the repository</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The issue_comment_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -309,13 +309,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string LanguagesUrl { get; set; }
 #endif
-        /// <summary>The license property</summary>
+        /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
 #endif
         /// <summary>The master_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -379,13 +379,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public int? OpenIssues { get; set; }
         /// <summary>The open_issues_count property</summary>
         public int? OpenIssuesCount { get; set; }
-        /// <summary>The owner property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Owner { get; set; }
 #endif
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -609,7 +609,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "homepage", n => { Homepage = n.GetStringValue(); } },
                 { "hooks_url", n => { HooksUrl = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "is_template", n => { IsTemplate = n.GetBoolValue(); } },
                 { "issue_comment_url", n => { IssueCommentUrl = n.GetStringValue(); } },
                 { "issue_events_url", n => { IssueEventsUrl = n.GetStringValue(); } },
@@ -618,7 +618,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
                 { "master_branch", n => { MasterBranch = n.GetStringValue(); } },
                 { "merges_url", n => { MergesUrl = n.GetStringValue(); } },
                 { "milestones_url", n => { MilestonesUrl = n.GetStringValue(); } },
@@ -629,7 +629,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "notifications_url", n => { NotificationsUrl = n.GetStringValue(); } },
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
@@ -707,7 +707,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("homepage", Homepage);
             writer.WriteStringValue("hooks_url", HooksUrl);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issue_comment_url", IssueCommentUrl);
             writer.WriteStringValue("issue_events_url", IssueEventsUrl);
             writer.WriteStringValue("issues_url", IssuesUrl);
@@ -716,7 +716,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", LanguagesUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
             writer.WriteStringValue("master_branch", MasterBranch);
             writer.WriteStringValue("merges_url", MergesUrl);
             writer.WriteStringValue("milestones_url", MilestonesUrl);
@@ -727,7 +727,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("notifications_url", NotificationsUrl);
             writer.WriteIntValue("open_issues", OpenIssues);
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteStringValue("pulls_url", PullsUrl);

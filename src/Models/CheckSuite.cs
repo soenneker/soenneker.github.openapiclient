@@ -23,13 +23,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string After { get; set; }
 #endif
-        /// <summary>The app property</summary>
+        /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Integration? App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration? App { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Integration App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration App { get; set; }
 #endif
         /// <summary>The before property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,7 +145,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "after", n => { After = n.GetStringValue(); } },
-                { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>(global::Soenneker.GitHub.OpenApiClient.Models.Integration.CreateFromDiscriminatorValue); } },
+                { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "before", n => { Before = n.GetStringValue(); } },
                 { "check_runs_url", n => { CheckRunsUrl = n.GetStringValue(); } },
                 { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_conclusion>(); } },
@@ -173,7 +173,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("after", After);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>("app", App);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("app", App);
             writer.WriteStringValue("before", Before);
             writer.WriteStringValue("check_runs_url", CheckRunsUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_conclusion>("conclusion", Conclusion);

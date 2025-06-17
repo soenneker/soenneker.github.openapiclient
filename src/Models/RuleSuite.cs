@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The result of the rule evaluations for rules with the `active` and `evaluate` enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were `active`. Null if no rules with `evaluate` enforcement status were run.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_evaluation_result? EvaluationResult { get; set; }
         /// <summary>The unique identifier of the rule insight.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The pushed_at property</summary>
         public DateTimeOffset? PushedAt { get; set; }
         /// <summary>The ref name that the evaluation ran on.</summary>
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "after_sha", n => { AfterSha = n.GetStringValue(); } },
                 { "before_sha", n => { BeforeSha = n.GetStringValue(); } },
                 { "evaluation_result", n => { EvaluationResult = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_evaluation_result>(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("after_sha", AfterSha);
             writer.WriteStringValue("before_sha", BeforeSha);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_evaluation_result>("evaluation_result", EvaluationResult);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("ref", Ref);
             writer.WriteIntValue("repository_id", RepositoryId);

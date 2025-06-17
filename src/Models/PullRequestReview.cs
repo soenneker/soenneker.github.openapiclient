@@ -93,13 +93,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The submitted_at property</summary>
         public DateTimeOffset? SubmittedAt { get; set; }
-        /// <summary>The user property</summary>
+        /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview"/> and sets the default values.
@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "pull_request_url", n => { PullRequestUrl = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "submitted_at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("pull_request_url", PullRequestUrl);
             writer.WriteStringValue("state", State);
             writer.WriteDateTimeOffsetValue("submitted_at", SubmittedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

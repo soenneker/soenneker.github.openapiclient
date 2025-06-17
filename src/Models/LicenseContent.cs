@@ -55,13 +55,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string HtmlUrl { get; set; }
 #endif
-        /// <summary>The license property</summary>
+        /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
 #endif
         /// <summary>The _links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,7 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "encoding", n => { Encoding = n.GetStringValue(); } },
                 { "git_url", n => { GitUrl = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseContent__links>(global::Soenneker.GitHub.OpenApiClient.Models.LicenseContent__links.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -165,7 +165,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("encoding", Encoding);
             writer.WriteStringValue("git_url", GitUrl);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LicenseContent__links>("_links", Links);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("path", Path);

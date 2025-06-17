@@ -91,13 +91,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string HeadBranch { get; set; }
 #endif
-        /// <summary>The head_commit property</summary>
+        /// <summary>A commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit? HeadCommit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit? HeadCommit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit HeadCommit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit HeadCommit { get; set; }
 #endif
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The ID of the workflow run.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The URL to the jobs for the workflow run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -285,12 +285,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "display_title", n => { DisplayTitle = n.GetStringValue(); } },
                 { "event", n => { Event = n.GetStringValue(); } },
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
-                { "head_commit", n => { HeadCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit.CreateFromDiscriminatorValue); } },
+                { "head_commit", n => { HeadCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit.CreateFromDiscriminatorValue); } },
                 { "head_repository", n => { HeadRepository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
                 { "head_repository_id", n => { HeadRepositoryId = n.GetIntValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "jobs_url", n => { JobsUrl = n.GetStringValue(); } },
                 { "logs_url", n => { LogsUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -330,12 +330,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("display_title", DisplayTitle);
             writer.WriteStringValue("event", Event);
             writer.WriteStringValue("head_branch", HeadBranch);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit>("head_commit", HeadCommit);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit>("head_commit", HeadCommit);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("head_repository", HeadRepository);
             writer.WriteIntValue("head_repository_id", HeadRepositoryId);
             writer.WriteStringValue("head_sha", HeadSha);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("jobs_url", JobsUrl);
             writer.WriteStringValue("logs_url", LogsUrl);
             writer.WriteStringValue("name", Name);

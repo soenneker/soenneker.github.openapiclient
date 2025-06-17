@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HeadSha { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The repository_id property</summary>
         public int? RepositoryId { get; set; }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_repository_id", n => { HeadRepositoryId = n.GetIntValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
             };
         }
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteIntValue("head_repository_id", HeadRepositoryId);
             writer.WriteStringValue("head_sha", HeadSha);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);
         }
