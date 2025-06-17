@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Cards
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the content associated with the card</summary>
-        public int? ContentId { get; set; }
+        public long? ContentId { get; set; }
         /// <summary>The piece of content associated with the card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Cards
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content_id", n => { ContentId = n.GetIntValue(); } },
+                { "content_id", n => { ContentId = n.GetLongValue(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Cards
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("content_id", ContentId);
+            writer.WriteLongValue("content_id", ContentId);
             writer.WriteStringValue("content_type", ContentType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
         public string BundleUrl { get; set; }
 #endif
         /// <summary>The repository_id property</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
             {
                 { "bundle", n => { Bundle = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle.CreateFromDiscriminatorValue); } },
                 { "bundle_url", n => { BundleUrl = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle>("bundle", Bundle);
             writer.WriteStringValue("bundle_url", BundleUrl);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

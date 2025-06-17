@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the custom app that will be enabled on the environment.</summary>
-        public int? IntegrationId { get; set; }
+        public long? IntegrationId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Deployment_protection_rulesPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "integration_id", n => { IntegrationId = n.GetIntValue(); } },
+                { "integration_id", n => { IntegrationId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("integration_id", IntegrationId);
+            writer.WriteLongValue("integration_id", IntegrationId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

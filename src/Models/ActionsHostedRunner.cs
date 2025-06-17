@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp> PublicIps { get; set; }
 #endif
         /// <summary>The unique identifier of the group that the hosted runner belongs to.</summary>
-        public int? RunnerGroupId { get; set; }
+        public long? RunnerGroupId { get; set; }
         /// <summary>The status of the runner.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner_status? Status { get; set; }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "platform", n => { Platform = n.GetStringValue(); } },
                 { "public_ip_enabled", n => { PublicIpEnabled = n.GetBoolValue(); } },
                 { "public_ips", n => { PublicIps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp>(global::Soenneker.GitHub.OpenApiClient.Models.PublicIp.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "runner_group_id", n => { RunnerGroupId = n.GetIntValue(); } },
+                { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner_status>(); } },
             };
         }
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("platform", Platform);
             writer.WriteBoolValue("public_ip_enabled", PublicIpEnabled);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp>("public_ips", PublicIps);
-            writer.WriteIntValue("runner_group_id", RunnerGroupId);
+            writer.WriteLongValue("runner_group_id", RunnerGroupId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

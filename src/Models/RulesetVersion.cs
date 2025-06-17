@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The ID of the previous version of the ruleset</summary>
-        public int? VersionId { get; set; }
+        public long? VersionId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "version_id", n => { VersionId = n.GetIntValue(); } },
+                { "version_id", n => { VersionId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor>("actor", Actor);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteIntValue("version_id", VersionId);
+            writer.WriteLongValue("version_id", VersionId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

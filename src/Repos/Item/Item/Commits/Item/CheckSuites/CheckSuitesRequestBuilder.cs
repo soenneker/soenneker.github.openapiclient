@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckSuite
         {
             /// <summary>Filters check suites by GitHub App `id`.</summary>
             [QueryParameter("app_id")]
-            public int? AppId { get; set; }
+            public long? AppId { get; set; }
             /// <summary>Returns check runs with the specified `name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

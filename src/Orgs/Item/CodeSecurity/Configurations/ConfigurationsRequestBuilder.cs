@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.codeSecurity.configurations.item collection</summary>
         /// <param name="position">The unique identifier of the code security configuration.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder this[long position]
         {
             get
             {

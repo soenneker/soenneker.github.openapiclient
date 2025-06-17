@@ -156,7 +156,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Labels
 #endif
             /// <summary>The id of the repository.</summary>
             [QueryParameter("repository_id")]
-            public int? RepositoryId { get; set; }
+            public long? RepositoryId { get; set; }
             /// <summary>Sorts the results of your query by when the label was `created` or `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

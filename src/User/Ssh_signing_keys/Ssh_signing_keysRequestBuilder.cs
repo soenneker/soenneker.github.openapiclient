@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.ssh_signing_keys.item collection</summary>
         /// <param name="position">The unique identifier of the SSH signing key.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Item.WithSsh_signing_key_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Item.WithSsh_signing_key_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Item.WithSsh_signing_key_ItemRequestBuilder this[long position]
         {
             get
             {

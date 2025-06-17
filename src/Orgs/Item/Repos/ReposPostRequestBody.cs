@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
         /// <summary>Required when using `squash_merge_commit_message`.The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request&apos;s title.- `COMMIT_OR_PR_TITLE` - default to the commit&apos;s title (if only one commit) or the pull request&apos;s title (when more than one commit).</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_squash_merge_commit_title? SquashMergeCommitTitle { get; set; }
         /// <summary>The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.</summary>
-        public int? TeamId { get; set; }
+        public long? TeamId { get; set; }
         /// <summary>Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property is closing down. Please use `squash_merge_commit_title` instead.</summary>
         [Obsolete("")]
         public bool? UseSquashPrTitleAsDefault { get; set; }
@@ -148,7 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "squash_merge_commit_message", n => { SquashMergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_squash_merge_commit_message>(); } },
                 { "squash_merge_commit_title", n => { SquashMergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_squash_merge_commit_title>(); } },
-                { "team_id", n => { TeamId = n.GetIntValue(); } },
+                { "team_id", n => { TeamId = n.GetLongValue(); } },
                 { "use_squash_pr_title_as_default", n => { UseSquashPrTitleAsDefault = n.GetBoolValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_visibility>(); } },
             };
@@ -182,7 +182,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_squash_merge_commit_message>("squash_merge_commit_message", SquashMergeCommitMessage);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_squash_merge_commit_title>("squash_merge_commit_title", SquashMergeCommitTitle);
-            writer.WriteIntValue("team_id", TeamId);
+            writer.WriteLongValue("team_id", TeamId);
             writer.WriteBoolValue("use_squash_pr_title_as_default", UseSquashPrTitleAsDefault);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.ReposPostRequestBody_visibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);

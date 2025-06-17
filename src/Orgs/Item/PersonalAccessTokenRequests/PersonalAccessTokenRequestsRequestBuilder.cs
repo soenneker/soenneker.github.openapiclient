@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.personalAccessTokenRequests.item collection</summary>
         /// <param name="position">Unique identifier of the request for access via fine-grained personal access token.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder this[long position]
         {
             get
             {

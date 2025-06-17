@@ -15,11 +15,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues.
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id of the sub-issue to be prioritized after (either positional argument after OR before should be specified).</summary>
-        public int? AfterId { get; set; }
+        public long? AfterId { get; set; }
         /// <summary>The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified).</summary>
-        public int? BeforeId { get; set; }
+        public long? BeforeId { get; set; }
         /// <summary>The id of the sub-issue to reprioritize</summary>
-        public int? SubIssueId { get; set; }
+        public long? SubIssueId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues.Priority.PriorityPatchRequestBody"/> and sets the default values.
         /// </summary>
@@ -45,9 +45,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues.
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "after_id", n => { AfterId = n.GetIntValue(); } },
-                { "before_id", n => { BeforeId = n.GetIntValue(); } },
-                { "sub_issue_id", n => { SubIssueId = n.GetIntValue(); } },
+                { "after_id", n => { AfterId = n.GetLongValue(); } },
+                { "before_id", n => { BeforeId = n.GetLongValue(); } },
+                { "sub_issue_id", n => { SubIssueId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -57,9 +57,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues.
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("after_id", AfterId);
-            writer.WriteIntValue("before_id", BeforeId);
-            writer.WriteIntValue("sub_issue_id", SubIssueId);
+            writer.WriteLongValue("after_id", AfterId);
+            writer.WriteLongValue("before_id", BeforeId);
+            writer.WriteLongValue("sub_issue_id", SubIssueId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

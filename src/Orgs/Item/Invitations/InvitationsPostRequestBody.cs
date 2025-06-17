@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations
         public string Email { get; set; }
 #endif
         /// <summary>**Required unless you provide `email`**. GitHub user ID for the person you are inviting.</summary>
-        public int? InviteeId { get; set; }
+        public long? InviteeId { get; set; }
         /// <summary>The role for the new member.  * `admin` - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.   * `direct_member` - Non-owner organization members with ability to see other members and join teams by invitation.   * `billing_manager` - Non-owner organization members with ability to manage the billing settings of your organization.  * `reinstate` - The previous role assigned to the invitee before they were removed from your organization. Can be one of the roles listed above. Only works if the invitee was previously part of your organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations.InvitationsPostRequestBody_role? Role { get; set; }
         /// <summary>Specify IDs for the teams you want to invite new members to.</summary>
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "invitee_id", n => { InviteeId = n.GetIntValue(); } },
+                { "invitee_id", n => { InviteeId = n.GetLongValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations.InvitationsPostRequestBody_role>(); } },
                 { "team_ids", n => { TeamIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
-            writer.WriteIntValue("invitee_id", InviteeId);
+            writer.WriteLongValue("invitee_id", InviteeId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations.InvitationsPostRequestBody_role>("role", Role);
             writer.WriteCollectionOfPrimitiveValues<int?>("team_ids", TeamIds);
             writer.WriteAdditionalData(AdditionalData);

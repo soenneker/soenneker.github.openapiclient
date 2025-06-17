@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects
         /// <param name="position">The unique identifier of the project.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder"/></returns>
         [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder this[long position]
         {
             get
             {

@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Discussions.Item.C
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.teams.item.discussions.item.comments.item.reactions.item collection</summary>
         /// <param name="position">The unique identifier of the reaction.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Discussions.Item.Comments.Item.Reactions.Item.WithReaction_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Discussions.Item.Comments.Item.Reactions.Item.WithReaction_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Discussions.Item.Comments.Item.Reactions.Item.WithReaction_ItemRequestBuilder this[long position]
         {
             get
             {

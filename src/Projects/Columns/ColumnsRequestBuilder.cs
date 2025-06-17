@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns
         /// <param name="position">The unique identifier of the column.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder"/></returns>
         [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder this[long position]
         {
             get
             {

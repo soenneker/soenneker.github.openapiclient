@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoryFullName { get; set; }
 #endif
         /// <summary>The repository_id property</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>The repository_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "properties", n => { Properties = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValue>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValue.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "repository_full_name", n => { RepositoryFullName = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "repository_name", n => { RepositoryName = n.GetStringValue(); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValue>("properties", Properties);
             writer.WriteStringValue("repository_full_name", RepositoryFullName);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteStringValue("repository_name", RepositoryName);
             writer.WriteAdditionalData(AdditionalData);
         }

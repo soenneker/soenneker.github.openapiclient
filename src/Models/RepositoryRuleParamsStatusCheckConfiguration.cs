@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Context { get; set; }
 #endif
         /// <summary>The optional integration ID that this status check must originate from.</summary>
-        public int? IntegrationId { get; set; }
+        public long? IntegrationId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsStatusCheckConfiguration"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "context", n => { Context = n.GetStringValue(); } },
-                { "integration_id", n => { IntegrationId = n.GetIntValue(); } },
+                { "integration_id", n => { IntegrationId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("context", Context);
-            writer.WriteIntValue("integration_id", IntegrationId);
+            writer.WriteLongValue("integration_id", IntegrationId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

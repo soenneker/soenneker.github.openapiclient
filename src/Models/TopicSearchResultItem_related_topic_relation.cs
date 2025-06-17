@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RelationType { get; set; }
 #endif
         /// <summary>The topic_id property</summary>
-        public int? TopicId { get; set; }
+        public long? TopicId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_related_topic_relation"/> and sets the default values.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "relation_type", n => { RelationType = n.GetStringValue(); } },
-                { "topic_id", n => { TopicId = n.GetIntValue(); } },
+                { "topic_id", n => { TopicId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("relation_type", RelationType);
-            writer.WriteIntValue("topic_id", TopicId);
+            writer.WriteLongValue("topic_id", TopicId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

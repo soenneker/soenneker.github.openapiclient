@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the team or role selected as a bypass reviewer</summary>
-        public int? ReviewerId { get; set; }
+        public long? ReviewerId { get; set; }
         /// <summary>The type of the bypass reviewer</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_bypass_options_reviewers_reviewer_type? ReviewerType { get; set; }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reviewer_id", n => { ReviewerId = n.GetIntValue(); } },
+                { "reviewer_id", n => { ReviewerId = n.GetLongValue(); } },
                 { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>(); } },
             };
         }
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("reviewer_id", ReviewerId);
+            writer.WriteLongValue("reviewer_id", ReviewerId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>("reviewer_type", ReviewerType);
             writer.WriteAdditionalData(AdditionalData);
         }

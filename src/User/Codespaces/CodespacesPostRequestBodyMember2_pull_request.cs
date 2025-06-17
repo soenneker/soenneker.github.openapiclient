@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
         /// <summary>Pull request number</summary>
         public int? PullRequestNumber { get; set; }
         /// <summary>Repository id for this codespace</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.CodespacesPostRequestBodyMember2_pull_request"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "pull_request_number", n => { PullRequestNumber = n.GetIntValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("pull_request_number", PullRequestNumber);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

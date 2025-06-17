@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitco
         public string Name { get; set; }
 #endif
         /// <summary>The ID of the runner group to register the runner to.</summary>
-        public int? RunnerGroupId { get; set; }
+        public long? RunnerGroupId { get; set; }
         /// <summary>The working directory to be used for job execution, relative to the runner install directory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitco
             {
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "runner_group_id", n => { RunnerGroupId = n.GetIntValue(); } },
+                { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
                 { "work_folder", n => { WorkFolder = n.GetStringValue(); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitco
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("name", Name);
-            writer.WriteIntValue("runner_group_id", RunnerGroupId);
+            writer.WriteLongValue("runner_group_id", RunnerGroupId);
             writer.WriteStringValue("work_folder", WorkFolder);
             writer.WriteAdditionalData(AdditionalData);
         }

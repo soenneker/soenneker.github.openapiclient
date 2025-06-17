@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The primary_key_id property</summary>
-        public int? PrimaryKeyId { get; set; }
+        public long? PrimaryKeyId { get; set; }
         /// <summary>The public_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "primary_key_id", n => { PrimaryKeyId = n.GetIntValue(); } },
+                { "primary_key_id", n => { PrimaryKeyId = n.GetLongValue(); } },
                 { "public_key", n => { PublicKey = n.GetStringValue(); } },
                 { "raw_key", n => { RawKey = n.GetStringValue(); } },
                 { "revoked", n => { Revoked = n.GetBoolValue(); } },
@@ -140,7 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("key_id", KeyId);
             writer.WriteStringValue("name", Name);
-            writer.WriteIntValue("primary_key_id", PrimaryKeyId);
+            writer.WriteLongValue("primary_key_id", PrimaryKeyId);
             writer.WriteStringValue("public_key", PublicKey);
             writer.WriteStringValue("raw_key", RawKey);
             writer.WriteBoolValue("revoked", Revoked);

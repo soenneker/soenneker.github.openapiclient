@@ -46,11 +46,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Unique identifier of the delivery.</summary>
         public long? Id { get; set; }
         /// <summary>The id of the GitHub App installation associated with this event.</summary>
-        public int? InstallationId { get; set; }
+        public long? InstallationId { get; set; }
         /// <summary>Whether the delivery is a redelivery.</summary>
         public bool? Redelivery { get; set; }
         /// <summary>The id of the repository associated with this event.</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>The request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,9 +118,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "event", n => { Event = n.GetStringValue(); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "installation_id", n => { InstallationId = n.GetIntValue(); } },
+                { "installation_id", n => { InstallationId = n.GetLongValue(); } },
                 { "redelivery", n => { Redelivery = n.GetBoolValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "request", n => { Request = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request>(global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request.CreateFromDiscriminatorValue); } },
                 { "response", n => { Response = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response>(global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -142,9 +142,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("event", Event);
             writer.WriteStringValue("guid", Guid);
             writer.WriteLongValue("id", Id);
-            writer.WriteIntValue("installation_id", InstallationId);
+            writer.WriteLongValue("installation_id", InstallationId);
             writer.WriteBoolValue("redelivery", Redelivery);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request>("request", Request);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response>("response", Response);
             writer.WriteStringValue("status", Status);

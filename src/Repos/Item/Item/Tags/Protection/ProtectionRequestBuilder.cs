@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection
         /// <param name="position">The unique identifier of the tag protection.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection.Item.WithTag_protection_ItemRequestBuilder"/></returns>
         [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection.Item.WithTag_protection_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection.Item.WithTag_protection_ItemRequestBuilder this[long position]
         {
             get
             {

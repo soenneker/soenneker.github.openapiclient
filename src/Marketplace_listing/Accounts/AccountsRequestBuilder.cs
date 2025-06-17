@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Accounts
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.marketplace_listing.accounts.item collection</summary>
         /// <param name="position">account_id parameter</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Accounts.Item.WithAccount_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Accounts.Item.WithAccount_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Accounts.Item.WithAccount_ItemRequestBuilder this[long position]
         {
             get
             {

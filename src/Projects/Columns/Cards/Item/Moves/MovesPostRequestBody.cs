@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.Item.Moves
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the column the card should be moved to</summary>
-        public int? ColumnId { get; set; }
+        public long? ColumnId { get; set; }
         /// <summary>The position of the card in a column. Can be one of: `top`, `bottom`, or `after:&lt;card_id&gt;` to place after the specified card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.Item.Moves
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "column_id", n => { ColumnId = n.GetIntValue(); } },
+                { "column_id", n => { ColumnId = n.GetLongValue(); } },
                 { "position", n => { Position = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.Item.Moves
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("column_id", ColumnId);
+            writer.WriteLongValue("column_id", ColumnId);
             writer.WriteStringValue("position", Position);
             writer.WriteAdditionalData(AdditionalData);
         }

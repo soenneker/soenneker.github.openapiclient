@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.runners.item collection</summary>
         /// <param name="position">Unique identifier of the self-hosted runner.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners.Item.WithRunner_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners.Item.WithRunner_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners.Item.WithRunner_ItemRequestBuilder this[long position]
         {
             get
             {

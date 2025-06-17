@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class RepositoryRulesetBypassActor : IAdditionalDataHolder, IParsable
     {
         /// <summary>The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.</summary>
-        public int? ActorId { get; set; }
+        public long? ActorId { get; set; }
         /// <summary>The type of actor that can bypass a ruleset.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor_actor_type? ActorType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor_id", n => { ActorId = n.GetIntValue(); } },
+                { "actor_id", n => { ActorId = n.GetLongValue(); } },
                 { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor_actor_type>(); } },
                 { "bypass_mode", n => { BypassMode = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor_bypass_mode>(); } },
             };
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("actor_id", ActorId);
+            writer.WriteLongValue("actor_id", ActorId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor_actor_type>("actor_type", ActorType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor_bypass_mode>("bypass_mode", BypassMode);
             writer.WriteAdditionalData(AdditionalData);

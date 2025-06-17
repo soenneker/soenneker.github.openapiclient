@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams
         /// <param name="position">The unique identifier of the team.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Teams.Item.WithTeam_ItemRequestBuilder"/></returns>
         [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.WithTeam_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.WithTeam_ItemRequestBuilder this[long position]
         {
             get
             {

@@ -1347,6 +1347,7 @@
                   "target_id": {
                     "type": "integer",
                     "description": "The ID of the user or organization to scope the user access token to. **Required** unless `target` is specified.",
+                    "format": "int64",
                     "example": 1
                   },
                   "repositories": {
@@ -6914,7 +6915,8 @@
                   },
                   "runner_group_id": {
                     "type": "integer",
-                    "description": "The existing runner group to add this runner to."
+                    "description": "The existing runner group to add this runner to.",
+                    "format": "int64"
                   },
                   "maximum_runners": {
                     "type": "integer",
@@ -7326,7 +7328,8 @@
                   },
                   "runner_group_id": {
                     "type": "integer",
-                    "description": "The existing runner group to add this runner to."
+                    "description": "The existing runner group to add this runner to.",
+                    "format": "int64"
                   },
                   "maximum_runners": {
                     "type": "integer",
@@ -8977,7 +8980,8 @@
                   },
                   "runner_group_id": {
                     "type": "integer",
-                    "description": "The ID of the runner group to register the runner to."
+                    "description": "The ID of the runner group to register the runner to.",
+                    "format": "int64"
                   },
                   "labels": {
                     "maxItems": 100,
@@ -9892,7 +9896,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -9934,7 +9939,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -10430,7 +10436,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -10472,7 +10479,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -10710,7 +10718,8 @@
                             "description": "The attestation's Sigstore Bundle.\nRefer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information."
                           },
                           "repository_id": {
-                            "type": "integer"
+                            "type": "integer",
+                            "format": "int64"
                           },
                           "bundle_url": {
                             "type": "string"
@@ -11064,7 +11073,8 @@
                       "properties": {
                         "repository_id": {
                           "type": "integer",
-                          "description": "The repository id"
+                          "description": "The repository id",
+                          "format": "int64"
                         },
                         "alert_numbers": {
                           "minItems": 1,
@@ -11762,7 +11772,8 @@
                           "properties": {
                             "reviewer_id": {
                               "type": "integer",
-                              "description": "The ID of the team or role selected as a bypass reviewer"
+                              "description": "The ID of the team or role selected as a bypass reviewer",
+                              "format": "int64"
                             },
                             "reviewer_type": {
                               "enum": [
@@ -12213,7 +12224,8 @@
                           "properties": {
                             "reviewer_id": {
                               "type": "integer",
-                              "description": "The ID of the team or role selected as a bypass reviewer"
+                              "description": "The ID of the team or role selected as a bypass reviewer",
+                              "format": "int64"
                             },
                             "reviewer_type": {
                               "enum": [
@@ -13422,7 +13434,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -13470,7 +13483,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -14664,7 +14678,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -14706,7 +14721,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -16451,7 +16467,8 @@
                 "properties": {
                   "invitee_id": {
                     "type": "integer",
-                    "description": "**Required unless you provide `email`**. GitHub user ID for the person you are inviting."
+                    "description": "**Required unless you provide `email`**. GitHub user ID for the person you are inviting.",
+                    "format": "int64"
                   },
                   "email": {
                     "type": "string",
@@ -19329,7 +19346,8 @@
             "description": "Unique identifier of the request for access via fine-grained personal access token.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -19418,7 +19436,8 @@
             "description": "Unique identifier of the request for access via fine-grained personal access token.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -19744,7 +19763,8 @@
             "description": "Unique identifier of the fine-grained personal access token.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -21207,7 +21227,8 @@
                   },
                   "team_id": {
                     "type": "integer",
-                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.",
+                    "format": "int64"
                   },
                   "auto_init": {
                     "type": "boolean",
@@ -21695,7 +21716,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -21750,7 +21772,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -21897,7 +21920,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -21948,7 +21972,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -22008,7 +22033,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -22017,7 +22043,8 @@
             "description": "The ID of the version",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -23087,7 +23114,8 @@
                   },
                   "parent_team_id": {
                     "type": "integer",
-                    "description": "The ID of a team to set as the parent team."
+                    "description": "The ID of a team to set as the parent team.",
+                    "format": "int64"
                   }
                 }
               },
@@ -23246,6 +23274,7 @@
                   "parent_team_id": {
                     "type": "integer",
                     "description": "The ID of a team to set as the parent team.",
+                    "format": "int64",
                     "nullable": true
                   }
                 }
@@ -25517,6 +25546,7 @@
                   "column_id": {
                     "type": "integer",
                     "description": "The unique identifier of the column the card should be moved to",
+                    "format": "int64",
                     "example": 42
                   }
                 }
@@ -25948,6 +25978,7 @@
                       "content_id": {
                         "type": "integer",
                         "description": "The unique identifier of the content associated with the card",
+                        "format": "int64",
                         "example": 42
                       },
                       "content_type": {
@@ -28698,7 +28729,8 @@
                   },
                   "runner_group_id": {
                     "type": "integer",
-                    "description": "The ID of the runner group to register the runner to."
+                    "description": "The ID of the runner group to register the runner to.",
+                    "format": "int64"
                   },
                   "labels": {
                     "maxItems": 100,
@@ -31802,7 +31834,8 @@
                             "description": "The attestation's Sigstore Bundle.\nRefer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information."
                           },
                           "repository_id": {
-                            "type": "integer"
+                            "type": "integer",
+                            "format": "int64"
                           },
                           "bundle_url": {
                             "type": "string"
@@ -32411,7 +32444,8 @@
                             },
                             "app_id": {
                               "type": "integer",
-                              "description": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status."
+                              "description": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                              "format": "int64"
                             }
                           }
                         },
@@ -33317,7 +33351,8 @@
                         },
                         "app_id": {
                           "type": "integer",
-                          "description": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status."
+                          "description": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                          "format": "int64"
                         }
                       }
                     },
@@ -35906,7 +35941,8 @@
                       "properties": {
                         "app_id": {
                           "type": "integer",
-                          "description": "The `id` of the GitHub App."
+                          "description": "The `id` of the GitHub App.",
+                          "format": "int64"
                         },
                         "setting": {
                           "type": "boolean",
@@ -36833,7 +36869,8 @@
             "description": "The ID of the analysis, as returned from the `GET /repos/{owner}/{repo}/code-scanning/analyses` operation.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -36907,7 +36944,8 @@
             "description": "The ID of the analysis, as returned from the `GET /repos/{owner}/{repo}/code-scanning/analyses` operation.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -37331,7 +37369,8 @@
             "description": "The unique identifier of the variant analysis.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -37398,7 +37437,8 @@
             "description": "The ID of the variant analysis.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -40029,7 +40069,8 @@
             "name": "app_id",
             "in": "query",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -40105,7 +40146,8 @@
             "in": "query",
             "description": "Filters check suites by GitHub App `id`.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1
           },
@@ -42263,7 +42305,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -43070,7 +43113,8 @@
                 "properties": {
                   "integration_id": {
                     "type": "integer",
-                    "description": "The ID of the custom app that will be enabled on the environment."
+                    "description": "The ID of the custom app that will be enabled on the environment.",
+                    "format": "int64"
                   }
                 }
               },
@@ -46364,7 +46408,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -47817,7 +47862,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -49373,7 +49419,8 @@
                 "properties": {
                   "sub_issue_id": {
                     "type": "integer",
-                    "description": "The id of the sub-issue to remove"
+                    "description": "The id of the sub-issue to remove",
+                    "format": "int64"
                   }
                 }
               },
@@ -49528,7 +49575,8 @@
                 "properties": {
                   "sub_issue_id": {
                     "type": "integer",
-                    "description": "The id of the sub-issue to add. The sub-issue must belong to the same repository owner as the parent issue"
+                    "description": "The id of the sub-issue to add. The sub-issue must belong to the same repository owner as the parent issue",
+                    "format": "int64"
                   },
                   "replace_parent": {
                     "type": "boolean",
@@ -49626,15 +49674,18 @@
                 "properties": {
                   "sub_issue_id": {
                     "type": "integer",
-                    "description": "The id of the sub-issue to reprioritize"
+                    "description": "The id of the sub-issue to reprioritize",
+                    "format": "int64"
                   },
                   "after_id": {
                     "type": "integer",
-                    "description": "The id of the sub-issue to be prioritized after (either positional argument after OR before should be specified)."
+                    "description": "The id of the sub-issue to be prioritized after (either positional argument after OR before should be specified).",
+                    "format": "int64"
                   },
                   "before_id": {
                     "type": "integer",
-                    "description": "The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified)."
+                    "description": "The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified).",
+                    "format": "int64"
                   }
                 }
               },
@@ -51704,7 +51755,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -56724,7 +56776,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -56791,7 +56844,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -56930,7 +56984,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -56984,7 +57039,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -57047,7 +57103,8 @@
             "description": "The ID of the ruleset.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -57056,7 +57113,8 @@
             "description": "The ID of the version",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -60284,7 +60342,8 @@
             "description": "The id of the repository.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           },
           {
@@ -60756,6 +60815,7 @@
                   "parent_team_id": {
                     "type": "integer",
                     "description": "The ID of a team to set as the parent team.",
+                    "format": "int64",
                     "nullable": true
                   }
                 }
@@ -63223,7 +63283,8 @@
                     "properties": {
                       "repository_id": {
                         "type": "integer",
-                        "description": "Repository id for this codespace"
+                        "description": "Repository id for this codespace",
+                        "format": "int64"
                       },
                       "ref": {
                         "type": "string",
@@ -63296,7 +63357,8 @@
                           },
                           "repository_id": {
                             "type": "integer",
-                            "description": "Repository id for this codespace"
+                            "description": "Repository id for this codespace",
+                            "format": "int64"
                           }
                         },
                         "description": "Pull request number for this codespace"
@@ -63833,7 +63895,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -63881,7 +63944,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -67688,7 +67752,8 @@
                   },
                   "team_id": {
                     "type": "integer",
-                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+                    "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.",
+                    "format": "int64"
                   },
                   "auto_init": {
                     "type": "boolean",
@@ -69167,7 +69232,8 @@
             "description": "Attestation ID",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
@@ -69266,7 +69332,8 @@
                             "description": "The attestation's Sigstore Bundle.\nRefer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information."
                           },
                           "repository_id": {
-                            "type": "integer"
+                            "type": "integer",
+                            "format": "int64"
                           },
                           "bundle_url": {
                             "type": "string"
@@ -72459,12 +72526,14 @@
           "installation_id": {
             "type": "integer",
             "description": "The id of the GitHub App installation associated with this event.",
+            "format": "int64",
             "nullable": true,
             "example": 123
           },
           "repository_id": {
             "type": "integer",
             "description": "The id of the repository associated with this event.",
+            "format": "int64",
             "nullable": true,
             "example": 123
           },
@@ -73147,11 +73216,13 @@
           },
           "app_id": {
             "type": "integer",
+            "format": "int64",
             "example": 1
           },
           "target_id": {
             "type": "integer",
-            "description": "The ID of the user or organization this token is being scoped to."
+            "description": "The ID of the user or organization this token is being scoped to.",
+            "format": "int64"
           },
           "target_type": {
             "type": "string",
@@ -74785,7 +74856,8 @@
                   "properties": {
                     "reviewer_id": {
                       "type": "integer",
-                      "description": "The ID of the team or role selected as a bypass reviewer"
+                      "description": "The ID of the team or role selected as a bypass reviewer",
+                      "format": "int64"
                     },
                     "reviewer_type": {
                       "enum": [
@@ -80043,6 +80115,7 @@
           "runner_group_id": {
             "type": "integer",
             "description": "The unique identifier of the group that the hosted runner belongs to.",
+            "format": "int64",
             "example": 2
           },
           "image_details": {
@@ -80408,6 +80481,7 @@
           "runner_group_id": {
             "type": "integer",
             "description": "The ID of the runner group.",
+            "format": "int64",
             "example": 1
           },
           "name": {
@@ -84007,7 +84081,8 @@
           },
           "token_id": {
             "type": "integer",
-            "description": "Unique identifier of the user's token. This field can also be found in audit log events and the organization's settings for their PAT grants."
+            "description": "Unique identifier of the user's token. This field can also be found in audit log events and the organization's settings for their PAT grants.",
+            "format": "int64"
           },
           "token_name": {
             "type": "string",
@@ -84098,7 +84173,8 @@
           },
           "token_id": {
             "type": "integer",
-            "description": "Unique identifier of the user's token. This field can also be found in audit log events and the organization's settings for their PAT grants."
+            "description": "Unique identifier of the user's token. This field can also be found in audit log events and the organization's settings for their PAT grants.",
+            "format": "int64"
           },
           "token_name": {
             "type": "string",
@@ -84518,6 +84594,7 @@
         "properties": {
           "repository_id": {
             "type": "integer",
+            "format": "int64",
             "example": 1296269
           },
           "repository_name": {
@@ -85718,6 +85795,7 @@
           "actor_id": {
             "type": "integer",
             "description": "The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.",
+            "format": "int64",
             "nullable": true
           },
           "actor_type": {
@@ -86257,7 +86335,8 @@
           },
           "integration_id": {
             "type": "integer",
-            "description": "The optional integration ID that this status check must originate from."
+            "description": "The optional integration ID that this status check must originate from.",
+            "format": "int64"
           }
         },
         "description": "Required status check"
@@ -86711,7 +86790,8 @@
           },
           "repository_id": {
             "type": "integer",
-            "description": "The ID of the repository where the workflow is defined"
+            "description": "The ID of the repository where the workflow is defined",
+            "format": "int64"
           },
           "sha": {
             "type": "string",
@@ -87022,7 +87102,8 @@
             },
             "actor_id": {
               "type": "integer",
-              "description": "The number that identifies the user."
+              "description": "The number that identifies the user.",
+              "format": "int64"
             },
             "actor_name": {
               "type": "string",
@@ -87042,7 +87123,8 @@
             },
             "repository_id": {
               "type": "integer",
-              "description": "The ID of the repository associated with the rule evaluation."
+              "description": "The ID of the repository associated with the rule evaluation.",
+              "format": "int64"
             },
             "repository_name": {
               "type": "string",
@@ -87087,6 +87169,7 @@
           "actor_id": {
             "type": "integer",
             "description": "The number that identifies the user.",
+            "format": "int64",
             "nullable": true
           },
           "actor_name": {
@@ -87108,7 +87191,8 @@
           },
           "repository_id": {
             "type": "integer",
-            "description": "The ID of the repository associated with the rule evaluation."
+            "description": "The ID of the repository associated with the rule evaluation.",
+            "format": "int64"
           },
           "repository_name": {
             "type": "string",
@@ -87207,7 +87291,8 @@
         "properties": {
           "version_id": {
             "type": "integer",
-            "description": "The ID of the previous version of the ruleset"
+            "description": "The ID of the previous version of the ruleset",
+            "format": "int64"
           },
           "actor": {
             "type": "object",
@@ -89405,10 +89490,12 @@
               },
               "repository_id": {
                 "type": "integer",
+                "format": "int64",
                 "example": 42
               },
               "head_repository_id": {
                 "type": "integer",
+                "format": "int64",
                 "example": 42
               },
               "head_branch": {
@@ -89517,6 +89604,7 @@
           "run_id": {
             "type": "integer",
             "description": "The id of the associated workflow run.",
+            "format": "int64",
             "example": 5
           },
           "run_url": {
@@ -89671,6 +89759,7 @@
           "runner_id": {
             "type": "integer",
             "description": "The ID of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)",
+            "format": "int64",
             "nullable": true,
             "example": 1
           },
@@ -89683,6 +89772,7 @@
           "runner_group_id": {
             "type": "integer",
             "description": "The ID of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)",
+            "format": "int64",
             "nullable": true,
             "example": 2
           },
@@ -90071,6 +90161,7 @@
           "check_suite_id": {
             "type": "integer",
             "description": "The ID of the associated check suite.",
+            "format": "int64",
             "example": 42
           },
           "check_suite_node_id": {
@@ -90127,6 +90218,7 @@
           "workflow_id": {
             "type": "integer",
             "description": "The ID of the parent workflow.",
+            "format": "int64",
             "example": 5
           },
           "url": {
@@ -90217,6 +90309,7 @@
           },
           "head_repository_id": {
             "type": "integer",
+            "format": "int64",
             "example": 5
           },
           "display_title": {
@@ -90579,7 +90672,8 @@
                       "type": "object",
                       "properties": {
                         "job_id": {
-                          "type": "integer"
+                          "type": "integer",
+                          "format": "int64"
                         },
                         "duration_ms": {
                           "type": "integer"
@@ -90612,7 +90706,8 @@
                       "type": "object",
                       "properties": {
                         "job_id": {
-                          "type": "integer"
+                          "type": "integer",
+                          "format": "int64"
                         },
                         "duration_ms": {
                           "type": "integer"
@@ -90645,7 +90740,8 @@
                       "type": "object",
                       "properties": {
                         "job_id": {
-                          "type": "integer"
+                          "type": "integer",
+                          "format": "int64"
                         },
                         "duration_ms": {
                           "type": "integer"
@@ -90927,6 +91023,7 @@
                 },
                 "app_id": {
                   "type": "integer",
+                  "format": "int64",
                   "nullable": true
                 }
               }
@@ -91900,6 +91997,7 @@
                 },
                 "app_id": {
                   "type": "integer",
+                  "format": "int64",
                   "nullable": true
                 }
               }
@@ -92681,7 +92779,8 @@
                   "type": "object",
                   "properties": {
                     "app_id": {
-                      "type": "integer"
+                      "type": "integer",
+                      "format": "int64"
                     },
                     "setting": {
                       "type": "boolean"
@@ -93311,7 +93410,8 @@
           },
           "actions_workflow_run_id": {
             "type": "integer",
-            "description": "The GitHub Actions workflow run used to execute this variant analysis. This is only available if the workflow run has started."
+            "description": "The GitHub Actions workflow run used to execute this variant analysis. This is only available if the workflow run has started.",
+            "format": "int64"
           },
           "failure_reason": {
             "enum": [
@@ -93584,7 +93684,8 @@
         "properties": {
           "run_id": {
             "type": "integer",
-            "description": "ID of the corresponding run."
+            "description": "ID of the corresponding run.",
+            "format": "int64"
           },
           "run_url": {
             "type": "string",
@@ -97939,7 +98040,8 @@
             "type": "string"
           },
           "review_id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "dismissal_message": {
             "type": "string",
@@ -97988,7 +98090,8 @@
             "format": "uri"
           },
           "project_id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "column_name": {
             "type": "string"
@@ -98710,7 +98813,8 @@
                 "type": "string"
               },
               "review_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "dismissal_message": {
                 "type": "string",
@@ -98842,7 +98946,8 @@
                 "format": "uri"
               },
               "project_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "project_url": {
                 "type": "string",
@@ -98923,7 +99028,8 @@
                 "format": "uri"
               },
               "project_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "project_url": {
                 "type": "string",
@@ -99004,7 +99110,8 @@
                 "format": "uri"
               },
               "project_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "project_url": {
                 "type": "string",
@@ -99085,7 +99192,8 @@
                 "format": "uri"
               },
               "project_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "project_url": {
                 "type": "string",
@@ -99680,6 +99788,7 @@
           "in_reply_to_id": {
             "type": "integer",
             "description": "The comment ID to reply to.",
+            "format": "int64",
             "example": 8
           },
           "user": {
@@ -101494,6 +101603,7 @@
           },
           "in_reply_to_id": {
             "type": "integer",
+            "format": "int64",
             "example": 8
           },
           "user": {
@@ -101843,7 +101953,8 @@
           },
           "ruleset_id": {
             "type": "integer",
-            "description": "The ID of the ruleset that includes this rule."
+            "description": "The ID of the ruleset that includes this rule.",
+            "format": "int64"
           }
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
@@ -104129,7 +104240,8 @@
                       "type": "string"
                     },
                     "topic_id": {
-                      "type": "integer"
+                      "type": "integer",
+                      "format": "int64"
                     },
                     "relation_type": {
                       "type": "string"
@@ -104156,7 +104268,8 @@
                       "type": "string"
                     },
                     "topic_id": {
-                      "type": "integer"
+                      "type": "integer",
+                      "format": "int64"
                     },
                     "relation_type": {
                       "type": "string"
@@ -105003,6 +105116,7 @@
           },
           "primary_key_id": {
             "type": "integer",
+            "format": "int64",
             "nullable": true
           },
           "key_id": {
@@ -105043,7 +105157,8 @@
                   "format": "int64"
                 },
                 "primary_key_id": {
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "key_id": {
                   "type": "string"
@@ -106675,7 +106790,8 @@
             "type": "string"
           },
           "repository_id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "require_code_owner_review": {
             "type": "boolean"
@@ -107437,7 +107553,8 @@
             "format": "date-time"
           },
           "discussion_id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "html_url": {
             "type": "string"
@@ -107796,7 +107913,8 @@
                 "type": "string"
               },
               "repository_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "slug": {
                 "type": "string"
@@ -108062,7 +108180,8 @@
             "type": "string"
           },
           "discussion_id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "html_url": {
             "type": "string"
@@ -108076,6 +108195,7 @@
           },
           "parent_id": {
             "type": "integer",
+            "format": "int64",
             "nullable": true
           },
           "reactions": {
@@ -113118,7 +113238,8 @@
           },
           "token_id": {
             "type": "integer",
-            "description": "Unique identifier of the user's token. This field can also be found in audit log events and the organization's settings for their PAT grants."
+            "description": "Unique identifier of the user's token. This field can also be found in audit log events and the organization's settings for their PAT grants.",
+            "format": "int64"
           },
           "token_name": {
             "type": "string",
@@ -113160,6 +113281,7 @@
         "properties": {
           "after_id": {
             "type": "integer",
+            "format": "int64",
             "nullable": true
           },
           "archived": {
@@ -113167,7 +113289,8 @@
             "description": "Whether or not the card is archived"
           },
           "column_id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "column_url": {
             "type": "string",
@@ -113487,6 +113610,7 @@
         "properties": {
           "after_id": {
             "type": "integer",
+            "format": "int64",
             "nullable": true
           },
           "cards_url": {
@@ -116936,7 +117060,8 @@
           },
           "in_reply_to_id": {
             "type": "integer",
-            "description": "The comment ID to reply to."
+            "description": "The comment ID to reply to.",
+            "format": "int64"
           },
           "line": {
             "type": "integer",
@@ -116976,6 +117101,7 @@
           "pull_request_review_id": {
             "type": "integer",
             "description": "The ID of the pull request review to which the comment belongs.",
+            "format": "int64",
             "nullable": true
           },
           "pull_request_url": {
@@ -125635,7 +125761,8 @@
                 "type": "string"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -126358,7 +126485,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string"
@@ -126627,7 +126755,8 @@
                 "type": "string"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -127360,7 +127489,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string"
@@ -127584,7 +127714,8 @@
                 "type": "string"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -128313,7 +128444,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string"
@@ -128654,7 +128786,8 @@
                 "type": "string"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -129384,7 +129517,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string"
@@ -130926,7 +131060,8 @@
                 "type": "string"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -131650,7 +131785,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string"
@@ -131767,7 +131903,8 @@
                         "type": "string"
                       },
                       "repository_id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "slug": {
                         "type": "string"
@@ -157127,7 +157264,8 @@
           },
           "hook_id": {
             "type": "integer",
-            "description": "The id of the modified webhook."
+            "description": "The id of the modified webhook.",
+            "format": "int64"
           },
           "installation": {
             "$ref": "#/components/schemas/simple-installation"
@@ -158319,7 +158457,8 @@
                         "type": "string"
                       },
                       "release_id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "commit_oid": {
                         "type": "string"
@@ -158328,7 +158467,8 @@
                         "type": "boolean"
                       },
                       "deleted_by_id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       }
                     },
                     "nullable": true
@@ -159626,7 +159766,8 @@
               },
               "app_id": {
                 "type": "integer",
-                "description": "Only included for GitHub Apps. When you register a new GitHub App, GitHub sends a ping event to the webhook URL you specified during registration. The GitHub App ID sent in this field is required for authenticating an app."
+                "description": "Only included for GitHub Apps. When you register a new GitHub App, GitHub sends a ping event to the webhook URL you specified during registration. The GitHub App ID sent in this field is required for authenticating an app.",
+                "format": "int64"
               },
               "config": {
                 "type": "object",
@@ -159699,7 +159840,8 @@
           },
           "hook_id": {
             "type": "integer",
-            "description": "The ID of the webhook that triggered the ping."
+            "description": "The ID of the webhook that triggered the ping.",
+            "format": "int64"
           },
           "organization": {
             "$ref": "#/components/schemas/organization-simple-webhooks"
@@ -159862,6 +160004,7 @@
             "properties": {
               "after_id": {
                 "type": "integer",
+                "format": "int64",
                 "nullable": true
               },
               "archived": {
@@ -159870,6 +160013,7 @@
               },
               "column_id": {
                 "type": "integer",
+                "format": "int64",
                 "nullable": true
               },
               "column_url": {
@@ -160135,6 +160279,7 @@
                 "properties": {
                   "after_id": {
                     "type": "integer",
+                    "format": "int64",
                     "nullable": true
                   },
                   "archived": {
@@ -160142,7 +160287,8 @@
                     "description": "Whether or not the card is archived"
                   },
                   "column_id": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                   },
                   "column_url": {
                     "type": "string",
@@ -160293,7 +160439,8 @@
                     "type": "boolean"
                   },
                   "column_id": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                   },
                   "column_url": {
                     "type": "string"
@@ -183030,7 +183177,8 @@
               },
               "in_reply_to_id": {
                 "type": "integer",
-                "description": "The comment ID to reply to."
+                "description": "The comment ID to reply to.",
+                "format": "int64"
               },
               "line": {
                 "type": "integer",
@@ -183071,6 +183219,7 @@
               "pull_request_review_id": {
                 "type": "integer",
                 "description": "The ID of the pull request review to which the comment belongs.",
+                "format": "int64",
                 "nullable": true
               },
               "pull_request_url": {
@@ -215914,7 +216063,8 @@
                     },
                     "in_reply_to_id": {
                       "type": "integer",
-                      "description": "The comment ID to reply to."
+                      "description": "The comment ID to reply to.",
+                      "format": "int64"
                     },
                     "line": {
                       "type": "integer",
@@ -215955,6 +216105,7 @@
                     "pull_request_review_id": {
                       "type": "integer",
                       "description": "The ID of the pull request review to which the comment belongs.",
+                      "format": "int64",
                       "nullable": true
                     },
                     "pull_request_url": {
@@ -219054,7 +219205,8 @@
                     },
                     "in_reply_to_id": {
                       "type": "integer",
-                      "description": "The comment ID to reply to."
+                      "description": "The comment ID to reply to.",
+                      "format": "int64"
                     },
                     "line": {
                       "type": "integer",
@@ -219094,6 +219246,7 @@
                     "pull_request_review_id": {
                       "type": "integer",
                       "description": "The ID of the pull request review to which the comment belongs.",
+                      "format": "int64",
                       "nullable": true
                     },
                     "pull_request_url": {
@@ -232733,7 +232886,8 @@
                         "type": "string"
                       },
                       "release_id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "commit_oid": {
                         "type": "string"
@@ -232742,7 +232896,8 @@
                         "type": "boolean"
                       },
                       "deleted_by_id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       }
                     },
                     "nullable": true
@@ -240833,6 +240988,7 @@
                   "runner_group_id": {
                     "type": "integer",
                     "description": "The ID of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.",
+                    "format": "int64",
                     "nullable": true
                   },
                   "runner_group_name": {
@@ -240843,6 +240999,7 @@
                   "runner_id": {
                     "type": "integer",
                     "description": "The ID of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.",
+                    "format": "int64",
                     "nullable": true
                   },
                   "runner_name": {
@@ -240985,7 +241142,8 @@
                     "type": "integer"
                   },
                   "run_id": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                   },
                   "run_url": {
                     "type": "string"
@@ -241163,6 +241321,7 @@
                   "runner_group_id": {
                     "type": "integer",
                     "description": "The ID of the runner group that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.",
+                    "format": "int64",
                     "nullable": true
                   },
                   "runner_group_name": {
@@ -241173,6 +241332,7 @@
                   "runner_id": {
                     "type": "integer",
                     "description": "The ID of the runner that is running this job. This will be `null` as long as `workflow_job[status]` is `queued`.",
+                    "format": "int64",
                     "nullable": true
                   },
                   "runner_name": {
@@ -241308,7 +241468,8 @@
                     "type": "integer"
                   },
                   "run_id": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                   },
                   "run_url": {
                     "type": "string"
@@ -241516,6 +241677,7 @@
               },
               "runner_group_id": {
                 "type": "integer",
+                "format": "int64",
                 "nullable": true
               },
               "runner_group_name": {
@@ -241524,6 +241686,7 @@
               },
               "runner_id": {
                 "type": "integer",
+                "format": "int64",
                 "nullable": true
               },
               "runner_name": {
@@ -241725,6 +241888,7 @@
               },
               "runner_group_id": {
                 "type": "integer",
+                "format": "int64",
                 "nullable": true
               },
               "runner_group_name": {
@@ -241733,6 +241897,7 @@
               },
               "runner_id": {
                 "type": "integer",
+                "format": "int64",
                 "nullable": true
               },
               "runner_name": {
@@ -242004,7 +242169,8 @@
                 "format": "uri"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -243063,7 +243229,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string",
@@ -243254,7 +243421,8 @@
                 "format": "uri"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -244303,7 +244471,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string",
@@ -244493,7 +244662,8 @@
                 "format": "uri"
               },
               "check_suite_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "check_suite_node_id": {
                 "type": "string"
@@ -245552,7 +245722,8 @@
                 "format": "uri"
               },
               "workflow_id": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int64"
               },
               "workflow_url": {
                 "type": "string",
@@ -246048,7 +246219,8 @@
         "in": "path",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "page": {
@@ -246075,7 +246247,8 @@
         "description": "The unique identifier of the installation.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "examples": {
           "default": {
@@ -246111,7 +246284,8 @@
         "description": "The unique identifier of the classroom assignment.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "classroom-id": {
@@ -246120,7 +246294,8 @@
         "description": "The unique identifier of the classroom.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "enterprise": {
@@ -246138,7 +246313,8 @@
         "description": "The unique identifier of the code security configuration.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "dependabot-alert-comma-separated-states": {
@@ -246358,7 +246534,8 @@
         "description": "account_id parameter",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "plan-id": {
@@ -246367,7 +246544,8 @@
         "description": "The unique identifier of the plan.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "sort": {
@@ -246434,7 +246612,8 @@
         "description": "The unique identifier of the notification thread. This corresponds to the value returned in the `id` field when you retrieve notifications (for example with the [`GET /notifications` operation](https://docs.github.com/rest/activity/notifications#list-notifications-for-the-authenticated-user)).",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "since-org": {
@@ -246492,7 +246671,8 @@
         "description": "Unique identifier of the GitHub-hosted runner.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "repository-id": {
@@ -246501,7 +246681,8 @@
         "description": "The unique identifier of the repository.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "visible-to-repository": {
@@ -246518,7 +246699,8 @@
         "description": "Unique identifier of the self-hosted runner group.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "runner-id": {
@@ -246527,7 +246709,8 @@
         "description": "Unique identifier of the self-hosted runner.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "runner-label-name": {
@@ -246597,7 +246780,8 @@
         "description": "The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "api-insights-actor-type": {
@@ -246622,7 +246806,8 @@
         "description": "The ID of the actor",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "api-insights-min-timestamp": {
@@ -246729,7 +246914,8 @@
         "description": "The unique identifier of the invitation.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "issue-type-id": {
@@ -246738,7 +246924,8 @@
         "description": "The unique identifier of the issue type.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "codespace-name": {
@@ -246756,7 +246943,8 @@
         "description": "The unique identifier of the migration.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "repo-name": {
@@ -246783,7 +246971,8 @@
         "description": "The unique identifier of the role.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "package-visibility": {
@@ -246831,7 +247020,8 @@
         "description": "Unique identifier of the package version.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "personal-access-token-sort": {
@@ -246914,7 +247104,8 @@
         "description": "The unique identifier of the fine-grained personal access token.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "custom-property-name": {
@@ -246996,7 +247187,8 @@
         "description": "The unique identifier of the rule suite result.\nTo get this ID, you can use [GET /repos/{owner}/{repo}/rulesets/rule-suites](https://docs.github.com/rest/repos/rule-suites#list-repository-rule-suites)\nfor repositories and [GET /orgs/{org}/rulesets/rule-suites](https://docs.github.com/rest/orgs/rule-suites#list-organization-rule-suites)\nfor organizations.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "secret-scanning-pagination-before-org-repo": {
@@ -247057,7 +247249,8 @@
         "description": "The unique identifier of the reaction.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "project-id": {
@@ -247066,7 +247259,8 @@
         "description": "The unique identifier of the project.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "security-product": {
@@ -247106,7 +247300,8 @@
         "description": "The unique identifier of the card.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "column-id": {
@@ -247115,7 +247310,8 @@
         "description": "The unique identifier of the column.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "artifact-name": {
@@ -247132,7 +247328,8 @@
         "description": "The unique identifier of the artifact.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "actions-cache-git-ref-full": {
@@ -247180,7 +247377,8 @@
         "description": "The unique identifier of the GitHub Actions cache.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "job-id": {
@@ -247189,7 +247387,8 @@
         "description": "The unique identifier of the job.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "actor": {
@@ -247263,7 +247462,8 @@
         "in": "query",
         "description": "Returns workflow runs with the `check_suite_id` that you specify.",
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "workflow-run-head-sha": {
@@ -247280,7 +247480,8 @@
         "description": "The unique identifier of the workflow run.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "attempt-number": {
@@ -247314,7 +247515,8 @@
         "description": "The unique identifier of the autolink.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "branch": {
@@ -247333,7 +247535,8 @@
         "description": "The unique identifier of the check run.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "check-suite-id": {
@@ -247342,7 +247545,8 @@
         "description": "The unique identifier of the check suite.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "check-name": {
@@ -247442,7 +247646,8 @@
         "description": "deployment_id parameter",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "environment-name": {
@@ -247460,7 +247665,8 @@
         "description": "The unique identifier of the branch policy.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "protection-rule-id": {
@@ -247469,7 +247675,8 @@
         "description": "The unique identifier of the protection rule.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "git-ref-only": {
@@ -247506,7 +247713,8 @@
         "description": "The unique identifier of the key.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "milestone-number": {
@@ -247549,7 +247757,8 @@
         "description": "The unique identifier of the review.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "asset-id": {
@@ -247558,7 +247767,8 @@
         "description": "The unique identifier of the asset.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "release-id": {
@@ -247567,7 +247777,8 @@
         "description": "The unique identifier of the release.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "tag-protection-id": {
@@ -247576,7 +247787,8 @@
         "description": "The unique identifier of the tag protection.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "per": {
@@ -247627,7 +247839,8 @@
         "description": "The unique identifier of the team.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "repository-id-in-query": {
@@ -247635,7 +247848,8 @@
         "in": "query",
         "description": "ID of the Repository to filter on",
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "export-id": {
@@ -247653,7 +247867,8 @@
         "description": "The unique identifier of the GPG key.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "since-repo-date": {
@@ -247680,7 +247895,8 @@
         "description": "The unique identifier of the SSH signing key.",
         "required": true,
         "schema": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "sort-starred": {

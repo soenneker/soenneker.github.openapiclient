@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Ref { get; set; }
 #endif
         /// <summary>The ID of the repository where the workflow is defined</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>The commit SHA of the workflow file to use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("ref", Ref);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteStringValue("sha", Sha);
             writer.WriteAdditionalData(AdditionalData);
         }

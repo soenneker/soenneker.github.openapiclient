@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Plans
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.marketplace_listing.plans.item collection</summary>
         /// <param name="position">The unique identifier of the plan.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Plans.Item.WithPlan_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Plans.Item.WithPlan_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Plans.Item.WithPlan_ItemRequestBuilder this[long position]
         {
             get
             {

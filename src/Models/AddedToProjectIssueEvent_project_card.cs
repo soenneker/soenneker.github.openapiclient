@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string PreviousColumnName { get; set; }
 #endif
         /// <summary>The project_id property</summary>
-        public int? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
         /// <summary>The project_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "column_name", n => { ColumnName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "previous_column_name", n => { PreviousColumnName = n.GetStringValue(); } },
-                { "project_id", n => { ProjectId = n.GetIntValue(); } },
+                { "project_id", n => { ProjectId = n.GetLongValue(); } },
                 { "project_url", n => { ProjectUrl = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("column_name", ColumnName);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("previous_column_name", PreviousColumnName);
-            writer.WriteIntValue("project_id", ProjectId);
+            writer.WriteLongValue("project_id", ProjectId);
             writer.WriteStringValue("project_url", ProjectUrl);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

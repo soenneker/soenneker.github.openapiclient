@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string TokenExpiresAt { get; set; }
 #endif
         /// <summary>Unique identifier of the user&apos;s token. This field can also be found in audit log events and the organization&apos;s settings for their PAT grants.</summary>
-        public int? TokenId { get; set; }
+        public long? TokenId { get; set; }
         /// <summary>Date and time when the associated fine-grained personal access token was last used for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrant_repository_selection>(); } },
                 { "token_expired", n => { TokenExpired = n.GetBoolValue(); } },
                 { "token_expires_at", n => { TokenExpiresAt = n.GetStringValue(); } },
-                { "token_id", n => { TokenId = n.GetIntValue(); } },
+                { "token_id", n => { TokenId = n.GetLongValue(); } },
                 { "token_last_used_at", n => { TokenLastUsedAt = n.GetStringValue(); } },
                 { "token_name", n => { TokenName = n.GetStringValue(); } },
             };
@@ -132,7 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrant_repository_selection>("repository_selection", RepositorySelection);
             writer.WriteBoolValue("token_expired", TokenExpired);
             writer.WriteStringValue("token_expires_at", TokenExpiresAt);
-            writer.WriteIntValue("token_id", TokenId);
+            writer.WriteLongValue("token_id", TokenId);
             writer.WriteStringValue("token_last_used_at", TokenLastUsedAt);
             writer.WriteStringValue("token_name", TokenName);
             writer.WriteAdditionalData(AdditionalData);

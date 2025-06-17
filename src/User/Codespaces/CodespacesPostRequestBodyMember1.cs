@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
         public string Ref { get; set; }
 #endif
         /// <summary>Repository id for this codespace</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).</summary>
         public int? RetentionPeriodMinutes { get; set; }
         /// <summary>Working directory for this codespace</summary>
@@ -114,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
                 { "machine", n => { Machine = n.GetStringValue(); } },
                 { "multi_repo_permissions_opt_out", n => { MultiRepoPermissionsOptOut = n.GetBoolValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "retention_period_minutes", n => { RetentionPeriodMinutes = n.GetIntValue(); } },
                 { "working_directory", n => { WorkingDirectory = n.GetStringValue(); } },
             };
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
             writer.WriteStringValue("machine", Machine);
             writer.WriteBoolValue("multi_repo_permissions_opt_out", MultiRepoPermissionsOptOut);
             writer.WriteStringValue("ref", Ref);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteIntValue("retention_period_minutes", RetentionPeriodMinutes);
             writer.WriteStringValue("working_directory", WorkingDirectory);
             writer.WriteAdditionalData(AdditionalData);

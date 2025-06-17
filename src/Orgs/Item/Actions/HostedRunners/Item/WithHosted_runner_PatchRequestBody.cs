@@ -27,7 +27,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
         public string Name { get; set; }
 #endif
         /// <summary>The existing runner group to add this runner to.</summary>
-        public int? RunnerGroupId { get; set; }
+        public long? RunnerGroupId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHosted_runner_PatchRequestBody"/> and sets the default values.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
                 { "enable_static_ip", n => { EnableStaticIp = n.GetBoolValue(); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "runner_group_id", n => { RunnerGroupId = n.GetIntValue(); } },
+                { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
             writer.WriteBoolValue("enable_static_ip", EnableStaticIp);
             writer.WriteIntValue("maximum_runners", MaximumRunners);
             writer.WriteStringValue("name", Name);
-            writer.WriteIntValue("runner_group_id", RunnerGroupId);
+            writer.WriteLongValue("runner_group_id", RunnerGroupId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

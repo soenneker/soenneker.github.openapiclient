@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class CodeScanningVariantAnalysis : IAdditionalDataHolder, IParsable
     {
         /// <summary>The GitHub Actions workflow run used to execute this variant analysis. This is only available if the workflow run has started.</summary>
-        public int? ActionsWorkflowRunId { get; set; }
+        public long? ActionsWorkflowRunId { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actions_workflow_run_id", n => { ActionsWorkflowRunId = n.GetIntValue(); } },
+                { "actions_workflow_run_id", n => { ActionsWorkflowRunId = n.GetLongValue(); } },
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "controller_repo", n => { ControllerRepo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("actions_workflow_run_id", ActionsWorkflowRunId);
+            writer.WriteLongValue("actions_workflow_run_id", ActionsWorkflowRunId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("actor", Actor);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("controller_repo", ControllerRepo);

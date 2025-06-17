@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id of the sub-issue to remove</summary>
-        public int? SubIssueId { get; set; }
+        public long? SubIssueId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue.Sub_issueDeleteRequestBody"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sub_issue_id", n => { SubIssueId = n.GetIntValue(); } },
+                { "sub_issue_id", n => { SubIssueId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("sub_issue_id", SubIssueId);
+            writer.WriteLongValue("sub_issue_id", SubIssueId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

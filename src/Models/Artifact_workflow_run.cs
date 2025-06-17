@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HeadBranch { get; set; }
 #endif
         /// <summary>The head_repository_id property</summary>
-        public int? HeadRepositoryId { get; set; }
+        public long? HeadRepositoryId { get; set; }
         /// <summary>The head_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The id property</summary>
         public long? Id { get; set; }
         /// <summary>The repository_id property</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Artifact_workflow_run"/> and sets the default values.
         /// </summary>
@@ -62,10 +62,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
-                { "head_repository_id", n => { HeadRepositoryId = n.GetIntValue(); } },
+                { "head_repository_id", n => { HeadRepositoryId = n.GetLongValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -76,10 +76,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("head_branch", HeadBranch);
-            writer.WriteIntValue("head_repository_id", HeadRepositoryId);
+            writer.WriteLongValue("head_repository_id", HeadRepositoryId);
             writer.WriteStringValue("head_sha", HeadSha);
             writer.WriteLongValue("id", Id);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
