@@ -29,6 +29,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The enablement status of code scanning delegated alert dismissal</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_delegated_alert_dismissal? CodeScanningDelegatedAlertDismissal { get; set; }
+        /// <summary>Feature options for code scanning</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options? CodeScanningOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options CodeScanningOptions { get; set; }
+#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The enablement status of Dependabot alerts</summary>
@@ -140,6 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "code_scanning_default_setup", n => { CodeScanningDefaultSetup = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_default_setup>(); } },
                 { "code_scanning_default_setup_options", n => { CodeScanningDefaultSetupOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_default_setup_options>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_default_setup_options.CreateFromDiscriminatorValue); } },
                 { "code_scanning_delegated_alert_dismissal", n => { CodeScanningDelegatedAlertDismissal = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_delegated_alert_dismissal>(); } },
+                { "code_scanning_options", n => { CodeScanningOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dependabot_alerts", n => { DependabotAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_alerts>(); } },
                 { "dependabot_security_updates", n => { DependabotSecurityUpdates = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_security_updates>(); } },
@@ -176,6 +185,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_default_setup>("code_scanning_default_setup", CodeScanningDefaultSetup);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_default_setup_options>("code_scanning_default_setup_options", CodeScanningDefaultSetupOptions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_delegated_alert_dismissal>("code_scanning_delegated_alert_dismissal", CodeScanningDelegatedAlertDismissal);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options>("code_scanning_options", CodeScanningOptions);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_alerts>("dependabot_alerts", DependabotAlerts);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_security_updates>("dependabot_security_updates", DependabotSecurityUpdates);

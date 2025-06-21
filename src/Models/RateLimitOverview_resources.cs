@@ -54,6 +54,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit Core { get; set; }
 #endif
+        /// <summary>The dependency_sbom property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit? DependencySbom { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimit DependencySbom { get; set; }
+#endif
         /// <summary>The dependency_snapshots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,6 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "code_scanning_upload", n => { CodeScanningUpload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
                 { "code_search", n => { CodeSearch = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
                 { "core", n => { Core = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
+                { "dependency_sbom", n => { DependencySbom = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
                 { "dependency_snapshots", n => { DependencySnapshots = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
                 { "graphql", n => { Graphql = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
                 { "integration_manifest", n => { IntegrationManifest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
@@ -152,6 +161,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("code_scanning_upload", CodeScanningUpload);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("code_search", CodeSearch);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("core", Core);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("dependency_sbom", DependencySbom);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("dependency_snapshots", DependencySnapshots);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("graphql", Graphql);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("integration_manifest", IntegrationManifest);
