@@ -11,17 +11,17 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
     /// The attestation&apos;s Sigstore Bundle.Refer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithSubject_digestGetResponse_attestations_bundle : IAdditionalDataHolder, IParsable
+    public partial class Attestation_GetResponse_attestations_bundle : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The dsseEnvelope property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_dsseEnvelope? DsseEnvelope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_dsseEnvelope? DsseEnvelope { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_dsseEnvelope DsseEnvelope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_dsseEnvelope DsseEnvelope { get; set; }
 #endif
         /// <summary>The mediaType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,27 +34,27 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
         /// <summary>The verificationMaterial property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial? VerificationMaterial { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial? VerificationMaterial { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial VerificationMaterial { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial VerificationMaterial { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle"/> and sets the default values.
         /// </summary>
-        public WithSubject_digestGetResponse_attestations_bundle()
+        public Attestation_GetResponse_attestations_bundle()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle();
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,9 +64,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dsseEnvelope", n => { DsseEnvelope = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_dsseEnvelope>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_dsseEnvelope.CreateFromDiscriminatorValue); } },
+                { "dsseEnvelope", n => { DsseEnvelope = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_dsseEnvelope>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_dsseEnvelope.CreateFromDiscriminatorValue); } },
                 { "mediaType", n => { MediaType = n.GetStringValue(); } },
-                { "verificationMaterial", n => { VerificationMaterial = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial.CreateFromDiscriminatorValue); } },
+                { "verificationMaterial", n => { VerificationMaterial = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +76,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_dsseEnvelope>("dsseEnvelope", DsseEnvelope);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_dsseEnvelope>("dsseEnvelope", DsseEnvelope);
             writer.WriteStringValue("mediaType", MediaType);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial>("verificationMaterial", VerificationMaterial);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial>("verificationMaterial", VerificationMaterial);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

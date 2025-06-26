@@ -9,27 +9,27 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class WithSubject_digestGetResponse_attestations_bundle_verificationMaterial : IAdditionalDataHolder, IParsable
+    public partial class Attestation_GetResponse_attestations_bundle_verificationMaterial : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial"/> and sets the default values.
         /// </summary>
-        public WithSubject_digestGetResponse_attestations_bundle_verificationMaterial()
+        public Attestation_GetResponse_attestations_bundle_verificationMaterial()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle_verificationMaterial();
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_GetResponse_attestations_bundle_verificationMaterial();
         }
         /// <summary>
         /// The deserialization information for the current model

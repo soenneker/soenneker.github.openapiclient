@@ -40,6 +40,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
 #else
         public List<int?> SelectedRepositoryIds { get; set; }
 #endif
+        /// <summary>The URL of the private registry.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
+#endif
         /// <summary>The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,6 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type>(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_visibility>(); } },
             };
@@ -94,6 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
             writer.WriteStringValue("key_id", KeyId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type>("registry_type", RegistryType);
             writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_visibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);

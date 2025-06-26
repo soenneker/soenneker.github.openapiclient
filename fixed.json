@@ -10645,6 +10645,199 @@
         }
       }
     },
+    "/orgs/{org}/attestations/delete-request": {
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Delete attestations in bulk",
+        "description": "Delete artifact attestations in bulk by either subject digests or unique ID.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/attestations#delete-attestations-in-bulk"
+        },
+        "operationId": "orgs/delete-attestations-bulk",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "required": [
+                      "subject_digests"
+                    ],
+                    "properties": {
+                      "subject_digests": {
+                        "maxItems": 1024,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "List of subject digests associated with the artifact attestations to delete."
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "attestation_ids"
+                    ],
+                    "properties": {
+                      "attestation_ids": {
+                        "maxItems": 1024,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "description": "List of unique IDs associated with the artifact attestations to delete."
+                      }
+                    }
+                  }
+                ],
+                "description": "The request body must include either `subject_digests` or `attestation_ids`, but not both."
+              },
+              "examples": {
+                "by-subject-digests": {
+                  "summary": "Delete by subject digests",
+                  "value": {
+                    "subject_digests": [
+                      "sha256:abc123",
+                      "sha512:def456"
+                    ]
+                  }
+                },
+                "by-attestation-ids": {
+                  "summary": "Delete by attestation IDs",
+                  "value": {
+                    "attestation_ids": [
+                      111,
+                      222
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "attestations"
+        }
+      }
+    },
+    "/orgs/{org}/attestations/digest/{subject_digest}": {
+      "delete": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Delete attestations by subject digest",
+        "description": "Delete an artifact attestation by subject digest.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/attestations#delete-attestations-by-subject-digest"
+        },
+        "operationId": "orgs/delete-attestations-by-subject-digest",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "subject_digest",
+            "in": "path",
+            "description": "Subject Digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-multi-segment": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response"
+          },
+          "204": {
+            "description": "Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "attestations"
+        }
+      }
+    },
+    "/orgs/{org}/attestations/{attestation_id}": {
+      "delete": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Delete attestations by ID",
+        "description": "Delete an artifact attestation by unique ID that is associated with a repository owned by an org.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/attestations#delete-attestations-by-id"
+        },
+        "operationId": "orgs/delete-attestations-by-id",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "attestation_id",
+            "in": "path",
+            "description": "Attestation ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response"
+          },
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "attestations"
+        }
+      }
+    },
     "/orgs/{org}/attestations/{subject_digest}": {
       "get": {
         "tags": [
@@ -19911,6 +20104,7 @@
               "schema": {
                 "required": [
                   "registry_type",
+                  "url",
                   "encrypted_value",
                   "key_id",
                   "visibility"
@@ -19925,6 +20119,11 @@
                     ],
                     "type": "string",
                     "description": "The registry type."
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "The URL of the private registry.",
+                    "format": "uri"
                   },
                   "username": {
                     "type": "string",
@@ -19963,6 +20162,7 @@
                   "summary": "Example of a private registry configuration with private visibility",
                   "value": {
                     "registry_type": "maven_repository",
+                    "url": "https://maven.pkg.github.com/organization/",
                     "username": "monalisa",
                     "encrypted_value": "c2VjcmV0",
                     "key_id": "012345678912345678",
@@ -19973,6 +20173,7 @@
                   "summary": "Example of a private registry configuration with selected visibility",
                   "value": {
                     "registry_type": "maven_repository",
+                    "url": "https://maven.pkg.github.com/organization/",
                     "username": "monalisa",
                     "encrypted_value": "c2VjcmV0",
                     "key_id": "012345678912345678",
@@ -20168,6 +20369,11 @@
                     ],
                     "type": "string",
                     "description": "The registry type."
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "The URL of the private registry.",
+                    "format": "uri"
                   },
                   "username": {
                     "type": "string",
@@ -69066,6 +69272,151 @@
         }
       }
     },
+    "/users/{username}/attestations/bulk-list": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "List attestations by bulk subject digests",
+        "description": "List a collection of artifact attestations associated with any entry in a list of subject digests owned by a user.\n\nThe collection of attestations returned by this endpoint is filtered according to the authenticated user's permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.\n\n**Please note:** in order to offer meaningful security benefits, an attestation's signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build's provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/users/attestations#list-attestations-by-bulk-subject-digests"
+        },
+        "operationId": "users/list-attestations-bulk",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "subject_digests"
+                ],
+                "type": "object",
+                "properties": {
+                  "subject_digests": {
+                    "maxItems": 1024,
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of subject digests to fetch attestations for."
+                  },
+                  "predicate_type": {
+                    "type": "string",
+                    "description": "Optional filter for fetching attestations with a given predicate type.\nThis option accepts `provenance`, `sbom`, or freeform text for custom predicate types."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/bulk-subject-digest-body"
+                },
+                "withPredicateType": {
+                  "$ref": "#/components/examples/bulk-subject-digest-body-with-predicate-type"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attestations_subject_digests": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "bundle": {
+                              "type": "object",
+                              "properties": {
+                                "mediaType": {
+                                  "type": "string"
+                                },
+                                "verificationMaterial": {
+                                  "type": "object"
+                                },
+                                "dsseEnvelope": {
+                                  "type": "object"
+                                }
+                              },
+                              "description": "The bundle of the attestation."
+                            },
+                            "repository_id": {
+                              "type": "integer"
+                            },
+                            "bundle_url": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "nullable": true
+                      },
+                      "description": "Mapping of subject digest to bundles."
+                    },
+                    "page_info": {
+                      "type": "object",
+                      "properties": {
+                        "has_next": {
+                          "type": "boolean",
+                          "description": "Indicates whether there is a next page."
+                        },
+                        "has_previous": {
+                          "type": "boolean",
+                          "description": "Indicates whether there is a previous page."
+                        },
+                        "next": {
+                          "type": "string",
+                          "description": "The cursor to the next page."
+                        },
+                        "previous": {
+                          "type": "string",
+                          "description": "The cursor to the previous page."
+                        }
+                      },
+                      "description": "Information about the current page."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/list-attestations-bulk"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "users",
+          "subcategory": "attestations"
+        }
+      }
+    },
     "/users/{username}/attestations/delete-request": {
       "post": {
         "tags": [
@@ -69137,7 +69488,7 @@
                 "by-attestation-ids": {
                   "summary": "Delete by attestation IDs",
                   "value": {
-                    "subject_digests": [
+                    "attestation_ids": [
                       111,
                       222
                     ]
@@ -86688,7 +87039,7 @@
             "type": "object",
             "properties": {
               "max_file_path_length": {
-                "maximum": 256,
+                "maximum": 32767,
                 "minimum": 1,
                 "type": "integer",
                 "description": "The maximum amount of characters allowed in file paths."
@@ -105509,6 +105860,10 @@
           },
           "key": {
             "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "description": "Key Simple"

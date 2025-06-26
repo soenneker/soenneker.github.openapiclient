@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.BulkList;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.DeleteRequest;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AttestationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bulkList property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.BulkList.BulkListRequestBuilder BulkList
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.BulkList.BulkListRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The deleteRequest property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.DeleteRequest.DeleteRequestRequestBuilder DeleteRequest
         {
