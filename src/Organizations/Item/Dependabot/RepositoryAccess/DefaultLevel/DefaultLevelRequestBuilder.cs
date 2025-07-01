@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         {
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Sets the default level of repository access Dependabot will have while performing an update.  Available values are:- &apos;public&apos; - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.- &apos;internal&apos; - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.Unauthorized users will not see the existence of this endpoint.
+        /// Sets the default level of repository access Dependabot will have while performing an update.  Available values are:- &apos;public&apos; - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.- &apos;internal&apos; - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.Unauthorized users will not see the existence of this endpoint.This operation supports both server-to-server and user-to-server access.
         /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#set-the-default-repository-access-level-for-dependabot" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Sets the default level of repository access Dependabot will have while performing an update.  Available values are:- &apos;public&apos; - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.- &apos;internal&apos; - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.Unauthorized users will not see the existence of this endpoint.
+        /// Sets the default level of repository access Dependabot will have while performing an update.  Available values are:- &apos;public&apos; - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.- &apos;internal&apos; - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.Unauthorized users will not see the existence of this endpoint.This operation supports both server-to-server and user-to-server access.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

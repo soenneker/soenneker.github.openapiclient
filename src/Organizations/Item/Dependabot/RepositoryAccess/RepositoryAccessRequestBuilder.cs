@@ -40,8 +40,8 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         {
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies" />
+        /// Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
+        /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#lists-the-repositories-dependabot-can-access-in-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -66,8 +66,8 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
-        /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies" />
+        /// Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they&apos;ve updated dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
+        /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#updates-dependabots-repository-access-list-for-an-organization" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
+        /// Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
             return requestInfo;
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
+        /// Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they&apos;ve updated dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -143,7 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
             return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
+        /// Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RepositoryAccessRequestBuilderGetQueryParameters 
