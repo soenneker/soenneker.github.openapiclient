@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Memberships.Item
         {
         }
         /// <summary>
-        /// In order to remove a user&apos;s membership with an organization, the authenticated user must be an organization owner.If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.
+        /// In order to remove a user&apos;s membership with an organization, the authenticated user must be an organization owner.If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.&gt; [!NOTE]&gt; If a user has both direct membership in the organization as well as indirect membership via an enterprise team, only their direct membership will be removed. Their indirect membership via an enterprise team remains until the user is removed from the enterprise team.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/members#remove-organization-membership-for-a-user" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -113,7 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Memberships.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// In order to remove a user&apos;s membership with an organization, the authenticated user must be an organization owner.If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.
+        /// In order to remove a user&apos;s membership with an organization, the authenticated user must be an organization owner.If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.&gt; [!NOTE]&gt; If a user has both direct membership in the organization as well as indirect membership via an enterprise team, only their direct membership will be removed. Their indirect membership via an enterprise team remains until the user is removed from the enterprise team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

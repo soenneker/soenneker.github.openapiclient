@@ -41,6 +41,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string AppSlug { get; set; }
 #endif
+        /// <summary>The client_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientId { get; set; }
+#nullable restore
+#else
+        public string ClientId { get; set; }
+#endif
         /// <summary>The contact_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -156,6 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "account", n => { Account = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account>(global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account.CreateFromDiscriminatorValue); } },
                 { "app_id", n => { AppId = n.GetLongValue(); } },
                 { "app_slug", n => { AppSlug = n.GetStringValue(); } },
+                { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "contact_email", n => { ContactEmail = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -185,6 +194,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account>("account", Account);
             writer.WriteLongValue("app_id", AppId);
             writer.WriteStringValue("app_slug", AppSlug);
+            writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("contact_email", ContactEmail);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);

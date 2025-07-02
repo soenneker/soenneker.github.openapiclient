@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations.Item
         {
         }
         /// <summary>
-        /// Uninstalls a GitHub App on a user, organization, or business account. If you prefer to temporarily suspend an app&apos;s access to your account&apos;s resources, then we recommend the &quot;[Suspend an app installation](https://docs.github.com/rest/apps/apps#suspend-an-app-installation)&quot; endpoint.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+        /// Uninstalls a GitHub App on a user, organization, or enterprise account. If you prefer to temporarily suspend an app&apos;s access to your account&apos;s resources, then we recommend the &quot;[Suspend an app installation](https://docs.github.com/rest/apps/apps#suspend-an-app-installation)&quot; endpoint.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/apps/apps#delete-an-installation-for-the-authenticated-app" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Installation>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Installation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Uninstalls a GitHub App on a user, organization, or business account. If you prefer to temporarily suspend an app&apos;s access to your account&apos;s resources, then we recommend the &quot;[Suspend an app installation](https://docs.github.com/rest/apps/apps#suspend-an-app-installation)&quot; endpoint.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+        /// Uninstalls a GitHub App on a user, organization, or enterprise account. If you prefer to temporarily suspend an app&apos;s access to your account&apos;s resources, then we recommend the &quot;[Suspend an app installation](https://docs.github.com/rest/apps/apps#suspend-an-app-installation)&quot; endpoint.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -1038,7 +1038,7 @@
       },
       "delete": {
         "summary": "Delete an installation for the authenticated app",
-        "description": "Uninstalls a GitHub App on a user, organization, or business account. If you prefer to temporarily suspend an app's access to your account's resources, then we recommend the \"[Suspend an app installation](https://docs.github.com/rest/apps/apps#suspend-an-app-installation)\" endpoint.\n\nYou must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+        "description": "Uninstalls a GitHub App on a user, organization, or enterprise account. If you prefer to temporarily suspend an app's access to your account's resources, then we recommend the \"[Suspend an app installation](https://docs.github.com/rest/apps/apps#suspend-an-app-installation)\" endpoint.\n\nYou must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
         "tags": [
           "apps"
         ],
@@ -1171,7 +1171,7 @@
     "/app/installations/{installation_id}/suspended": {
       "put": {
         "summary": "Suspend an app installation",
-        "description": "Suspends a GitHub App on a user, organization, or business account, which blocks the app from accessing the account's resources. When a GitHub App is suspended, the app's access to the GitHub API or webhook events is blocked for that account.\n\nYou must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+        "description": "Suspends a GitHub App on a user, organization, or enterprise account, which blocks the app from accessing the account's resources. When a GitHub App is suspended, the app's access to the GitHub API or webhook events is blocked for that account.\n\nYou must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
         "tags": [
           "apps"
         ],
@@ -17545,7 +17545,7 @@
       },
       "delete": {
         "summary": "Remove an organization member",
-        "description": "Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.",
+        "description": "Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.\n\n> [!NOTE]\n> If a user has both direct membership in the organization as well as indirect membership via an enterprise team, only their direct membership will be removed. Their indirect membership via an enterprise team remains until the user is removed from the enterprise team.",
         "tags": [
           "orgs"
         ],
@@ -17963,7 +17963,7 @@
       },
       "delete": {
         "summary": "Remove organization membership for a user",
-        "description": "In order to remove a user's membership with an organization, the authenticated user must be an organization owner.\n\nIf the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.",
+        "description": "In order to remove a user's membership with an organization, the authenticated user must be an organization owner.\n\nIf the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.\n\n> [!NOTE]\n> If a user has both direct membership in the organization as well as indirect membership via an enterprise team, only their direct membership will be removed. Their indirect membership via an enterprise team remains until the user is removed from the enterprise team.",
         "tags": [
           "orgs"
         ],
@@ -97693,6 +97693,10 @@
           "app_id": {
             "type": "integer",
             "example": 1
+          },
+          "client_id": {
+            "type": "string",
+            "example": "Iv1.ab1112223334445c"
           },
           "target_id": {
             "description": "The ID of the user or organization this token is being scoped to.",

@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations.Item.Suspended
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Suspends a GitHub App on a user, organization, or business account, which blocks the app from accessing the account&apos;s resources. When a GitHub App is suspended, the app&apos;s access to the GitHub API or webhook events is blocked for that account.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+        /// Suspends a GitHub App on a user, organization, or enterprise account, which blocks the app from accessing the account&apos;s resources. When a GitHub App is suspended, the app&apos;s access to the GitHub API or webhook events is blocked for that account.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/apps/apps#suspend-an-app-installation" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations.Item.Suspended
             return requestInfo;
         }
         /// <summary>
-        /// Suspends a GitHub App on a user, organization, or business account, which blocks the app from accessing the account&apos;s resources. When a GitHub App is suspended, the app&apos;s access to the GitHub API or webhook events is blocked for that account.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+        /// Suspends a GitHub App on a user, organization, or enterprise account, which blocks the app from accessing the account&apos;s resources. When a GitHub App is suspended, the app&apos;s access to the GitHub API or webhook events is blocked for that account.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

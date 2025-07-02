@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Members.Item
         {
         }
         /// <summary>
-        /// Removing a user from this list will remove them from all teams and they will no longer have any access to the organization&apos;s repositories.
+        /// Removing a user from this list will remove them from all teams and they will no longer have any access to the organization&apos;s repositories.&gt; [!NOTE]&gt; If a user has both direct membership in the organization as well as indirect membership via an enterprise team, only their direct membership will be removed. Their indirect membership via an enterprise team remains until the user is removed from the enterprise team.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/members#remove-an-organization-member" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Members.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removing a user from this list will remove them from all teams and they will no longer have any access to the organization&apos;s repositories.
+        /// Removing a user from this list will remove them from all teams and they will no longer have any access to the organization&apos;s repositories.&gt; [!NOTE]&gt; If a user has both direct membership in the organization as well as indirect membership via an enterprise team, only their direct membership will be removed. Their indirect membership via an enterprise team remains until the user is removed from the enterprise team.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
