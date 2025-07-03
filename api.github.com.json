@@ -12385,7 +12385,9 @@
                 "properties": {
                   "selected_repository_ids": {
                     "type": "array",
-                    "description": "An array of repository IDs to detach from configurations.",
+                    "description": "An array of repository IDs to detach from configurations. Up to 1000 IDs can be provided.",
+                    "minItems": 1,
+                    "maxItems": 1000,
                     "items": {
                       "type": "integer",
                       "description": "Unique identifier of the repository."
@@ -38108,6 +38110,9 @@
           },
           "409": {
             "$ref": "#/components/responses/code_scanning_conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/code_scanning_invalid_state"
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
@@ -303158,6 +303163,16 @@
       },
       "code_scanning_conflict": {
         "description": "Response if there is already a validation run in progress with a different default setup configuration",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/basic-error"
+            }
+          }
+        }
+      },
+      "code_scanning_invalid_state": {
+        "description": "Response if the configuration change cannot be made because the repository is not in the required state",
         "content": {
           "application/json": {
             "schema": {

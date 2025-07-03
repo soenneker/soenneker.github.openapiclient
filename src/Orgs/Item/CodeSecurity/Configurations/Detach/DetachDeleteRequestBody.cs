@@ -12,7 +12,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.D
     public partial class DetachDeleteRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>An array of repository IDs to detach from configurations.</summary>
+        /// <summary>An array of repository IDs to detach from configurations. Up to 1000 IDs can be provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<int?>? SelectedRepositoryIds { get; set; }
