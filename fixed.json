@@ -2069,8 +2069,17 @@
                       "secret_protection"
                     ],
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.",
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n",
                     "default": "disabled"
+                  },
+                  "code_security": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features."
                   },
                   "dependency_graph": {
                     "enum": [
@@ -2145,6 +2154,15 @@
                     "type": "string",
                     "description": "The enablement status of code scanning delegated alert dismissal",
                     "default": "disabled"
+                  },
+                  "secret_protection": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features."
                   },
                   "secret_scanning": {
                     "enum": [
@@ -2416,7 +2434,16 @@
                       "secret_protection"
                     ],
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features."
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n"
+                  },
+                  "code_security": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features."
                   },
                   "dependency_graph": {
                     "enum": [
@@ -2485,6 +2512,15 @@
                     "type": "string",
                     "description": "The enablement status of code scanning delegated alert dismissal",
                     "default": "disabled"
+                  },
+                  "secret_protection": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features."
                   },
                   "secret_scanning": {
                     "enum": [
@@ -11844,8 +11880,17 @@
                       "secret_protection"
                     ],
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.",
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n",
                     "default": "disabled"
+                  },
+                  "code_security": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features."
                   },
                   "dependency_graph": {
                     "enum": [
@@ -11920,6 +11965,15 @@
                     "type": "string",
                     "description": "The enablement status of code scanning delegated alert dismissal",
                     "default": "not_set"
+                  },
+                  "secret_protection": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features."
                   },
                   "secret_scanning": {
                     "enum": [
@@ -12308,7 +12362,16 @@
                       "secret_protection"
                     ],
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features."
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n"
+                  },
+                  "code_security": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features."
                   },
                   "dependency_graph": {
                     "enum": [
@@ -12377,6 +12440,15 @@
                     "type": "string",
                     "description": "The enablement status of code scanning delegated alert dismissal",
                     "default": "disabled"
+                  },
+                  "secret_protection": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features."
                   },
                   "secret_scanning": {
                     "enum": [
@@ -20117,7 +20189,14 @@
                     "enum": [
                       "maven_repository",
                       "nuget_feed",
-                      "goproxy_server"
+                      "goproxy_server",
+                      "npm_registry",
+                      "rubygems_server",
+                      "cargo_registry",
+                      "composer_repository",
+                      "docker_registry",
+                      "git_source",
+                      "helm_registry"
                     ],
                     "type": "string",
                     "description": "The registry type."
@@ -20367,7 +20446,14 @@
                     "enum": [
                       "maven_repository",
                       "nuget_feed",
-                      "goproxy_server"
+                      "goproxy_server",
+                      "npm_registry",
+                      "rubygems_server",
+                      "cargo_registry",
+                      "composer_repository",
+                      "docker_registry",
+                      "git_source",
+                      "helm_registry"
                     ],
                     "type": "string",
                     "description": "The registry type."
@@ -27249,7 +27335,7 @@
                             "description": "Can be `enabled` or `disabled`."
                           }
                         },
-                        "description": "Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see \"[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\""
+                        "description": "Use the `status` property to enable or disable GitHub Advanced Security for this repository.\nFor more information, see \"[About GitHub Advanced\nSecurity](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used."
                       },
                       "code_security": {
                         "type": "object",
@@ -48233,6 +48319,7 @@
                     "enum": [
                       "completed",
                       "not_planned",
+                      "duplicate",
                       "reopened"
                     ],
                     "type": "string",
@@ -77077,7 +77164,8 @@
             "enum": [
               "completed",
               "reopened",
-              "not_planned"
+              "not_planned",
+              "duplicate"
             ],
             "type": "string",
             "description": "The reason for the current state",
@@ -78863,7 +78951,8 @@
                 ],
                 "type": "string"
               }
-            }
+            },
+            "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n"
           },
           "code_security": {
             "type": "object",
@@ -83738,6 +83827,23 @@
             "description": "The user's membership type in the organization.",
             "example": "admin"
           },
+          "direct_membership": {
+            "type": "boolean",
+            "description": "Whether the user has direct membership in the organization.",
+            "example": true
+          },
+          "enterprise_teams_providing_indirect_membership": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The slugs of the enterprise teams providing the user with indirect membership in the organization.\nA limit of 100 enterprise team slugs is returned.",
+            "example": [
+              "ent:team-one",
+              "ent:team-two"
+            ]
+          },
           "organization_url": {
             "type": "string",
             "format": "uri",
@@ -84582,7 +84688,14 @@
             "enum": [
               "maven_repository",
               "nuget_feed",
-              "goproxy_server"
+              "goproxy_server",
+              "npm_registry",
+              "rubygems_server",
+              "cargo_registry",
+              "composer_repository",
+              "docker_registry",
+              "git_source",
+              "helm_registry"
             ],
             "type": "string",
             "description": "The registry type."
@@ -84633,7 +84746,14 @@
             "enum": [
               "maven_repository",
               "nuget_feed",
-              "goproxy_server"
+              "goproxy_server",
+              "npm_registry",
+              "rubygems_server",
+              "cargo_registry",
+              "composer_repository",
+              "docker_registry",
+              "git_source",
+              "helm_registry"
             ],
             "type": "string",
             "description": "The registry type."
@@ -98200,7 +98320,8 @@
             "enum": [
               "completed",
               "reopened",
-              "not_planned"
+              "not_planned",
+              "duplicate"
             ],
             "type": "string",
             "description": "The reason for the current state",
@@ -102244,6 +102365,11 @@
           "prerelease": {
             "type": "boolean",
             "description": "Whether to identify the release as a prerelease or a full release.",
+            "example": false
+          },
+          "immutable": {
+            "type": "boolean",
+            "description": "Whether or not the release is immutable.",
             "example": false
           },
           "created_at": {
@@ -113348,6 +113474,23 @@
           "role": {
             "type": "string"
           },
+          "direct_membership": {
+            "type": "boolean",
+            "description": "Whether the user has direct membership in the organization.",
+            "example": true
+          },
+          "enterprise_teams_providing_indirect_membership": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The slugs of the enterprise teams providing the user with indirect membership in the organization.\nA limit of 100 enterprise team slugs is returned.",
+            "example": [
+              "ent:team-one",
+              "ent:team-two"
+            ]
+          },
           "state": {
             "type": "string"
           },
@@ -117887,6 +118030,7 @@
           "draft",
           "author",
           "prerelease",
+          "immutable",
           "created_at",
           "published_at",
           "assets",
@@ -118190,6 +118334,10 @@
             "type": "integer",
             "format": "int64"
           },
+          "immutable": {
+            "type": "boolean",
+            "description": "Whether or not the release is immutable."
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -118298,6 +118446,7 @@
           "name",
           "node_id",
           "prerelease",
+          "immutable",
           "published_at",
           "tag_name",
           "tarball_url",
@@ -118602,6 +118751,10 @@
           "id": {
             "type": "integer",
             "format": "int64"
+          },
+          "immutable": {
+            "type": "boolean",
+            "description": "Whether or not the release is immutable."
           },
           "name": {
             "type": "string",
@@ -234283,6 +234436,7 @@
               "draft",
               "html_url",
               "id",
+              "immutable",
               "name",
               "node_id",
               "prerelease",
@@ -234590,6 +234744,10 @@
               "id": {
                 "type": "integer",
                 "format": "int64"
+              },
+              "immutable": {
+                "type": "boolean",
+                "description": "Whether or not the release is immutable."
               },
               "name": {
                 "type": "string",
@@ -272726,6 +272884,7 @@
             "body": "Description of the release",
             "draft": "false",
             "prerelease": "false",
+            "immutable": "false",
             "created_at": "2013-02-27T19:35:32Z",
             "published_at": "2013-02-27T19:35:32Z",
             "author": {
@@ -272805,6 +272964,7 @@
           "body": "Description of the release",
           "draft": "false",
           "prerelease": "false",
+          "immutable": "false",
           "created_at": "2013-02-27T19:35:32Z",
           "published_at": "2013-02-27T19:35:32Z",
           "author": {

@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see &quot;[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).&quot;</summary>
+        /// <summary>Use the `status` property to enable or disable GitHub Advanced Security for this repository.For more information, see &quot;[About GitHub AdvancedSecurity](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).&quot;For standalone Code Scanning or Secret Protection products, this parameter cannot be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_advanced_security? AdvancedSecurity { get; set; }

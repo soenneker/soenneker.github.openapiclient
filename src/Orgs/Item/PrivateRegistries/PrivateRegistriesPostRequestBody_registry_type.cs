@@ -19,5 +19,33 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         #pragma warning disable CS1591
         Goproxy_server,
         #pragma warning restore CS1591
+        [EnumMember(Value = "npm_registry")]
+        #pragma warning disable CS1591
+        Npm_registry,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "rubygems_server")]
+        #pragma warning disable CS1591
+        Rubygems_server,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cargo_registry")]
+        #pragma warning disable CS1591
+        Cargo_registry,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "composer_repository")]
+        #pragma warning disable CS1591
+        Composer_repository,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "docker_registry")]
+        #pragma warning disable CS1591
+        Docker_registry,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "git_source")]
+        #pragma warning disable CS1591
+        Git_source,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "helm_registry")]
+        #pragma warning disable CS1591
+        Helm_registry,
+        #pragma warning restore CS1591
     }
 }

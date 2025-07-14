@@ -15,6 +15,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether the user has direct membership in the organization.</summary>
+        public bool? DirectMembership { get; set; }
+        /// <summary>The slugs of the enterprise teams providing the user with indirect membership in the organization.A limit of 100 enterprise team slugs is returned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? EnterpriseTeamsProvidingIndirectMembership { get; set; }
+#nullable restore
+#else
+        public List<string> EnterpriseTeamsProvidingIndirectMembership { get; set; }
+#endif
         /// <summary>A GitHub organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +94,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "direct_membership", n => { DirectMembership = n.GetBoolValue(); } },
+                { "enterprise_teams_providing_indirect_membership", n => { EnterpriseTeamsProvidingIndirectMembership = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple.CreateFromDiscriminatorValue); } },
                 { "organization_url", n => { OrganizationUrl = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_permissions.CreateFromDiscriminatorValue); } },
@@ -100,6 +112,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("direct_membership", DirectMembership);
+            writer.WriteCollectionOfPrimitiveValues<string>("enterprise_teams_providing_indirect_membership", EnterpriseTeamsProvidingIndirectMembership);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>("organization", Organization);
             writer.WriteStringValue("organization_url", OrganizationUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_permissions>("permissions", Permissions);

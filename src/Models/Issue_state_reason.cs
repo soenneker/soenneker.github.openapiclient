@@ -19,5 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         Not_planned,
         #pragma warning restore CS1591
+        [EnumMember(Value = "duplicate")]
+        #pragma warning disable CS1591
+        Duplicate,
+        #pragma warning restore CS1591
     }
 }

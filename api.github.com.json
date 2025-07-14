@@ -2246,7 +2246,7 @@
                   },
                   "advanced_security": {
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.",
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n",
                     "enum": [
                       "enabled",
                       "disabled",
@@ -2254,6 +2254,15 @@
                       "secret_protection"
                     ],
                     "default": "disabled"
+                  },
+                  "code_security": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
                   },
                   "dependency_graph": {
                     "type": "string",
@@ -2328,6 +2337,15 @@
                       "not_set"
                     ],
                     "default": "disabled"
+                  },
+                  "secret_protection": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
                   },
                   "secret_scanning": {
                     "type": "string",
@@ -2597,12 +2615,21 @@
                   },
                   "advanced_security": {
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.",
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n",
                     "enum": [
                       "enabled",
                       "disabled",
                       "code_security",
                       "secret_protection"
+                    ]
+                  },
+                  "code_security": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
                     ]
                   },
                   "dependency_graph": {
@@ -2672,6 +2699,15 @@
                       "not_set"
                     ],
                     "default": "disabled"
+                  },
+                  "secret_protection": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
                   },
                   "secret_scanning": {
                     "type": "string",
@@ -12058,7 +12094,7 @@
                   },
                   "advanced_security": {
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.",
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n",
                     "enum": [
                       "enabled",
                       "disabled",
@@ -12066,6 +12102,15 @@
                       "secret_protection"
                     ],
                     "default": "disabled"
+                  },
+                  "code_security": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
                   },
                   "dependency_graph": {
                     "type": "string",
@@ -12140,6 +12185,15 @@
                       "not_set"
                     ],
                     "default": "not_set"
+                  },
+                  "secret_protection": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
                   },
                   "secret_scanning": {
                     "type": "string",
@@ -12525,12 +12579,21 @@
                   },
                   "advanced_security": {
                     "type": "string",
-                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.",
+                    "description": "The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.\n\n> [!WARNING]\n> `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.\n",
                     "enum": [
                       "enabled",
                       "disabled",
                       "code_security",
                       "secret_protection"
+                    ]
+                  },
+                  "code_security": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Code Security features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
                     ]
                   },
                   "dependency_graph": {
@@ -12600,6 +12663,15 @@
                       "not_set"
                     ],
                     "default": "disabled"
+                  },
+                  "secret_protection": {
+                    "type": "string",
+                    "description": "The enablement status of GitHub Secret Protection features.",
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ]
                   },
                   "secret_scanning": {
                     "type": "string",
@@ -20347,7 +20419,14 @@
                     "enum": [
                       "maven_repository",
                       "nuget_feed",
-                      "goproxy_server"
+                      "goproxy_server",
+                      "npm_registry",
+                      "rubygems_server",
+                      "cargo_registry",
+                      "composer_repository",
+                      "docker_registry",
+                      "git_source",
+                      "helm_registry"
                     ]
                   },
                   "url": {
@@ -20604,7 +20683,14 @@
                     "enum": [
                       "maven_repository",
                       "nuget_feed",
-                      "goproxy_server"
+                      "goproxy_server",
+                      "npm_registry",
+                      "rubygems_server",
+                      "cargo_registry",
+                      "composer_repository",
+                      "docker_registry",
+                      "git_source",
+                      "helm_registry"
                     ]
                   },
                   "url": {
@@ -27499,7 +27585,7 @@
                     "properties": {
                       "advanced_security": {
                         "type": "object",
-                        "description": "Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see \"[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"",
+                        "description": "Use the `status` property to enable or disable GitHub Advanced Security for this repository.\nFor more information, see \"[About GitHub Advanced\nSecurity](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.",
                         "properties": {
                           "status": {
                             "type": "string",
@@ -48551,6 +48637,7 @@
                     "enum": [
                       "completed",
                       "not_planned",
+                      "duplicate",
                       "reopened"
                     ],
                     "nullable": true,
@@ -101186,7 +101273,8 @@
             "enum": [
               "completed",
               "reopened",
-              "not_planned"
+              "not_planned",
+              "duplicate"
             ]
           },
           "title": {
@@ -102977,6 +103065,7 @@
         "type": "object",
         "properties": {
           "advanced_security": {
+            "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n",
             "type": "object",
             "properties": {
               "status": {
@@ -107849,6 +107938,23 @@
               "billing_manager"
             ]
           },
+          "direct_membership": {
+            "type": "boolean",
+            "description": "Whether the user has direct membership in the organization.",
+            "example": true
+          },
+          "enterprise_teams_providing_indirect_membership": {
+            "type": "array",
+            "description": "The slugs of the enterprise teams providing the user with indirect membership in the organization.\nA limit of 100 enterprise team slugs is returned.",
+            "maxItems": 100,
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "ent:team-one",
+              "ent:team-two"
+            ]
+          },
           "organization_url": {
             "type": "string",
             "format": "uri",
@@ -108687,7 +108793,14 @@
             "enum": [
               "maven_repository",
               "nuget_feed",
-              "goproxy_server"
+              "goproxy_server",
+              "npm_registry",
+              "rubygems_server",
+              "cargo_registry",
+              "composer_repository",
+              "docker_registry",
+              "git_source",
+              "helm_registry"
             ],
             "type": "string"
           },
@@ -108738,7 +108851,14 @@
             "enum": [
               "maven_repository",
               "nuget_feed",
-              "goproxy_server"
+              "goproxy_server",
+              "npm_registry",
+              "rubygems_server",
+              "cargo_registry",
+              "composer_repository",
+              "docker_registry",
+              "git_source",
+              "helm_registry"
             ],
             "type": "string"
           },
@@ -122226,7 +122346,8 @@
             "enum": [
               "completed",
               "reopened",
-              "not_planned"
+              "not_planned",
+              "duplicate"
             ]
           },
           "title": {
@@ -126231,6 +126352,11 @@
           },
           "prerelease": {
             "description": "Whether to identify the release as a prerelease or a full release.",
+            "example": false,
+            "type": "boolean"
+          },
+          "immutable": {
+            "description": "Whether or not the release is immutable.",
             "example": false,
             "type": "boolean"
           },
@@ -137284,6 +137410,23 @@
           "role": {
             "type": "string"
           },
+          "direct_membership": {
+            "type": "boolean",
+            "description": "Whether the user has direct membership in the organization.",
+            "example": true
+          },
+          "enterprise_teams_providing_indirect_membership": {
+            "type": "array",
+            "description": "The slugs of the enterprise teams providing the user with indirect membership in the organization.\nA limit of 100 enterprise team slugs is returned.",
+            "maxItems": 100,
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "ent:team-one",
+              "ent:team-two"
+            ]
+          },
           "state": {
             "type": "string"
           },
@@ -142079,6 +142222,10 @@
           "id": {
             "type": "integer"
           },
+          "immutable": {
+            "description": "Whether or not the release is immutable.",
+            "type": "boolean"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -142184,6 +142331,7 @@
           "draft",
           "author",
           "prerelease",
+          "immutable",
           "created_at",
           "published_at",
           "assets",
@@ -142208,6 +142356,7 @@
           "name",
           "node_id",
           "prerelease",
+          "immutable",
           "published_at",
           "tag_name",
           "tarball_url",
@@ -142507,6 +142656,10 @@
           },
           "id": {
             "type": "integer"
+          },
+          "immutable": {
+            "description": "Whether or not the release is immutable.",
+            "type": "boolean"
           },
           "name": {
             "type": "string",
@@ -257545,6 +257698,7 @@
               "draft",
               "html_url",
               "id",
+              "immutable",
               "name",
               "node_id",
               "prerelease",
@@ -257847,6 +258001,10 @@
               },
               "id": {
                 "type": "integer"
+              },
+              "immutable": {
+                "description": "Whether or not the release is immutable.",
+                "type": "boolean"
               },
               "name": {
                 "type": "string",
@@ -293746,6 +293904,7 @@
             "body": "Description of the release",
             "draft": false,
             "prerelease": false,
+            "immutable": false,
             "created_at": "2013-02-27T19:35:32Z",
             "published_at": "2013-02-27T19:35:32Z",
             "author": {
@@ -293825,6 +293984,7 @@
           "body": "Description of the release",
           "draft": false,
           "prerelease": false,
+          "immutable": false,
           "created_at": "2013-02-27T19:35:32Z",
           "published_at": "2013-02-27T19:35:32Z",
           "author": {

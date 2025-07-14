@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
 {
     /// <summary>
-    /// Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see &quot;[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).&quot;
+    /// Use the `status` property to enable or disable GitHub Advanced Security for this repository.For more information, see &quot;[About GitHub AdvancedSecurity](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).&quot;For standalone Code Scanning or Secret Protection products, this parameter cannot be used.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepoPatchRequestBody_security_and_analysis_advanced_security : IAdditionalDataHolder, IParsable

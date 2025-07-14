@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
 {
-    /// <summary>The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.</summary>
+    /// <summary>The enablement status of GitHub Advanced Security features. `enabled` will enable both Code Security and Secret Protection features.&gt; [!WARNING]&gt; `code_security` and `secret_protection` are deprecated values for this field. Prefer the individual `code_security` and `secret_protection` fields to set the status of these features.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ConfigurationsPostRequestBody_advanced_security
     {

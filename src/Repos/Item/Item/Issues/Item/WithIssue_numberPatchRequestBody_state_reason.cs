@@ -15,6 +15,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
         #pragma warning disable CS1591
         Not_planned,
         #pragma warning restore CS1591
+        [EnumMember(Value = "duplicate")]
+        #pragma warning disable CS1591
+        Duplicate,
+        #pragma warning restore CS1591
         [EnumMember(Value = "reopened")]
         #pragma warning disable CS1591
         Reopened,

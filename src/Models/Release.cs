@@ -85,6 +85,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public long? Id { get; set; }
+        /// <summary>Whether or not the release is immutable.</summary>
+        public bool? Immutable { get; set; }
         /// <summary>The mentions_count property</summary>
         public int? MentionsCount { get; set; }
         /// <summary>The name property</summary>
@@ -199,6 +201,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "draft", n => { Draft = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
+                { "immutable", n => { Immutable = n.GetBoolValue(); } },
                 { "mentions_count", n => { MentionsCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -231,6 +234,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("draft", Draft);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
+            writer.WriteBoolValue("immutable", Immutable);
             writer.WriteIntValue("mentions_count", MentionsCount);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
