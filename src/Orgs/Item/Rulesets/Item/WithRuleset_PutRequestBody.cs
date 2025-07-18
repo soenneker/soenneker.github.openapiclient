@@ -44,10 +44,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item
         /// <summary>An array of rules within the ruleset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>? Rules { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgRules>? Rules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule> Rules { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgRules> Rules { get; set; }
 #endif
         /// <summary>The target of the ruleset</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRuleset_PutRequestBody_target? Target { get; set; }
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item
                 { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions>(global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions.CreateFromDiscriminatorValue); } },
                 { "enforcement", n => { Enforcement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrgRules>(global::Soenneker.GitHub.OpenApiClient.Models.OrgRules.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "target", n => { Target = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRuleset_PutRequestBody_target>(); } },
             };
         }
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions>("conditions", Conditions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>("enforcement", Enforcement);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>("rules", Rules);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrgRules>("rules", Rules);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRuleset_PutRequestBody_target>("target", Target);
             writer.WriteAdditionalData(AdditionalData);
         }

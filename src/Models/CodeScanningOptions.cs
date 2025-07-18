@@ -8,31 +8,31 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Feature options for code scanning
+    /// Security Configuration feature options for code scanning
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CodeSecurityConfiguration_code_scanning_options : IAdditionalDataHolder, IParsable
+    public partial class CodeScanningOptions : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to allow repos which use advanced setup</summary>
         public bool? AllowAdvanced { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions"/> and sets the default values.
         /// </summary>
-        public CodeSecurityConfiguration_code_scanning_options()
+        public CodeScanningOptions()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions();
         }
         /// <summary>
         /// The deserialization information for the current model

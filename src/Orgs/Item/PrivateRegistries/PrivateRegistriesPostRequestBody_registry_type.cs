@@ -47,5 +47,25 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         #pragma warning disable CS1591
         Helm_registry,
         #pragma warning restore CS1591
+        [EnumMember(Value = "hex_organization")]
+        #pragma warning disable CS1591
+        Hex_organization,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hex_repository")]
+        #pragma warning disable CS1591
+        Hex_repository,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "pub_repository")]
+        #pragma warning disable CS1591
+        Pub_repository,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "python_index")]
+        #pragma warning disable CS1591
+        Python_index,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "terraform_registry")]
+        #pragma warning disable CS1591
+        Terraform_registry,
+        #pragma warning restore CS1591
     }
 }

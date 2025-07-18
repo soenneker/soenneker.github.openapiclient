@@ -27,6 +27,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
 #endif
         /// <summary>The enablement status of code scanning delegated alert dismissal</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_scanning_delegated_alert_dismissal? CodeScanningDelegatedAlertDismissal { get; set; }
+        /// <summary>Security Configuration feature options for code scanning</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions? CodeScanningOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions CodeScanningOptions { get; set; }
+#endif
         /// <summary>The enablement status of GitHub Code Security features.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_security? CodeSecurity { get; set; }
         /// <summary>The enablement status of Dependabot alerts</summary>
@@ -132,6 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
                 { "code_scanning_default_setup", n => { CodeScanningDefaultSetup = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_scanning_default_setup>(); } },
                 { "code_scanning_default_setup_options", n => { CodeScanningDefaultSetupOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions.CreateFromDiscriminatorValue); } },
                 { "code_scanning_delegated_alert_dismissal", n => { CodeScanningDelegatedAlertDismissal = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_scanning_delegated_alert_dismissal>(); } },
+                { "code_scanning_options", n => { CodeScanningOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions.CreateFromDiscriminatorValue); } },
                 { "code_security", n => { CodeSecurity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_security>(); } },
                 { "dependabot_alerts", n => { DependabotAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_dependabot_alerts>(); } },
                 { "dependabot_security_updates", n => { DependabotSecurityUpdates = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_dependabot_security_updates>(); } },
@@ -164,6 +173,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_scanning_default_setup>("code_scanning_default_setup", CodeScanningDefaultSetup);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions>("code_scanning_default_setup_options", CodeScanningDefaultSetupOptions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_scanning_delegated_alert_dismissal>("code_scanning_delegated_alert_dismissal", CodeScanningDelegatedAlertDismissal);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions>("code_scanning_options", CodeScanningOptions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_code_security>("code_security", CodeSecurity);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_dependabot_alerts>("dependabot_alerts", DependabotAlerts);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_dependabot_security_updates>("dependabot_security_updates", DependabotSecurityUpdates);

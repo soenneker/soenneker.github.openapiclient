@@ -2132,6 +2132,9 @@
                     "description": "The enablement status of Dependabot security updates",
                     "default": "disabled"
                   },
+                  "code_scanning_options": {
+                    "$ref": "#/components/schemas/code-scanning-options"
+                  },
                   "code_scanning_default_setup": {
                     "enum": [
                       "enabled",
@@ -11943,6 +11946,9 @@
                     "description": "The enablement status of Dependabot security updates",
                     "default": "disabled"
                   },
+                  "code_scanning_options": {
+                    "$ref": "#/components/schemas/code-scanning-options"
+                  },
                   "code_scanning_default_setup": {
                     "enum": [
                       "enabled",
@@ -20196,7 +20202,12 @@
                       "composer_repository",
                       "docker_registry",
                       "git_source",
-                      "helm_registry"
+                      "helm_registry",
+                      "hex_organization",
+                      "hex_repository",
+                      "pub_repository",
+                      "python_index",
+                      "terraform_registry"
                     ],
                     "type": "string",
                     "description": "The registry type."
@@ -20453,7 +20464,12 @@
                       "composer_repository",
                       "docker_registry",
                       "git_source",
-                      "helm_registry"
+                      "helm_registry",
+                      "hex_organization",
+                      "hex_repository",
+                      "pub_repository",
+                      "python_index",
+                      "terraform_registry"
                     ],
                     "type": "string",
                     "description": "The registry type."
@@ -21781,7 +21797,7 @@
                   "rules": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/repository-rule"
+                      "$ref": "#/components/schemas/org-rules"
                     },
                     "description": "An array of rules within the ruleset."
                   }
@@ -22108,7 +22124,7 @@
                   "rules": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/repository-rule"
+                      "$ref": "#/components/schemas/org-rules"
                     },
                     "description": "An array of rules within the ruleset."
                   }
@@ -49779,7 +49795,7 @@
           "issues"
         ],
         "summary": "List sub-issues",
-        "description": "You can use the REST API to list the sub-issues on an issue.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.raw+json`**: Returns the raw markdown body. Response will include `body`. This is the default if you do not pass any specific media type.\n- **`application/vnd.github.text+json`**: Returns a text only representation of the markdown body. Response will include `body_text`.\n- **`application/vnd.github.html+json`**: Returns HTML rendered from the body's markdown. Response will include `body_html`.\n- **`application/vnd.github.full+json`**: Returns raw, text, and HTML representations. Response will include `body`, `body_text`, and `body_html`.",
+        "description": "You can use the REST API to list the sub-issues on an issue.\n\nThis endpoint supports the following custom media types. For more information, see [Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\n\n- **`application/vnd.github.raw+json`**: Returns the raw Markdown body. Response will include `body`. This is the default if you do not pass any specific media type.\n- **`application/vnd.github.text+json`**: Returns a text only representation of the Markdown body. Response will include `body_text`.\n- **`application/vnd.github.html+json`**: Returns HTML rendered from the body's Markdown. Response will include `body_html`.\n- **`application/vnd.github.full+json`**: Returns raw, text, and HTML representations. Response will include `body`, `body_text`, and `body_html`.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/sub-issues#list-sub-issues"
@@ -75224,6 +75240,13 @@
           },
           "code_scanning_options": {
             "type": "object",
+            "properties": {
+              "allow_advanced": {
+                "type": "boolean",
+                "description": "Whether to allow repos which use advanced setup",
+                "nullable": true
+              }
+            },
             "description": "Feature options for code scanning",
             "nullable": true
           },
@@ -75399,6 +75422,18 @@
           }
         },
         "description": "A code security configuration"
+      },
+      "code-scanning-options": {
+        "type": "object",
+        "properties": {
+          "allow_advanced": {
+            "type": "boolean",
+            "description": "Whether to allow repos which use advanced setup",
+            "nullable": true
+          }
+        },
+        "description": "Security Configuration feature options for code scanning",
+        "nullable": true
       },
       "code-scanning-default-setup-options": {
         "type": "object",
@@ -84695,7 +84730,12 @@
               "composer_repository",
               "docker_registry",
               "git_source",
-              "helm_registry"
+              "helm_registry",
+              "hex_organization",
+              "hex_repository",
+              "pub_repository",
+              "python_index",
+              "terraform_registry"
             ],
             "type": "string",
             "description": "The registry type."
@@ -84753,7 +84793,12 @@
               "composer_repository",
               "docker_registry",
               "git_source",
-              "helm_registry"
+              "helm_registry",
+              "hex_organization",
+              "hex_repository",
+              "pub_repository",
+              "python_index",
+              "terraform_registry"
             ],
             "type": "string",
             "description": "The registry type."
@@ -87573,6 +87618,73 @@
           }
         },
         "description": "A set of rules to apply when specified conditions are met."
+      },
+      "org-rules": {
+        "title": "Repository Rule",
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/repository-rule-creation"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-update"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-deletion"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-required-linear-history"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-required-deployments"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-required-signatures"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-pull-request"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-required-status-checks"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-non-fast-forward"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-commit-message-pattern"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-commit-author-email-pattern"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-committer-email-pattern"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-branch-name-pattern"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-tag-name-pattern"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-file-path-restriction"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-max-file-path-length"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-file-extension-restriction"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-max-file-size"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-workflows"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-code-scanning"
+          }
+        ],
+        "description": "A repository rule."
       },
       "rule-suites": {
         "title": "Rule Suites",
@@ -251449,6 +251561,9 @@
                 "runner_type": "not_set",
                 "runner_label": "null"
               },
+              "code_scanning_options": {
+                "allow_advanced": "false"
+              },
               "secret_scanning": "enabled",
               "secret_scanning_push_protection": "enabled",
               "secret_scanning_delegated_bypass": "enabled",
@@ -251491,6 +251606,9 @@
                 "runner_type": "not_set",
                 "runner_label": "null"
               },
+              "code_scanning_options": {
+                "allow_advanced": "false"
+              },
               "secret_scanning": "enabled",
               "secret_scanning_push_protection": "enabled",
               "secret_scanning_delegated_bypass": "disabled",
@@ -251523,6 +251641,9 @@
           "code_scanning_default_setup_options": {
             "runner_type": "not_set",
             "runner_label": "null"
+          },
+          "code_scanning_options": {
+            "allow_advanced": "false"
           },
           "code_scanning_delegated_alert_dismissal": "disabled",
           "secret_scanning": "enabled",
@@ -255759,6 +255880,9 @@
           "code_scanning_default_setup_options": {
             "runner_type": "not_set",
             "runner_label": "null"
+          },
+          "code_scanning_options": {
+            "allow_advanced": "false"
           },
           "code_scanning_delegated_alert_dismissal": "disabled",
           "secret_scanning": "disabled",
