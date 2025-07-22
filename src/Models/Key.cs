@@ -27,6 +27,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string KeyProp { get; set; }
 #endif
+        /// <summary>The last_used property</summary>
+        public DateTimeOffset? LastUsed { get; set; }
         /// <summary>The read_only property</summary>
         public bool? ReadOnly { get; set; }
         /// <summary>The title property</summary>
@@ -75,6 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "key", n => { KeyProp = n.GetStringValue(); } },
+                { "last_used", n => { LastUsed = n.GetDateTimeOffsetValue(); } },
                 { "read_only", n => { ReadOnly = n.GetBoolValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -91,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("key", KeyProp);
+            writer.WriteDateTimeOffsetValue("last_used", LastUsed);
             writer.WriteBoolValue("read_only", ReadOnly);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("url", Url);

@@ -100848,6 +100848,7 @@
           },
           "last_used": {
             "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "enabled": {
@@ -105905,6 +105906,11 @@
           },
           "read_only": {
             "type": "boolean"
+          },
+          "last_used": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "description": "Key"
@@ -106111,6 +106117,11 @@
           "created_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "last_used": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "description": "Key Simple"

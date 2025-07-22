@@ -124849,8 +124849,9 @@
             "nullable": true
           },
           "last_used": {
+            "nullable": true,
             "type": "string",
-            "nullable": true
+            "format": "date-time"
           },
           "enabled": {
             "type": "boolean"
@@ -129893,6 +129894,11 @@
           },
           "read_only": {
             "type": "boolean"
+          },
+          "last_used": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time"
           }
         },
         "required": [
@@ -130099,6 +130105,11 @@
             "type": "string"
           },
           "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "last_used": {
+            "nullable": true,
             "type": "string",
             "format": "date-time"
           }

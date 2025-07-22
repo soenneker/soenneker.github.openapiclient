@@ -44,13 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Key { get; set; }
 #endif
         /// <summary>The last_used property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? LastUsed { get; set; }
-#nullable restore
-#else
-        public string LastUsed { get; set; }
-#endif
+        public DateTimeOffset? LastUsed { get; set; }
         /// <summary>The read_only property</summary>
         public bool? ReadOnly { get; set; }
         /// <summary>The title property</summary>
@@ -101,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
-                { "last_used", n => { LastUsed = n.GetStringValue(); } },
+                { "last_used", n => { LastUsed = n.GetDateTimeOffsetValue(); } },
                 { "read_only", n => { ReadOnly = n.GetBoolValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -120,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("key", Key);
-            writer.WriteStringValue("last_used", LastUsed);
+            writer.WriteDateTimeOffsetValue("last_used", LastUsed);
             writer.WriteBoolValue("read_only", ReadOnly);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("url", Url);

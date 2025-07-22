@@ -27,6 +27,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Key { get; set; }
 #endif
+        /// <summary>The last_used property</summary>
+        public DateTimeOffset? LastUsed { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.KeySimple"/> and sets the default values.
         /// </summary>
@@ -55,6 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
+                { "last_used", n => { LastUsed = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -67,6 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("key", Key);
+            writer.WriteDateTimeOffsetValue("last_used", LastUsed);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
