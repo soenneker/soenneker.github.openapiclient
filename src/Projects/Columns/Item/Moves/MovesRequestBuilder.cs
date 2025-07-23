@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Moves
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/columns#move-a-project-column" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/columns#move-a-project-column" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Moves.MovesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Moves
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/columns#move-a-project-column" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/columns#move-a-project-column" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Moves.MovesResponse"/></returns>
         /// <param name="body">The request body</param>

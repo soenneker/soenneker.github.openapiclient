@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/projects#delete-a-project" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/projects#delete-a-project" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/projects#get-a-project" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/projects#get-a-project" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Project"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/projects#update-a-project" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/projects#update-a-project" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Project"/></returns>
         /// <param name="body">The request body</param>

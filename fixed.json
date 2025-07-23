@@ -11768,7 +11768,7 @@
           "code-security"
         ],
         "summary": "Get code security configurations for an organization",
-        "description": "Lists all code security configurations available in an organization.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.",
+        "description": "Lists all code security configurations available in an organization.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/code-security/configurations#get-code-security-configurations-for-an-organization"
@@ -12152,7 +12152,7 @@
           "code-security"
         ],
         "summary": "Get default code security configurations",
-        "description": "Lists the default code security configurations for an organization.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.",
+        "description": "Lists the default code security configurations for an organization.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/code-security/configurations#get-default-code-security-configurations"
@@ -12843,7 +12843,7 @@
           "code-security"
         ],
         "summary": "Get repositories associated with a code security configuration",
-        "description": "Lists the repositories associated with a code security configuration in an organization.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.",
+        "description": "Lists the repositories associated with a code security configuration in an organization.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/code-security/configurations#get-repositories-associated-with-a-code-security-configuration"
@@ -20583,15 +20583,15 @@
     "/orgs/{org}/projects": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "List organization projects",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#list-organization-projects"
+          "url": "https://docs.github.com/rest/projects-classic/projects#list-organization-projects"
         },
-        "operationId": "projects/list-for-org",
+        "operationId": "projects-classic/list-for-org",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -20649,7 +20649,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -20657,15 +20657,15 @@
       },
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Create an organization project",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#create-an-organization-project"
+          "url": "https://docs.github.com/rest/projects-classic/projects#create-an-organization-project"
         },
-        "operationId": "projects/create-for-org",
+        "operationId": "projects-classic/create-for-org",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -20738,7 +20738,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -25615,15 +25615,15 @@
     "/projects/columns/cards/{card_id}": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Get a project card",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/cards#get-a-project-card"
+          "url": "https://docs.github.com/rest/projects-classic/cards#get-a-project-card"
         },
-        "operationId": "projects/get-card",
+        "operationId": "projects-classic/get-card",
         "parameters": [
           {
             "$ref": "#/components/parameters/card-id"
@@ -25662,7 +25662,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -25670,15 +25670,15 @@
       },
       "patch": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Update an existing project card",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/cards#update-an-existing-project-card"
+          "url": "https://docs.github.com/rest/projects-classic/cards#update-an-existing-project-card"
         },
-        "operationId": "projects/update-card",
+        "operationId": "projects-classic/update-card",
         "parameters": [
           {
             "$ref": "#/components/parameters/card-id"
@@ -25750,7 +25750,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -25758,15 +25758,15 @@
       },
       "delete": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Delete a project card",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/cards#delete-a-project-card"
+          "url": "https://docs.github.com/rest/projects-classic/cards#delete-a-project-card"
         },
-        "operationId": "projects/delete-card",
+        "operationId": "projects-classic/delete-card",
         "parameters": [
           {
             "$ref": "#/components/parameters/card-id"
@@ -25814,7 +25814,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -25824,15 +25824,15 @@
     "/projects/columns/cards/{card_id}/moves": {
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Move a project card",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/cards#move-a-project-card"
+          "url": "https://docs.github.com/rest/projects-classic/cards#move-a-project-card"
         },
-        "operationId": "projects/move-card",
+        "operationId": "projects-classic/move-card",
         "parameters": [
           {
             "$ref": "#/components/parameters/card-id"
@@ -25978,7 +25978,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -25988,15 +25988,15 @@
     "/projects/columns/{column_id}": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Get a project column",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/columns#get-a-project-column"
+          "url": "https://docs.github.com/rest/projects-classic/columns#get-a-project-column"
         },
-        "operationId": "projects/get-column",
+        "operationId": "projects-classic/get-column",
         "parameters": [
           {
             "$ref": "#/components/parameters/column-id"
@@ -26035,7 +26035,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26043,15 +26043,15 @@
       },
       "patch": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Update an existing project column",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/columns#update-an-existing-project-column"
+          "url": "https://docs.github.com/rest/projects-classic/columns#update-an-existing-project-column"
         },
-        "operationId": "projects/update-column",
+        "operationId": "projects-classic/update-column",
         "parameters": [
           {
             "$ref": "#/components/parameters/column-id"
@@ -26115,7 +26115,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26123,15 +26123,15 @@
       },
       "delete": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Delete a project column",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/columns#delete-a-project-column"
+          "url": "https://docs.github.com/rest/projects-classic/columns#delete-a-project-column"
         },
-        "operationId": "projects/delete-column",
+        "operationId": "projects-classic/delete-column",
         "parameters": [
           {
             "$ref": "#/components/parameters/column-id"
@@ -26155,7 +26155,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26165,15 +26165,15 @@
     "/projects/columns/{column_id}/cards": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "List project cards",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/cards#list-project-cards"
+          "url": "https://docs.github.com/rest/projects-classic/cards#list-project-cards"
         },
-        "operationId": "projects/list-cards",
+        "operationId": "projects-classic/list-cards",
         "parameters": [
           {
             "$ref": "#/components/parameters/column-id"
@@ -26237,7 +26237,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26245,15 +26245,15 @@
       },
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Create a project card",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/cards#create-a-project-card"
+          "url": "https://docs.github.com/rest/projects-classic/cards#create-a-project-card"
         },
-        "operationId": "projects/create-card",
+        "operationId": "projects-classic/create-card",
         "parameters": [
           {
             "$ref": "#/components/parameters/column-id"
@@ -26394,7 +26394,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26404,15 +26404,15 @@
     "/projects/columns/{column_id}/moves": {
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Move a project column",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/columns#move-a-project-column"
+          "url": "https://docs.github.com/rest/projects-classic/columns#move-a-project-column"
         },
-        "operationId": "projects/move-column",
+        "operationId": "projects-classic/move-column",
         "parameters": [
           {
             "$ref": "#/components/parameters/column-id"
@@ -26481,7 +26481,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26491,15 +26491,15 @@
     "/projects/{project_id}": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Get a project",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#get-a-project"
+          "url": "https://docs.github.com/rest/projects-classic/projects#get-a-project"
         },
-        "operationId": "projects/get",
+        "operationId": "projects-classic/get",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -26535,7 +26535,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26543,15 +26543,15 @@
       },
       "patch": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Update a project",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#update-a-project"
+          "url": "https://docs.github.com/rest/projects-classic/projects#update-a-project"
         },
-        "operationId": "projects/update",
+        "operationId": "projects-classic/update",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -26668,7 +26668,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26676,15 +26676,15 @@
       },
       "delete": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Delete a project",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#delete-a-project"
+          "url": "https://docs.github.com/rest/projects-classic/projects#delete-a-project"
         },
-        "operationId": "projects/delete",
+        "operationId": "projects-classic/delete",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -26735,7 +26735,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26745,15 +26745,15 @@
     "/projects/{project_id}/collaborators": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "List project collaborators",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/collaborators#list-project-collaborators"
+          "url": "https://docs.github.com/rest/projects-classic/collaborators#list-project-collaborators"
         },
-        "operationId": "projects/list-collaborators",
+        "operationId": "projects-classic/list-collaborators",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -26823,7 +26823,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "collaborators",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26833,15 +26833,15 @@
     "/projects/{project_id}/collaborators/{username}": {
       "put": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Add project collaborator",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/collaborators#add-project-collaborator"
+          "url": "https://docs.github.com/rest/projects-classic/collaborators#add-project-collaborator"
         },
-        "operationId": "projects/add-collaborator",
+        "operationId": "projects-classic/add-collaborator",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -26905,7 +26905,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "collaborators",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26913,15 +26913,15 @@
       },
       "delete": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Remove user as a collaborator",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/collaborators#remove-user-as-a-collaborator"
+          "url": "https://docs.github.com/rest/projects-classic/collaborators#remove-user-as-a-collaborator"
         },
-        "operationId": "projects/remove-collaborator",
+        "operationId": "projects-classic/remove-collaborator",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -26954,7 +26954,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "collaborators",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -26964,15 +26964,15 @@
     "/projects/{project_id}/collaborators/{username}/permission": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Get project permission for a user",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/collaborators#get-project-permission-for-a-user"
+          "url": "https://docs.github.com/rest/projects-classic/collaborators#get-project-permission-for-a-user"
         },
-        "operationId": "projects/get-permission-for-user",
+        "operationId": "projects-classic/get-permission-for-user",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -27017,7 +27017,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "collaborators",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -27027,15 +27027,15 @@
     "/projects/{project_id}/columns": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "List project columns",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/columns#list-project-columns"
+          "url": "https://docs.github.com/rest/projects-classic/columns#list-project-columns"
         },
-        "operationId": "projects/list-columns",
+        "operationId": "projects-classic/list-columns",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -27085,7 +27085,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -27093,15 +27093,15 @@
       },
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Create a project column",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/columns#create-a-project-column"
+          "url": "https://docs.github.com/rest/projects-classic/columns#create-a-project-column"
         },
-        "operationId": "projects/create-column",
+        "operationId": "projects-classic/create-column",
         "parameters": [
           {
             "$ref": "#/components/parameters/project-id"
@@ -27176,7 +27176,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -52491,15 +52491,15 @@
     "/repos/{owner}/{repo}/projects": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "List repository projects",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#list-repository-projects"
+          "url": "https://docs.github.com/rest/projects-classic/projects#list-repository-projects"
         },
-        "operationId": "projects/list-for-repo",
+        "operationId": "projects-classic/list-for-repo",
         "parameters": [
           {
             "$ref": "#/components/parameters/owner"
@@ -52572,7 +52572,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -52580,15 +52580,15 @@
       },
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Create a repository project",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#create-a-repository-project"
+          "url": "https://docs.github.com/rest/projects-classic/projects#create-a-repository-project"
         },
-        "operationId": "projects/create-for-repo",
+        "operationId": "projects-classic/create-for-repo",
         "parameters": [
           {
             "$ref": "#/components/parameters/owner"
@@ -52664,7 +52664,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -67717,15 +67717,15 @@
     "/user/projects": {
       "post": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "Create a user project",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#create-a-user-project"
+          "url": "https://docs.github.com/rest/projects-classic/projects#create-a-user-project"
         },
-        "operationId": "projects/create-for-authenticated-user",
+        "operationId": "projects-classic/create-for-authenticated-user",
         "requestBody": {
           "content": {
             "application/json": {
@@ -67794,7 +67794,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -70974,15 +70974,15 @@
     "/users/{username}/projects": {
       "get": {
         "tags": [
-          "projects"
+          "projects-classic"
         ],
         "summary": "List user projects",
         "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#list-user-projects"
+          "url": "https://docs.github.com/rest/projects-classic/projects#list-user-projects"
         },
-        "operationId": "projects/list-for-user",
+        "operationId": "projects-classic/list-for-user",
         "parameters": [
           {
             "$ref": "#/components/parameters/username"
@@ -71040,7 +71040,7 @@
         "x-github": {
           "githubCloudOnly": false,
           "enabledForGitHubApps": false,
-          "category": "projects",
+          "category": "projects-classic",
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
@@ -280427,8 +280427,8 @@
       "description": "Manage packages for authenticated users and organizations."
     },
     {
-      "name": "projects",
-      "description": "Interact with GitHub Projects."
+      "name": "projects-classic",
+      "description": "Interact with GitHub Projects (classic)."
     },
     {
       "name": "pulls",

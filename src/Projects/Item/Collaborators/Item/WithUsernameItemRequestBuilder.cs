@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/collaborators#remove-user-as-a-collaborator" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/collaborators#remove-user-as-a-collaborator" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/collaborators#add-project-collaborator" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/collaborators#add-project-collaborator" />
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

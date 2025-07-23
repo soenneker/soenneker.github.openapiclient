@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.Item.Permis
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/collaborators#get-project-permission-for-a-user" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/collaborators#get-project-permission-for-a-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectCollaboratorPermission"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

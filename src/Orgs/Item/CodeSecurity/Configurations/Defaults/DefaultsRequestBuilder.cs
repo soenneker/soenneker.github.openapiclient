@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.D
         {
         }
         /// <summary>
-        /// Lists the default code security configurations for an organization.The authenticated user must be an administrator or security manager for the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Lists the default code security configurations for an organization.The authenticated user must be an administrator or security manager for the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/code-security/configurations#get-default-code-security-configurations" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurations&gt;</returns>
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.D
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Lists the default code security configurations for an organization.The authenticated user must be an administrator or security manager for the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Lists the default code security configurations for an organization.The authenticated user must be an administrator or security manager for the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/projects#list-organization-projects" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/projects#list-organization-projects" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Project&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/projects#create-an-organization-project" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/projects#create-an-organization-project" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Project"/></returns>
         /// <param name="body">The request body</param>

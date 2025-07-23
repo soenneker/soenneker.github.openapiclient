@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/cards#delete-a-project-card" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/cards#delete-a-project-card" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/cards#get-a-project-card" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/cards#get-a-project-card" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectCard"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.Item
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.&gt; See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.
-        /// API method documentation <see href="https://docs.github.com/rest/projects/cards#update-an-existing-project-card" />
+        /// API method documentation <see href="https://docs.github.com/rest/projects-classic/cards#update-an-existing-project-card" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectCard"/></returns>
         /// <param name="body">The request body</param>
