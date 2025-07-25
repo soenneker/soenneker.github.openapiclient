@@ -128168,24 +128168,7 @@
             }
           },
           "sub_issues_summary": {
-            "title": "Sub-issues Summary",
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "completed": {
-                "type": "integer"
-              },
-              "percent_completed": {
-                "type": "integer"
-              }
-            },
-            "required": [
-              "total",
-              "completed",
-              "percent_completed"
-            ]
+            "$ref": "#/components/schemas/sub-issues-summary"
           },
           "state": {
             "type": "string"
@@ -134340,24 +134323,7 @@
             "format": "uri"
           },
           "sub_issues_summary": {
-            "title": "Sub-issues Summary",
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "completed": {
-                "type": "integer"
-              },
-              "percent_completed": {
-                "type": "integer"
-              }
-            },
-            "required": [
-              "total",
-              "completed",
-              "percent_completed"
-            ]
+            "$ref": "#/components/schemas/sub-issues-summary"
           },
           "state": {
             "description": "State of the issue; either 'open' or 'closed'",
@@ -135734,24 +135700,7 @@
             "format": "uri"
           },
           "sub_issues_summary": {
-            "title": "Sub-issues Summary",
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "completed": {
-                "type": "integer"
-              },
-              "percent_completed": {
-                "type": "integer"
-              }
-            },
-            "required": [
-              "total",
-              "completed",
-              "percent_completed"
-            ]
+            "$ref": "#/components/schemas/sub-issues-summary"
           },
           "state": {
             "description": "State of the issue; either 'open' or 'closed'",
@@ -159868,24 +159817,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ]
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -161453,24 +161385,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ]
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -163047,24 +162962,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ]
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -164675,24 +164573,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ]
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -166122,24 +166003,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -167387,24 +167251,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -168645,24 +168492,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -169896,24 +169726,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -171173,24 +170986,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -172414,24 +172210,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -173636,24 +173415,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ]
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -175449,24 +175211,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -176753,24 +176498,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -177971,24 +177699,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ]
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -179984,24 +179695,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ]
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",

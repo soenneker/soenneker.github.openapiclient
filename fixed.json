@@ -104187,24 +104187,7 @@
             }
           },
           "sub_issues_summary": {
-            "title": "Sub-issues Summary",
-            "required": [
-              "total",
-              "completed",
-              "percent_completed"
-            ],
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "completed": {
-                "type": "integer"
-              },
-              "percent_completed": {
-                "type": "integer"
-              }
-            }
+            "$ref": "#/components/schemas/sub-issues-summary"
           },
           "state": {
             "type": "string"
@@ -110401,24 +110384,7 @@
             "format": "uri"
           },
           "sub_issues_summary": {
-            "title": "Sub-issues Summary",
-            "required": [
-              "total",
-              "completed",
-              "percent_completed"
-            ],
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "completed": {
-                "type": "integer"
-              },
-              "percent_completed": {
-                "type": "integer"
-              }
-            }
+            "$ref": "#/components/schemas/sub-issues-summary"
           },
           "state": {
             "enum": [
@@ -111804,24 +111770,7 @@
             "format": "uri"
           },
           "sub_issues_summary": {
-            "title": "Sub-issues Summary",
-            "required": [
-              "total",
-              "completed",
-              "percent_completed"
-            ],
-            "type": "object",
-            "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "completed": {
-                "type": "integer"
-              },
-              "percent_completed": {
-                "type": "integer"
-              }
-            }
+            "$ref": "#/components/schemas/sub-issues-summary"
           },
           "state": {
             "enum": [
@@ -136114,24 +136063,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    }
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "enum": [
@@ -137709,24 +137641,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    }
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "enum": [
@@ -139314,24 +139229,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    }
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "enum": [
@@ -140950,24 +140848,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    }
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "enum": [
@@ -142406,24 +142287,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -143655,24 +143519,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -144944,24 +144791,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -146201,24 +146031,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -147462,24 +147275,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -148711,24 +148507,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -149946,24 +149725,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    }
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "enum": [
@@ -151782,24 +151544,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -153070,24 +152815,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [
@@ -154323,24 +154051,7 @@
                     "format": "uri"
                   },
                   "sub_issues_summary": {
-                    "title": "Sub-issues Summary",
-                    "required": [
-                      "total",
-                      "completed",
-                      "percent_completed"
-                    ],
-                    "type": "object",
-                    "properties": {
-                      "total": {
-                        "type": "integer"
-                      },
-                      "completed": {
-                        "type": "integer"
-                      },
-                      "percent_completed": {
-                        "type": "integer"
-                      }
-                    }
+                    "$ref": "#/components/schemas/sub-issues-summary"
                   },
                   "state": {
                     "enum": [
@@ -156315,24 +156026,7 @@
                 "format": "uri"
               },
               "sub_issues_summary": {
-                "title": "Sub-issues Summary",
-                "required": [
-                  "total",
-                  "completed",
-                  "percent_completed"
-                ],
-                "type": "object",
-                "properties": {
-                  "total": {
-                    "type": "integer"
-                  },
-                  "completed": {
-                    "type": "integer"
-                  },
-                  "percent_completed": {
-                    "type": "integer"
-                  }
-                }
+                "$ref": "#/components/schemas/sub-issues-summary"
               },
               "state": {
                 "enum": [

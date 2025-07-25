@@ -196,10 +196,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The sub_issues_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_sub_issues_summary? SubIssuesSummary { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary? SubIssuesSummary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_sub_issues_summary SubIssuesSummary { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary SubIssuesSummary { get; set; }
 #endif
         /// <summary>The text_matches property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -305,7 +305,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "score", n => { Score = n.GetDoubleValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "state_reason", n => { StateReason = n.GetStringValue(); } },
-                { "sub_issues_summary", n => { SubIssuesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_sub_issues_summary>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_sub_issues_summary.CreateFromDiscriminatorValue); } },
+                { "sub_issues_summary", n => { SubIssuesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>(global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary.CreateFromDiscriminatorValue); } },
                 { "text_matches", n => { TextMatches = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Issues>(global::Soenneker.GitHub.OpenApiClient.Models.Issues.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timeline_url", n => { TimelineUrl = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -351,7 +351,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDoubleValue("score", Score);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("state_reason", StateReason);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_sub_issues_summary>("sub_issues_summary", SubIssuesSummary);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>("sub_issues_summary", SubIssuesSummary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Issues>("text_matches", TextMatches);
             writer.WriteStringValue("timeline_url", TimelineUrl);
             writer.WriteStringValue("title", Title);
