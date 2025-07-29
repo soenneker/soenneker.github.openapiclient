@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequest_parameters_allowed_merge_methods?> AllowedMergeMethods { get; set; }
 #endif
-        /// <summary>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</summary>
+        /// <summary>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</summary>
         public bool? AutomaticCopilotCodeReviewEnabled { get; set; }
         /// <summary>New, reviewable commits pushed will dismiss previous pull request review approvals.</summary>
         public bool? DismissStaleReviewsOnPush { get; set; }

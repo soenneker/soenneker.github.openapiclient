@@ -86823,7 +86823,7 @@
               },
               "automatic_copilot_code_review_enabled": {
                 "type": "boolean",
-                "description": "Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review."
+                "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review."
               },
               "dismiss_stale_reviews_on_push": {
                 "type": "boolean",
@@ -139697,6 +139697,214 @@
               }
             ],
             "description": "The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) the comment belongs to."
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        }
+      },
+      "webhook-issue-dependencies-blocked-by-added": {
+        "title": "blocked by issue added event",
+        "required": [
+          "action",
+          "blocked_issue_id",
+          "blocked_issue",
+          "blocking_issue_id",
+          "blocking_issue",
+          "blocking_issue_repo",
+          "organization",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "blocked_by_added"
+            ],
+            "type": "string"
+          },
+          "blocked_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocked issue."
+          },
+          "blocked_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "blocking_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocking issue."
+          },
+          "blocking_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "blocking_issue_repo": {
+            "$ref": "#/components/schemas/repository"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        }
+      },
+      "webhook-issue-dependencies-blocked-by-removed": {
+        "title": "blocked by issue removed event",
+        "required": [
+          "action",
+          "blocked_issue_id",
+          "blocked_issue",
+          "blocking_issue_id",
+          "blocking_issue",
+          "blocking_issue_repo",
+          "organization",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "blocked_by_removed"
+            ],
+            "type": "string"
+          },
+          "blocked_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocked issue."
+          },
+          "blocked_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "blocking_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocking issue."
+          },
+          "blocking_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "blocking_issue_repo": {
+            "$ref": "#/components/schemas/repository"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        }
+      },
+      "webhook-issue-dependencies-blocking-added": {
+        "title": "blocking issue added event",
+        "required": [
+          "action",
+          "blocked_issue_id",
+          "blocked_issue",
+          "blocked_issue_repo",
+          "blocking_issue_id",
+          "blocking_issue",
+          "organization",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "blocking_added"
+            ],
+            "type": "string"
+          },
+          "blocked_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocked issue."
+          },
+          "blocked_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "blocked_issue_repo": {
+            "$ref": "#/components/schemas/repository"
+          },
+          "blocking_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocking issue."
+          },
+          "blocking_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        }
+      },
+      "webhook-issue-dependencies-blocking-removed": {
+        "title": "blocking issue removed event",
+        "required": [
+          "action",
+          "blocked_issue_id",
+          "blocked_issue",
+          "blocked_issue_repo",
+          "blocking_issue_id",
+          "blocking_issue",
+          "organization",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "blocking_removed"
+            ],
+            "type": "string"
+          },
+          "blocked_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocked issue."
+          },
+          "blocked_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "blocked_issue_repo": {
+            "$ref": "#/components/schemas/repository"
+          },
+          "blocking_issue_id": {
+            "type": "number",
+            "description": "The ID of the blocking issue."
+          },
+          "blocking_issue": {
+            "$ref": "#/components/schemas/issue"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
           },
           "organization": {
             "$ref": "#/components/schemas/organization-simple-webhooks"
@@ -287026,6 +287234,378 @@
           "githubCloudOnly": false,
           "category": "webhooks",
           "subcategory": "issue_comment",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
+    "issue-dependencies-blocked-by-added": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to issue dependencies, such as blocking or blocked-by relationships.\n\nFor activity relating to issues more generally, use the `issues` event instead.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permissions.",
+        "description": "An issue was marked as blocked by another issue.",
+        "operationId": "issue-dependencies/blocked-by-added",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issue-dependencies"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-issue-dependencies-blocked-by-added"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "issue-dependencies",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
+    "issue-dependencies-blocked-by-removed": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to issue dependencies, such as blocking or blocked-by relationships.\n\nFor activity relating to issues more generally, use the `issues` event instead.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permissions.",
+        "description": "The blocked by relationship between an issue and another issue was removed.",
+        "operationId": "issue-dependencies/blocked-by-removed",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issue-dependencies"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-issue-dependencies-blocked-by-removed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "issue-dependencies",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
+    "issue-dependencies-blocking-added": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to issue dependencies, such as blocking or blocked-by relationships.\n\nFor activity relating to issues more generally, use the `issues` event instead.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permissions.",
+        "description": "An issue was marked as blocking another issue.",
+        "operationId": "issue-dependencies/blocking-added",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issue-dependencies"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-issue-dependencies-blocking-added"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "issue-dependencies",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
+    "issue-dependencies-blocking-removed": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to issue dependencies, such as blocking or blocked-by relationships.\n\nFor activity relating to issues more generally, use the `issues` event instead.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permissions.",
+        "description": "The blocking relationship between an issue and another issue was removed.",
+        "operationId": "issue-dependencies/blocking-removed",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issue-dependencies"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-issue-dependencies-blocking-removed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "issue-dependencies",
           "supported-webhook-types": [
             "repository",
             "organization",
