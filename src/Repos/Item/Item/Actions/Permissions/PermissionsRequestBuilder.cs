@@ -5,6 +5,9 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.Access;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ArtifactAndLogRetention;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ForkPrContributorApproval;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ForkPrWorkflowsPrivateRepos;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.SelectedActions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.Workflow;
 using System.Collections.Generic;
@@ -24,6 +27,21 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.Access.AccessRequestBuilder Access
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.Access.AccessRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The artifactAndLogRetention property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ArtifactAndLogRetention.ArtifactAndLogRetentionRequestBuilder ArtifactAndLogRetention
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ArtifactAndLogRetention.ArtifactAndLogRetentionRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The forkPrContributorApproval property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ForkPrContributorApproval.ForkPrContributorApprovalRequestBuilder ForkPrContributorApproval
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ForkPrContributorApproval.ForkPrContributorApprovalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The forkPrWorkflowsPrivateRepos property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ForkPrWorkflowsPrivateRepos.ForkPrWorkflowsPrivateReposRequestBuilder ForkPrWorkflowsPrivateRepos
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.ForkPrWorkflowsPrivateRepos.ForkPrWorkflowsPrivateReposRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The selectedActions property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.SelectedActions.SelectedActionsRequestBuilder SelectedActions

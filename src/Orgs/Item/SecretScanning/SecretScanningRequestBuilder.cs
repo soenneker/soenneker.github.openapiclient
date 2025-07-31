@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts.AlertsRequestBuilder Alerts
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts.AlertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The patternConfigurations property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsRequestBuilder PatternConfigurations
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.SecretScanningRequestBuilder"/> and sets the default values.

@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Assignees;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Comments;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Events;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Lock;
@@ -35,6 +36,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Comments.CommentsRequestBuilder Comments
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dependencies property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies.DependenciesRequestBuilder Dependencies
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies.DependenciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The events property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Events.EventsRequestBuilder Events
