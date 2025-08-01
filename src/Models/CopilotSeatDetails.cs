@@ -42,6 +42,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string LastActivityEditor { get; set; }
 #endif
+        /// <summary>Timestamp of the last time the user authenticated with GitHub Copilot, in ISO 8601 format.</summary>
+        public DateTimeOffset? LastAuthenticatedAt { get; set; }
         /// <summary>A GitHub organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "last_activity_at", n => { LastActivityAt = n.GetDateTimeOffsetValue(); } },
                 { "last_activity_editor", n => { LastActivityEditor = n.GetStringValue(); } },
+                { "last_authenticated_at", n => { LastAuthenticatedAt = n.GetDateTimeOffsetValue(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple.CreateFromDiscriminatorValue); } },
                 { "pending_cancellation_date", n => { PendingCancellationDate = n.GetDateValue(); } },
                 { "plan_type", n => { PlanType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails_plan_type>(); } },
@@ -98,6 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("last_activity_at", LastActivityAt);
             writer.WriteStringValue("last_activity_editor", LastActivityEditor);
+            writer.WriteDateTimeOffsetValue("last_authenticated_at", LastAuthenticatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableOrganizationSimple>("organization", Organization);
             writer.WriteDateValue("pending_cancellation_date", PendingCancellationDate);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails_plan_type>("plan_type", PlanType);

@@ -108575,6 +108575,12 @@
             "nullable": true,
             "description": "Last editor that was used by the user for a GitHub Copilot completion."
           },
+          "last_authenticated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Timestamp of the last time the user authenticated with GitHub Copilot, in ISO 8601 format."
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -279555,6 +279561,7 @@
               "pending_cancellation_date": null,
               "last_activity_at": "2021-10-14T00:53:32-06:00",
               "last_activity_editor": "vscode/1.77.3/copilot/1.86.82",
+              "last_authenticated_at": "2021-10-14T00:53:32-06:00",
               "plan_type": "business",
               "assignee": {
                 "login": "octocat",
@@ -279598,6 +279605,7 @@
               "pending_cancellation_date": "2021-11-01",
               "last_activity_at": "2021-10-13T00:53:32-06:00",
               "last_activity_editor": "vscode/1.77.3/copilot/1.86.82",
+              "last_authenticated_at": "2021-10-14T00:53:32-06:00",
               "assignee": {
                 "login": "octokitten",
                 "id": 1,
@@ -280486,6 +280494,7 @@
           "pending_cancellation_date": null,
           "last_activity_at": "2021-10-14T00:53:32-06:00",
           "last_activity_editor": "vscode/1.77.3/copilot/1.86.82",
+          "last_authenticated_at": "2021-10-14T00:53:32-06:00",
           "plan_type": "business",
           "assignee": {
             "login": "octocat",
