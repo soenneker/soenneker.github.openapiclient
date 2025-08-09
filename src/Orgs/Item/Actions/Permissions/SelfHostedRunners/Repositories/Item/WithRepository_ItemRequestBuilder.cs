@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item
+namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org}\actions\permissions\self-hosted-runners\repositories\{repository_id}
+    /// Builds and executes requests for operations under \orgs\{org}\actions\permissions\self-hosted-runners\repositories\{repository_id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithRepository_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRepository_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}", pathParameters)
+        public WithRepository_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRepository_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}", rawUrl)
+        public WithRepository_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}", rawUrl)
         {
         }
         /// <summary>
@@ -132,11 +132,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

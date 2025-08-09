@@ -4,77 +4,77 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories
+namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org}\actions\permissions\self-hosted-runners\repositories
+    /// Builds and executes requests for operations under \orgs\{org}\actions\permissions\self-hosted-runners\repositories
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoriesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.organizations.item.actions.permissions.selfHostedRunners.repositories.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.permissions.selfHostedRunners.repositories.item collection</summary>
         /// <param name="position">The unique identifier of the repository.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("repository_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.organizations.item.actions.permissions.selfHostedRunners.repositories.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.permissions.selfHostedRunners.repositories.item collection</summary>
         /// <param name="position">The unique identifier of the repository.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("repository_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/actions/permissions/self-hosted-runners/repositories{?page*,per_page*}", pathParameters)
+        public RepositoriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/actions/permissions/self-hosted-runners/repositories{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/actions/permissions/self-hosted-runners/repositories{?page*,per_page*}", rawUrl)
+        public RepositoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/actions/permissions/self-hosted-runners/repositories{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
         /// Lists repositories that are allowed to use self-hosted runners in an organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope or the &quot;Actions policies&quot; fine-grained permission to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/actions/permissions#list-repositories-allowed-to-use-self-hosted-runners-in-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse?> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse?> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,13 +83,13 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists repositories that are allowed to use self-hosted runners in an organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope or the &quot;Actions policies&quot; fine-grained permission to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/actions/permissions#list-repositories-allowed-to-use-self-hosted-runners-in-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
@@ -97,11 +97,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         [Obsolete("This method is obsolete. Use GetAsRepositoriesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -110,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets repositories that are allowed to use self-hosted runners in an organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope or the &quot;Actions policies&quot; fine-grained permission to use this endpoint.
@@ -124,11 +124,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -148,11 +148,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -168,11 +168,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -185,11 +185,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Lists repositories that are allowed to use self-hosted runners in an organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope or the &quot;Actions policies&quot; fine-grained permission to use this endpoint.
@@ -209,7 +209,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RepositoriesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>
+        public partial class RepositoriesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.SelfHostedRunners.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

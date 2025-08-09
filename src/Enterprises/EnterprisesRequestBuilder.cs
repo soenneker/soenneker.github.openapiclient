@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises
     public partial class EnterprisesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.enterprises.item collection</summary>
-        /// <param name="position">The slug version of the enterprise name. You can also substitute this value with the enterprise id.</param>
+        /// <param name="position">The slug version of the enterprise name.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.WithEnterpriseItemRequestBuilder this[string position]
         {
