@@ -67,11 +67,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutResponse?> PutAsWithUsernamePutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutResponse> PutAsWithUsernamePutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -81,33 +81,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// When an organization member is converted to an outside collaborator, they&apos;ll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see &quot;[Converting an organization member to an outside collaborator](https://docs.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)&quot;. Converting an organization member to an outside collaborator may be restricted by enterprise administrators. For more information, see &quot;[Enforcing repository management policies in your enterprise](https://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories).&quot;
-        /// API method documentation <see href="https://docs.github.com/rest/orgs/outside-collaborators#convert-an-organization-member-to-outside-collaborator" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use PutAsWithUsernamePutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernamePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removing a user from this list will remove them from all the organization&apos;s repositories.
@@ -158,22 +131,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item.WithUsernameItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithUsernameItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithUsernameItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

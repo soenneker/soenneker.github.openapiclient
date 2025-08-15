@@ -158,33 +158,11 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
             public string Cwes { get; set; }
 #endif
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
-            /// <summary>If specified, only advisories for these ecosystems will be returned.</summary>
-            [Obsolete("This property is deprecated, use EcosystemAsSecurityAdvisoryEcosystems instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("ecosystem")]
-            public string? Ecosystem { get; set; }
-#nullable restore
-#else
-            [QueryParameter("ecosystem")]
-            public string Ecosystem { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>If specified, only advisories for these ecosystems will be returned.</summary>
             [QueryParameter("ecosystem")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems? EcosystemAsSecurityAdvisoryEcosystems { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems? Ecosystem { get; set; }
             /// <summary>If specified, only return advisories that have an EPSS percentage score that matches the provided value.The EPSS percentage represents the likelihood of a CVE being exploited.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -242,47 +220,14 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
             public string Published { get; set; }
 #endif
             /// <summary>If specified, only advisories with these severities will be returned.</summary>
-            [Obsolete("This property is deprecated, use SeverityAsGetSeverityQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("severity")]
-            public string? Severity { get; set; }
-#nullable restore
-#else
-            [QueryParameter("severity")]
-            public string Severity { get; set; }
-#endif
-            /// <summary>If specified, only advisories with these severities will be returned.</summary>
-            [QueryParameter("severity")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetSeverityQueryParameterType? SeverityAsGetSeverityQueryParameterType { get; set; }
-            /// <summary>The property to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetSeverityQueryParameterType? Severity { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.</summary>
-            [Obsolete("This property is deprecated, use TypeAsGetTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("type")]
-            public string? Type { get; set; }
-#nullable restore
-#else
-            [QueryParameter("type")]
-            public string Type { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetTypeQueryParameterType? TypeAsGetTypeQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetTypeQueryParameterType? Type { get; set; }
             /// <summary>If specified, only return advisories that were updated on a date or date range.For more information on the syntax of the date range, see &quot;[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -293,14 +238,6 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
             [QueryParameter("updated")]
             public string Updated { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AdvisoriesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Advisories.AdvisoriesRequestBuilder.AdvisoriesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

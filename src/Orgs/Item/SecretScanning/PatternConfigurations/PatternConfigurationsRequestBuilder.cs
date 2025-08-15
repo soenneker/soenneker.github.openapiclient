@@ -74,11 +74,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigu
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse?> PatchAsPatternConfigurationsPatchResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse> PatchAsPatternConfigurationsPatchResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -92,41 +92,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigu
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates the secret scanning pattern configurations for an organization.Personal access tokens (classic) need the `write:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/secret-scanning/push-protection#update-organization-pattern-configurations" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PatchAsPatternConfigurationsPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsResponse?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsResponse> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the secret scanning pattern configurations for an organization.Personal access tokens (classic) need the `write:org` scope to use this endpoint.
@@ -177,22 +142,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigu
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PatternConfigurationsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PatternConfigurationsRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

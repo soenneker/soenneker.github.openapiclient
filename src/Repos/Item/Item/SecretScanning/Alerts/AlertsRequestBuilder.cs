@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.secretScanning.alerts.item collection</summary>
-        /// <param name="position">The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("alert_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.Item.WithAlert_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.AlertsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -139,19 +126,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
             public string Before { get; set; }
 #endif
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>A boolean value representing whether or not to hide literal secrets in the results.</summary>
             [QueryParameter("hide_secret")]
             public bool? HideSecret { get; set; }
@@ -188,33 +164,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
             public string SecretType { get; set; }
 #endif
             /// <summary>The property to sort the results by. `created` means when the alert was created. `updated` means when the alert was updated or resolved.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>The property to sort the results by. `created` means when the alert was created. `updated` means when the alert was updated or resolved.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>Set to `open` or `resolved` to only list secret scanning alerts in a specific state.</summary>
-            [Obsolete("This property is deprecated, use StateAsGetStateQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>Set to `open` or `resolved` to only list secret scanning alerts in a specific state.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.GetStateQueryParameterType? StateAsGetStateQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.GetStateQueryParameterType? State { get; set; }
             /// <summary>A comma-separated list of validities that, when present, will return alerts that match the validities in this list. Valid options are `active`, `inactive`, and `unknown`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -225,14 +179,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
             [QueryParameter("validity")]
             public string Validity { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AlertsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.AlertsRequestBuilder.AlertsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

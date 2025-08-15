@@ -45,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutResponse?> PutAsUpdateBranchPutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutResponse> PutAsUpdateBranchPutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -60,35 +60,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.
-        /// API method documentation <see href="https://docs.github.com/rest/pulls/pulls#update-a-pull-request-branch" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PutAsUpdateBranchPutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.
@@ -120,14 +91,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch.UpdateBranchRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UpdateBranchRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

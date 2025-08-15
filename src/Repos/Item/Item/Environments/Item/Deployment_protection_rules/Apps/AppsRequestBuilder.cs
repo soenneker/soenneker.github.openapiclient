@@ -41,35 +41,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsGetResponse?> GetAsAppsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsGetResponse> GetAsAppsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Gets all custom deployment protection rule integrations that are available for an environment.The authenticated user must have admin or owner permissions to the repository to use this endpoint.For more information about environments, see &quot;[Using environments for deployment](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment).&quot;For more information about the app that is providing this custom deployment rule, see &quot;[GET an app](https://docs.github.com/rest/apps/apps#get-an-app)&quot;.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.
-        /// API method documentation <see href="https://docs.github.com/rest/deployments/protection-rules#list-custom-deployment-rule-integrations-available-for-an-environment" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsAppsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets all custom deployment protection rule integrations that are available for an environment.The authenticated user must have admin or owner permissions to the repository to use this endpoint.For more information about environments, see &quot;[Using environments for deployment](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment).&quot;For more information about the app that is providing this custom deployment rule, see &quot;[GET an app](https://docs.github.com/rest/apps/apps#get-an-app)&quot;.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.
@@ -111,14 +91,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AppsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deployment_protection_rules.Apps.AppsRequestBuilder.AppsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

@@ -45,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Code
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Code503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeGetResponse?> GetAsCodeGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeGetResponse> GetAsCodeGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,35 +60,6 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Code
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.Code503Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Searches for query terms inside of a file. This method returns up to 100 results [per page](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api).When searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://docs.github.com/rest/search/search#text-match-metadata).For example, if you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery) repository, your query would look something like this:`q=addClass+in:file+language:js+repo:jquery/jquery`This query searches for the keyword `addClass` within a file&apos;s contents. The query limits the search to files where the language is JavaScript in the `jquery/jquery` repository.Considerations for code search:Due to the complexity of searching code, there are a few restrictions on how searches are performed:*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.*   Only files smaller than 384 KB are searchable.*   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&amp;q=language%3Ago&amp;type=Code) is not valid, while [`amazinglanguage:go`](https://github.com/search?utf8=%E2%9C%93&amp;q=amazing+language%3Ago&amp;type=Code) is.This endpoint requires you to authenticate and limits you to 10 requests per minute.
-        /// API method documentation <see href="https://docs.github.com/rest/search/search#search-code" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Code503Error">When receiving a 503 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCodeGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Code503Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Searches for query terms inside of a file. This method returns up to 100 results [per page](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api).When searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://docs.github.com/rest/search/search#text-match-metadata).For example, if you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery) repository, your query would look something like this:`q=addClass+in:file+language:js+repo:jquery/jquery`This query searches for the keyword `addClass` within a file&apos;s contents. The query limits the search to files where the language is JavaScript in the `jquery/jquery` repository.Considerations for code search:Due to the complexity of searching code, there are a few restrictions on how searches are performed:*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.*   Only files smaller than 384 KB are searchable.*   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&amp;q=language%3Ago&amp;type=Code) is not valid, while [`amazinglanguage:go`](https://github.com/search?utf8=%E2%9C%93&amp;q=amazing+language%3Ago&amp;type=Code) is.This endpoint requires you to authenticate and limits you to 10 requests per minute.
@@ -125,20 +96,9 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Code
         public partial class CodeRequestBuilderGetQueryParameters 
         {
             /// <summary>**This field is closing down.** Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`. </summary>
-            [Obsolete("This property is deprecated, use OrderAsGetOrderQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("order")]
-            public string? Order { get; set; }
-#nullable restore
-#else
-            [QueryParameter("order")]
-            public string Order { get; set; }
-#endif
-            /// <summary>**This field is closing down.** Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`. </summary>
             [Obsolete("")]
             [QueryParameter("order")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Code.GetOrderQueryParameterType? OrderAsGetOrderQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Search.Code.GetOrderQueryParameterType? Order { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -156,28 +116,9 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Code
             public string Q { get; set; }
 #endif
             /// <summary>**This field is closing down.** Sorts the results of your query. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>**This field is closing down.** Sorts the results of your query. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [Obsolete("")]
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Code.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CodeRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Code.CodeRequestBuilder.CodeRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.GitHub.OpenApiClient.Search.Code.GetSortQueryParameterType? Sort { get; set; }
         }
     }
 }

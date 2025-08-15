@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
                 return new global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.installations.item.repositories.item collection</summary>
-        /// <param name="position">The unique identifier of the repository.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("repository_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -70,11 +57,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesGetResponse?> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesGetResponse> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -84,33 +71,6 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.The access the user has to each repository is included in the hash under the `permissions` key.
-        /// API method documentation <see href="https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-user-access-token" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsRepositoriesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.The access the user has to each repository is included in the hash under the `permissions` key.
@@ -152,14 +112,6 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RepositoriesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

@@ -56,11 +56,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsDeleteResponse?> DeleteAsLabelsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsDeleteResponse> DeleteAsLabelsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -69,31 +69,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsDeleteResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Remove all custom labels from a self-hosted runner configured in anorganization. Returns the remaining read-only labels from the runner.Authenticated users must have admin access to the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/self-hosted-runners#remove-all-custom-labels-from-a-self-hosted-runner-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use DeleteAsLabelsDeleteResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all labels for a self-hosted runner configured in an organization.Authenticated users must have admin access to the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
@@ -105,11 +80,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsGetResponse?> GetAsLabelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsGetResponse> GetAsLabelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -118,31 +93,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists all labels for a self-hosted runner configured in an organization.Authenticated users must have admin access to the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/self-hosted-runners#list-labels-for-a-self-hosted-runner-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsLabelsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds custom labels to a self-hosted runner configured in an organization.Authenticated users must have admin access to the organization to use this endpoint.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -156,11 +106,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostResponse?> PostAsLabelsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostResponse> PostAsLabelsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -171,35 +121,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Adds custom labels to a self-hosted runner configured in an organization.Authenticated users must have admin access to the organization to use this endpoint.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/self-hosted-runners#add-custom-labels-to-a-self-hosted-runner-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsLabelsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove all previous custom labels and set the new custom labels for a specificself-hosted runner configured in an organization.Authenticated users must have admin access to the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
@@ -213,11 +134,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutResponse?> PutAsLabelsPutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutResponse> PutAsLabelsPutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -228,35 +149,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Remove all previous custom labels and set the new custom labels for a specificself-hosted runner configured in an organization.Authenticated users must have admin access to the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/self-hosted-runners#set-custom-labels-for-a-self-hosted-runner-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PutAsLabelsPutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove all custom labels from a self-hosted runner configured in anorganization. Returns the remaining read-only labels from the runner.Authenticated users must have admin access to the organization to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
@@ -348,38 +240,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.Labels.LabelsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LabelsRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LabelsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LabelsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LabelsRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

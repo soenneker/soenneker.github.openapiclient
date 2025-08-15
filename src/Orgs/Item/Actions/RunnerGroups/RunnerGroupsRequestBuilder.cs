@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups
                 return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.WithRunner_group_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.runnerGroups.item collection</summary>
-        /// <param name="position">Unique identifier of the self-hosted runner group.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.WithRunner_group_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.WithRunner_group_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("runner_group_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.WithRunner_group_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -68,35 +55,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsGetResponse?> GetAsRunnerGroupsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsGetResponse> GetAsRunnerGroupsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists all self-hosted runner groups configured in an organization and inherited from an enterprise.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/self-hosted-runner-groups#list-self-hosted-runner-groups-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsRunnerGroupsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new self-hosted runner group for an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -191,22 +158,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups
             [QueryParameter("visible_to_repository")]
             public string VisibleToRepository { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunnerGroupsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder.RunnerGroupsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RunnerGroupsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

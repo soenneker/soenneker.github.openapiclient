@@ -41,35 +41,15 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Starred
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse?> GetAsStarredGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse> GetAsStarredGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists repositories a user has starred.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.
-        /// API method documentation <see href="https://docs.github.com/rest/activity/starring#list-repositories-starred-by-a-user" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsStarredGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists repositories a user has starred.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.
@@ -172,19 +152,8 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Starred
         public partial class StarredRequestBuilderGetQueryParameters 
         {
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -192,93 +161,8 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Starred
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by. `created` means when the repository was starred. `updated` means when the repository was last pushed to.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>The property to sort the results by. `created` means when the repository was starred. `updated` means when the repository was last pushed to.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StarredRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Composed type wrapper for classes List&lt;global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository&gt;, List&lt;global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class StarredResponse : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository>? Repository { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository> Repository { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository>? StarredRepository { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository> StarredRepository { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredResponse();
-                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository>(global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository> repositoryValue)
-                {
-                    result.Repository = repositoryValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository>(global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository> starredRepositoryValue)
-                {
-                    result.StarredRepository = starredRepositoryValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(Repository != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository>(null, Repository);
-                }
-                else if(StarredRepository != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRepository>(null, StarredRepository);
-                }
-            }
+            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.GetSortQueryParameterType? Sort { get; set; }
         }
     }
 }

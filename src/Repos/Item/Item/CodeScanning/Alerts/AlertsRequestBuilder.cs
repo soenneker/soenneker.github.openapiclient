@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.WithAlert_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.codeScanning.alerts.item collection</summary>
-        /// <param name="position">The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.WithAlert_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.WithAlert_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("alert_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.WithAlert_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.AlertsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -143,19 +130,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts
             public string Before { get; set; }
 #endif
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -176,47 +152,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts
             public string Ref { get; set; }
 #endif
             /// <summary>If specified, only code scanning alerts with this severity will be returned.</summary>
-            [Obsolete("This property is deprecated, use SeverityAsCodeScanningAlertSeverity instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("severity")]
-            public string? Severity { get; set; }
-#nullable restore
-#else
-            [QueryParameter("severity")]
-            public string Severity { get; set; }
-#endif
-            /// <summary>If specified, only code scanning alerts with this severity will be returned.</summary>
-            [QueryParameter("severity")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSeverity? SeverityAsCodeScanningAlertSeverity { get; set; }
-            /// <summary>The property by which to sort the results.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSeverity? Severity { get; set; }
             /// <summary>The property by which to sort the results.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>If specified, only code scanning alerts with this state will be returned.</summary>
-            [Obsolete("This property is deprecated, use StateAsCodeScanningAlertStateQuery instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>If specified, only code scanning alerts with this state will be returned.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertStateQuery? StateAsCodeScanningAlertStateQuery { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertStateQuery? State { get; set; }
             /// <summary>The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -237,14 +180,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts
             [QueryParameter("tool_name")]
             public string ToolName { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AlertsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.AlertsRequestBuilder.AlertsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

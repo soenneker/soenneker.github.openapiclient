@@ -41,35 +41,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artif
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsGetResponse?> GetAsArtifactsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsGetResponse> GetAsArtifactsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists artifacts for a workflow run.Anyone with read access to the repository can use this endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/artifacts#list-workflow-run-artifacts" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsArtifactsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists artifacts for a workflow run.Anyone with read access to the repository can use this endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.
@@ -121,14 +101,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artif
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ArtifactsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts.ArtifactsRequestBuilder.ArtifactsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

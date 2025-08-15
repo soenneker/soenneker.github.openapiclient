@@ -55,35 +55,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse?> GetAsNetworkConfigurationsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse> GetAsNetworkConfigurationsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists all hosted compute network configurations configured in an organization.OAuth app tokens and personal access tokens (classic) need the `read:network_configurations` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/orgs/network-configurations#list-hosted-compute-network-configurations-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsNetworkConfigurationsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a hosted compute network configuration for an organization.OAuth app tokens and personal access tokens (classic) need the `write:network_configurations` scope to use this endpoint.
@@ -168,22 +148,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NetworkConfigurationsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NetworkConfigurationsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.milestones.item collection</summary>
-        /// <param name="position">The number that identifies the milestone.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("milestone_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.MilestonesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -169,19 +156,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
         public partial class MilestonesRequestBuilderGetQueryParameters 
         {
             /// <summary>The direction of the sort. Either `asc` or `desc`.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction of the sort. Either `asc` or `desc`.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -189,49 +165,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>What to sort results by. Either `due_on` or `completeness`.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>What to sort results by. Either `due_on` or `completeness`.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>The state of the milestone. Either `open`, `closed`, or `all`.</summary>
-            [Obsolete("This property is deprecated, use StateAsGetStateQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>The state of the milestone. Either `open`, `closed`, or `all`.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetStateQueryParameterType? StateAsGetStateQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MilestonesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.MilestonesRequestBuilder.MilestonesRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MilestonesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetStateQueryParameterType? State { get; set; }
         }
     }
 }

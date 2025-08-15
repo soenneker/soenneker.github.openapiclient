@@ -46,11 +46,11 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse?> GetAsIssuesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse> GetAsIssuesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -61,35 +61,6 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.Issues503Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// &gt; [!WARNING]&gt; **Notice:** Search for issues and pull requests will be overridden by advanced search on September 4, 2025.&gt; You can read more about this change on [the GitHub blog](https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/).
-        /// API method documentation <see href="https://docs.github.com/rest/search/search#search-issues-and-pull-requests" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Issues503Error">When receiving a 503 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsIssuesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Issues503Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!WARNING]&gt; **Notice:** Search for issues and pull requests will be overridden by advanced search on September 4, 2025.&gt; You can read more about this change on [the GitHub blog](https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/).
@@ -138,19 +109,8 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             public string AdvancedSearch { get; set; }
 #endif
             /// <summary>Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.</summary>
-            [Obsolete("This property is deprecated, use OrderAsGetOrderQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("order")]
-            public string? Order { get; set; }
-#nullable restore
-#else
-            [QueryParameter("order")]
-            public string Order { get; set; }
-#endif
-            /// <summary>Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.</summary>
-            [QueryParameter("order")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetOrderQueryParameterType? OrderAsGetOrderQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetOrderQueryParameterType? Order { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -168,27 +128,8 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             public string Q { get; set; }
 #endif
             /// <summary>Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`, Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`, Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IssuesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetSortQueryParameterType? Sort { get; set; }
         }
     }
 }

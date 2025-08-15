@@ -44,11 +44,11 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Repositories
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Repositories503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesGetResponse?> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesGetResponse> GetAsRepositoriesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -58,33 +58,6 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Repositories
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.Repositories503Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Find repositories via various criteria. This method returns up to 100 results [per page](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api).When searching for repositories, you can get text match metadata for the **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://docs.github.com/rest/search/search#text-match-metadata).For example, if you want to search for popular Tetris repositories written in assembly code, your query might look like this:`q=tetris+language:assembly&amp;sort=stars&amp;order=desc`This query searches for repositories with the word `tetris` in the name, the description, or the README. The results are limited to repositories where the primary language is assembly. The results are sorted by stars in descending order, so that the most popular repositories appear first in the search results.
-        /// API method documentation <see href="https://docs.github.com/rest/search/search#search-repositories" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Repositories503Error">When receiving a 503 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsRepositoriesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Repositories503Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Find repositories via various criteria. This method returns up to 100 results [per page](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api).When searching for repositories, you can get text match metadata for the **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://docs.github.com/rest/search/search#text-match-metadata).For example, if you want to search for popular Tetris repositories written in assembly code, your query might look like this:`q=tetris+language:assembly&amp;sort=stars&amp;order=desc`This query searches for repositories with the word `tetris` in the name, the description, or the README. The results are limited to repositories where the primary language is assembly. The results are sorted by stars in descending order, so that the most popular repositories appear first in the search results.
@@ -121,19 +94,8 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Repositories
         public partial class RepositoriesRequestBuilderGetQueryParameters 
         {
             /// <summary>Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.</summary>
-            [Obsolete("This property is deprecated, use OrderAsGetOrderQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("order")]
-            public string? Order { get; set; }
-#nullable restore
-#else
-            [QueryParameter("order")]
-            public string Order { get; set; }
-#endif
-            /// <summary>Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`.</summary>
-            [QueryParameter("order")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Repositories.GetOrderQueryParameterType? OrderAsGetOrderQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Search.Repositories.GetOrderQueryParameterType? Order { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -151,27 +113,8 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Repositories
             public string Q { get; set; }
 #endif
             /// <summary>Sorts the results of your query by number of `stars`, `forks`, or `help-wanted-issues` or how recently the items were `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>Sorts the results of your query by number of `stars`, `forks`, or `help-wanted-issues` or how recently the items were `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Repositories.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RepositoriesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Search.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.GitHub.OpenApiClient.Search.Repositories.GetSortQueryParameterType? Sort { get; set; }
         }
     }
 }

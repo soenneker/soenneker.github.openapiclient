@@ -41,35 +41,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckR
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsGetResponse?> GetAsCheckRunsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsGetResponse> GetAsCheckRunsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists check runs for a check suite using its `id`.&gt; [!NOTE]&gt; The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint on a private repository.
-        /// API method documentation <see href="https://docs.github.com/rest/checks/runs#list-check-runs-in-a-check-suite" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsCheckRunsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists check runs for a check suite using its `id`.&gt; [!NOTE]&gt; The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint on a private repository.
@@ -116,19 +96,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckR
             public string CheckName { get; set; }
 #endif
             /// <summary>Filters check runs by their `completed_at` timestamp. `latest` returns the most recent check runs.</summary>
-            [Obsolete("This property is deprecated, use FilterAsGetFilterQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("filter")]
-            public string? Filter { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter")]
-            public string Filter { get; set; }
-#endif
-            /// <summary>Filters check runs by their `completed_at` timestamp. `latest` returns the most recent check runs.</summary>
-            [QueryParameter("filter")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.GetFilterQueryParameterType? FilterAsGetFilterQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.GetFilterQueryParameterType? Filter { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -136,27 +105,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckR
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>Returns check runs with the specified `status`.</summary>
-            [Obsolete("This property is deprecated, use StatusAsGetStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("status")]
-            public string? Status { get; set; }
-#nullable restore
-#else
-            [QueryParameter("status")]
-            public string Status { get; set; }
-#endif
-            /// <summary>Returns check runs with the specified `status`.</summary>
-            [QueryParameter("status")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.GetStatusQueryParameterType? StatusAsGetStatusQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CheckRunsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.CheckRuns.GetStatusQueryParameterType? Status { get; set; }
         }
     }
 }

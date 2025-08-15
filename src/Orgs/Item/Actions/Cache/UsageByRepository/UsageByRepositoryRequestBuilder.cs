@@ -41,35 +41,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByReposito
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryGetResponse?> GetAsUsageByRepositoryGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryGetResponse> GetAsUsageByRepositoryGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists repositories and their GitHub Actions cache usage for an organization.The data fetched using this API is refreshed approximately every 5 minutes, so values returned from this endpoint may take at least 5 minutes to get updated.OAuth tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/cache#list-repositories-with-github-actions-cache-usage-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsUsageByRepositoryGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists repositories and their GitHub Actions cache usage for an organization.The data fetched using this API is refreshed approximately every 5 minutes, so values returned from this endpoint may take at least 5 minutes to get updated.OAuth tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
@@ -111,14 +91,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByReposito
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UsageByRepositoryRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache.UsageByRepository.UsageByRepositoryRequestBuilder.UsageByRepositoryRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

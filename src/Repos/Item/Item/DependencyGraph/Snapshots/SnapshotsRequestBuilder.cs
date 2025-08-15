@@ -43,38 +43,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapsho
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsPostResponse?> PostAsSnapshotsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsPostResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsPostResponse> PostAsSnapshotsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsPostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Create a new snapshot of a repository&apos;s dependencies.The authenticated user must have access to the repository.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/dependency-graph/dependency-submission#create-a-snapshot-of-dependencies-for-a-repository" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsResponse"/></returns>
-        /// <param name="body">Create a new snapshot of a repository&apos;s dependencies.</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsSnapshotsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new snapshot of a repository&apos;s dependencies.The authenticated user must have access to the repository.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
@@ -106,14 +84,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapsho
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapshots.SnapshotsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SnapshotsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

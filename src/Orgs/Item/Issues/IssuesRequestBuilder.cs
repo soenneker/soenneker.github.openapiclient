@@ -93,33 +93,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues
         public partial class IssuesRequestBuilderGetQueryParameters 
         {
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
-            /// <summary>Indicates which sorts of issues to return. `assigned` means issues assigned to you. `created` means issues created by you. `mentioned` means issues mentioning you. `subscribed` means issues you&apos;re subscribed to updates for. `all` or `repos` means all issues you can see, regardless of participation or creation.</summary>
-            [Obsolete("This property is deprecated, use FilterAsGetFilterQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter")]
-            public string? Filter { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter")]
-            public string Filter { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>Indicates which sorts of issues to return. `assigned` means issues assigned to you. `created` means issues created by you. `mentioned` means issues mentioning you. `subscribed` means issues you&apos;re subscribed to updates for. `all` or `repos` means all issues you can see, regardless of participation or creation.</summary>
             [QueryParameter("filter")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetFilterQueryParameterType? FilterAsGetFilterQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetFilterQueryParameterType? Filter { get; set; }
             /// <summary>A list of comma separated label names. Example: `bug,ui,@high`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,33 +118,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
             /// <summary>What to sort results by.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>What to sort results by.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>Indicates the state of the issues to return.</summary>
-            [Obsolete("This property is deprecated, use StateAsGetStateQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>Indicates the state of the issues to return.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetStateQueryParameterType? StateAsGetStateQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.GetStateQueryParameterType? State { get; set; }
             /// <summary>Can be the name of an issue type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,14 +133,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues
             [QueryParameter("type")]
             public string Type { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IssuesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

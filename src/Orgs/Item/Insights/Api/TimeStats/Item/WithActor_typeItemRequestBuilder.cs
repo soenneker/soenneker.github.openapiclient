@@ -27,19 +27,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item
                 return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.Item.WithActor_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.insights.api.timeStats.item.item collection</summary>
-        /// <param name="position">The ID of the actor</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.Item.WithActor_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.Item.WithActor_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("actor_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.Item.WithActor_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActor_typeItemRequestBuilder"/> and sets the default values.
         /// </summary>

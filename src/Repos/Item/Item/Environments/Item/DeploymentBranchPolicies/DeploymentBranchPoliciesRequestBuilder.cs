@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.Item.WithBranch_policy_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.environments.item.deploymentBranchPolicies.item collection</summary>
-        /// <param name="position">The unique identifier of the branch policy.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.Item.WithBranch_policy_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.Item.WithBranch_policy_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("branch_policy_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.Item.WithBranch_policy_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -68,35 +55,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesGetResponse?> GetAsDeploymentBranchPoliciesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesGetResponse> GetAsDeploymentBranchPoliciesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists the deployment branch policies for an environment.Anyone with read access to the repository can use this endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with a private repository.
-        /// API method documentation <see href="https://docs.github.com/rest/deployments/branch-policies#list-deployment-branch-policies" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsDeploymentBranchPoliciesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a deployment branch or tag policy for an environment.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
@@ -181,22 +148,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DeploymentBranchPoliciesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.DeploymentBranchPolicies.DeploymentBranchPoliciesRequestBuilder.DeploymentBranchPoliciesRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DeploymentBranchPoliciesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

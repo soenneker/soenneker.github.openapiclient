@@ -42,19 +42,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.issues.item collection</summary>
-        /// <param name="position">The number that identifies the issue.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("issue_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.IssuesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -211,19 +198,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
             public string Creator { get; set; }
 #endif
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>A list of comma separated label names. Example: `bug,ui,@high`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -264,33 +240,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
             /// <summary>What to sort results by.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>What to sort results by.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>Indicates the state of the issues to return.</summary>
-            [Obsolete("This property is deprecated, use StateAsGetStateQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>Indicates the state of the issues to return.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetStateQueryParameterType? StateAsGetStateQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetStateQueryParameterType? State { get; set; }
             /// <summary>Can be the name of an issue type. If the string `*` is passed, issues with any type are accepted. If the string `none` is passed, issues without type are returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -301,22 +255,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
             [QueryParameter("type")]
             public string Type { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IssuesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.IssuesRequestBuilder.IssuesRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IssuesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

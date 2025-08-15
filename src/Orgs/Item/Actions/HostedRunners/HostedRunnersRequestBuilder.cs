@@ -54,19 +54,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
                 return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHosted_runner_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.hostedRunners.item collection</summary>
-        /// <param name="position">Unique identifier of the GitHub-hosted runner.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHosted_runner_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHosted_runner_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("hosted_runner_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHosted_runner_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -92,35 +79,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersGetResponse?> GetAsHostedRunnersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersGetResponse> GetAsHostedRunnersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists all GitHub-hosted runners configured in an organization.OAuth app tokens and personal access tokens (classic) need the `manage_runner:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/actions/hosted-runners#list-github-hosted-runners-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsHostedRunnersGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a GitHub-hosted runner for an organization.OAuth tokens and personal access tokens (classic) need the `manage_runners:org` scope to use this endpoint.
@@ -205,22 +172,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HostedRunnersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersRequestBuilder.HostedRunnersRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HostedRunnersRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

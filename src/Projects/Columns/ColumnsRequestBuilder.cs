@@ -34,19 +34,6 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns
                 return new global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.projects.columns.item collection</summary>
-        /// <param name="position">The unique identifier of the column.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("column_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Columns.ColumnsRequestBuilder"/> and sets the default values.
         /// </summary>

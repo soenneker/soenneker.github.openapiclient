@@ -68,11 +68,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_GetResponse?> GetAsAttestation_GetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_GetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_GetResponse> GetAsAttestation_GetResponseAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_GetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -81,31 +81,6 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_GetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// List a collection of artifact attestations with a given subject digest that are associated with repositories owned by a user.The collection of attestations returned by this endpoint is filtered according to the authenticated user&apos;s permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.**Please note:** in order to offer meaningful security benefits, an attestation&apos;s signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build&apos;s provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
-        /// API method documentation <see href="https://docs.github.com/rest/users/attestations#list-attestations" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_Response"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsAttestation_GetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an artifact attestation by unique ID that is associated with a repository owned by a user.
@@ -155,14 +130,6 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item
             return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Attestation_ItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
         /// List a collection of artifact attestations with a given subject digest that are associated with repositories owned by a user.The collection of attestations returned by this endpoint is filtered according to the authenticated user&apos;s permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.**Please note:** in order to offer meaningful security benefits, an attestation&apos;s signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build&apos;s provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -201,14 +168,6 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item
             [QueryParameter("predicate_type")]
             public string PredicateType { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Attestation_ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.Attestation_ItemRequestBuilder.Attestation_ItemRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

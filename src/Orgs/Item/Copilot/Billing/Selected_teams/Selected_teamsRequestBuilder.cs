@@ -47,11 +47,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse?> DeleteAsSelected_teamsDeleteResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse?> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse> DeleteAsSelected_teamsDeleteResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -64,39 +64,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets seats for all members of each team specified to &quot;pending cancellation&quot;.This will cause the members of the specified team(s) to lose access to GitHub Copilot at the end of the current billing cycle unless they retain access through another team.For more information about disabling access to Copilot, see &quot;[Revoking access to Copilot for members of your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization).&quot;Only organization owners can cancel Copilot seats for their organization members.The response contains the total number of seats set to &quot;pending cancellation&quot;.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-user-management#remove-teams-from-the-copilot-subscription-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use DeleteAsSelected_teamsDeleteResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse?> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Purchases a GitHub Copilot seat for all users within each specified team.The organization will be billed for each seat based on the organization&apos;s Copilot plan. For more information about Copilot pricing, see &quot;[About billing for GitHub Copilot in your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization).&quot;Only organization owners can purchase Copilot seats for their organization members. The organization must have a Copilot Business or Copilot Enterprise subscription and a configured suggestion matching policy.For more information about setting up a Copilot subscription, see &quot;[Subscribing to Copilot for your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/subscribing-to-copilot-for-your-organization).&quot;For more information about setting a suggestion matching policy, see &quot;[Managing policies for Copilot in your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching).&quot;The response contains the total number of new seats that were created and existing seats that were refreshed.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
@@ -112,11 +79,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostResponse?> PostAsSelected_teamsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostResponse> PostAsSelected_teamsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -129,39 +96,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Purchases a GitHub Copilot seat for all users within each specified team.The organization will be billed for each seat based on the organization&apos;s Copilot plan. For more information about Copilot pricing, see &quot;[About billing for GitHub Copilot in your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization).&quot;Only organization owners can purchase Copilot seats for their organization members. The organization must have a Copilot Business or Copilot Enterprise subscription and a configured suggestion matching policy.For more information about setting up a Copilot subscription, see &quot;[Subscribing to Copilot for your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/subscribing-to-copilot-for-your-organization).&quot;For more information about setting a suggestion matching policy, see &quot;[Managing policies for Copilot in your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching).&quot;The response contains the total number of new seats that were created and existing seats that were refreshed.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-user-management#add-teams-to-the-copilot-subscription-for-an-organization" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsSelected_teamsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets seats for all members of each team specified to &quot;pending cancellation&quot;.This will cause the members of the specified team(s) to lose access to GitHub Copilot at the end of the current billing cycle unless they retain access through another team.For more information about disabling access to Copilot, see &quot;[Revoking access to Copilot for members of your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization).&quot;Only organization owners can cancel Copilot seats for their organization members.The response contains the total number of seats set to &quot;pending cancellation&quot;.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
@@ -215,22 +149,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Selected_teamsRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Selected_teamsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -27,19 +27,6 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads
                 return new global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.notifications.threads.item collection</summary>
-        /// <param name="position">The unique identifier of the notification thread. This corresponds to the value returned in the `id` field when you retrieve notifications (for example with the [`GET /notifications` operation](https://docs.github.com/rest/activity/notifications#list-notifications-for-the-authenticated-user)).</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("thread_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.ThreadsRequestBuilder"/> and sets the default values.
         /// </summary>

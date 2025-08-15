@@ -27,19 +27,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.jobs.item collection</summary>
-        /// <param name="position">The unique identifier of the job.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("job_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.JobsRequestBuilder"/> and sets the default values.
         /// </summary>

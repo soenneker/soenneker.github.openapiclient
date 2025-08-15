@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.dependabot.alerts.item collection</summary>
-        /// <param name="position">The number that identifies a Dependabot alert in its repository.You can find this at the end of the URL for a Dependabot alert within GitHub,or in `number` fields in the response from the`GET /repos/{owner}/{repo}/dependabot/alerts` operation.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("alert_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.AlertsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -145,19 +132,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             public string Before { get; set; }
 #endif
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>A comma-separated list of ecosystems. If specified, only alerts for these ecosystems will be returned.Can be: `composer`, `go`, `maven`, `npm`, `nuget`, `pip`, `pub`, `rubygems`, `rust`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -223,19 +199,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.</summary>
-            [Obsolete("This property is deprecated, use ScopeAsGetScopeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("scope")]
-            public string? Scope { get; set; }
-#nullable restore
-#else
-            [QueryParameter("scope")]
-            public string Scope { get; set; }
-#endif
-            /// <summary>The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.</summary>
-            [QueryParameter("scope")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.GetScopeQueryParameterType? ScopeAsGetScopeQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.GetScopeQueryParameterType? Scope { get; set; }
             /// <summary>A comma-separated list of severities. If specified, only alerts with these severities will be returned.Can be: `low`, `medium`, `high`, `critical`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -247,19 +212,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             public string Severity { get; set; }
 #endif
             /// <summary>The property by which to sort the results.`created` means when the alert was created.`updated` means when the alert&apos;s state last changed.`epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>The property by which to sort the results.`created` means when the alert was created.`updated` means when the alert&apos;s state last changed.`epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>A comma-separated list of states. If specified, only alerts with these states will be returned.Can be: `auto_dismissed`, `dismissed`, `fixed`, `open`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -270,14 +224,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             [QueryParameter("state")]
             public string State { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AlertsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.AlertsRequestBuilder.AlertsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

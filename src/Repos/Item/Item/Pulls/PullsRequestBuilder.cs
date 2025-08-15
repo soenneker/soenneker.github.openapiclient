@@ -36,19 +36,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.pulls.item collection</summary>
-        /// <param name="position">The number that identifies the pull request.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("pull_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.PullsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -185,19 +172,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
             public string Base { get; set; }
 #endif
             /// <summary>The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>Filter pulls by head user or head organization and branch name in the format of `user:ref-name` or `organization:ref-name`. For example: `github:new-script-format` or `octocat:test-branch`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -215,49 +191,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-            /// <summary>Either `open`, `closed`, or `all` to filter by state.</summary>
-            [Obsolete("This property is deprecated, use StateAsGetStateQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>Either `open`, `closed`, or `all` to filter by state.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetStateQueryParameterType? StateAsGetStateQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PullsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.PullsRequestBuilder.PullsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PullsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
+            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetStateQueryParameterType? State { get; set; }
         }
     }
 }

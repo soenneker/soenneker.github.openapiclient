@@ -27,19 +27,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attem
                 return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attempts.Item.WithAttempt_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.runs.item.attempts.item collection</summary>
-        /// <param name="position">The attempt number of the workflow run.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attempts.Item.WithAttempt_numberItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attempts.Item.WithAttempt_numberItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("attempt_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attempts.Item.WithAttempt_numberItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attempts.AttemptsRequestBuilder"/> and sets the default values.
         /// </summary>

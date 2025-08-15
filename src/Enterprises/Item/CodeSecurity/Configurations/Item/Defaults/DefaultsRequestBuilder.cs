@@ -45,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutResponse?> PutAsDefaultsPutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutResponse> PutAsDefaultsPutResponseAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -60,35 +60,6 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Sets a code security configuration as a default to be applied to new repositories in your enterprise.This configuration will be applied by default to the matching repository type when created, but only for organizations within the enterprise that do not already have a default code security configuration set.The authenticated user must be an administrator for the enterprise to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/code-security/configurations#set-a-code-security-configuration-as-a-default-for-an-enterprise" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use PutAsDefaultsPutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets a code security configuration as a default to be applied to new repositories in your enterprise.This configuration will be applied by default to the matching repository type when created, but only for organizations within the enterprise that do not already have a default code security configuration set.The authenticated user must be an administrator for the enterprise to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.
@@ -120,14 +91,6 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Defaults.DefaultsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DefaultsRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

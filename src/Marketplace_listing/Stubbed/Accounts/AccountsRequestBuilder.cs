@@ -27,19 +27,6 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts
                 return new global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.marketplace_listing.stubbed.accounts.item collection</summary>
-        /// <param name="position">account_id parameter</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("account_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.AccountsRequestBuilder"/> and sets the default values.
         /// </summary>

@@ -30,19 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
                 return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.personalAccessTokenRequests.item collection</summary>
-        /// <param name="position">Unique identifier of the request for access via fine-grained personal access token.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("pat_request_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.Item.WithPat_request_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -104,11 +91,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostResponse?> PostAsPersonalAccessTokenRequestsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostResponse> PostAsPersonalAccessTokenRequestsPostResponseAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -121,39 +108,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Approves or denies multiple pending requests to access organization resources via a fine-grained personal access token.Only GitHub Apps can use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/orgs/personal-access-tokens#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsPersonalAccessTokenRequestsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists requests from organization members to access organization resources with a fine-grained personal access token.Only GitHub Apps can use this endpoint.
@@ -212,19 +166,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
         public partial class PersonalAccessTokenRequestsRequestBuilderGetQueryParameters 
         {
             /// <summary>The direction to sort the results by.</summary>
-            [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("direction")]
-            public string? Direction { get; set; }
-#nullable restore
-#else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
-#endif
-            /// <summary>The direction to sort the results by.</summary>
-            [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.GetDirectionQueryParameterType? Direction { get; set; }
             /// <summary>Only show fine-grained personal access tokens used after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("last_used_after")]
             public DateTimeOffset? LastUsedAfter { get; set; }
@@ -268,19 +211,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
             public string Repository { get; set; }
 #endif
             /// <summary>The property by which to sort the results.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>The property by which to sort the results.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.GetSortQueryParameterType? Sort { get; set; }
             /// <summary>The ID of the token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -291,22 +223,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
             [QueryParameter("token_id")]
             public string[] TokenId { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PersonalAccessTokenRequestsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests.PersonalAccessTokenRequestsRequestBuilder.PersonalAccessTokenRequestsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PersonalAccessTokenRequestsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }
