@@ -19,6 +19,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions
         public global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? AllowedActions { get; set; }
         /// <summary>The policy that controls the repositories in the organization that are allowed to run GitHub Actions.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.EnabledRepositories? EnabledRepositories { get; set; }
+        /// <summary>Whether actions must be pinned to a full-length commit SHA.</summary>
+        public bool? ShaPinningRequired { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.PermissionsPutRequestBody"/> and sets the default values.
         /// </summary>
@@ -46,6 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions
             {
                 { "allowed_actions", n => { AllowedActions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>(); } },
                 { "enabled_repositories", n => { EnabledRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnabledRepositories>(); } },
+                { "sha_pinning_required", n => { ShaPinningRequired = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>("allowed_actions", AllowedActions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnabledRepositories>("enabled_repositories", EnabledRepositories);
+            writer.WriteBoolValue("sha_pinning_required", ShaPinningRequired);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

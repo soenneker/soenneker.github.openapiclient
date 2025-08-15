@@ -19,6 +19,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions
         public global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? AllowedActions { get; set; }
         /// <summary>Whether GitHub Actions is enabled on the repository.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Whether actions must be pinned to a full-length commit SHA.</summary>
+        public bool? ShaPinningRequired { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.PermissionsPutRequestBody"/> and sets the default values.
         /// </summary>
@@ -46,6 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions
             {
                 { "allowed_actions", n => { AllowedActions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "sha_pinning_required", n => { ShaPinningRequired = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>("allowed_actions", AllowedActions);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteBoolValue("sha_pinning_required", ShaPinningRequired);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

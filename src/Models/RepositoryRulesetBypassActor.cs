@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryRulesetBypassActor : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.</summary>
+        /// <summary>The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.</summary>
         public long? ActorId { get; set; }
         /// <summary>The type of actor that can bypass a ruleset.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor_actor_type? ActorType { get; set; }

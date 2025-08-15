@@ -101,6 +101,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The submitted_at property</summary>
         public DateTimeOffset? SubmittedAt { get; set; }
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -147,6 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "pull_request_url", n => { PullRequestUrl = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "submitted_at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
@@ -170,6 +173,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("pull_request_url", PullRequestUrl);
             writer.WriteStringValue("state", State);
             writer.WriteDateTimeOffsetValue("submitted_at", SubmittedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7854,6 +7854,9 @@
                   },
                   "allowed_actions": {
                     "$ref": "#/components/schemas/allowed-actions"
+                  },
+                  "sha_pinning_required": {
+                    "$ref": "#/components/schemas/sha-pinning-required"
                   }
                 },
                 "required": [
@@ -7864,7 +7867,8 @@
                 "default": {
                   "value": {
                     "enabled_repositories": "all",
-                    "allowed_actions": "selected"
+                    "allowed_actions": "selected",
+                    "sha_pinning_required": true
                   }
                 }
               }
@@ -15317,7 +15321,7 @@
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-epss"
           },
           {
-            "$ref": "#/components/parameters/dependabot-alert-comma-separated-artifact-registry-urls"
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-package-registry-urls"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-package-registry"
@@ -29677,6 +29681,9 @@
                   },
                   "allowed_actions": {
                     "$ref": "#/components/schemas/allowed-actions"
+                  },
+                  "sha_pinning_required": {
+                    "$ref": "#/components/schemas/sha-pinning-required"
                   }
                 },
                 "required": [
@@ -29687,7 +29694,8 @@
                 "default": {
                   "value": {
                     "enabled": true,
-                    "allowed_actions": "selected"
+                    "allowed_actions": "selected",
+                    "sha_pinning_required": true
                   }
                 }
               }
@@ -49884,6 +49892,20 @@
                     "state": "open",
                     "labels": [
                       "bug"
+                    ],
+                    "issue_field_values": [
+                      {
+                        "field_id": "123",
+                        "value": "Critical"
+                      },
+                      {
+                        "field_id": "456",
+                        "value": 5
+                      },
+                      {
+                        "field_id": "789",
+                        "value": null
+                      }
                     ]
                   }
                 }
@@ -103118,6 +103140,86 @@
           "total_blocking"
         ]
       },
+      "issue-field-value": {
+        "title": "Issue Field Value",
+        "description": "A value assigned to an issue field",
+        "type": "object",
+        "properties": {
+          "issue_field_id": {
+            "description": "Unique identifier for the issue field.",
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "IFT_GDKND"
+          },
+          "data_type": {
+            "description": "The data type of the issue field",
+            "type": "string",
+            "enum": [
+              "text",
+              "single_select",
+              "number",
+              "date"
+            ],
+            "example": "text"
+          },
+          "value": {
+            "description": "The value of the issue field",
+            "anyOf": [
+              {
+                "type": "string",
+                "example": "Sample text"
+              },
+              {
+                "type": "number",
+                "example": 42.5
+              },
+              {
+                "type": "integer",
+                "example": 1
+              }
+            ],
+            "nullable": true
+          },
+          "single_select_option": {
+            "description": "Details about the selected option (only present for single_select fields)",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Unique identifier for the option.",
+                "type": "integer",
+                "format": "int64",
+                "example": 1
+              },
+              "name": {
+                "description": "The name of the option",
+                "type": "string",
+                "example": "High"
+              },
+              "color": {
+                "description": "The color of the option",
+                "type": "string",
+                "example": "red"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "color"
+            ],
+            "nullable": true
+          }
+        },
+        "required": [
+          "issue_field_id",
+          "node_id",
+          "data_type",
+          "value"
+        ]
+      },
       "issue": {
         "title": "Issue",
         "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.",
@@ -103344,6 +103446,12 @@
           },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
+          },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/issue-field-value"
+            }
           }
         },
         "required": [
@@ -106763,6 +106871,10 @@
         "type": "string",
         "description": "The API URL to use to get or set the actions and reusable workflows that are allowed to run, when `allowed_actions` is set to `selected`."
       },
+      "sha-pinning-required": {
+        "type": "boolean",
+        "description": "Whether actions must be pinned to a full-length commit SHA."
+      },
       "actions-organization-permissions": {
         "type": "object",
         "properties": {
@@ -106778,6 +106890,9 @@
           },
           "selected_actions_url": {
             "$ref": "#/components/schemas/selected-actions-url"
+          },
+          "sha_pinning_required": {
+            "$ref": "#/components/schemas/sha-pinning-required"
           }
         },
         "required": [
@@ -112427,7 +112542,7 @@
           "actor_id": {
             "type": "integer",
             "nullable": true,
-            "description": "The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+            "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
           },
           "actor_type": {
             "type": "string",
@@ -116662,6 +116777,9 @@
           },
           "selected_actions_url": {
             "$ref": "#/components/schemas/selected-actions-url"
+          },
+          "sha_pinning_required": {
+            "$ref": "#/components/schemas/sha-pinning-required"
           }
         },
         "required": [
@@ -124719,6 +124837,12 @@
           },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
+          },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/issue-field-value"
+            }
           }
         },
         "required": [
@@ -126388,6 +126512,11 @@
           },
           "submitted_at": {
             "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
             "format": "date-time"
           },
           "commit_id": {
@@ -128575,6 +128704,11 @@
             "format": "date-time",
             "nullable": true
           },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time"
+          },
           "author": {
             "$ref": "#/components/schemas/simple-user"
           },
@@ -130265,6 +130399,12 @@
           },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
+          },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/issue-field-value"
+            }
           },
           "state": {
             "type": "string"
@@ -136424,6 +136564,12 @@
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
           },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/issue-field-value"
+            }
+          },
           "state": {
             "description": "State of the issue; either 'open' or 'closed'",
             "type": "string",
@@ -137803,6 +137949,12 @@
           },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
+          },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/issue-field-value"
+            }
           },
           "state": {
             "description": "State of the issue; either 'open' or 'closed'",
@@ -144069,6 +144221,11 @@
             "nullable": true,
             "format": "date-time"
           },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time"
+          },
           "user": {
             "title": "User",
             "type": "object",
@@ -144464,6 +144621,11 @@
             "nullable": true,
             "format": "date-time"
           },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time"
+          },
           "discussion_url": {
             "type": "string",
             "format": "uri"
@@ -144593,6 +144755,7 @@
           "published_at",
           "assets",
           "tarball_url",
+          "updated_at",
           "zipball_url",
           "body"
         ]
@@ -144618,6 +144781,7 @@
           "tag_name",
           "tarball_url",
           "target_commitish",
+          "updated_at",
           "upload_url",
           "url",
           "zipball_url"
@@ -144995,6 +145159,11 @@
           "target_commitish": {
             "description": "Specifies the commitish value that determines where the Git tag is created from.",
             "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time"
           },
           "upload_url": {
             "type": "string",
@@ -166980,6 +167149,12 @@
                   "issue_dependencies_summary": {
                     "$ref": "#/components/schemas/issue-dependencies-summary"
                   },
+                  "issue_field_values": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/issue-field-value"
+                    }
+                  },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
                     "type": "string",
@@ -168413,6 +168588,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -169664,6 +169845,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -170908,6 +171095,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -172144,6 +172337,12 @@
               },
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
+              },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -173408,6 +173607,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -174635,6 +174840,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -175842,6 +176053,12 @@
                   },
                   "issue_dependencies_summary": {
                     "$ref": "#/components/schemas/issue-dependencies-summary"
+                  },
+                  "issue_field_values": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/issue-field-value"
+                    }
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -177642,6 +177859,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -178932,6 +179155,12 @@
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
               },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
+              },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
                 "type": "string",
@@ -180135,6 +180364,12 @@
                   },
                   "issue_dependencies_summary": {
                     "$ref": "#/components/schemas/issue-dependencies-summary"
+                  },
+                  "issue_field_values": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/issue-field-value"
+                    }
                   },
                   "state": {
                     "description": "State of the issue; either 'open' or 'closed'",
@@ -182134,6 +182369,12 @@
               },
               "issue_dependencies_summary": {
                 "$ref": "#/components/schemas/issue-dependencies-summary"
+              },
+              "issue_field_values": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/issue-field-value"
+                }
               },
               "state": {
                 "description": "State of the issue; either 'open' or 'closed'",
@@ -221138,6 +221379,11 @@
                 "type": "string",
                 "format": "date-time"
               },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
               "user": {
                 "title": "User",
                 "type": "object",
@@ -242438,6 +242684,11 @@
               "node_id",
               "comments"
             ]
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time"
           }
         },
         "required": [
@@ -245561,6 +245812,11 @@
               "node_id",
               "comments"
             ]
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time"
           }
         },
         "required": [
@@ -259961,6 +260217,7 @@
               "tag_name",
               "tarball_url",
               "target_commitish",
+              "updated_at",
               "upload_url",
               "url",
               "zipball_url"
@@ -260345,6 +260602,11 @@
               "upload_url": {
                 "type": "string",
                 "format": "uri-template"
+              },
+              "updated_at": {
+                "type": "string",
+                "nullable": true,
+                "format": "date-time"
               },
               "url": {
                 "type": "string",
@@ -277433,7 +277695,8 @@
         "value": {
           "enabled_repositories": "all",
           "allowed_actions": "selected",
-          "selected_actions_url": "https://api.github.com/organizations/42/actions/permissions/selected-actions"
+          "selected_actions_url": "https://api.github.com/organizations/42/actions/permissions/selected-actions",
+          "sha_pinning_required": true
         }
       },
       "actions-fork-pr-contributor-approval": {
@@ -284674,7 +284937,8 @@
         "value": {
           "enabled": true,
           "allowed_actions": "selected",
-          "selected_actions_url": "https://api.github.com/repositories/42/actions/permissions/selected-actions"
+          "selected_actions_url": "https://api.github.com/repositories/42/actions/permissions/selected-actions",
+          "sha_pinning_required": true
         }
       },
       "actions-workflow-access-to-repository": {
@@ -304126,10 +304390,10 @@
           "$ref": "#/components/schemas/code-scanning-analysis-tool-guid"
         }
       },
-      "dependabot-alert-comma-separated-artifact-registry-urls": {
-        "name": "artifact_registry_url",
+      "dependabot-alert-comma-separated-package-registry-urls": {
+        "name": "package_registry_url",
         "in": "query",
-        "description": "A comma-separated list of Artifact Registry URLs. If specified, only alerts for repositories with storage records matching these URLs will be returned.",
+        "description": "A comma-separated list of package registry URLs. If specified, only alerts for repositories with storage records matching these URLs will be returned.",
         "schema": {
           "type": "string"
         }

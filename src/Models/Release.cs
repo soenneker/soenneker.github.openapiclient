@@ -141,6 +141,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string TargetCommitish { get; set; }
 #endif
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The upload_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -211,6 +213,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "tag_name", n => { TagName = n.GetStringValue(); } },
                 { "tarball_url", n => { TarballUrl = n.GetStringValue(); } },
                 { "target_commitish", n => { TargetCommitish = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "upload_url", n => { UploadUrl = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "zipball_url", n => { ZipballUrl = n.GetStringValue(); } },
@@ -244,6 +247,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("tag_name", TagName);
             writer.WriteStringValue("tarball_url", TarballUrl);
             writer.WriteStringValue("target_commitish", TargetCommitish);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("upload_url", UploadUrl);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("zipball_url", ZipballUrl);

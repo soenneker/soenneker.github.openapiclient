@@ -34,6 +34,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string SelectedRepositoriesUrl { get; set; }
 #endif
+        /// <summary>Whether actions must be pinned to a full-length commit SHA.</summary>
+        public bool? ShaPinningRequired { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsOrganizationPermissions"/> and sets the default values.
         /// </summary>
@@ -63,6 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "enabled_repositories", n => { EnabledRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnabledRepositories>(); } },
                 { "selected_actions_url", n => { SelectedActionsUrl = n.GetStringValue(); } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
+                { "sha_pinning_required", n => { ShaPinningRequired = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -76,6 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnabledRepositories>("enabled_repositories", EnabledRepositories);
             writer.WriteStringValue("selected_actions_url", SelectedActionsUrl);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
+            writer.WriteBoolValue("sha_pinning_required", ShaPinningRequired);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
