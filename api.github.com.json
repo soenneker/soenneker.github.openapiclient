@@ -49892,20 +49892,6 @@
                     "state": "open",
                     "labels": [
                       "bug"
-                    ],
-                    "issue_field_values": [
-                      {
-                        "field_id": "123",
-                        "value": "Critical"
-                      },
-                      {
-                        "field_id": "456",
-                        "value": 5
-                      },
-                      {
-                        "field_id": "789",
-                        "value": null
-                      }
                     ]
                   }
                 }
