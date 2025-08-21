@@ -27,6 +27,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string KeyPrefix { get; set; }
 #endif
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>A template for the target URL that is generated if a key was found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,6 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "is_alphanumeric", n => { IsAlphanumeric = n.GetBoolValue(); } },
                 { "key_prefix", n => { KeyPrefix = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url_template", n => { UrlTemplate = n.GetStringValue(); } },
             };
         }
@@ -76,6 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("is_alphanumeric", IsAlphanumeric);
             writer.WriteStringValue("key_prefix", KeyPrefix);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url_template", UrlTemplate);
             writer.WriteAdditionalData(AdditionalData);
         }

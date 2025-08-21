@@ -7046,14 +7046,14 @@
                     "images": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/actions-hosted-runner-image"
+                        "$ref": "#/components/schemas/actions-hosted-runner-curated-image"
                       }
                     }
                   }
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/actions-hosted-runner-image"
+                    "$ref": "#/components/examples/actions-hosted-runner-curated-image"
                   }
                 }
               }
@@ -7103,14 +7103,14 @@
                     "images": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/actions-hosted-runner-image"
+                        "$ref": "#/components/schemas/actions-hosted-runner-curated-image"
                       }
                     }
                   }
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/actions-hosted-runner-image"
+                    "$ref": "#/components/examples/actions-hosted-runner-curated-image"
                   }
                 }
               }
@@ -82246,7 +82246,7 @@
         },
         "description": "A Github-hosted hosted runner."
       },
-      "actions-hosted-runner-image": {
+      "actions-hosted-runner-curated-image": {
         "title": "GitHub-hosted runner image details.",
         "required": [
           "id",
@@ -93384,6 +93384,11 @@
             "type": "boolean",
             "description": "Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters.",
             "example": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "description": "An autolink reference."
@@ -256266,7 +256271,7 @@
           "last_active_on": "2022-10-09T23:39:01Z"
         }
       },
-      "actions-hosted-runner-image": {
+      "actions-hosted-runner-curated-image": {
         "value": {
           "id": "ubuntu-20.04",
           "platform": "linux-x64",

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
         /// <summary>The images property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerImage>? Images { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage>? Images { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerImage> Images { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage> Images { get; set; }
 #endif
         /// <summary>The total_count property</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "images", n => { Images = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerImage>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerImage.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "images", n => { Images = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerImage>("images", Images);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage>("images", Images);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }
