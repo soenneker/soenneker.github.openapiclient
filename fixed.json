@@ -15095,10 +15095,10 @@
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-epss"
           },
           {
-            "$ref": "#/components/parameters/dependabot-alert-comma-separated-package-registry-urls"
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-artifact-registry-urls"
           },
           {
-            "$ref": "#/components/parameters/dependabot-alert-comma-separated-package-registry"
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-artifact-registry"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-has"
@@ -67772,7 +67772,7 @@
           "users"
         ],
         "summary": "Create a public SSH key for the authenticated user",
-        "description": "Adds a public SSH key to the authenticated user's GitHub account.\n\nOAuth app tokens and personal access tokens (classic) need the `write:gpg_key` scope to use this endpoint.",
+        "description": "Adds a public SSH key to the authenticated user's GitHub account.\n\nOAuth app tokens and personal access tokens (classic) need the `write:public_key` scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/users/keys#create-a-public-ssh-key-for-the-authenticated-user"
@@ -249448,18 +249448,18 @@
           "$ref": "#/components/schemas/code-scanning-analysis-tool-guid"
         }
       },
-      "dependabot-alert-comma-separated-package-registry-urls": {
-        "name": "package_registry_url",
+      "dependabot-alert-comma-separated-artifact-registry-urls": {
+        "name": "artifact_registry_url",
         "in": "query",
-        "description": "A comma-separated list of package registry URLs. If specified, only alerts for repositories with storage records matching these URLs will be returned.",
+        "description": "A comma-separated list of artifact registry URLs. If specified, only alerts for repositories with storage records matching these URLs will be returned.",
         "schema": {
           "type": "string"
         }
       },
-      "dependabot-alert-comma-separated-package-registry": {
-        "name": "package_registry",
+      "dependabot-alert-comma-separated-artifact-registry": {
+        "name": "artifact_registry",
         "in": "query",
-        "description": "A comma-separated list of Package Registry name strings. If specified, only alerts for repositories with storage records matching these registries will be returned.\n\nCan be: `jfrog-artifactory`",
+        "description": "A comma-separated list of Artifact Registry name strings. If specified, only alerts for repositories with storage records matching these registries will be returned.\n\nCan be: `jfrog-artifactory`",
         "schema": {
           "type": "string"
         }
