@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigu
         {
         }
         /// <summary>
-        /// Lists the secret scanning pattern configurations for an organization.Personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Lists the secret scanning pattern configurations for an organization.Personal access tokens (classic) need the `read:org` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/secret-scanning/push-protection#list-organization-pattern-configurations" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternConfiguration"/></returns>
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigu
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.PatternConfigurations.PatternConfigurationsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the secret scanning pattern configurations for an organization.Personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Lists the secret scanning pattern configurations for an organization.Personal access tokens (classic) need the `read:org` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
