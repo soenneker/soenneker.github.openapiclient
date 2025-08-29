@@ -159,6 +159,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Number uniquely identifying the issue within its repository</summary>
         public int? Number { get; set; }
+        /// <summary>URL to get the parent issue of this issue, if it is a sub-issue</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentIssueUrl { get; set; }
+#nullable restore
+#else
+        public string ParentIssueUrl { get; set; }
+#endif
         /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -308,6 +316,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
+                { "parent_issue_url", n => { ParentIssueUrl = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_pull_request>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_pull_request.CreateFromDiscriminatorValue); } },
                 { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>(global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup.CreateFromDiscriminatorValue); } },
@@ -355,6 +364,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>("milestone", Milestone);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("number", Number);
+            writer.WriteStringValue("parent_issue_url", ParentIssueUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_pull_request>("pull_request", PullRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>("reactions", Reactions);
