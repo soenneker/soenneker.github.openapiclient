@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AdvisoriesRequestBuilderGetQueryParameters 
         {
-            /// <summary>If specified, only return advisories that affect any of `package` or `package@version`. A maximum of 1000 packages can be specified.If the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.Example: `affects=package1,package2@1.0.0,package3@^2.0.0` or `affects[]=package1&amp;affects[]=package2@1.0.0`</summary>
+            /// <summary>If specified, only return advisories that affect any of `package` or `package@version`. A maximum of 1000 packages can be specified.If the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.Example: `affects=package1,package2@1.0.0,package3@2.0.0` or `affects[]=package1&amp;affects[]=package2@1.0.0`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("affects")]

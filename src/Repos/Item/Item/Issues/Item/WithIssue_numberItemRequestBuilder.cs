@@ -10,6 +10,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Events;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Lock;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Parent;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Reactions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues;
@@ -56,6 +57,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Lock.LockRequestBuilder Lock
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Lock.LockRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The parent property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Parent.ParentRequestBuilder Parent
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Parent.ParentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The reactions property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Reactions.ReactionsRequestBuilder Reactions
