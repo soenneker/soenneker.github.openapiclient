@@ -11403,6 +11403,294 @@
         }
       }
     },
+    "/orgs/{org}/artifacts/metadata/storage-records": {
+      "post": {
+        "summary": "Create artifact metadata storage records",
+        "description": "Create metadata storage records for artifacts associated with an organization.\nThis endpoint will create a new artifact storage record on behalf of any artifact matching the provided digest and\nassociated with a repository owned by the organization.",
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "orgs/create-artifact-storage-records",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#create-artifact-metadata-storage-records"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the artifact.",
+                    "example": "libfoo-1.2.3",
+                    "minLength": 1
+                  },
+                  "digest": {
+                    "type": "string",
+                    "description": "The digest of the artifact (algorithm:hex-encoded-digest).",
+                    "example": "sha256:0ecbaa601dba202129058746c7d8e3f282d0efb5fff0...",
+                    "minLength": 71,
+                    "maxLength": 71,
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "artifact_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https://",
+                    "description": "The URL where the artifact is stored.",
+                    "example": "https://reg.example.com/artifactory/bar/libfoo-1.2.3"
+                  },
+                  "path": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The path of the artifact.",
+                    "example": "com/github/bar/libfoo-1.2.3"
+                  },
+                  "registry_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https://",
+                    "description": "The base URL of the artifact registry.",
+                    "example": "https://reg.example.com/artifactory/",
+                    "minLength": 1
+                  },
+                  "repository": {
+                    "type": "string",
+                    "description": "The repository name within the registry.",
+                    "example": "bar"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "The status of the artifact (e.g., active, inactive).",
+                    "example": "active",
+                    "enum": [
+                      "active",
+                      "eol",
+                      "deleted"
+                    ],
+                    "default": "active"
+                  }
+                },
+                "required": [
+                  "name",
+                  "digest",
+                  "registry_url"
+                ]
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "libfoo-1.2.3",
+                    "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                    "artifact_url": "https://reg.example.com/artifactory/bar/libfoo-1.2.3",
+                    "registry_url": "https://reg.example.com/artifactory/",
+                    "repository": "bar",
+                    "status": "active"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Artifact metadata storage record stored successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "storage_records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "digest": {
+                            "type": "string"
+                          },
+                          "artifact_url": {
+                            "type": "string"
+                          },
+                          "registry_url": {
+                            "type": "string"
+                          },
+                          "repository": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "total_count": 1,
+                      "storage_records": [
+                        {
+                          "name": "libfoo-1.2.3",
+                          "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                          "artifact_url": "https://reg.example.com/artifactory/bar/libfoo-1.2.3",
+                          "registry_url": "https://reg.example.com/artifactory/",
+                          "repository": "bar",
+                          "status": "active",
+                          "created_at": "2023-10-01T12:00:00Z",
+                          "updated_at": "2023-10-01T12:00:00Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "artifact-metadata"
+        }
+      }
+    },
+    "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records": {
+      "get": {
+        "summary": "List artifact storage records",
+        "description": "List a collection of artifact storage records with a given subject digest that are associated with repositories owned by an organization.\n\nThe collection of storage records returned by this endpoint is filtered according to the authenticated user's permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `content:read` permission is required.",
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "orgs/list-artifact-storage-records",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#list-artifact-storage-records"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "subject_digest",
+            "description": "The parameter should be set to the attestation's subject's SHA256 digest, in the form `sha256:HEX_DIGEST`.",
+            "in": "path",
+            "required": true,
+            "example": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+            "schema": {
+              "type": "string",
+              "minLength": 71,
+              "maxLength": 71,
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "x-multi-segment": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "description": "The number of storage records for this digest and organization",
+                      "example": 3,
+                      "type": "integer"
+                    },
+                    "storage_records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "digest": {
+                            "type": "string"
+                          },
+                          "artifact_url": {
+                            "type": "string"
+                          },
+                          "registry_url": {
+                            "type": "string"
+                          },
+                          "repository": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "storage_records": [
+                        {
+                          "name": "libfoo-1.2.3",
+                          "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                          "artifact_url": "https://reg.example.com/artifactory/bar/libfoo-1.2.3",
+                          "registry_url": "https://reg.example.com/artifactory/",
+                          "repository": "bar",
+                          "status": "active",
+                          "created_at": "2023-10-01T12:00:00Z",
+                          "updated_at": "2023-10-01T12:00:00Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "artifact-metadata"
+        }
+      }
+    },
     "/orgs/{org}/attestations/bulk-list": {
       "post": {
         "summary": "List attestations by bulk subject digests",
@@ -26712,380 +27000,6 @@
         "deprecated": true
       }
     },
-    "/projects/columns/cards/{card_id}": {
-      "get": {
-        "summary": "Get a project card",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/get-card",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/cards#get-a-project-card"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/card-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-card"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-card"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "cards",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "patch": {
-        "summary": "Update an existing project card",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/update-card",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/cards#update-an-existing-project-card"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/card-id"
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "note": {
-                    "description": "The project card's note",
-                    "example": "Update all gems",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "archived": {
-                    "description": "Whether or not the card is archived",
-                    "example": false,
-                    "type": "boolean"
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "summary": "Change the note on the card",
-                  "value": {
-                    "note": "Add payload for delete Project column"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-card"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-card"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed_simple"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "cards",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "delete": {
-        "summary": "Delete a project card",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/delete-card",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/cards#delete-a-project-card"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/card-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "documentation_url": {
-                      "type": "string"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "cards",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/columns/cards/{card_id}/moves": {
-      "post": {
-        "summary": "Move a project card",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/move-card",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/cards#move-a-project-card"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/card-id"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "position": {
-                    "description": "The position of the card in a column. Can be one of: `top`, `bottom`, or `after:<card_id>` to place after the specified card.",
-                    "example": "bottom",
-                    "type": "string",
-                    "pattern": "^(?:top|bottom|after:\\d+)$"
-                  },
-                  "column_id": {
-                    "description": "The unique identifier of the column the card should be moved to",
-                    "example": 42,
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "position"
-                ],
-                "type": "object"
-              },
-              "examples": {
-                "default": {
-                  "summary": "Move the card to the bottom of the column",
-                  "value": {
-                    "column_id": 42,
-                    "position": "bottom"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "additionalProperties": false
-                },
-                "examples": {
-                  "default": {
-                    "value": null
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "documentation_url": {
-                      "type": "string"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "code": {
-                            "type": "string"
-                          },
-                          "message": {
-                            "type": "string"
-                          },
-                          "resource": {
-                            "type": "string"
-                          },
-                          "field": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          },
-          "503": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "documentation_url": {
-                      "type": "string"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "code": {
-                            "type": "string"
-                          },
-                          "message": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "cards",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
     "/projects/columns/{column_id}": {
       "get": {
         "summary": "Get a project column",
@@ -27257,245 +27171,6 @@
           "enabledForGitHubApps": true,
           "category": "projects-classic",
           "subcategory": "columns",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/columns/{column_id}/cards": {
-      "get": {
-        "summary": "List project cards",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/list-cards",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/cards#list-project-cards"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/column-id"
-          },
-          {
-            "name": "archived_state",
-            "description": "Filters the project cards that are returned by the card's state.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "all",
-                "archived",
-                "not_archived"
-              ],
-              "default": "not_archived"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/project-card"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-card-items"
-                  }
-                }
-              }
-            },
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "cards",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "post": {
-        "summary": "Create a project card",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/create-card",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/cards#create-a-project-card"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/column-id"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "note": {
-                        "description": "The project card's note",
-                        "example": "Update all gems",
-                        "type": "string",
-                        "nullable": true
-                      }
-                    },
-                    "required": [
-                      "note"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "content_id": {
-                        "description": "The unique identifier of the content associated with the card",
-                        "example": 42,
-                        "type": "integer"
-                      },
-                      "content_type": {
-                        "description": "The piece of content associated with the card",
-                        "example": "PullRequest",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "content_id",
-                      "content_type"
-                    ]
-                  }
-                ]
-              },
-              "examples": {
-                "default": {
-                  "summary": "Create a new card",
-                  "value": {
-                    "note": "Add payload for delete Project column"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-card"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-card"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          },
-          "422": {
-            "description": "Validation failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/validation-error"
-                    },
-                    {
-                      "$ref": "#/components/schemas/validation-error-simple"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "documentation_url": {
-                      "type": "string"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "code": {
-                            "type": "string"
-                          },
-                          "message": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "cards",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
         },
@@ -28346,7 +28021,7 @@
     "/repos/{owner}/{repo}": {
       "get": {
         "summary": "Get a repository",
-        "description": "The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network.\n\n> [!NOTE]\n> In order to see the `security_and_analysis` block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).\"",
+        "description": "The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network.\n\n> [!NOTE]\n> - In order to see the `security_and_analysis` block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).\"\n> - To view merge-related settings, you must have the `contents:read` and `contents:write` permissions.",
         "tags": [
           "repos"
         ],
@@ -62405,7 +62080,7 @@
     "/search/issues": {
       "get": {
         "summary": "Search issues and pull requests",
-        "description": "> [!WARNING]\n> **Notice:** Search for issues and pull requests will be overridden by advanced search on September 4, 2025.\n> You can read more about this change on [the GitHub blog](https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/).",
+        "description": "> [!WARNING]\n> **Notice:** Search for issues and pull requests will be overridden by advanced search on November 4, 2025.\n> You can read more about this change on [the GitHub blog](https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/).",
         "tags": [
           "search"
         ],
@@ -62513,7 +62188,7 @@
           "category": "search",
           "subcategory": "search",
           "deprecationDate": "2025-03-04",
-          "removalDate": "2025-09-04"
+          "removalDate": "2025-11-04"
         },
         "deprecated": true
       }
@@ -103522,7 +103197,6 @@
           "title",
           "url",
           "user",
-          "author_association",
           "created_at",
           "updated_at"
         ]
@@ -116122,83 +115796,6 @@
           "updated_at"
         ]
       },
-      "project-card": {
-        "title": "Project Card",
-        "description": "Project cards represent a scope of work.",
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/projects/columns/cards/1478"
-          },
-          "id": {
-            "description": "The project card's ID",
-            "example": 42,
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDExOlByb2plY3RDYXJkMTQ3OA=="
-          },
-          "note": {
-            "type": "string",
-            "example": "Add payload for delete Project column",
-            "nullable": true
-          },
-          "creator": {
-            "$ref": "#/components/schemas/nullable-simple-user"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2016-09-05T14:21:06Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2016-09-05T14:20:22Z"
-          },
-          "archived": {
-            "description": "Whether or not the card is archived",
-            "example": false,
-            "type": "boolean"
-          },
-          "column_name": {
-            "type": "string"
-          },
-          "project_id": {
-            "type": "string"
-          },
-          "column_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/projects/columns/367"
-          },
-          "content_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/api-playground/projects-test/issues/3"
-          },
-          "project_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/projects/120"
-          }
-        },
-        "required": [
-          "id",
-          "node_id",
-          "note",
-          "url",
-          "column_url",
-          "project_url",
-          "creator",
-          "created_at",
-          "updated_at"
-        ]
-      },
       "project-column": {
         "title": "Project Column",
         "description": "Project columns contain cards of work.",
@@ -124924,7 +124521,6 @@
           "title",
           "url",
           "user",
-          "author_association",
           "created_at",
           "updated_at"
         ],
@@ -146552,6 +146148,9 @@
           "installation": {
             "$ref": "#/components/schemas/simple-installation"
           },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
           "organization": {
             "$ref": "#/components/schemas/organization-simple-webhooks"
           },
@@ -146598,6 +146197,9 @@
           "installation": {
             "$ref": "#/components/schemas/simple-installation"
           },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
           "organization": {
             "$ref": "#/components/schemas/organization-simple-webhooks"
           },
@@ -146643,6 +146245,9 @@
           },
           "installation": {
             "$ref": "#/components/schemas/simple-installation"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
           },
           "organization": {
             "$ref": "#/components/schemas/organization-simple-webhooks"
@@ -146700,6 +146305,9 @@
           },
           "installation": {
             "$ref": "#/components/schemas/simple-installation"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
           },
           "organization": {
             "$ref": "#/components/schemas/organization-simple-webhooks"
@@ -283888,40 +283496,6 @@
           }
         ]
       },
-      "project-card": {
-        "value": {
-          "url": "https://api.github.com/projects/columns/cards/1478",
-          "id": 1478,
-          "node_id": "MDExOlByb2plY3RDYXJkMTQ3OA==",
-          "note": "Add payload for delete Project column",
-          "creator": {
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": false
-          },
-          "created_at": "2016-09-05T14:21:06Z",
-          "updated_at": "2016-09-05T14:20:22Z",
-          "archived": false,
-          "column_url": "https://api.github.com/projects/columns/367",
-          "content_url": "https://api.github.com/repos/api-playground/projects-test/issues/3",
-          "project_url": "https://api.github.com/projects/120"
-        }
-      },
       "project-column": {
         "value": {
           "url": "https://api.github.com/projects/columns/367",
@@ -283933,42 +283507,6 @@
           "created_at": "2016-09-05T14:18:44Z",
           "updated_at": "2016-09-05T14:22:28Z"
         }
-      },
-      "project-card-items": {
-        "value": [
-          {
-            "url": "https://api.github.com/projects/columns/cards/1478",
-            "id": 1478,
-            "node_id": "MDExOlByb2plY3RDYXJkMTQ3OA==",
-            "note": "Add payload for delete Project column",
-            "creator": {
-              "login": "octocat",
-              "id": 1,
-              "node_id": "MDQ6VXNlcjE=",
-              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "gravatar_id": "",
-              "url": "https://api.github.com/users/octocat",
-              "html_url": "https://github.com/octocat",
-              "followers_url": "https://api.github.com/users/octocat/followers",
-              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-              "organizations_url": "https://api.github.com/users/octocat/orgs",
-              "repos_url": "https://api.github.com/users/octocat/repos",
-              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-              "received_events_url": "https://api.github.com/users/octocat/received_events",
-              "type": "User",
-              "site_admin": false
-            },
-            "created_at": "2016-09-05T14:21:06Z",
-            "updated_at": "2016-09-05T14:20:22Z",
-            "archived": false,
-            "column_url": "https://api.github.com/projects/columns/367",
-            "content_url": "https://api.github.com/repos/api-playground/projects-test/issues/3",
-            "project_url": "https://api.github.com/projects/120"
-          }
-        ]
       },
       "project-3": {
         "value": {
@@ -304860,15 +304398,6 @@
             "enable_all",
             "disable_all"
           ]
-        }
-      },
-      "card-id": {
-        "name": "card_id",
-        "description": "The unique identifier of the card.",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "type": "integer"
         }
       },
       "column-id": {

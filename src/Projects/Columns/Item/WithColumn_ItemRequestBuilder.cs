@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Cards;
 using Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Moves;
 using System.Collections.Generic;
 using System.IO;
@@ -19,12 +18,6 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithColumn_ItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The cards property</summary>
-        [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Cards.CardsRequestBuilder Cards
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Cards.CardsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The moves property</summary>
         [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.Moves.MovesRequestBuilder Moves

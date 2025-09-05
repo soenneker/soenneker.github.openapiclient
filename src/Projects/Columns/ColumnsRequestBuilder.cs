@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards;
 using Soenneker.GitHub.OpenApiClient.Projects.Columns.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -16,11 +15,6 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Columns
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ColumnsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The cards property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.CardsRequestBuilder Cards
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Cards.CardsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.projects.columns.item collection</summary>
         /// <param name="position">The unique identifier of the column.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Columns.Item.WithColumn_ItemRequestBuilder"/></returns>
