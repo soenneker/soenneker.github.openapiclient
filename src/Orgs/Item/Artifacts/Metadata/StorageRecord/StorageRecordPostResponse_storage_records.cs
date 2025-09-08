@@ -5,16 +5,16 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords
+namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class StorageRecordsPostRequestBody : IAdditionalDataHolder, IParsable
+    public partial class StorageRecordPostResponse_storage_records : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The URL where the artifact is stored.</summary>
+        /// <summary>The artifact_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ArtifactUrl { get; set; }
@@ -22,7 +22,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string ArtifactUrl { get; set; }
 #endif
-        /// <summary>The digest of the artifact (algorithm:hex-encoded-digest).</summary>
+        /// <summary>The created_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
+        /// <summary>The digest property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Digest { get; set; }
@@ -30,7 +38,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string Digest { get; set; }
 #endif
-        /// <summary>The name of the artifact.</summary>
+        /// <summary>The id property</summary>
+        public long? Id { get; set; }
+        /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -38,15 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The path of the artifact.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Path { get; set; }
-#nullable restore
-#else
-        public string Path { get; set; }
-#endif
-        /// <summary>The base URL of the artifact registry.</summary>
+        /// <summary>The registry_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegistryUrl { get; set; }
@@ -54,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string RegistryUrl { get; set; }
 #endif
-        /// <summary>The repository name within the registry.</summary>
+        /// <summary>The repository property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Repository { get; set; }
@@ -62,25 +64,38 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string Repository { get; set; }
 #endif
-        /// <summary>The status of the artifact (e.g., active, inactive).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody_status? Status { get; set; }
+        /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>The updated_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get; set; }
+#nullable restore
+#else
+        public string UpdatedAt { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostResponse_storage_records"/> and sets the default values.
         /// </summary>
-        public StorageRecordsPostRequestBody()
+        public StorageRecordPostResponse_storage_records()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody_status.Active;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostResponse_storage_records"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostResponse_storage_records CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody();
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostResponse_storage_records();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,12 +106,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "artifact_url", n => { ArtifactUrl = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "digest", n => { Digest = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "path", n => { Path = n.GetStringValue(); } },
                 { "registry_url", n => { RegistryUrl = n.GetStringValue(); } },
                 { "repository", n => { Repository = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody_status>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -107,12 +124,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("artifact_url", ArtifactUrl);
+            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("digest", Digest);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("path", Path);
             writer.WriteStringValue("registry_url", RegistryUrl);
             writer.WriteStringValue("repository", Repository);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsPostRequestBody_status>("status", Status);
+            writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -2,7 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +15,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MetadataRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The storageRecords property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsRequestBuilder StorageRecords
+        /// <summary>The storageRecord property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordRequestBuilder StorageRecord
         {
-            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecords.StorageRecordsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.MetadataRequestBuilder"/> and sets the default values.
