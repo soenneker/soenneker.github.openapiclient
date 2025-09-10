@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators
     public partial class CollaboratorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.projects.item.collaborators.item collection</summary>
-        /// <param name="position">The handle for the GitHub user account.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.Item.WithUsernameItemRequestBuilder"/></returns>
         [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.Item.WithUsernameItemRequestBuilder this[string position]

@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Memberships
     public partial class MembershipsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.teams.item.memberships.item collection</summary>
-        /// <param name="position">The handle for the GitHub user account.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Teams.Item.Memberships.Item.WithUsernameItemRequestBuilder"/></returns>
         [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Teams.Item.Memberships.Item.WithUsernameItemRequestBuilder this[string position]

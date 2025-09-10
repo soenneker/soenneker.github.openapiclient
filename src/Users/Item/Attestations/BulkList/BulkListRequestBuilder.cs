@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.BulkList
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\attestations\bulk-list
+    /// Builds and executes requests for operations under \users\{username-id}\attestations\bulk-list
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BulkListRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.BulkList
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BulkListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/attestations/bulk-list{?after*,before*,per_page*}", pathParameters)
+        public BulkListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/attestations/bulk-list{?after*,before*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.BulkList
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BulkListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/attestations/bulk-list{?after*,before*,per_page*}", rawUrl)
+        public BulkListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/attestations/bulk-list{?after*,before*,per_page*}", rawUrl)
         {
         }
         /// <summary>

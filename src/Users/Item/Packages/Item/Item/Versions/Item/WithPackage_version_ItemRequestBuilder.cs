@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\packages\{package_type}\{package_name}\versions\{package_version_id}
+    /// Builds and executes requests for operations under \users\{username-id}\packages\{package_type}\{package_name}\versions\{package_version_id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPackage_version_ItemRequestBuilder : BaseRequestBuilder
@@ -28,7 +28,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackage_version_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}", pathParameters)
+        public WithPackage_version_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages/{package_type}/{package_name}/versions/{package_version_id}", pathParameters)
         {
         }
         /// <summary>
@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackage_version_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}", rawUrl)
+        public WithPackage_version_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages/{package_type}/{package_name}/versions/{package_version_id}", rawUrl)
         {
         }
         /// <summary>

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\repos
+    /// Builds and executes requests for operations under \users\{username-id}\repos
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReposRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/repos{?direction*,page*,per_page*,sort*,type*}", pathParameters)
+        public ReposRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/repos{?direction*,page*,per_page*,sort*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReposRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/repos{?direction*,page*,per_page*,sort*,type*}", rawUrl)
+        public ReposRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/repos{?direction*,page*,per_page*,sort*,type*}", rawUrl)
         {
         }
         /// <summary>

@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\following\{target_user}
+    /// Builds and executes requests for operations under \users\{username-id}\following\{target_user}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithTarget_userItemRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithTarget_userItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/following/{target_user}", pathParameters)
+        public WithTarget_userItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/following/{target_user}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithTarget_userItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/following/{target_user}", rawUrl)
+        public WithTarget_userItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/following/{target_user}", rawUrl)
         {
         }
         /// <summary>

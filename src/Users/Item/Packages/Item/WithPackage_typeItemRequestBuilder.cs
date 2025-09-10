@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\packages\{package_type}
+    /// Builds and executes requests for operations under \users\{username-id}\packages\{package_type}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPackage_typeItemRequestBuilder : BaseRequestBuilder
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackage_typeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages/{package_type}", pathParameters)
+        public WithPackage_typeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages/{package_type}", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackage_typeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages/{package_type}", rawUrl)
+        public WithPackage_typeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages/{package_type}", rawUrl)
         {
         }
     }

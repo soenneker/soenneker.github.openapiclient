@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Installation
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\installation
+    /// Builds and executes requests for operations under \users\{username-id}\installation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InstallationRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Installation
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InstallationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/installation", pathParameters)
+        public InstallationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/installation", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Installation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InstallationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/installation", rawUrl)
+        public InstallationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/installation", rawUrl)
         {
         }
         /// <summary>

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Hovercard
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\hovercard
+    /// Builds and executes requests for operations under \users\{username-id}\hovercard
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HovercardRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Hovercard
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HovercardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/hovercard{?subject_id*,subject_type*}", pathParameters)
+        public HovercardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/hovercard{?subject_id*,subject_type*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Hovercard
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HovercardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/hovercard{?subject_id*,subject_type*}", rawUrl)
+        public HovercardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/hovercard{?subject_id*,subject_type*}", rawUrl)
         {
         }
         /// <summary>

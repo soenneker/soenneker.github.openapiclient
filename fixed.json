@@ -21692,6 +21692,738 @@
         }
       }
     },
+    "/orgs/{org}/projectsV2": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List projects for organization",
+        "description": "List all projects owned by a specific organization accessible by the authenticated user.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/projects#list-projects-for-organization"
+        },
+        "operationId": "projects/list-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Limit results to projects of the specified type.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "projects"
+        }
+      }
+    },
+    "/orgs/{org}/projectsV2/{project_number}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get project for organization",
+        "description": "Get a specific organization-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/projects#get-project-for-organization"
+        },
+        "operationId": "projects/get-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "projects"
+        }
+      }
+    },
+    "/orgs/{org}/projectsV2/{project_number}/fields": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List project fields for organization",
+        "description": "List all fields for a specific organization-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#list-project-fields-for-organization"
+        },
+        "operationId": "projects/list-fields-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2-field"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-field"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      }
+    },
+    "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get project field for organization",
+        "description": "Get a specific field for an organization-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#get-project-field-for-organization"
+        },
+        "operationId": "projects/get-field-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/field-id"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-field"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-field"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      }
+    },
+    "/orgs/{org}/projectsV2/{project_number}/items": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List items for an organization owned project",
+        "description": "List all items for a specific organization-owned project accessible by the authenticated user.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#list-items-for-an-organization-owned-project"
+        },
+        "operationId": "projects/list-items-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search query to filter items, see [Filtering projects](https://docs.github.com/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects) for more information.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
+            "schema": {
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": "fields[]=123,fields[]=456,fields[]=789"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2-item-with-content"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "post": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Add item to organization owned project",
+        "description": "Add an issue or pull request item to the specified organization owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#add-item-to-organization-owned-project"
+        },
+        "operationId": "projects/add-item-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/project-number"
+          }
+        ],
+        "requestBody": {
+          "description": "Details of the item to add to the project.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "Issue",
+                      "PullRequest"
+                    ],
+                    "type": "string",
+                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "The numeric ID of the issue or pull request to add to the project.",
+                    "format": "int64"
+                  }
+                }
+              },
+              "examples": {
+                "issue": {
+                  "value": {
+                    "type": "Issue",
+                    "id": 3
+                  }
+                },
+                "pull_request": {
+                  "value": {
+                    "type": "PullRequest",
+                    "id": 3
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-simple"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      }
+    },
+    "/orgs/{org}/projectsV2/{project_number}/items/{item_id}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get an item for an organization owned project",
+        "description": "Get a specific item from an organization-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#get-an-item-for-an-organization-owned-project"
+        },
+        "operationId": "projects/get-org-item",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
+            "schema": {
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": "fields[]=123,fields[]=456,fields[]=789"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-with-content"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "patch": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update project item for organization",
+        "description": "Update a specific item in an organization-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#update-project-item-for-organization"
+        },
+        "operationId": "projects/update-item-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          }
+        ],
+        "requestBody": {
+          "description": "Field updates to apply to the project item. Only text, number, date, single select, and iteration fields are supported.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "fields"
+                ],
+                "type": "object",
+                "properties": {
+                  "fields": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "value"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The ID of the project field to update.",
+                          "format": "int64"
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ],
+                          "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "description": "A list of field updates to apply."
+                  }
+                }
+              },
+              "examples": {
+                "text_field": {
+                  "summary": "Update a text field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 123,
+                        "value": "Updated text value"
+                      }
+                    ]
+                  }
+                },
+                "number_field": {
+                  "summary": "Update a number field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 456,
+                        "value": 42.5
+                      }
+                    ]
+                  }
+                },
+                "date_field": {
+                  "summary": "Update a date field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 789,
+                        "value": "2023-10-05"
+                      }
+                    ]
+                  }
+                },
+                "single_select_field": {
+                  "summary": "Update a single select field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 789,
+                        "value": "47fc9ee4"
+                      }
+                    ]
+                  }
+                },
+                "iteration_field": {
+                  "summary": "Update an iteration field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 1011,
+                        "value": "866ee5b8"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-with-content"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "delete": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Delete project item for organization",
+        "description": "Delete a specific item from an organization-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#delete-project-item-for-organization"
+        },
+        "operationId": "projects/delete-item-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      }
+    },
     "/orgs/{org}/properties/schema": {
       "get": {
         "tags": [
@@ -70528,6 +71260,662 @@
         }
       }
     },
+    "/users/{user_id}/projectsV2/{project_number}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get project for user",
+        "description": "Get a specific user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/projects#get-project-for-user"
+        },
+        "operationId": "projects/get-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "projects"
+        }
+      }
+    },
+    "/users/{user_id}/projectsV2/{project_number}/fields": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List project fields for user",
+        "description": "List all fields for a specific user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#list-project-fields-for-user"
+        },
+        "operationId": "projects/list-fields-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2-field"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-field"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      }
+    },
+    "/users/{user_id}/projectsV2/{project_number}/fields/{field_id}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get project field for user",
+        "description": "Get a specific field for a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#get-project-field-for-user"
+        },
+        "operationId": "projects/get-field-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/field-id"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-field"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-field"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      }
+    },
+    "/users/{user_id}/projectsV2/{project_number}/items": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List items for a user owned project",
+        "description": "List all items for a specific user-owned project accessible by the authenticated user.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#list-items-for-a-user-owned-project"
+        },
+        "operationId": "projects/list-items-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search query to filter items, see [Filtering projects](https://docs.github.com/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects) for more information.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
+            "schema": {
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": "fields[]=123,fields[]=456,fields[]=789"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2-item-with-content"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "post": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Add item to user owned project",
+        "description": "Add an issue or pull request item to the specified user owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#add-item-to-user-owned-project"
+        },
+        "operationId": "projects/add-item-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/project-number"
+          }
+        ],
+        "requestBody": {
+          "description": "Details of the item to add to the project.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "Issue",
+                      "PullRequest"
+                    ],
+                    "type": "string",
+                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "The numeric ID of the issue or pull request to add to the project.",
+                    "format": "int64"
+                  }
+                }
+              },
+              "examples": {
+                "issue": {
+                  "value": {
+                    "type": "Issue",
+                    "id": 3
+                  }
+                },
+                "pull_request": {
+                  "value": {
+                    "type": "PullRequest",
+                    "id": 3
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-simple"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      }
+    },
+    "/users/{user_id}/projectsV2/{project_number}/items/{item_id}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get an item for a user owned project",
+        "description": "Get a specific item from a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#get-an-item-for-a-user-owned-project"
+        },
+        "operationId": "projects/get-user-item",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
+            "schema": {
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": "fields[]=123,fields[]=456,fields[]=789"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-with-content"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "patch": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update project item for user",
+        "description": "Update a specific item in a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#update-project-item-for-user"
+        },
+        "operationId": "projects/update-item-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          }
+        ],
+        "requestBody": {
+          "description": "Field updates to apply to the project item. Only text, number, date, single select, and iteration fields are supported.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "fields"
+                ],
+                "type": "object",
+                "properties": {
+                  "fields": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "value"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The ID of the project field to update.",
+                          "format": "int64"
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ],
+                          "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "description": "A list of field updates to apply."
+                  }
+                }
+              },
+              "examples": {
+                "text_field": {
+                  "summary": "Update a text field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 123,
+                        "value": "Updated text value"
+                      }
+                    ]
+                  }
+                },
+                "number_field": {
+                  "summary": "Update a number field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 456,
+                        "value": 42.5
+                      }
+                    ]
+                  }
+                },
+                "date_field": {
+                  "summary": "Update a date field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 789,
+                        "value": "2023-10-05"
+                      }
+                    ]
+                  }
+                },
+                "single_select_field": {
+                  "summary": "Update a single select field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 789,
+                        "value": "47fc9ee4"
+                      }
+                    ]
+                  }
+                },
+                "iteration_field": {
+                  "summary": "Update an iteration field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 1011,
+                        "value": "866ee5b8"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-with-content"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "delete": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Delete project item for user",
+        "description": "Delete a specific item from a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#delete-project-item-for-user"
+        },
+        "operationId": "projects/delete-item-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      }
+    },
     "/users/{username}": {
       "get": {
         "tags": [
@@ -72254,6 +73642,82 @@
           "subcategory": "projects",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
+        }
+      }
+    },
+    "/users/{username}/projectsV2": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List projects for user",
+        "description": "List all projects owned by a specific user accessible by the authenticated user.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/projects#list-projects-for-user"
+        },
+        "operationId": "projects/list-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Limit results to projects of the specified type.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "projects"
         }
       }
     },
@@ -86392,6 +87856,942 @@
         },
         "description": "Projects are a way to organize columns and cards of work."
       },
+      "nullable-projects-v2-status-update": {
+        "title": "Projects v2 Status Update",
+        "required": [
+          "id",
+          "node_id",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The unique identifier of the status update."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the status update."
+          },
+          "project_node_id": {
+            "type": "string",
+            "description": "The node ID of the project that this status update belongs to."
+          },
+          "creator": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the status update was created.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time when the status update was last updated.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "status": {
+            "enum": [
+              "INACTIVE",
+              "ON_TRACK",
+              "AT_RISK",
+              "OFF_TRACK",
+              "COMPLETE"
+            ],
+            "type": "string",
+            "description": "The current status.",
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "description": "The start date of the period covered by the update.",
+            "format": "date",
+            "example": "2022-04-28"
+          },
+          "target_date": {
+            "type": "string",
+            "description": "The target date associated with the update.",
+            "format": "date",
+            "example": "2022-04-28"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body of the status update",
+            "nullable": true,
+            "example": "The project is off to a great start!"
+          }
+        },
+        "description": "An status update belonging to a project",
+        "nullable": true
+      },
+      "projects-v2": {
+        "title": "Projects v2 Project",
+        "required": [
+          "id",
+          "node_id",
+          "owner",
+          "creator",
+          "title",
+          "description",
+          "public",
+          "closed_at",
+          "created_at",
+          "updated_at",
+          "number",
+          "short_description",
+          "deleted_at",
+          "deleted_by"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The unique identifier of the project."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the project."
+          },
+          "owner": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "title": {
+            "type": "string",
+            "description": "The project title."
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description of the project.",
+            "nullable": true
+          },
+          "public": {
+            "type": "boolean",
+            "description": "Whether the project is visible to anyone with access to the owner."
+          },
+          "closed_at": {
+            "type": "string",
+            "description": "The time when the project was closed.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the project was created.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time when the project was last updated.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "number": {
+            "type": "integer",
+            "description": "The project number."
+          },
+          "short_description": {
+            "type": "string",
+            "description": "A concise summary of the project.",
+            "nullable": true
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "The time when the project was deleted.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "deleted_by": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "state": {
+            "enum": [
+              "open",
+              "closed"
+            ],
+            "type": "string",
+            "description": "The current state of the project."
+          },
+          "latest_status_update": {
+            "$ref": "#/components/schemas/nullable-projects-v2-status-update"
+          },
+          "is_template": {
+            "type": "boolean",
+            "description": "Whether this project is a template"
+          }
+        },
+        "description": "A projects v2 project"
+      },
+      "projects-v2-single-select-options": {
+        "title": "Projects v2 Single Select Option",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "color"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the option."
+          },
+          "name": {
+            "required": [
+              "raw",
+              "html"
+            ],
+            "type": "object",
+            "properties": {
+              "raw": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              }
+            },
+            "description": "The display name of the option, in raw text and HTML formats."
+          },
+          "description": {
+            "required": [
+              "raw",
+              "html"
+            ],
+            "type": "object",
+            "properties": {
+              "raw": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              }
+            },
+            "description": "The description of the option, in raw text and HTML formats."
+          },
+          "color": {
+            "type": "string",
+            "description": "The color associated with the option."
+          }
+        },
+        "description": "An option for a single select field"
+      },
+      "projects-v2-iteration-settings": {
+        "title": "Projects v2 Iteration Setting",
+        "required": [
+          "id",
+          "start_date",
+          "duration",
+          "title",
+          "completed"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the iteration setting."
+          },
+          "start_date": {
+            "type": "string",
+            "description": "The start date of the iteration.",
+            "format": "date"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "The duration of the iteration in days."
+          },
+          "title": {
+            "required": [
+              "raw",
+              "html"
+            ],
+            "type": "object",
+            "properties": {
+              "raw": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              }
+            },
+            "description": "The iteration title, in raw text and HTML formats."
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the iteration has been completed."
+          }
+        },
+        "description": "An iteration setting for an iteration field"
+      },
+      "projects-v2-field": {
+        "title": "Projects v2 Field",
+        "required": [
+          "id",
+          "name",
+          "data_type",
+          "created_at",
+          "updated_at",
+          "project_url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the field.",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the field."
+          },
+          "project_url": {
+            "type": "string",
+            "description": "The API URL of the project that contains the field.",
+            "example": "https://api.github.com/projects/1"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the field."
+          },
+          "data_type": {
+            "enum": [
+              "assignees",
+              "linked_pull_requests",
+              "reviewers",
+              "labels",
+              "milestone",
+              "repository",
+              "title",
+              "text",
+              "single_select",
+              "number",
+              "date",
+              "iteration",
+              "issue_type",
+              "parent_issue",
+              "sub_issues_progress"
+            ],
+            "type": "string",
+            "description": "The field's data type."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/projects-v2-single-select-options"
+            },
+            "description": "The options available for single select fields."
+          },
+          "configuration": {
+            "type": "object",
+            "properties": {
+              "start_day": {
+                "type": "integer",
+                "description": "The day of the week when the iteration starts."
+              },
+              "duration": {
+                "type": "integer",
+                "description": "The duration of the iteration in days."
+              },
+              "iterations": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/projects-v2-iteration-settings"
+                }
+              }
+            },
+            "description": "Configuration for iteration fields."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the field was created.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time when the field was last updated.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          }
+        },
+        "description": "A field inside a projects v2 project"
+      },
+      "projects-v2-item-content-type": {
+        "title": "Projects v2 Item Content Type",
+        "enum": [
+          "Issue",
+          "PullRequest",
+          "DraftIssue"
+        ],
+        "type": "string",
+        "description": "The type of content tracked in a project item"
+      },
+      "projects-v2-item-with-content": {
+        "title": "Projects v2 Item",
+        "required": [
+          "id",
+          "content_type",
+          "created_at",
+          "updated_at",
+          "archived_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The unique identifier of the project item."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the project item."
+          },
+          "project_url": {
+            "type": "string",
+            "description": "The API URL of the project that contains this item.",
+            "format": "uri",
+            "example": "https://api.github.com/users/monalisa/2/projectsV2/3"
+          },
+          "content_type": {
+            "$ref": "#/components/schemas/projects-v2-item-content-type"
+          },
+          "content": {
+            "type": "object",
+            "description": "The content of the item, which varies by content type.",
+            "nullable": true
+          },
+          "creator": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the item was created.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time when the item was last updated.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "The time when the item was archived.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "item_url": {
+            "type": "string",
+            "description": "The API URL of this item.",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://api.github.com/users/monalisa/2/projectsV2/items/3"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "The fields and values associated with this item."
+          }
+        },
+        "description": "An item belonging to a project"
+      },
+      "link": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          }
+        },
+        "description": "Hypermedia Link"
+      },
+      "auto-merge": {
+        "title": "Auto merge",
+        "required": [
+          "enabled_by",
+          "merge_method",
+          "commit_title",
+          "commit_message"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled_by": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "merge_method": {
+            "enum": [
+              "merge",
+              "squash",
+              "rebase"
+            ],
+            "type": "string",
+            "description": "The merge method to use."
+          },
+          "commit_title": {
+            "type": "string",
+            "description": "Title for the merge commit message."
+          },
+          "commit_message": {
+            "type": "string",
+            "description": "Commit message for the merge commit."
+          }
+        },
+        "description": "The status of auto merging a pull request.",
+        "nullable": true
+      },
+      "pull-request-simple": {
+        "title": "Pull Request Simple",
+        "required": [
+          "_links",
+          "assignee",
+          "labels",
+          "base",
+          "body",
+          "closed_at",
+          "comments_url",
+          "commits_url",
+          "created_at",
+          "diff_url",
+          "head",
+          "html_url",
+          "id",
+          "node_id",
+          "issue_url",
+          "merge_commit_sha",
+          "merged_at",
+          "milestone",
+          "number",
+          "patch_url",
+          "review_comment_url",
+          "review_comments_url",
+          "statuses_url",
+          "state",
+          "locked",
+          "title",
+          "updated_at",
+          "url",
+          "user",
+          "author_association",
+          "auto_merge"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDExOlB1bGxSZXF1ZXN0MQ=="
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat/Hello-World/pull/1347"
+          },
+          "diff_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat/Hello-World/pull/1347.diff"
+          },
+          "patch_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat/Hello-World/pull/1347.patch"
+          },
+          "issue_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347"
+          },
+          "commits_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/commits"
+          },
+          "review_comments_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments"
+          },
+          "review_comment_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"
+          },
+          "comments_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347/comments"
+          },
+          "statuses_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"
+          },
+          "number": {
+            "type": "integer",
+            "example": 1347
+          },
+          "state": {
+            "type": "string",
+            "example": "open"
+          },
+          "locked": {
+            "type": "boolean",
+            "example": true
+          },
+          "title": {
+            "type": "string",
+            "example": "new-feature"
+          },
+          "user": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "body": {
+            "type": "string",
+            "nullable": true,
+            "example": "Please pull these awesome changes"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "node_id",
+                "url",
+                "name",
+                "description",
+                "color",
+                "default"
+              ],
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "default": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "milestone": {
+            "$ref": "#/components/schemas/nullable-milestone"
+          },
+          "active_lock_reason": {
+            "type": "string",
+            "nullable": true,
+            "example": "too heated"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-01-26T19:01:12.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-01-26T19:01:12.0000000+00:00"
+          },
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2011-01-26T19:01:12.0000000+00:00"
+          },
+          "merged_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2011-01-26T19:01:12.0000000+00:00"
+          },
+          "merge_commit_sha": {
+            "type": "string",
+            "nullable": true,
+            "example": "e5bd3914e2e596debea16f433f57875b5b90bcd6"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            },
+            "nullable": true
+          },
+          "requested_reviewers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            },
+            "nullable": true
+          },
+          "requested_teams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/team"
+            },
+            "nullable": true
+          },
+          "head": {
+            "required": [
+              "label",
+              "ref",
+              "repo",
+              "sha",
+              "user"
+            ],
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "ref": {
+                "type": "string"
+              },
+              "repo": {
+                "$ref": "#/components/schemas/repository"
+              },
+              "sha": {
+                "type": "string"
+              },
+              "user": {
+                "$ref": "#/components/schemas/nullable-simple-user"
+              }
+            }
+          },
+          "base": {
+            "required": [
+              "label",
+              "ref",
+              "repo",
+              "sha",
+              "user"
+            ],
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "ref": {
+                "type": "string"
+              },
+              "repo": {
+                "$ref": "#/components/schemas/repository"
+              },
+              "sha": {
+                "type": "string"
+              },
+              "user": {
+                "$ref": "#/components/schemas/nullable-simple-user"
+              }
+            }
+          },
+          "_links": {
+            "required": [
+              "comments",
+              "commits",
+              "statuses",
+              "html",
+              "issue",
+              "review_comments",
+              "review_comment",
+              "self"
+            ],
+            "type": "object",
+            "properties": {
+              "comments": {
+                "$ref": "#/components/schemas/link"
+              },
+              "commits": {
+                "$ref": "#/components/schemas/link"
+              },
+              "statuses": {
+                "$ref": "#/components/schemas/link"
+              },
+              "html": {
+                "$ref": "#/components/schemas/link"
+              },
+              "issue": {
+                "$ref": "#/components/schemas/link"
+              },
+              "review_comments": {
+                "$ref": "#/components/schemas/link"
+              },
+              "review_comment": {
+                "$ref": "#/components/schemas/link"
+              },
+              "self": {
+                "$ref": "#/components/schemas/link"
+              }
+            }
+          },
+          "author_association": {
+            "$ref": "#/components/schemas/author-association"
+          },
+          "auto_merge": {
+            "$ref": "#/components/schemas/auto-merge"
+          },
+          "draft": {
+            "type": "boolean",
+            "description": "Indicates whether or not the pull request is a draft.",
+            "example": false
+          }
+        },
+        "description": "Pull Request Simple"
+      },
+      "projects-v2-draft-issue": {
+        "title": "Draft Issue",
+        "required": [
+          "id",
+          "node_id",
+          "title",
+          "user",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The ID of the draft issue"
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the draft issue"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the draft issue"
+          },
+          "body": {
+            "type": "string",
+            "description": "The body content of the draft issue",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time the draft issue was created",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time the draft issue was last updated",
+            "format": "date-time"
+          }
+        },
+        "description": "A draft issue in a project"
+      },
+      "projects-v2-item-simple": {
+        "title": "Projects v2 Item",
+        "required": [
+          "id",
+          "content_type",
+          "created_at",
+          "updated_at",
+          "archived_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The unique identifier of the project item."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the project item."
+          },
+          "content": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/issue"
+              },
+              {
+                "$ref": "#/components/schemas/pull-request-simple"
+              },
+              {
+                "$ref": "#/components/schemas/projects-v2-draft-issue"
+              }
+            ],
+            "description": "The content represented by the item."
+          },
+          "content_type": {
+            "$ref": "#/components/schemas/projects-v2-item-content-type"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time when the item was created.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time when the item was last updated.",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "The time when the item was archived.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2022-04-28T12:00:00.0000000+00:00"
+          },
+          "project_url": {
+            "type": "string",
+            "description": "The URL of the project this item belongs to.",
+            "format": "uri"
+          },
+          "item_url": {
+            "type": "string",
+            "description": "The URL of the item in the project.",
+            "format": "uri"
+          }
+        },
+        "description": "An item belonging to a project"
+      },
       "custom-property": {
         "title": "Organization Custom Property",
         "required": [
@@ -89235,11 +91635,11 @@
           },
           "before_sha": {
             "type": "string",
-            "description": "The first commit sha before the push evaluation."
+            "description": "The previous commit SHA of the ref."
           },
           "after_sha": {
             "type": "string",
-            "description": "The last commit sha in the push evaluation."
+            "description": "The new commit SHA of the ref."
           },
           "ref": {
             "type": "string",
@@ -96510,377 +98910,6 @@
           }
         },
         "description": "Branch Short"
-      },
-      "link": {
-        "title": "Link",
-        "required": [
-          "href"
-        ],
-        "type": "object",
-        "properties": {
-          "href": {
-            "type": "string"
-          }
-        },
-        "description": "Hypermedia Link"
-      },
-      "auto-merge": {
-        "title": "Auto merge",
-        "required": [
-          "enabled_by",
-          "merge_method",
-          "commit_title",
-          "commit_message"
-        ],
-        "type": "object",
-        "properties": {
-          "enabled_by": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "merge_method": {
-            "enum": [
-              "merge",
-              "squash",
-              "rebase"
-            ],
-            "type": "string",
-            "description": "The merge method to use."
-          },
-          "commit_title": {
-            "type": "string",
-            "description": "Title for the merge commit message."
-          },
-          "commit_message": {
-            "type": "string",
-            "description": "Commit message for the merge commit."
-          }
-        },
-        "description": "The status of auto merging a pull request.",
-        "nullable": true
-      },
-      "pull-request-simple": {
-        "title": "Pull Request Simple",
-        "required": [
-          "_links",
-          "assignee",
-          "labels",
-          "base",
-          "body",
-          "closed_at",
-          "comments_url",
-          "commits_url",
-          "created_at",
-          "diff_url",
-          "head",
-          "html_url",
-          "id",
-          "node_id",
-          "issue_url",
-          "merge_commit_sha",
-          "merged_at",
-          "milestone",
-          "number",
-          "patch_url",
-          "review_comment_url",
-          "review_comments_url",
-          "statuses_url",
-          "state",
-          "locked",
-          "title",
-          "updated_at",
-          "url",
-          "user",
-          "author_association",
-          "auto_merge"
-        ],
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDExOlB1bGxSZXF1ZXN0MQ=="
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World/pull/1347"
-          },
-          "diff_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World/pull/1347.diff"
-          },
-          "patch_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World/pull/1347.patch"
-          },
-          "issue_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347"
-          },
-          "commits_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/commits"
-          },
-          "review_comments_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments"
-          },
-          "review_comment_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"
-          },
-          "comments_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347/comments"
-          },
-          "statuses_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"
-          },
-          "number": {
-            "type": "integer",
-            "example": 1347
-          },
-          "state": {
-            "type": "string",
-            "example": "open"
-          },
-          "locked": {
-            "type": "boolean",
-            "example": true
-          },
-          "title": {
-            "type": "string",
-            "example": "new-feature"
-          },
-          "user": {
-            "$ref": "#/components/schemas/nullable-simple-user"
-          },
-          "body": {
-            "type": "string",
-            "nullable": true,
-            "example": "Please pull these awesome changes"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "node_id",
-                "url",
-                "name",
-                "description",
-                "color",
-                "default"
-              ],
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "format": "int64"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "color": {
-                  "type": "string"
-                },
-                "default": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "milestone": {
-            "$ref": "#/components/schemas/nullable-milestone"
-          },
-          "active_lock_reason": {
-            "type": "string",
-            "nullable": true,
-            "example": "too heated"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2011-01-26T19:01:12.0000000+00:00"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2011-01-26T19:01:12.0000000+00:00"
-          },
-          "closed_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2011-01-26T19:01:12.0000000+00:00"
-          },
-          "merged_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2011-01-26T19:01:12.0000000+00:00"
-          },
-          "merge_commit_sha": {
-            "type": "string",
-            "nullable": true,
-            "example": "e5bd3914e2e596debea16f433f57875b5b90bcd6"
-          },
-          "assignee": {
-            "$ref": "#/components/schemas/nullable-simple-user"
-          },
-          "assignees": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
-          },
-          "requested_reviewers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
-          },
-          "requested_teams": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/team"
-            },
-            "nullable": true
-          },
-          "head": {
-            "required": [
-              "label",
-              "ref",
-              "repo",
-              "sha",
-              "user"
-            ],
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string"
-              },
-              "ref": {
-                "type": "string"
-              },
-              "repo": {
-                "$ref": "#/components/schemas/repository"
-              },
-              "sha": {
-                "type": "string"
-              },
-              "user": {
-                "$ref": "#/components/schemas/nullable-simple-user"
-              }
-            }
-          },
-          "base": {
-            "required": [
-              "label",
-              "ref",
-              "repo",
-              "sha",
-              "user"
-            ],
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string"
-              },
-              "ref": {
-                "type": "string"
-              },
-              "repo": {
-                "$ref": "#/components/schemas/repository"
-              },
-              "sha": {
-                "type": "string"
-              },
-              "user": {
-                "$ref": "#/components/schemas/nullable-simple-user"
-              }
-            }
-          },
-          "_links": {
-            "required": [
-              "comments",
-              "commits",
-              "statuses",
-              "html",
-              "issue",
-              "review_comments",
-              "review_comment",
-              "self"
-            ],
-            "type": "object",
-            "properties": {
-              "comments": {
-                "$ref": "#/components/schemas/link"
-              },
-              "commits": {
-                "$ref": "#/components/schemas/link"
-              },
-              "statuses": {
-                "$ref": "#/components/schemas/link"
-              },
-              "html": {
-                "$ref": "#/components/schemas/link"
-              },
-              "issue": {
-                "$ref": "#/components/schemas/link"
-              },
-              "review_comments": {
-                "$ref": "#/components/schemas/link"
-              },
-              "review_comment": {
-                "$ref": "#/components/schemas/link"
-              },
-              "self": {
-                "$ref": "#/components/schemas/link"
-              }
-            }
-          },
-          "author_association": {
-            "$ref": "#/components/schemas/author-association"
-          },
-          "auto_merge": {
-            "$ref": "#/components/schemas/auto-merge"
-          },
-          "draft": {
-            "type": "boolean",
-            "description": "Indicates whether or not the pull request is a draft.",
-            "example": false
-          }
-        },
-        "description": "Pull Request Simple"
       },
       "simple-commit-status": {
         "title": "Simple Commit Status",
@@ -115773,160 +117802,6 @@
           }
         }
       },
-      "nullable-projects-v2-status-update": {
-        "title": "Projects v2 Status Update",
-        "required": [
-          "id",
-          "node_id",
-          "created_at",
-          "updated_at"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "project_node_id": {
-            "type": "string"
-          },
-          "creator": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00.0000000+00:00"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00.0000000+00:00"
-          },
-          "status": {
-            "enum": [
-              "INACTIVE",
-              "ON_TRACK",
-              "AT_RISK",
-              "OFF_TRACK",
-              "COMPLETE"
-            ],
-            "type": "string",
-            "nullable": true
-          },
-          "start_date": {
-            "type": "string",
-            "format": "date",
-            "example": "2022-04-28"
-          },
-          "target_date": {
-            "type": "string",
-            "format": "date",
-            "example": "2022-04-28"
-          },
-          "body": {
-            "type": "string",
-            "description": "Body of the status update",
-            "nullable": true,
-            "example": "The project is off to a great start!"
-          }
-        },
-        "description": "An status update belonging to a project",
-        "nullable": true
-      },
-      "projects-v2": {
-        "title": "Projects v2 Project",
-        "required": [
-          "id",
-          "node_id",
-          "owner",
-          "creator",
-          "title",
-          "description",
-          "public",
-          "closed_at",
-          "created_at",
-          "updated_at",
-          "number",
-          "short_description",
-          "deleted_at",
-          "deleted_by"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "owner": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "creator": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "public": {
-            "type": "boolean"
-          },
-          "closed_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2022-04-28T12:00:00.0000000+00:00"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00.0000000+00:00"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00.0000000+00:00"
-          },
-          "number": {
-            "type": "integer"
-          },
-          "short_description": {
-            "type": "string",
-            "nullable": true
-          },
-          "deleted_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2022-04-28T12:00:00.0000000+00:00"
-          },
-          "deleted_by": {
-            "$ref": "#/components/schemas/nullable-simple-user"
-          },
-          "state": {
-            "enum": [
-              "open",
-              "closed"
-            ],
-            "type": "string"
-          },
-          "latest_status_update": {
-            "$ref": "#/components/schemas/nullable-projects-v2-status-update"
-          },
-          "is_template": {
-            "type": "boolean",
-            "description": "Whether this project is a template"
-          }
-        },
-        "description": "A projects v2 project"
-      },
       "webhooks_project_changes": {
         "type": "object",
         "properties": {
@@ -115947,16 +117822,6 @@
           }
         }
       },
-      "projects-v2-item-content-type": {
-        "title": "Projects v2 Item Content Type",
-        "enum": [
-          "Issue",
-          "PullRequest",
-          "DraftIssue"
-        ],
-        "type": "string",
-        "description": "The type of content tracked in a project item"
-      },
       "projects-v2-item": {
         "title": "Projects v2 Item",
         "required": [
@@ -115970,16 +117835,20 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number"
+            "type": "number",
+            "description": "The unique identifier of the project item."
           },
           "node_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The node ID of the project item."
           },
           "project_node_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The node ID of the project that contains this item."
           },
           "content_node_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The node ID of the content represented by this item."
           },
           "content_type": {
             "$ref": "#/components/schemas/projects-v2-item-content-type"
@@ -115989,16 +117858,19 @@
           },
           "created_at": {
             "type": "string",
+            "description": "The time when the item was created.",
             "format": "date-time",
             "example": "2022-04-28T12:00:00.0000000+00:00"
           },
           "updated_at": {
             "type": "string",
+            "description": "The time when the item was last updated.",
             "format": "date-time",
             "example": "2022-04-28T12:00:00.0000000+00:00"
           },
           "archived_at": {
             "type": "string",
+            "description": "The time when the item was archived.",
             "format": "date-time",
             "nullable": true,
             "example": "2022-04-28T12:00:00.0000000+00:00"
@@ -116015,17 +117887,21 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The unique identifier of the option."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The display name of the option."
           },
           "color": {
             "type": "string",
+            "description": "The color associated with the option.",
             "nullable": true
           },
           "description": {
             "type": "string",
+            "description": "A short description of the option.",
             "nullable": true
           }
         },
@@ -116040,24 +117916,30 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The unique identifier of the iteration setting."
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "description": "The iteration title."
           },
           "title_html": {
-            "type": "string"
+            "type": "string",
+            "description": "The iteration title, rendered as HTML."
           },
           "duration": {
             "type": "number",
+            "description": "The duration of the iteration in days.",
             "nullable": true
           },
           "start_date": {
             "type": "string",
+            "description": "The start date of the iteration.",
             "nullable": true
           },
           "completed": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the iteration has been completed."
           }
         },
         "description": "An iteration setting for an iteration field"
@@ -116073,24 +117955,29 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number"
+            "type": "number",
+            "description": "The unique identifier of the status update."
           },
           "node_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The node ID of the status update."
           },
           "project_node_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The node ID of the project that this status update belongs to."
           },
           "creator": {
             "$ref": "#/components/schemas/simple-user"
           },
           "created_at": {
             "type": "string",
+            "description": "The time when the status update was created.",
             "format": "date-time",
             "example": "2022-04-28T12:00:00.0000000+00:00"
           },
           "updated_at": {
             "type": "string",
+            "description": "The time when the status update was last updated.",
             "format": "date-time",
             "example": "2022-04-28T12:00:00.0000000+00:00"
           },
@@ -116103,15 +117990,18 @@
               "COMPLETE"
             ],
             "type": "string",
+            "description": "The current status.",
             "nullable": true
           },
           "start_date": {
             "type": "string",
+            "description": "The start date of the period covered by the update.",
             "format": "date",
             "example": "2022-04-28"
           },
           "target_date": {
             "type": "string",
+            "description": "The target date associated with the update.",
             "format": "date",
             "example": "2022-04-28"
           },
@@ -249478,6 +251368,35 @@
           "format": "int64"
         }
       },
+      "project-number": {
+        "name": "project_number",
+        "in": "path",
+        "description": "The project's number.",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "field-id": {
+        "name": "field_id",
+        "in": "path",
+        "description": "The unique identifier of the field.",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "item-id": {
+        "name": "item_id",
+        "in": "path",
+        "description": "The unique identifier of the project item.",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
       "custom-property-name": {
         "name": "custom_property_name",
         "in": "path",
@@ -250270,6 +252189,15 @@
           ],
           "type": "string",
           "default": "created"
+        }
+      },
+      "user-id": {
+        "name": "user_id",
+        "in": "path",
+        "description": "The unique identifier of the user.",
+        "required": true,
+        "schema": {
+          "type": "string"
         }
       }
     },
@@ -260024,6 +261952,933 @@
           },
           "created_at": "2011-04-11T20:09:31Z",
           "updated_at": "2014-03-04T18:58:10Z"
+        }
+      },
+      "projects-v2": {
+        "value": {
+          "id": "2",
+          "node_id": "MDc6UHJvamVjdDEwMDI2MDM=",
+          "owner": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "creator": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "title": "My Projects",
+          "description": "A board to manage my personal projects.",
+          "public": "true",
+          "closed_at": "null",
+          "created_at": "2011-04-10T20:09:31Z",
+          "updated_at": "2014-03-03T18:58:10Z",
+          "number": "2",
+          "short_description": "null",
+          "deleted_at": "null",
+          "deleted_by": "null",
+          "state": "open",
+          "latest_status_update": {
+            "id": "3",
+            "node_id": "PVTSU_lAECAQM",
+            "creator": {
+              "login": "hubot",
+              "id": "2",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://github.com/images/error/hubot_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/hubot",
+              "html_url": "https://github.com/hubot",
+              "followers_url": "https://api.github.com/users/hubot/followers",
+              "following_url": "https://api.github.com/users/hubot/following{/other_user}",
+              "gists_url": "https://api.github.com/users/hubot/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/hubot/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/hubot/subscriptions",
+              "organizations_url": "https://api.github.com/users/hubot/orgs",
+              "repos_url": "https://api.github.com/users/hubot/repos",
+              "events_url": "https://api.github.com/users/hubot/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/hubot/received_events",
+              "type": "User",
+              "site_admin": "false"
+            },
+            "body": "DONE",
+            "start_date": "2025-07-23",
+            "target_date": "2025-07-26",
+            "status": "COMPLETE",
+            "created_at": "2025-07-11T16:19:28Z",
+            "updated_at": "2025-07-11T16:19:28Z"
+          },
+          "is_template": "true"
+        }
+      },
+      "projects-v2-field": {
+        "value": {
+          "id": "12345",
+          "node_id": "PVTF_lADOABCD1234567890",
+          "name": "Priority",
+          "data_type": "single_select",
+          "project_url": "https://api.github.com/projects/67890",
+          "options": [
+            {
+              "id": "option_1",
+              "name": "Low",
+              "color": "GREEN",
+              "description": "Low priority items"
+            },
+            {
+              "id": "option_2",
+              "name": "Medium",
+              "color": "YELLOW",
+              "description": "Medium priority items"
+            },
+            {
+              "id": "option_3",
+              "name": "High",
+              "color": "RED",
+              "description": "High priority items"
+            }
+          ],
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z"
+        }
+      },
+      "projects-v2-item-with-content": {
+        "value": {
+          "id": "13",
+          "node_id": "PVTI_lAAFAQ0",
+          "project_url": "https://api.github.com/orgs/github/projectsV2/1",
+          "content": {
+            "url": "https://api.github.com/repos/github/Hello-World/pulls/6",
+            "id": "10",
+            "node_id": "PR_kwABCg",
+            "html_url": "https://github.com/github/Hello-World/pull/6",
+            "diff_url": "https://github.com/github/Hello-World/pull/6.diff",
+            "patch_url": "https://github.com/github/Hello-World/pull/6.patch",
+            "issue_url": "https://api.github.com/repos/github/Hello-World/issues/6",
+            "number": "6",
+            "state": "open",
+            "locked": "false",
+            "title": "Issue title",
+            "user": {
+              "login": "monalisa",
+              "id": "161",
+              "node_id": "U_kgDMoQ",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/monalisa",
+              "html_url": "https://github.com/monalisa",
+              "followers_url": "https://api.github.com/users/monalisa/followers",
+              "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+              "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+              "organizations_url": "https://api.github.com/users/monalisa/orgs",
+              "repos_url": "https://api.github.com/users/monalisa/repos",
+              "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/monalisa/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": "false"
+            },
+            "body": "Issue body",
+            "created_at": "2025-08-01T18:44:50Z",
+            "updated_at": "2025-08-06T19:25:18Z",
+            "closed_at": "null",
+            "merged_at": "null",
+            "merge_commit_sha": "98e25bad5878e54d22e5338cbc905dd2deedfa34",
+            "assignee": {
+              "login": "octocat",
+              "id": "175",
+              "node_id": "U_kgDMrw",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": "false"
+            },
+            "assignees": [
+              {
+                "login": "octocat",
+                "id": "175",
+                "node_id": "U_kgDMrw",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": "false"
+              }
+            ],
+            "requested_reviewers": [
+              {
+                "login": "monalisa",
+                "id": "2",
+                "node_id": "U_kgAC",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/monalisa",
+                "html_url": "https://github.com/monalisa",
+                "followers_url": "https://api.github.com/users/monalisa/followers",
+                "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+                "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+                "organizations_url": "https://api.github.com/users/monalisa/orgs",
+                "repos_url": "https://api.github.com/users/monalisa/repos",
+                "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/monalisa/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": "false"
+              }
+            ],
+            "requested_teams": [ ],
+            "labels": [
+              {
+                "id": "19",
+                "node_id": "LA_kwABEw",
+                "url": "https://api.github.com/repos/github/Hello-World/labels/bug%20:bug:",
+                "name": "bug :bug:",
+                "color": "efe24f",
+                "default": "false",
+                "description": "Something isn't working"
+              },
+              {
+                "id": "26",
+                "node_id": "LA_kwABGg",
+                "url": "https://api.github.com/repos/github/Hello-World/labels/fun%20size%20%F0%9F%8D%AB",
+                "name": "fun size 🍫",
+                "color": "f29c24",
+                "default": "false",
+                "description": "Extra attention is needed"
+              },
+              {
+                "id": "33",
+                "node_id": "LA_kwABIQ",
+                "url": "https://api.github.com/repos/github/Hello-World/labels/%F0%9F%9A%92%20wontfix",
+                "name": "🚒 wontfix",
+                "color": "5891ce",
+                "default": "false",
+                "description": "This will not be worked on"
+              }
+            ],
+            "milestone": {
+              "url": "https://api.github.com/repos/github/Hello-World/milestones/1",
+              "html_url": "https://github.com/github/Hello-World/milestone/1",
+              "labels_url": "https://api.github.com/repos/github/Hello-World/milestones/1/labels",
+              "id": "1",
+              "node_id": "MI_kwABAQ",
+              "number": "1",
+              "title": "Open milestone",
+              "description": "null",
+              "creator": {
+                "login": "monalisa",
+                "id": "2",
+                "node_id": "U_kgAC",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/monalisa",
+                "html_url": "https://github.com/monalisa",
+                "followers_url": "https://api.github.com/users/monalisa/followers",
+                "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+                "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+                "organizations_url": "https://api.github.com/users/monalisa/orgs",
+                "repos_url": "https://api.github.com/users/monalisa/repos",
+                "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/monalisa/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": "false"
+              },
+              "open_issues": "2",
+              "closed_issues": "1",
+              "state": "open",
+              "created_at": "2025-08-01T18:44:30Z",
+              "updated_at": "2025-08-06T19:14:15Z",
+              "due_on": "null",
+              "closed_at": "null"
+            },
+            "draft": "false",
+            "commits_url": "https://api.github.com/repos/github/Hello-World/pulls/6/commits",
+            "review_comments_url": "https://api.github.com/repos/github/Hello-World/pulls/6/comments",
+            "review_comment_url": "https://api.github.com/repos/github/Hello-World/pulls/comments{/number}",
+            "comments_url": "https://api.github.com/repos/github/Hello-World/issues/6/comments",
+            "statuses_url": "https://api.github.com/repos/github/Hello-World/statuses/a3258d3434ecb2058b2784c8eb8610c2e9937a0d",
+            "head": {
+              "label": "github:branch-2ee3da8fde8a1adfe6d0809a1a414e4f",
+              "ref": "branch-2ee3da8fde8a1adfe6d0809a1a414e4f",
+              "sha": "a3258d3434ecb2058b2784c8eb8610c2e9937a0d",
+              "user": {
+                "login": "github",
+                "id": "5",
+                "node_id": "O_kgAF",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/github",
+                "html_url": "https://github.com/github",
+                "followers_url": "https://api.github.com/users/github/followers",
+                "following_url": "https://api.github.com/users/github/following{/other_user}",
+                "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+                "organizations_url": "https://api.github.com/users/github/orgs",
+                "repos_url": "https://api.github.com/users/github/repos",
+                "events_url": "https://api.github.com/users/github/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/github/received_events",
+                "type": "Organization",
+                "user_view_type": "public",
+                "site_admin": "false"
+              },
+              "repo": {
+                "id": "1",
+                "node_id": "R_kgAB",
+                "name": "Hello-World",
+                "full_name": "github/Hello-World",
+                "private": "false",
+                "owner": {
+                  "login": "github",
+                  "id": "5",
+                  "node_id": "O_kgAF",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/github",
+                  "html_url": "https://github.com/github",
+                  "followers_url": "https://api.github.com/users/github/followers",
+                  "following_url": "https://api.github.com/users/github/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+                  "organizations_url": "https://api.github.com/users/github/orgs",
+                  "repos_url": "https://api.github.com/users/github/repos",
+                  "events_url": "https://api.github.com/users/github/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/github/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": "false"
+                },
+                "html_url": "https://github.com/github/Hello-World",
+                "description": "null",
+                "fork": "false",
+                "url": "https://api.github.com/repos/github/Hello-World",
+                "forks_url": "https://api.github.com/repos/github/Hello-World/forks",
+                "keys_url": "https://api.github.com/repos/github/Hello-World/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/github/Hello-World/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/github/Hello-World/teams",
+                "hooks_url": "https://api.github.com/repos/github/Hello-World/hooks",
+                "issue_events_url": "https://api.github.com/repos/github/Hello-World/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/github/Hello-World/events",
+                "assignees_url": "https://api.github.com/repos/github/Hello-World/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/github/Hello-World/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/github/Hello-World/tags",
+                "blobs_url": "https://api.github.com/repos/github/Hello-World/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/github/Hello-World/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/github/Hello-World/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/github/Hello-World/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/github/Hello-World/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/github/Hello-World/languages",
+                "stargazers_url": "https://api.github.com/repos/github/Hello-World/stargazers",
+                "contributors_url": "https://api.github.com/repos/github/Hello-World/contributors",
+                "subscribers_url": "https://api.github.com/repos/github/Hello-World/subscribers",
+                "subscription_url": "https://api.github.com/repos/github/Hello-World/subscription",
+                "commits_url": "https://api.github.com/repos/github/Hello-World/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/github/Hello-World/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/github/Hello-World/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/github/Hello-World/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/github/Hello-World/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/github/Hello-World/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/github/Hello-World/merges",
+                "archive_url": "https://api.github.com/repos/github/Hello-World/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/github/Hello-World/downloads",
+                "issues_url": "https://api.github.com/repos/github/Hello-World/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/github/Hello-World/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/github/Hello-World/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/github/Hello-World/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/github/Hello-World/labels{/name}",
+                "releases_url": "https://api.github.com/repos/github/Hello-World/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/github/Hello-World/deployments",
+                "created_at": "2025-08-01T18:44:14Z",
+                "updated_at": "2025-08-01T18:48:38Z",
+                "pushed_at": "2025-08-01T18:44:50Z",
+                "git_url": "git://github.localhost/github/Hello-World.git",
+                "ssh_url": "ssh://git@localhost:3035/github/Hello-World.git",
+                "clone_url": "https://github.com/github/Hello-World.git",
+                "svn_url": "https://github.com/github/Hello-World",
+                "homepage": "null",
+                "size": "6",
+                "stargazers_count": "0",
+                "watchers_count": "0",
+                "language": "null",
+                "has_issues": "true",
+                "has_projects": "true",
+                "has_downloads": "true",
+                "has_wiki": "true",
+                "has_pages": "false",
+                "has_discussions": "false",
+                "forks_count": "0",
+                "mirror_url": "null",
+                "archived": "false",
+                "disabled": "false",
+                "open_issues_count": "3",
+                "license": "null",
+                "allow_forking": "true",
+                "is_template": "false",
+                "web_commit_signoff_required": "false",
+                "topics": [ ],
+                "visibility": "public",
+                "forks": "0",
+                "open_issues": "3",
+                "watchers": "0",
+                "default_branch": "main"
+              }
+            },
+            "base": {
+              "label": "github:branch-0f4ceb14cbe39e4786ffbabb776da599",
+              "ref": "branch-0f4ceb14cbe39e4786ffbabb776da599",
+              "sha": "9a9f5a8d77bdc2540412900d3c930fe36a82b5ed",
+              "user": {
+                "login": "github",
+                "id": "5",
+                "node_id": "O_kgAF",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/github",
+                "html_url": "https://github.com/github",
+                "followers_url": "https://api.github.com/users/github/followers",
+                "following_url": "https://api.github.com/users/github/following{/other_user}",
+                "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+                "organizations_url": "https://api.github.com/users/github/orgs",
+                "repos_url": "https://api.github.com/users/github/repos",
+                "events_url": "https://api.github.com/users/github/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/github/received_events",
+                "type": "Organization",
+                "user_view_type": "public",
+                "site_admin": "false"
+              },
+              "repo": {
+                "id": "1",
+                "node_id": "R_kgAB",
+                "name": "Hello-World",
+                "full_name": "github/Hello-World",
+                "private": "false",
+                "owner": {
+                  "login": "github",
+                  "id": "5",
+                  "node_id": "O_kgAF",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/github",
+                  "html_url": "https://github.com/github",
+                  "followers_url": "https://api.github.com/users/github/followers",
+                  "following_url": "https://api.github.com/users/github/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+                  "organizations_url": "https://api.github.com/users/github/orgs",
+                  "repos_url": "https://api.github.com/users/github/repos",
+                  "events_url": "https://api.github.com/users/github/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/github/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": "false"
+                },
+                "html_url": "https://github.com/github/Hello-World",
+                "description": "null",
+                "fork": "false",
+                "url": "https://api.github.com/repos/github/Hello-World",
+                "forks_url": "https://api.github.com/repos/github/Hello-World/forks",
+                "keys_url": "https://api.github.com/repos/github/Hello-World/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/github/Hello-World/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/github/Hello-World/teams",
+                "hooks_url": "https://api.github.com/repos/github/Hello-World/hooks",
+                "issue_events_url": "https://api.github.com/repos/github/Hello-World/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/github/Hello-World/events",
+                "assignees_url": "https://api.github.com/repos/github/Hello-World/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/github/Hello-World/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/github/Hello-World/tags",
+                "blobs_url": "https://api.github.com/repos/github/Hello-World/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/github/Hello-World/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/github/Hello-World/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/github/Hello-World/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/github/Hello-World/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/github/Hello-World/languages",
+                "stargazers_url": "https://api.github.com/repos/github/Hello-World/stargazers",
+                "contributors_url": "https://api.github.com/repos/github/Hello-World/contributors",
+                "subscribers_url": "https://api.github.com/repos/github/Hello-World/subscribers",
+                "subscription_url": "https://api.github.com/repos/github/Hello-World/subscription",
+                "commits_url": "https://api.github.com/repos/github/Hello-World/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/github/Hello-World/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/github/Hello-World/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/github/Hello-World/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/github/Hello-World/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/github/Hello-World/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/github/Hello-World/merges",
+                "archive_url": "https://api.github.com/repos/github/Hello-World/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/github/Hello-World/downloads",
+                "issues_url": "https://api.github.com/repos/github/Hello-World/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/github/Hello-World/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/github/Hello-World/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/github/Hello-World/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/github/Hello-World/labels{/name}",
+                "releases_url": "https://api.github.com/repos/github/Hello-World/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/github/Hello-World/deployments",
+                "created_at": "2025-08-01T18:44:14Z",
+                "updated_at": "2025-08-01T18:48:38Z",
+                "pushed_at": "2025-08-01T18:44:50Z",
+                "git_url": "git://github.localhost/github/Hello-World.git",
+                "ssh_url": "ssh://git@localhost:3035/github/Hello-World.git",
+                "clone_url": "https://github.com/github/Hello-World.git",
+                "svn_url": "https://github.com/github/Hello-World",
+                "homepage": "null",
+                "size": "6",
+                "stargazers_count": "0",
+                "watchers_count": "0",
+                "language": "null",
+                "has_issues": "true",
+                "has_projects": "true",
+                "has_downloads": "true",
+                "has_wiki": "true",
+                "has_pages": "false",
+                "has_discussions": "false",
+                "forks_count": "0",
+                "mirror_url": "null",
+                "archived": "false",
+                "disabled": "false",
+                "open_issues_count": "3",
+                "license": "null",
+                "allow_forking": "true",
+                "is_template": "false",
+                "web_commit_signoff_required": "false",
+                "topics": [ ],
+                "visibility": "public",
+                "forks": "0",
+                "open_issues": "3",
+                "watchers": "0",
+                "default_branch": "main"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://api.github.com/repos/github/Hello-World/pulls/6"
+              },
+              "html": {
+                "href": "https://github.com/github/Hello-World/pull/6"
+              },
+              "issue": {
+                "href": "https://api.github.com/repos/github/Hello-World/issues/6"
+              },
+              "comments": {
+                "href": "https://api.github.com/repos/github/Hello-World/issues/6/comments"
+              },
+              "review_comments": {
+                "href": "https://api.github.com/repos/github/Hello-World/pulls/6/comments"
+              },
+              "review_comment": {
+                "href": "https://api.github.com/repos/github/Hello-World/pulls/comments{/number}"
+              },
+              "commits": {
+                "href": "https://api.github.com/repos/github/Hello-World/pulls/6/commits"
+              },
+              "statuses": {
+                "href": "https://api.github.com/repos/github/Hello-World/statuses/a3258d3434ecb2058b2784c8eb8610c2e9937a0d"
+              }
+            },
+            "author_association": "MEMBER",
+            "auto_merge": "null",
+            "active_lock_reason": "null"
+          },
+          "content_type": "PullRequest",
+          "creator": {
+            "login": "monalisa",
+            "id": "2",
+            "node_id": "U_kgAC",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/monalisa",
+            "html_url": "https://github.com/monalisa",
+            "followers_url": "https://api.github.com/users/monalisa/followers",
+            "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+            "organizations_url": "https://api.github.com/users/monalisa/orgs",
+            "repos_url": "https://api.github.com/users/monalisa/repos",
+            "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/monalisa/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": "false"
+          },
+          "created_at": "2025-08-01T18:44:51Z",
+          "updated_at": "2025-08-06T19:25:18Z",
+          "archived_at": "null",
+          "item_url": "https://api.github.com/orgs/github/projectsV2/1/items/13",
+          "fields": [
+            {
+              "id": "1",
+              "name": "Title",
+              "type": "title",
+              "value": {
+                "raw_title": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
+                "html_title": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
+                "number": "6",
+                "url": "https://github.com/5/1/pull/6",
+                "issue_id": "12",
+                "state": "open",
+                "state_reason": "null",
+                "is_draft": "false"
+              }
+            },
+            {
+              "id": "2",
+              "name": "Assignees",
+              "type": "assignees",
+              "value": [
+                {
+                  "login": "octocat",
+                  "id": "175",
+                  "node_id": "U_kgDMrw",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": "false"
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "name": "Status",
+              "type": "single_select",
+              "value": {
+                "id": "98236657",
+                "name": "Done",
+                "name_html": "Done",
+                "color": "PURPLE",
+                "description": "This has been completed",
+                "description_html": "This has been completed"
+              }
+            },
+            {
+              "id": "4",
+              "name": "Labels",
+              "type": "labels",
+              "value": [
+                {
+                  "id": "19",
+                  "node_id": "LA_kwABEw",
+                  "url": "https://api.github.com/repos/github/Hello-World/labels/bug%20:bug:",
+                  "name": "bug :bug:",
+                  "color": "efe24f",
+                  "default": "false",
+                  "description": "Something isn't working"
+                },
+                {
+                  "id": "26",
+                  "node_id": "LA_kwABGg",
+                  "url": "https://api.github.com/repos/github/Hello-World/labels/fun%20size%20%F0%9F%8D%AB",
+                  "name": "fun size 🍫",
+                  "color": "f29c24",
+                  "default": "false",
+                  "description": "Extra attention is needed"
+                },
+                {
+                  "id": "33",
+                  "node_id": "LA_kwABIQ",
+                  "url": "https://api.github.com/repos/github/Hello-World/labels/%F0%9F%9A%92%20wontfix",
+                  "name": "🚒 wontfix",
+                  "color": "5891ce",
+                  "default": "false",
+                  "description": "This will not be worked on"
+                }
+              ]
+            },
+            {
+              "id": "5",
+              "name": "Linked pull requests",
+              "type": "linked_pull_requests",
+              "value": [ ]
+            },
+            {
+              "id": "6",
+              "name": "Milestone",
+              "type": "milestone",
+              "value": {
+                "url": "https://api.github.com/repos/github/Hello-World/milestones/1",
+                "html_url": "https://github.com/github/Hello-World/milestone/1",
+                "labels_url": "https://api.github.com/repos/github/Hello-World/milestones/1/labels",
+                "id": "1",
+                "node_id": "MI_kwABAQ",
+                "number": "1",
+                "title": "Open milestone",
+                "description": "null",
+                "creator": {
+                  "login": "octocat",
+                  "id": "175",
+                  "node_id": "U_kgDMrw",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": "false"
+                },
+                "open_issues": "2",
+                "closed_issues": "1",
+                "state": "open",
+                "created_at": "2025-08-01T18:44:30Z",
+                "updated_at": "2025-08-06T19:14:15Z",
+                "due_on": "null",
+                "closed_at": "null"
+              }
+            },
+            {
+              "id": "7",
+              "name": "Repository",
+              "type": "repository",
+              "value": {
+                "id": "1",
+                "node_id": "R_kgAB",
+                "name": "Hello-World",
+                "full_name": "github/Hello-World",
+                "private": "false",
+                "owner": {
+                  "login": "github",
+                  "id": "5",
+                  "node_id": "O_kgAF",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/github",
+                  "html_url": "https://github.com/github",
+                  "followers_url": "https://api.github.com/users/github/followers",
+                  "following_url": "https://api.github.com/users/github/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+                  "organizations_url": "https://api.github.com/users/github/orgs",
+                  "repos_url": "https://api.github.com/users/github/repos",
+                  "events_url": "https://api.github.com/users/github/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/github/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": "false"
+                },
+                "html_url": "https://github.com/github/Hello-World",
+                "description": "null",
+                "fork": "false",
+                "url": "https://api.github.com/repos/github/Hello-World",
+                "forks_url": "https://api.github.com/repos/github/Hello-World/forks",
+                "keys_url": "https://api.github.com/repos/github/Hello-World/keys{/key_id}",
+                "collaborators_url": "https://api.github.com/repos/github/Hello-World/collaborators{/collaborator}",
+                "teams_url": "https://api.github.com/repos/github/Hello-World/teams",
+                "hooks_url": "https://api.github.com/repos/github/Hello-World/hooks",
+                "issue_events_url": "https://api.github.com/repos/github/Hello-World/issues/events{/number}",
+                "events_url": "https://api.github.com/repos/github/Hello-World/events",
+                "assignees_url": "https://api.github.com/repos/github/Hello-World/assignees{/user}",
+                "branches_url": "https://api.github.com/repos/github/Hello-World/branches{/branch}",
+                "tags_url": "https://api.github.com/repos/github/Hello-World/tags",
+                "blobs_url": "https://api.github.com/repos/github/Hello-World/git/blobs{/sha}",
+                "git_tags_url": "https://api.github.com/repos/github/Hello-World/git/tags{/sha}",
+                "git_refs_url": "https://api.github.com/repos/github/Hello-World/git/refs{/sha}",
+                "trees_url": "https://api.github.com/repos/github/Hello-World/git/trees{/sha}",
+                "statuses_url": "https://api.github.com/repos/github/Hello-World/statuses/{sha}",
+                "languages_url": "https://api.github.com/repos/github/Hello-World/languages",
+                "stargazers_url": "https://api.github.com/repos/github/Hello-World/stargazers",
+                "contributors_url": "https://api.github.com/repos/github/Hello-World/contributors",
+                "subscribers_url": "https://api.github.com/repos/github/Hello-World/subscribers",
+                "subscription_url": "https://api.github.com/repos/github/Hello-World/subscription",
+                "commits_url": "https://api.github.com/repos/github/Hello-World/commits{/sha}",
+                "git_commits_url": "https://api.github.com/repos/github/Hello-World/git/commits{/sha}",
+                "comments_url": "https://api.github.com/repos/github/Hello-World/comments{/number}",
+                "issue_comment_url": "https://api.github.com/repos/github/Hello-World/issues/comments{/number}",
+                "contents_url": "https://api.github.com/repos/github/Hello-World/contents/{+path}",
+                "compare_url": "https://api.github.com/repos/github/Hello-World/compare/{base}...{head}",
+                "merges_url": "https://api.github.com/repos/github/Hello-World/merges",
+                "archive_url": "https://api.github.com/repos/github/Hello-World/{archive_format}{/ref}",
+                "downloads_url": "https://api.github.com/repos/github/Hello-World/downloads",
+                "issues_url": "https://api.github.com/repos/github/Hello-World/issues{/number}",
+                "pulls_url": "https://api.github.com/repos/github/Hello-World/pulls{/number}",
+                "milestones_url": "https://api.github.com/repos/github/Hello-World/milestones{/number}",
+                "notifications_url": "https://api.github.com/repos/github/Hello-World/notifications{?since,all,participating}",
+                "labels_url": "https://api.github.com/repos/github/Hello-World/labels{/name}",
+                "releases_url": "https://api.github.com/repos/github/Hello-World/releases{/id}",
+                "deployments_url": "https://api.github.com/repos/github/Hello-World/deployments"
+              }
+            },
+            {
+              "id": "8",
+              "name": "Type",
+              "type": "issue_type",
+              "value": "null"
+            },
+            {
+              "id": "9",
+              "name": "Reviewers",
+              "type": "reviewers",
+              "value": [
+                {
+                  "type": "ReviewRequest",
+                  "status": "pending",
+                  "reviewer": {
+                    "avatarUrl": "https://github.com/images/error/octocat_happy.gif",
+                    "id": "2",
+                    "login": "monalisa",
+                    "url": "https://github.com/monalisa",
+                    "name": "monalisa",
+                    "type": "User"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "10",
+              "name": "Parent issue",
+              "type": "parent_issue",
+              "value": "null"
+            },
+            {
+              "id": "11",
+              "name": "Sub-issues progress",
+              "type": "sub_issues_progress",
+              "value": "null"
+            }
+          ]
+        }
+      },
+      "projects-v2-item-simple": {
+        "value": {
+          "id": "17",
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
+          "content": {
+            "id": "38",
+            "node_id": "I_kwDOANN5s85FtLts",
+            "title": "Example Draft Issue",
+            "body": "This is a draft issue in the project.",
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z",
+            "user": {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            }
+          },
+          "content_type": "DraftIssue",
+          "creator": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": "null",
+          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
+          "item_url": "https://api.github.com/users/octocat/projectsV2/items/17"
         }
       },
       "custom-properties": {

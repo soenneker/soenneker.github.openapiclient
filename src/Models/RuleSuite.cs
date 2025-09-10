@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The last commit sha in the push evaluation.</summary>
+        /// <summary>The new commit SHA of the ref.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AfterSha { get; set; }
@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string AfterSha { get; set; }
 #endif
-        /// <summary>The first commit sha before the push evaluation.</summary>
+        /// <summary>The previous commit SHA of the ref.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BeforeSha { get; set; }
