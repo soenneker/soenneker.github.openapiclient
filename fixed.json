@@ -90201,10 +90201,11 @@
           "bypass_mode": {
             "enum": [
               "always",
-              "pull_request"
+              "pull_request",
+              "exempt"
             ],
             "type": "string",
-            "description": "When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets.",
+            "description": "When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets. When `bypass_mode` is `exempt`, rules will not be run for that actor and a bypass audit entry will not be created.",
             "default": "always"
           }
         },
@@ -91418,7 +91419,8 @@
             "enum": [
               "always",
               "pull_requests_only",
-              "never"
+              "never",
+              "exempt"
             ],
             "type": "string",
             "description": "The bypass type of the user making the API request for this ruleset. This field is only returned when\nquerying the repository-level endpoint."
@@ -95745,51 +95747,7 @@
           "teams": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "format": "int64"
-                },
-                "node_id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "html_url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string",
-                  "nullable": true
-                },
-                "privacy": {
-                  "type": "string"
-                },
-                "notification_setting": {
-                  "type": "string"
-                },
-                "permission": {
-                  "type": "string"
-                },
-                "members_url": {
-                  "type": "string"
-                },
-                "repositories_url": {
-                  "type": "string"
-                },
-                "parent": {
-                  "type": "string",
-                  "nullable": true
-                }
-              }
+              "$ref": "#/components/schemas/team"
             }
           },
           "apps": {

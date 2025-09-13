@@ -19,5 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         Never,
         #pragma warning restore CS1591
+        [EnumMember(Value = "exempt")]
+        #pragma warning disable CS1591
+        Exempt,
+        #pragma warning restore CS1591
     }
 }
