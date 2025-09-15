@@ -120558,6 +120558,7 @@
         "properties": {
           "sha": {
             "type": "string",
+            "nullable": true,
             "example": "bbcd538c8e72b8c175046e27cc8f907076331401"
           },
           "filename": {
