@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users
     public partial class UsersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.organizationRoles.users.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The handle for the GitHub user account.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.WithUsernameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.WithUsernameItemRequestBuilder this[string position]
         {

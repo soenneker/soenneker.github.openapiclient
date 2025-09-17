@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Team
     public partial class TeamRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.team.item collection</summary>
-        /// <param name="position">The slug of the team name.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Team.Item.WithTeam_slugItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Team.Item.WithTeam_slugItemRequestBuilder this[string position]
         {

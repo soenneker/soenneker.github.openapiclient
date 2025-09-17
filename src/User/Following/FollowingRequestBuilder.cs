@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Following
     public partial class FollowingRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.following.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The handle for the GitHub user account.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Following.Item.WithUsernameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.User.Following.Item.WithUsernameItemRequestBuilder this[string position]
         {

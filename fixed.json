@@ -3148,6 +3148,687 @@
         }
       }
     },
+    "/enterprises/{enterprise}/teams": {
+      "get": {
+        "tags": [
+          "enterprise-teams"
+        ],
+        "summary": "List enterprise teams",
+        "description": "List all teams in the enterprise for the authenticated user",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-teams#list-enterprise-teams"
+        },
+        "operationId": "enterprise-teams/list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/enterprise-team"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/enterprise-teams-items"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-teams"
+        }
+      },
+      "post": {
+        "tags": [
+          "enterprise-teams"
+        ],
+        "summary": "Create an enterprise team",
+        "description": "To create an enterprise team, the authenticated user must be an owner of the enterprise.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-teams#create-an-enterprise-team"
+        },
+        "operationId": "enterprise-teams/create",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the team."
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "A description of the team.",
+                    "nullable": true
+                  },
+                  "sync_to_organizations": {
+                    "enum": [
+                      "all",
+                      "disabled"
+                    ],
+                    "type": "string",
+                    "description": "Retired: this field is no longer supported.\nWhether the enterprise team should be reflected in each organization.\nThis value cannot be set.\n",
+                    "default": "disabled"
+                  },
+                  "group_id": {
+                    "type": "string",
+                    "description": "The ID of the IdP group to assign team membership with. You can get this value from the [REST API endpoints for SCIM](https://docs.github.com/rest/scim#list-provisioned-scim-groups-for-an-enterprise).",
+                    "nullable": true
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Justice League",
+                    "description": "A great team.",
+                    "group_id": "62ab9291-fae2-468e-974b-7e45096d5021"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/enterprise-team"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/enterprise-teams-items"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-teams"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/teams/{enterprise-team}/memberships": {
+      "get": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "List members in an enterprise team",
+        "description": "Lists all team members in an enterprise team.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#list-members-in-an-enterprise-team"
+        },
+        "operationId": "enterprise-team-memberships/list",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/enterprise-team"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/simple-user"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/simple-user-items"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-team-members"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add": {
+      "post": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "Bulk add team members",
+        "description": "Add multiple team members to an enterprise team.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#bulk-add-team-members"
+        },
+        "operationId": "enterprise-team-memberships/bulk-add",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/enterprise-team"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "usernames"
+                ],
+                "type": "object",
+                "properties": {
+                  "usernames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "The handle for the GitHub user account."
+                    },
+                    "description": "The GitHub user handles to add to the team."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "usernames": [
+                      "monalisa",
+                      "octocat"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully added team members.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/simple-user"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/simple-user-items"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-team-members"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove": {
+      "post": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "Bulk remove team members",
+        "description": "Remove multiple team members from an enterprise team.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#bulk-remove-team-members"
+        },
+        "operationId": "enterprise-team-memberships/bulk-remove",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/enterprise-team"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "usernames"
+                ],
+                "type": "object",
+                "properties": {
+                  "usernames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "The handle for the GitHub user account."
+                    },
+                    "description": "The GitHub user handles to be removed from the team."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "usernames": [
+                      "monalisa",
+                      "octocat"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully removed team members.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/simple-user"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/simple-user-items"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-team-members"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}": {
+      "get": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "Get enterprise team membership",
+        "description": "Returns whether the user is a member of the enterprise team.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#get-enterprise-team-membership"
+        },
+        "operationId": "enterprise-team-memberships/get",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/enterprise-team"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is a member of the enterprise team.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/simple-user"
+                },
+                "examples": {
+                  "exampleKey1": {
+                    "$ref": "#/components/examples/simple-user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-team-members"
+        }
+      },
+      "put": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "Add team member",
+        "description": "Add a team member to an enterprise team.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#add-team-member"
+        },
+        "operationId": "enterprise-team-memberships/add",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/enterprise-team"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully added team member",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/simple-user"
+                },
+                "examples": {
+                  "exampleKey1": {
+                    "$ref": "#/components/examples/simple-user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-team-members"
+        }
+      },
+      "delete": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "Remove team membership",
+        "description": "Remove membership of a specific user from a particular team in an enterprise.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#remove-team-membership"
+        },
+        "operationId": "enterprise-team-memberships/remove",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/enterprise-team"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-team-members"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/teams/{team_slug}": {
+      "get": {
+        "tags": [
+          "enterprise-teams"
+        ],
+        "summary": "Get an enterprise team",
+        "description": "Gets a team using the team's slug. To create the slug, GitHub replaces special characters in the name string, changes all words to lowercase, and replaces spaces with a `-` separator and adds the \"ent:\" prefix. For example, \"My TEam Näme\" would become `ent:my-team-name`.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-teams#get-an-enterprise-team"
+        },
+        "operationId": "enterprise-teams/get",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/team-slug"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/enterprise-team"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/enterprise-teams-items"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-teams"
+        }
+      },
+      "patch": {
+        "tags": [
+          "enterprise-teams"
+        ],
+        "summary": "Update an enterprise team",
+        "description": "To edit a team, the authenticated user must be an enterprise owner.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-teams#update-an-enterprise-team"
+        },
+        "operationId": "enterprise-teams/update",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/team-slug"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "A new name for the team.",
+                    "nullable": true
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "A new description for the team.",
+                    "nullable": true
+                  },
+                  "sync_to_organizations": {
+                    "enum": [
+                      "all",
+                      "disabled"
+                    ],
+                    "type": "string",
+                    "description": "Retired: this field is no longer supported.\nWhether the enterprise team should be reflected in each organization.\nThis value cannot be changed.\n",
+                    "default": "disabled"
+                  },
+                  "group_id": {
+                    "type": "string",
+                    "description": "The ID of the IdP group to assign team membership with. The new IdP group will replace the existing one, or replace existing direct members if the team isn't currently linked to an IdP group.",
+                    "nullable": true
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Justice League",
+                    "description": "A great team.",
+                    "group_id": "62ab9291-fae2-468e-974b-7e45096d5021"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/enterprise-team"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/enterprise-teams-items"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-teams"
+        }
+      },
+      "delete": {
+        "tags": [
+          "enterprise-teams"
+        ],
+        "summary": "Delete an enterprise team",
+        "description": "To delete an enterprise team, the authenticated user must be an enterprise owner.\n\nIf you are an enterprise owner, deleting an enterprise team will delete all of its IdP mappings as well.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-teams#delete-an-enterprise-team"
+        },
+        "operationId": "enterprise-teams/delete",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/team-slug"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "enterprise-teams",
+          "subcategory": "enterprise-teams"
+        }
+      }
+    },
     "/events": {
       "get": {
         "tags": [
@@ -11315,13 +11996,15 @@
                             "type": "string"
                           },
                           "artifact_url": {
-                            "type": "string"
+                            "type": "string",
+                            "nullable": true
                           },
                           "registry_url": {
                             "type": "string"
                           },
                           "repository": {
-                            "type": "string"
+                            "type": "string",
+                            "nullable": true
                           },
                           "status": {
                             "type": "string"
@@ -22123,7 +22806,10 @@
                   "$ref": "#/components/schemas/projects-v2-item-simple"
                 },
                 "examples": {
-                  "default": {
+                  "issue": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  },
+                  "pull_request": {
                     "$ref": "#/components/examples/projects-v2-item-simple"
                   }
                 }
@@ -22356,7 +23042,19 @@
                   "$ref": "#/components/schemas/projects-v2-item-with-content"
                 },
                 "examples": {
-                  "default": {
+                  "text_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "number_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "date_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "single_select_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "iteration_field": {
                     "$ref": "#/components/examples/projects-v2-item-with-content"
                   }
                 }
@@ -22435,7 +23133,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#get-all-custom-properties-for-an-organization"
         },
-        "operationId": "orgs/get-all-custom-properties",
+        "operationId": "orgs/custom-properties-for-repos-get-organization-definitions",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -22484,7 +23182,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#create-or-update-custom-properties-for-an-organization"
         },
-        "operationId": "orgs/create-or-update-custom-properties",
+        "operationId": "orgs/custom-properties-for-repos-create-or-update-organization-definitions",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -22588,7 +23286,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#get-a-custom-property-for-an-organization"
         },
-        "operationId": "orgs/get-custom-property",
+        "operationId": "orgs/custom-properties-for-repos-get-organization-definition",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -22637,7 +23335,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#create-or-update-a-custom-property-for-an-organization"
         },
-        "operationId": "orgs/create-or-update-custom-property",
+        "operationId": "orgs/custom-properties-for-repos-create-or-update-organization-definition",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -22710,7 +23408,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#remove-a-custom-property-for-an-organization"
         },
-        "operationId": "orgs/remove-custom-property",
+        "operationId": "orgs/custom-properties-for-repos-delete-organization-definition",
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
@@ -71260,662 +71958,6 @@
         }
       }
     },
-    "/users/{user_id}/projectsV2/{project_number}": {
-      "get": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "Get project for user",
-        "description": "Get a specific user-owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/projects#get-project-for-user"
-        },
-        "operationId": "projects/get-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/projects-v2"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "projects"
-        }
-      }
-    },
-    "/users/{user_id}/projectsV2/{project_number}/fields": {
-      "get": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "List project fields for user",
-        "description": "List all fields for a specific user-owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/fields#list-project-fields-for-user"
-        },
-        "operationId": "projects/list-fields-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "$ref": "#/components/parameters/pagination-before"
-          },
-          {
-            "$ref": "#/components/parameters/pagination-after"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/projects-v2-field"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2-field"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "fields"
-        }
-      }
-    },
-    "/users/{user_id}/projectsV2/{project_number}/fields/{field_id}": {
-      "get": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "Get project field for user",
-        "description": "Get a specific field for a user-owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/fields#get-project-field-for-user"
-        },
-        "operationId": "projects/get-field-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/field-id"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/projects-v2-field"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2-field"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "fields"
-        }
-      }
-    },
-    "/users/{user_id}/projectsV2/{project_number}/items": {
-      "get": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "List items for a user owned project",
-        "description": "List all items for a specific user-owned project accessible by the authenticated user.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/items#list-items-for-a-user-owned-project"
-        },
-        "operationId": "projects/list-items-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          },
-          {
-            "$ref": "#/components/parameters/pagination-before"
-          },
-          {
-            "$ref": "#/components/parameters/pagination-after"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "name": "q",
-            "in": "query",
-            "description": "Search query to filter items, see [Filtering projects](https://docs.github.com/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects) for more information.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
-            "schema": {
-              "maxItems": 50,
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "example": "fields[]=123,fields[]=456,fields[]=789"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/projects-v2-item-with-content"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2-item-with-content"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "items"
-        }
-      },
-      "post": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "Add item to user owned project",
-        "description": "Add an issue or pull request item to the specified user owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/items#add-item-to-user-owned-project"
-        },
-        "operationId": "projects/add-item-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/user-id"
-          },
-          {
-            "$ref": "#/components/parameters/project-number"
-          }
-        ],
-        "requestBody": {
-          "description": "Details of the item to add to the project.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "type",
-                  "id"
-                ],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "Issue",
-                      "PullRequest"
-                    ],
-                    "type": "string",
-                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
-                  },
-                  "id": {
-                    "type": "integer",
-                    "description": "The numeric ID of the issue or pull request to add to the project.",
-                    "format": "int64"
-                  }
-                }
-              },
-              "examples": {
-                "issue": {
-                  "value": {
-                    "type": "Issue",
-                    "id": 3
-                  }
-                },
-                "pull_request": {
-                  "value": {
-                    "type": "PullRequest",
-                    "id": 3
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/projects-v2-item-simple"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2-item-simple"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "items"
-        }
-      }
-    },
-    "/users/{user_id}/projectsV2/{project_number}/items/{item_id}": {
-      "get": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "Get an item for a user owned project",
-        "description": "Get a specific item from a user-owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/items#get-an-item-for-a-user-owned-project"
-        },
-        "operationId": "projects/get-user-item",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          },
-          {
-            "$ref": "#/components/parameters/item-id"
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
-            "schema": {
-              "maxItems": 50,
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "example": "fields[]=123,fields[]=456,fields[]=789"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/projects-v2-item-with-content"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2-item-with-content"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "items"
-        }
-      },
-      "patch": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "Update project item for user",
-        "description": "Update a specific item in a user-owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/items#update-project-item-for-user"
-        },
-        "operationId": "projects/update-item-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          },
-          {
-            "$ref": "#/components/parameters/item-id"
-          }
-        ],
-        "requestBody": {
-          "description": "Field updates to apply to the project item. Only text, number, date, single select, and iteration fields are supported.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "fields"
-                ],
-                "type": "object",
-                "properties": {
-                  "fields": {
-                    "type": "array",
-                    "items": {
-                      "required": [
-                        "id",
-                        "value"
-                      ],
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "description": "The ID of the project field to update.",
-                          "format": "int64"
-                        },
-                        "value": {
-                          "oneOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "number"
-                            }
-                          ],
-                          "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
-                          "nullable": true
-                        }
-                      }
-                    },
-                    "description": "A list of field updates to apply."
-                  }
-                }
-              },
-              "examples": {
-                "text_field": {
-                  "summary": "Update a text field",
-                  "value": {
-                    "fields": [
-                      {
-                        "id": 123,
-                        "value": "Updated text value"
-                      }
-                    ]
-                  }
-                },
-                "number_field": {
-                  "summary": "Update a number field",
-                  "value": {
-                    "fields": [
-                      {
-                        "id": 456,
-                        "value": 42.5
-                      }
-                    ]
-                  }
-                },
-                "date_field": {
-                  "summary": "Update a date field",
-                  "value": {
-                    "fields": [
-                      {
-                        "id": 789,
-                        "value": "2023-10-05"
-                      }
-                    ]
-                  }
-                },
-                "single_select_field": {
-                  "summary": "Update a single select field",
-                  "value": {
-                    "fields": [
-                      {
-                        "id": 789,
-                        "value": "47fc9ee4"
-                      }
-                    ]
-                  }
-                },
-                "iteration_field": {
-                  "summary": "Update an iteration field",
-                  "value": {
-                    "fields": [
-                      {
-                        "id": 1011,
-                        "value": "866ee5b8"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/projects-v2-item-with-content"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/projects-v2-item-with-content"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "items"
-        }
-      },
-      "delete": {
-        "tags": [
-          "projects"
-        ],
-        "summary": "Delete project item for user",
-        "description": "Delete a specific item from a user-owned project.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects/items#delete-project-item-for-user"
-        },
-        "operationId": "projects/delete-item-for-user",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-number"
-          },
-          {
-            "$ref": "#/components/parameters/user-id"
-          },
-          {
-            "$ref": "#/components/parameters/item-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects",
-          "subcategory": "items"
-        }
-      }
-    },
     "/users/{username}": {
       "get": {
         "tags": [
@@ -73718,6 +73760,677 @@
           "enabledForGitHubApps": true,
           "category": "projects",
           "subcategory": "projects"
+        }
+      }
+    },
+    "/users/{username}/projectsV2/{project_number}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get project for user",
+        "description": "Get a specific user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/projects#get-project-for-user"
+        },
+        "operationId": "projects/get-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "projects"
+        }
+      }
+    },
+    "/users/{username}/projectsV2/{project_number}/fields": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List project fields for user",
+        "description": "List all fields for a specific user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#list-project-fields-for-user"
+        },
+        "operationId": "projects/list-fields-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2-field"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-field"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      }
+    },
+    "/users/{username}/projectsV2/{project_number}/fields/{field_id}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get project field for user",
+        "description": "Get a specific field for a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#get-project-field-for-user"
+        },
+        "operationId": "projects/get-field-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/field-id"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-field"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-field"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      }
+    },
+    "/users/{username}/projectsV2/{project_number}/items": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "List items for a user owned project",
+        "description": "List all items for a specific user-owned project accessible by the authenticated user.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#list-items-for-a-user-owned-project"
+        },
+        "operationId": "projects/list-items-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search query to filter items, see [Filtering projects](https://docs.github.com/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects) for more information.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
+            "schema": {
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": "fields[]=123,fields[]=456,fields[]=789"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/projects-v2-item-with-content"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "post": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Add item to user owned project",
+        "description": "Add an issue or pull request item to the specified user owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#add-item-to-user-owned-project"
+        },
+        "operationId": "projects/add-item-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/project-number"
+          }
+        ],
+        "requestBody": {
+          "description": "Details of the item to add to the project.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "Issue",
+                      "PullRequest"
+                    ],
+                    "type": "string",
+                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "The numeric ID of the issue or pull request to add to the project.",
+                    "format": "int64"
+                  }
+                }
+              },
+              "examples": {
+                "issue": {
+                  "value": {
+                    "type": "Issue",
+                    "id": 3
+                  }
+                },
+                "pull_request": {
+                  "value": {
+                    "type": "PullRequest",
+                    "id": 3
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-simple"
+                },
+                "examples": {
+                  "issue": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  },
+                  "pull_request": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      }
+    },
+    "/users/{username}/projectsV2/{project_number}/items/{item_id}": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Get an item for a user owned project",
+        "description": "Get a specific item from a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#get-an-item-for-a-user-owned-project"
+        },
+        "operationId": "projects/get-user-item",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.",
+            "schema": {
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": "fields[]=123,fields[]=456,fields[]=789"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-with-content"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "patch": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Update project item for user",
+        "description": "Update a specific item in a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#update-project-item-for-user"
+        },
+        "operationId": "projects/update-item-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          }
+        ],
+        "requestBody": {
+          "description": "Field updates to apply to the project item. Only text, number, date, single select, and iteration fields are supported.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "fields"
+                ],
+                "type": "object",
+                "properties": {
+                  "fields": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "id",
+                        "value"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The ID of the project field to update.",
+                          "format": "int64"
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ],
+                          "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "description": "A list of field updates to apply."
+                  }
+                }
+              },
+              "examples": {
+                "text_field": {
+                  "summary": "Update a text field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 123,
+                        "value": "Updated text value"
+                      }
+                    ]
+                  }
+                },
+                "number_field": {
+                  "summary": "Update a number field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 456,
+                        "value": 42.5
+                      }
+                    ]
+                  }
+                },
+                "date_field": {
+                  "summary": "Update a date field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 789,
+                        "value": "2023-10-05"
+                      }
+                    ]
+                  }
+                },
+                "single_select_field": {
+                  "summary": "Update a single select field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 789,
+                        "value": "47fc9ee4"
+                      }
+                    ]
+                  }
+                },
+                "iteration_field": {
+                  "summary": "Update an iteration field",
+                  "value": {
+                    "fields": [
+                      {
+                        "id": 1011,
+                        "value": "866ee5b8"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-with-content"
+                },
+                "examples": {
+                  "text_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "number_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "date_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "single_select_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  },
+                  "iteration_field": {
+                    "$ref": "#/components/examples/projects-v2-item-with-content"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
+        }
+      },
+      "delete": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Delete project item for user",
+        "description": "Delete a specific item from a user-owned project.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/items#delete-project-item-for-user"
+        },
+        "operationId": "projects/delete-item-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/item-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "items"
         }
       }
     },
@@ -79385,6 +80098,77 @@
             "description": "A boolean value representing whether or not the token in the alert was detected in more than one location."
           }
         }
+      },
+      "enterprise-team": {
+        "title": "Enterprise Team",
+        "required": [
+          "id",
+          "url",
+          "members_url",
+          "name",
+          "html_url",
+          "slug",
+          "created_at",
+          "updated_at",
+          "group_id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "sync_to_organizations": {
+            "type": "string",
+            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
+            "example": "disabled | all"
+          },
+          "organization_selection_type": {
+            "type": "string",
+            "example": "disabled | selected | all"
+          },
+          "group_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "62ab9291-fae2-468e-974b-7e45096d5021"
+          },
+          "group_name": {
+            "type": "string",
+            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
+            "nullable": true,
+            "example": "Justice League"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/enterprises/dc/teams/justice-league"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "Group of enterprise owners and/or members"
       },
       "actor": {
         "title": "Actor",
@@ -85290,74 +86074,6 @@
         },
         "description": "A GitHub organization.",
         "nullable": true
-      },
-      "enterprise-team": {
-        "title": "Enterprise Team",
-        "required": [
-          "id",
-          "url",
-          "members_url",
-          "name",
-          "html_url",
-          "slug",
-          "created_at",
-          "updated_at"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "sync_to_organizations": {
-            "type": "string",
-            "example": "disabled | all"
-          },
-          "organization_selection_type": {
-            "type": "string",
-            "example": "disabled | all"
-          },
-          "group_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "62ab9291-fae2-468e-974b-7e45096d5021"
-          },
-          "group_name": {
-            "type": "string",
-            "nullable": true,
-            "example": "Justice League"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/enterprises/dc/teams/justice-league"
-          },
-          "members_url": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "description": "Group of enterprise owners and/or members"
       },
       "copilot-seat-details": {
         "title": "Copilot Business Seat Detail",
@@ -91293,6 +92009,35 @@
         },
         "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated."
       },
+      "repository-rule-copilot-code-review": {
+        "title": "copilot_code_review",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "copilot_code_review"
+            ],
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "review_draft_pull_requests": {
+                "type": "boolean",
+                "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
+              },
+              "review_on_push": {
+                "type": "boolean",
+                "description": "Copilot automatically reviews each new push to the pull request."
+              }
+            }
+          }
+        },
+        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review."
+      },
       "repository-rule": {
         "title": "Repository Rule",
         "type": "object",
@@ -91359,6 +92104,9 @@
           },
           {
             "$ref": "#/components/schemas/repository-rule-code-scanning"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-copilot-code-review"
           }
         ],
         "description": "A repository rule."
@@ -106274,6 +107022,16 @@
             "allOf": [
               {
                 "$ref": "#/components/schemas/repository-rule-code-scanning"
+              },
+              {
+                "$ref": "#/components/schemas/repository-rule-ruleset-info"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/repository-rule-copilot-code-review"
               },
               {
                 "$ref": "#/components/schemas/repository-rule-ruleset-info"
@@ -250704,6 +251462,33 @@
           "default": false
         }
       },
+      "enterprise-team": {
+        "name": "enterprise-team",
+        "in": "path",
+        "description": "The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "username": {
+        "name": "username",
+        "in": "path",
+        "description": "The handle for the GitHub user account.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "team-slug": {
+        "name": "team_slug",
+        "in": "path",
+        "description": "The slug of the team name.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
       "gist-id": {
         "name": "gist_id",
         "in": "path",
@@ -250952,15 +251737,6 @@
           "type": "string"
         }
       },
-      "username": {
-        "name": "username",
-        "in": "path",
-        "description": "The handle for the GitHub user account.",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
       "tool-name": {
         "name": "tool_name",
         "in": "query",
@@ -251170,15 +251946,6 @@
         "name": "repo_name",
         "in": "path",
         "description": "repo_name parameter",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
-      "team-slug": {
-        "name": "team_slug",
-        "in": "path",
-        "description": "The slug of the team name.",
         "required": true,
         "schema": {
           "type": "string"
@@ -252148,15 +252915,6 @@
           ],
           "type": "string",
           "default": "created"
-        }
-      },
-      "user-id": {
-        "name": "user_id",
-        "in": "path",
-        "description": "The unique identifier of the user.",
-        "required": true,
-        "schema": {
-          "type": "string"
         }
       }
     },
@@ -255885,6 +256643,68 @@
           "has_more_locations": "true"
         }
       },
+      "enterprise-teams-items": {
+        "value": [
+          {
+            "id": "1",
+            "name": "Justice League",
+            "description": "A great team.",
+            "slug": "justice-league",
+            "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+            "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+            "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+            "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+            "created_at": "2019-01-26T19:01:12Z",
+            "updated_at": "2019-01-26T19:14:43Z"
+          }
+        ]
+      },
+      "simple-user-items": {
+        "value": [
+          {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          }
+        ]
+      },
+      "simple-user": {
+        "value": {
+          "login": "octocat",
+          "id": "1",
+          "node_id": "MDQ6VXNlcjE=",
+          "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/octocat",
+          "html_url": "https://github.com/octocat",
+          "followers_url": "https://api.github.com/users/octocat/followers",
+          "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+          "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+          "organizations_url": "https://api.github.com/users/octocat/orgs",
+          "repos_url": "https://api.github.com/users/octocat/repos",
+          "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/octocat/received_events",
+          "type": "User",
+          "site_admin": "false"
+        }
+      },
       "public-events-items": {
         "value": [
           {
@@ -258919,30 +259739,6 @@
             }
           ]
         }
-      },
-      "simple-user-items": {
-        "value": [
-          {
-            "login": "octocat",
-            "id": "1",
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": "false"
-          }
-        ]
       },
       "campaign-org-items": {
         "value": [
@@ -284852,6 +285648,10 @@
     {
       "name": "enterprise-teams",
       "description": "Endpoints to manage GitHub Enterprise Teams."
+    },
+    {
+      "name": "enterprise-team-memberships",
+      "description": "Endpoints to manage GitHub Enterprise Team memberships."
     },
     {
       "name": "code-security",
