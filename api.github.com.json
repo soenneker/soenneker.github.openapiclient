@@ -23686,7 +23686,7 @@
         "tags": [
           "orgs"
         ],
-        "operationId": "orgs/list-custom-properties-values-for-repos",
+        "operationId": "orgs/custom-properties-for-repos-get-organization-values",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#list-custom-property-values-for-organization-repositories"
@@ -23755,7 +23755,7 @@
         "tags": [
           "orgs"
         ],
-        "operationId": "orgs/create-or-update-custom-properties-values-for-repos",
+        "operationId": "orgs/custom-properties-for-repos-create-or-update-organization-values",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#create-or-update-custom-property-values-for-organization-repositories"
@@ -63568,6 +63568,9 @@
           },
           {
             "$ref": "#/components/parameters/issues-advanced-search"
+          },
+          {
+            "$ref": "#/components/parameters/search-type"
           }
         ],
         "responses": {
@@ -308549,6 +308552,18 @@
         "required": false,
         "schema": {
           "type": "string"
+        }
+      },
+      "search-type": {
+        "name": "search_type",
+        "description": "The type of search to perform. Set to `semantic` to perform a semantic search.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "semantic"
+          ]
         }
       },
       "team-id": {
