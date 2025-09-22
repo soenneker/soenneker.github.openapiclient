@@ -25,6 +25,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Unique identifier of the enterprise to which this team belongs</summary>
+        public long? EnterpriseId { get; set; }
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +69,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string NotificationSetting { get; set; }
 #endif
+        /// <summary>Unique identifier of the organization to which this team belongs</summary>
+        public long? OrganizationId { get; set; }
         /// <summary>Groups of organization members that gives permissions on specified repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +119,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
+        /// <summary>The ownership type of the team</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_type? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,18 +156,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "assignment", n => { Assignment = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple.CreateFromDiscriminatorValue); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_permissions.CreateFromDiscriminatorValue); } },
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_type>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -174,18 +183,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment>("assignment", Assignment);
             writer.WriteStringValue("description", Description);
+            writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("notification_setting", NotificationSetting);
+            writer.WriteLongValue("organization_id", OrganizationId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>("parent", Parent);
             writer.WriteStringValue("permission", Permission);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_permissions>("permissions", Permissions);
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_type>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

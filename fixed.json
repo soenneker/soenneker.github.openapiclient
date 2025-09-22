@@ -12172,7 +12172,7 @@
         "description": "List a collection of artifact attestations associated with any entry in a list of subject digests owned by an organization.\n\nThe collection of attestations returned by this endpoint is filtered according to the authenticated user's permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.\n\n**Please note:** in order to offer meaningful security benefits, an attestation's signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build's provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/orgs/orgs#list-attestations-by-bulk-subject-digests"
+          "url": "https://docs.github.com/rest/orgs/attestations#list-attestations-by-bulk-subject-digests"
         },
         "operationId": "orgs/list-attestations-bulk",
         "parameters": [
@@ -12304,7 +12304,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "orgs",
-          "subcategory": "orgs"
+          "subcategory": "attestations"
         }
       }
     },
@@ -12510,7 +12510,7 @@
         "description": "List a collection of artifact attestations with a given subject digest that are associated with repositories owned by an organization.\n\nThe collection of attestations returned by this endpoint is filtered according to the authenticated user's permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.\n\n**Please note:** in order to offer meaningful security benefits, an attestation's signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build's provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/orgs/orgs#list-attestations"
+          "url": "https://docs.github.com/rest/orgs/attestations#list-attestations"
         },
         "operationId": "orgs/list-attestations",
         "parameters": [
@@ -12598,7 +12598,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "orgs",
-          "subcategory": "orgs"
+          "subcategory": "attestations"
         }
       }
     },
@@ -55322,7 +55322,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/repos/custom-properties#get-all-custom-property-values-for-a-repository"
         },
-        "operationId": "repos/get-custom-properties-values",
+        "operationId": "repos/custom-properties-for-repos-get-repository-values",
         "parameters": [
           {
             "$ref": "#/components/parameters/owner"
@@ -55374,7 +55374,7 @@
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/repos/custom-properties#create-or-update-custom-property-values-for-a-repository"
         },
-        "operationId": "repos/create-or-update-custom-properties-values",
+        "operationId": "repos/custom-properties-for-repos-create-or-update-repository-values",
         "parameters": [
           {
             "$ref": "#/components/parameters/owner"
@@ -84937,7 +84937,8 @@
           "permission",
           "html_url",
           "repositories_url",
-          "slug"
+          "slug",
+          "type"
         ],
         "type": "object",
         "properties": {
@@ -85005,6 +85006,26 @@
             "type": "string",
             "description": "Distinguished Name (DN) that team maps to within LDAP environment",
             "example": "uid=example,ou=users,dc=github,dc=com"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
+            "type": "string",
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           }
         },
         "description": "Groups of organization members that gives permissions on specified repositories.",
@@ -85023,7 +85044,8 @@
           "html_url",
           "repositories_url",
           "slug",
-          "parent"
+          "parent",
+          "type"
         ],
         "type": "object",
         "properties": {
@@ -85095,6 +85117,26 @@
           "repositories_url": {
             "type": "string",
             "format": "uri"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
+            "type": "string",
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           },
           "parent": {
             "$ref": "#/components/schemas/nullable-team-simple"
@@ -87730,6 +87772,7 @@
           "html_url",
           "repositories_url",
           "slug",
+          "type",
           "parent"
         ],
         "type": "object",
@@ -87815,6 +87858,26 @@
           },
           "parent": {
             "$ref": "#/components/schemas/nullable-team-simple"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
+            "type": "string",
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           }
         },
         "description": "The Relationship a Team has with a role."
@@ -87831,7 +87894,8 @@
           "permission",
           "html_url",
           "repositories_url",
-          "slug"
+          "slug",
+          "type"
         ],
         "type": "object",
         "properties": {
@@ -87899,6 +87963,26 @@
             "type": "string",
             "description": "Distinguished Name (DN) that team maps to within LDAP environment",
             "example": "uid=example,ou=users,dc=github,dc=com"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
+            "type": "string",
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           }
         },
         "description": "Groups of organization members that gives permissions on specified repositories."
@@ -93500,6 +93584,11 @@
         },
         "description": "Team Organization"
       },
+      "ldap-dn": {
+        "type": "string",
+        "description": "The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.",
+        "example": "cn=Enterprise Ops,ou=teams,dc=github,dc=com"
+      },
       "team-full": {
         "title": "Full Team",
         "required": [
@@ -93513,6 +93602,7 @@
           "html_url",
           "repositories_url",
           "slug",
+          "type",
           "created_at",
           "updated_at",
           "members_count",
@@ -93613,9 +93703,27 @@
             "$ref": "#/components/schemas/team-organization"
           },
           "ldap_dn": {
+            "$ref": "#/components/schemas/ldap-dn"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
             "type": "string",
-            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-            "example": "uid=example,ou=users,dc=github,dc=com"
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           }
         },
         "description": "Groups of organization members that gives permissions on specified repositories."
@@ -116564,7 +116672,8 @@
               "html_url",
               "members_url",
               "repositories_url",
-              "permission"
+              "permission",
+              "type"
             ],
             "type": "object",
             "properties": {
@@ -116624,6 +116733,26 @@
                 "type": "string",
                 "description": "URL for the team",
                 "format": "uri"
+              },
+              "type": {
+                "enum": [
+                  "enterprise",
+                  "organization"
+                ],
+                "type": "string",
+                "description": "The ownership type of the team"
+              },
+              "organization_id": {
+                "type": "integer",
+                "description": "Unique identifier of the organization to which this team belongs",
+                "format": "int64",
+                "example": 37
+              },
+              "enterprise_id": {
+                "type": "integer",
+                "description": "Unique identifier of the enterprise to which this team belongs",
+                "format": "int64",
+                "example": 42
               }
             },
             "nullable": true
@@ -116658,6 +116787,26 @@
             "type": "string",
             "description": "URL for the team",
             "format": "uri"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
+            "type": "string",
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           }
         },
         "description": "Groups of organization members that gives permissions on specified repositories."
@@ -124045,7 +124194,8 @@
               "html_url",
               "members_url",
               "repositories_url",
-              "permission"
+              "permission",
+              "type"
             ],
             "type": "object",
             "properties": {
@@ -124105,6 +124255,26 @@
                 "type": "string",
                 "description": "URL for the team",
                 "format": "uri"
+              },
+              "type": {
+                "enum": [
+                  "enterprise",
+                  "organization"
+                ],
+                "type": "string",
+                "description": "The ownership type of the team"
+              },
+              "organization_id": {
+                "type": "integer",
+                "description": "Unique identifier of the organization to which this team belongs",
+                "format": "int64",
+                "example": 37
+              },
+              "enterprise_id": {
+                "type": "integer",
+                "description": "Unique identifier of the enterprise to which this team belongs",
+                "format": "int64",
+                "example": 42
               }
             },
             "nullable": true
@@ -124140,6 +124310,26 @@
             "type": "string",
             "description": "URL for the team",
             "format": "uri"
+          },
+          "type": {
+            "enum": [
+              "enterprise",
+              "organization"
+            ],
+            "type": "string",
+            "description": "The ownership type of the team"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
           }
         },
         "description": "Groups of organization members that gives permissions on specified repositories."
@@ -256494,48 +256684,133 @@
         ]
       },
       "organization-secret-scanning-alert-list": {
-        "value": {
-          "number": "2",
-          "created_at": "2020-11-06T18:48:51Z",
-          "url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2",
-          "html_url": "https://github.com/owner/private-repo/security/secret-scanning/2",
-          "locations_url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations",
-          "state": "resolved",
-          "resolution": "false_positive",
-          "resolved_at": "2020-11-07T02:47:13Z",
-          "resolved_by": {
-            "login": "monalisa",
-            "id": "2",
-            "node_id": "MDQ6VXNlcjI=",
-            "avatar_url": "https://alambic.github.com/avatars/u/2?",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/monalisa",
-            "html_url": "https://github.com/monalisa",
-            "followers_url": "https://api.github.com/users/monalisa/followers",
-            "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
-            "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
-            "organizations_url": "https://api.github.com/users/monalisa/orgs",
-            "repos_url": "https://api.github.com/users/monalisa/repos",
-            "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/monalisa/received_events",
-            "type": "User",
-            "site_admin": "true"
-          },
-          "secret_type": "adafruit_io_key",
-          "secret_type_display_name": "Adafruit IO Key",
-          "secret": "aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-          "repository": {
-            "id": "1296269",
-            "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-            "name": "Hello-World",
-            "full_name": "octocat/Hello-World",
-            "owner": {
+        "value": [
+          {
+            "number": "2",
+            "created_at": "2020-11-06T18:48:51Z",
+            "url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2",
+            "html_url": "https://github.com/owner/private-repo/security/secret-scanning/2",
+            "locations_url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations",
+            "state": "resolved",
+            "resolution": "false_positive",
+            "resolved_at": "2020-11-07T02:47:13Z",
+            "resolved_by": {
+              "login": "monalisa",
+              "id": "2",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://alambic.github.com/avatars/u/2?",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/monalisa",
+              "html_url": "https://github.com/monalisa",
+              "followers_url": "https://api.github.com/users/monalisa/followers",
+              "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+              "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+              "organizations_url": "https://api.github.com/users/monalisa/orgs",
+              "repos_url": "https://api.github.com/users/monalisa/repos",
+              "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/monalisa/received_events",
+              "type": "User",
+              "site_admin": "true"
+            },
+            "secret_type": "adafruit_io_key",
+            "secret_type_display_name": "Adafruit IO Key",
+            "secret": "aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "repository": {
+              "id": "1296269",
+              "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+              "name": "Hello-World",
+              "full_name": "octocat/Hello-World",
+              "owner": {
+                "login": "octocat",
+                "id": "1",
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": "false"
+              },
+              "private": "false",
+              "html_url": "https://github.com/octocat/Hello-World",
+              "description": "This your first repo!",
+              "fork": "false",
+              "url": "https://api.github.com/repos/octocat/Hello-World",
+              "archive_url": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
+              "commits_url": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/octocat/Hello-World/contributors",
+              "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
+              "downloads_url": "https://api.github.com/repos/octocat/Hello-World/downloads",
+              "events_url": "https://api.github.com/repos/octocat/Hello-World/events",
+              "forks_url": "https://api.github.com/repos/octocat/Hello-World/forks",
+              "git_commits_url": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
+              "issue_comment_url": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
+              "keys_url": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
+              "languages_url": "https://api.github.com/repos/octocat/Hello-World/languages",
+              "merges_url": "https://api.github.com/repos/octocat/Hello-World/merges",
+              "milestones_url": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
+              "notifications_url": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
+              "pulls_url": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/octocat/Hello-World/stargazers",
+              "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/octocat/Hello-World/subscribers",
+              "subscription_url": "https://api.github.com/repos/octocat/Hello-World/subscription",
+              "tags_url": "https://api.github.com/repos/octocat/Hello-World/tags",
+              "teams_url": "https://api.github.com/repos/octocat/Hello-World/teams",
+              "trees_url": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
+              "hooks_url": "https://api.github.com/repos/octocat/Hello-World/hooks"
+            },
+            "push_protection_bypassed_by": {
+              "login": "monalisa",
+              "id": "2",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://alambic.github.com/avatars/u/2?",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/monalisa",
+              "html_url": "https://github.com/monalisa",
+              "followers_url": "https://api.github.com/users/monalisa/followers",
+              "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+              "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+              "organizations_url": "https://api.github.com/users/monalisa/orgs",
+              "repos_url": "https://api.github.com/users/monalisa/repos",
+              "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/monalisa/received_events",
+              "type": "User",
+              "site_admin": "true"
+            },
+            "push_protection_bypassed": "true",
+            "push_protection_bypassed_at": "2020-11-06T21:48:51Z",
+            "push_protection_bypass_request_reviewer": {
               "login": "octocat",
-              "id": "1",
-              "node_id": "MDQ6VXNlcjE=",
-              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "id": "3",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://alambic.github.com/avatars/u/3?",
               "gravatar_id": "",
               "url": "https://api.github.com/users/octocat",
               "html_url": "https://github.com/octocat",
@@ -256549,113 +256824,30 @@
               "events_url": "https://api.github.com/users/octocat/events{/privacy}",
               "received_events_url": "https://api.github.com/users/octocat/received_events",
               "type": "User",
-              "site_admin": "false"
+              "site_admin": "true"
             },
-            "private": "false",
-            "html_url": "https://github.com/octocat/Hello-World",
-            "description": "This your first repo!",
-            "fork": "false",
-            "url": "https://api.github.com/repos/octocat/Hello-World",
-            "archive_url": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
-            "assignees_url": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
-            "blobs_url": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
-            "branches_url": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
-            "collaborators_url": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
-            "comments_url": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
-            "commits_url": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
-            "compare_url": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
-            "contents_url": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
-            "contributors_url": "https://api.github.com/repos/octocat/Hello-World/contributors",
-            "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
-            "downloads_url": "https://api.github.com/repos/octocat/Hello-World/downloads",
-            "events_url": "https://api.github.com/repos/octocat/Hello-World/events",
-            "forks_url": "https://api.github.com/repos/octocat/Hello-World/forks",
-            "git_commits_url": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
-            "git_refs_url": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
-            "git_tags_url": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
-            "issue_comment_url": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
-            "issue_events_url": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
-            "issues_url": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
-            "keys_url": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
-            "labels_url": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
-            "languages_url": "https://api.github.com/repos/octocat/Hello-World/languages",
-            "merges_url": "https://api.github.com/repos/octocat/Hello-World/merges",
-            "milestones_url": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
-            "notifications_url": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
-            "pulls_url": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
-            "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
-            "stargazers_url": "https://api.github.com/repos/octocat/Hello-World/stargazers",
-            "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
-            "subscribers_url": "https://api.github.com/repos/octocat/Hello-World/subscribers",
-            "subscription_url": "https://api.github.com/repos/octocat/Hello-World/subscription",
-            "tags_url": "https://api.github.com/repos/octocat/Hello-World/tags",
-            "teams_url": "https://api.github.com/repos/octocat/Hello-World/teams",
-            "trees_url": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
-            "hooks_url": "https://api.github.com/repos/octocat/Hello-World/hooks"
-          },
-          "push_protection_bypassed_by": {
-            "login": "monalisa",
-            "id": "2",
-            "node_id": "MDQ6VXNlcjI=",
-            "avatar_url": "https://alambic.github.com/avatars/u/2?",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/monalisa",
-            "html_url": "https://github.com/monalisa",
-            "followers_url": "https://api.github.com/users/monalisa/followers",
-            "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
-            "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
-            "organizations_url": "https://api.github.com/users/monalisa/orgs",
-            "repos_url": "https://api.github.com/users/monalisa/repos",
-            "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/monalisa/received_events",
-            "type": "User",
-            "site_admin": "true"
-          },
-          "push_protection_bypassed": "true",
-          "push_protection_bypassed_at": "2020-11-06T21:48:51Z",
-          "push_protection_bypass_request_reviewer": {
-            "login": "octocat",
-            "id": "3",
-            "node_id": "MDQ6VXNlcjI=",
-            "avatar_url": "https://alambic.github.com/avatars/u/3?",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": "true"
-          },
-          "push_protection_bypass_request_reviewer_comment": "Example response",
-          "push_protection_bypass_request_comment": "Example comment",
-          "push_protection_bypass_request_html_url": "https://github.com/owner/repo/secret_scanning_exemptions/1",
-          "resolution_comment": "Example comment",
-          "validity": "active",
-          "publicly_leaked": "false",
-          "multi_repo": "false",
-          "is_base64_encoded": "false",
-          "first_location_detected": {
-            "path": "/example/secrets.txt",
-            "start_line": "1",
-            "end_line": "1",
-            "start_column": "1",
-            "end_column": "64",
-            "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
-            "blob_url": "https://api.github.com/repos/octocat/hello-world/git/blobs/af5626b4a114abcb82d63db7c8082c3c4756e51b",
-            "commit_sha": "f14d7debf9775f957cf4f1e8176da0786431f72b",
-            "commit_url": "https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b"
-          },
-          "has_more_locations": "true"
-        }
+            "push_protection_bypass_request_reviewer_comment": "Example response",
+            "push_protection_bypass_request_comment": "Example comment",
+            "push_protection_bypass_request_html_url": "https://github.com/owner/repo/secret_scanning_exemptions/1",
+            "resolution_comment": "Example comment",
+            "validity": "active",
+            "publicly_leaked": "false",
+            "multi_repo": "false",
+            "is_base64_encoded": "false",
+            "first_location_detected": {
+              "path": "/example/secrets.txt",
+              "start_line": "1",
+              "end_line": "1",
+              "start_column": "1",
+              "end_column": "64",
+              "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
+              "blob_url": "https://api.github.com/repos/octocat/hello-world/git/blobs/af5626b4a114abcb82d63db7c8082c3c4756e51b",
+              "commit_sha": "f14d7debf9775f957cf4f1e8176da0786431f72b",
+              "commit_url": "https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b"
+            },
+            "has_more_locations": "true"
+          }
+        ]
       },
       "enterprise-teams-items": {
         "value": [
@@ -278645,101 +278837,103 @@
         ]
       },
       "secret-scanning-alert-list": {
-        "value": {
-          "number": "2",
-          "created_at": "2020-11-06T18:48:51Z",
-          "url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2",
-          "html_url": "https://github.com/owner/private-repo/security/secret-scanning/2",
-          "locations_url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations",
-          "state": "resolved",
-          "resolution": "false_positive",
-          "resolved_at": "2020-11-07T02:47:13Z",
-          "resolved_by": {
-            "login": "monalisa",
-            "id": "2",
-            "node_id": "MDQ6VXNlcjI=",
-            "avatar_url": "https://alambic.github.com/avatars/u/2?",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/monalisa",
-            "html_url": "https://github.com/monalisa",
-            "followers_url": "https://api.github.com/users/monalisa/followers",
-            "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
-            "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
-            "organizations_url": "https://api.github.com/users/monalisa/orgs",
-            "repos_url": "https://api.github.com/users/monalisa/repos",
-            "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/monalisa/received_events",
-            "type": "User",
-            "site_admin": "true"
-          },
-          "secret_type": "adafruit_io_key",
-          "secret_type_display_name": "Adafruit IO Key",
-          "secret": "aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-          "push_protection_bypassed_by": {
-            "login": "monalisa",
-            "id": "2",
-            "node_id": "MDQ6VXNlcjI=",
-            "avatar_url": "https://alambic.github.com/avatars/u/2?",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/monalisa",
-            "html_url": "https://github.com/monalisa",
-            "followers_url": "https://api.github.com/users/monalisa/followers",
-            "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
-            "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
-            "organizations_url": "https://api.github.com/users/monalisa/orgs",
-            "repos_url": "https://api.github.com/users/monalisa/repos",
-            "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/monalisa/received_events",
-            "type": "User",
-            "site_admin": "true"
-          },
-          "push_protection_bypassed": "true",
-          "push_protection_bypassed_at": "2020-11-06T21:48:51Z",
-          "push_protection_bypass_request_reviewer": {
-            "login": "octocat",
-            "id": "3",
-            "node_id": "MDQ6VXNlcjI=",
-            "avatar_url": "https://alambic.github.com/avatars/u/3?",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": "true"
-          },
-          "push_protection_bypass_request_reviewer_comment": "Example response",
-          "push_protection_bypass_request_comment": "Example comment",
-          "push_protection_bypass_request_html_url": "https://github.com/owner/repo/secret_scanning_exemptions/1",
-          "resolution_comment": "Example comment",
-          "validity": "inactive",
-          "publicly_leaked": "false",
-          "multi_repo": "false",
-          "is_base64_encoded": "false",
-          "first_location_detected": {
-            "path": "/example/secrets.txt",
-            "start_line": "1",
-            "end_line": "1",
-            "start_column": "1",
-            "end_column": "64",
-            "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
-            "blob_url": "https://api.github.com/repos/octocat/hello-world/git/blobs/af5626b4a114abcb82d63db7c8082c3c4756e51b",
-            "commit_sha": "f14d7debf9775f957cf4f1e8176da0786431f72b",
-            "commit_url": "https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b"
-          },
-          "has_more_locations": "true"
-        }
+        "value": [
+          {
+            "number": "2",
+            "created_at": "2020-11-06T18:48:51Z",
+            "url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2",
+            "html_url": "https://github.com/owner/private-repo/security/secret-scanning/2",
+            "locations_url": "https://api.github.com/repos/owner/private-repo/secret-scanning/alerts/2/locations",
+            "state": "resolved",
+            "resolution": "false_positive",
+            "resolved_at": "2020-11-07T02:47:13Z",
+            "resolved_by": {
+              "login": "monalisa",
+              "id": "2",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://alambic.github.com/avatars/u/2?",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/monalisa",
+              "html_url": "https://github.com/monalisa",
+              "followers_url": "https://api.github.com/users/monalisa/followers",
+              "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+              "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+              "organizations_url": "https://api.github.com/users/monalisa/orgs",
+              "repos_url": "https://api.github.com/users/monalisa/repos",
+              "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/monalisa/received_events",
+              "type": "User",
+              "site_admin": "true"
+            },
+            "secret_type": "adafruit_io_key",
+            "secret_type_display_name": "Adafruit IO Key",
+            "secret": "aio_XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "push_protection_bypassed_by": {
+              "login": "monalisa",
+              "id": "2",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://alambic.github.com/avatars/u/2?",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/monalisa",
+              "html_url": "https://github.com/monalisa",
+              "followers_url": "https://api.github.com/users/monalisa/followers",
+              "following_url": "https://api.github.com/users/monalisa/following{/other_user}",
+              "gists_url": "https://api.github.com/users/monalisa/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/monalisa/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/monalisa/subscriptions",
+              "organizations_url": "https://api.github.com/users/monalisa/orgs",
+              "repos_url": "https://api.github.com/users/monalisa/repos",
+              "events_url": "https://api.github.com/users/monalisa/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/monalisa/received_events",
+              "type": "User",
+              "site_admin": "true"
+            },
+            "push_protection_bypassed": "true",
+            "push_protection_bypassed_at": "2020-11-06T21:48:51Z",
+            "push_protection_bypass_request_reviewer": {
+              "login": "octocat",
+              "id": "3",
+              "node_id": "MDQ6VXNlcjI=",
+              "avatar_url": "https://alambic.github.com/avatars/u/3?",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "true"
+            },
+            "push_protection_bypass_request_reviewer_comment": "Example response",
+            "push_protection_bypass_request_comment": "Example comment",
+            "push_protection_bypass_request_html_url": "https://github.com/owner/repo/secret_scanning_exemptions/1",
+            "resolution_comment": "Example comment",
+            "validity": "inactive",
+            "publicly_leaked": "false",
+            "multi_repo": "false",
+            "is_base64_encoded": "false",
+            "first_location_detected": {
+              "path": "/example/secrets.txt",
+              "start_line": "1",
+              "end_line": "1",
+              "start_column": "1",
+              "end_column": "64",
+              "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
+              "blob_url": "https://api.github.com/repos/octocat/hello-world/git/blobs/af5626b4a114abcb82d63db7c8082c3c4756e51b",
+              "commit_sha": "f14d7debf9775f957cf4f1e8176da0786431f72b",
+              "commit_url": "https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b"
+            },
+            "has_more_locations": "true"
+          }
+        ]
       },
       "secret-scanning-alert-open": {
         "value": {

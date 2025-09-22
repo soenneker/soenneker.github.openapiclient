@@ -23,6 +23,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Unique identifier of the enterprise to which this team belongs</summary>
+        public long? EnterpriseId { get; set; }
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +75,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string NotificationSetting { get; set; }
 #endif
+        /// <summary>Unique identifier of the organization to which this team belongs</summary>
+        public long? OrganizationId { get; set; }
         /// <summary>Permission that the team will have for its repositories</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,6 +109,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
+        /// <summary>The ownership type of the team</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple_type? Type { get; set; }
         /// <summary>URL for the team</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,6 +145,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "ldap_dn", n => { LdapDn = n.GetStringValue(); } },
@@ -146,10 +153,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple_type>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -161,6 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("ldap_dn", LdapDn);
@@ -168,10 +178,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("notification_setting", NotificationSetting);
+            writer.WriteLongValue("organization_id", OrganizationId);
             writer.WriteStringValue("permission", Permission);
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple_type>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

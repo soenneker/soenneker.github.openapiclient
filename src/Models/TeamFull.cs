@@ -25,6 +25,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Unique identifier of the enterprise to which this team belongs</summary>
+        public long? EnterpriseId { get; set; }
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Unique identifier of the team</summary>
         public long? Id { get; set; }
-        /// <summary>Distinguished Name (DN) that team maps to within LDAP environment</summary>
+        /// <summary>The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LdapDn { get; set; }
@@ -79,6 +81,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization Organization { get; set; }
 #endif
+        /// <summary>Unique identifier of the organization to which this team belongs</summary>
+        public long? OrganizationId { get; set; }
         /// <summary>Groups of organization members that gives permissions on specified repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +119,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
+        /// <summary>The ownership type of the team</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_type? Type { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>URL for the team</summary>
@@ -152,6 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "ldap_dn", n => { LdapDn = n.GetStringValue(); } },
@@ -161,12 +168,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting>(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization>(global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization.CreateFromDiscriminatorValue); } },
+                { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple.CreateFromDiscriminatorValue); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy>(); } },
                 { "repos_count", n => { ReposCount = n.GetIntValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -180,6 +189,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
+            writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("ldap_dn", LdapDn);
@@ -189,12 +199,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting>("notification_setting", NotificationSetting);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization>("organization", Organization);
+            writer.WriteLongValue("organization_id", OrganizationId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>("parent", Parent);
             writer.WriteStringValue("permission", Permission);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy>("privacy", Privacy);
             writer.WriteIntValue("repos_count", ReposCount);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_type>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
