@@ -30,6 +30,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations.Item
 #else
         public string BundleUrl { get; set; }
 #endif
+        /// <summary>The initiator property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Initiator { get; set; }
+#nullable restore
+#else
+        public string Initiator { get; set; }
+#endif
         /// <summary>The repository_id property</summary>
         public long? RepositoryId { get; set; }
         /// <summary>
@@ -59,6 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations.Item
             {
                 { "bundle", n => { Bundle = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle.CreateFromDiscriminatorValue); } },
                 { "bundle_url", n => { BundleUrl = n.GetStringValue(); } },
+                { "initiator", n => { Initiator = n.GetStringValue(); } },
                 { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
             };
         }
@@ -71,6 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations.Item
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations.Item.WithSubject_digestGetResponse_attestations_bundle>("bundle", Bundle);
             writer.WriteStringValue("bundle_url", BundleUrl);
+            writer.WriteStringValue("initiator", Initiator);
             writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);
         }

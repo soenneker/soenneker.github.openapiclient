@@ -12801,6 +12801,9 @@
                           },
                           "bundle_url": {
                             "type": "string"
+                          },
+                          "initiator": {
+                            "type": "string"
                           }
                         }
                       }
@@ -34692,6 +34695,9 @@
                             "type": "integer"
                           },
                           "bundle_url": {
+                            "type": "string"
+                          },
+                          "initiator": {
                             "type": "string"
                           }
                         }
@@ -72840,6 +72846,9 @@
                           },
                           "bundle_url": {
                             "type": "string"
+                          },
+                          "initiator": {
+                            "type": "string"
                           }
                         }
                       }
@@ -110024,6 +110033,12 @@
           },
           "dismissal_approved_by": {
             "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            }
           }
         },
         "required": [
@@ -122585,6 +122600,12 @@
           },
           "dismissal_approved_by": {
             "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            }
           }
         },
         "required": [
@@ -122714,6 +122735,12 @@
           },
           "dismissal_approved_by": {
             "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            }
           }
         },
         "required": [
@@ -151501,6 +151528,12 @@
             "description": "The code scanning alert involved in the event.",
             "type": "object",
             "properties": {
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/simple-user"
+                }
+              },
               "created_at": {
                 "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
                 "type": "string",
@@ -151830,6 +151863,12 @@
             "description": "The code scanning alert involved in the event.",
             "type": "object",
             "properties": {
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/simple-user"
+                }
+              },
               "created_at": {
                 "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
                 "type": "string",
@@ -152482,6 +152521,12 @@
               },
               "dismissal_approved_by": {
                 "nullable": true
+              },
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/simple-user"
+                }
               }
             },
             "required": [
@@ -152542,6 +152587,12 @@
             "description": "The code scanning alert involved in the event.",
             "type": "object",
             "properties": {
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/simple-user"
+                }
+              },
               "created_at": {
                 "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
                 "type": "string",
@@ -152900,6 +152951,12 @@
             "type": "object",
             "nullable": true,
             "properties": {
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/simple-user"
+                }
+              },
               "created_at": {
                 "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
                 "type": "string",
@@ -153161,6 +153218,12 @@
             "description": "The code scanning alert involved in the event.",
             "type": "object",
             "properties": {
+              "assignees": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/simple-user"
+                }
+              },
               "created_at": {
                 "description": "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`",
                 "type": "string",
