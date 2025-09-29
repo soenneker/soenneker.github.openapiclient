@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Premium_request;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BillingRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The premium_request property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder Premium_request
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The usage property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage.UsageRequestBuilder Usage
         {

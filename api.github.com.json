@@ -7253,6 +7253,69 @@
         }
       }
     },
+    "/organizations/{org}/settings/billing/premium_request/usage": {
+      "get": {
+        "summary": "Get billing premium request usage report for an organization",
+        "description": "Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.",
+        "tags": [
+          "billing"
+        ],
+        "operationId": "billing/get-github-billing-premium-request-usage-report-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-year"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-month-default"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-day"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-user"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-model"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-product"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/billing_premium_request_usage_report_org"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "billing",
+          "subcategory": "enhanced-billing"
+        }
+      }
+    },
     "/organizations/{org}/settings/billing/usage": {
       "get": {
         "summary": "Get billing usage report for an organization",
@@ -75139,6 +75202,66 @@
         }
       }
     },
+    "/users/{username}/settings/billing/premium_request/usage": {
+      "get": {
+        "summary": "Get billing premium request usage report for a user",
+        "description": "Gets a report of premium request usage for a user.",
+        "tags": [
+          "billing"
+        ],
+        "operationId": "billing/get-github-billing-premium-request-usage-report-user",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-a-user"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-year"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-month-default"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-day"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-model"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-product"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/billing_premium_request_usage_report_user"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "billing",
+          "subcategory": "enhanced-billing"
+        }
+      }
+    },
     "/users/{username}/settings/billing/shared-storage": {
       "get": {
         "summary": "Get shared storage billing for a user",
@@ -108101,6 +108224,117 @@
         },
         "additionalProperties": false
       },
+      "billing-premium-request-usage-report-org": {
+        "type": "object",
+        "properties": {
+          "timePeriod": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer",
+                "description": "The year for the usage report."
+              },
+              "month": {
+                "type": "integer",
+                "description": "The month for the usage report."
+              },
+              "day": {
+                "type": "integer",
+                "description": "The day for the usage report."
+              }
+            },
+            "required": [
+              "year"
+            ]
+          },
+          "organization": {
+            "type": "string",
+            "description": "The unique identifier of the organization."
+          },
+          "user": {
+            "type": "string",
+            "description": "The name of the user for the usage report."
+          },
+          "product": {
+            "type": "string",
+            "description": "The product for the usage report."
+          },
+          "model": {
+            "type": "string",
+            "description": "The model for the usage report."
+          },
+          "usageItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string",
+                  "description": "Product name."
+                },
+                "sku": {
+                  "type": "string",
+                  "description": "SKU name."
+                },
+                "model": {
+                  "type": "string",
+                  "description": "Model name."
+                },
+                "unitType": {
+                  "type": "string",
+                  "description": "Unit type of the usage line item."
+                },
+                "pricePerUnit": {
+                  "type": "number",
+                  "description": "Price per unit of the usage line item."
+                },
+                "grossQuantity": {
+                  "type": "integer",
+                  "description": "Gross quantity of the usage line item."
+                },
+                "grossAmount": {
+                  "type": "number",
+                  "description": "Gross amount of the usage line item."
+                },
+                "discountQuantity": {
+                  "type": "integer",
+                  "description": "Discount quantity of the usage line item."
+                },
+                "discountAmount": {
+                  "type": "number",
+                  "description": "Discount amount of the usage line item."
+                },
+                "netQuantity": {
+                  "type": "integer",
+                  "description": "Net quantity of the usage line item."
+                },
+                "netAmount": {
+                  "type": "number",
+                  "description": "Net amount of the usage line item."
+                }
+              },
+              "required": [
+                "product",
+                "sku",
+                "model",
+                "unitType",
+                "pricePerUnit",
+                "grossQuantity",
+                "grossAmount",
+                "discountQuantity",
+                "discountAmount",
+                "netQuantity",
+                "netAmount"
+              ]
+            }
+          }
+        },
+        "required": [
+          "timePeriod",
+          "organization",
+          "usageItems"
+        ]
+      },
       "billing-usage-report": {
         "type": "object",
         "properties": {
@@ -134876,6 +135110,113 @@
         "required": [
           "key",
           "id"
+        ]
+      },
+      "billing-premium-request-usage-report-user": {
+        "type": "object",
+        "properties": {
+          "timePeriod": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer",
+                "description": "The year for the usage report."
+              },
+              "month": {
+                "type": "integer",
+                "description": "The month for the usage report."
+              },
+              "day": {
+                "type": "integer",
+                "description": "The day for the usage report."
+              }
+            },
+            "required": [
+              "year"
+            ]
+          },
+          "user": {
+            "type": "string",
+            "description": "The unique identifier of the user."
+          },
+          "product": {
+            "type": "string",
+            "description": "The product for the usage report."
+          },
+          "model": {
+            "type": "string",
+            "description": "The model for the usage report."
+          },
+          "usageItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string",
+                  "description": "Product name."
+                },
+                "sku": {
+                  "type": "string",
+                  "description": "SKU name."
+                },
+                "model": {
+                  "type": "string",
+                  "description": "Model name."
+                },
+                "unitType": {
+                  "type": "string",
+                  "description": "Unit type of the usage line item."
+                },
+                "pricePerUnit": {
+                  "type": "number",
+                  "description": "Price per unit of the usage line item."
+                },
+                "grossQuantity": {
+                  "type": "integer",
+                  "description": "Gross quantity of the usage line item."
+                },
+                "grossAmount": {
+                  "type": "number",
+                  "description": "Gross amount of the usage line item."
+                },
+                "discountQuantity": {
+                  "type": "integer",
+                  "description": "Discount quantity of the usage line item."
+                },
+                "discountAmount": {
+                  "type": "number",
+                  "description": "Discount amount of the usage line item."
+                },
+                "netQuantity": {
+                  "type": "integer",
+                  "description": "Net quantity of the usage line item."
+                },
+                "netAmount": {
+                  "type": "number",
+                  "description": "Net amount of the usage line item."
+                }
+              },
+              "required": [
+                "product",
+                "sku",
+                "model",
+                "unitType",
+                "pricePerUnit",
+                "grossQuantity",
+                "grossAmount",
+                "discountQuantity",
+                "discountAmount",
+                "netQuantity",
+                "netAmount"
+              ]
+            }
+          }
+        },
+        "required": [
+          "timePeriod",
+          "user",
+          "usageItems"
         ]
       },
       "billing-usage-report-user": {
@@ -279944,6 +280285,29 @@
           ]
         }
       },
+      "billing-premium-request-usage-report-org": {
+        "value": {
+          "timePeriod": {
+            "year": 2025
+          },
+          "organization": "GitHub",
+          "usageItems": [
+            {
+              "product": "Copilot",
+              "sku": "Copilot Premium Request",
+              "model": "GPT-5",
+              "unitType": "requests",
+              "pricePerUnit": 0.04,
+              "grossQuantity": 100,
+              "grossAmount": 4.0,
+              "discountQuantity": 0,
+              "discountAmount": 0.0,
+              "netQuantity": 100,
+              "netAmount": 4.0
+            }
+          ]
+        }
+      },
       "billing-usage-report": {
         "value": {
           "usageItems": [
@@ -305420,6 +305784,29 @@
           }
         ]
       },
+      "billing-premium-request-usage-report-user": {
+        "value": {
+          "timePeriod": {
+            "year": 2025
+          },
+          "user": "monalisa",
+          "usageItems": [
+            {
+              "product": "Copilot",
+              "sku": "Copilot Premium Request",
+              "model": "GPT-5",
+              "unitType": "requests",
+              "pricePerUnit": 0.04,
+              "grossQuantity": 100,
+              "grossAmount": 4.0,
+              "discountQuantity": 0,
+              "discountAmount": 0.0,
+              "netQuantity": 100,
+              "netAmount": 4.0
+            }
+          ]
+        }
+      },
       "billing-usage-report-user": {
         "value": {
           "usageItems": [
@@ -307573,9 +307960,9 @@
           "type": "integer"
         }
       },
-      "billing-usage-report-month": {
+      "billing-usage-report-month-default": {
         "name": "month",
-        "description": "If specified, only return results for a single month. The value of `month` is an integer between `1` and `12`. If no year is specified the default `year` is used.",
+        "description": "If specified, only return results for a single month. The value of `month` is an integer between `1` and `12`. Default value is the current month. If no year is specified the default `year` is used.",
         "in": "query",
         "required": false,
         "schema": {
@@ -307585,6 +307972,42 @@
       "billing-usage-report-day": {
         "name": "day",
         "description": "If specified, only return results for a single day. The value of `day` is an integer between `1` and `31`. If no `year` or `month` is specified, the default `year` and `month` are used.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "billing-usage-report-user": {
+        "name": "user",
+        "description": "The user name to query usage for. The name is not case sensitive.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "billing-usage-report-model": {
+        "name": "model",
+        "description": "The model name to query usage for. The name is not case sensitive.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "billing-usage-report-product": {
+        "name": "product",
+        "description": "The product name to query usage for. The name is not case sensitive.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "billing-usage-report-month": {
+        "name": "month",
+        "description": "If specified, only return results for a single month. The value of `month` is an integer between `1` and `12`. If no year is specified the default `year` is used.",
         "in": "query",
         "required": false,
         "schema": {
@@ -309055,6 +309478,21 @@
           }
         }
       },
+      "billing_premium_request_usage_report_org": {
+        "description": "Response when getting a billing premium request usage report",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing-premium-request-usage-report-org"
+            },
+            "examples": {
+              "default": {
+                "$ref": "#/components/examples/billing-premium-request-usage-report-org"
+              }
+            }
+          }
+        }
+      },
       "billing_usage_report_org": {
         "description": "Billing usage report response for an organization",
         "content": {
@@ -309295,6 +309733,21 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/basic-error"
+            }
+          }
+        }
+      },
+      "billing_premium_request_usage_report_user": {
+        "description": "Response when getting a billing premium request usage report",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing-premium-request-usage-report-user"
+            },
+            "examples": {
+              "default": {
+                "$ref": "#/components/examples/billing-premium-request-usage-report-user"
+              }
             }
           }
         }

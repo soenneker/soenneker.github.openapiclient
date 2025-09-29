@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Actions;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Packages;
+using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.SharedStorage;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Packages.PackagesRequestBuilder Packages
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Packages.PackagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The premium_request property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder Premium_request
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sharedStorage property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.SharedStorage.SharedStorageRequestBuilder SharedStorage
