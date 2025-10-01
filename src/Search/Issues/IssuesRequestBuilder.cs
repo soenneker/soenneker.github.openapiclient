@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,search_type*,sort*}", pathParameters)
+        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,search_type*,sort*}", rawUrl)
+        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -127,9 +127,6 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             [QueryParameter("q")]
             public string Q { get; set; }
 #endif
-            /// <summary>The type of search to perform. Set to `semantic` to perform a semantic search.</summary>
-            [QueryParameter("search_type")]
-            public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetSearch_typeQueryParameterType? SearchType { get; set; }
             /// <summary>Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`, Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetSortQueryParameterType? Sort { get; set; }

@@ -63637,9 +63637,6 @@
           },
           {
             "$ref": "#/components/parameters/issues-advanced-search"
-          },
-          {
-            "$ref": "#/components/parameters/search-type"
           }
         ],
         "responses": {
@@ -309214,18 +309211,6 @@
         "required": false,
         "schema": {
           "type": "string"
-        }
-      },
-      "search-type": {
-        "name": "search_type",
-        "description": "The type of search to perform. Set to `semantic` to perform a semantic search.",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "enum": [
-            "semantic"
-          ]
         }
       },
       "team-id": {
