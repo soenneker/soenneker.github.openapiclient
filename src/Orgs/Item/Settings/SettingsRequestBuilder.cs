@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.Billing;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkSettings;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.Billing.BillingRequestBuilder Billing
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.Billing.BillingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The immutableReleases property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesRequestBuilder ImmutableReleases
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The networkConfigurations property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder NetworkConfigurations

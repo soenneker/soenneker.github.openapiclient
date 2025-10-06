@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/alerts{?after*,artifact_registry*,artifact_registry_url*,before*,direction*,ecosystem*,epss_percentage*,first*,has*,last*,package*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/alerts{?after*,artifact_registry*,artifact_registry_url*,before*,direction*,ecosystem*,epss_percentage*,first*,has*,last*,package*,per_page*,runtime_risk*,scope*,severity*,sort*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/alerts{?after*,artifact_registry*,artifact_registry_url*,before*,direction*,ecosystem*,epss_percentage*,first*,has*,last*,package*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/alerts{?after*,artifact_registry*,artifact_registry_url*,before*,direction*,ecosystem*,epss_percentage*,first*,has*,last*,package*,per_page*,runtime_risk*,scope*,severity*,sort*,state*}", rawUrl)
         {
         }
         /// <summary>
@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             /// <summary>**Deprecated**. The number of results per page (max 100), starting from the first matching result.This parameter must not be used in combination with `last`.Instead, use `per_page` in combination with `after` to fetch the first page of results.</summary>
             [QueryParameter("first")]
             public int? First { get; set; }
-            /// <summary>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.Multiple `has` filters can be passed to filter for alerts that have all of the values. Currently, only `patch` is supported.</summary>
+            /// <summary>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.Multiple `has` filters can be passed to filter for alerts that have all of the values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("has")]
@@ -190,6 +190,16 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>A comma-separated list of runtime risk strings. If specified, only alerts for repositories with deployment records matching these risks will be returned.Can be: `critical-resource`, `internet-exposed`, `sensitive-data`, `lateral-movement`</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("runtime_risk")]
+            public string? RuntimeRisk { get; set; }
+#nullable restore
+#else
+            [QueryParameter("runtime_risk")]
+            public string RuntimeRisk { get; set; }
+#endif
             /// <summary>The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.</summary>
             [QueryParameter("scope")]
             public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts.GetScopeQueryParameterType? Scope { get; set; }

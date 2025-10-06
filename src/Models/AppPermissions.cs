@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management? OrganizationCopilotSeatManagement { get; set; }
         /// <summary>The level of permission to grant the access token for custom organization roles management.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_org_roles? OrganizationCustomOrgRoles { get; set; }
-        /// <summary>The level of permission to grant the access token for custom property management.</summary>
+        /// <summary>The level of permission to grant the access token for repository custom properties management at the organization level.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_properties? OrganizationCustomProperties { get; set; }
         /// <summary>The level of permission to grant the access token for custom repository roles management.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_roles? OrganizationCustomRoles { get; set; }

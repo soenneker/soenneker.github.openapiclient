@@ -16140,7 +16140,10 @@
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-artifact-registry"
           },
           {
-            "$ref": "#/components/parameters/dependabot-alert-comma-separated-has"
+            "$ref": "#/components/parameters/dependabot-alert-org-scope-comma-separated-has"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-runtime-risk"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-scope"
@@ -16413,9 +16416,16 @@
                   "selected_repository_ids": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
                     },
-                    "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
+                    "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints. Use integers when possible, as strings are supported only to maintain backwards compatibility and may be removed in the future."
                   }
                 }
               },
@@ -16426,8 +16436,8 @@
                     "key_id": "012345678912345678",
                     "visibility": "selected",
                     "selected_repository_ids": [
-                      "1296269",
-                      "1296280"
+                      1296269,
+                      1296280
                     ]
                   }
                 }
@@ -25462,6 +25472,303 @@
           "enabledForGitHubApps": false,
           "category": "billing",
           "subcategory": "billing"
+        }
+      }
+    },
+    "/orgs/{org}/settings/immutable-releases": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Get immutable releases settings for an organization",
+        "description": "Gets the immutable releases policy for repositories in an organization.\n\nOAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/orgs#get-immutable-releases-settings-for-an-organization"
+        },
+        "operationId": "orgs/get-immutable-releases-settings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Immutable releases settings response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/immutable-releases-organization-settings"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "enforced_repositories": "all"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "orgs"
+        }
+      },
+      "put": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Set immutable releases settings for an organization",
+        "description": "Sets the immutable releases policy for repositories in an organization.\n\nOAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/orgs#set-immutable-releases-settings-for-an-organization"
+        },
+        "operationId": "orgs/set-immutable-releases-settings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "enforced_repositories"
+                ],
+                "type": "object",
+                "properties": {
+                  "enforced_repositories": {
+                    "enum": [
+                      "all",
+                      "none",
+                      "selected"
+                    ],
+                    "type": "string",
+                    "description": "The policy that controls how immutable releases are enforced in the organization.",
+                    "example": "all"
+                  },
+                  "selected_repository_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "An array of repository ids for which immutable releases enforcement should be applied. You can only provide a list of repository ids when the `enforced_repositories` is set to `selected`. You can add and remove individual repositories using the [Enable a selected repository for immutable releases in an organization](https://docs.github.com/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization) and [Disable a selected repository for immutable releases in an organization](https://docs.github.com/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization) endpoints."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "enforced_repositories": "all"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "orgs"
+        }
+      }
+    },
+    "/orgs/{org}/settings/immutable-releases/repositories": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "List selected repositories for immutable releases enforcement",
+        "description": "List all of the repositories that have been selected for immutable releases enforcement in an organization.\n\nOAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/orgs#list-selected-repositories-for-immutable-releases-enforcement"
+        },
+        "operationId": "orgs/get-immutable-releases-settings-repositories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/minimal-repository"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/public-repository-paginated"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "orgs"
+        }
+      },
+      "put": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Set selected repositories for immutable releases enforcement",
+        "description": "Replaces all repositories that have been selected for immutable releases enforcement in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.\n\nOAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/orgs#set-selected-repositories-for-immutable-releases-enforcement"
+        },
+        "operationId": "orgs/set-immutable-releases-settings-repositories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "selected_repository_ids"
+                ],
+                "type": "object",
+                "properties": {
+                  "selected_repository_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "An array of repository ids for which immutable releases enforcement should be applied. You can only provide a list of repository ids when the `enforced_repositories` is set to `selected`. You can add and remove individual repositories using the [Enable a selected repository for immutable releases in an organization](https://docs.github.com/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization) and [Disable a selected repository for immutable releases in an organization](https://docs.github.com/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization) endpoints."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "selected_repository_ids": [
+                      64780797
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "orgs"
+        }
+      }
+    },
+    "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}": {
+      "put": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Enable a selected repository for immutable releases in an organization",
+        "description": "Adds a repository to the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.\n\nOAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization"
+        },
+        "operationId": "orgs/enable-selected-repository-immutable-releases-organization",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/repository-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "orgs"
+        }
+      },
+      "delete": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Disable a selected repository for immutable releases in an organization",
+        "description": "Removes a repository from the list of selected repositories that are enforced for immutable releases in an organization. To use this endpoint, the organization immutable releases policy for `enforced_repositories` must be configured to `selected`.\n\nOAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization"
+        },
+        "operationId": "orgs/disable-selected-repository-immutable-releases-organization",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/repository-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "orgs"
         }
       }
     },
@@ -48654,6 +48961,125 @@
           "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "webhooks"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/immutable-releases": {
+      "get": {
+        "tags": [
+          "repos"
+        ],
+        "summary": "Check if immutable releases are enabled for a repository",
+        "description": "Shows whether immutable releases are enabled or disabled. Also identifies whether immutability is being\nenforced by the repository owner.  The authenticated user must have admin read access to the repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/repos/repos#check-if-immutable-releases-are-enabled-for-a-repository"
+        },
+        "operationId": "repos/check-immutable-releases",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response if immutable releases are enabled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/check-immutable-releases"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "enabled": true,
+                      "enforced_by_owner": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found if immutable releases are not enabled for the repository"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "repos",
+          "subcategory": "repos"
+        }
+      },
+      "put": {
+        "tags": [
+          "repos"
+        ],
+        "summary": "Enable immutable releases",
+        "description": "Enables immutable releases for a repository. The authenticated user must have admin access to the repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/repos/repos#enable-immutable-releases"
+        },
+        "operationId": "repos/enable-immutable-releases",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "repos",
+          "subcategory": "repos"
+        }
+      },
+      "delete": {
+        "tags": [
+          "repos"
+        ],
+        "summary": "Disable immutable releases",
+        "description": "Disables immutable releases for a repository. The authenticated user must have admin access to the repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/repos/repos#disable-immutable-releases"
+        },
+        "operationId": "repos/disable-immutable-releases",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "repos",
+          "subcategory": "repos"
         }
       }
     },
@@ -76836,7 +77262,7 @@
               "admin"
             ],
             "type": "string",
-            "description": "The level of permission to grant the access token for custom property management."
+            "description": "The level of permission to grant the access token for repository custom properties management at the organization level."
           },
           "organization_copilot_seat_management": {
             "enum": [
@@ -80228,6 +80654,9 @@
           "has_more_locations": {
             "type": "boolean",
             "description": "A boolean value representing whether or not the token in the alert was detected in more than one location."
+          },
+          "assigned_to": {
+            "$ref": "#/components/schemas/nullable-simple-user"
           }
         }
       },
@@ -93478,6 +93907,30 @@
           }
         }
       },
+      "immutable-releases-organization-settings": {
+        "title": "Check immutable releases organization settings",
+        "required": [
+          "enforced_repositories"
+        ],
+        "type": "object",
+        "properties": {
+          "enforced_repositories": {
+            "enum": [
+              "all",
+              "none",
+              "selected"
+            ],
+            "type": "string",
+            "description": "The policy that controls how immutable releases are enforced in the organization.",
+            "example": "all"
+          },
+          "selected_repositories_url": {
+            "type": "string",
+            "description": "The API URL to use to get or set the selected repositories for immutable releases enforcement, when `enforced_repositories` is set to `selected`."
+          }
+        },
+        "description": "Check immutable releases settings for an organization."
+      },
       "network-configuration": {
         "title": "Hosted compute network configuration",
         "required": [
@@ -102757,6 +103210,27 @@
         },
         "description": "Webhooks for repositories."
       },
+      "check-immutable-releases": {
+        "title": "Check immutable releases",
+        "required": [
+          "enabled",
+          "enforced_by_owner"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether immutable releases are enabled for the repository.",
+            "example": true
+          },
+          "enforced_by_owner": {
+            "type": "boolean",
+            "description": "Whether immutable releases are enforced by the repository owner.",
+            "example": false
+          }
+        },
+        "description": "Check immutable releases"
+      },
       "import": {
         "title": "Import",
         "required": [
@@ -107528,6 +108002,9 @@
           "has_more_locations": {
             "type": "boolean",
             "description": "A boolean value representing whether or not the token in the alert was detected in more than one location."
+          },
+          "assigned_to": {
+            "$ref": "#/components/schemas/nullable-simple-user"
           }
         }
       },
@@ -123965,6 +124442,9 @@
             "type": "boolean",
             "description": "Whether the detected secret was found in multiple repositories in the same organization or business.",
             "nullable": true
+          },
+          "assigned_to": {
+            "$ref": "#/components/schemas/nullable-simple-user"
           }
         }
       },
@@ -252425,6 +252905,36 @@
           "type": "string"
         }
       },
+      "dependabot-alert-org-scope-comma-separated-has": {
+        "name": "has",
+        "in": "query",
+        "description": "Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple `has` filters can be passed to filter for alerts that have all of the values.",
+        "schema": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "patch",
+                  "deployment"
+                ],
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "dependabot-alert-comma-separated-runtime-risk": {
+        "name": "runtime_risk",
+        "in": "query",
+        "description": "A comma-separated list of runtime risk strings. If specified, only alerts for repositories with deployment records matching these risks will be returned.\n\nCan be: `critical-resource`, `internet-exposed`, `sensitive-data`, `lateral-movement`",
+        "schema": {
+          "type": "string"
+        }
+      },
       "hook-id": {
         "name": "hook_id",
         "in": "path",
@@ -257297,7 +257807,27 @@
               "commit_sha": "f14d7debf9775f957cf4f1e8176da0786431f72b",
               "commit_url": "https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b"
             },
-            "has_more_locations": "true"
+            "has_more_locations": "true",
+            "assigned_to": {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            }
           }
         ]
       },
@@ -279406,7 +279936,27 @@
               "commit_sha": "f14d7debf9775f957cf4f1e8176da0786431f72b",
               "commit_url": "https://api.github.com/repos/octocat/hello-world/git/commits/f14d7debf9775f957cf4f1e8176da0786431f72b"
             },
-            "has_more_locations": "true"
+            "has_more_locations": "true",
+            "assigned_to": {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            }
           }
         ]
       },

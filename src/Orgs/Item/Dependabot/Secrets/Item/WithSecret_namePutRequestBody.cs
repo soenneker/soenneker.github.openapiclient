@@ -30,13 +30,13 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item
 #else
         public string KeyId { get; set; }
 #endif
-        /// <summary>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints.</summary>
+        /// <summary>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints. Use integers when possible, as strings are supported only to maintain backwards compatibility and may be removed in the future.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SelectedRepositoryIds { get; set; }
+        public List<int?>? SelectedRepositoryIds { get; set; }
 #nullable restore
 #else
-        public List<string> SelectedRepositoryIds { get; set; }
+        public List<int?> SelectedRepositoryIds { get; set; }
 #endif
         /// <summary>Which type of organization repositories have access to the organization secret. `selected` means only the repositories specified by `selected_repository_ids` can access the secret.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.WithSecret_namePutRequestBody_visibility? Visibility { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item
             {
                 { "encrypted_value", n => { EncryptedValue = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
-                { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.WithSecret_namePutRequestBody_visibility>(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("encrypted_value", EncryptedValue);
             writer.WriteStringValue("key_id", KeyId);
-            writer.WriteCollectionOfPrimitiveValues<string>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.WithSecret_namePutRequestBody_visibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }

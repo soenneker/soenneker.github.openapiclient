@@ -3,21 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The level of permission to grant the access token for repository custom properties management at the organization level.</summary>
+    /// <summary>The policy that controls how immutable releases are enforced in the organization.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum AppPermissions_organization_custom_properties
+    public enum ImmutableReleasesOrganizationSettings_enforced_repositories
     {
-        [EnumMember(Value = "read")]
+        [EnumMember(Value = "all")]
         #pragma warning disable CS1591
-        Read,
+        All,
         #pragma warning restore CS1591
-        [EnumMember(Value = "write")]
+        [EnumMember(Value = "none")]
         #pragma warning disable CS1591
-        Write,
+        None,
         #pragma warning restore CS1591
-        [EnumMember(Value = "admin")]
+        [EnumMember(Value = "selected")]
         #pragma warning disable CS1591
-        Admin,
+        Selected,
         #pragma warning restore CS1591
     }
 }

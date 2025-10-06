@@ -34,6 +34,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Forks;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Generate;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Installation;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits;
@@ -233,6 +234,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks.HooksRequestBuilder Hooks
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks.HooksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The immutableReleases property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases.ImmutableReleasesRequestBuilder ImmutableReleases
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases.ImmutableReleasesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The import property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import.ImportRequestBuilder Import
