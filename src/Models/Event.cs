@@ -44,10 +44,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Event_payload? Payload { get; set; }
+        public UntypedNode? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Event_payload Payload { get; set; }
+        public UntypedNode Payload { get; set; }
 #endif
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "org", n => { Org = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Actor>(global::Soenneker.GitHub.OpenApiClient.Models.Actor.CreateFromDiscriminatorValue); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_payload>(global::Soenneker.GitHub.OpenApiClient.Models.Event_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_repo>(global::Soenneker.GitHub.OpenApiClient.Models.Event_repo.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -113,7 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Actor>("org", Org);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_payload>("payload", Payload);
+            writer.WriteObjectValue<UntypedNode>("payload", Payload);
             writer.WriteBoolValue("public", Public);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_repo>("repo", Repo);
             writer.WriteStringValue("type", Type);
