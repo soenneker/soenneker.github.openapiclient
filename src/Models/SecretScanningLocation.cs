@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocation();
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocation.SecretScanningLocation_details>("details", Details);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocation_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
@@ -181,7 +181,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocation.SecretScanningLocation_details CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocation.SecretScanningLocation_details();
                 if("secret-scanning-location-commit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -304,7 +304,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(SecretScanningLocationCommit != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationCommit>(null, SecretScanningLocationCommit);

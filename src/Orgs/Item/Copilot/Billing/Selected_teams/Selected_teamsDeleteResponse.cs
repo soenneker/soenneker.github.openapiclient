@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_teams.Selected_teamsDeleteResponse();
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_team
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("seats_cancelled", SeatsCancelled);
             writer.WriteAdditionalData(AdditionalData);
         }

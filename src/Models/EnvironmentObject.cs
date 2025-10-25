@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject();
         }
         /// <summary>
@@ -111,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings>("deployment_branch_policy", DeploymentBranchPolicy);
             writer.WriteStringValue("html_url", HtmlUrl);
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules();
                 result.EnvironmentProtectionRulesMember1 = new global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1();
                 result.EnvironmentProtectionRulesMember2 = new global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2();
@@ -185,7 +185,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1>(null, EnvironmentProtectionRulesMember1, EnvironmentProtectionRulesMember2, EnvironmentProtectionRulesMember3);
             }
         }

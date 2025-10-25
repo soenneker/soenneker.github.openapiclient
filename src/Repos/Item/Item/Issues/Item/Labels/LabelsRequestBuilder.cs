@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -149,7 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -213,7 +213,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -235,7 +235,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -304,7 +304,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -351,7 +351,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(LabelsPostRequestBodyMember1 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1>(null, LabelsPostRequestBodyMember1);
@@ -427,7 +427,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -474,7 +474,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(LabelsPutRequestBodyMember1 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1>(null, LabelsPutRequestBodyMember1);

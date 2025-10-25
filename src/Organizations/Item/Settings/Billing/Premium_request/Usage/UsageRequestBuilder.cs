@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Pre
         {
         }
         /// <summary>
-        /// Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.
+        /// Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.**Note:** Only data from the past 24 months is accessible via this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportOrg"/></returns>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Pre
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportOrg>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportOrg.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.
+        /// Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.**Note:** Only data from the past 24 months is accessible via this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Pre
             return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Premium_request.Usage.UsageRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.
+        /// Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.**Note:** Only data from the past 24 months is accessible via this endpoint.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageRequestBuilderGetQueryParameters 

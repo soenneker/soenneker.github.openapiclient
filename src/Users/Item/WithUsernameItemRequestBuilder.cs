@@ -240,7 +240,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Users.Item.WithUsernameItemRequestBuilder.WithUsernameGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("user_view_type")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Users.Item.WithUsernameItemRequestBuilder.WithUsernameGetResponse();
                 if("private".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -275,7 +275,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(PrivateUser != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser>(null, PrivateUser);

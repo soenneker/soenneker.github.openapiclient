@@ -97,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments.It
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.TeamDiscussionComment> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments.Item.WithComment_numberPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamDiscussionComment>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamDiscussionComment.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -156,7 +156,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments.It
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments.Item.WithComment_numberPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

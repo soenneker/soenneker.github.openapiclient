@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue.Sub_issueDeleteRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue.Sub_issueDeleteRequestBody();
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("sub_issue_id", SubIssueId);
             writer.WriteAdditionalData(AdditionalData);
         }

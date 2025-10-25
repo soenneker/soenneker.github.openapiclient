@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.WithRunner_group_PatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item.WithRunner_group_PatchRequestBody();
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.Item
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allows_public_repositories", AllowsPublicRepositories);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("network_configuration_id", NetworkConfigurationId);

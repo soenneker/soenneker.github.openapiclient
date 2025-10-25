@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPostRequestBody();
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPostRequestBody_build_type>("build_type", BuildType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPostRequestBody_source>("source", Source);
             writer.WriteAdditionalData(AdditionalData);

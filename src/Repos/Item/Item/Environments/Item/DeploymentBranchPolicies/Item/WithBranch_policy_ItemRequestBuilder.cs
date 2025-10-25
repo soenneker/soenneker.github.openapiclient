@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePattern body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -143,7 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments.Item.Deplo
         public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePattern body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

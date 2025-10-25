@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetricsDay CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetricsDay();
         }
         /// <summary>
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotDotcomChat>("copilot_dotcom_chat", CopilotDotcomChat);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotDotcomPullRequests>("copilot_dotcom_pull_requests", CopilotDotcomPullRequests);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotIdeChat>("copilot_ide_chat", CopilotIdeChat);

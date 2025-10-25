@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject> PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.WithSecret_namePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -149,7 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item
         public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.Item.WithSecret_namePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

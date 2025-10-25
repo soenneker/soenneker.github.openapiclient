@@ -24,6 +24,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
 #else
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image Image { get; set; }
 #endif
+        /// <summary>Whether this runner should be used to generate custom images.</summary>
+        public bool? ImageGen { get; set; }
         /// <summary>The maximum amount of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit your cost.</summary>
         public int? MaximumRunners { get; set; }
         /// <summary>Name of the runner. Must be between 1 and 64 characters and may only contain upper and lowercase letters a-z, numbers 0-9, &apos;.&apos;, &apos;-&apos;, and &apos;_&apos;.</summary>
@@ -58,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody();
         }
         /// <summary>
@@ -71,6 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
             {
                 { "enable_static_ip", n => { EnableStaticIp = n.GetBoolValue(); } },
                 { "image", n => { Image = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image.CreateFromDiscriminatorValue); } },
+                { "image_gen", n => { ImageGen = n.GetBoolValue(); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
@@ -83,9 +86,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_static_ip", EnableStaticIp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image>("image", Image);
+            writer.WriteBoolValue("image_gen", ImageGen);
             writer.WriteIntValue("maximum_runners", MaximumRunners);
             writer.WriteStringValue("name", Name);
             writer.WriteLongValue("runner_group_id", RunnerGroupId);

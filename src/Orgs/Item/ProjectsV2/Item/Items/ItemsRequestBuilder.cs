@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.ItemsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.ItemsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -177,15 +177,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
             [QueryParameter("before")]
             public string Before { get; set; }
 #endif
-            /// <summary>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</summary>
+            /// <summary>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.Example: `fields[]=123&amp;fields[]=456&amp;fields[]=789` or `fields=123,456,789`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("fields")]
-            public string[]? Fields { get; set; }
+            public string? Fields { get; set; }
 #nullable restore
 #else
             [QueryParameter("fields")]
-            public string[] Fields { get; set; }
+            public string Fields { get; set; }
 #endif
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]

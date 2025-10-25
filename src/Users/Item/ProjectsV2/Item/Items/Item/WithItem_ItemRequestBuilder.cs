@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item.WithItem_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -169,7 +169,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item.WithItem_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -191,15 +191,15 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithItem_ItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</summary>
+            /// <summary>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.Example: fields[]=123&amp;fields[]=456&amp;fields[]=789 or fields=123,456,789</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("fields")]
-            public string[]? Fields { get; set; }
+            public string? Fields { get; set; }
 #nullable restore
 #else
             [QueryParameter("fields")]
-            public string[] Fields { get; set; }
+            public string Fields { get; set; }
 #endif
         }
     }

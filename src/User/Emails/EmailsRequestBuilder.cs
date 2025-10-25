@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
         public async Task DeleteAsync(global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -114,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Email>> PostAsync(global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -141,7 +141,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
         public RequestInformation ToDeleteRequestInformation(global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -182,7 +182,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -235,7 +235,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsDeleteRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsDeleteRequestBody();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -270,7 +270,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(EmailsDeleteRequestBodyMember1 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsDeleteRequestBodyMember1>(null, EmailsDeleteRequestBodyMember1);
@@ -322,7 +322,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsRequestBuilder.EmailsPostRequestBody();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -357,7 +357,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Emails
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(EmailsPostRequestBodyMember1 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.User.Emails.EmailsPostRequestBodyMember1>(null, EmailsPostRequestBodyMember1);

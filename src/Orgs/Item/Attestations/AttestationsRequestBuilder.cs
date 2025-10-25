@@ -6,6 +6,7 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.DeleteRequest;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -32,6 +33,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.DigestRequestBuilder Digest
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.DigestRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The repositories property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories.RepositoriesRequestBuilder Repositories
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Repositories.RepositoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.attestations.item collection</summary>
         /// <param name="position">Attestation ID</param>

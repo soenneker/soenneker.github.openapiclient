@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessPatchRequestBody();
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids_to_add", RepositoryIdsToAdd);
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids_to_remove", RepositoryIdsToRemove);
             writer.WriteAdditionalData(AdditionalData);

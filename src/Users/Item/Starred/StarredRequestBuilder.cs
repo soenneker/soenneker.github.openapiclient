@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Starred
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.StarredRequestBuilder.StarredGetResponse();
                 if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository>(global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository> repositoryValue)
                 {
@@ -134,7 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Starred
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Repository != null)
                 {
                     writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Users.Item.Starred.Repository>(null, Repository);

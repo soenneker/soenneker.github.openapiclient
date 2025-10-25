@@ -249,7 +249,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser> PatchAsync(global::Soenneker.GitHub.OpenApiClient.User.UserPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -294,7 +294,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.User.UserPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -339,7 +339,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.User.UserRequestBuilder.UserGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("user_view_type")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.User.UserRequestBuilder.UserGetResponse();
                 if("private".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -374,7 +374,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(PrivateUser != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser>(null, PrivateUser);

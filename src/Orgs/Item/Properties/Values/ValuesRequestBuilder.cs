@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values
         public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values.ValuesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -123,7 +123,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values.ValuesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

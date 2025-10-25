@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Pendi
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Pending_deployments.Pending_deploymentsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Pending_deployments.Pending_deploymentsPostRequestBody();
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Pendi
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
             writer.WriteCollectionOfPrimitiveValues<int?>("environment_ids", EnvironmentIds);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Pending_deployments.Pending_deploymentsPostRequestBody_state>("state", State);

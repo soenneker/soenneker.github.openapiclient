@@ -25,6 +25,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
 #endif
         /// <summary>The source of the runner image.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image_source? Source { get; set; }
+        /// <summary>The version of the runner image to deploy. This is relevant only for runners using custom images.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
+        public string Version { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image"/> and sets the default values.
         /// </summary>
@@ -39,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image();
         }
         /// <summary>
@@ -52,6 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image_source>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,9 +69,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.HostedRunnersPostRequestBody_image_source>("source", Source);
+            writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -158,7 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Optional filter for fetching attestations with a given predicate type.This option accepts `provenance`, `sbom`, or freeform text for custom predicate types.</summary>
+            /// <summary>Optional filter for fetching attestations with a given predicate type.This option accepts `provenance`, `sbom`, `release`, or freeform textfor custom predicate types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("predicate_type")]

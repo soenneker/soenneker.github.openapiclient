@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deplo
         public async Task PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deployment_protection_rule.Deployment_protection_ruleRequestBuilder.Deployment_protection_rulePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deplo
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deployment_protection_rule.Deployment_protection_ruleRequestBuilder.Deployment_protection_rulePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deplo
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deployment_protection_rule.Deployment_protection_ruleRequestBuilder.Deployment_protection_rulePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deployment_protection_rule.Deployment_protection_ruleRequestBuilder.Deployment_protection_rulePostRequestBody();
                 result.ReviewCustomGatesCommentRequired = new global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesCommentRequired();
                 result.ReviewCustomGatesStateRequired = new global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequired();
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deplo
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesCommentRequired>(null, ReviewCustomGatesCommentRequired, ReviewCustomGatesStateRequired);
             }
         }

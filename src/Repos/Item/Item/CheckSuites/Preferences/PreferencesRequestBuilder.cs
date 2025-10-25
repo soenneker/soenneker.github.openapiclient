@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Preferences
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Preferences.PreferencesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Preferences
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Preferences.PreferencesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

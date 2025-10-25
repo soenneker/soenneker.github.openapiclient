@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.Item
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.Item.WithRuleset_PutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.Item
         public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.Item.WithRuleset_PutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

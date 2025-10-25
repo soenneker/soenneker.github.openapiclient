@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecret_namePatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecret_namePatchRequestBody();
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("encrypted_value", EncryptedValue);
             writer.WriteStringValue("key_id", KeyId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecret_namePatchRequestBody_registry_type>("registry_type", RegistryType);

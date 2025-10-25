@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_req
         {
         }
         /// <summary>
-        /// Gets a report of premium request usage for a user.
+        /// Gets a report of premium request usage for a user.**Note:** Only data from the past 24 months is accessible via this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-a-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportUser"/></returns>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_req
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportUser>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportUser.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a report of premium request usage for a user.
+        /// Gets a report of premium request usage for a user.**Note:** Only data from the past 24 months is accessible via this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_req
             return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Usage.UsageRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Gets a report of premium request usage for a user.
+        /// Gets a report of premium request usage for a user.**Note:** Only data from the past 24 months is accessible via this endpoint.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageRequestBuilderGetQueryParameters 

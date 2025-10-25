@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.User.Codespaces.CodespacesPostRequestBodyMember2_pull_request CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.User.Codespaces.CodespacesPostRequestBodyMember2_pull_request();
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("pull_request_number", PullRequestNumber);
             writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);

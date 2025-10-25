@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Organizations;
 using Soenneker.GitHub.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships.MembershipsRequestBuilder Memberships
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships.MembershipsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The organizations property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Organizations.OrganizationsRequestBuilder Organizations
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamItemRequestBuilder"/> and sets the default values.
@@ -104,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -165,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

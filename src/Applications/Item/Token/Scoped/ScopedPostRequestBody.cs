@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Applications.Item.Token.Scoped
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Applications.Item.Token.Scoped.ScopedPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Applications.Item.Token.Scoped.ScopedPostRequestBody();
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Applications.Item.Token.Scoped
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_token", AccessToken);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>("permissions", Permissions);
             writer.WriteCollectionOfPrimitiveValues<string>("repositories", Repositories);

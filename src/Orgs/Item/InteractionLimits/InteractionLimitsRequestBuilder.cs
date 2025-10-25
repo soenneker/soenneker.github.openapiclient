@@ -88,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -148,7 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits
         public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

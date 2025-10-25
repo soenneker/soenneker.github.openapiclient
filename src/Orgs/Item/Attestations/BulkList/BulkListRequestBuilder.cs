@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList
         public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostRequestBody body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder.BulkListRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostRequestBody body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder.BulkListRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

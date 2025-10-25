@@ -17,11 +17,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Discount amount of the usage line item.</summary>
         public double? DiscountAmount { get; set; }
         /// <summary>Discount quantity of the usage line item.</summary>
-        public int? DiscountQuantity { get; set; }
+        public double? DiscountQuantity { get; set; }
         /// <summary>Gross amount of the usage line item.</summary>
         public double? GrossAmount { get; set; }
         /// <summary>Gross quantity of the usage line item.</summary>
-        public int? GrossQuantity { get; set; }
+        public double? GrossQuantity { get; set; }
         /// <summary>Model name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Net amount of the usage line item.</summary>
         public double? NetAmount { get; set; }
         /// <summary>Net quantity of the usage line item.</summary>
-        public int? NetQuantity { get; set; }
+        public double? NetQuantity { get; set; }
         /// <summary>Price per unit of the usage line item.</summary>
         public double? PricePerUnit { get; set; }
         /// <summary>Product name.</summary>
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportUser_usageItems CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportUser_usageItems();
         }
         /// <summary>
@@ -86,12 +86,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "discountAmount", n => { DiscountAmount = n.GetDoubleValue(); } },
-                { "discountQuantity", n => { DiscountQuantity = n.GetIntValue(); } },
+                { "discountQuantity", n => { DiscountQuantity = n.GetDoubleValue(); } },
                 { "grossAmount", n => { GrossAmount = n.GetDoubleValue(); } },
-                { "grossQuantity", n => { GrossQuantity = n.GetIntValue(); } },
+                { "grossQuantity", n => { GrossQuantity = n.GetDoubleValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "netAmount", n => { NetAmount = n.GetDoubleValue(); } },
-                { "netQuantity", n => { NetQuantity = n.GetIntValue(); } },
+                { "netQuantity", n => { NetQuantity = n.GetDoubleValue(); } },
                 { "pricePerUnit", n => { PricePerUnit = n.GetDoubleValue(); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "sku", n => { Sku = n.GetStringValue(); } },
@@ -104,14 +104,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("discountAmount", DiscountAmount);
-            writer.WriteIntValue("discountQuantity", DiscountQuantity);
+            writer.WriteDoubleValue("discountQuantity", DiscountQuantity);
             writer.WriteDoubleValue("grossAmount", GrossAmount);
-            writer.WriteIntValue("grossQuantity", GrossQuantity);
+            writer.WriteDoubleValue("grossQuantity", GrossQuantity);
             writer.WriteStringValue("model", Model);
             writer.WriteDoubleValue("netAmount", NetAmount);
-            writer.WriteIntValue("netQuantity", NetQuantity);
+            writer.WriteDoubleValue("netQuantity", NetQuantity);
             writer.WriteDoubleValue("pricePerUnit", PricePerUnit);
             writer.WriteStringValue("product", Product);
             writer.WriteStringValue("sku", Sku);

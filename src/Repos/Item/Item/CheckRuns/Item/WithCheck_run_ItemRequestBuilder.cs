@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder.WithCheck_run_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -119,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder.WithCheck_run_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder.WithCheck_run_PatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder.WithCheck_run_PatchRequestBody();
                 result.WithCheckRunPatchRequestBodyMember1 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_PatchRequestBodyMember1();
                 result.WithCheckRunPatchRequestBodyMember2 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_PatchRequestBodyMember2();
@@ -188,7 +188,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_PatchRequestBodyMember1>(null, WithCheckRunPatchRequestBodyMember1, WithCheckRunPatchRequestBodyMember2);
             }
         }

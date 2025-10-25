@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,before*,direction*,ecosystem*,epss_percentage*,first*,has*,last*,manifest*,package*,page*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,before*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,before*,direction*,ecosystem*,epss_percentage*,first*,has*,last*,manifest*,package*,page*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,before*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
         {
         }
         /// <summary>
@@ -154,9 +154,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             [QueryParameter("epss_percentage")]
             public string EpssPercentage { get; set; }
 #endif
-            /// <summary>**Deprecated**. The number of results per page (max 100), starting from the first matching result.This parameter must not be used in combination with `last`.Instead, use `per_page` in combination with `after` to fetch the first page of results.</summary>
-            [QueryParameter("first")]
-            public int? First { get; set; }
             /// <summary>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.Multiple `has` filters can be passed to filter for alerts that have all of the values. Currently, only `patch` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -167,9 +164,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             [QueryParameter("has")]
             public string Has { get; set; }
 #endif
-            /// <summary>**Deprecated**. The number of results per page (max 100), starting from the last matching result.This parameter must not be used in combination with `first`.Instead, use `per_page` in combination with `before` to fetch the last page of results.</summary>
-            [QueryParameter("last")]
-            public int? Last { get; set; }
             /// <summary>A comma-separated list of full manifest paths. If specified, only alerts for these manifests will be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -190,10 +184,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             [QueryParameter("package")]
             public string Package { get; set; }
 #endif
-            /// <summary>**Closing down notice**. Page number of the results to fetch. Use cursor-based pagination with `before` or `after` instead.</summary>
-            [Obsolete("")]
-            [QueryParameter("page")]
-            public int? Page { get; set; }
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [Obsolete("")]
             [QueryParameter("per_page")]

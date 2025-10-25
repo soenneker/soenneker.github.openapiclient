@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -143,7 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

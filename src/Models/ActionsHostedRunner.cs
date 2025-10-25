@@ -25,6 +25,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage ImageDetails { get; set; }
 #endif
+        /// <summary>Whether custom image generation is enabled for the hosted runners.</summary>
+        public bool? ImageGen { get; set; }
         /// <summary>The time at which the runner was last used, in ISO 8601 format.</summary>
         public DateTimeOffset? LastActiveOn { get; set; }
         /// <summary>Provides details of a particular machine spec.</summary>
@@ -81,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner();
         }
         /// <summary>
@@ -94,6 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "image_details", n => { ImageDetails = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage>(global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage.CreateFromDiscriminatorValue); } },
+                { "image_gen", n => { ImageGen = n.GetBoolValue(); } },
                 { "last_active_on", n => { LastActiveOn = n.GetDateTimeOffsetValue(); } },
                 { "machine_size_details", n => { MachineSizeDetails = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec.CreateFromDiscriminatorValue); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
@@ -111,9 +114,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage>("image_details", ImageDetails);
+            writer.WriteBoolValue("image_gen", ImageGen);
             writer.WriteDateTimeOffsetValue("last_active_on", LastActiveOn);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec>("machine_size_details", MachineSizeDetails);
             writer.WriteIntValue("maximum_runners", MaximumRunners);

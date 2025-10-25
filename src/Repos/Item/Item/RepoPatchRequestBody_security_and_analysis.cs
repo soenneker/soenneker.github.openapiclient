@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis();
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_advanced_security>("advanced_security", AdvancedSecurity);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_code_security>("code_security", CodeSecurity);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning>("secret_scanning", SecretScanning);

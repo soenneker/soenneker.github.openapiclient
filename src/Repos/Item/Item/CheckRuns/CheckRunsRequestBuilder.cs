@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -127,7 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(CheckRunsPostRequestBodyMember1 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1>(null, CheckRunsPostRequestBodyMember1);

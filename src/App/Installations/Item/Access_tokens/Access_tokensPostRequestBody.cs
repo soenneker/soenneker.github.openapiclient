@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations.Item.Access_tokens
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.Access_tokens.Access_tokensPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.Access_tokens.Access_tokensPostRequestBody();
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations.Item.Access_tokens
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>("permissions", Permissions);
             writer.WriteCollectionOfPrimitiveValues<string>("repositories", Repositories);
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids", RepositoryIds);

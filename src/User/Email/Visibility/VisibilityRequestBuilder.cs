@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Email.Visibility
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Email>> PatchAsync(global::Soenneker.GitHub.OpenApiClient.User.Email.Visibility.VisibilityPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Email.Visibility
         public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.User.Email.Visibility.VisibilityPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

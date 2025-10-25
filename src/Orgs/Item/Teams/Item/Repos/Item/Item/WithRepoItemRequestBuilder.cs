@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.Item.Item
         public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.Item.Item.WithRepoPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
@@ -142,7 +142,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.Item.Item
         public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.Item.Item.WithRepoPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

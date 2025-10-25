@@ -38,6 +38,8 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Specifies which organizations in the enterprise should have access to this team. Can be one of `disabled`, `selected`, or `all`.`disabled`: The team is not assigned to any organizations. This is the default when you create a new team.`selected`: The team is assigned to specific organizations. You can then use the [add organization assignments API](https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments).`all`: The team is assigned to all current and future organizations in the enterprise.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_organization_selection_type? OrganizationSelectionType { get; set; }
         /// <summary>Retired: this field is no longer supported.Whether the enterprise team should be reflected in each organization.This value cannot be changed.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_sync_to_organizations? SyncToOrganizations { get; set; }
         /// <summary>
@@ -46,6 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
         public EnterpriseTeamPatchRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            OrganizationSelectionType = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_organization_selection_type.Disabled;
             SyncToOrganizations = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_sync_to_organizations.Disabled;
         }
         /// <summary>
@@ -55,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody();
         }
         /// <summary>
@@ -69,6 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "organization_selection_type", n => { OrganizationSelectionType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_organization_selection_type>(); } },
                 { "sync_to_organizations", n => { SyncToOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_sync_to_organizations>(); } },
             };
         }
@@ -78,10 +82,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("group_id", GroupId);
             writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_organization_selection_type>("organization_selection_type", OrganizationSelectionType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamPatchRequestBody_sync_to_organizations>("sync_to_organizations", SyncToOrganizations);
             writer.WriteAdditionalData(AdditionalData);
         }

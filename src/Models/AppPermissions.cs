@@ -25,12 +25,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces? Codespaces { get; set; }
         /// <summary>The level of permission to grant the access token for repository contents, commits, branches, downloads, releases, and merges.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents? Contents { get; set; }
+        /// <summary>The level of permission to grant the access token to view and edit custom properties for an organization, when allowed by the property.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations? CustomPropertiesForOrganizations { get; set; }
         /// <summary>The level of permission to grant the access token to manage Dependabot secrets.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets? DependabotSecrets { get; set; }
         /// <summary>The level of permission to grant the access token for deployments and deployment statuses.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments? Deployments { get; set; }
         /// <summary>The level of permission to grant the access token to manage the email addresses belonging to a user.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses? EmailAddresses { get; set; }
+        /// <summary>The level of permission to grant the access token for organization custom properties management at the enterprise level.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations? EnterpriseCustomPropertiesForOrganizations { get; set; }
         /// <summary>The level of permission to grant the access token for managing repository environments.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments? Environments { get; set; }
         /// <summary>The level of permission to grant the access token to manage the followers belonging to a user.</summary>
@@ -125,7 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions();
         }
         /// <summary>
@@ -141,9 +145,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "checks", n => { Checks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>(); } },
                 { "codespaces", n => { Codespaces = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>(); } },
                 { "contents", n => { Contents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents>(); } },
+                { "custom_properties_for_organizations", n => { CustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations>(); } },
                 { "dependabot_secrets", n => { DependabotSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets>(); } },
                 { "deployments", n => { Deployments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments>(); } },
                 { "email_addresses", n => { EmailAddresses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses>(); } },
+                { "enterprise_custom_properties_for_organizations", n => { EnterpriseCustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations>(); } },
                 { "environments", n => { Environments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments>(); } },
                 { "followers", n => { Followers = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_followers>(); } },
                 { "git_ssh_keys", n => { GitSshKeys = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_git_ssh_keys>(); } },
@@ -192,15 +198,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>("actions", Actions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>("administration", Administration);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>("checks", Checks);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>("codespaces", Codespaces);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents>("contents", Contents);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations>("custom_properties_for_organizations", CustomPropertiesForOrganizations);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets>("dependabot_secrets", DependabotSecrets);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments>("deployments", Deployments);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses>("email_addresses", EmailAddresses);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations>("enterprise_custom_properties_for_organizations", EnterpriseCustomPropertiesForOrganizations);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments>("environments", Environments);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_followers>("followers", Followers);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_git_ssh_keys>("git_ssh_keys", GitSshKeys);

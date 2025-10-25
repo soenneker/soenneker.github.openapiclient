@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPutRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPutRequestBody();
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPutRequestBody_build_type>("build_type", BuildType);
             writer.WriteStringValue("cname", Cname);
             writer.WriteBoolValue("https_enforced", HttpsEnforced);
@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPutRequestBody.PagesPutRequestBody_source CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.PagesPutRequestBody.PagesPutRequestBody_source();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(String != null)
                 {
                     writer.WriteStringValue(null, String);

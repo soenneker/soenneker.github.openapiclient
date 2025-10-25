@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset> PostAsync(Stream body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets.AssetsRequestBuilder.AssetsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets
         public RequestInformation ToPostRequestInformation(Stream body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets.AssetsRequestBuilder.AssetsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/releases/{release_id}/assets?name={name}{&label*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

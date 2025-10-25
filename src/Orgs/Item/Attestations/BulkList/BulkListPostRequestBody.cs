@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Optional filter for fetching attestations with a given predicate type.This option accepts `provenance`, `sbom`, or freeform text for custom predicate types.</summary>
+        /// <summary>Optional filter for fetching attestations with a given predicate type.This option accepts `provenance`, `sbom`, `release`, or freeform textfor custom predicate types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PredicateType { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListPostRequestBody();
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("predicate_type", PredicateType);
             writer.WriteCollectionOfPrimitiveValues<string>("subject_digests", SubjectDigests);
             writer.WriteAdditionalData(AdditionalData);

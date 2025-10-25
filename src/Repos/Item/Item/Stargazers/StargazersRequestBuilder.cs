@@ -114,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
             public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.StargazersRequestBuilder.StargazersGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.StargazersRequestBuilder.StargazersGetResponse();
                 if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.SimpleUser.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.SimpleUser> simpleUserValue)
                 {
@@ -140,7 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers
             /// <param name="writer">Serialization writer to use to serialize this model</param>
             public virtual void Serialize(ISerializationWriter writer)
             {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(SimpleUser != null)
                 {
                     writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.SimpleUser>(null, SimpleUser);

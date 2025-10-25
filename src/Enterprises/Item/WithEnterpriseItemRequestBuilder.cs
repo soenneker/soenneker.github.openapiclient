@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot;
-using Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams;
 using System.Collections.Generic;
 using System.IO;
@@ -27,11 +26,6 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.DependabotRequestBuilder Dependabot
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.DependabotRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The secretScanning property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning.SecretScanningRequestBuilder SecretScanning
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.SecretScanning.SecretScanningRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The teams property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.TeamsRequestBuilder Teams

@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.TeamDiscussion> PostAsync(global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.DiscussionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamDiscussion>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamDiscussion.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions
         public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.DiscussionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
