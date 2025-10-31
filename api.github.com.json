@@ -7711,9 +7711,6 @@
           },
           {
             "$ref": "#/components/parameters/billing-usage-report-day"
-          },
-          {
-            "$ref": "#/components/parameters/billing-usage-report-hour"
           }
         ],
         "responses": {
@@ -30357,165 +30354,6 @@
           "enabledForGitHubApps": true,
           "category": "projects-classic",
           "subcategory": "collaborators",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/{project_id}/columns": {
-      "get": {
-        "summary": "List project columns",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/list-columns",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/columns#list-project-columns"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-id"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/project-column"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-column-items"
-                  }
-                }
-              }
-            },
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "columns",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "post": {
-        "summary": "Create a project column",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/create-column",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/columns#create-a-project-column"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "Name of the project column",
-                    "example": "Remaining tasks",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "type": "object"
-              },
-              "examples": {
-                "default": {
-                  "value": {
-                    "name": "Remaining tasks"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-column"
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "url": "https://api.github.com/projects/columns/367",
-                      "project_url": "https://api.github.com/projects/120",
-                      "cards_url": "https://api.github.com/projects/columns/367/cards",
-                      "id": 367,
-                      "node_id": "MDEzOlByb2plY3RDb2x1bW4zNjc=",
-                      "name": "To Do",
-                      "created_at": "2016-09-05T14:18:44Z",
-                      "updated_at": "2016-09-05T14:22:28Z"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed_simple"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "columns",
           "deprecationDate": "2024-05-23",
           "removalDate": "2025-04-01"
         },
@@ -76494,9 +76332,6 @@
           },
           {
             "$ref": "#/components/parameters/billing-usage-report-day"
-          },
-          {
-            "$ref": "#/components/parameters/billing-usage-report-hour"
           }
         ],
         "responses": {
@@ -289202,20 +289037,6 @@
           }
         }
       },
-      "project-column-items": {
-        "value": [
-          {
-            "url": "https://api.github.com/projects/columns/367",
-            "project_url": "https://api.github.com/projects/120",
-            "cards_url": "https://api.github.com/projects/columns/367/cards",
-            "id": 367,
-            "node_id": "MDEzOlByb2plY3RDb2x1bW4zNjc=",
-            "name": "To Do",
-            "created_at": "2016-09-05T14:18:44Z",
-            "updated_at": "2016-09-05T14:22:28Z"
-          }
-        ]
-      },
       "rate-limit-overview": {
         "value": {
           "resources": {
@@ -309261,15 +309082,6 @@
       "billing-usage-report-month": {
         "name": "month",
         "description": "If specified, only return results for a single month. The value of `month` is an integer between `1` and `12`. If no year is specified the default `year` is used.",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "type": "integer"
-        }
-      },
-      "billing-usage-report-hour": {
-        "name": "hour",
-        "description": "If specified, only return results for a single hour. The value of `hour` is an integer between `0` and `23`. If no `year`, `month`, or `day` is specified, the default `year`, `month`, and `day` are used.",
         "in": "query",
         "required": false,
         "schema": {

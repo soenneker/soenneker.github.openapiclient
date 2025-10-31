@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators;
-using Soenneker.GitHub.OpenApiClient.Projects.Item.Columns;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -24,12 +23,6 @@ namespace Soenneker.GitHub.OpenApiClient.Projects.Item
         public global::Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.CollaboratorsRequestBuilder Collaborators
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Projects.Item.Collaborators.CollaboratorsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The columns property</summary>
-        [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Projects.Item.Columns.ColumnsRequestBuilder Columns
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Projects.Item.Columns.ColumnsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder"/> and sets the default values.

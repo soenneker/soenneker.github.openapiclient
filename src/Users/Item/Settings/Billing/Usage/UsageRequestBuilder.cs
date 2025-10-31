@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/usage{?day*,hour*,month*,year*}", pathParameters)
+        public UsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/usage{?day*,month*,year*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/usage{?day*,hour*,month*,year*}", rawUrl)
+        public UsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/usage{?day*,month*,year*}", rawUrl)
         {
         }
         /// <summary>
@@ -100,9 +100,6 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage
             /// <summary>If specified, only return results for a single day. The value of `day` is an integer between `1` and `31`. If no `year` or `month` is specified, the default `year` and `month` are used.</summary>
             [QueryParameter("day")]
             public int? Day { get; set; }
-            /// <summary>If specified, only return results for a single hour. The value of `hour` is an integer between `0` and `23`. If no `year`, `month`, or `day` is specified, the default `year`, `month`, and `day` are used.</summary>
-            [QueryParameter("hour")]
-            public int? Hour { get; set; }
             /// <summary>If specified, only return results for a single month. The value of `month` is an integer between `1` and `12`. If no year is specified the default `year` is used.</summary>
             [QueryParameter("month")]
             public int? Month { get; set; }
