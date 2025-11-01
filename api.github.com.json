@@ -7738,6 +7738,66 @@
         }
       }
     },
+    "/organizations/{org}/settings/billing/usage/summary": {
+      "get": {
+        "summary": "Get billing usage summary report for an organization",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nGets a summary report of usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.\n\n**Note:** Only data from the past 24 months is accessible via this endpoint.",
+        "tags": [
+          "billing"
+        ],
+        "operationId": "billing/get-github-billing-usage-summary-report-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-report-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-year"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-month-default"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-day"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-repository"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-product"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-sku"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/billing_usage_summary_report_org"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "billing",
+          "subcategory": "enhanced-billing"
+        }
+      }
+    },
     "/orgs/{org}": {
       "get": {
         "summary": "Get an organization",
@@ -12883,6 +12943,14 @@
                       "deleted"
                     ],
                     "default": "active"
+                  },
+                  "github_repository": {
+                    "type": "string",
+                    "description": "The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.\n\nIf a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.",
+                    "minLength": 1,
+                    "maxLength": 100,
+                    "pattern": "^[A-Za-z0-9.\\-_]+$",
+                    "example": "my-github-repo"
                   }
                 },
                 "required": [
@@ -22897,6 +22965,11 @@
                     "type": "string",
                     "nullable": true
                   },
+                  "replaces_base": {
+                    "description": "Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to `true`, Dependabot will only use this registry and will not fall back to the public registry. When set to `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
+                    "type": "boolean",
+                    "default": false
+                  },
                   "encrypted_value": {
                     "description": "The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint.",
                     "type": "string",
@@ -22938,6 +23011,7 @@
                     "registry_type": "maven_repository",
                     "url": "https://maven.pkg.github.com/organization/",
                     "username": "monalisa",
+                    "replaces_base": true,
                     "encrypted_value": "c2VjcmV0",
                     "key_id": "012345678912345678",
                     "visibility": "private"
@@ -23165,6 +23239,11 @@
                     "description": "The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.",
                     "type": "string",
                     "nullable": true
+                  },
+                  "replaces_base": {
+                    "description": "Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to `true`, Dependabot will only use this registry and will not fall back to the public registry. When set to `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
+                    "type": "boolean",
+                    "default": false
                   },
                   "encrypted_value": {
                     "description": "The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint.",
@@ -23605,7 +23684,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/projects-v2-field"
+                    "$ref": "#/components/examples/projects-v2-field-items"
                   }
                 }
               }
@@ -75337,7 +75416,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/projects-v2-field"
+                    "$ref": "#/components/examples/projects-v2-field-items"
                   }
                 }
               }
@@ -76343,6 +76422,69 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "billing",
+          "subcategory": "enhanced-billing"
+        }
+      }
+    },
+    "/users/{username}/settings/billing/usage/summary": {
+      "get": {
+        "summary": "Get billing usage summary report for a user",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nGets a summary report of usage for a user.\n\n**Note:** Only data from the past 24 months is accessible via this endpoint.",
+        "tags": [
+          "billing"
+        ],
+        "operationId": "billing/get-github-billing-usage-summary-report-user",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-report-for-a-user"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-year"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-month-default"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-day"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-repository"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-product"
+          },
+          {
+            "$ref": "#/components/parameters/billing-usage-report-sku"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/billing_usage_summary_report_user"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
@@ -108978,6 +109120,112 @@
           }
         }
       },
+      "billing-usage-summary-report-org": {
+        "type": "object",
+        "properties": {
+          "timePeriod": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer",
+                "description": "The year for the usage report."
+              },
+              "month": {
+                "type": "integer",
+                "description": "The month for the usage report."
+              },
+              "day": {
+                "type": "integer",
+                "description": "The day for the usage report."
+              }
+            },
+            "required": [
+              "year"
+            ]
+          },
+          "organization": {
+            "type": "string",
+            "description": "The unique identifier of the organization."
+          },
+          "repository": {
+            "type": "string",
+            "description": "The name of the repository for the usage report."
+          },
+          "product": {
+            "type": "string",
+            "description": "The product for the usage report."
+          },
+          "sku": {
+            "type": "string",
+            "description": "The SKU for the usage report."
+          },
+          "usageItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string",
+                  "description": "Product name."
+                },
+                "sku": {
+                  "type": "string",
+                  "description": "SKU name."
+                },
+                "unitType": {
+                  "type": "string",
+                  "description": "Unit type of the usage line item."
+                },
+                "pricePerUnit": {
+                  "type": "number",
+                  "description": "Price per unit of the usage line item."
+                },
+                "grossQuantity": {
+                  "type": "number",
+                  "description": "Gross quantity of the usage line item."
+                },
+                "grossAmount": {
+                  "type": "number",
+                  "description": "Gross amount of the usage line item."
+                },
+                "discountQuantity": {
+                  "type": "number",
+                  "description": "Discount quantity of the usage line item."
+                },
+                "discountAmount": {
+                  "type": "number",
+                  "description": "Discount amount of the usage line item."
+                },
+                "netQuantity": {
+                  "type": "number",
+                  "description": "Net quantity of the usage line item."
+                },
+                "netAmount": {
+                  "type": "number",
+                  "description": "Net amount of the usage line item."
+                }
+              },
+              "required": [
+                "product",
+                "sku",
+                "unitType",
+                "pricePerUnit",
+                "grossQuantity",
+                "grossAmount",
+                "discountQuantity",
+                "discountAmount",
+                "netQuantity",
+                "netAmount"
+              ]
+            }
+          }
+        },
+        "required": [
+          "timePeriod",
+          "organization",
+          "usageItems"
+        ]
+      },
       "organization-full": {
         "title": "Organization Full",
         "description": "Organization Full",
@@ -113878,11 +114126,21 @@
             ],
             "type": "string"
           },
+          "url": {
+            "description": "The URL of the private registry.",
+            "type": "string",
+            "format": "uri"
+          },
           "username": {
             "description": "The username to use when authenticating with the private registry.",
             "example": "monalisa",
             "type": "string",
             "nullable": true
+          },
+          "replaces_base": {
+            "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
+            "type": "boolean",
+            "default": false
           },
           "visibility": {
             "description": "Which type of organization repositories have access to the private registry.",
@@ -113941,10 +114199,20 @@
             ],
             "type": "string"
           },
+          "url": {
+            "description": "The URL of the private registry.",
+            "type": "string",
+            "format": "uri"
+          },
           "username": {
             "description": "The username to use when authenticating with the private registry.",
             "example": "monalisa",
             "type": "string"
+          },
+          "replaces_base": {
+            "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
+            "type": "boolean",
+            "default": false
           },
           "visibility": {
             "description": "Which type of organization repositories have access to the private registry. `selected` means only the repositories specified by `selected_repository_ids` can access the private registry.",
@@ -136465,6 +136733,112 @@
             }
           }
         }
+      },
+      "billing-usage-summary-report-user": {
+        "type": "object",
+        "properties": {
+          "timePeriod": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "integer",
+                "description": "The year for the usage report."
+              },
+              "month": {
+                "type": "integer",
+                "description": "The month for the usage report."
+              },
+              "day": {
+                "type": "integer",
+                "description": "The day for the usage report."
+              }
+            },
+            "required": [
+              "year"
+            ]
+          },
+          "user": {
+            "type": "string",
+            "description": "The unique identifier of the user."
+          },
+          "repository": {
+            "type": "string",
+            "description": "The name of the repository for the usage report."
+          },
+          "product": {
+            "type": "string",
+            "description": "The product for the usage report."
+          },
+          "sku": {
+            "type": "string",
+            "description": "The SKU for the usage report."
+          },
+          "usageItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string",
+                  "description": "Product name."
+                },
+                "sku": {
+                  "type": "string",
+                  "description": "SKU name."
+                },
+                "unitType": {
+                  "type": "string",
+                  "description": "Unit type of the usage line item."
+                },
+                "pricePerUnit": {
+                  "type": "number",
+                  "description": "Price per unit of the usage line item."
+                },
+                "grossQuantity": {
+                  "type": "number",
+                  "description": "Gross quantity of the usage line item."
+                },
+                "grossAmount": {
+                  "type": "number",
+                  "description": "Gross amount of the usage line item."
+                },
+                "discountQuantity": {
+                  "type": "number",
+                  "description": "Discount quantity of the usage line item."
+                },
+                "discountAmount": {
+                  "type": "number",
+                  "description": "Discount amount of the usage line item."
+                },
+                "netQuantity": {
+                  "type": "number",
+                  "description": "Net quantity of the usage line item."
+                },
+                "netAmount": {
+                  "type": "number",
+                  "description": "Net amount of the usage line item."
+                }
+              },
+              "required": [
+                "product",
+                "sku",
+                "unitType",
+                "pricePerUnit",
+                "grossQuantity",
+                "grossAmount",
+                "discountQuantity",
+                "discountAmount",
+                "netQuantity",
+                "netAmount"
+              ]
+            }
+          }
+        },
+        "required": [
+          "timePeriod",
+          "user",
+          "usageItems"
+        ]
       },
       "enterprise-webhooks": {
         "title": "Enterprise",
@@ -281371,6 +281745,28 @@
           ]
         }
       },
+      "billing-usage-summary-report-org": {
+        "value": {
+          "timePeriod": {
+            "year": 2025
+          },
+          "organization": "GitHub",
+          "usageItems": [
+            {
+              "product": "Actions",
+              "sku": "actions_linux",
+              "unitType": "minutes",
+              "pricePerUnit": 0.008,
+              "grossQuantity": 1000,
+              "grossAmount": 8.0,
+              "discountQuantity": 0,
+              "discountAmount": 0.0,
+              "netQuantity": 1000,
+              "netAmount": 8.0
+            }
+          ]
+        }
+      },
       "organization-full": {
         "value": {
           "login": "github",
@@ -285853,6 +286249,122 @@
           },
           "is_template": true
         }
+      },
+      "projects-v2-field-items": {
+        "value": [
+          {
+            "id": 12345,
+            "node_id": "PVTF_lADOABCD1234567890",
+            "name": "Priority",
+            "data_type": "single_select",
+            "project_url": "https://api.github.com/projects/67890",
+            "options": [
+              {
+                "id": "option_1",
+                "name": "Low",
+                "color": "GREEN",
+                "description": "Low priority items"
+              },
+              {
+                "id": "option_2",
+                "name": "Medium",
+                "color": "YELLOW",
+                "description": "Medium priority items"
+              },
+              {
+                "id": "option_3",
+                "name": "High",
+                "color": "RED",
+                "description": "High priority items"
+              }
+            ],
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z"
+          },
+          {
+            "id": 67891,
+            "node_id": "PVTF_lADOABCD9876543210",
+            "name": "Status",
+            "data_type": "single_select",
+            "project_url": "https://api.github.com/projects/67890",
+            "options": [
+              {
+                "id": "option_4",
+                "name": "Todo",
+                "color": "GRAY",
+                "description": "Items to be worked on"
+              },
+              {
+                "id": "option_5",
+                "name": "In Progress",
+                "color": "BLUE",
+                "description": "Items currently being worked on"
+              },
+              {
+                "id": "option_6",
+                "name": "Done",
+                "color": "GREEN",
+                "description": "Completed items"
+              }
+            ],
+            "created_at": "2022-04-29T10:30:00Z",
+            "updated_at": "2022-04-29T10:30:00Z"
+          },
+          {
+            "id": 24680,
+            "node_id": "PVTF_lADOABCD2468024680",
+            "name": "Team notes",
+            "data_type": "text",
+            "project_url": "https://api.github.com/projects/67890",
+            "created_at": "2022-05-15T08:00:00Z",
+            "updated_at": "2022-05-15T08:00:00Z"
+          },
+          {
+            "id": 13579,
+            "node_id": "PVTF_lADOABCD1357913579",
+            "name": "Story points",
+            "data_type": "number",
+            "project_url": "https://api.github.com/projects/67890",
+            "created_at": "2022-06-01T14:30:00Z",
+            "updated_at": "2022-06-01T14:30:00Z"
+          },
+          {
+            "id": 98765,
+            "node_id": "PVTF_lADOABCD9876598765",
+            "name": "Due date",
+            "data_type": "date",
+            "project_url": "https://api.github.com/projects/67890",
+            "created_at": "2022-06-10T09:15:00Z",
+            "updated_at": "2022-06-10T09:15:00Z"
+          },
+          {
+            "id": 11223,
+            "node_id": "PVTF_lADOABCD1122311223",
+            "name": "Sprint",
+            "data_type": "iteration",
+            "project_url": "https://api.github.com/projects/67890",
+            "configuration": {
+              "duration": 14,
+              "start_day": 1,
+              "iterations": [
+                {
+                  "id": "iter_1",
+                  "title": "Sprint 1",
+                  "start_date": "2022-07-01",
+                  "duration": 14
+                },
+                {
+                  "id": "iter_2",
+                  "title": "Sprint 2",
+                  "start_date": "2022-07-15",
+                  "duration": 14
+                }
+              ]
+            },
+            "created_at": "2022-06-20T16:45:00Z",
+            "updated_at": "2022-06-20T16:45:00Z"
+          }
+        ]
       },
       "projects-v2-field": {
         "value": {
@@ -306997,6 +307509,28 @@
           ]
         }
       },
+      "billing-usage-summary-report-user": {
+        "value": {
+          "timePeriod": {
+            "year": 2025
+          },
+          "user": "monalisa",
+          "usageItems": [
+            {
+              "product": "Actions",
+              "sku": "actions_linux",
+              "unitType": "minutes",
+              "pricePerUnit": 0.008,
+              "grossQuantity": 1000,
+              "grossAmount": 8.0,
+              "discountQuantity": 0,
+              "discountAmount": 0.0,
+              "netQuantity": 1000,
+              "netAmount": 8.0
+            }
+          ]
+        }
+      },
       "check-run-completed": {
         "value": {
           "action": "completed",
@@ -309088,6 +309622,24 @@
           "type": "integer"
         }
       },
+      "billing-usage-report-repository": {
+        "name": "repository",
+        "description": "The repository name to query for usage in the format owner/repository.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "billing-usage-report-sku": {
+        "name": "sku",
+        "description": "The SKU to query for usage.",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
       "actions-custom-image-definition-id": {
         "name": "image_definition_id",
         "description": "Image definition ID of custom image",
@@ -310694,6 +311246,21 @@
           }
         }
       },
+      "billing_usage_summary_report_org": {
+        "description": "Response when getting a billing usage summary report",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing-usage-summary-report-org"
+            },
+            "examples": {
+              "default": {
+                "$ref": "#/components/examples/billing-usage-summary-report-org"
+              }
+            }
+          }
+        }
+      },
       "actions_runner_jitconfig": {
         "description": "Response",
         "content": {
@@ -310948,6 +311515,21 @@
             "examples": {
               "default": {
                 "$ref": "#/components/examples/billing-usage-report-user"
+              }
+            }
+          }
+        }
+      },
+      "billing_usage_summary_report_user": {
+        "description": "Response when getting a billing usage summary report",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing-usage-summary-report-user"
+            },
+            "examples": {
+              "default": {
+                "$ref": "#/components/examples/billing-usage-summary-report-user"
               }
             }
           }

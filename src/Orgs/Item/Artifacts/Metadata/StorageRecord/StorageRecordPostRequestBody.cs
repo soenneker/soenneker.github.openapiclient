@@ -30,6 +30,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string Digest { get; set; }
 #endif
+        /// <summary>The name of the GitHub repository associated with the artifact. This should be usedwhen there are no provenance attestations available for the artifact. The repositorymust belong to the organization specified in the path parameter.If a provenance attestation is available for the artifact, the API will usethe repository information from the attestation instead of this parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GithubRepository { get; set; }
+#nullable restore
+#else
+        public string GithubRepository { get; set; }
+#endif
         /// <summary>The name of the artifact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
             {
                 { "artifact_url", n => { ArtifactUrl = n.GetStringValue(); } },
                 { "digest", n => { Digest = n.GetStringValue(); } },
+                { "github_repository", n => { GithubRepository = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "registry_url", n => { RegistryUrl = n.GetStringValue(); } },
@@ -108,6 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("artifact_url", ArtifactUrl);
             writer.WriteStringValue("digest", Digest);
+            writer.WriteStringValue("github_repository", GithubRepository);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("registry_url", RegistryUrl);

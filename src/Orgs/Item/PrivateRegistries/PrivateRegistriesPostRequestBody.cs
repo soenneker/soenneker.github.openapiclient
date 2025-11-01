@@ -32,6 +32,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
 #endif
         /// <summary>The registry type.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type? RegistryType { get; set; }
+        /// <summary>Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to `true`, Dependabot will only use this registry and will not fall back to the public registry. When set to `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</summary>
+        public bool? ReplacesBase { get; set; }
         /// <summary>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when `visibility` is set to `selected`. You can manage the list of selected repositories using the [Update a private registry for an organization](https://docs.github.com/rest/private-registries/organization-configurations#update-a-private-registry-for-an-organization) endpoint. This field should be omitted if `visibility` is set to `all` or `private`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,6 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
                 { "encrypted_value", n => { EncryptedValue = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type>(); } },
+                { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
@@ -102,6 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
             writer.WriteStringValue("encrypted_value", EncryptedValue);
             writer.WriteStringValue("key_id", KeyId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type>("registry_type", RegistryType);
+            writer.WriteBoolValue("replaces_base", ReplacesBase);
             writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);

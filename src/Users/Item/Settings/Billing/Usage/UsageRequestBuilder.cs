@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summary;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UsageRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The summary property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summary.SummaryRequestBuilder Summary
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summary.SummaryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.UsageRequestBuilder"/> and sets the default values.
         /// </summary>

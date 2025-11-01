@@ -27,8 +27,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The registry type.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type? RegistryType { get; set; }
+        /// <summary>Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</summary>
+        public bool? ReplacesBase { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>The URL of the private registry.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
+#endif
         /// <summary>The username to use when authenticating with the private registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +77,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type>(); } },
+                { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility>(); } },
             };
@@ -82,7 +94,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type>("registry_type", RegistryType);
+            writer.WriteBoolValue("replaces_base", ReplacesBase);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
