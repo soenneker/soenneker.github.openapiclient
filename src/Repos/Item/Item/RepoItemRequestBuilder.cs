@@ -50,7 +50,6 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Notifications;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PrivateVulnerabilityReporting;
-using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Projects;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Properties;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Readme;
@@ -314,11 +313,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PrivateVulnerabilityReporting.PrivateVulnerabilityReportingRequestBuilder PrivateVulnerabilityReporting
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.PrivateVulnerabilityReporting.PrivateVulnerabilityReportingRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The properties property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Properties.PropertiesRequestBuilder Properties

@@ -5,47 +5,47 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects
+namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ProjectsPostRequestBody : IAdditionalDataHolder, IParsable
+    public partial class WithBudget_PatchResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The description of the project.</summary>
+        /// <summary>The budget property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse_budget? Budget { get; set; }
 #nullable restore
 #else
-        public string Body { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse_budget Budget { get; set; }
 #endif
-        /// <summary>The name of the project.</summary>
+        /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Message { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects.ProjectsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse"/> and sets the default values.
         /// </summary>
-        public ProjectsPostRequestBody()
+        public WithBudget_PatchResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects.ProjectsPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects.ProjectsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects.ProjectsPostRequestBody();
+            return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +55,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "body", n => { Body = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "budget", n => { Budget = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse_budget>(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse_budget.CreateFromDiscriminatorValue); } },
+                { "message", n => { Message = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("body", Body);
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse_budget>("budget", Budget);
+            writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

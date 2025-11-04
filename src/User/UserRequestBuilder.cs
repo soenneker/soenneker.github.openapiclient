@@ -22,7 +22,6 @@ using Soenneker.GitHub.OpenApiClient.User.Memberships;
 using Soenneker.GitHub.OpenApiClient.User.Migrations;
 using Soenneker.GitHub.OpenApiClient.User.Orgs;
 using Soenneker.GitHub.OpenApiClient.User.Packages;
-using Soenneker.GitHub.OpenApiClient.User.Projects;
 using Soenneker.GitHub.OpenApiClient.User.Public_emails;
 using Soenneker.GitHub.OpenApiClient.User.Repos;
 using Soenneker.GitHub.OpenApiClient.User.Repository_invitations;
@@ -128,11 +127,6 @@ namespace Soenneker.GitHub.OpenApiClient.User
         public global::Soenneker.GitHub.OpenApiClient.User.Packages.PackagesRequestBuilder Packages
         {
             get => new global::Soenneker.GitHub.OpenApiClient.User.Packages.PackagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.User.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.User.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The public_emails property</summary>
         public global::Soenneker.GitHub.OpenApiClient.User.Public_emails.Public_emailsRequestBuilder Public_emails

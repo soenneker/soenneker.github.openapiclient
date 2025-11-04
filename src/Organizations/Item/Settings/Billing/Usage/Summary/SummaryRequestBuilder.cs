@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usa
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets a summary report of usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.**Note:** Only data from the past 24 months is accessible via this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-report-for-an-organization" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

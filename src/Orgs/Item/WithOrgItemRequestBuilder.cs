@@ -35,7 +35,6 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Packages;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokens;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries;
-using Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Public_members;
@@ -209,11 +208,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesRequestBuilder PrivateRegistries
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The projectsV2 property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.ProjectsV2RequestBuilder ProjectsV2

@@ -16,7 +16,6 @@ using Soenneker.GitHub.OpenApiClient.Users.Item.Installation;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Keys;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Orgs;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Packages;
-using Soenneker.GitHub.OpenApiClient.Users.Item.Projects;
 using Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Received_events;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Repos;
@@ -97,11 +96,6 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.PackagesRequestBuilder Packages
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.PackagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The projectsV2 property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.ProjectsV2RequestBuilder ProjectsV2
