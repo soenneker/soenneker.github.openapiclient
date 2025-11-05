@@ -116787,7 +116787,7 @@
         "properties": {
           "file_patterns": {
             "type": "array",
-            "description": "Array of file patterns. Pull requests which change matching files must be approved by the specified team. File patterns use the same syntax as `.gitignore` files.",
+            "description": "Array of file patterns. Pull requests which change matching files must be approved by the specified team. File patterns use fnmatch syntax.",
             "items": {
               "type": "string"
             }
