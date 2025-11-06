@@ -259593,7 +259593,6 @@
                 "pull": "true"
               },
               "allow_rebase_merge": "true",
-              "template_repository": "null",
               "temp_clone_token": "ABTLWHOULUVAXGTRYU7OC2876QJ2O",
               "allow_squash_merge": "true",
               "allow_auto_merge": "false",
