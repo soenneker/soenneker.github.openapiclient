@@ -170,14 +170,14 @@ namespace Soenneker.GitHub.OpenApiClient.User
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.item collection</summary>
         /// <param name="position">account_id parameter</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("account_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("account_%2Did", position);
+                return new global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

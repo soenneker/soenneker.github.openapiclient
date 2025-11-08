@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,42 +13,47 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\{account_id}
+    /// Builds and executes requests for operations under \user\{account_-id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithAccount_ItemRequestBuilder : BaseRequestBuilder
+    public partial class Account_ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The projectsV2 property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.ProjectsV2RequestBuilder ProjectsV2
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.ProjectsV2RequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAccount_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account_id}", pathParameters)
+        public Account_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account_%2Did}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAccount_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account_id}", rawUrl)
+        public Account_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account_%2Did}", rawUrl)
         {
         }
         /// <summary>
         /// Provides publicly available information about someone with a GitHub account. This method takes their durable user `ID` instead of their `login`, which can change over time.If you are requesting information about an [Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users), or a GitHub App bot that is installed in an organization that uses Enterprise Managed Users, your requests must be authenticated as a user or GitHub App that has access to the organization to view that account&apos;s information. If you are not authorized, the request will return a `404 Not Found` status.The `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#authentication).The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).
         /// API method documentation <see href="https://docs.github.com/rest/users/users#get-a-user-using-their-id" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -55,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Provides publicly available information about someone with a GitHub account. This method takes their durable user `ID` instead of their `login`, which can change over time.If you are requesting information about an [Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users), or a GitHub App bot that is installed in an organization that uses Enterprise Managed Users, your requests must be authenticated as a user or GitHub App that has access to the organization to view that account&apos;s information. If you are not authorized, the request will return a `404 Not Found` status.The `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#authentication).The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).
@@ -79,17 +85,17 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PublicUser"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithAccount_GetResponse : IComposedTypeWrapper, IParsable
+        public partial class Account_GetResponse : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,13 +116,13 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse"/></returns>
+            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("user_view_type")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.User.Item.WithAccount_ItemRequestBuilder.WithAccount_GetResponse();
+                var result = new global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder.Account_GetResponse();
                 if("private".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.PrivateUser = new global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser();

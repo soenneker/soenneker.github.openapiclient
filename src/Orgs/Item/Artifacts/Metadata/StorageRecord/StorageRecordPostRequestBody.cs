@@ -72,6 +72,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #endif
         /// <summary>The status of the artifact (e.g., active, inactive).</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody_status? Status { get; set; }
+        /// <summary>The artifact version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
+        public string Version { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -106,6 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
                 { "registry_url", n => { RegistryUrl = n.GetStringValue(); } },
                 { "repository", n => { Repository = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody_status>(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -123,6 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
             writer.WriteStringValue("registry_url", RegistryUrl);
             writer.WriteStringValue("repository", Repository);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody_status>("status", Status);
+            writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Drafts;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithProject_numberItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The drafts property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Drafts.DraftsRequestBuilder Drafts
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Drafts.DraftsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The fields property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder Fields
         {

@@ -13275,7 +13275,7 @@
                   "name": {
                     "type": "string",
                     "description": "The name of the artifact.",
-                    "example": "libfoo-1.2.3",
+                    "example": "libfoo",
                     "minLength": 1
                   },
                   "digest": {
@@ -13285,6 +13285,14 @@
                     "minLength": 71,
                     "maxLength": 71,
                     "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "version": {
+                    "type": "string",
+                    "description": "The artifact version.",
+                    "minLength": 1,
+                    "maxLength": 100,
+                    "x-multi-segment": true,
+                    "example": "1.2.3"
                   },
                   "artifact_url": {
                     "type": "string",
@@ -13341,7 +13349,8 @@
               "examples": {
                 "default": {
                   "value": {
-                    "name": "libfoo-1.2.3",
+                    "name": "libfoo",
+                    "version": "1.2.3",
                     "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
                     "artifact_url": "https://reg.example.com/artifactory/bar/libfoo-1.2.3",
                     "registry_url": "https://reg.example.com/artifactory/",
@@ -13410,7 +13419,7 @@
                       "total_count": 1,
                       "storage_records": [
                         {
-                          "name": "libfoo-1.2.3",
+                          "name": "libfoo",
                           "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
                           "artifact_url": "https://reg.example.com/artifactory/bar/libfoo-1.2.3",
                           "registry_url": "https://reg.example.com/artifactory/",
@@ -23852,6 +23861,99 @@
           "enabledForGitHubApps": true,
           "category": "projects",
           "subcategory": "projects"
+        }
+      }
+    },
+    "/orgs/{org}/projectsV2/{project_number}/drafts": {
+      "post": {
+        "summary": "Create draft item for organization owned project",
+        "description": "Create draft issue item for the specified organization owned project.",
+        "tags": [
+          "projects"
+        ],
+        "operationId": "projects/create-draft-item-for-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/drafts#create-draft-item-for-organization-owned-project"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/project-number"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Details of the draft item to create in the project.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The title of the draft issue item to create in the project."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "The body content of the draft issue item to create in the project."
+                  }
+                },
+                "required": [
+                  "title"
+                ]
+              },
+              "examples": {
+                "title": {
+                  "summary": "Example with Sample Draft Issue Title",
+                  "value": {
+                    "title": "Sample Draft Issue Title"
+                  }
+                },
+                "body": {
+                  "summary": "Example with Sample Draft Issue Title and Body",
+                  "value": {
+                    "title": "Sample Draft Issue Title",
+                    "body": "This is the body content of the draft issue."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-simple"
+                },
+                "examples": {
+                  "draft_issue": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "drafts"
         }
       }
     },
@@ -73126,6 +73228,99 @@
         }
       }
     },
+    "/user/{user_id}/projectsV2/{project_number}/drafts": {
+      "post": {
+        "summary": "Create draft item for user owned project",
+        "description": "Create draft issue item for the specified user owned project.",
+        "tags": [
+          "projects"
+        ],
+        "operationId": "projects/create-draft-item-for-authenticated-user",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/drafts#create-draft-item-for-user-owned-project"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/user-id"
+          },
+          {
+            "$ref": "#/components/parameters/project-number"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Details of the draft item to create in the project.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "The title of the draft issue item to create in the project."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "The body content of the draft issue item to create in the project."
+                  }
+                },
+                "required": [
+                  "title"
+                ]
+              },
+              "examples": {
+                "title": {
+                  "summary": "Example with Sample Draft Issue Title",
+                  "value": {
+                    "title": "Sample Draft Issue Title"
+                  }
+                },
+                "body": {
+                  "summary": "Example with Sample Draft Issue Title and Body",
+                  "value": {
+                    "title": "Sample Draft Issue Title",
+                    "body": "This is the body content of the draft issue."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-item-simple"
+                },
+                "examples": {
+                  "draft_issue": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "drafts"
+        }
+      }
+    },
     "/users": {
       "get": {
         "summary": "List users",
@@ -114221,282 +114416,6 @@
           "deleted_by"
         ]
       },
-      "projects-v2-single-select-options": {
-        "title": "Projects v2 Single Select Option",
-        "description": "An option for a single select field",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the option."
-          },
-          "name": {
-            "type": "object",
-            "description": "The display name of the option, in raw text and HTML formats.",
-            "properties": {
-              "raw": {
-                "type": "string"
-              },
-              "html": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "raw",
-              "html"
-            ]
-          },
-          "description": {
-            "type": "object",
-            "description": "The description of the option, in raw text and HTML formats.",
-            "properties": {
-              "raw": {
-                "type": "string"
-              },
-              "html": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "raw",
-              "html"
-            ]
-          },
-          "color": {
-            "type": "string",
-            "description": "The color associated with the option."
-          }
-        },
-        "required": [
-          "id",
-          "name",
-          "description",
-          "color"
-        ]
-      },
-      "projects-v2-iteration-settings": {
-        "title": "Projects v2 Iteration Setting",
-        "description": "An iteration setting for an iteration field",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the iteration setting."
-          },
-          "start_date": {
-            "type": "string",
-            "format": "date",
-            "description": "The start date of the iteration."
-          },
-          "duration": {
-            "type": "integer",
-            "description": "The duration of the iteration in days."
-          },
-          "title": {
-            "type": "object",
-            "properties": {
-              "raw": {
-                "type": "string"
-              },
-              "html": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "raw",
-              "html"
-            ],
-            "description": "The iteration title, in raw text and HTML formats."
-          },
-          "completed": {
-            "type": "boolean",
-            "description": "Whether the iteration has been completed."
-          }
-        },
-        "required": [
-          "id",
-          "start_date",
-          "duration",
-          "title",
-          "completed"
-        ]
-      },
-      "projects-v2-field": {
-        "title": "Projects v2 Field",
-        "description": "A field inside a projects v2 project",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "The unique identifier of the field."
-          },
-          "node_id": {
-            "type": "string",
-            "description": "The node ID of the field."
-          },
-          "project_url": {
-            "type": "string",
-            "description": "The API URL of the project that contains the field.",
-            "example": "https://api.github.com/projects/1"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the field."
-          },
-          "data_type": {
-            "type": "string",
-            "description": "The field's data type.",
-            "enum": [
-              "assignees",
-              "linked_pull_requests",
-              "reviewers",
-              "labels",
-              "milestone",
-              "repository",
-              "title",
-              "text",
-              "single_select",
-              "number",
-              "date",
-              "iteration",
-              "issue_type",
-              "parent_issue",
-              "sub_issues_progress"
-            ]
-          },
-          "options": {
-            "type": "array",
-            "description": "The options available for single select fields.",
-            "items": {
-              "$ref": "#/components/schemas/projects-v2-single-select-options"
-            }
-          },
-          "configuration": {
-            "type": "object",
-            "description": "Configuration for iteration fields.",
-            "properties": {
-              "start_day": {
-                "type": "integer",
-                "description": "The day of the week when the iteration starts."
-              },
-              "duration": {
-                "type": "integer",
-                "description": "The duration of the iteration in days."
-              },
-              "iterations": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/projects-v2-iteration-settings"
-                }
-              }
-            }
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00Z",
-            "description": "The time when the field was created."
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00Z",
-            "description": "The time when the field was last updated."
-          }
-        },
-        "required": [
-          "id",
-          "name",
-          "data_type",
-          "created_at",
-          "updated_at",
-          "project_url"
-        ]
-      },
-      "projects-v2-item-content-type": {
-        "title": "Projects v2 Item Content Type",
-        "description": "The type of content tracked in a project item",
-        "type": "string",
-        "enum": [
-          "Issue",
-          "PullRequest",
-          "DraftIssue"
-        ]
-      },
-      "projects-v2-item-with-content": {
-        "title": "Projects v2 Item",
-        "description": "An item belonging to a project",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "description": "The unique identifier of the project item."
-          },
-          "node_id": {
-            "type": "string",
-            "description": "The node ID of the project item."
-          },
-          "project_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/monalisa/2/projectsV2/3",
-            "description": "The API URL of the project that contains this item."
-          },
-          "content_type": {
-            "$ref": "#/components/schemas/projects-v2-item-content-type"
-          },
-          "content": {
-            "type": "object",
-            "additionalProperties": true,
-            "nullable": true,
-            "description": "The content of the item, which varies by content type."
-          },
-          "creator": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00Z",
-            "description": "The time when the item was created."
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00Z",
-            "description": "The time when the item was last updated."
-          },
-          "archived_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2022-04-28T12:00:00Z",
-            "nullable": true,
-            "description": "The time when the item was archived."
-          },
-          "item_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/monalisa/2/projectsV2/items/3",
-            "nullable": true,
-            "description": "The API URL of this item."
-          },
-          "fields": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": true
-            },
-            "description": "The fields and values associated with this item."
-          }
-        },
-        "required": [
-          "id",
-          "content_type",
-          "created_at",
-          "updated_at",
-          "archived_at"
-        ]
-      },
       "link": {
         "title": "Link",
         "description": "Hypermedia Link",
@@ -114913,6 +114832,16 @@
           "updated_at"
         ]
       },
+      "projects-v2-item-content-type": {
+        "title": "Projects v2 Item Content Type",
+        "description": "The type of content tracked in a project item",
+        "type": "string",
+        "enum": [
+          "Issue",
+          "PullRequest",
+          "DraftIssue"
+        ]
+      },
       "projects-v2-item-simple": {
         "title": "Projects v2 Item",
         "description": "An item belonging to a project",
@@ -114974,6 +114903,272 @@
             "type": "string",
             "format": "uri",
             "description": "The URL of the item in the project."
+          }
+        },
+        "required": [
+          "id",
+          "content_type",
+          "created_at",
+          "updated_at",
+          "archived_at"
+        ]
+      },
+      "projects-v2-single-select-options": {
+        "title": "Projects v2 Single Select Option",
+        "description": "An option for a single select field",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the option."
+          },
+          "name": {
+            "type": "object",
+            "description": "The display name of the option, in raw text and HTML formats.",
+            "properties": {
+              "raw": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "raw",
+              "html"
+            ]
+          },
+          "description": {
+            "type": "object",
+            "description": "The description of the option, in raw text and HTML formats.",
+            "properties": {
+              "raw": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "raw",
+              "html"
+            ]
+          },
+          "color": {
+            "type": "string",
+            "description": "The color associated with the option."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "color"
+        ]
+      },
+      "projects-v2-iteration-settings": {
+        "title": "Projects v2 Iteration Setting",
+        "description": "An iteration setting for an iteration field",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the iteration setting."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The start date of the iteration."
+          },
+          "duration": {
+            "type": "integer",
+            "description": "The duration of the iteration in days."
+          },
+          "title": {
+            "type": "object",
+            "properties": {
+              "raw": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "raw",
+              "html"
+            ],
+            "description": "The iteration title, in raw text and HTML formats."
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the iteration has been completed."
+          }
+        },
+        "required": [
+          "id",
+          "start_date",
+          "duration",
+          "title",
+          "completed"
+        ]
+      },
+      "projects-v2-field": {
+        "title": "Projects v2 Field",
+        "description": "A field inside a projects v2 project",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the field."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the field."
+          },
+          "project_url": {
+            "type": "string",
+            "description": "The API URL of the project that contains the field.",
+            "example": "https://api.github.com/projects/1"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the field."
+          },
+          "data_type": {
+            "type": "string",
+            "description": "The field's data type.",
+            "enum": [
+              "assignees",
+              "linked_pull_requests",
+              "reviewers",
+              "labels",
+              "milestone",
+              "repository",
+              "title",
+              "text",
+              "single_select",
+              "number",
+              "date",
+              "iteration",
+              "issue_type",
+              "parent_issue",
+              "sub_issues_progress"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "description": "The options available for single select fields.",
+            "items": {
+              "$ref": "#/components/schemas/projects-v2-single-select-options"
+            }
+          },
+          "configuration": {
+            "type": "object",
+            "description": "Configuration for iteration fields.",
+            "properties": {
+              "start_day": {
+                "type": "integer",
+                "description": "The day of the week when the iteration starts."
+              },
+              "duration": {
+                "type": "integer",
+                "description": "The duration of the iteration in days."
+              },
+              "iterations": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/projects-v2-iteration-settings"
+                }
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00Z",
+            "description": "The time when the field was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00Z",
+            "description": "The time when the field was last updated."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "data_type",
+          "created_at",
+          "updated_at",
+          "project_url"
+        ]
+      },
+      "projects-v2-item-with-content": {
+        "title": "Projects v2 Item",
+        "description": "An item belonging to a project",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The unique identifier of the project item."
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node ID of the project item."
+          },
+          "project_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/monalisa/2/projectsV2/3",
+            "description": "The API URL of the project that contains this item."
+          },
+          "content_type": {
+            "$ref": "#/components/schemas/projects-v2-item-content-type"
+          },
+          "content": {
+            "type": "object",
+            "additionalProperties": true,
+            "nullable": true,
+            "description": "The content of the item, which varies by content type."
+          },
+          "creator": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00Z",
+            "description": "The time when the item was created."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00Z",
+            "description": "The time when the item was last updated."
+          },
+          "archived_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-04-28T12:00:00Z",
+            "nullable": true,
+            "description": "The time when the item was archived."
+          },
+          "item_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/monalisa/2/projectsV2/items/3",
+            "nullable": true,
+            "description": "The API URL of this item."
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "description": "The fields and values associated with this item."
           }
         },
         "required": [
@@ -285953,6 +286148,66 @@
           "is_template": true
         }
       },
+      "projects-v2-item-simple": {
+        "value": {
+          "id": 17,
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
+          "content": {
+            "id": 38,
+            "node_id": "I_kwDOANN5s85FtLts",
+            "title": "Example Draft Issue",
+            "body": "This is a draft issue in the project.",
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            }
+          },
+          "content_type": "DraftIssue",
+          "creator": {
+            "login": "octocat",
+            "id": 1,
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": null,
+          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
+          "item_url": "https://api.github.com/users/octocat/projectsV2/items/17"
+        }
+      },
       "projects-v2-field-items": {
         "value": [
           {
@@ -286846,66 +287101,6 @@
               "value": null
             }
           ]
-        }
-      },
-      "projects-v2-item-simple": {
-        "value": {
-          "id": 17,
-          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
-          "content": {
-            "id": 38,
-            "node_id": "I_kwDOANN5s85FtLts",
-            "title": "Example Draft Issue",
-            "body": "This is a draft issue in the project.",
-            "created_at": "2022-04-28T12:00:00Z",
-            "updated_at": "2022-04-28T12:00:00Z",
-            "user": {
-              "login": "octocat",
-              "id": 1,
-              "node_id": "MDQ6VXNlcjE=",
-              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "gravatar_id": "",
-              "url": "https://api.github.com/users/octocat",
-              "html_url": "https://github.com/octocat",
-              "followers_url": "https://api.github.com/users/octocat/followers",
-              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-              "organizations_url": "https://api.github.com/users/octocat/orgs",
-              "repos_url": "https://api.github.com/users/octocat/repos",
-              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-              "received_events_url": "https://api.github.com/users/octocat/received_events",
-              "type": "User",
-              "site_admin": false
-            }
-          },
-          "content_type": "DraftIssue",
-          "creator": {
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": false
-          },
-          "created_at": "2022-04-28T12:00:00Z",
-          "updated_at": "2022-04-28T12:00:00Z",
-          "archived_at": null,
-          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
-          "item_url": "https://api.github.com/users/octocat/projectsV2/items/17"
         }
       },
       "custom-properties": {
@@ -310606,6 +310801,15 @@
             "updated"
           ],
           "default": "created"
+        }
+      },
+      "user-id": {
+        "name": "user_id",
+        "description": "The unique identifier of the user.",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
         }
       }
     },
