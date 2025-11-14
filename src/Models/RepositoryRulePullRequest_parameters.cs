@@ -30,6 +30,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? RequireCodeOwnerReview { get; set; }
         /// <summary>The number of approving reviews that are required before a pull request can be merged.</summary>
         public int? RequiredApprovingReviewCount { get; set; }
+        /// <summary>&gt; [!NOTE]&gt; `required_reviewers` is in beta and subject to change.A collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration>? RequiredReviewers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration> RequiredReviewers { get; set; }
+#endif
         /// <summary>All conversations on code must be resolved before a pull request can be merged.</summary>
         public bool? RequiredReviewThreadResolution { get; set; }
         /// <summary>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</summary>
@@ -66,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "require_last_push_approval", n => { RequireLastPushApproval = n.GetBoolValue(); } },
                 { "required_approving_review_count", n => { RequiredApprovingReviewCount = n.GetIntValue(); } },
                 { "required_review_thread_resolution", n => { RequiredReviewThreadResolution = n.GetBoolValue(); } },
+                { "required_reviewers", n => { RequiredReviewers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -80,6 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("dismiss_stale_reviews_on_push", DismissStaleReviewsOnPush);
             writer.WriteBoolValue("require_code_owner_review", RequireCodeOwnerReview);
             writer.WriteIntValue("required_approving_review_count", RequiredApprovingReviewCount);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsRequiredReviewerConfiguration>("required_reviewers", RequiredReviewers);
             writer.WriteBoolValue("required_review_thread_resolution", RequiredReviewThreadResolution);
             writer.WriteBoolValue("require_last_push_approval", RequireLastPushApproval);
             writer.WriteAdditionalData(AdditionalData);

@@ -78,7 +78,7 @@
     },
     {
       "name": "markdown",
-      "description": "Render GitHub flavored markdown"
+      "description": "Render GitHub flavored Markdown"
     },
     {
       "name": "merge-queue",
@@ -98,7 +98,7 @@
     },
     {
       "name": "orgs",
-      "description": "Interact with GitHub Orgs."
+      "description": "Interact with organizations."
     },
     {
       "name": "packages",
@@ -114,7 +114,7 @@
     },
     {
       "name": "rate-limit",
-      "description": "Check your current rate limit status"
+      "description": "Check your current rate limit status."
     },
     {
       "name": "reactions",
@@ -126,7 +126,7 @@
     },
     {
       "name": "search",
-      "description": "Look for stuff on GitHub."
+      "description": "Search for specific items on GitHub."
     },
     {
       "name": "secret-scanning",
@@ -102107,6 +102107,14 @@
               "write"
             ]
           },
+          "attestations": {
+            "type": "string",
+            "description": "The level of permission to create and retrieve the access token for repository attestations.",
+            "enum": [
+              "read",
+              "write"
+            ]
+          },
           "checks": {
             "type": "string",
             "description": "The level of permission to grant the access token for checks on code.",
@@ -102147,6 +102155,14 @@
               "write"
             ]
           },
+          "discussions": {
+            "type": "string",
+            "description": "The level of permission to grant the access token for discussions and related comments and labels.",
+            "enum": [
+              "read",
+              "write"
+            ]
+          },
           "environments": {
             "type": "string",
             "description": "The level of permission to grant the access token for managing repository environments.",
@@ -102158,6 +102174,14 @@
           "issues": {
             "type": "string",
             "description": "The level of permission to grant the access token for issues and related comments, assignees, labels, and milestones.",
+            "enum": [
+              "read",
+              "write"
+            ]
+          },
+          "merge_queues": {
+            "type": "string",
+            "description": "The level of permission to grant the access token to manage the merge queues for a repository.",
             "enum": [
               "read",
               "write"
@@ -117055,6 +117079,13 @@
               "required_review_thread_resolution": {
                 "type": "boolean",
                 "description": "All conversations on code must be resolved before a pull request can be merged."
+              },
+              "required_reviewers": {
+                "type": "array",
+                "description": "> [!NOTE]\n> `required_reviewers` is in beta and subject to change.\n\nA collection of reviewers and associated file patterns. Each reviewer has a list of file patterns which determine the files that reviewer is required to review.",
+                "items": {
+                  "$ref": "#/components/schemas/repository-rule-params-required-reviewer-configuration"
+                }
               }
             },
             "required": [
@@ -151978,6 +152009,13 @@
                           "write"
                         ]
                       },
+                      "attestations": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "checks": {
                         "type": "string",
                         "enum": [
@@ -152048,7 +152086,21 @@
                           "write"
                         ]
                       },
+                      "merge_queues": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "metadata": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
+                      "models": {
                         "type": "string",
                         "enum": [
                           "read",
@@ -152760,6 +152812,13 @@
                           "write"
                         ]
                       },
+                      "attestations": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "checks": {
                         "type": "string",
                         "enum": [
@@ -152830,7 +152889,21 @@
                           "write"
                         ]
                       },
+                      "merge_queues": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "metadata": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
+                      "models": {
                         "type": "string",
                         "enum": [
                           "read",
@@ -286219,21 +286292,39 @@
             "options": [
               {
                 "id": "option_1",
-                "name": "Low",
+                "name": {
+                  "html": "Low",
+                  "raw": "Low"
+                },
                 "color": "GREEN",
-                "description": "Low priority items"
+                "description": {
+                  "html": "Low priority items",
+                  "raw": "Low priority items"
+                }
               },
               {
                 "id": "option_2",
-                "name": "Medium",
+                "name": {
+                  "html": "Medium",
+                  "raw": "Medium"
+                },
                 "color": "YELLOW",
-                "description": "Medium priority items"
+                "description": {
+                  "html": "Medium priority items",
+                  "raw": "Medium priority items"
+                }
               },
               {
                 "id": "option_3",
-                "name": "High",
+                "name": {
+                  "html": "High",
+                  "raw": "High"
+                },
                 "color": "RED",
-                "description": "High priority items"
+                "description": {
+                  "html": "High priority items",
+                  "raw": "High priority items"
+                }
               }
             ],
             "created_at": "2022-04-28T12:00:00Z",
@@ -286248,21 +286339,39 @@
             "options": [
               {
                 "id": "option_4",
-                "name": "Todo",
+                "name": {
+                  "html": "Todo",
+                  "raw": "Todo"
+                },
                 "color": "GRAY",
-                "description": "Items to be worked on"
+                "description": {
+                  "html": "Items to be worked on",
+                  "raw": "Items to be worked on"
+                }
               },
               {
                 "id": "option_5",
-                "name": "In Progress",
+                "name": {
+                  "html": "In Progress",
+                  "raw": "In Progress"
+                },
                 "color": "BLUE",
-                "description": "Items currently being worked on"
+                "description": {
+                  "html": "Items currently being worked on",
+                  "raw": "Items currently being worked on"
+                }
               },
               {
                 "id": "option_6",
-                "name": "Done",
+                "name": {
+                  "html": "Done",
+                  "raw": "Done"
+                },
                 "color": "GREEN",
-                "description": "Completed items"
+                "description": {
+                  "html": "Completed items",
+                  "raw": "Completed items"
+                }
               }
             ],
             "created_at": "2022-04-29T10:30:00Z",
@@ -286307,13 +286416,19 @@
               "iterations": [
                 {
                   "id": "iter_1",
-                  "title": "Sprint 1",
+                  "title": {
+                    "html": "Sprint 1",
+                    "raw": "Sprint 1"
+                  },
                   "start_date": "2022-07-01",
                   "duration": 14
                 },
                 {
                   "id": "iter_2",
-                  "title": "Sprint 2",
+                  "title": {
+                    "html": "Sprint 2",
+                    "raw": "Sprint 2"
+                  },
                   "start_date": "2022-07-15",
                   "duration": 14
                 }
@@ -286856,8 +286971,8 @@
               "name": "Title",
               "type": "title",
               "value": {
-                "raw_title": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
-                "html_title": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
+                "raw": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
+                "html": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
                 "number": 6,
                 "url": "https://github.com/5/1/pull/6",
                 "issue_id": 12,
@@ -286900,11 +287015,15 @@
               "type": "single_select",
               "value": {
                 "id": "98236657",
-                "name": "Done",
-                "name_html": "Done",
+                "name": {
+                  "raw": "Done",
+                  "html": "Done"
+                },
                 "color": "PURPLE",
-                "description": "This has been completed",
-                "description_html": "This has been completed"
+                "description": {
+                  "raw": "This has been completed",
+                  "html": "This has been completed"
+                }
               }
             },
             {

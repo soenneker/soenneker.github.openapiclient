@@ -19,6 +19,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The level of permission to grant the access token for repository creation, deletion, settings, teams, and collaborators creation.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration? Administration { get; set; }
+        /// <summary>The level of permission to create and retrieve the access token for repository attestations.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations? Attestations { get; set; }
         /// <summary>The level of permission to grant the access token for checks on code.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks? Checks { get; set; }
         /// <summary>The level of permission to grant the access token to create, edit, delete, and list Codespaces.</summary>
@@ -31,6 +33,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets? DependabotSecrets { get; set; }
         /// <summary>The level of permission to grant the access token for deployments and deployment statuses.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments? Deployments { get; set; }
+        /// <summary>The level of permission to grant the access token for discussions and related comments and labels.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_discussions? Discussions { get; set; }
         /// <summary>The level of permission to grant the access token to manage the email addresses belonging to a user.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses? EmailAddresses { get; set; }
         /// <summary>The level of permission to grant the access token for organization custom properties management at the enterprise level.</summary>
@@ -49,6 +53,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_issues? Issues { get; set; }
         /// <summary>The level of permission to grant the access token for organization teams and members.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_members? Members { get; set; }
+        /// <summary>The level of permission to grant the access token to manage the merge queues for a repository.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_merge_queues? MergeQueues { get; set; }
         /// <summary>The level of permission to grant the access token to search repositories, list collaborators, and access repository metadata.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata? Metadata { get; set; }
         /// <summary>The level of permission to grant the access token to manage access to an organization.</summary>
@@ -142,12 +148,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "actions", n => { Actions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>(); } },
                 { "administration", n => { Administration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>(); } },
+                { "attestations", n => { Attestations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations>(); } },
                 { "checks", n => { Checks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>(); } },
                 { "codespaces", n => { Codespaces = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>(); } },
                 { "contents", n => { Contents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents>(); } },
                 { "custom_properties_for_organizations", n => { CustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations>(); } },
                 { "dependabot_secrets", n => { DependabotSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets>(); } },
                 { "deployments", n => { Deployments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments>(); } },
+                { "discussions", n => { Discussions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_discussions>(); } },
                 { "email_addresses", n => { EmailAddresses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses>(); } },
                 { "enterprise_custom_properties_for_organizations", n => { EnterpriseCustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations>(); } },
                 { "environments", n => { Environments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments>(); } },
@@ -157,6 +165,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "interaction_limits", n => { InteractionLimits = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_interaction_limits>(); } },
                 { "issues", n => { Issues = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_issues>(); } },
                 { "members", n => { Members = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_members>(); } },
+                { "merge_queues", n => { MergeQueues = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_merge_queues>(); } },
                 { "metadata", n => { Metadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata>(); } },
                 { "organization_administration", n => { OrganizationAdministration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration>(); } },
                 { "organization_announcement_banners", n => { OrganizationAnnouncementBanners = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners>(); } },
@@ -201,12 +210,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>("actions", Actions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>("administration", Administration);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations>("attestations", Attestations);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>("checks", Checks);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>("codespaces", Codespaces);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents>("contents", Contents);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations>("custom_properties_for_organizations", CustomPropertiesForOrganizations);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets>("dependabot_secrets", DependabotSecrets);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments>("deployments", Deployments);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_discussions>("discussions", Discussions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses>("email_addresses", EmailAddresses);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations>("enterprise_custom_properties_for_organizations", EnterpriseCustomPropertiesForOrganizations);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments>("environments", Environments);
@@ -216,6 +227,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_interaction_limits>("interaction_limits", InteractionLimits);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_issues>("issues", Issues);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_members>("members", Members);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_merge_queues>("merge_queues", MergeQueues);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration>("organization_administration", OrganizationAdministration);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners>("organization_announcement_banners", OrganizationAnnouncementBanners);
