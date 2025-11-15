@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MetadataRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The deploymentRecord property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordRequestBuilder DeploymentRecord
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The storageRecord property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordRequestBuilder StorageRecord
         {

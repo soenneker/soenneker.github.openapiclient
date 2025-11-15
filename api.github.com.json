@@ -13248,6 +13248,349 @@
         }
       }
     },
+    "/orgs/{org}/artifacts/metadata/deployment-record": {
+      "post": {
+        "summary": "Create an artifact deployment record",
+        "description": "Create or update deployment records for an artifact associated with an organization.\nThis endpoint allows you to record information about a specific artifact, such as its name, digest, environments, cluster, and deployment.",
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "orgs/create-artifact-deployment-record",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#create-an-artifact-deployment-record"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the artifact.",
+                    "minLength": 1,
+                    "example": "libfoo"
+                  },
+                  "digest": {
+                    "type": "string",
+                    "description": "The hex encoded digest of the artifact.",
+                    "minLength": 71,
+                    "maxLength": 71,
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "version": {
+                    "type": "string",
+                    "description": "The artifact version.",
+                    "minLength": 1,
+                    "maxLength": 100,
+                    "x-multi-segment": true,
+                    "example": "1.2.3"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "The status of the artifact. Can be either deployed or decommissioned.",
+                    "enum": [
+                      "deployed",
+                      "decommissioned"
+                    ]
+                  },
+                  "logical_environment": {
+                    "type": "string",
+                    "description": "The stage of the deployment."
+                  },
+                  "physical_environment": {
+                    "type": "string",
+                    "description": "The physical region of the deployment."
+                  },
+                  "cluster": {
+                    "type": "string",
+                    "description": "The deployment cluster."
+                  },
+                  "deployment_name": {
+                    "type": "string",
+                    "description": "The name of the deployment."
+                  },
+                  "tags": {
+                    "type": "object",
+                    "description": "The tags associated with the deployment.",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "maxProperties": 5
+                  },
+                  "runtime_risks": {
+                    "type": "array",
+                    "description": "A list of runtime risks associated with the deployment.",
+                    "maxItems": 4,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "critical-resource",
+                        "internet-exposed",
+                        "lateral-movement",
+                        "sensitive-data"
+                      ]
+                    }
+                  },
+                  "github_repository": {
+                    "type": "string",
+                    "description": "The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.\n\nIf a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.",
+                    "minLength": 1,
+                    "maxLength": 100,
+                    "pattern": "^[A-Za-z0-9.\\-_]+$",
+                    "example": "my-github-repo"
+                  }
+                },
+                "required": [
+                  "name",
+                  "digest",
+                  "status",
+                  "logical_environment",
+                  "deployment_name"
+                ]
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "awesome-image",
+                    "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                    "status": "deployed",
+                    "logical_environment": "prod",
+                    "physical_environment": "pacific-east",
+                    "cluster": "moda-1",
+                    "deployment_name": "deployment-pod",
+                    "tags": {
+                      "data-access": "sensitive"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Artifact deployment record stored successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "description": "The number of deployment records created",
+                      "type": "integer"
+                    },
+                    "deployment_records": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/artifact-deployment-record"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/artifact-deployment-record-list"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "artifact-metadata"
+        }
+      }
+    },
+    "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}": {
+      "post": {
+        "summary": "Set cluster deployment records",
+        "description": "Set deployment records for a given cluster.",
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "orgs/set-cluster-deployment-records",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#set-cluster-deployment-records"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "description": "The cluster name.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[a-zA-Z0-9._-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "logical_environment": {
+                    "type": "string",
+                    "description": "The stage of the deployment."
+                  },
+                  "physical_environment": {
+                    "type": "string",
+                    "description": "The physical region of the deployment."
+                  },
+                  "deployments": {
+                    "type": "array",
+                    "description": "The list of deployments to record.",
+                    "items": {
+                      "type": "object",
+                      "maxLength": 100,
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the artifact.",
+                          "minLength": 1,
+                          "maxLength": 255
+                        },
+                        "digest": {
+                          "type": "string",
+                          "description": "The hex encoded digest of the artifact.",
+                          "minLength": 71,
+                          "maxLength": 71,
+                          "pattern": "^sha256:[a-f0-9]{64}$"
+                        },
+                        "version": {
+                          "type": "string",
+                          "description": "The artifact version.",
+                          "minLength": 1,
+                          "maxLength": 100,
+                          "x-multi-segment": true,
+                          "example": "1.2.3"
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "The deployment status of the artifact.",
+                          "enum": [
+                            "deployed",
+                            "decommissioned"
+                          ]
+                        },
+                        "deployment_name": {
+                          "type": "string",
+                          "description": "The name of the deployment.",
+                          "minLength": 1,
+                          "maxLength": 128
+                        },
+                        "github_repository": {
+                          "type": "string",
+                          "description": "The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.\n\nIf a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.",
+                          "minLength": 1,
+                          "maxLength": 100,
+                          "pattern": "^[A-Za-z0-9.\\-_]+$",
+                          "example": "my-github-repo"
+                        },
+                        "tags": {
+                          "type": "object",
+                          "description": "Key-value pairs to tag the deployment record.",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "runtime_risks": {
+                          "type": "array",
+                          "description": "A list of runtime risks associated with the deployment.",
+                          "maxItems": 4,
+                          "uniqueItems": true,
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "critical-resource",
+                              "internet-exposed",
+                              "lateral-movement",
+                              "sensitive-data"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "awesome-image",
+                    "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                    "version": "2.1.0",
+                    "status": "deployed",
+                    "logical_environment": "prod",
+                    "physical_environment": "pacific-east",
+                    "cluster": "moda-1",
+                    "deployment_name": "deployment-pod",
+                    "tags": {
+                      "runtime-risk": "sensitive-data"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Artifact deployment record stored successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "description": "The number of deployment records created",
+                      "type": "integer"
+                    },
+                    "deployment_records": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/artifact-deployment-record"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/artifact-deployment-record-list"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "artifact-metadata"
+        }
+      }
+    },
     "/orgs/{org}/artifacts/metadata/storage-record": {
       "post": {
         "summary": "Create artifact metadata storage record",
@@ -13430,6 +13773,64 @@
                         }
                       ]
                     }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "artifact-metadata"
+        }
+      }
+    },
+    "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records": {
+      "get": {
+        "summary": "List artifact deployment records",
+        "description": "List deployment records for an artifact metadata associated with an organization.",
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "orgs/list-artifact-deployment-records",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#list-artifact-deployment-records"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/subject-digest"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "description": "The number of deployment records for this digest and organization",
+                      "example": 3,
+                      "type": "integer"
+                    },
+                    "deployment_records": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/artifact-deployment-record"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/artifact-deployment-record-list"
                   }
                 }
               }
@@ -110600,6 +111001,63 @@
           "visibility"
         ]
       },
+      "artifact-deployment-record": {
+        "title": "Artifact Deployment Record",
+        "description": "Artifact Metadata Deployment Record",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "digest": {
+            "type": "string"
+          },
+          "logical_environment": {
+            "type": "string"
+          },
+          "physical_environment": {
+            "type": "string"
+          },
+          "cluster": {
+            "type": "string"
+          },
+          "deployment_name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "runtime_risks": {
+            "type": "array",
+            "description": "A list of runtime risks associated with the deployment.",
+            "maxItems": 4,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "critical-resource",
+                "internet-exposed",
+                "lateral-movement",
+                "sensitive-data"
+              ]
+            }
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "attestation_id": {
+            "type": "integer",
+            "description": "The ID of the provenance attestation associated with the deployment record.",
+            "nullable": true
+          }
+        }
+      },
       "campaign-state": {
         "title": "Campaign state",
         "description": "Indicates whether a campaign is open or closed",
@@ -115264,10 +115722,8 @@
           "allowed_values": {
             "type": "array",
             "items": {
-              "type": "string",
-              "maxLength": 75
+              "type": "string"
             },
-            "maxItems": 200,
             "nullable": true,
             "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
           },
@@ -115330,10 +115786,8 @@
           "allowed_values": {
             "type": "array",
             "items": {
-              "type": "string",
-              "maxLength": 75
+              "type": "string"
             },
-            "maxItems": 200,
             "nullable": true,
             "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
           },
@@ -124618,6 +125072,7 @@
         "type": "string",
         "description": "The language targeted by the CodeQL query",
         "enum": [
+          "actions",
           "cpp",
           "csharp",
           "go",
@@ -282950,6 +283405,27 @@
           "selected_repositories_url": "https://api.github.com/orgs/octo-org/actions/variables/USERNAME/repositories"
         }
       },
+      "artifact-deployment-record-list": {
+        "value": {
+          "total_count": 1,
+          "deployment_records": [
+            {
+              "id": 123,
+              "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+              "logical_environment": "prod",
+              "physical_environment": "pacific-east",
+              "cluster": "moda-1",
+              "deployment_name": "prod-deployment",
+              "tags": {
+                "data": "sensitive"
+              },
+              "created": "2011-01-26T19:14:43Z",
+              "updated_at": "2011-01-26T19:14:43Z",
+              "attestation_id": 456
+            }
+          ]
+        }
+      },
       "bulk-subject-digest-body": {
         "value": {
           "subject_digests": [
@@ -306681,16 +307157,14 @@
       "ssh-signing-key-items": {
         "value": [
           {
-            "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234",
             "id": 2,
-            "url": "https://api.github.com/user/keys/2",
+            "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234",
             "title": "ssh-rsa AAAAB3NzaC1yc2EAAA",
             "created_at": "2020-06-11T21:31:57Z"
           },
           {
-            "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJy931234",
             "id": 3,
-            "url": "https://api.github.com/user/keys/3",
+            "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJy931234",
             "title": "ssh-rsa AAAAB3NzaC1yc2EAAB",
             "created_at": "2020-07-11T21:31:57Z"
           }
@@ -306698,9 +307172,8 @@
       },
       "ssh-signing-key": {
         "value": {
-          "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234",
           "id": 2,
-          "url": "https://api.github.com/user/keys/2",
+          "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234",
           "title": "ssh-rsa AAAAB3NzaC1yc2EAAA",
           "created_at": "2020-06-11T21:31:57Z"
         }
@@ -309616,6 +310089,18 @@
         "required": true,
         "schema": {
           "type": "string"
+        }
+      },
+      "subject-digest": {
+        "name": "subject_digest",
+        "description": "The SHA256 digest of the artifact, in the form `sha256:HEX_DIGEST`.",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 71,
+          "maxLength": 71,
+          "pattern": "^sha256:[a-f0-9]{64}$"
         }
       },
       "tool-name": {

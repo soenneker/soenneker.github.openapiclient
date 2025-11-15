@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.MetadataRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.artifacts.item collection</summary>
-        /// <param name="position">The parameter should be set to the attestation&apos;s subject&apos;s SHA256 digest, in the form `sha256:HEX_DIGEST`.</param>
+        /// <param name="position">The SHA256 digest of the artifact, in the form `sha256:HEX_DIGEST`.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubject_digestItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubject_digestItemRequestBuilder this[string position]
         {

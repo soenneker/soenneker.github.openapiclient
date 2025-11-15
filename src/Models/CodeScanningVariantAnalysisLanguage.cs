@@ -7,6 +7,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CodeScanningVariantAnalysisLanguage
     {
+        [EnumMember(Value = "actions")]
+        #pragma warning disable CS1591
+        Actions,
+        #pragma warning restore CS1591
         [EnumMember(Value = "cpp")]
         #pragma warning disable CS1591
         Cpp,
