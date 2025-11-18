@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summa
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets a summary report of usage for a user.**Note:** Only data from the past 24 months is accessible via this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-for-a-user" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/usage#get-billing-usage-summary-for-a-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

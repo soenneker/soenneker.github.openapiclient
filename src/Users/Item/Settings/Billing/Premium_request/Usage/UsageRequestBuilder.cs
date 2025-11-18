@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_req
         }
         /// <summary>
         /// Gets a report of premium request usage for a user.**Note:** Only data from the past 24 months is accessible via this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-a-user" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/usage#get-billing-premium-request-usage-report-for-a-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingPremiumRequestUsageReportUser"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

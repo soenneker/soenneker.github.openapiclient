@@ -2,10 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Actions;
-using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Packages;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request;
-using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.SharedStorage;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage;
 using System.Collections.Generic;
 using System.IO;
@@ -19,25 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BillingRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The actions property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Actions.ActionsRequestBuilder Actions
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The packages property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Packages.PackagesRequestBuilder Packages
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Packages.PackagesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The premium_request property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder Premium_request
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The sharedStorage property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.SharedStorage.SharedStorageRequestBuilder SharedStorage
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.SharedStorage.SharedStorageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The usage property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.UsageRequestBuilder Usage

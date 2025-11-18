@@ -7634,7 +7634,7 @@
         "operationId": "billing/get-all-budgets-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-all-budgets-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/budgets#get-all-budgets-for-an-organization"
         },
         "parameters": [
           {
@@ -7659,7 +7659,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "budgets"
         }
       }
     },
@@ -7673,7 +7673,7 @@
         "operationId": "billing/get-budget-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-a-budget-by-id-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/budgets#get-a-budget-by-id-for-an-organization"
         },
         "parameters": [
           {
@@ -7707,7 +7707,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "budgets"
         }
       },
       "patch": {
@@ -7719,7 +7719,7 @@
         "operationId": "billing/update-budget-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#update-a-budget-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/budgets#update-a-budget-for-an-organization"
         },
         "parameters": [
           {
@@ -7914,13 +7914,13 @@
                   "budget-not-found": {
                     "value": {
                       "message": "Budget with ID 550e8400-e29b-41d4-a716-446655440000 not found.",
-                      "documentation_url": "https://docs.github.com/rest/billing/enhanced-billing#update-a-budget"
+                      "documentation_url": "https://docs.github.com/rest/billing/budgets#update-a-budget"
                     }
                   },
                   "feature-not-enabled": {
                     "value": {
                       "message": "Not Found",
-                      "documentation_url": "https://docs.github.com/rest/billing/enhanced-billing#update-a-budget"
+                      "documentation_url": "https://docs.github.com/rest/billing/budgets#update-a-budget"
                     }
                   }
                 }
@@ -7941,7 +7941,7 @@
                   "server-error": {
                     "value": {
                       "message": "Unable to update budget.",
-                      "documentation_url": "https://docs.github.com/rest/billing/enhanced-billing#update-a-budget"
+                      "documentation_url": "https://docs.github.com/rest/billing/budgets#update-a-budget"
                     }
                   }
                 }
@@ -7953,7 +7953,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": false,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "budgets"
         }
       },
       "delete": {
@@ -7965,7 +7965,7 @@
         "operationId": "billing/delete-budget-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#delete-a-budget-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/budgets#delete-a-budget-for-an-organization"
         },
         "parameters": [
           {
@@ -7999,7 +7999,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "budgets"
         }
       }
     },
@@ -8013,7 +8013,7 @@
         "operationId": "billing/get-github-billing-premium-request-usage-report-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/usage#get-billing-premium-request-usage-report-for-an-organization"
         },
         "parameters": [
           {
@@ -8062,7 +8062,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "usage"
         }
       }
     },
@@ -8076,7 +8076,7 @@
         "operationId": "billing/get-github-billing-usage-report-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-report-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/usage#get-billing-usage-report-for-an-organization"
         },
         "parameters": [
           {
@@ -8113,7 +8113,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "usage"
         }
       }
     },
@@ -8127,7 +8127,7 @@
         "operationId": "billing/get-github-billing-usage-summary-report-org",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-for-an-organization"
+          "url": "https://docs.github.com/rest/billing/usage#get-billing-usage-summary-for-an-organization"
         },
         "parameters": [
           {
@@ -8173,7 +8173,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "usage"
         }
       }
     },
@@ -27134,132 +27134,6 @@
           "removalDate": "2026-01-01"
         },
         "deprecated": true
-      }
-    },
-    "/orgs/{org}/settings/billing/actions": {
-      "get": {
-        "summary": "Get GitHub Actions billing for an organization",
-        "description": "Gets the summary of the free and paid GitHub Actions minutes used.\n\nPaid minutes only apply to workflows in private repositories that use GitHub-hosted runners. Minutes used is listed for each GitHub-hosted runner operating system. Any job re-runs are also included in the usage. The usage returned includes any minute multipliers for macOS and Windows runners, and is rounded up to the nearest whole minute. For more information, see \"[Managing billing for GitHub Actions](https://docs.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)\".\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `admin:org` scope to use this endpoint.",
-        "operationId": "billing/get-github-actions-billing-org",
-        "tags": [
-          "billing"
-        ],
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/billing#get-github-actions-billing-for-an-organization"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/actions-billing-usage"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/actions-billing-usage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
-          "category": "billing",
-          "subcategory": "billing"
-        }
-      }
-    },
-    "/orgs/{org}/settings/billing/packages": {
-      "get": {
-        "summary": "Get GitHub Packages billing for an organization",
-        "description": "Gets the free and paid storage used for GitHub Packages in gigabytes.\n\nPaid minutes only apply to packages stored for private repositories. For more information, see \"[Managing billing for GitHub Packages](https://docs.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages).\"\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `admin:org` scope to use this endpoint.",
-        "operationId": "billing/get-github-packages-billing-org",
-        "tags": [
-          "billing"
-        ],
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/billing#get-github-packages-billing-for-an-organization"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/packages-billing-usage"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/packages-billing-usage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
-          "category": "billing",
-          "subcategory": "billing"
-        }
-      }
-    },
-    "/orgs/{org}/settings/billing/shared-storage": {
-      "get": {
-        "summary": "Get shared storage billing for an organization",
-        "description": "Gets the estimated paid and estimated total storage used for GitHub Actions and GitHub Packages.\n\nPaid minutes only apply to packages stored for private repositories. For more information, see \"[Managing billing for GitHub Packages](https://docs.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages).\"\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `admin:org` scope to use this endpoint.",
-        "operationId": "billing/get-shared-storage-billing-org",
-        "tags": [
-          "billing"
-        ],
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/billing#get-shared-storage-billing-for-an-organization"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/combined-billing-usage"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/combined-billing-usage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
-          "category": "billing",
-          "subcategory": "billing"
-        }
       }
     },
     "/orgs/{org}/settings/immutable-releases": {
@@ -76410,90 +76284,6 @@
         }
       }
     },
-    "/users/{username}/settings/billing/actions": {
-      "get": {
-        "summary": "Get GitHub Actions billing for a user",
-        "description": "Gets the summary of the free and paid GitHub Actions minutes used.\n\nPaid minutes only apply to workflows in private repositories that use GitHub-hosted runners. Minutes used is listed for each GitHub-hosted runner operating system. Any job re-runs are also included in the usage. The usage returned includes any minute multipliers for macOS and Windows runners, and is rounded up to the nearest whole minute. For more information, see \"[Managing billing for GitHub Actions](https://docs.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)\".\n\nOAuth app tokens and personal access tokens (classic) need the `user` scope to use this endpoint.",
-        "operationId": "billing/get-github-actions-billing-user",
-        "tags": [
-          "billing"
-        ],
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/billing#get-github-actions-billing-for-a-user"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/username"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/actions-billing-usage"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/actions-billing-usage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
-          "category": "billing",
-          "subcategory": "billing"
-        }
-      }
-    },
-    "/users/{username}/settings/billing/packages": {
-      "get": {
-        "summary": "Get GitHub Packages billing for a user",
-        "description": "Gets the free and paid storage used for GitHub Packages in gigabytes.\n\nPaid minutes only apply to packages stored for private repositories. For more information, see \"[Managing billing for GitHub Packages](https://docs.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages).\"\n\nOAuth app tokens and personal access tokens (classic) need the `user` scope to use this endpoint.",
-        "operationId": "billing/get-github-packages-billing-user",
-        "tags": [
-          "billing"
-        ],
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/billing#get-github-packages-billing-for-a-user"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/username"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/packages-billing-usage"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/packages-billing-usage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
-          "category": "billing",
-          "subcategory": "billing"
-        }
-      }
-    },
     "/users/{username}/settings/billing/premium_request/usage": {
       "get": {
         "summary": "Get billing premium request usage report for a user",
@@ -76504,7 +76294,7 @@
         "operationId": "billing/get-github-billing-premium-request-usage-report-user",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-premium-request-usage-report-for-a-user"
+          "url": "https://docs.github.com/rest/billing/usage#get-billing-premium-request-usage-report-for-a-user"
         },
         "parameters": [
           {
@@ -76550,49 +76340,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
-        }
-      }
-    },
-    "/users/{username}/settings/billing/shared-storage": {
-      "get": {
-        "summary": "Get shared storage billing for a user",
-        "description": "Gets the estimated paid and estimated total storage used for GitHub Actions and GitHub Packages.\n\nPaid minutes only apply to packages stored for private repositories. For more information, see \"[Managing billing for GitHub Packages](https://docs.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages).\"\n\nOAuth app tokens and personal access tokens (classic) need the `user` scope to use this endpoint.",
-        "operationId": "billing/get-shared-storage-billing-user",
-        "tags": [
-          "billing"
-        ],
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/billing#get-shared-storage-billing-for-a-user"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/username"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/combined-billing-usage"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/combined-billing-usage"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
-          "category": "billing",
-          "subcategory": "billing"
+          "subcategory": "usage"
         }
       }
     },
@@ -76606,7 +76354,7 @@
         "operationId": "billing/get-github-billing-usage-report-user",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-report-for-a-user"
+          "url": "https://docs.github.com/rest/billing/usage#get-billing-usage-report-for-a-user"
         },
         "parameters": [
           {
@@ -76643,7 +76391,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "usage"
         }
       }
     },
@@ -76657,7 +76405,7 @@
         "operationId": "billing/get-github-billing-usage-summary-report-user",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-summary-for-a-user"
+          "url": "https://docs.github.com/rest/billing/usage#get-billing-usage-summary-for-a-user"
         },
         "parameters": [
           {
@@ -76706,7 +76454,7 @@
           "githubCloudOnly": false,
           "enabledForGitHubApps": true,
           "category": "billing",
-          "subcategory": "enhanced-billing"
+          "subcategory": "usage"
         }
       }
     },
@@ -118160,6 +117908,25 @@
           }
         }
       },
+      "repository-rule-params-copilot-code-review-analysis-tool": {
+        "title": "CopilotCodeReviewAnalysisTool",
+        "description": "A tool that must provide code review results for this rule to pass.",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of a code review analysis tool",
+            "enum": [
+              "CodeQL",
+              "ESLint",
+              "PMD"
+            ]
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
       "repository-rule": {
         "title": "Repository Rule",
         "type": "object",
@@ -119601,138 +119368,6 @@
           "private_fork"
         ],
         "additionalProperties": false
-      },
-      "actions-billing-usage": {
-        "type": "object",
-        "properties": {
-          "total_minutes_used": {
-            "type": "integer",
-            "description": "The sum of the free and paid GitHub Actions minutes used."
-          },
-          "total_paid_minutes_used": {
-            "type": "integer",
-            "description": "The total paid GitHub Actions minutes used."
-          },
-          "included_minutes": {
-            "type": "integer",
-            "description": "The amount of free GitHub Actions minutes available."
-          },
-          "minutes_used_breakdown": {
-            "type": "object",
-            "properties": {
-              "UBUNTU": {
-                "type": "integer",
-                "description": "Total minutes used on Ubuntu runner machines."
-              },
-              "MACOS": {
-                "type": "integer",
-                "description": "Total minutes used on macOS runner machines."
-              },
-              "WINDOWS": {
-                "type": "integer",
-                "description": "Total minutes used on Windows runner machines."
-              },
-              "ubuntu_4_core": {
-                "type": "integer",
-                "description": "Total minutes used on Ubuntu 4 core runner machines."
-              },
-              "ubuntu_8_core": {
-                "type": "integer",
-                "description": "Total minutes used on Ubuntu 8 core runner machines."
-              },
-              "ubuntu_16_core": {
-                "type": "integer",
-                "description": "Total minutes used on Ubuntu 16 core runner machines."
-              },
-              "ubuntu_32_core": {
-                "type": "integer",
-                "description": "Total minutes used on Ubuntu 32 core runner machines."
-              },
-              "ubuntu_64_core": {
-                "type": "integer",
-                "description": "Total minutes used on Ubuntu 64 core runner machines."
-              },
-              "windows_4_core": {
-                "type": "integer",
-                "description": "Total minutes used on Windows 4 core runner machines."
-              },
-              "windows_8_core": {
-                "type": "integer",
-                "description": "Total minutes used on Windows 8 core runner machines."
-              },
-              "windows_16_core": {
-                "type": "integer",
-                "description": "Total minutes used on Windows 16 core runner machines."
-              },
-              "windows_32_core": {
-                "type": "integer",
-                "description": "Total minutes used on Windows 32 core runner machines."
-              },
-              "windows_64_core": {
-                "type": "integer",
-                "description": "Total minutes used on Windows 64 core runner machines."
-              },
-              "macos_12_core": {
-                "type": "integer",
-                "description": "Total minutes used on macOS 12 core runner machines."
-              },
-              "total": {
-                "type": "integer",
-                "description": "Total minutes used on all runner machines."
-              }
-            }
-          }
-        },
-        "required": [
-          "total_minutes_used",
-          "total_paid_minutes_used",
-          "included_minutes",
-          "minutes_used_breakdown"
-        ]
-      },
-      "packages-billing-usage": {
-        "type": "object",
-        "properties": {
-          "total_gigabytes_bandwidth_used": {
-            "type": "integer",
-            "description": "Sum of the free and paid storage space (GB) for GitHuub Packages."
-          },
-          "total_paid_gigabytes_bandwidth_used": {
-            "type": "integer",
-            "description": "Total paid storage space (GB) for GitHuub Packages."
-          },
-          "included_gigabytes_bandwidth": {
-            "type": "integer",
-            "description": "Free storage space (GB) for GitHub Packages."
-          }
-        },
-        "required": [
-          "total_gigabytes_bandwidth_used",
-          "total_paid_gigabytes_bandwidth_used",
-          "included_gigabytes_bandwidth"
-        ]
-      },
-      "combined-billing-usage": {
-        "type": "object",
-        "properties": {
-          "days_left_in_billing_cycle": {
-            "type": "integer",
-            "description": "Numbers of days left in billing cycle."
-          },
-          "estimated_paid_storage_for_month": {
-            "type": "integer",
-            "description": "Estimated storage space (GB) used in billing cycle."
-          },
-          "estimated_storage_for_month": {
-            "type": "integer",
-            "description": "Estimated sum of free and paid storage space (GB) used in billing cycle."
-          }
-        },
-        "required": [
-          "days_left_in_billing_cycle",
-          "estimated_paid_storage_for_month",
-          "estimated_storage_for_month"
-        ]
       },
       "immutable-releases-organization-settings": {
         "title": "Check immutable releases organization settings",
@@ -289221,32 +288856,6 @@
             }
           }
         ]
-      },
-      "actions-billing-usage": {
-        "value": {
-          "total_minutes_used": 305,
-          "total_paid_minutes_used": 0,
-          "included_minutes": 3000,
-          "minutes_used_breakdown": {
-            "UBUNTU": 205,
-            "MACOS": 10,
-            "WINDOWS": 90
-          }
-        }
-      },
-      "packages-billing-usage": {
-        "value": {
-          "total_gigabytes_bandwidth_used": 50,
-          "total_paid_gigabytes_bandwidth_used": 40,
-          "included_gigabytes_bandwidth": 10
-        }
-      },
-      "combined-billing-usage": {
-        "value": {
-          "days_left_in_billing_cycle": 20,
-          "estimated_paid_storage_for_month": 15,
-          "estimated_storage_for_month": 40
-        }
       },
       "network-configurations-paginated": {
         "value": {

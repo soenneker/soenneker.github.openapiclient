@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Deletes a budget by ID for an organization. The authenticated user must be an organization admin or billing manager.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#delete-a-budget-for-an-organization" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/budgets#delete-a-budget-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeleteBudget"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets a budget by ID. The authenticated user must be an organization admin or billing manager.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-a-budget-by-id-for-an-organization" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/budgets#get-a-budget-by-id-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetBudget"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Updates an existing budget for an organization. The authenticated user must be an organization admin or billing manager.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#update-a-budget-for-an-organization" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/budgets#update-a-budget-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_PatchResponse"/></returns>
         /// <param name="body">The request body</param>

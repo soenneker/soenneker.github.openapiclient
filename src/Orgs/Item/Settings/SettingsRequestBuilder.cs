@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.Billing;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkSettings;
@@ -18,11 +17,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SettingsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The billing property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.Billing.BillingRequestBuilder Billing
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.Billing.BillingRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The immutableReleases property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesRequestBuilder ImmutableReleases
         {

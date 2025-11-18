@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-all-budgets-for-an-organization" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/budgets#get-all-budgets-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Get_all_budgets"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>

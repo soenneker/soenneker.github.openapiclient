@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage
         }
         /// <summary>
         /// Gets a report of the total usage for a user.**Note:** This endpoint is only available to users with access to the enhanced billing platform.
-        /// API method documentation <see href="https://docs.github.com/rest/billing/enhanced-billing#get-billing-usage-report-for-a-user" />
+        /// API method documentation <see href="https://docs.github.com/rest/billing/usage#get-billing-usage-report-for-a-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
