@@ -15,6 +15,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The username of the user to assign to the alert. Set to `null` to unassign the alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Assignee { get; set; }
+#nullable restore
+#else
+        public string Assignee { get; set; }
+#endif
         /// <summary>**Required when the `state` is `resolved`.** The reason for resolving the alert.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? Resolution { get; set; }
         /// <summary>An optional comment when closing or reopening an alert. Cannot be updated or deleted.</summary>
@@ -52,6 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assignee", n => { Assignee = n.GetStringValue(); } },
                 { "resolution", n => { Resolution = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution>(); } },
                 { "resolution_comment", n => { ResolutionComment = n.GetStringValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>(); } },
@@ -64,6 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.I
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("assignee", Assignee);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution>("resolution", Resolution);
             writer.WriteStringValue("resolution_comment", ResolutionComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>("state", State);

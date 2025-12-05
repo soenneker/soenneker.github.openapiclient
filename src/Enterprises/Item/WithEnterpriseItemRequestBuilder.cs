@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithEnterpriseItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The actions property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.ActionsRequestBuilder Actions
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The codeSecurity property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.CodeSecurityRequestBuilder CodeSecurity
         {

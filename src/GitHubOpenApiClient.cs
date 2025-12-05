@@ -34,7 +34,6 @@ using Soenneker.GitHub.OpenApiClient.Notifications;
 using Soenneker.GitHub.OpenApiClient.Octocat;
 using Soenneker.GitHub.OpenApiClient.Organizations;
 using Soenneker.GitHub.OpenApiClient.Orgs;
-using Soenneker.GitHub.OpenApiClient.Projects;
 using Soenneker.GitHub.OpenApiClient.Rate_limit;
 using Soenneker.GitHub.OpenApiClient.Repos;
 using Soenneker.GitHub.OpenApiClient.Repositories;
@@ -186,11 +185,6 @@ namespace Soenneker.GitHub.OpenApiClient
         public global::Soenneker.GitHub.OpenApiClient.Orgs.OrgsRequestBuilder Orgs
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.OrgsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The rate_limit property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Rate_limit.Rate_limitRequestBuilder Rate_limit

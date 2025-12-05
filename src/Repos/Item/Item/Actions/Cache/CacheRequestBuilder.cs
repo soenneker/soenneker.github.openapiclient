@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.RetentionLimit;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.StorageLimit;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.Usage;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +17,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CacheRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The retentionLimit property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.RetentionLimit.RetentionLimitRequestBuilder RetentionLimit
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.RetentionLimit.RetentionLimitRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The storageLimit property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.StorageLimit.StorageLimitRequestBuilder StorageLimit
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.StorageLimit.StorageLimitRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The usage property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache.Usage.UsageRequestBuilder Usage
         {

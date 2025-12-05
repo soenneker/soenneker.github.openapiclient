@@ -19,6 +19,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The level of permission to grant the access token for repository creation, deletion, settings, teams, and collaborators creation.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration? Administration { get; set; }
+        /// <summary>The level of permission to grant the access token to create and retrieve build artifact metadata records.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_artifact_metadata? ArtifactMetadata { get; set; }
         /// <summary>The level of permission to create and retrieve the access token for repository attestations.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations? Attestations { get; set; }
         /// <summary>The level of permission to grant the access token for checks on code.</summary>
@@ -148,6 +150,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "actions", n => { Actions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>(); } },
                 { "administration", n => { Administration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>(); } },
+                { "artifact_metadata", n => { ArtifactMetadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_artifact_metadata>(); } },
                 { "attestations", n => { Attestations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations>(); } },
                 { "checks", n => { Checks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>(); } },
                 { "codespaces", n => { Codespaces = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>(); } },
@@ -210,6 +213,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>("actions", Actions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>("administration", Administration);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_artifact_metadata>("artifact_metadata", ArtifactMetadata);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations>("attestations", Attestations);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>("checks", Checks);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>("codespaces", Codespaces);

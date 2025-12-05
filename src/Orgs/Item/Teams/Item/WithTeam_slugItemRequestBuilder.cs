@@ -8,7 +8,6 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Discussions;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Invitations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships;
-using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Projects;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Teams;
 using System.Collections.Generic;
@@ -43,11 +42,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships.MembershipsRequestBuilder Memberships
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships.MembershipsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The repos property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.ReposRequestBuilder Repos

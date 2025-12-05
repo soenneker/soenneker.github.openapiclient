@@ -7,39 +7,32 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
+    /// <summary>
+    /// GitHub Actions cache retention policy for a repository.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Get_all_budgets : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class ActionsCacheRetentionLimitForRepository : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Array of budget objects for the enterprise</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget>? Budgets { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget> Budgets { get; set; }
-#endif
-        /// <summary>Indicates if there are more pages of results available (maps to hasNextPage from billing platform)</summary>
-        public bool? HasNextPage { get; set; }
+        /// <summary>The maximum number of days to keep caches in this repository.</summary>
+        public int? MaxCacheRetentionDays { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Get_all_budgets"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForRepository"/> and sets the default values.
         /// </summary>
-        public Get_all_budgets()
+        public ActionsCacheRetentionLimitForRepository()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Get_all_budgets"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForRepository"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.Get_all_budgets CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForRepository CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.Get_all_budgets();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForRepository();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "budgets", n => { Budgets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>(global::Soenneker.GitHub.OpenApiClient.Models.Budget.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "has_next_page", n => { HasNextPage = n.GetBoolValue(); } },
+                { "max_cache_retention_days", n => { MaxCacheRetentionDays = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -60,8 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>("budgets", Budgets);
-            writer.WriteBoolValue("has_next_page", HasNextPage);
+            writer.WriteIntValue("max_cache_retention_days", MaxCacheRetentionDays);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

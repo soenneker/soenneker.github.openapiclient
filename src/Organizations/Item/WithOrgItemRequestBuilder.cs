@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.OrgProperties;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithOrgItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The actions property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.ActionsRequestBuilder Actions
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The dependabot property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.DependabotRequestBuilder Dependabot
         {

@@ -105,10 +105,6 @@
       "description": "Manage packages for authenticated users and organizations."
     },
     {
-      "name": "projects-classic",
-      "description": "Interact with GitHub Projects (classic)."
-    },
-    {
       "name": "pulls",
       "description": "Interact with GitHub Pull Requests."
     },
@@ -2154,6 +2150,206 @@
           "enabledForGitHubApps": true,
           "category": "emojis",
           "subcategory": "emojis"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/actions/cache/retention-limit": {
+      "get": {
+        "summary": "Get GitHub Actions cache retention limit for an enterprise",
+        "description": "Gets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-actions-cache-retention-limit-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-retention-limit-for-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/actions-cache-retention-limit-for-enterprise"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-cache-retention-limit"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      },
+      "put": {
+        "summary": "Set GitHub Actions cache retention limit for an enterprise",
+        "description": "Sets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/set-actions-cache-retention-limit-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-retention-limit-for-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/actions-cache-retention-limit-for-enterprise"
+              },
+              "examples": {
+                "selected_actions": {
+                  "$ref": "#/components/examples/actions-cache-retention-limit"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/actions/cache/storage-limit": {
+      "get": {
+        "summary": "Get GitHub Actions cache storage limit for an enterprise",
+        "description": "Gets GitHub Actions cache storage limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-actions-cache-storage-limit-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-storage-limit-for-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/actions-cache-storage-limit-for-enterprise"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-cache-storage-limit"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      },
+      "put": {
+        "summary": "Set GitHub Actions cache storage limit for an enterprise",
+        "description": "Sets GitHub Actions cache storage limit for an enterprise. All organizations and repositories under this\nenterprise may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/set-actions-cache-storage-limit-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-storage-limit-for-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/actions-cache-storage-limit-for-enterprise"
+              },
+              "examples": {
+                "selected_actions": {
+                  "$ref": "#/components/examples/actions-cache-storage-limit"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
         }
       }
     },
@@ -7279,6 +7475,206 @@
         }
       }
     },
+    "/organizations/{org}/actions/cache/retention-limit": {
+      "get": {
+        "summary": "Get GitHub Actions cache retention limit for an organization",
+        "description": "Gets GitHub Actions cache retention limit for an organization. All repositories under this\norganization may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:organization` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-actions-cache-retention-limit-for-organization",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-retention-limit-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/actions-cache-retention-limit-for-organization"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-cache-retention-limit"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      },
+      "put": {
+        "summary": "Set GitHub Actions cache retention limit for an organization",
+        "description": "Sets GitHub Actions cache retention limit for an organization. All repositories under this\norganization may not set a higher cache retention limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:organization` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/set-actions-cache-retention-limit-for-organization",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-retention-limit-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/actions-cache-retention-limit-for-organization"
+              },
+              "examples": {
+                "selected_actions": {
+                  "$ref": "#/components/examples/actions-cache-retention-limit"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      }
+    },
+    "/organizations/{org}/actions/cache/storage-limit": {
+      "get": {
+        "summary": "Get GitHub Actions cache storage limit for an organization",
+        "description": "Gets GitHub Actions cache storage limit for an organization. All repositories under this\norganization may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:organization` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-actions-cache-storage-limit-for-organization",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-storage-limit-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/actions-cache-storage-limit-for-organization"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-cache-storage-limit"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      },
+      "put": {
+        "summary": "Set GitHub Actions cache storage limit for an organization",
+        "description": "Sets GitHub Actions cache storage limit for an organization. All organizations and repositories under this\norganization may not set a higher cache storage limit.\n\nOAuth tokens and personal access tokens (classic) need the `admin:organization` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/set-actions-cache-storage-limit-for-organization",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-storage-limit-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/actions-cache-storage-limit-for-organization"
+              },
+              "examples": {
+                "selected_actions": {
+                  "$ref": "#/components/examples/actions-cache-storage-limit"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      }
+    },
     "/organizations/{org}/dependabot/repository-access": {
       "get": {
         "summary": "Lists the repositories Dependabot can access in an organization",
@@ -7639,6 +8035,35 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "name": "page_size",
+            "description": "The number of results per page (max 10).",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "scope",
+            "description": "Filter budgets by scope type.",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "enterprise",
+                "organization",
+                "repository",
+                "cost-center"
+              ]
+            }
           }
         ],
         "responses": {
@@ -7885,10 +8310,7 @@
                 },
                 "examples": {
                   "update-budget": {
-                    "value": {
-                      "message": "Budget successfully updated.",
-                      "id": "550e8400-e29b-41d4-a716-446655440000"
-                    }
+                    "$ref": "#/components/examples/update-budget"
                   }
                 }
               }
@@ -24427,6 +24849,203 @@
           "category": "projects",
           "subcategory": "fields"
         }
+      },
+      "post": {
+        "summary": "Add a field to an organization-owned project.",
+        "description": "Add a field to an organization-owned project.",
+        "tags": [
+          "projects"
+        ],
+        "operationId": "projects/add-field-for-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#add-a-field-to-an-organization-owned-project"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/project-number"
+          },
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "issue_field_id": {
+                        "type": "integer",
+                        "description": "The ID of the IssueField to create the field for."
+                      }
+                    },
+                    "required": [
+                      "issue_field_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                      },
+                      "data_type": {
+                        "type": "string",
+                        "description": "The field's data type.",
+                        "enum": [
+                          "text",
+                          "number",
+                          "date"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "data_type"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                      },
+                      "data_type": {
+                        "type": "string",
+                        "description": "The field's data type.",
+                        "enum": [
+                          "single_select"
+                        ]
+                      },
+                      "single_select_options": {
+                        "type": "array",
+                        "description": "The options available for single select fields. At least one option must be provided when creating a single select field.",
+                        "items": {
+                          "$ref": "#/components/schemas/projects-v2-field-single-select-option"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "data_type",
+                      "single_select_options"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                      },
+                      "data_type": {
+                        "type": "string",
+                        "description": "The field's data type.",
+                        "enum": [
+                          "iteration"
+                        ]
+                      },
+                      "iteration_configuration": {
+                        "$ref": "#/components/schemas/projects-v2-field-iteration-configuration"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "data_type",
+                      "iteration_configuration"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "examples": {
+                "text_field": {
+                  "summary": "Create a text field",
+                  "value": {
+                    "name": "Team notes",
+                    "data_type": "text"
+                  }
+                },
+                "number_field": {
+                  "summary": "Create a number field",
+                  "value": {
+                    "name": "Story points",
+                    "data_type": "number"
+                  }
+                },
+                "date_field": {
+                  "summary": "Create a date field",
+                  "value": {
+                    "name": "Due date",
+                    "data_type": "date"
+                  }
+                },
+                "single_select_field": {
+                  "$ref": "#/components/examples/projects-v2-field-single-select-request"
+                },
+                "iteration_field": {
+                  "$ref": "#/components/examples/projects-v2-field-iteration-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response for adding a field to an organization-owned project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-field"
+                },
+                "examples": {
+                  "text_field": {
+                    "$ref": "#/components/examples/projects-v2-field-text"
+                  },
+                  "number_field": {
+                    "$ref": "#/components/examples/projects-v2-field-number"
+                  },
+                  "date_field": {
+                    "$ref": "#/components/examples/projects-v2-field-date"
+                  },
+                  "single_select_field": {
+                    "$ref": "#/components/examples/projects-v2-field-single-select"
+                  },
+                  "iteration_field": {
+                    "$ref": "#/components/examples/projects-v2-field-iteration"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
       }
     },
     "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}": {
@@ -26650,6 +27269,9 @@
           },
           {
             "$ref": "#/components/parameters/secret-scanning-alert-resolution"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-alert-assignee"
           },
           {
             "$ref": "#/components/parameters/secret-scanning-alert-sort"
@@ -29639,252 +30261,6 @@
         }
       }
     },
-    "/orgs/{org}/teams/{team_slug}/projects": {
-      "get": {
-        "summary": "List team projects",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/list-projects-in-org",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#list-team-projects"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          },
-          {
-            "$ref": "#/components/parameters/team-slug"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/team-project"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/team-project-items"
-                  }
-                }
-              }
-            },
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "teams",
-          "subcategory": "teams",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/orgs/{org}/teams/{team_slug}/projects/{project_id}": {
-      "get": {
-        "summary": "Check team permissions for a project",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/check-permissions-for-project-in-org",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#check-team-permissions-for-a-project"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          },
-          {
-            "$ref": "#/components/parameters/team-slug"
-          },
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/team-project"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/team-project"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found if project is not managed by this team"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "teams",
-          "subcategory": "teams",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "put": {
-        "summary": "Add or update team project permissions",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/add-or-update-project-permissions-in-org",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#add-or-update-team-project-permissions"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          },
-          {
-            "$ref": "#/components/parameters/team-slug"
-          },
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "permission": {
-                    "type": "string",
-                    "description": "The permission to grant to the team for this project. Default: the team's `permission` attribute will be used to determine what permission to grant the team on this project. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling this endpoint. For more information, see \"[HTTP method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method).\"",
-                    "enum": [
-                      "read",
-                      "write",
-                      "admin"
-                    ]
-                  }
-                },
-                "nullable": true
-              },
-              "examples": {
-                "default": {
-                  "summary": "Updates the permissions for the team to write for the project",
-                  "value": {
-                    "permission": "write"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "403": {
-            "description": "Forbidden if the project is not owned by the organization",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "documentation_url": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "examples": {
-                  "response-if-the-project-is-not-owned-by-the-organization": {
-                    "value": {
-                      "message": "Must have admin rights to Repository.",
-                      "documentation_url": "https://docs.github.com/rest/teams/teams#add-or-update-team-project-permissions"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "teams",
-          "subcategory": "teams",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "delete": {
-        "summary": "Remove a project from a team",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/remove-project-in-org",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#remove-a-project-from-a-team"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          },
-          {
-            "$ref": "#/components/parameters/team-slug"
-          },
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "teams",
-          "subcategory": "teams",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
     "/orgs/{org}/teams/{team_slug}/repos": {
       "get": {
         "summary": "List team repositories",
@@ -30221,555 +30597,6 @@
           "subcategory": "orgs",
           "deprecationDate": "2024-07-22",
           "removalDate": "2025-07-22"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/columns/{column_id}": {
-      "get": {
-        "summary": "Get a project column",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/get-column",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/columns#get-a-project-column"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/column-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-column"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-column"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "columns",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "patch": {
-        "summary": "Update an existing project column",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/update-column",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/columns#update-an-existing-project-column"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/column-id"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "description": "Name of the project column",
-                    "example": "Remaining tasks",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "type": "object"
-              },
-              "examples": {
-                "default": {
-                  "summary": "Rename the project column",
-                  "value": {
-                    "name": "To Do"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-column"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-column"
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "columns",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "delete": {
-        "summary": "Delete a project column",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/delete-column",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/columns#delete-a-project-column"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/column-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "columns",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/columns/{column_id}/moves": {
-      "post": {
-        "summary": "Move a project column",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/move-column",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/columns#move-a-project-column"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/column-id"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "position": {
-                    "description": "The position of the column in a project. Can be one of: `first`, `last`, or `after:<column_id>` to place after the specified column.",
-                    "example": "last",
-                    "type": "string",
-                    "pattern": "^(?:first|last|after:\\d+)$"
-                  }
-                },
-                "required": [
-                  "position"
-                ],
-                "type": "object"
-              },
-              "examples": {
-                "default": {
-                  "summary": "Move the column to the end of the board",
-                  "value": {
-                    "position": "last"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "additionalProperties": false
-                },
-                "examples": {
-                  "default": {
-                    "value": null
-                  }
-                }
-              }
-            }
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed_simple"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "columns",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/{project_id}/collaborators": {
-      "get": {
-        "summary": "List project collaborators",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/list-collaborators",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/collaborators#list-project-collaborators"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-id"
-          },
-          {
-            "name": "affiliation",
-            "description": "Filters the collaborators by their affiliation. `outside` means outside collaborators of a project that are not a member of the project's organization. `direct` means collaborators with permissions to a project, regardless of organization membership status. `all` means all collaborators the authenticated user can see.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "outside",
-                "direct",
-                "all"
-              ],
-              "default": "all"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/simple-user"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/simple-user-items"
-                  }
-                }
-              }
-            },
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "collaborators",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/{project_id}/collaborators/{username}": {
-      "put": {
-        "summary": "Add project collaborator",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/add-collaborator",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/collaborators#add-project-collaborator"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-id"
-          },
-          {
-            "$ref": "#/components/parameters/username"
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "permission": {
-                    "description": "The permission to grant the collaborator.",
-                    "enum": [
-                      "read",
-                      "write",
-                      "admin"
-                    ],
-                    "default": "write",
-                    "example": "write",
-                    "type": "string"
-                  }
-                },
-                "nullable": true
-              },
-              "examples": {
-                "default": {
-                  "summary": "Applying write permissions for the new collaborator",
-                  "value": {
-                    "permission": "write"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "collaborators",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      },
-      "delete": {
-        "summary": "Remove user as a collaborator",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/remove-collaborator",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/collaborators#remove-user-as-a-collaborator"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-id"
-          },
-          {
-            "$ref": "#/components/parameters/username"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "collaborators",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
-        },
-        "deprecated": true
-      }
-    },
-    "/projects/{project_id}/collaborators/{username}/permission": {
-      "get": {
-        "summary": "Get project permission for a user",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "projects-classic"
-        ],
-        "operationId": "projects-classic/get-permission-for-user",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/projects-classic/collaborators#get-project-permission-for-a-user"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/project-id"
-          },
-          {
-            "$ref": "#/components/parameters/username"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/project-collaborator-permission"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/project-collaborator-permission"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "304": {
-            "$ref": "#/components/responses/not_modified"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "projects-classic",
-          "subcategory": "collaborators",
-          "deprecationDate": "2024-05-23",
-          "removalDate": "2025-04-01"
         },
         "deprecated": true
       }
@@ -31435,6 +31262,218 @@
           "enabledForGitHubApps": true,
           "category": "actions",
           "subcategory": "artifacts"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/actions/cache/retention-limit": {
+      "get": {
+        "summary": "Get GitHub Actions cache retention limit for a repository",
+        "description": "Gets GitHub Actions cache retention limit for a repository. This determines how long caches will be retained for, if\nnot manually removed or evicted due to size constraints.\n\nOAuth tokens and personal access tokens (classic) need the `admin:repository` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-actions-cache-retention-limit-for-repository",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-retention-limit-for-a-repository"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/actions-cache-retention-limit-for-repository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-cache-retention-limit"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      },
+      "put": {
+        "summary": "Set GitHub Actions cache retention limit for a repository",
+        "description": "Sets GitHub Actions cache retention limit for a repository. This determines how long caches will be retained for, if\nnot manually removed or evicted due to size constraints.\n\nOAuth tokens and personal access tokens (classic) need the `admin:repository` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/set-actions-cache-retention-limit-for-repository",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-retention-limit-for-a-repository"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/actions-cache-retention-limit-for-repository"
+              },
+              "examples": {
+                "selected_actions": {
+                  "$ref": "#/components/examples/actions-cache-retention-limit"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/actions/cache/storage-limit": {
+      "get": {
+        "summary": "Get GitHub Actions cache storage limit for a repository",
+        "description": "Gets GitHub Actions cache storage limit for a repository. This determines the maximum size of caches that can be\nstored before eviction occurs.\n\nOAuth tokens and personal access tokens (classic) need the `admin:repository` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-actions-cache-storage-limit-for-repository",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#get-github-actions-cache-storage-limit-for-a-repository"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/actions-cache-storage-limit-for-repository"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-cache-storage-limit"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
+        }
+      },
+      "put": {
+        "summary": "Set GitHub Actions cache storage limit for a repository",
+        "description": "Sets GitHub Actions cache storage limit for a repository. This determines the maximum size of caches that can be\nstored before eviction occurs.\n\nOAuth tokens and personal access tokens (classic) need the `admin:repository` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/set-actions-cache-storage-limit-for-repository",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/cache#set-github-actions-cache-storage-limit-for-a-repository"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/actions-cache-storage-limit-for-repository"
+              },
+              "examples": {
+                "selected_actions": {
+                  "$ref": "#/components/examples/actions-cache-storage-limit"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "cache"
         }
       }
     },
@@ -40646,8 +40685,12 @@
                     "$ref": "#/components/schemas/code-scanning-alert-create-request"
                   }
                 },
-                "required": [
-                  "state"
+                "anyOf": [
+                  {
+                    "required": [
+                      "state"
+                    ]
+                  }
                 ]
               },
               "examples": {
@@ -61773,6 +61816,9 @@
             "$ref": "#/components/parameters/secret-scanning-alert-resolution"
           },
           {
+            "$ref": "#/components/parameters/secret-scanning-alert-assignee"
+          },
+          {
             "$ref": "#/components/parameters/secret-scanning-alert-sort"
           },
           {
@@ -61898,7 +61944,7 @@
       },
       "patch": {
         "summary": "Update a secret scanning alert",
-        "description": "Updates the status of a secret scanning alert in an eligible repository.\n\nThe authenticated user must be an administrator for the repository or for the organization that owns the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `security_events` scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the `public_repo` scope instead.",
+        "description": "Updates the status of a secret scanning alert in an eligible repository.\n\nYou can also use this endpoint to assign or unassign an alert to a user who has write access to the repository.\n\nThe authenticated user must be an administrator for the repository or for the organization that owns the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `security_events` scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the `public_repo` scope instead.",
         "operationId": "secret-scanning/update-alert",
         "tags": [
           "secret-scanning"
@@ -61933,12 +61979,20 @@
                   },
                   "resolution_comment": {
                     "$ref": "#/components/schemas/secret-scanning-alert-resolution-comment"
+                  },
+                  "assignee": {
+                    "$ref": "#/components/schemas/secret-scanning-alert-assignee"
                   }
                 },
                 "anyOf": [
                   {
                     "required": [
                       "state"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "assignee"
                     ]
                   }
                 ]
@@ -61948,6 +62002,18 @@
                   "value": {
                     "state": "resolved",
                     "resolution": "false_positive"
+                  }
+                },
+                "assign": {
+                  "summary": "Assign alert to a user",
+                  "value": {
+                    "assignee": "octocat"
+                  }
+                },
+                "unassign": {
+                  "summary": "Unassign alert",
+                  "value": {
+                    "assignee": null
                   }
                 }
               }
@@ -61977,7 +62043,7 @@
             "description": "Repository is public, or secret scanning is disabled for the repository, or the resource is not found"
           },
           "422": {
-            "description": "State does not match the resolution or resolution comment"
+            "description": "State does not match the resolution or resolution comment, or assignee does not have write access to the repository"
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
@@ -66882,254 +66948,6 @@
           "deprecationDate": "2020-01-21",
           "category": "teams",
           "subcategory": "members"
-        },
-        "deprecated": true
-      }
-    },
-    "/teams/{team_id}/projects": {
-      "get": {
-        "summary": "List team projects (Legacy)",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/list-projects-legacy",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#list-team-projects-legacy"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/team-id"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/team-project"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/team-project-items"
-                  }
-                }
-              }
-            },
-            "headers": {
-              "Link": {
-                "$ref": "#/components/headers/link"
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "removalDate": "2025-04-01",
-          "deprecationDate": "2024-05-23",
-          "category": "teams",
-          "subcategory": "teams"
-        },
-        "deprecated": true
-      }
-    },
-    "/teams/{team_id}/projects/{project_id}": {
-      "get": {
-        "summary": "Check team permissions for a project (Legacy)",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/check-permissions-for-project-legacy",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#check-team-permissions-for-a-project-legacy"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/team-id"
-          },
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/team-project"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/team-project"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found if project is not managed by this team"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "removalDate": "2025-04-01",
-          "deprecationDate": "2024-05-23",
-          "category": "teams",
-          "subcategory": "teams"
-        },
-        "deprecated": true
-      },
-      "put": {
-        "summary": "Add or update team project permissions (Legacy)",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/add-or-update-project-permissions-legacy",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#add-or-update-team-project-permissions-legacy"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/team-id"
-          },
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "permission": {
-                    "type": "string",
-                    "description": "The permission to grant to the team for this project. Default: the team's `permission` attribute will be used to determine what permission to grant the team on this project. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling this endpoint. For more information, see \"[HTTP method](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#http-method).\"",
-                    "enum": [
-                      "read",
-                      "write",
-                      "admin"
-                    ]
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "summary": "Example of setting permission to read",
-                  "value": {
-                    "permission": "read"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "403": {
-            "description": "Forbidden if the project is not owned by the organization",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "documentation_url": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "examples": {
-                  "response-if-the-project-is-not-owned-by-the-organization": {
-                    "value": {
-                      "message": "Must have admin rights to Repository.",
-                      "documentation_url": "https://docs.github.com/rest/teams/teams#add-or-update-team-project-permissions"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "removalDate": "2025-04-01",
-          "deprecationDate": "2024-05-23",
-          "category": "teams",
-          "subcategory": "teams"
-        },
-        "deprecated": true
-      },
-      "delete": {
-        "summary": "Remove a project from a team (Legacy)",
-        "description": "> [!WARNING]\n> **Closing down notice:** Projects (classic) is being deprecated in favor of the new Projects experience.\n> See the [changelog](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) for more information.",
-        "tags": [
-          "teams"
-        ],
-        "operationId": "teams/remove-project-legacy",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/teams/teams#remove-a-project-from-a-team-legacy"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/team-id"
-          },
-          {
-            "$ref": "#/components/parameters/project-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "removalDate": "2025-04-01",
-          "deprecationDate": "2024-05-23",
-          "category": "teams",
-          "subcategory": "teams"
         },
         "deprecated": true
       }
@@ -75518,6 +75336,190 @@
           },
           "401": {
             "$ref": "#/components/responses/requires_authentication"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "projects",
+          "subcategory": "fields"
+        }
+      },
+      "post": {
+        "summary": "Add field to user owned project",
+        "description": "Add a field to a specified user owned project.",
+        "tags": [
+          "projects"
+        ],
+        "operationId": "projects/add-field-for-user",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/projects/fields#add-field-to-user-owned-project"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/project-number"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                      },
+                      "data_type": {
+                        "type": "string",
+                        "description": "The field's data type.",
+                        "enum": [
+                          "text",
+                          "number",
+                          "date"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "data_type"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                      },
+                      "data_type": {
+                        "type": "string",
+                        "description": "The field's data type.",
+                        "enum": [
+                          "single_select"
+                        ]
+                      },
+                      "single_select_options": {
+                        "type": "array",
+                        "description": "The options available for single select fields. At least one option must be provided when creating a single select field.",
+                        "items": {
+                          "$ref": "#/components/schemas/projects-v2-field-single-select-option"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "data_type",
+                      "single_select_options"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                      },
+                      "data_type": {
+                        "type": "string",
+                        "description": "The field's data type.",
+                        "enum": [
+                          "iteration"
+                        ]
+                      },
+                      "iteration_configuration": {
+                        "$ref": "#/components/schemas/projects-v2-field-iteration-configuration"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "data_type",
+                      "iteration_configuration"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "examples": {
+                "text_field": {
+                  "summary": "Create a text field",
+                  "value": {
+                    "name": "Team notes",
+                    "data_type": "text"
+                  }
+                },
+                "number_field": {
+                  "summary": "Create a number field",
+                  "value": {
+                    "name": "Story points",
+                    "data_type": "number"
+                  }
+                },
+                "date_field": {
+                  "summary": "Create a date field",
+                  "value": {
+                    "name": "Due date",
+                    "data_type": "date"
+                  }
+                },
+                "single_select_field": {
+                  "$ref": "#/components/examples/projects-v2-field-single-select-request"
+                },
+                "iteration_field": {
+                  "$ref": "#/components/examples/projects-v2-field-iteration-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/projects-v2-field"
+                },
+                "examples": {
+                  "text_field": {
+                    "$ref": "#/components/examples/projects-v2-field-text"
+                  },
+                  "number_field": {
+                    "$ref": "#/components/examples/projects-v2-field-number"
+                  },
+                  "date_field": {
+                    "$ref": "#/components/examples/projects-v2-field-date"
+                  },
+                  "single_select_field": {
+                    "$ref": "#/components/examples/projects-v2-field-single-select"
+                  },
+                  "iteration_field": {
+                    "$ref": "#/components/examples/projects-v2-field-iteration"
+                  }
+                }
+              }
+            }
+          },
+          "304": {
+            "$ref": "#/components/responses/not_modified"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
           }
         },
         "x-github": {
@@ -97274,6 +97276,99 @@
         }
       }
     },
+    "secret-scanning-alert-assigned": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to a secret scanning alert. For more information about secret scanning, see \"[About secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning).\" For information about the API to manage secret scanning alerts, see \"[Secret scanning](https://docs.github.com/rest/secret-scanning)\" in the REST API documentation.\n\nFor activity relating to secret scanning alert locations, use the `secret_scanning_alert_location` event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Secret scanning alerts\" repository permission.",
+        "description": "A secret scanning alert was assigned.",
+        "operationId": "secret-scanning-alert/assigned",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#secret_scanning_alert"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-secret-scanning-alert-assigned"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "secret_scanning_alert",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
     "secret-scanning-alert-created": {
       "post": {
         "summary": "This event occurs when there is activity relating to a secret scanning alert. For more information about secret scanning, see \"[About secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning).\" For information about the API to manage secret scanning alerts, see \"[Secret scanning](https://docs.github.com/rest/secret-scanning)\" in the REST API documentation.\n\nFor activity relating to secret scanning alert locations, use the `secret_scanning_alert_location` event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Secret scanning alerts\" repository permission.",
@@ -97734,6 +97829,99 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/webhook-secret-scanning-alert-resolved"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "secret_scanning_alert",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
+    "secret-scanning-alert-unassigned": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to a secret scanning alert. For more information about secret scanning, see \"[About secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning).\" For information about the API to manage secret scanning alerts, see \"[Secret scanning](https://docs.github.com/rest/secret-scanning)\" in the REST API documentation.\n\nFor activity relating to secret scanning alert locations, use the `secret_scanning_alert_location` event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Secret scanning alerts\" repository permission.",
+        "description": "A secret scanning alert was unassigned.",
+        "operationId": "secret-scanning-alert/unassigned",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#secret_scanning_alert"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-secret-scanning-alert-unassigned"
               }
             }
           }
@@ -102256,6 +102444,14 @@
               "write"
             ]
           },
+          "artifact_metadata": {
+            "type": "string",
+            "description": "The level of permission to grant the access token to create and retrieve build artifact metadata records.",
+            "enum": [
+              "read",
+              "write"
+            ]
+          },
           "attestations": {
             "type": "string",
             "description": "The level of permission to create and retrieve the access token for repository attestations.",
@@ -104331,6 +104527,30 @@
           "key",
           "name"
         ]
+      },
+      "actions-cache-retention-limit-for-enterprise": {
+        "title": "Actions cache retention limit for an enterprise",
+        "description": "GitHub Actions cache retention policy for an enterprise.",
+        "type": "object",
+        "properties": {
+          "max_cache_retention_days": {
+            "description": "For repositories & organizations in an enterprise, the maximum duration, in days, for which caches in a repository may be retained.",
+            "type": "integer",
+            "example": 14
+          }
+        }
+      },
+      "actions-cache-storage-limit-for-enterprise": {
+        "title": "Actions cache storage limit for an enterprise",
+        "description": "GitHub Actions cache storage policy for an enterprise.",
+        "type": "object",
+        "properties": {
+          "max_cache_size_gb": {
+            "description": "For repositories & organizations in an enterprise, the maximum size limit for the sum of all caches in a repository, in gigabytes.",
+            "type": "integer",
+            "example": 10
+          }
+        }
       },
       "code-security-configuration": {
         "type": "object",
@@ -108568,6 +108788,30 @@
           "subscribed"
         ]
       },
+      "actions-cache-retention-limit-for-organization": {
+        "title": "Actions cache retention limit for an organization",
+        "description": "GitHub Actions cache retention policy for an organization.",
+        "type": "object",
+        "properties": {
+          "max_cache_retention_days": {
+            "description": "For repositories in this organization, the maximum duration, in days, for which caches in a repository may be retained.",
+            "type": "integer",
+            "example": 14
+          }
+        }
+      },
+      "actions-cache-storage-limit-for-organization": {
+        "title": "Actions cache storage limit for an organization",
+        "description": "GitHub Actions cache storage policy for an organization.",
+        "type": "object",
+        "properties": {
+          "max_cache_size_gb": {
+            "description": "For repositories in the organization, the maximum size limit for the sum of all caches in a repository, in gigabytes.",
+            "type": "integer",
+            "example": 10
+          }
+        }
+      },
       "nullable-simple-repository": {
         "title": "Simple Repository",
         "description": "A GitHub repository.",
@@ -109006,6 +109250,10 @@
               "$ref": "#/components/schemas/budget"
             },
             "description": "Array of budget objects for the enterprise"
+          },
+          "has_next_page": {
+            "type": "boolean",
+            "description": "Indicates if there are more pages of results available (maps to hasNextPage from billing platform)"
           }
         },
         "required": [
@@ -115335,6 +115583,70 @@
           "project_url"
         ]
       },
+      "projects-v2-field-single-select-option": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The display name of the option."
+          },
+          "color": {
+            "type": "string",
+            "description": "The color associated with the option.",
+            "enum": [
+              "BLUE",
+              "GRAY",
+              "GREEN",
+              "ORANGE",
+              "PINK",
+              "PURPLE",
+              "RED",
+              "YELLOW"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the option."
+          }
+        }
+      },
+      "projects-v2-field-iteration-configuration": {
+        "type": "object",
+        "description": "The configuration for iteration fields.",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The start date of the first iteration."
+          },
+          "duration": {
+            "type": "integer",
+            "description": "The default duration for iterations in days. Individual iterations can override this value."
+          },
+          "iterations": {
+            "type": "array",
+            "description": "Zero or more iterations for the field.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "The title of the iteration."
+                },
+                "start_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date of the iteration."
+                },
+                "duration": {
+                  "type": "integer",
+                  "description": "The duration of the iteration in days."
+                }
+              }
+            }
+          }
+        }
+      },
       "projects-v2-item-with-content": {
         "title": "Projects v2 Item",
         "description": "An item belonging to a project",
@@ -117258,7 +117570,7 @@
               },
               "automatic_copilot_code_review_enabled": {
                 "type": "boolean",
-                "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review."
+                "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit."
               },
               "dismiss_stale_reviews_on_push": {
                 "type": "boolean",
@@ -117881,7 +118193,7 @@
       },
       "repository-rule-copilot-code-review": {
         "title": "copilot_code_review",
-        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.",
+        "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
         "type": "object",
         "required": [
           "type"
@@ -118180,6 +118492,9 @@
           },
           {
             "$ref": "#/components/schemas/repository-rule-code-scanning"
+          },
+          {
+            "$ref": "#/components/schemas/repository-rule-copilot-code-review"
           }
         ]
       },
@@ -120153,96 +120468,6 @@
           "url"
         ]
       },
-      "team-project": {
-        "title": "Team Project",
-        "description": "A team's access to a project.",
-        "type": "object",
-        "properties": {
-          "owner_url": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "html_url": {
-            "type": "string"
-          },
-          "columns_url": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "body": {
-            "type": "string",
-            "nullable": true
-          },
-          "number": {
-            "type": "integer"
-          },
-          "state": {
-            "type": "string"
-          },
-          "creator": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "created_at": {
-            "type": "string"
-          },
-          "updated_at": {
-            "type": "string"
-          },
-          "organization_permission": {
-            "description": "The organization permission for this project. Only present when owner is an organization.",
-            "type": "string"
-          },
-          "private": {
-            "description": "Whether the project is private or not. Only present when owner is an organization.",
-            "type": "boolean"
-          },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "read": {
-                "type": "boolean"
-              },
-              "write": {
-                "type": "boolean"
-              },
-              "admin": {
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "read",
-              "write",
-              "admin"
-            ]
-          }
-        },
-        "required": [
-          "owner_url",
-          "url",
-          "html_url",
-          "columns_url",
-          "id",
-          "node_id",
-          "name",
-          "body",
-          "number",
-          "state",
-          "creator",
-          "created_at",
-          "updated_at",
-          "permissions"
-        ]
-      },
       "team-repository": {
         "title": "Team Repository",
         "description": "A team's access to a repository.",
@@ -120750,79 +120975,6 @@
           "updated_at"
         ]
       },
-      "project-column": {
-        "title": "Project Column",
-        "description": "Project columns contain cards of work.",
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/projects/columns/367"
-          },
-          "project_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/projects/120"
-          },
-          "cards_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/projects/columns/367/cards"
-          },
-          "id": {
-            "description": "The unique identifier of the project column",
-            "example": 42,
-            "type": "integer"
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDEzOlByb2plY3RDb2x1bW4zNjc="
-          },
-          "name": {
-            "description": "Name of the project column",
-            "example": "Remaining tasks",
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2016-09-05T14:18:44Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2016-09-05T14:22:28Z"
-          }
-        },
-        "required": [
-          "id",
-          "node_id",
-          "url",
-          "project_url",
-          "cards_url",
-          "name",
-          "created_at",
-          "updated_at"
-        ]
-      },
-      "project-collaborator-permission": {
-        "title": "Project Collaborator Permission",
-        "description": "Project Collaborator Permission",
-        "type": "object",
-        "properties": {
-          "permission": {
-            "type": "string"
-          },
-          "user": {
-            "$ref": "#/components/schemas/nullable-simple-user"
-          }
-        },
-        "required": [
-          "permission",
-          "user"
-        ]
-      },
       "rate-limit": {
         "title": "Rate Limit",
         "type": "object",
@@ -121001,6 +121153,30 @@
           "expires_at",
           "updated_at"
         ]
+      },
+      "actions-cache-retention-limit-for-repository": {
+        "title": "Actions cache retention limit for a repository",
+        "description": "GitHub Actions cache retention policy for a repository.",
+        "type": "object",
+        "properties": {
+          "max_cache_retention_days": {
+            "description": "The maximum number of days to keep caches in this repository.",
+            "type": "integer",
+            "example": 14
+          }
+        }
+      },
+      "actions-cache-storage-limit-for-repository": {
+        "title": "Actions cache storage limit for a repository",
+        "description": "GitHub Actions cache storage policy for a repository.",
+        "type": "object",
+        "properties": {
+          "max_cache_size_gb": {
+            "description": "The maximum total cache size for this repository, in gigabytes.",
+            "type": "integer",
+            "example": 10
+          }
+        }
       },
       "actions-cache-list": {
         "title": "Repository actions caches",
@@ -123062,6 +123238,7 @@
           },
           "date": {
             "type": "string",
+            "format": "date-time",
             "example": "\"2007-10-29T02:42:39.000-07:00\""
           }
         },
@@ -133382,6 +133559,11 @@
       },
       "secret-scanning-alert-resolution-comment": {
         "description": "An optional comment when closing or reopening an alert. Cannot be updated or deleted.",
+        "type": "string",
+        "nullable": true
+      },
+      "secret-scanning-alert-assignee": {
+        "description": "The username of the user to assign to the alert. Set to `null` to unassign the alert.",
         "type": "string",
         "nullable": true
       },
@@ -152099,6 +152281,13 @@
                           "write"
                         ]
                       },
+                      "artifact_metadata": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "attestations": {
                         "type": "string",
                         "enum": [
@@ -152124,6 +152313,12 @@
                         "type": "string",
                         "enum": [
                           "read",
+                          "write"
+                        ]
+                      },
+                      "copilot_requests": {
+                        "type": "string",
+                        "enum": [
                           "write"
                         ]
                       },
@@ -152902,6 +153097,13 @@
                           "write"
                         ]
                       },
+                      "artifact_metadata": {
+                        "type": "string",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "attestations": {
                         "type": "string",
                         "enum": [
@@ -152927,6 +153129,12 @@
                         "type": "string",
                         "enum": [
                           "read",
+                          "write"
+                        ]
+                      },
+                      "copilot_requests": {
+                        "type": "string",
+                        "enum": [
                           "write"
                         ]
                       },
@@ -154911,7 +155119,6 @@
           "alert": {
             "description": "The code scanning alert involved in the event.",
             "type": "object",
-            "nullable": true,
             "properties": {
               "assignees": {
                 "type": "array",
@@ -154949,6 +155156,9 @@
                 "description": "The GitHub URL of the alert resource.",
                 "type": "string",
                 "format": "uri"
+              },
+              "instances_url": {
+                "type": "string"
               },
               "most_recent_instance": {
                 "title": "Alert Instance",
@@ -155113,9 +155323,16 @@
                   "version"
                 ]
               },
+              "updated_at": {
+                "type": "string",
+                "nullable": true
+              },
               "url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "dismissal_approved_by": {
+                "nullable": true
               }
             },
             "required": [
@@ -266659,6 +266876,44 @@
           "sender"
         ]
       },
+      "webhook-secret-scanning-alert-assigned": {
+        "title": "secret_scanning_alert assigned event",
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "assigned"
+            ]
+          },
+          "alert": {
+            "$ref": "#/components/schemas/secret-scanning-alert-webhook"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        },
+        "required": [
+          "action",
+          "alert",
+          "repository"
+        ]
+      },
       "webhook-secret-scanning-alert-created": {
         "title": "secret_scanning_alert created event",
         "type": "object",
@@ -266825,6 +267080,44 @@
           },
           "alert": {
             "$ref": "#/components/schemas/secret-scanning-alert-webhook"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        },
+        "required": [
+          "action",
+          "alert",
+          "repository"
+        ]
+      },
+      "webhook-secret-scanning-alert-unassigned": {
+        "title": "secret_scanning_alert unassigned event",
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "unassigned"
+            ]
+          },
+          "alert": {
+            "$ref": "#/components/schemas/secret-scanning-alert-webhook"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/simple-user"
           },
           "enterprise": {
             "$ref": "#/components/schemas/enterprise-webhooks"
@@ -279356,6 +279649,16 @@
           "zzz": "https://github.githubassets.com/images/icons/emoji/unicode/1f4a4.png?v8"
         }
       },
+      "actions-cache-retention-limit": {
+        "value": {
+          "max_cache_retention_days": 80
+        }
+      },
+      "actions-cache-storage-limit": {
+        "value": {
+          "max_cache_size_gb": 150
+        }
+      },
       "enterprise-code-security-configuration-list": {
         "value": [
           {
@@ -281831,6 +282134,27 @@
               "mona",
               "lisa"
             ]
+          }
+        }
+      },
+      "update-budget": {
+        "value": {
+          "message": "Budget successfully updated.",
+          "budget": {
+            "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+            "budget_type": "ProductPricing",
+            "budget_product_sku": "actions_linux",
+            "budget_scope": "repository",
+            "budget_entity_name": "org-name/example-repo-name",
+            "budget_amount": 0.0,
+            "prevent_further_usage": true,
+            "budget_alerting": {
+              "will_alert": true,
+              "alert_recipients": [
+                "mona",
+                "lisa"
+              ]
+            }
           }
         }
       },
@@ -286550,6 +286874,194 @@
           }
         ]
       },
+      "projects-v2-field-single-select-request": {
+        "summary": "Create a single select field",
+        "value": {
+          "name": "Priority",
+          "data_type": "single_select",
+          "single_select_options": [
+            {
+              "name": {
+                "raw": "Low",
+                "html": "Low"
+              },
+              "color": "GREEN",
+              "description": {
+                "raw": "Low priority items",
+                "html": "Low priority items"
+              }
+            },
+            {
+              "name": {
+                "raw": "Medium",
+                "html": "Medium"
+              },
+              "color": "YELLOW",
+              "description": {
+                "raw": "Medium priority items",
+                "html": "Medium priority items"
+              }
+            },
+            {
+              "name": {
+                "raw": "High",
+                "html": "High"
+              },
+              "color": "RED",
+              "description": {
+                "raw": "High priority items",
+                "html": "High priority items"
+              }
+            }
+          ]
+        }
+      },
+      "projects-v2-field-iteration-request": {
+        "summary": "Create an iteration field",
+        "value": {
+          "name": "Sprint",
+          "data_type": "iteration",
+          "iteration_configuration": {
+            "start_day": 1,
+            "duration": 14,
+            "iterations": [
+              {
+                "title": {
+                  "raw": "Sprint 1",
+                  "html": "Sprint 1"
+                },
+                "start_date": "2022-07-01",
+                "duration": 14
+              },
+              {
+                "title": {
+                  "raw": "Sprint 2",
+                  "html": "Sprint 2"
+                },
+                "start_date": "2022-07-15",
+                "duration": 14
+              }
+            ]
+          }
+        }
+      },
+      "projects-v2-field-text": {
+        "value": {
+          "id": 24680,
+          "node_id": "PVTF_lADOABCD2468024680",
+          "name": "Team notes",
+          "data_type": "text",
+          "project_url": "https://api.github.com/projects/67890",
+          "created_at": "2022-05-15T08:00:00Z",
+          "updated_at": "2022-05-15T08:00:00Z"
+        }
+      },
+      "projects-v2-field-number": {
+        "value": {
+          "id": 13579,
+          "node_id": "PVTF_lADOABCD1357913579",
+          "name": "Story points",
+          "data_type": "number",
+          "project_url": "https://api.github.com/projects/67890",
+          "created_at": "2022-06-01T14:30:00Z",
+          "updated_at": "2022-06-01T14:30:00Z"
+        }
+      },
+      "projects-v2-field-date": {
+        "value": {
+          "id": 98765,
+          "node_id": "PVTF_lADOABCD9876598765",
+          "name": "Due date",
+          "data_type": "date",
+          "project_url": "https://api.github.com/projects/67890",
+          "created_at": "2022-06-10T09:15:00Z",
+          "updated_at": "2022-06-10T09:15:00Z"
+        }
+      },
+      "projects-v2-field-single-select": {
+        "value": {
+          "id": 12345,
+          "node_id": "PVTF_lADOABCD1234567890",
+          "name": "Priority",
+          "data_type": "single_select",
+          "project_url": "https://api.github.com/projects/67890",
+          "options": [
+            {
+              "id": "option_1",
+              "name": {
+                "html": "Low",
+                "raw": "Low"
+              },
+              "color": "GREEN",
+              "description": {
+                "html": "Low priority items",
+                "raw": "Low priority items"
+              }
+            },
+            {
+              "id": "option_2",
+              "name": {
+                "html": "Medium",
+                "raw": "Medium"
+              },
+              "color": "YELLOW",
+              "description": {
+                "html": "Medium priority items",
+                "raw": "Medium priority items"
+              }
+            },
+            {
+              "id": "option_3",
+              "name": {
+                "html": "High",
+                "raw": "High"
+              },
+              "color": "RED",
+              "description": {
+                "html": "High priority items",
+                "raw": "High priority items"
+              }
+            }
+          ],
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z"
+        }
+      },
+      "projects-v2-field-iteration": {
+        "value": {
+          "id": 11223,
+          "node_id": "PVTF_lADOABCD1122311223",
+          "name": "Sprint",
+          "data_type": "iteration",
+          "project_url": "https://api.github.com/projects/67890",
+          "configuration": {
+            "duration": 14,
+            "start_day": 1,
+            "iterations": [
+              {
+                "id": "iter_1",
+                "title": {
+                  "html": "Sprint 1",
+                  "raw": "Sprint 1"
+                },
+                "start_date": "2022-07-01",
+                "duration": 14
+              },
+              {
+                "id": "iter_2",
+                "title": {
+                  "html": "Sprint 2",
+                  "raw": "Sprint 2"
+                },
+                "start_date": "2022-07-15",
+                "duration": 14
+              }
+            ]
+          },
+          "created_at": "2022-06-20T16:45:00Z",
+          "updated_at": "2022-06-20T16:45:00Z"
+        }
+      },
       "projects-v2-field": {
         "value": {
           "id": 12345,
@@ -286560,21 +287072,39 @@
           "options": [
             {
               "id": "option_1",
-              "name": "Low",
+              "name": {
+                "html": "Low",
+                "raw": "Low"
+              },
               "color": "GREEN",
-              "description": "Low priority items"
+              "description": {
+                "html": "Low priority items",
+                "raw": "Low priority items"
+              }
             },
             {
               "id": "option_2",
-              "name": "Medium",
+              "name": {
+                "html": "Medium",
+                "raw": "Medium"
+              },
               "color": "YELLOW",
-              "description": "Medium priority items"
+              "description": {
+                "html": "Medium priority items",
+                "raw": "Medium priority items"
+              }
             },
             {
               "id": "option_3",
-              "name": "High",
+              "name": {
+                "html": "High",
+                "raw": "High"
+              },
               "color": "RED",
-              "description": "High priority items"
+              "description": {
+                "html": "High priority items",
+                "raw": "High priority items"
+              }
             }
           ],
           "created_at": "2022-04-28T12:00:00Z",
@@ -289331,94 +289861,6 @@
           "state": "pending"
         }
       },
-      "team-project-items": {
-        "value": [
-          {
-            "owner_url": "https://api.github.com/orgs/octocat",
-            "url": "https://api.github.com/projects/1002605",
-            "html_url": "https://github.com/orgs/api-playground/projects/1",
-            "columns_url": "https://api.github.com/projects/1002605/columns",
-            "id": 1002605,
-            "node_id": "MDc6UHJvamVjdDEwMDI2MDU=",
-            "name": "Organization Roadmap",
-            "body": "High-level roadmap for the upcoming year.",
-            "number": 1,
-            "state": "open",
-            "creator": {
-              "login": "octocat",
-              "id": 1,
-              "node_id": "MDQ6VXNlcjE=",
-              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "gravatar_id": "",
-              "url": "https://api.github.com/users/octocat",
-              "html_url": "https://github.com/octocat",
-              "followers_url": "https://api.github.com/users/octocat/followers",
-              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-              "organizations_url": "https://api.github.com/users/octocat/orgs",
-              "repos_url": "https://api.github.com/users/octocat/repos",
-              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-              "received_events_url": "https://api.github.com/users/octocat/received_events",
-              "type": "User",
-              "site_admin": false
-            },
-            "created_at": "2011-04-11T20:09:31Z",
-            "updated_at": "2014-03-04T18:58:10Z",
-            "organization_permission": "write",
-            "private": false,
-            "permissions": {
-              "read": true,
-              "write": true,
-              "admin": false
-            }
-          }
-        ]
-      },
-      "team-project": {
-        "value": {
-          "owner_url": "https://api.github.com/orgs/octocat",
-          "url": "https://api.github.com/projects/1002605",
-          "html_url": "https://github.com/orgs/api-playground/projects/1",
-          "columns_url": "https://api.github.com/projects/1002605/columns",
-          "id": 1002605,
-          "node_id": "MDc6UHJvamVjdDEwMDI2MDU=",
-          "name": "Organization Roadmap",
-          "body": "High-level roadmap for the upcoming year.",
-          "number": 1,
-          "state": "open",
-          "creator": {
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": false
-          },
-          "created_at": "2011-04-11T20:09:31Z",
-          "updated_at": "2014-03-04T18:58:10Z",
-          "organization_permission": "write",
-          "private": false,
-          "permissions": {
-            "read": true,
-            "write": true,
-            "admin": false
-          }
-        }
-      },
       "team-repository-alternative-response-with-repository-permissions": {
         "value": {
           "id": 1296269,
@@ -289577,43 +290019,6 @@
             "html_url": "https://github.com/orgs/rails/teams/core"
           }
         ]
-      },
-      "project-column": {
-        "value": {
-          "url": "https://api.github.com/projects/columns/367",
-          "project_url": "https://api.github.com/projects/120",
-          "cards_url": "https://api.github.com/projects/columns/367/cards",
-          "id": 367,
-          "node_id": "MDEzOlByb2plY3RDb2x1bW4zNjc=",
-          "name": "To Do",
-          "created_at": "2016-09-05T14:18:44Z",
-          "updated_at": "2016-09-05T14:22:28Z"
-        }
-      },
-      "project-collaborator-permission": {
-        "value": {
-          "permission": "admin",
-          "user": {
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/octocat",
-            "html_url": "https://github.com/octocat",
-            "followers_url": "https://api.github.com/users/octocat/followers",
-            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-            "organizations_url": "https://api.github.com/users/octocat/orgs",
-            "repos_url": "https://api.github.com/users/octocat/repos",
-            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/octocat/received_events",
-            "type": "User",
-            "site_admin": false
-          }
-        }
       },
       "rate-limit-overview": {
         "value": {
@@ -299103,8 +299508,7 @@
               "permissions": {
                 "metadata": "read",
                 "contents": "read",
-                "issues": "write",
-                "single_file": "write"
+                "issues": "write"
               },
               "events": [
                 "push",
@@ -302541,7 +302945,27 @@
           "resolution_comment": "Example comment",
           "validity": "unknown",
           "publicly_leaked": false,
-          "multi_repo": false
+          "multi_repo": false,
+          "assigned_to": {
+            "login": "octocat",
+            "id": 1,
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://alambic.github.com/avatars/u/1?",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": false
+          }
         }
       },
       "secret-scanning-location-list": {
@@ -310249,6 +310673,29 @@
           "type": "string"
         }
       },
+      "secret-scanning-alert-assignee": {
+        "name": "assignee",
+        "in": "query",
+        "description": "Filters alerts by assignee. Use `*` to get all assigned alerts, `none` to get all unassigned alerts, or a GitHub username to get alerts assigned to a specific user.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "examples": {
+          "assigned-to-user": {
+            "value": "octocat",
+            "summary": "Filter for alerts assigned to the user \"octocat\""
+          },
+          "all-assigned": {
+            "value": "*",
+            "summary": "Filter for all assigned alerts"
+          },
+          "all-unassigned": {
+            "value": "none",
+            "summary": "Filter for all unassigned alerts"
+          }
+        }
+      },
       "secret-scanning-alert-sort": {
         "name": "sort",
         "description": "The property to sort the results by. `created` means when the alert was created. `updated` means when the alert was updated or resolved.",
@@ -310365,15 +310812,6 @@
           "type": "integer"
         }
       },
-      "project-id": {
-        "name": "project_id",
-        "description": "The unique identifier of the project.",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "type": "integer"
-        }
-      },
       "security-product": {
         "name": "security_product",
         "in": "path",
@@ -310403,15 +310841,6 @@
             "enable_all",
             "disable_all"
           ]
-        }
-      },
-      "column-id": {
-        "name": "column_id",
-        "description": "The unique identifier of the column.",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "type": "integer"
         }
       },
       "artifact-name": {
