@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The name of the deployment.</summary>
+        /// <summary>The unique identifier for the deployment represented by the new record. To accommodate differingcontainers and namespaces within a record set, the following format is recommended:{namespaceName}-{deploymentName}-{containerName}</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DeploymentName { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
 #else
         public string DeploymentName { get; set; }
 #endif
-        /// <summary>The hex encoded digest of the artifact.</summary>
+        /// <summary>The hex encoded digest of the artifact. Note that if multiple deployments have identical &apos;digest&apos; parameter values,the name and version parameters must also be identical across all entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Digest { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
 #else
         public string GithubRepository { get; set; }
 #endif
-        /// <summary>The name of the artifact.</summary>
+        /// <summary>The name of the artifact. Note that if multiple deployments have identical &apos;digest&apos; parameter values,the name parameter must also be identical across all entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
 #else
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostRequestBody_deployments_tags Tags { get; set; }
 #endif
-        /// <summary>The artifact version.</summary>
+        /// <summary>The artifact version. Note that if multiple deployments have identical &apos;digest&apos; parameter values,the version parameter must also be identical across all entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }

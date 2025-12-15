@@ -44,10 +44,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Event_payload? Payload { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Event_payload Payload { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload Payload { get; set; }
 #endif
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "org", n => { Org = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Actor>(global::Soenneker.GitHub.OpenApiClient.Models.Actor.CreateFromDiscriminatorValue); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_payload>(global::Soenneker.GitHub.OpenApiClient.Models.Event_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload>(global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload.CreateFromDiscriminatorValue); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_repo>(global::Soenneker.GitHub.OpenApiClient.Models.Event_repo.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -113,11 +113,366 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Actor>("org", Org);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_payload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload>("payload", Payload);
             writer.WriteBoolValue("public", Public);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Event_repo>("repo", Repo);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PublicEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PushEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Event_payload : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent? CommitCommentEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent CommitCommentEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent? CreateEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent CreateEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent? DeleteEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent DeleteEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent? DiscussionEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent DiscussionEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent? ForkEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent ForkEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent? GollumEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent GollumEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent? IssueCommentEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent IssueCommentEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent? IssuesEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent IssuesEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent? MemberEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent MemberEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PublicEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.PublicEvent? PublicEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.PublicEvent PublicEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent? PullRequestEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent PullRequestEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent? PullRequestReviewCommentEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent PullRequestReviewCommentEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent? PullRequestReviewEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent PullRequestReviewEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PushEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.PushEvent? PushEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.PushEvent PushEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent? ReleaseEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent ReleaseEvent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent? WatchEvent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent WatchEvent { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.GitHub.OpenApiClient.Models.Event.Event_payload();
+                if("commit-comment-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.CommitCommentEvent = new global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent();
+                }
+                else if("create-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.CreateEvent = new global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent();
+                }
+                else if("delete-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.DeleteEvent = new global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent();
+                }
+                else if("discussion-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.DiscussionEvent = new global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent();
+                }
+                else if("fork-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.ForkEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent();
+                }
+                else if("gollum-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.GollumEvent = new global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent();
+                }
+                else if("issue-comment-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.IssueCommentEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent();
+                }
+                else if("issues-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.IssuesEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent();
+                }
+                else if("member-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.MemberEvent = new global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent();
+                }
+                else if("public-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.PublicEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PublicEvent();
+                }
+                else if("pull-request-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.PullRequestEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent();
+                }
+                else if("pull-request-review-comment-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.PullRequestReviewCommentEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent();
+                }
+                else if("pull-request-review-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.PullRequestReviewEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent();
+                }
+                else if("push-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.PushEvent = new global::Soenneker.GitHub.OpenApiClient.Models.PushEvent();
+                }
+                else if("release-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.ReleaseEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent();
+                }
+                else if("watch-event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WatchEvent = new global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(CommitCommentEvent != null)
+                {
+                    return CommitCommentEvent.GetFieldDeserializers();
+                }
+                else if(CreateEvent != null)
+                {
+                    return CreateEvent.GetFieldDeserializers();
+                }
+                else if(DeleteEvent != null)
+                {
+                    return DeleteEvent.GetFieldDeserializers();
+                }
+                else if(DiscussionEvent != null)
+                {
+                    return DiscussionEvent.GetFieldDeserializers();
+                }
+                else if(ForkEvent != null)
+                {
+                    return ForkEvent.GetFieldDeserializers();
+                }
+                else if(GollumEvent != null)
+                {
+                    return GollumEvent.GetFieldDeserializers();
+                }
+                else if(IssueCommentEvent != null)
+                {
+                    return IssueCommentEvent.GetFieldDeserializers();
+                }
+                else if(IssuesEvent != null)
+                {
+                    return IssuesEvent.GetFieldDeserializers();
+                }
+                else if(MemberEvent != null)
+                {
+                    return MemberEvent.GetFieldDeserializers();
+                }
+                else if(PublicEvent != null)
+                {
+                    return PublicEvent.GetFieldDeserializers();
+                }
+                else if(PullRequestEvent != null)
+                {
+                    return PullRequestEvent.GetFieldDeserializers();
+                }
+                else if(PullRequestReviewCommentEvent != null)
+                {
+                    return PullRequestReviewCommentEvent.GetFieldDeserializers();
+                }
+                else if(PullRequestReviewEvent != null)
+                {
+                    return PullRequestReviewEvent.GetFieldDeserializers();
+                }
+                else if(PushEvent != null)
+                {
+                    return PushEvent.GetFieldDeserializers();
+                }
+                else if(ReleaseEvent != null)
+                {
+                    return ReleaseEvent.GetFieldDeserializers();
+                }
+                else if(WatchEvent != null)
+                {
+                    return WatchEvent.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(CommitCommentEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitCommentEvent>(null, CommitCommentEvent);
+                }
+                else if(CreateEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateEvent>(null, CreateEvent);
+                }
+                else if(DeleteEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent>(null, DeleteEvent);
+                }
+                else if(DiscussionEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent>(null, DiscussionEvent);
+                }
+                else if(ForkEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ForkEvent>(null, ForkEvent);
+                }
+                else if(GollumEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent>(null, GollumEvent);
+                }
+                else if(IssueCommentEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent>(null, IssueCommentEvent);
+                }
+                else if(IssuesEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent>(null, IssuesEvent);
+                }
+                else if(MemberEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MemberEvent>(null, MemberEvent);
+                }
+                else if(PublicEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PublicEvent>(null, PublicEvent);
+                }
+                else if(PullRequestEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestEvent>(null, PullRequestEvent);
+                }
+                else if(PullRequestReviewCommentEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent>(null, PullRequestReviewCommentEvent);
+                }
+                else if(PullRequestReviewEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewEvent>(null, PullRequestReviewEvent);
+                }
+                else if(PushEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PushEvent>(null, PushEvent);
+                }
+                else if(ReleaseEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEvent>(null, ReleaseEvent);
+                }
+                else if(WatchEvent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WatchEvent>(null, WatchEvent);
+                }
+            }
         }
     }
 }

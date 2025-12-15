@@ -23,5 +23,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         True_false,
         #pragma warning restore CS1591
+        [EnumMember(Value = "url")]
+        #pragma warning disable CS1591
+        Url,
+        #pragma warning restore CS1591
     }
 }

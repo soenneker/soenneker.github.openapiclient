@@ -3,29 +3,25 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The type of the value for the property</summary>
+    /// <summary>The reason for the current state</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CustomProperty_value_type
+    public enum Discussion_state_reason
     {
-        [EnumMember(Value = "string")]
+        [EnumMember(Value = "resolved")]
         #pragma warning disable CS1591
-        String,
+        Resolved,
         #pragma warning restore CS1591
-        [EnumMember(Value = "single_select")]
+        [EnumMember(Value = "outdated")]
         #pragma warning disable CS1591
-        Single_select,
+        Outdated,
         #pragma warning restore CS1591
-        [EnumMember(Value = "multi_select")]
+        [EnumMember(Value = "duplicate")]
         #pragma warning disable CS1591
-        Multi_select,
+        Duplicate,
         #pragma warning restore CS1591
-        [EnumMember(Value = "true_false")]
+        [EnumMember(Value = "reopened")]
         #pragma warning disable CS1591
-        True_false,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "url")]
-        #pragma warning disable CS1591
-        Url,
+        Reopened,
         #pragma warning restore CS1591
     }
 }

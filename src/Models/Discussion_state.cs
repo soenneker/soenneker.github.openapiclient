@@ -3,29 +3,29 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The type of the value for the property</summary>
+    /// <summary>The current state of the discussion.`converting` means that the discussion is being converted from an issue.`transferring` means that the discussion is being transferred from another repository.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CustomProperty_value_type
+    public enum Discussion_state
     {
-        [EnumMember(Value = "string")]
+        [EnumMember(Value = "open")]
         #pragma warning disable CS1591
-        String,
+        Open,
         #pragma warning restore CS1591
-        [EnumMember(Value = "single_select")]
+        [EnumMember(Value = "closed")]
         #pragma warning disable CS1591
-        Single_select,
+        Closed,
         #pragma warning restore CS1591
-        [EnumMember(Value = "multi_select")]
+        [EnumMember(Value = "locked")]
         #pragma warning disable CS1591
-        Multi_select,
+        Locked,
         #pragma warning restore CS1591
-        [EnumMember(Value = "true_false")]
+        [EnumMember(Value = "converting")]
         #pragma warning disable CS1591
-        True_false,
+        Converting,
         #pragma warning restore CS1591
-        [EnumMember(Value = "url")]
+        [EnumMember(Value = "transferring")]
         #pragma warning disable CS1591
-        Url,
+        Transferring,
         #pragma warning restore CS1591
     }
 }

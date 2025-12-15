@@ -5,24 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches
+namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DispatchesPostRequestBody : IAdditionalDataHolder, IParsable
+    public partial class DeleteEvent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Input keys and values configured in the workflow file. The maximum number of properties is 25. Any default properties configured in the workflow file will be used when `inputs` are omitted.</summary>
+        /// <summary>The full_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs? Inputs { get; set; }
+        public string? FullRef { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs Inputs { get; set; }
+        public string FullRef { get; set; }
 #endif
-        /// <summary>The git reference for the workflow. The reference can be a branch or tag name.</summary>
+        /// <summary>The pusher_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PusherType { get; set; }
+#nullable restore
+#else
+        public string PusherType { get; set; }
+#endif
+        /// <summary>The ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Ref { get; set; }
@@ -30,22 +38,30 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
 #else
         public string Ref { get; set; }
 #endif
+        /// <summary>The ref_type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RefType { get; set; }
+#nullable restore
+#else
+        public string RefType { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent"/> and sets the default values.
         /// </summary>
-        public DispatchesPostRequestBody()
+        public DeleteEvent()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.DeleteEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +71,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "inputs", n => { Inputs = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs.CreateFromDiscriminatorValue); } },
+                { "full_ref", n => { FullRef = n.GetStringValue(); } },
+                { "pusher_type", n => { PusherType = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
+                { "ref_type", n => { RefType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +84,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs>("inputs", Inputs);
+            writer.WriteStringValue("full_ref", FullRef);
+            writer.WriteStringValue("pusher_type", PusherType);
             writer.WriteStringValue("ref", Ref);
+            writer.WriteStringValue("ref_type", RefType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

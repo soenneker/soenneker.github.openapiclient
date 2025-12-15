@@ -15,6 +15,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The list of users to assign to the code scanning alert. An empty array unassigns all previous assignees from the alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Assignees { get; set; }
+#nullable restore
+#else
+        public List<string> Assignees { get; set; }
+#endif
         /// <summary>If `true`, attempt to create an alert dismissal request.</summary>
         public bool? CreateRequest { get; set; }
         /// <summary>The dismissal comment associated with the dismissal of the alert.</summary>
@@ -54,6 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "create_request", n => { CreateRequest = n.GetBoolValue(); } },
                 { "dismissed_comment", n => { DismissedComment = n.GetStringValue(); } },
                 { "dismissed_reason", n => { DismissedReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>(); } },
@@ -67,6 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
             writer.WriteBoolValue("create_request", CreateRequest);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>("dismissed_reason", DismissedReason);

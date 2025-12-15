@@ -25,6 +25,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository_dependency Dependency { get; private set; }
 #endif
+        /// <summary>Information about an active dismissal request for this Dependabot alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple? DismissalRequest { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple DismissalRequest { get; set; }
+#endif
         /// <summary>The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? DismissedAt { get; private set; }
         /// <summary>A GitHub user.</summary>
@@ -114,6 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "auto_dismissed_at", n => { AutoDismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dependency", n => { Dependency = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository_dependency>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository_dependency.CreateFromDiscriminatorValue); } },
+                { "dismissal_request", n => { DismissalRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple.CreateFromDiscriminatorValue); } },
                 { "dismissed_at", n => { DismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "dismissed_by", n => { DismissedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "dismissed_comment", n => { DismissedComment = n.GetStringValue(); } },
@@ -136,6 +145,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple>("dismissal_request", DismissalRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("dismissed_by", DismissedBy);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepository_dismissed_reason>("dismissed_reason", DismissedReason);

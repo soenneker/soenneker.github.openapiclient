@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
         /// Lists all instances of the specified code scanning alert.OAuth app tokens and personal access tokens (classic) need the `security_events` scope to use this endpoint with private or public repositories, or the `public_repo` scope to use this endpoint with only public repositories.
         /// API method documentation <see href="https://docs.github.com/rest/code-scanning/code-scanning#list-instances-of-a-code-scanning-alert" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceList&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
@@ -45,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Instances503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceList>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceList>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.Instances503Error.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceList>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceList.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

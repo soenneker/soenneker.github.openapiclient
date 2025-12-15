@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/code-scanning/alerts{?after*,before*,direction*,page*,per_page*,severity*,sort*,state*,tool_guid*,tool_name*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/code-scanning/alerts{?after*,assignees*,before*,direction*,page*,per_page*,severity*,sort*,state*,tool_guid*,tool_name*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/code-scanning/alerts{?after*,before*,direction*,page*,per_page*,severity*,sort*,state*,tool_guid*,tool_name*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/code-scanning/alerts{?after*,assignees*,before*,direction*,page*,per_page*,severity*,sort*,state*,tool_guid*,tool_name*}", rawUrl)
         {
         }
         /// <summary>
@@ -103,6 +103,16 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
 #else
             [QueryParameter("after")]
             public string After { get; set; }
+#endif
+            /// <summary>Filter alerts by assignees. Provide a comma-separated list of user handles (e.g., `octocat` or `octocat,hubot`).Use `*` to list alerts with at least one assignee or `none` to list alerts with no assignees.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("assignees")]
+            public string? Assignees { get; set; }
+#nullable restore
+#else
+            [QueryParameter("assignees")]
+            public string Assignees { get; set; }
 #endif
             /// <summary>A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -5,32 +5,39 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches
+namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// Input keys and values configured in the workflow file. The maximum number of properties is 25. Any default properties configured in the workflow file will be used when `inputs` are omitted.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DispatchesPostRequestBody_inputs : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class PullRequestReviewCommentEvent_comment__links_html : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The href property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Href { get; set; }
+#nullable restore
+#else
+        public string Href { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links_html"/> and sets the default values.
         /// </summary>
-        public DispatchesPostRequestBody_inputs()
+        public PullRequestReviewCommentEvent_comment__links_html()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links_html"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links_html CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links_html();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "href", n => { Href = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("href", Href);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
