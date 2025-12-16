@@ -41,6 +41,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The enablement status of Dependabot alerts</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_alerts? DependabotAlerts { get; set; }
+        /// <summary>The enablement status of Dependabot delegated alert dismissal</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_delegated_alert_dismissal? DependabotDelegatedAlertDismissal { get; set; }
         /// <summary>The enablement status of Dependabot security updates</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_security_updates? DependabotSecurityUpdates { get; set; }
         /// <summary>The enablement status of Dependency Graph</summary>
@@ -151,6 +153,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "code_scanning_options", n => { CodeScanningOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dependabot_alerts", n => { DependabotAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_alerts>(); } },
+                { "dependabot_delegated_alert_dismissal", n => { DependabotDelegatedAlertDismissal = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_delegated_alert_dismissal>(); } },
                 { "dependabot_security_updates", n => { DependabotSecurityUpdates = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_security_updates>(); } },
                 { "dependency_graph", n => { DependencyGraph = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependency_graph>(); } },
                 { "dependency_graph_autosubmit_action", n => { DependencyGraphAutosubmitAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependency_graph_autosubmit_action>(); } },
@@ -188,6 +191,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_code_scanning_options>("code_scanning_options", CodeScanningOptions);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_alerts>("dependabot_alerts", DependabotAlerts);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_delegated_alert_dismissal>("dependabot_delegated_alert_dismissal", DependabotDelegatedAlertDismissal);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependabot_security_updates>("dependabot_security_updates", DependabotSecurityUpdates);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependency_graph>("dependency_graph", DependencyGraph);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_dependency_graph_autosubmit_action>("dependency_graph_autosubmit_action", DependencyGraphAutosubmitAction);
