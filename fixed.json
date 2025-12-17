@@ -24988,42 +24988,97 @@
           }
         ],
         "requestBody": {
-          "description": "Details of the item to add to the project.",
+          "description": "Details of the item to add to the project. You can specify either the database ID or the repository owner, name, and issue/PR number.",
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "type",
-                  "id"
-                ],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "Issue",
-                      "PullRequest"
+                "oneOf": [
+                  {
+                    "required": [
+                      "type",
+                      "id"
                     ],
-                    "type": "string",
-                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "Issue",
+                          "PullRequest"
+                        ],
+                        "type": "string",
+                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                      },
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique ID of the issue or pull request to add to the project.",
+                        "format": "int64"
+                      }
+                    }
                   },
-                  "id": {
-                    "type": "integer",
-                    "description": "The numeric ID of the issue or pull request to add to the project.",
-                    "format": "int64"
+                  {
+                    "required": [
+                      "type",
+                      "owner",
+                      "repo",
+                      "number"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "Issue",
+                          "PullRequest"
+                        ],
+                        "type": "string",
+                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                      },
+                      "owner": {
+                        "type": "string",
+                        "description": "The repository owner login."
+                      },
+                      "repo": {
+                        "type": "string",
+                        "description": "The repository name."
+                      },
+                      "number": {
+                        "type": "integer",
+                        "description": "The issue or pull request number."
+                      }
+                    }
                   }
-                }
+                ]
               },
               "examples": {
-                "issue": {
+                "issue-with-id": {
+                  "summary": "Add issue by database ID",
                   "value": {
                     "type": "Issue",
                     "id": 3
                   }
                 },
-                "pull_request": {
+                "pull_request-with-id": {
+                  "summary": "Add pull request by database ID",
                   "value": {
                     "type": "PullRequest",
                     "id": 3
+                  }
+                },
+                "issue-with-nwo": {
+                  "summary": "Add issue by repository and number",
+                  "value": {
+                    "type": "Issue",
+                    "owner": "octocat",
+                    "repo": "hello-world",
+                    "number": 42
+                  }
+                },
+                "pull_request-with-nwo": {
+                  "summary": "Add pull request by repository and number",
+                  "value": {
+                    "type": "PullRequest",
+                    "owner": "octocat",
+                    "repo": "hello-world",
+                    "number": 123
                   }
                 }
               }
@@ -75343,42 +75398,97 @@
           }
         ],
         "requestBody": {
-          "description": "Details of the item to add to the project.",
+          "description": "Details of the item to add to the project. You can specify either the database ID or the repository owner, name, and issue/PR number.",
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "type",
-                  "id"
-                ],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "Issue",
-                      "PullRequest"
+                "oneOf": [
+                  {
+                    "required": [
+                      "type",
+                      "id"
                     ],
-                    "type": "string",
-                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "Issue",
+                          "PullRequest"
+                        ],
+                        "type": "string",
+                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                      },
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique ID of the issue or pull request to add to the project.",
+                        "format": "int64"
+                      }
+                    }
                   },
-                  "id": {
-                    "type": "integer",
-                    "description": "The numeric ID of the issue or pull request to add to the project.",
-                    "format": "int64"
+                  {
+                    "required": [
+                      "type",
+                      "owner",
+                      "repo",
+                      "number"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "Issue",
+                          "PullRequest"
+                        ],
+                        "type": "string",
+                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                      },
+                      "owner": {
+                        "type": "string",
+                        "description": "The repository owner login."
+                      },
+                      "repo": {
+                        "type": "string",
+                        "description": "The repository name."
+                      },
+                      "number": {
+                        "type": "integer",
+                        "description": "The issue or pull request number."
+                      }
+                    }
                   }
-                }
+                ]
               },
               "examples": {
-                "issue": {
+                "issue-with-id": {
+                  "summary": "Add issue by database ID",
                   "value": {
                     "type": "Issue",
                     "id": 3
                   }
                 },
-                "pull_request": {
+                "pull_request-with-id": {
+                  "summary": "Add pull request by database ID",
                   "value": {
                     "type": "PullRequest",
                     "id": 3
+                  }
+                },
+                "issue-with-nwo": {
+                  "summary": "Add issue by repository and number",
+                  "value": {
+                    "type": "Issue",
+                    "owner": "octocat",
+                    "repo": "hello-world",
+                    "number": 42
+                  }
+                },
+                "pull_request-with-nwo": {
+                  "summary": "Add pull request by repository and number",
+                  "value": {
+                    "type": "PullRequest",
+                    "owner": "octocat",
+                    "repo": "hello-world",
+                    "number": 123
                   }
                 }
               }
@@ -265806,6 +265916,11 @@
           "state": "active",
           "role": "admin",
           "organization_url": "https://api.github.com/orgs/octocat",
+          "direct_membership": "true",
+          "enterprise_teams_providing_indirect_membership": [
+            "ent:justice-league",
+            "ent:security-managers"
+          ],
           "organization": {
             "login": "github",
             "id": "1",
@@ -286440,6 +286555,8 @@
             "state": "active",
             "role": "admin",
             "organization_url": "https://api.github.com/orgs/octocat",
+            "direct_membership": "true",
+            "enterprise_teams_providing_indirect_membership": [ ],
             "organization": {
               "login": "github",
               "id": "1",
@@ -286480,6 +286597,11 @@
             "state": "pending",
             "role": "admin",
             "organization_url": "https://api.github.com/orgs/invitocat",
+            "direct_membership": "false",
+            "enterprise_teams_providing_indirect_membership": [
+              "ent:justice-league",
+              "ent:security-managers"
+            ],
             "organization": {
               "login": "github",
               "id": "1",
@@ -286523,6 +286645,11 @@
           "state": "pending",
           "role": "admin",
           "organization_url": "https://api.github.com/orgs/invitocat",
+          "direct_membership": "true",
+          "enterprise_teams_providing_indirect_membership": [
+            "ent:justice-league",
+            "ent:security-managers"
+          ],
           "organization": {
             "login": "github",
             "id": "1",
@@ -286565,6 +286692,11 @@
           "state": "active",
           "role": "admin",
           "organization_url": "https://api.github.com/orgs/octocat",
+          "direct_membership": "true",
+          "enterprise_teams_providing_indirect_membership": [
+            "ent:justice-league",
+            "ent:security-managers"
+          ],
           "organization": {
             "login": "github",
             "id": "1",

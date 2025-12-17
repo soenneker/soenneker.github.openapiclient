@@ -5,7 +5,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items
 {
     /// <summary>The type of item to add to the project. Must be either Issue or PullRequest.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ItemsPostRequestBody_type
+    public enum ItemsPostRequestBodyMember1_type
     {
         [EnumMember(Value = "Issue")]
         #pragma warning disable CS1591
