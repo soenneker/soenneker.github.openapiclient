@@ -47,16 +47,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string BodyVersion { get; set; }
 #endif
-        /// <summary>The comments_count property</summary>
-        public int? CommentsCount { get; set; }
-        /// <summary>The comments_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CommentsUrl { get; set; }
-#nullable restore
-#else
-        public string CommentsUrl { get; set; }
-#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The html_url property</summary>
@@ -146,8 +136,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "body_html", n => { BodyHtml = n.GetStringValue(); } },
                 { "body_version", n => { BodyVersion = n.GetStringValue(); } },
-                { "comments_count", n => { CommentsCount = n.GetIntValue(); } },
-                { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "last_edited_at", n => { LastEditedAt = n.GetDateTimeOffsetValue(); } },
@@ -173,8 +161,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("body", Body);
             writer.WriteStringValue("body_html", BodyHtml);
             writer.WriteStringValue("body_version", BodyVersion);
-            writer.WriteIntValue("comments_count", CommentsCount);
-            writer.WriteStringValue("comments_url", CommentsUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteDateTimeOffsetValue("last_edited_at", LastEditedAt);

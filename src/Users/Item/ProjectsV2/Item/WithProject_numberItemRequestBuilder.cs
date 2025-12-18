@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields;
 using Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items;
+using Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -28,6 +29,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsRequestBuilder Items
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The views property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.ViewsRequestBuilder Views
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.ViewsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.WithProject_numberItemRequestBuilder"/> and sets the default values.

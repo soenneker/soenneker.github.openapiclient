@@ -4,8 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments;
-using Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Reactions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,18 +17,6 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithDiscussion_numberItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The comments property</summary>
-        [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments.CommentsRequestBuilder Comments
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The reactions property</summary>
-        [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Reactions.ReactionsRequestBuilder Reactions
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.Reactions.ReactionsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.Item.WithDiscussion_numberItemRequestBuilder"/> and sets the default values.
         /// </summary>

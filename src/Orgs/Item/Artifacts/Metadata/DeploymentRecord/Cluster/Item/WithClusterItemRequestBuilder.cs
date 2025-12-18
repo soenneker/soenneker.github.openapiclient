@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
         {
         }
         /// <summary>
-        /// Set deployment records for a given cluster.
+        /// Set deployment records for a given cluster.If proposed records in the &apos;deployments&apos; field have identical &apos;cluster&apos;, &apos;logical_environment&apos;,&apos;physical_environment&apos;, and &apos;deployment_name&apos; values as existing records, the existing records will be updated.If no existing records match, new records will be created.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/artifact-metadata#set-cluster-deployment-records" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostResponse"/></returns>
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Set deployment records for a given cluster.
+        /// Set deployment records for a given cluster.If proposed records in the &apos;deployments&apos; field have identical &apos;cluster&apos;, &apos;logical_environment&apos;,&apos;physical_environment&apos;, and &apos;deployment_name&apos; values as existing records, the existing records will be updated.If no existing records match, new records will be created.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
