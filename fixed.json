@@ -13689,7 +13689,7 @@
                           "maxLength": 128,
                           "minLength": 1,
                           "type": "string",
-                          "description": "The unique identifier for the deployment represented by the new record. To accommodate differing\ncontainers and namespaces within a record set, the following format is recommended:\n{namespaceName}-{deploymentName}-{containerName}\n"
+                          "description": "The unique identifier for the deployment represented by the new record. To accommodate differing\ncontainers and namespaces within a record set, the following format is recommended:\n{namespaceName}-{deploymentName}-{containerName}.\nThe deployment_name must be unique across all entries in the deployments array.\n"
                         },
                         "github_repository": {
                           "maxLength": 100,
@@ -34646,8 +34646,20 @@
           "required": true
         },
         "responses": {
-          "204": {
-            "description": "Response"
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workflow-dispatch-response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/workflow-dispatch-response"
+                  }
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -97441,21 +97453,32 @@
       "workflow-run-id": {
         "title": "Workflow Run ID",
         "type": "integer",
-        "description": "The unique identifier for a workflow run",
+        "description": "The ID of the workflow run.",
         "format": "int64"
       },
       "workflow-dispatch-response": {
         "title": "Workflow Dispatch Response",
         "required": [
-          "workflow_run_id"
+          "workflow_run_id",
+          "run_url",
+          "html_url"
         ],
         "type": "object",
         "properties": {
           "workflow_run_id": {
             "$ref": "#/components/schemas/workflow-run-id"
+          },
+          "run_url": {
+            "type": "string",
+            "description": "The URL to the workflow run.",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
           }
         },
-        "description": "Response containing the workflow run ID"
+        "description": "Response containing the workflow run ID and URLs."
       },
       "workflow-usage": {
         "title": "Workflow Usage",
@@ -270543,7 +270566,9 @@
       },
       "workflow-dispatch-response": {
         "value": {
-          "workflow_run_id": "1"
+          "workflow_run_id": "1",
+          "run_url": "https://api.github.com/repos/octo-org/octo-repo/actions/runs/1",
+          "html_url": "https://github.com/octo-org/octo-repo/actions/runs/1"
         }
       },
       "workflow-usage": {

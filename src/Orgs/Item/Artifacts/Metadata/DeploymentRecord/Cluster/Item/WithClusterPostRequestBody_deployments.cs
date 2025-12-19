@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier for the deployment represented by the new record. To accommodate differingcontainers and namespaces within a record set, the following format is recommended:{namespaceName}-{deploymentName}-{containerName}</summary>
+        /// <summary>The unique identifier for the deployment represented by the new record. To accommodate differingcontainers and namespaces within a record set, the following format is recommended:{namespaceName}-{deploymentName}-{containerName}.The deployment_name must be unique across all entries in the deployments array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DeploymentName { get; set; }
