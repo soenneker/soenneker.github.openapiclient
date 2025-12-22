@@ -2901,6 +2901,9 @@
                   "code_scanning_default_setup_options": {
                     "$ref": "#/components/schemas/code-scanning-default-setup-options"
                   },
+                  "code_scanning_options": {
+                    "$ref": "#/components/schemas/code-scanning-options"
+                  },
                   "code_scanning_delegated_alert_dismissal": {
                     "type": "string",
                     "description": "The enablement status of code scanning delegated alert dismissal",
@@ -16378,6 +16381,9 @@
                   "code_scanning_default_setup_options": {
                     "$ref": "#/components/schemas/code-scanning-default-setup-options"
                   },
+                  "code_scanning_options": {
+                    "$ref": "#/components/schemas/code-scanning-options"
+                  },
                   "code_scanning_delegated_alert_dismissal": {
                     "type": "string",
                     "description": "The enablement status of code scanning delegated alert dismissal",
@@ -25232,58 +25238,49 @@
         ],
         "requestBody": {
           "required": true,
-          "description": "Details of the item to add to the project. You can specify either the database ID or the repository owner, name, and issue/PR number.",
+          "description": "Details of the item to add to the project. You can specify either the unique ID or the repository owner, name, and issue/PR number.",
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "Issue",
+                      "PullRequest"
+                    ],
+                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the issue or pull request to add to the project."
+                  },
+                  "owner": {
+                    "type": "string",
+                    "description": "The repository owner login."
+                  },
+                  "repo": {
+                    "type": "string",
+                    "description": "The repository name."
+                  },
+                  "number": {
+                    "type": "integer",
+                    "description": "The issue or pull request number."
+                  }
+                },
+                "required": [
+                  "type"
+                ],
                 "oneOf": [
                   {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "Issue",
-                          "PullRequest"
-                        ],
-                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
-                      },
-                      "id": {
-                        "type": "integer",
-                        "description": "The unique ID of the issue or pull request to add to the project."
-                      }
-                    },
                     "required": [
-                      "type",
                       "id"
                     ]
                   },
                   {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "Issue",
-                          "PullRequest"
-                        ],
-                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
-                      },
-                      "owner": {
-                        "type": "string",
-                        "description": "The repository owner login."
-                      },
-                      "repo": {
-                        "type": "string",
-                        "description": "The repository name."
-                      },
-                      "number": {
-                        "type": "integer",
-                        "description": "The issue or pull request number."
-                      }
-                    },
                     "required": [
-                      "type",
                       "owner",
                       "repo",
                       "number"
@@ -25292,22 +25289,22 @@
                 ]
               },
               "examples": {
-                "issue-with-id": {
-                  "summary": "Add issue by database ID",
+                "issue_with_id": {
+                  "summary": "Add an issue using its unique ID",
                   "value": {
                     "type": "Issue",
                     "id": 3
                   }
                 },
-                "pull_request-with-id": {
-                  "summary": "Add pull request by database ID",
+                "pull_request_with_id": {
+                  "summary": "Add a pull request using its unique ID",
                   "value": {
                     "type": "PullRequest",
                     "id": 3
                   }
                 },
-                "issue-with-nwo": {
-                  "summary": "Add issue by repository and number",
+                "issue_with_nwo": {
+                  "summary": "Add an issue using repository owner, name, and issue number",
                   "value": {
                     "type": "Issue",
                     "owner": "octocat",
@@ -25315,8 +25312,8 @@
                     "number": 42
                   }
                 },
-                "pull_request-with-nwo": {
-                  "summary": "Add pull request by repository and number",
+                "pull_request_with_nwo": {
+                  "summary": "Add a pull request using repository owner, name, and PR number",
                   "value": {
                     "type": "PullRequest",
                     "owner": "octocat",
@@ -25337,11 +25334,29 @@
                   "$ref": "#/components/schemas/projects-v2-item-simple"
                 },
                 "examples": {
-                  "issue": {
-                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  "issue_with_id": {
+                    "summary": "Response for adding an issue using its unique ID",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
                   },
-                  "pull_request": {
-                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  "pull_request_with_id": {
+                    "summary": "Response for adding a pull request using its unique ID",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
+                  },
+                  "issue_with_nwo": {
+                    "summary": "Response for adding an issue using repository owner, name, and issue number",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
+                  },
+                  "pull_request_with_nwo": {
+                    "summary": "Response for adding a pull request using repository owner, name, and PR number",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
                   }
                 }
               }
@@ -34869,20 +34884,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/workflow-dispatch-response"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/workflow-dispatch-response"
-                  }
-                }
-              }
-            }
+          "204": {
+            "description": "Response"
           }
         },
         "requestBody": {
@@ -74530,58 +74533,49 @@
         ],
         "requestBody": {
           "required": true,
-          "description": "Details of the item to add to the project. You can specify either the database ID or the repository owner, name, and issue/PR number.",
+          "description": "Details of the item to add to the project. You can specify either the unique ID or the repository owner, name, and issue/PR number.",
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "Issue",
+                      "PullRequest"
+                    ],
+                    "description": "The type of item to add to the project. Must be either Issue or PullRequest."
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the issue or pull request to add to the project."
+                  },
+                  "owner": {
+                    "type": "string",
+                    "description": "The repository owner login."
+                  },
+                  "repo": {
+                    "type": "string",
+                    "description": "The repository name."
+                  },
+                  "number": {
+                    "type": "integer",
+                    "description": "The issue or pull request number."
+                  }
+                },
+                "required": [
+                  "type"
+                ],
                 "oneOf": [
                   {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "Issue",
-                          "PullRequest"
-                        ],
-                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
-                      },
-                      "id": {
-                        "type": "integer",
-                        "description": "The unique ID of the issue or pull request to add to the project."
-                      }
-                    },
                     "required": [
-                      "type",
                       "id"
                     ]
                   },
                   {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "Issue",
-                          "PullRequest"
-                        ],
-                        "description": "The type of item to add to the project. Must be either Issue or PullRequest."
-                      },
-                      "owner": {
-                        "type": "string",
-                        "description": "The repository owner login."
-                      },
-                      "repo": {
-                        "type": "string",
-                        "description": "The repository name."
-                      },
-                      "number": {
-                        "type": "integer",
-                        "description": "The issue or pull request number."
-                      }
-                    },
                     "required": [
-                      "type",
                       "owner",
                       "repo",
                       "number"
@@ -74590,22 +74584,22 @@
                 ]
               },
               "examples": {
-                "issue-with-id": {
-                  "summary": "Add issue by database ID",
+                "issue_with_id": {
+                  "summary": "Add an issue using its unique ID",
                   "value": {
                     "type": "Issue",
                     "id": 3
                   }
                 },
-                "pull_request-with-id": {
-                  "summary": "Add pull request by database ID",
+                "pull_request_with_id": {
+                  "summary": "Add a pull request using its unique ID",
                   "value": {
                     "type": "PullRequest",
                     "id": 3
                   }
                 },
-                "issue-with-nwo": {
-                  "summary": "Add issue by repository and number",
+                "issue_with_nwo": {
+                  "summary": "Add an issue using repository owner, name, and issue number",
                   "value": {
                     "type": "Issue",
                     "owner": "octocat",
@@ -74613,8 +74607,8 @@
                     "number": 42
                   }
                 },
-                "pull_request-with-nwo": {
-                  "summary": "Add pull request by repository and number",
+                "pull_request_with_nwo": {
+                  "summary": "Add a pull request using repository owner, name, and PR number",
                   "value": {
                     "type": "PullRequest",
                     "owner": "octocat",
@@ -74635,11 +74629,29 @@
                   "$ref": "#/components/schemas/projects-v2-item-simple"
                 },
                 "examples": {
-                  "issue": {
-                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  "issue_with_id": {
+                    "summary": "Response for adding an issue using its unique ID",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
                   },
-                  "pull_request": {
-                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  "pull_request_with_id": {
+                    "summary": "Response for adding a pull request using its unique ID",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
+                  },
+                  "issue_with_nwo": {
+                    "summary": "Response for adding an issue using repository owner, name, and issue number",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
+                  },
+                  "pull_request_with_nwo": {
+                    "summary": "Response for adding a pull request using repository owner, name, and PR number",
+                    "value": {
+                      "$ref": "#/components/examples/projects-v2-item-simple"
+                    }
                   }
                 }
               }
@@ -130769,7 +130781,7 @@
             "type": "integer"
           },
           "user": {
-            "$ref": "#/components/schemas/simple-user"
+            "$ref": "#/components/schemas/nullable-simple-user"
           },
           "body": {
             "description": "The text of the comment.",

@@ -9,11 +9,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ItemsPostRequestBodyMember2 : IAdditionalDataHolder, IParsable
+    public partial class ItemsPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The unique identifier of the issue or pull request to add to the project.</summary>
+        public long? Id { get; set; }
         /// <summary>The issue or pull request number.</summary>
         public int? Number { get; set; }
         /// <summary>The repository owner login.</summary>
@@ -33,23 +33,16 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items
         public string Repo { get; set; }
 #endif
         /// <summary>The type of item to add to the project. Must be either Issue or PullRequest.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2_type? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2"/> and sets the default values.
-        /// </summary>
-        public ItemsPostRequestBodyMember2()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBody_type? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2();
+            return new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,10 +52,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
                 { "repo", n => { Repo = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBody_type>(); } },
             };
         }
         /// <summary>
@@ -72,11 +66,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("owner", Owner);
             writer.WriteStringValue("repo", Repo);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBodyMember2_type>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.ItemsPostRequestBody_type>("type", Type);
         }
     }
 }
