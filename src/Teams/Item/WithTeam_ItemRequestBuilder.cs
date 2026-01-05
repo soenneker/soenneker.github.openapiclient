@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions;
 using Soenneker.GitHub.OpenApiClient.Teams.Item.Invitations;
 using Soenneker.GitHub.OpenApiClient.Teams.Item.Members;
 using Soenneker.GitHub.OpenApiClient.Teams.Item.Memberships;
@@ -23,12 +22,6 @@ namespace Soenneker.GitHub.OpenApiClient.Teams.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithTeam_ItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The discussions property</summary>
-        [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.DiscussionsRequestBuilder Discussions
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Teams.Item.Discussions.DiscussionsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The invitations property</summary>
         [Obsolete("")]
         public global::Soenneker.GitHub.OpenApiClient.Teams.Item.Invitations.InvitationsRequestBuilder Invitations
