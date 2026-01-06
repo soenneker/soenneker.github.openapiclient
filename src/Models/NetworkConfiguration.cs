@@ -19,6 +19,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration_compute_service? ComputeService { get; set; }
         /// <summary>The time at which the network configuration was created, in ISO 8601 format.</summary>
         public DateTimeOffset? CreatedOn { get; set; }
+        /// <summary>Indicates whether the failover network resource is enabled.</summary>
+        public bool? FailoverNetworkEnabled { get; set; }
+        /// <summary>The unique identifier of each failover network settings in the configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FailoverNetworkSettingsIds { get; set; }
+#nullable restore
+#else
+        public List<string> FailoverNetworkSettingsIds { get; set; }
+#endif
         /// <summary>The unique identifier of the network configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +80,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "compute_service", n => { ComputeService = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration_compute_service>(); } },
                 { "created_on", n => { CreatedOn = n.GetDateTimeOffsetValue(); } },
+                { "failover_network_enabled", n => { FailoverNetworkEnabled = n.GetBoolValue(); } },
+                { "failover_network_settings_ids", n => { FailoverNetworkSettingsIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network_settings_ids", n => { NetworkSettingsIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -84,6 +96,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration_compute_service>("compute_service", ComputeService);
             writer.WriteDateTimeOffsetValue("created_on", CreatedOn);
+            writer.WriteBoolValue("failover_network_enabled", FailoverNetworkEnabled);
+            writer.WriteCollectionOfPrimitiveValues<string>("failover_network_settings_ids", FailoverNetworkSettingsIds);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("network_settings_ids", NetworkSettingsIds);

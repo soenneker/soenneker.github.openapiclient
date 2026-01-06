@@ -94312,6 +94312,19 @@
             "description": "The unique identifier of each network settings in the configuration.",
             "example": "123ABC456DEF789"
           },
+          "failover_network_settings_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The unique identifier of each failover network settings in the configuration.",
+            "example": "123ABC456DEF789"
+          },
+          "failover_network_enabled": {
+            "type": "boolean",
+            "description": "Indicates whether the failover network resource is enabled.",
+            "example": true
+          },
           "created_on": {
             "type": "string",
             "description": "The time at which the network configuration was created, in ISO 8601 format.",
