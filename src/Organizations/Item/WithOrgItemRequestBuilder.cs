@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot;
-using Soenneker.GitHub.OpenApiClient.Organizations.Item.OrgProperties;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings;
 using System.Collections.Generic;
 using System.IO;
@@ -27,11 +26,6 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item
         public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.DependabotRequestBuilder Dependabot
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.DependabotRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The orgProperties property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.OrgProperties.OrgPropertiesRequestBuilder OrgProperties
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.OrgProperties.OrgPropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The settings property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.SettingsRequestBuilder Settings

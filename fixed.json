@@ -7687,121 +7687,6 @@
         }
       }
     },
-    "/organizations/{org}/org-properties/values": {
-      "get": {
-        "tags": [
-          "orgs"
-        ],
-        "summary": "Get all custom property values for an organization",
-        "description": "Gets all custom property values that are set for an organization.\n\nThe organization must belong to an enterprise.\n\nAccess requirements:\n- Organization admins\n- OAuth tokens and personal access tokens (classic) with the `read:org` scope\n- Actors with the organization-level \"read custom properties for an organization\" fine-grained permission or above",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/orgs/custom-properties-for-orgs#get-all-custom-property-values-for-an-organization"
-        },
-        "operationId": "orgs/custom-properties-for-orgs-get-organization-values",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/custom-property-value"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/custom-property-values"
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "orgs",
-          "subcategory": "custom-properties-for-orgs"
-        }
-      },
-      "patch": {
-        "tags": [
-          "orgs"
-        ],
-        "summary": "Create or update custom property values for an organization",
-        "description": "Create new or update existing custom property values for an organization.\nTo remove a custom property value from an organization, set the property value to `null`.\n\nThe organization must belong to an enterprise.\n\nAccess requirements:\n- Organization admins\n- OAuth tokens and personal access tokens (classic) with the `admin:org` scope\n- Actors with the organization-level \"edit custom properties for an organization\" fine-grained permission",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/orgs/custom-properties-for-orgs#create-or-update-custom-property-values-for-an-organization"
-        },
-        "operationId": "orgs/custom-properties-for-orgs-create-or-update-organization-values",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/org"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "properties"
-                ],
-                "type": "object",
-                "properties": {
-                  "properties": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/custom-property-value"
-                    },
-                    "description": "A list of custom property names and associated values to apply to the organization."
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "$ref": "#/components/examples/create-or-update-custom-properties-values"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "204": {
-            "description": "No Content when custom property values are successfully created or updated"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          }
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "orgs",
-          "subcategory": "custom-properties-for-orgs"
-        }
-      }
-    },
     "/organizations/{org}/settings/billing/budgets": {
       "get": {
         "tags": [
@@ -83669,36 +83554,6 @@
         "additionalProperties": false,
         "description": "Information about repositories that Dependabot is able to access in an organization"
       },
-      "custom-property-value": {
-        "title": "Custom Property Value",
-        "required": [
-          "property_name",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "property_name": {
-            "type": "string",
-            "description": "The name of the property"
-          },
-          "value": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            ],
-            "description": "The value assigned to the property",
-            "nullable": true
-          }
-        },
-        "description": "Custom property name and associated value"
-      },
       "budget": {
         "required": [
           "id",
@@ -90423,6 +90278,36 @@
           }
         },
         "description": "Custom property set payload"
+      },
+      "custom-property-value": {
+        "title": "Custom Property Value",
+        "required": [
+          "property_name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "property_name": {
+            "type": "string",
+            "description": "The name of the property"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "description": "The value assigned to the property",
+            "nullable": true
+          }
+        },
+        "description": "Custom property name and associated value"
       },
       "org-repo-custom-property-values": {
         "title": "Organization Repository Custom Property Values",
@@ -260386,40 +260271,6 @@
           ]
         }
       },
-      "custom-property-values": {
-        "value": [
-          {
-            "property_name": "environment",
-            "value": "production"
-          },
-          {
-            "property_name": "service",
-            "value": "web"
-          },
-          {
-            "property_name": "team",
-            "value": "octocat"
-          }
-        ]
-      },
-      "create-or-update-custom-properties-values": {
-        "value": {
-          "properties": [
-            {
-              "property_name": "environment",
-              "value": "production"
-            },
-            {
-              "property_name": "service",
-              "value": "web"
-            },
-            {
-              "property_name": "team",
-              "value": "octocat"
-            }
-          ]
-        }
-      },
       "get_all_budgets": {
         "value": {
           "budgets": [
@@ -278175,6 +278026,40 @@
             "is_https_eligible": "true",
             "caa_error": "null"
           }
+        }
+      },
+      "custom-property-values": {
+        "value": [
+          {
+            "property_name": "environment",
+            "value": "production"
+          },
+          {
+            "property_name": "service",
+            "value": "web"
+          },
+          {
+            "property_name": "team",
+            "value": "octocat"
+          }
+        ]
+      },
+      "create-or-update-custom-properties-values": {
+        "value": {
+          "properties": [
+            {
+              "property_name": "environment",
+              "value": "production"
+            },
+            {
+              "property_name": "service",
+              "value": "web"
+            },
+            {
+              "property_name": "team",
+              "value": "octocat"
+            }
+          ]
         }
       },
       "pull-request": {
