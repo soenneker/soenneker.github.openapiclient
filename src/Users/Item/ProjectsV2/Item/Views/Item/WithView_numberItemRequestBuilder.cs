@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\projectsV2\{project_number}\views\{view_number}
+    /// Builds and executes requests for operations under \users\{username-id}\projectsV2\{project_number}\views\{view_number}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithView_numberItemRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithView_numberItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/projectsV2/{project_number}/views/{view_number}", pathParameters)
+        public WithView_numberItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/projectsV2/{project_number}/views/{view_number}", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithView_numberItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/projectsV2/{project_number}/views/{view_number}", rawUrl)
+        public WithView_numberItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/projectsV2/{project_number}/views/{view_number}", rawUrl)
         {
         }
     }

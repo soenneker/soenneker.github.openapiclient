@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships.Remove.RemoveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.enterprises.item.teams.item.memberships.item collection</summary>
-        /// <param name="position">The handle for the GitHub user account.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships.Item.WithUsernameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships.Item.WithUsernameItemRequestBuilder this[string position]
         {

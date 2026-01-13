@@ -14,7 +14,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\packages\{package_type}\{package_name}
+    /// Builds and executes requests for operations under \users\{username-id}\packages\{package_type}\{package_name}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPackage_nameItemRequestBuilder : BaseRequestBuilder
@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackage_nameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages/{package_type}/{package_name}", pathParameters)
+        public WithPackage_nameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages/{package_type}/{package_name}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackage_nameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages/{package_type}/{package_name}", rawUrl)
+        public WithPackage_nameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages/{package_type}/{package_name}", rawUrl)
         {
         }
         /// <summary>

@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Members
     public partial class MembersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.members.item collection</summary>
-        /// <param name="position">The handle for the GitHub user account.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Members.Item.WithUsernameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Members.Item.WithUsernameItemRequestBuilder this[string position]
         {

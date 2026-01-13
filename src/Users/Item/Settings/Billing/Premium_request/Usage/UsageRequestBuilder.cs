@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Usage
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\settings\billing\premium_request\usage
+    /// Builds and executes requests for operations under \users\{username-id}\settings\billing\premium_request\usage
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UsageRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_req
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/premium_request/usage{?day*,model*,month*,product*,year*}", pathParameters)
+        public UsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/settings/billing/premium_request/usage{?day*,model*,month*,product*,year*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_req
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/premium_request/usage{?day*,model*,month*,product*,year*}", rawUrl)
+        public UsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/settings/billing/premium_request/usage{?day*,model*,month*,product*,year*}", rawUrl)
         {
         }
         /// <summary>

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summary
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\settings\billing\usage\summary
+    /// Builds and executes requests for operations under \users\{username-id}\settings\billing\usage\summary
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SummaryRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summa
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SummaryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/usage/summary{?day*,month*,product*,repository*,sku*,year*}", pathParameters)
+        public SummaryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/settings/billing/usage/summary{?day*,month*,product*,repository*,sku*,year*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage.Summa
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SummaryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/settings/billing/usage/summary{?day*,month*,product*,repository*,sku*,year*}", rawUrl)
+        public SummaryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/settings/billing/usage/summary{?day*,month*,product*,repository*,sku*,year*}", rawUrl)
         {
         }
         /// <summary>

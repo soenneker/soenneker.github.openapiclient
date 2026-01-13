@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username}\packages
+    /// Builds and executes requests for operations under \users\{username-id}\packages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PackagesRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PackagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages?package_type={package_type}{&page*,per_page*,visibility*}", pathParameters)
+        public PackagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PackagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username}/packages?package_type={package_type}{&page*,per_page*,visibility*}", rawUrl)
+        public PackagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", rawUrl)
         {
         }
         /// <summary>
