@@ -16,6 +16,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this runner should be updated with a static public IP. Note limit on account. To list limits on account, use `GET actions/hosted-runners/limits`</summary>
         public bool? EnableStaticIp { get; set; }
+        /// <summary>The unique identifier of the runner image. To list all available images, use `GET /actions/hosted-runners/images/github-owned` or `GET /actions/hosted-runners/images/partner`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImageId { get; set; }
+#nullable restore
+#else
+        public string ImageId { get; set; }
+#endif
         /// <summary>The version of the runner image to deploy. This is relevant only for runners using custom images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +44,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
 #endif
         /// <summary>The existing runner group to add this runner to.</summary>
         public long? RunnerGroupId { get; set; }
+        /// <summary>The machine size of the runner. To list available sizes, use `GET actions/hosted-runners/machine-sizes`</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Size { get; set; }
+#nullable restore
+#else
+        public string Size { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHosted_runner_PatchRequestBody"/> and sets the default values.
         /// </summary>
@@ -62,10 +78,12 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enable_static_ip", n => { EnableStaticIp = n.GetBoolValue(); } },
+                { "image_id", n => { ImageId = n.GetStringValue(); } },
                 { "image_version", n => { ImageVersion = n.GetStringValue(); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
+                { "size", n => { Size = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,10 +94,12 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_static_ip", EnableStaticIp);
+            writer.WriteStringValue("image_id", ImageId);
             writer.WriteStringValue("image_version", ImageVersion);
             writer.WriteIntValue("maximum_runners", MaximumRunners);
             writer.WriteStringValue("name", Name);
             writer.WriteLongValue("runner_group_id", RunnerGroupId);
+            writer.WriteStringValue("size", Size);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

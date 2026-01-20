@@ -5945,7 +5945,11 @@
                     "repositories": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/repository"
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/repository"
+                          }
+                        ]
                       }
                     },
                     "repository_selection": {
@@ -9715,6 +9719,14 @@
                   "enable_static_ip": {
                     "description": "Whether this runner should be updated with a static public IP. Note limit on account. To list limits on account, use `GET actions/hosted-runners/limits`",
                     "type": "boolean"
+                  },
+                  "size": {
+                    "description": "The machine size of the runner. To list available sizes, use `GET actions/hosted-runners/machine-sizes`",
+                    "type": "string"
+                  },
+                  "image_id": {
+                    "description": "The unique identifier of the runner image. To list all available images, use `GET /actions/hosted-runners/images/github-owned` or `GET /actions/hosted-runners/images/partner`.",
+                    "type": "string"
                   },
                   "image_version": {
                     "description": "The version of the runner image to deploy. This is relevant only for runners using custom images.",
@@ -28384,7 +28396,7 @@
                     "type": "array",
                     "minItems": 1,
                     "maxItems": 1,
-                    "description": "The identifier of the network settings to use for the network configuration. Exactly one network settings must be specified.",
+                    "description": "A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.",
                     "items": {
                       "type": "string"
                     }
@@ -28525,7 +28537,7 @@
                     "type": "array",
                     "minItems": 0,
                     "maxItems": 1,
-                    "description": "The identifier of the network settings to use for the network configuration. Exactly one network settings must be specified.",
+                    "description": "A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.",
                     "items": {
                       "type": "string"
                     }
@@ -68247,7 +68259,11 @@
                     "repositories": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/repository"
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/repository"
+                          }
+                        ]
                       }
                     }
                   }
@@ -86943,7 +86959,7 @@
     },
     "package-published": {
       "post": {
-        "summary": "This event occurs when there is activity relating to GitHub Packages. For more information, see \"[Introduction to GitHub Packages](https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages).\" For information about the APIs to manage GitHub Packages, see [the GraphQL API documentation](https://docs.github.com/graphql/reference/objects#package) or \"[Packages](https://docs.github.com/rest/packages)\" in the REST API documentation.\n\nTo install this event on a GitHub App, the app must have at least read-level access for the \"Packages\" repository permission.",
+        "summary": "This event occurs when there is activity relating to GitHub Packages. For more information, see \"[Introduction to GitHub Packages](https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages).\" For information about the APIs to manage GitHub Packages, see [the GraphQL API documentation](https://docs.github.com/graphql/reference/objects#package) or \"[Packages](https://docs.github.com/rest/packages)\" in the REST API documentation.",
         "description": "A package was published to a registry.",
         "operationId": "package/published",
         "externalDocs": {
@@ -87028,15 +87044,14 @@
           "subcategory": "package",
           "supported-webhook-types": [
             "repository",
-            "organization",
-            "app"
+            "organization"
           ]
         }
       }
     },
     "package-updated": {
       "post": {
-        "summary": "This event occurs when there is activity relating to GitHub Packages. For more information, see \"[Introduction to GitHub Packages](https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages).\" For information about the APIs to manage GitHub Packages, see [the GraphQL API documentation](https://docs.github.com/graphql/reference/objects#package) or \"[Packages](https://docs.github.com/rest/packages)\" in the REST API documentation.\n\nTo install this event on a GitHub App, the app must have at least read-level access for the \"Packages\" repository permission.",
+        "summary": "This event occurs when there is activity relating to GitHub Packages. For more information, see \"[Introduction to GitHub Packages](https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages).\" For information about the APIs to manage GitHub Packages, see [the GraphQL API documentation](https://docs.github.com/graphql/reference/objects#package) or \"[Packages](https://docs.github.com/rest/packages)\" in the REST API documentation.",
         "description": "A previously published package was updated.",
         "operationId": "package/updated",
         "externalDocs": {
@@ -87121,8 +87136,7 @@
           "subcategory": "package",
           "supported-webhook-types": [
             "repository",
-            "organization",
-            "app"
+            "organization"
           ]
         }
       }

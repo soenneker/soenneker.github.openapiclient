@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The identifier of the network settings to use for the network configuration. Exactly one network settings must be specified.</summary>
+        /// <summary>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? NetworkSettingsIds { get; set; }
