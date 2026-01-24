@@ -3394,7 +3394,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/enterprise-teams-items"
+                    "$ref": "#/components/examples/enterprise-teams-item"
                   }
                 }
               }
@@ -4126,7 +4126,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/enterprise-teams-items"
+                    "$ref": "#/components/examples/enterprise-teams-item"
                   }
                 }
               }
@@ -4232,7 +4232,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/enterprise-teams-items"
+                    "$ref": "#/components/examples/enterprise-teams-item"
                   }
                 }
               }
@@ -92002,7 +92002,7 @@
         "properties": {
           "actor_id": {
             "type": "integer",
-            "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.",
+            "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.",
             "format": "int64",
             "nullable": true
           },
@@ -259074,6 +259074,20 @@
             "updated_at": "2019-01-26T19:14:43Z"
           }
         ]
+      },
+      "enterprise-teams-item": {
+        "value": {
+          "id": "1",
+          "name": "Justice League",
+          "description": "A great team.",
+          "slug": "justice-league",
+          "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+          "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+          "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+          "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+          "created_at": "2019-01-26T19:01:12Z",
+          "updated_at": "2019-01-26T19:14:43Z"
+        }
       },
       "simple-user-items": {
         "value": [
