@@ -55,13 +55,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string CurrentUserUrl { get; set; }
 #endif
-        /// <summary>The _links property</summary>
+        /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Feed__links? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Feed_links? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Feed__links Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Feed_links Links { get; set; }
 #endif
         /// <summary>A feed of discussions for a given repository and category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,7 +133,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "current_user_organization_urls", n => { CurrentUserOrganizationUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "current_user_public_url", n => { CurrentUserPublicUrl = n.GetStringValue(); } },
                 { "current_user_url", n => { CurrentUserUrl = n.GetStringValue(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Feed__links>(global::Soenneker.GitHub.OpenApiClient.Models.Feed__links.CreateFromDiscriminatorValue); } },
+                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Feed_links>(global::Soenneker.GitHub.OpenApiClient.Models.Feed_links.CreateFromDiscriminatorValue); } },
                 { "repository_discussions_category_url", n => { RepositoryDiscussionsCategoryUrl = n.GetStringValue(); } },
                 { "repository_discussions_url", n => { RepositoryDiscussionsUrl = n.GetStringValue(); } },
                 { "security_advisories_url", n => { SecurityAdvisoriesUrl = n.GetStringValue(); } },
@@ -153,7 +153,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("current_user_organization_urls", CurrentUserOrganizationUrls);
             writer.WriteStringValue("current_user_public_url", CurrentUserPublicUrl);
             writer.WriteStringValue("current_user_url", CurrentUserUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Feed__links>("_links", Links);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Feed_links>("_links", Links);
             writer.WriteStringValue("repository_discussions_category_url", RepositoryDiscussionsCategoryUrl);
             writer.WriteStringValue("repository_discussions_url", RepositoryDiscussionsUrl);
             writer.WriteStringValue("security_advisories_url", SecurityAdvisoriesUrl);

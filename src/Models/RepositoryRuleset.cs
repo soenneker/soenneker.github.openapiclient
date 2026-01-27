@@ -39,13 +39,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement? Enforcement { get; set; }
         /// <summary>The ID of the ruleset</summary>
         public long? Id { get; set; }
-        /// <summary>The _links property</summary>
+        /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset__links? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_links? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset__links Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_links Links { get; set; }
 #endif
         /// <summary>The name of the ruleset</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "current_user_can_bypass", n => { CurrentUserCanBypass = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_current_user_can_bypass>(); } },
                 { "enforcement", n => { Enforcement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset__links>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset__links.CreateFromDiscriminatorValue); } },
+                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_links>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_links.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -139,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_current_user_can_bypass>("current_user_can_bypass", CurrentUserCanBypass);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>("enforcement", Enforcement);
             writer.WriteLongValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset__links>("_links", Links);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_links>("_links", Links);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>("rules", Rules);

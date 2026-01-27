@@ -59,13 +59,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Unique identifier of the review</summary>
         public long? Id { get; set; }
-        /// <summary>The _links property</summary>
+        /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview__links? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview_links? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview__links Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview_links Links { get; set; }
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,7 +133,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_id", n => { CommitId = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview__links>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview__links.CreateFromDiscriminatorValue); } },
+                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview_links>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview_links.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "pull_request_url", n => { PullRequestUrl = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
@@ -155,7 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_id", CommitId);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview__links>("_links", Links);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReview_links>("_links", Links);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("pull_request_url", PullRequestUrl);
             writer.WriteStringValue("state", State);

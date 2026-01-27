@@ -73,13 +73,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public long? InReplyToId { get; set; }
         /// <summary>The line of the blob to which the comment applies. The last line of the range for a multi-line comment</summary>
         public int? Line { get; set; }
-        /// <summary>The _links property</summary>
+        /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment__links? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_links? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment__links Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_links Links { get; set; }
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -195,7 +195,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "in_reply_to_id", n => { InReplyToId = n.GetLongValue(); } },
                 { "line", n => { Line = n.GetIntValue(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment__links>(global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment__links.CreateFromDiscriminatorValue); } },
+                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_links>(global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_links.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "original_commit_id", n => { OriginalCommitId = n.GetStringValue(); } },
                 { "original_line", n => { OriginalLine = n.GetIntValue(); } },
@@ -233,7 +233,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteLongValue("in_reply_to_id", InReplyToId);
             writer.WriteIntValue("line", Line);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment__links>("_links", Links);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_links>("_links", Links);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("original_commit_id", OriginalCommitId);
             writer.WriteIntValue("original_line", OriginalLine);

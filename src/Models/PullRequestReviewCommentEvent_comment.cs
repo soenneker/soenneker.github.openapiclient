@@ -52,13 +52,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public long? Id { get; set; }
         /// <summary>The in_reply_to_id property</summary>
         public long? InReplyToId { get; set; }
-        /// <summary>The _links property</summary>
+        /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment_links? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment_links Links { get; set; }
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "in_reply_to_id", n => { InReplyToId = n.GetLongValue(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links.CreateFromDiscriminatorValue); } },
+                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment_links>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment_links.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "original_commit_id", n => { OriginalCommitId = n.GetStringValue(); } },
                 { "original_position", n => { OriginalPosition = n.GetIntValue(); } },
@@ -193,7 +193,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteLongValue("in_reply_to_id", InReplyToId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment__links>("_links", Links);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEvent_comment_links>("_links", Links);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("original_commit_id", OriginalCommitId);
             writer.WriteIntValue("original_position", OriginalPosition);
