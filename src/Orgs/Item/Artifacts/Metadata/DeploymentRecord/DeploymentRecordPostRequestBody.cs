@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
 #else
         public string Cluster { get; set; }
 #endif
-        /// <summary>The name of the deployment.</summary>
+        /// <summary>The unique identifier for the deployment represented by the new record. To accommodate differingcontainers and namespaces within a cluster, the following format is recommended:{namespaceName}-{deploymentName}-{containerName}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DeploymentName { get; set; }

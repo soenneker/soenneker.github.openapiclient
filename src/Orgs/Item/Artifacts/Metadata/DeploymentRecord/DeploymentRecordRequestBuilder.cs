@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
         {
         }
         /// <summary>
-        /// Create or update deployment records for an artifact associated with an organization.This endpoint allows you to record information about a specific artifact, such as its name, digest, environments, cluster, and deployment.
+        /// Create or update deployment records for an artifact associatedwith an organization.This endpoint allows you to record information about a specificartifact, such as its name, digest, environments, cluster, anddeployment.The deployment name has to be uniqe within a cluster (i.e acombination of logical, physical environment and cluster) as itidentifies unique deployment.Multiple requests for the same combination of logical, physicalenvironment, cluster and deployment name will only create onerecord, successive request will update the existing record.This allows for a stable tracking of a deployment where the actualdeployed artifact can change over time.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/artifact-metadata#create-an-artifact-deployment-record" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostResponse"/></returns>
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create or update deployment records for an artifact associated with an organization.This endpoint allows you to record information about a specific artifact, such as its name, digest, environments, cluster, and deployment.
+        /// Create or update deployment records for an artifact associatedwith an organization.This endpoint allows you to record information about a specificartifact, such as its name, digest, environments, cluster, anddeployment.The deployment name has to be uniqe within a cluster (i.e acombination of logical, physical environment and cluster) as itidentifies unique deployment.Multiple requests for the same combination of logical, physicalenvironment, cluster and deployment name will only create onerecord, successive request will update the existing record.This allows for a stable tracking of a deployment where the actualdeployed artifact can change over time.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

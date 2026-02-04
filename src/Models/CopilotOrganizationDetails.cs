@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The organization policy for allowing or disallowing Copilot in the CLI.</summary>
+        /// <summary>The organization policy for allowing or disallowing Copilot CLI.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_cli? Cli { get; set; }
         /// <summary>The organization policy for allowing or disallowing Copilot Chat in the IDE.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_ide_chat? IdeChat { get; set; }

@@ -117,8 +117,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_starring? Starring { get; set; }
         /// <summary>The level of permission to grant the access token for commit statuses.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_statuses? Statuses { get; set; }
-        /// <summary>The level of permission to grant the access token to manage team discussions and related comments.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_team_discussions? TeamDiscussions { get; set; }
         /// <summary>The level of permission to grant the access token to manage Dependabot alerts.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_vulnerability_alerts? VulnerabilityAlerts { get; set; }
         /// <summary>The level of permission to grant the access token to update GitHub Actions workflow files.</summary>
@@ -199,7 +197,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "single_file", n => { SingleFile = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_single_file>(); } },
                 { "starring", n => { Starring = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_starring>(); } },
                 { "statuses", n => { Statuses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_statuses>(); } },
-                { "team_discussions", n => { TeamDiscussions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_team_discussions>(); } },
                 { "vulnerability_alerts", n => { VulnerabilityAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_vulnerability_alerts>(); } },
                 { "workflows", n => { Workflows = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_workflows>(); } },
             };
@@ -262,7 +259,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_single_file>("single_file", SingleFile);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_starring>("starring", Starring);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_statuses>("statuses", Statuses);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_team_discussions>("team_discussions", TeamDiscussions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_vulnerability_alerts>("vulnerability_alerts", VulnerabilityAlerts);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_workflows>("workflows", Workflows);
             writer.WriteAdditionalData(AdditionalData);
