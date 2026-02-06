@@ -9,11 +9,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ProjectsV2FieldSingleSelectOption : IAdditionalDataHolder, IParsable
+    public partial class ProjectsV2FieldSingleSelectOption : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The color associated with the option.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption_color? Color { get; set; }
         /// <summary>The description of the option.</summary>
@@ -32,13 +30,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption"/> and sets the default values.
-        /// </summary>
-        public ProjectsV2FieldSingleSelectOption()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -72,7 +63,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption_color>("color", Color);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

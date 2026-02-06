@@ -24,6 +24,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Indicates if there are more pages of results available (maps to hasNextPage from billing platform)</summary>
         public bool? HasNextPage { get; set; }
+        /// <summary>Total number of budgets matching the query</summary>
+        public int? TotalCount { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Get_all_budgets"/> and sets the default values.
         /// </summary>
@@ -51,6 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "budgets", n => { Budgets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>(global::Soenneker.GitHub.OpenApiClient.Models.Budget.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_next_page", n => { HasNextPage = n.GetBoolValue(); } },
+                { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -62,6 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>("budgets", Budgets);
             writer.WriteBoolValue("has_next_page", HasNextPage);
+            writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
