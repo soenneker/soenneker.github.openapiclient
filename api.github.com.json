@@ -51200,6 +51200,118 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/issues/comments/{comment_id}/pin": {
+      "put": {
+        "summary": "Pin an issue comment",
+        "description": "You can use the REST API to pin comments on issues.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.raw+json`**: Returns the raw markdown body. Response will include `body`. This is the default if you do not pass any specific media type.\n- **`application/vnd.github.text+json`**: Returns a text only representation of the markdown body. Response will include `body_text`.\n- **`application/vnd.github.html+json`**: Returns HTML rendered from the body's markdown. Response will include `body_html`.\n- **`application/vnd.github.full+json`**: Returns raw, text, and HTML representations. Response will include `body`, `body_text`, and `body_html`.",
+        "tags": [
+          "issues"
+        ],
+        "operationId": "issues/pin-comment",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/comments#pin-an-issue-comment"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/comment-id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/issue-comment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-comment"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "410": {
+            "$ref": "#/components/responses/gone"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "comments"
+        }
+      },
+      "delete": {
+        "summary": "Unpin an issue comment",
+        "description": "You can use the REST API to unpin comments on issues.",
+        "tags": [
+          "issues"
+        ],
+        "operationId": "issues/unpin-comment",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/comments#unpin-an-issue-comment"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/comment-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "410": {
+            "$ref": "#/components/responses/gone"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "comments"
+        }
+      }
+    },
     "/repos/{owner}/{repo}/issues/comments/{comment_id}/reactions": {
       "get": {
         "summary": "List reactions for an issue comment",
@@ -102402,6 +102514,12 @@
             "type": "boolean",
             "example": true
           },
+          "has_pull_requests": {
+            "description": "Whether pull requests are enabled.",
+            "default": true,
+            "type": "boolean",
+            "example": true
+          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -105964,6 +106082,26 @@
           "updated_at"
         ]
       },
+      "nullable-pinned-issue-comment": {
+        "title": "Pinned Issue Comment",
+        "description": "Context around who pinned an issue comment and when it was pinned.",
+        "type": "object",
+        "properties": {
+          "pinned_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-04-14T16:00:49Z"
+          },
+          "pinned_by": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          }
+        },
+        "required": [
+          "pinned_at",
+          "pinned_by"
+        ],
+        "nullable": true
+      },
       "issue-comment": {
         "title": "Issue Comment",
         "description": "Comments provide a way for people to collaborate on an issue.",
@@ -106024,6 +106162,9 @@
           },
           "reactions": {
             "$ref": "#/components/schemas/reaction-rollup"
+          },
+          "pin": {
+            "$ref": "#/components/schemas/nullable-pinned-issue-comment"
           }
         },
         "required": [
@@ -107960,6 +108101,18 @@
                 ]
               }
             }
+          },
+          "secret_scanning_delegated_alert_dismissal": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "enabled",
+                  "disabled"
+                ]
+              }
+            }
           }
         }
       },
@@ -108234,6 +108387,9 @@
             "type": "boolean"
           },
           "has_discussions": {
+            "type": "boolean"
+          },
+          "has_pull_requests": {
             "type": "boolean"
           },
           "archived": {
@@ -112684,6 +112840,9 @@
           "has_discussions": {
             "type": "boolean"
           },
+          "has_pull_requests": {
+            "type": "boolean"
+          },
           "archived": {
             "type": "boolean"
           },
@@ -116099,6 +116258,12 @@
             "type": "boolean",
             "example": true
           },
+          "has_pull_requests": {
+            "description": "Whether pull requests are enabled.",
+            "default": true,
+            "type": "boolean",
+            "example": true
+          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -116655,6 +116820,10 @@
             "example": true
           },
           "has_discussions": {
+            "type": "boolean",
+            "example": true
+          },
+          "has_pull_requests": {
             "type": "boolean",
             "example": true
           },
@@ -130245,6 +130414,9 @@
           },
           "reactions": {
             "$ref": "#/components/schemas/reaction-rollup"
+          },
+          "pin": {
+            "$ref": "#/components/schemas/nullable-pinned-issue-comment"
           }
         },
         "required": [
@@ -134676,6 +134848,9 @@
           "has_discussions": {
             "type": "boolean"
           },
+          "has_pull_requests": {
+            "type": "boolean"
+          },
           "archived": {
             "type": "boolean"
           },
@@ -136968,6 +137143,12 @@
             "type": "boolean",
             "example": true
           },
+          "has_pull_requests": {
+            "description": "Whether pull requests are enabled.",
+            "default": true,
+            "type": "boolean",
+            "example": true
+          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -139124,6 +139305,9 @@
               "login",
               "id"
             ]
+          },
+          "pin": {
+            "$ref": "#/components/schemas/nullable-pinned-issue-comment"
           }
         },
         "required": [
@@ -142623,6 +142807,12 @@
             "type": "boolean",
             "example": true
           },
+          "has_pull_requests": {
+            "description": "Whether pull requests are enabled.",
+            "default": true,
+            "type": "boolean",
+            "example": true
+          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -145029,6 +145219,11 @@
                     "type": "boolean",
                     "default": false
                   },
+                  "has_pull_requests": {
+                    "description": "Whether pull requests are enabled.",
+                    "type": "boolean",
+                    "default": true
+                  },
                   "homepage": {
                     "type": "string",
                     "nullable": true
@@ -145827,6 +146022,11 @@
                     "description": "Whether discussions are enabled.",
                     "type": "boolean",
                     "default": false
+                  },
+                  "has_pull_requests": {
+                    "description": "Whether pull requests are enabled.",
+                    "type": "boolean",
+                    "default": true
                   },
                   "homepage": {
                     "type": "string",
@@ -164984,6 +165184,9 @@
                 "type": "string",
                 "format": "uri"
               },
+              "pin": {
+                "$ref": "#/components/schemas/nullable-pinned-issue-comment"
+              },
               "user": {
                 "title": "User",
                 "type": "object",
@@ -183386,6 +183589,11 @@
                     "description": "Whether the repository has discussions enabled.",
                     "type": "boolean"
                   },
+                  "has_pull_requests": {
+                    "description": "Whether pull requests are enabled.",
+                    "type": "boolean",
+                    "default": true
+                  },
                   "has_downloads": {
                     "description": "Whether downloads are enabled.",
                     "type": "boolean",
@@ -187718,6 +187926,11 @@
                     "description": "Whether discussions are enabled.",
                     "type": "boolean",
                     "default": false
+                  },
+                  "has_pull_requests": {
+                    "description": "Whether pull requests are enabled.",
+                    "type": "boolean",
+                    "default": true
                   },
                   "homepage": {
                     "type": "string",
@@ -195978,6 +196191,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -196778,6 +196996,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -198953,6 +199176,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "has_pages": {
                         "type": "boolean"
                       },
@@ -199764,6 +199992,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -201954,6 +202187,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -202752,6 +202990,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -205060,6 +205303,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -205858,6 +206106,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -208154,6 +208407,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -208952,6 +209210,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -211134,6 +211397,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -211934,6 +212202,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -214123,6 +214396,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -214923,6 +215201,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -217623,6 +217906,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -218407,6 +218695,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -220465,6 +220758,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -221249,6 +221547,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -223303,6 +223606,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -224087,6 +224395,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -226137,6 +226450,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -226921,6 +227239,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -231966,6 +232289,11 @@
                             "type": "boolean",
                             "default": false
                           },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -232764,6 +233092,11 @@
                             "description": "Whether discussions are enabled.",
                             "type": "boolean",
                             "default": false
+                          },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -235056,6 +235389,11 @@
                             "type": "boolean",
                             "default": false
                           },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -235854,6 +236192,11 @@
                             "description": "Whether discussions are enabled.",
                             "type": "boolean",
                             "default": false
+                          },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -238196,6 +238539,11 @@
                             "type": "boolean",
                             "default": false
                           },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -238994,6 +239342,11 @@
                             "description": "Whether discussions are enabled.",
                             "type": "boolean",
                             "default": false
+                          },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -241282,6 +241635,11 @@
                             "type": "boolean",
                             "default": false
                           },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -242080,6 +242438,11 @@
                             "description": "Whether discussions are enabled.",
                             "type": "boolean",
                             "default": false
+                          },
+                          "has_pull_requests": {
+                            "description": "Whether pull requests are enabled.",
+                            "type": "boolean",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -244385,6 +244748,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -245170,6 +245538,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -247232,6 +247605,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -247978,6 +248356,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -250375,6 +250758,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -251119,6 +251507,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -253518,6 +253911,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -254316,6 +254714,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -256511,6 +256914,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -257311,6 +257719,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -259503,6 +259916,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -260303,6 +260721,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -262489,6 +262912,11 @@
                         "type": "boolean",
                         "default": false
                       },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -263288,6 +263716,11 @@
                         "description": "Whether discussions are enabled.",
                         "type": "boolean",
                         "default": false
+                      },
+                      "has_pull_requests": {
+                        "description": "Whether pull requests are enabled.",
+                        "type": "boolean",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -265271,6 +265704,11 @@
                 "description": "Whether discussions are enabled.",
                 "type": "boolean",
                 "default": false
+              },
+              "has_pull_requests": {
+                "description": "Whether pull requests are enabled.",
+                "type": "boolean",
+                "default": true
               },
               "homepage": {
                 "type": "string",
@@ -279404,6 +279842,9 @@
               "has_discussions": {
                 "type": "boolean"
               },
+              "has_pull_requests": {
+                "type": "boolean"
+              },
               "forks_count": {
                 "type": "integer"
               },
@@ -289529,6 +289970,9 @@
               },
               "secret_scanning_non_provider_patterns": {
                 "status": "disabled"
+              },
+              "secret_scanning_delegated_alert_dismissal": {
+                "status": "disabled"
               }
             }
           }
@@ -293587,6 +294031,9 @@
                 "status": "disabled"
               },
               "secret_scanning_non_provider_patterns": {
+                "status": "disabled"
+              },
+              "secret_scanning_delegated_alert_dismissal": {
                 "status": "disabled"
               }
             }

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.Pin;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.Reactions;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithComment_ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The pin property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.Pin.PinRequestBuilder Pin
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.Pin.PinRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The reactions property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.Reactions.ReactionsRequestBuilder Reactions
         {

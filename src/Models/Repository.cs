@@ -238,6 +238,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? HasPages { get; set; }
         /// <summary>Whether projects are enabled.</summary>
         public bool? HasProjects { get; set; }
+        /// <summary>Whether pull requests are enabled.</summary>
+        public bool? HasPullRequests { get; set; }
         /// <summary>Whether the wiki is enabled.</summary>
         public bool? HasWiki { get; set; }
         /// <summary>The homepage property</summary>
@@ -631,6 +633,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "has_issues", n => { HasIssues = n.GetBoolValue(); } },
                 { "has_pages", n => { HasPages = n.GetBoolValue(); } },
                 { "has_projects", n => { HasProjects = n.GetBoolValue(); } },
+                { "has_pull_requests", n => { HasPullRequests = n.GetBoolValue(); } },
                 { "has_wiki", n => { HasWiki = n.GetBoolValue(); } },
                 { "homepage", n => { Homepage = n.GetStringValue(); } },
                 { "hooks_url", n => { HooksUrl = n.GetStringValue(); } },
@@ -736,6 +739,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("has_issues", HasIssues);
             writer.WriteBoolValue("has_pages", HasPages);
             writer.WriteBoolValue("has_projects", HasProjects);
+            writer.WriteBoolValue("has_pull_requests", HasPullRequests);
             writer.WriteBoolValue("has_wiki", HasWiki);
             writer.WriteStringValue("homepage", Homepage);
             writer.WriteStringValue("hooks_url", HooksUrl);
