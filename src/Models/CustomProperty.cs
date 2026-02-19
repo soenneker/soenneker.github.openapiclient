@@ -49,6 +49,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether the property is required.</summary>
         public bool? Required { get; set; }
+        /// <summary>Whether setting properties values is mandatory</summary>
+        public bool? RequireExplicitValues { get; set; }
         /// <summary>The source type of the property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_source_type? SourceType { get; set; }
         /// <summary>The URL that can be used to fetch, update, or delete info about this property via the API.</summary>
@@ -92,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "default_value", n => { DefaultValue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty.CustomProperty_default_value>(global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty.CustomProperty_default_value.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "property_name", n => { PropertyName = n.GetStringValue(); } },
+                { "require_explicit_values", n => { RequireExplicitValues = n.GetBoolValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
                 { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_source_type>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -111,6 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("property_name", PropertyName);
             writer.WriteBoolValue("required", Required);
+            writer.WriteBoolValue("require_explicit_values", RequireExplicitValues);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_source_type>("source_type", SourceType);
             writer.WriteStringValue("url", Url);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_values_editable_by>("values_editable_by", ValuesEditableBy);

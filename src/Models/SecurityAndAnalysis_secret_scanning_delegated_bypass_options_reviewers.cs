@@ -9,7 +9,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers : IAdditionalDataHolder, IParsable
+    public partial class SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -17,25 +17,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ID of the team or role selected as a bypass reviewer</summary>
         public long? ReviewerId { get; set; }
         /// <summary>The type of the bypass reviewer</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers_reviewer_type? ReviewerType { get; set; }
-        /// <summary>The ID of the security configuration associated with this bypass reviewer</summary>
-        public long? SecurityConfigurationId { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers_reviewer_type? ReviewerType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers"/> and sets the default values.
         /// </summary>
-        public CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers()
+        public SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "reviewer_id", n => { ReviewerId = n.GetLongValue(); } },
-                { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>(); } },
-                { "security_configuration_id", n => { SecurityConfigurationId = n.GetLongValue(); } },
+                { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>(); } },
             };
         }
         /// <summary>
@@ -58,8 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("reviewer_id", ReviewerId);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>("reviewer_type", ReviewerType);
-            writer.WriteLongValue("security_configuration_id", SecurityConfigurationId);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>("reviewer_type", ReviewerType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -10,11 +10,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ProjectsV2FieldIterationConfiguration_iterations : IAdditionalDataHolder, IParsable
+    public partial class ProjectsV2FieldIterationConfiguration_iterations : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The duration of the iteration in days.</summary>
         public int? Duration { get; set; }
         /// <summary>The start date of the iteration.</summary>
@@ -27,13 +25,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Title { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration_iterations"/> and sets the default values.
-        /// </summary>
-        public ProjectsV2FieldIterationConfiguration_iterations()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +58,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("duration", Duration);
             writer.WriteDateValue("start_date", StartDate);
             writer.WriteStringValue("title", Title);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

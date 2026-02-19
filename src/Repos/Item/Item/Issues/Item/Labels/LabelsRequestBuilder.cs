@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Adds labels to an issue. If you provide an empty array of labels, all labels are removed from the issue. 
+        /// Adds labels to an issue.
         /// API method documentation <see href="https://docs.github.com/rest/issues/labels#add-labels-to-an-issue" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Label&gt;</returns>
@@ -199,7 +199,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             return requestInfo;
         }
         /// <summary>
-        /// Adds labels to an issue. If you provide an empty array of labels, all labels are removed from the issue. 
+        /// Adds labels to an issue.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -252,7 +252,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2"/>, <see cref="string"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3&gt;, List&lt;string&gt;
+        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2&gt;, List&lt;string&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LabelsPostRequestBody : IComposedTypeWrapper, IParsable
@@ -265,29 +265,13 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
 #else
             public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1 LabelsPostRequestBodyMember1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2"/></summary>
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2? LabelsPostRequestBodyMember2 { get; set; }
+            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>? LabelsPostRequestBodyMember2 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2 LabelsPostRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3>? LabelsPostRequestBodyMember3 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3> LabelsPostRequestBodyMember3 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? LabelsPostRequestBodyString { get; set; }
-#nullable restore
-#else
-            public string LabelsPostRequestBodyString { get; set; }
+            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2> LabelsPostRequestBodyMember2 { get; set; }
 #endif
             /// <summary>Composed type representation for type List&lt;string&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -311,17 +295,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
                 {
                     result.LabelsPostRequestBodyMember1 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1();
                 }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2> labelsPostRequestBodyMember2Value)
                 {
-                    result.LabelsPostRequestBodyMember2 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2();
-                }
-                else if(parseNode.GetStringValue() is string labelsPostRequestBodyStringValue)
-                {
-                    result.LabelsPostRequestBodyString = labelsPostRequestBodyStringValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3> labelsPostRequestBodyMember3Value)
-                {
-                    result.LabelsPostRequestBodyMember3 = labelsPostRequestBodyMember3Value;
+                    result.LabelsPostRequestBodyMember2 = labelsPostRequestBodyMember2Value;
                 }
                 else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
                 {
@@ -339,10 +315,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
                 {
                     return LabelsPostRequestBodyMember1.GetFieldDeserializers();
                 }
-                else if(LabelsPostRequestBodyMember2 != null)
-                {
-                    return LabelsPostRequestBodyMember2.GetFieldDeserializers();
-                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -358,15 +330,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
                 }
                 else if(LabelsPostRequestBodyMember2 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>(null, LabelsPostRequestBodyMember2);
-                }
-                else if(LabelsPostRequestBodyString != null)
-                {
-                    writer.WriteStringValue(null, LabelsPostRequestBodyString);
-                }
-                else if(LabelsPostRequestBodyMember3 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember3>(null, LabelsPostRequestBodyMember3);
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>(null, LabelsPostRequestBodyMember2);
                 }
                 else if(String != null)
                 {

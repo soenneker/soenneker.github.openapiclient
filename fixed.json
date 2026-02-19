@@ -27675,7 +27675,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/team-items"
+                    "$ref": "#/components/examples/team-simple-items"
                   }
                 }
               }
@@ -29772,6 +29772,58 @@
                           }
                         },
                         "description": "Use the `status` property to enable or disable secret scanning non-provider patterns for this repository. For more information, see \"[Supported secret scanning patterns](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).\""
+                      },
+                      "secret_scanning_delegated_alert_dismissal": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "description": "Can be `enabled` or `disabled`."
+                          }
+                        },
+                        "description": "Use the `status` property to enable or disable secret scanning delegated alert dismissal for this repository."
+                      },
+                      "secret_scanning_delegated_bypass": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "description": "Can be `enabled` or `disabled`."
+                          }
+                        },
+                        "description": "Use the `status` property to enable or disable secret scanning delegated bypass for this repository."
+                      },
+                      "secret_scanning_delegated_bypass_options": {
+                        "type": "object",
+                        "properties": {
+                          "reviewers": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "reviewer_id",
+                                "reviewer_type"
+                              ],
+                              "type": "object",
+                              "properties": {
+                                "reviewer_id": {
+                                  "type": "integer",
+                                  "description": "The ID of the team or role selected as a bypass reviewer",
+                                  "format": "int64"
+                                },
+                                "reviewer_type": {
+                                  "enum": [
+                                    "TEAM",
+                                    "ROLE"
+                                  ],
+                                  "type": "string",
+                                  "description": "The type of the bypass reviewer"
+                                }
+                              }
+                            },
+                            "description": "The bypass reviewers for secret scanning delegated bypass.\nIf you omit this field, the existing set of reviewers is unchanged."
+                          }
+                        },
+                        "description": "Feature options for secret scanning delegated bypass.\nThis object is only honored when `security_and_analysis.secret_scanning_delegated_bypass.status` is set to `enabled`.\nYou can send this object in the same request as `secret_scanning_delegated_bypass`, or update just the options in a separate request."
                       }
                     },
                     "description": "Specify which security and analysis features to enable or disable for the repository.\n\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"[Managing security managers in your organization](https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).\"\n\nFor example, to enable GitHub Advanced Security, use this data in the body of the `PATCH` request:\n`{ \"security_and_analysis\": {\"advanced_security\": { \"status\": \"enabled\" } } }`.\n\nYou can check which security and analysis features are currently enabled by using a `GET /repos/{owner}/{repo}` request.",
@@ -34421,6 +34473,10 @@
                     "maxProperties": 25,
                     "type": "object",
                     "description": "Input keys and values configured in the workflow file. The maximum number of properties is 25. Any default properties configured in the workflow file will be used when `inputs` are omitted."
+                  },
+                  "return_run_details": {
+                    "type": "boolean",
+                    "description": "Whether the response should include the workflow run ID and URLs."
                   }
                 }
               },
@@ -34441,7 +34497,22 @@
         },
         "responses": {
           "204": {
-            "description": "Response"
+            "description": "Empty response when `return_run_details` parameter is `false`."
+          },
+          "200": {
+            "description": "Response including the workflow run ID and URLs when `return_run_details` parameter is `true`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/workflow-dispatch-response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/workflow-dispatch-response"
+                  }
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -44241,20 +44312,13 @@
             "$ref": "#/components/parameters/direction"
           },
           {
-            "name": "per_page",
-            "in": "query",
-            "description": "The number of results per page (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
-            "deprecated": true,
-            "schema": {
-              "type": "integer",
-              "default": 30
-            }
-          },
-          {
             "$ref": "#/components/parameters/pagination-before"
           },
           {
             "$ref": "#/components/parameters/pagination-after"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
           }
         ],
         "responses": {
@@ -50918,7 +50982,7 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/issue-comment"
+                    "$ref": "#/components/examples/issue-comment-pinned"
                   }
                 }
               }
@@ -51367,6 +51431,20 @@
             "$ref": "#/components/parameters/issue-number"
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "default": {
+                  "summary": "Get an issue"
+                },
+                "pinned_comment": {
+                  "summary": "Get an issue with a pinned comment"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Response",
@@ -51377,7 +51455,16 @@
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/issue"
+                    "summary": "Issue",
+                    "value": {
+                      "$ref": "#/components/examples/issue"
+                    }
+                  },
+                  "pinned_comment": {
+                    "summary": "Issue with pinned comment",
+                    "value": {
+                      "$ref": "#/components/examples/issue-with-pinned-comment"
+                    }
                   }
                 }
               }
@@ -52417,7 +52504,7 @@
           "issues"
         ],
         "summary": "Add labels to an issue",
-        "description": "Adds labels to an issue. If you provide an empty array of labels, all labels are removed from the issue. ",
+        "description": "Adds labels to an issue.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/labels#add-labels-to-an-issue"
@@ -52448,39 +52535,17 @@
                         "items": {
                           "type": "string"
                         },
-                        "description": "The names of the labels to add to the issue's existing labels. You can pass an empty array to remove all labels. Alternatively, you can pass a single label as a `string` or an `array` of labels directly, but GitHub recommends passing an object with the `labels` key. You can also replace all of the labels for an issue. For more information, see \"[Set labels for an issue](https://docs.github.com/rest/issues/labels#set-labels-for-an-issue).\""
+                        "description": "The names of the labels to add to the issue's existing labels. You can also pass an `array` of labels directly, but GitHub recommends passing an object with the `labels` key. To replace all of the labels for an issue, use \"[Set labels for an issue](https://docs.github.com/rest/issues/labels#set-labels-for-an-issue).\""
                       }
                     }
                   },
                   {
-                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
                     }
                   },
                   {
-                    "type": "object",
-                    "properties": {
-                      "labels": {
-                        "minItems": 1,
-                        "type": "array",
-                        "items": {
-                          "required": [
-                            "name"
-                          ],
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "minItems": 1,
                     "type": "array",
                     "items": {
                       "required": [
@@ -52493,9 +52558,6 @@
                         }
                       }
                     }
-                  },
-                  {
-                    "type": "string"
                   }
                 ]
               },
@@ -77625,6 +77687,15 @@
             "default": true,
             "example": true
           },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only.",
+            "example": "all"
+          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -78794,6 +78865,11 @@
                       ],
                       "type": "string",
                       "description": "The type of the bypass reviewer"
+                    },
+                    "security_configuration_id": {
+                      "type": "integer",
+                      "description": "The ID of the security configuration associated with this bypass reviewer",
+                      "format": "int64"
                     }
                   }
                 },
@@ -79734,6 +79810,14 @@
           },
           "dismissal_request": {
             "$ref": "#/components/schemas/dependabot-alert-dismissal-request-simple"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            },
+            "description": "The users assigned to this alert.",
+            "readOnly": true
           },
           "repository": {
             "$ref": "#/components/schemas/simple-repository"
@@ -80767,6 +80851,103 @@
           }
         }
       },
+      "nullable-pinned-issue-comment": {
+        "title": "Pinned Issue Comment",
+        "required": [
+          "pinned_at",
+          "pinned_by"
+        ],
+        "type": "object",
+        "properties": {
+          "pinned_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-04-14T16:00:49.0000000+00:00"
+          },
+          "pinned_by": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          }
+        },
+        "description": "Context around who pinned an issue comment and when it was pinned.",
+        "nullable": true
+      },
+      "nullable-issue-comment": {
+        "title": "Issue Comment",
+        "required": [
+          "id",
+          "node_id",
+          "html_url",
+          "issue_url",
+          "user",
+          "url",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the issue comment",
+            "format": "int64",
+            "example": 42
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the issue comment",
+            "format": "uri",
+            "example": "https://api.github.com/repositories/42/issues/comments/1"
+          },
+          "body": {
+            "type": "string",
+            "description": "Contents of the issue comment",
+            "example": "What version of Safari were you using when you observed this bug?"
+          },
+          "body_text": {
+            "type": "string"
+          },
+          "body_html": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-04-14T16:00:49.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-04-14T16:00:49.0000000+00:00"
+          },
+          "issue_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "author_association": {
+            "$ref": "#/components/schemas/author-association"
+          },
+          "performed_via_github_app": {
+            "$ref": "#/components/schemas/nullable-integration"
+          },
+          "reactions": {
+            "$ref": "#/components/schemas/reaction-rollup"
+          },
+          "pin": {
+            "$ref": "#/components/schemas/nullable-pinned-issue-comment"
+          }
+        },
+        "description": "Comments provide a way for people to collaborate on an issue.",
+        "nullable": true
+      },
       "issue-dependencies-summary": {
         "title": "Issue Dependencies Summary",
         "required": [
@@ -81122,6 +81303,9 @@
             "format": "uri",
             "nullable": true
           },
+          "pinned_comment": {
+            "$ref": "#/components/schemas/nullable-issue-comment"
+          },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
           },
@@ -81133,26 +81317,6 @@
           }
         },
         "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects."
-      },
-      "nullable-pinned-issue-comment": {
-        "title": "Pinned Issue Comment",
-        "required": [
-          "pinned_at",
-          "pinned_by"
-        ],
-        "type": "object",
-        "properties": {
-          "pinned_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2011-04-14T16:00:49.0000000+00:00"
-          },
-          "pinned_by": {
-            "$ref": "#/components/schemas/nullable-simple-user"
-          }
-        },
-        "description": "Context around who pinned an issue comment and when it was pinned.",
-        "nullable": true
       },
       "issue-comment": {
         "title": "Issue Comment",
@@ -83171,6 +83335,49 @@
                 "type": "string"
               }
             }
+          },
+          "secret_scanning_delegated_bypass": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "enum": [
+                  "enabled",
+                  "disabled"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          "secret_scanning_delegated_bypass_options": {
+            "type": "object",
+            "properties": {
+              "reviewers": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "reviewer_id",
+                    "reviewer_type"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "reviewer_id": {
+                      "type": "integer",
+                      "description": "The ID of the team or role selected as a bypass reviewer",
+                      "format": "int64"
+                    },
+                    "reviewer_type": {
+                      "enum": [
+                        "TEAM",
+                        "ROLE"
+                      ],
+                      "type": "string",
+                      "description": "The type of the bypass reviewer"
+                    }
+                  }
+                },
+                "description": "The bypass reviewers for secret scanning delegated bypass"
+              }
+            }
           }
         },
         "nullable": true
@@ -83497,6 +83704,14 @@
           },
           "has_pull_requests": {
             "type": "boolean"
+          },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
           "archived": {
             "type": "boolean"
@@ -87958,6 +88173,14 @@
           "has_pull_requests": {
             "type": "boolean"
           },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only."
+          },
           "archived": {
             "type": "boolean"
           },
@@ -90583,7 +90806,8 @@
                   "type": "integer",
                   "description": "The duration of the iteration in days."
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "description": "Zero or more iterations for the field."
           }
@@ -90866,6 +91090,10 @@
             "description": "Who can edit the values of the property",
             "nullable": true,
             "example": "org_actors"
+          },
+          "require_explicit_values": {
+            "type": "boolean",
+            "description": "Whether setting properties values is mandatory"
           }
         },
         "description": "Custom property defined on an organization"
@@ -90930,6 +91158,10 @@
             "description": "Who can edit the values of the property",
             "nullable": true,
             "example": "org_actors"
+          },
+          "require_explicit_values": {
+            "type": "boolean",
+            "description": "Whether setting properties values is mandatory"
           }
         },
         "description": "Custom property set payload"
@@ -91419,6 +91651,15 @@
             "description": "Whether pull requests are enabled.",
             "default": true,
             "example": true
+          },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only.",
+            "example": "all"
           },
           "archived": {
             "type": "boolean",
@@ -91984,6 +92225,15 @@
           "has_pull_requests": {
             "type": "boolean",
             "example": true
+          },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only.",
+            "example": "all"
           },
           "archived": {
             "type": "boolean"
@@ -102307,6 +102557,14 @@
           },
           "dismissal_request": {
             "$ref": "#/components/schemas/dependabot-alert-dismissal-request-simple"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/simple-user"
+            },
+            "description": "The users assigned to this alert.",
+            "readOnly": true
           }
         },
         "additionalProperties": false,
@@ -104254,6 +104512,9 @@
             "description": "URL to get the parent issue of this issue, if it is a sub-issue",
             "format": "uri",
             "nullable": true
+          },
+          "pinned_comment": {
+            "$ref": "#/components/schemas/nullable-issue-comment"
           },
           "issue_dependencies_summary": {
             "$ref": "#/components/schemas/issue-dependencies-summary"
@@ -109724,6 +109985,9 @@
           "performed_via_github_app": {
             "$ref": "#/components/schemas/nullable-integration"
           },
+          "pinned_comment": {
+            "$ref": "#/components/schemas/nullable-issue-comment"
+          },
           "reactions": {
             "$ref": "#/components/schemas/reaction-rollup"
           }
@@ -110110,6 +110374,14 @@
           },
           "has_pull_requests": {
             "type": "boolean"
+          },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
           "archived": {
             "type": "boolean"
@@ -112419,6 +112691,14 @@
             "default": true,
             "example": true
           },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only."
+          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -113464,6 +113744,119 @@
             "format": "uri"
           }
         },
+        "nullable": true
+      },
+      "nullable-deployment": {
+        "title": "Deployment",
+        "required": [
+          "id",
+          "node_id",
+          "sha",
+          "ref",
+          "task",
+          "environment",
+          "creator",
+          "payload",
+          "description",
+          "statuses_url",
+          "repository_url",
+          "url",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/example/deployments/1"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the deployment",
+            "format": "int64",
+            "example": 42
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDEwOkRlcGxveW1lbnQx"
+          },
+          "sha": {
+            "type": "string",
+            "example": "a84d88e7554fc1fa21bcbc4efae3c782a70d2b9d"
+          },
+          "ref": {
+            "type": "string",
+            "description": "The ref to deploy. This can be a branch, tag, or sha.",
+            "example": "topic-branch"
+          },
+          "task": {
+            "type": "string",
+            "description": "Parameter to specify a task to execute",
+            "example": "deploy"
+          },
+          "payload": {
+            "oneOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "original_environment": {
+            "type": "string",
+            "example": "staging"
+          },
+          "environment": {
+            "type": "string",
+            "description": "Name for the target deployment environment.",
+            "example": "production"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "example": "Deploy request from hubot"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/nullable-simple-user"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2012-07-20T01:19:13.0000000+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2012-07-20T01:19:13.0000000+00:00"
+          },
+          "statuses_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/example/deployments/1/statuses"
+          },
+          "repository_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/example"
+          },
+          "transient_environment": {
+            "type": "boolean",
+            "description": "Specifies if the given environment is will no longer exist at some point in the future. Default: false.",
+            "example": true
+          },
+          "production_environment": {
+            "type": "boolean",
+            "description": "Specifies if the given environment is one that end-users directly interact with. Default: false.",
+            "example": true
+          },
+          "performed_via_github_app": {
+            "$ref": "#/components/schemas/nullable-integration"
+          }
+        },
+        "description": "A request for a specific ref(branch,sha,tag) to be deployed",
         "nullable": true
       },
       "webhooks_approver": {
@@ -115623,6 +116016,9 @@
             "type": "string",
             "format": "uri"
           },
+          "pinned_comment": {
+            "$ref": "#/components/schemas/nullable-issue-comment"
+          },
           "sub_issues_summary": {
             "$ref": "#/components/schemas/sub-issues-summary"
           },
@@ -117011,6 +117407,9 @@
             "type": "string",
             "format": "uri"
           },
+          "pinned_comment": {
+            "$ref": "#/components/schemas/nullable-issue-comment"
+          },
           "sub_issues_summary": {
             "$ref": "#/components/schemas/sub-issues-summary"
           },
@@ -118127,6 +118526,14 @@
             "description": "Whether pull requests are enabled.",
             "default": true,
             "example": true
+          },
+          "pull_request_creation_policy": {
+            "enum": [
+              "all",
+              "collaborators_only"
+            ],
+            "type": "string",
+            "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
           "archived": {
             "type": "boolean",
@@ -120604,6 +121011,14 @@
                     "description": "Whether pull requests are enabled.",
                     "default": true
                   },
+                  "pull_request_creation_policy": {
+                    "enum": [
+                      "all",
+                      "collaborators_only"
+                    ],
+                    "type": "string",
+                    "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                  },
                   "homepage": {
                     "type": "string",
                     "nullable": true
@@ -121408,6 +121823,14 @@
                     "type": "boolean",
                     "description": "Whether pull requests are enabled.",
                     "default": true
+                  },
+                  "pull_request_creation_policy": {
+                    "enum": [
+                      "all",
+                      "collaborators_only"
+                    ],
+                    "type": "string",
+                    "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
                   "homepage": {
                     "type": "string",
@@ -130968,6 +131391,42 @@
           }
         }
       },
+      "webhook-dependabot-alert-assignees-changed": {
+        "title": "Dependabot alert assignees changed event",
+        "required": [
+          "action",
+          "alert",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "assignees_changed"
+            ],
+            "type": "string"
+          },
+          "alert": {
+            "$ref": "#/components/schemas/dependabot-alert"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        }
+      },
       "webhook-dependabot-alert-auto-dismissed": {
         "title": "Dependabot alert auto-dismissed event",
         "required": [
@@ -132850,13 +133309,21 @@
             "type": "string",
             "description": "The event that triggered the deployment protection rule."
           },
+          "sha": {
+            "type": "string",
+            "description": "The commit SHA that triggered the workflow. Always populated from the check suite, regardless of whether a deployment is created."
+          },
+          "ref": {
+            "type": "string",
+            "description": "The ref (branch or tag) that triggered the workflow. Always populated from the check suite, regardless of whether a deployment is created."
+          },
           "deployment_callback_url": {
             "type": "string",
             "description": "The URL to review the deployment protection rule.",
             "format": "uri"
           },
           "deployment": {
-            "$ref": "#/components/schemas/deployment"
+            "$ref": "#/components/schemas/nullable-deployment"
           },
           "pull_requests": {
             "type": "array",
@@ -149912,6 +150379,9 @@
                     "type": "string",
                     "format": "uri"
                   },
+                  "pinned_comment": {
+                    "$ref": "#/components/schemas/nullable-issue-comment"
+                  },
                   "sub_issues_summary": {
                     "$ref": "#/components/schemas/sub-issues-summary"
                   },
@@ -151353,6 +151823,9 @@
                 "type": "string",
                 "format": "uri"
               },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
+              },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
               },
@@ -152586,6 +153059,9 @@
               "repository_url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
               },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
@@ -153861,6 +154337,9 @@
                 "type": "string",
                 "format": "uri"
               },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
+              },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
               },
@@ -155102,6 +155581,9 @@
               "repository_url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
               },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
@@ -156349,6 +156831,9 @@
                 "type": "string",
                 "format": "uri"
               },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
+              },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
               },
@@ -157582,6 +158067,9 @@
               "repository_url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
               },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
@@ -158844,6 +159332,9 @@
                     "description": "URL for the issue",
                     "format": "uri"
                   },
+                  "pinned_comment": {
+                    "$ref": "#/components/schemas/nullable-issue-comment"
+                  },
                   "user": {
                     "title": "User",
                     "required": [
@@ -159187,6 +159678,14 @@
                     "type": "boolean",
                     "description": "Whether pull requests are enabled.",
                     "default": true
+                  },
+                  "pull_request_creation_policy": {
+                    "enum": [
+                      "all",
+                      "collaborators_only"
+                    ],
+                    "type": "string",
+                    "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
                   "has_downloads": {
                     "type": "boolean",
@@ -160673,6 +161172,9 @@
                 "description": "URL for the issue",
                 "format": "uri"
               },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
+              },
               "user": {
                 "title": "User",
                 "required": [
@@ -161901,6 +162403,9 @@
               "repository_url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
               },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
@@ -163140,6 +163645,9 @@
                     "type": "string",
                     "format": "uri"
                   },
+                  "pinned_comment": {
+                    "$ref": "#/components/schemas/nullable-issue-comment"
+                  },
                   "sub_issues_summary": {
                     "$ref": "#/components/schemas/sub-issues-summary"
                   },
@@ -163548,6 +164056,14 @@
                     "type": "boolean",
                     "description": "Whether pull requests are enabled.",
                     "default": true
+                  },
+                  "pull_request_creation_policy": {
+                    "enum": [
+                      "all",
+                      "collaborators_only"
+                    ],
+                    "type": "string",
+                    "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
                   "homepage": {
                     "type": "string",
@@ -165121,6 +165637,9 @@
               "repository_url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "pinned_comment": {
+                "$ref": "#/components/schemas/nullable-issue-comment"
               },
               "sub_issues_summary": {
                 "$ref": "#/components/schemas/sub-issues-summary"
@@ -171907,6 +172426,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -172712,6 +173239,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -174907,6 +175442,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "has_pages": {
                         "type": "boolean"
                       },
@@ -175724,6 +176267,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -177932,6 +178483,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -178736,6 +179295,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -181065,6 +181632,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -181869,6 +182444,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -184183,6 +184766,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -184987,6 +185578,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -187188,6 +187787,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -187993,6 +188600,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -190202,6 +190817,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -191007,6 +191630,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -193728,6 +194359,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -194516,6 +195155,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -196594,6 +197241,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -197383,6 +198038,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -199457,6 +200120,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -200246,6 +200917,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -202316,6 +202995,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -203105,6 +203792,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -208185,6 +208880,14 @@
                             "description": "Whether pull requests are enabled.",
                             "default": true
                           },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -208989,6 +209692,14 @@
                             "type": "boolean",
                             "description": "Whether pull requests are enabled.",
                             "default": true
+                          },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
                           "homepage": {
                             "type": "string",
@@ -211301,6 +212012,14 @@
                             "description": "Whether pull requests are enabled.",
                             "default": true
                           },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -212105,6 +212824,14 @@
                             "type": "boolean",
                             "description": "Whether pull requests are enabled.",
                             "default": true
+                          },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
                           "homepage": {
                             "type": "string",
@@ -214468,6 +215195,14 @@
                             "description": "Whether pull requests are enabled.",
                             "default": true
                           },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -215272,6 +216007,14 @@
                             "type": "boolean",
                             "description": "Whether pull requests are enabled.",
                             "default": true
+                          },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
                           "homepage": {
                             "type": "string",
@@ -217580,6 +218323,14 @@
                             "description": "Whether pull requests are enabled.",
                             "default": true
                           },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -218384,6 +219135,14 @@
                             "type": "boolean",
                             "description": "Whether pull requests are enabled.",
                             "default": true
+                          },
+                          "pull_request_creation_policy": {
+                            "enum": [
+                              "all",
+                              "collaborators_only"
+                            ],
+                            "type": "string",
+                            "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
                           "homepage": {
                             "type": "string",
@@ -220709,6 +221468,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -221499,6 +222266,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -223579,6 +224354,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -224330,6 +225113,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -226749,6 +227540,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -227499,6 +228298,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -229922,6 +230729,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -230726,6 +231541,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -232937,6 +233760,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -233742,6 +234573,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -235955,6 +236794,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -236760,6 +237607,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -238966,6 +239821,14 @@
                         "description": "Whether pull requests are enabled.",
                         "default": true
                       },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -239770,6 +240633,14 @@
                         "type": "boolean",
                         "description": "Whether pull requests are enabled.",
                         "default": true
+                      },
+                      "pull_request_creation_policy": {
+                        "enum": [
+                          "all",
+                          "collaborators_only"
+                        ],
+                        "type": "string",
+                        "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
                       "homepage": {
                         "type": "string",
@@ -241731,6 +242602,14 @@
                 "type": "boolean",
                 "description": "Whether pull requests are enabled.",
                 "default": true
+              },
+              "pull_request_creation_policy": {
+                "enum": [
+                  "all",
+                  "collaborators_only"
+                ],
+                "type": "string",
+                "description": "The policy controlling who can create pull requests: all or collaborators_only."
               },
               "homepage": {
                 "type": "string",
@@ -255856,6 +256735,14 @@
               "has_pull_requests": {
                 "type": "boolean"
               },
+              "pull_request_creation_policy": {
+                "enum": [
+                  "all",
+                  "collaborators_only"
+                ],
+                "type": "string",
+                "description": "The policy controlling who can create pull requests: all or collaborators_only."
+              },
               "forks_count": {
                 "type": "integer"
               },
@@ -263393,6 +264280,7 @@
               "type": "User",
               "site_admin": "false"
             },
+            "pinned_comment": "null",
             "labels": [
               {
                 "id": "208045946",
@@ -269320,6 +270208,7 @@
               "user_view_type": "public",
               "site_admin": "false"
             },
+            "pinned_comment": "null",
             "body": "Issue body",
             "created_at": "2025-08-01T18:44:50Z",
             "updated_at": "2025-08-06T19:25:18Z",
@@ -270103,7 +270992,8 @@
               "production",
               "development"
             ],
-            "values_editable_by": "org_actors"
+            "values_editable_by": "org_actors",
+            "require_explicit_values": "true"
           },
           {
             "property_name": "service",
@@ -271611,6 +272501,26 @@
           }
         ]
       },
+      "team-simple-items": {
+        "value": [
+          {
+            "id": "1",
+            "node_id": "MDQ6VGVhbTE=",
+            "url": "https://api.github.com/organizations/1/team/1",
+            "html_url": "https://github.com/orgs/github/teams/justice-league",
+            "name": "Justice League",
+            "slug": "justice-league",
+            "description": "A great team.",
+            "privacy": "closed",
+            "notification_setting": "notifications_enabled",
+            "permission": "admin",
+            "members_url": "https://api.github.com/organizations/1/team/1/members{/member}",
+            "repositories_url": "https://api.github.com/organizations/1/team/1/repos",
+            "type": "organization",
+            "organization_id": "1"
+          }
+        ]
+      },
       "network-configurations-paginated": {
         "value": {
           "total_count": "2",
@@ -272481,6 +273391,9 @@
                 "status": "disabled"
               },
               "secret_scanning_non_provider_patterns": {
+                "status": "disabled"
+              },
+              "secret_scanning_delegated_bypass": {
                 "status": "disabled"
               },
               "secret_scanning_delegated_alert_dismissal": {
@@ -275708,7 +276621,6 @@
             "environment": "",
             "category": ".github/workflows/codeql-analysis.yml:CodeQL-Build",
             "state": "open",
-            "fixed_at": "null",
             "commit_sha": "39406e42cb832f683daa691dd652a8dc36ee8930",
             "message": {
               "text": "This path depends on a user-provided value."
@@ -275730,7 +276642,6 @@
             "environment": "",
             "category": ".github/workflows/codeql-analysis.yml:CodeQL-Build",
             "state": "fixed",
-            "fixed_at": "2020-02-14T12:29:18Z",
             "commit_sha": "b09da05606e27f463a2b49287684b4ae777092f2",
             "message": {
               "text": "This suffix check is missing a length comparison to correctly handle lastIndexOf returning -1."
@@ -280723,6 +281634,7 @@
               "type": "User",
               "site_admin": "false"
             },
+            "pinned_comment": "null",
             "labels": [
               {
                 "id": "208045946",
@@ -280884,6 +281796,7 @@
             "type": "User",
             "site_admin": "false"
           },
+          "pinned_comment": "null",
           "labels": [
             {
               "id": "208045946",
@@ -281075,7 +281988,64 @@
           "created_at": "2011-04-14T16:00:49Z",
           "updated_at": "2011-04-14T16:00:49Z",
           "issue_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347",
-          "author_association": "COLLABORATOR"
+          "author_association": "COLLABORATOR",
+          "pin": "null"
+        }
+      },
+      "issue-comment-pinned": {
+        "value": {
+          "id": "1",
+          "node_id": "MDEyOklzc3VlQ29tbWVudDE=",
+          "url": "https://api.github.com/repos/octocat/Hello-World/issues/comments/1",
+          "html_url": "https://github.com/octocat/Hello-World/issues/1347#issuecomment-1",
+          "body": "Me too",
+          "user": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "created_at": "2011-04-14T16:00:49Z",
+          "updated_at": "2011-04-14T16:00:49Z",
+          "issue_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347",
+          "author_association": "COLLABORATOR",
+          "pin": {
+            "pinned_at": "2021-01-01T00:00:00Z",
+            "pinned_by": {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            }
+          }
         }
       },
       "issue-event-items": {
@@ -281141,6 +282111,7 @@
                 "type": "User",
                 "site_admin": "false"
               },
+              "pinned_comment": "null",
               "labels": [
                 {
                   "id": "208045946",
@@ -281311,6 +282282,7 @@
               "type": "User",
               "site_admin": "false"
             },
+            "pinned_comment": "null",
             "labels": [
               {
                 "id": "208045946",
@@ -281455,6 +282427,220 @@
             "author_association": "COLLABORATOR",
             "state_reason": "completed"
           }
+        }
+      },
+      "issue-with-pinned-comment": {
+        "value": {
+          "id": "1",
+          "node_id": "MDU6SXNzdWUx",
+          "url": "https://api.github.com/repos/octocat/Hello-World/issues/1347",
+          "repository_url": "https://api.github.com/repos/octocat/Hello-World",
+          "labels_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347/labels{/name}",
+          "comments_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347/comments",
+          "events_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347/events",
+          "html_url": "https://github.com/octocat/Hello-World/issues/1347",
+          "number": "1347",
+          "state": "open",
+          "title": "Found a bug",
+          "body": "I'm having a problem with this.",
+          "user": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "pinned_comment": {
+            "id": "1",
+            "node_id": "MDEyOklzc3VlQ29tbWVudDE=",
+            "url": "https://api.github.com/repos/octocat/Hello-World/issues/comments/1",
+            "html_url": "https://github.com/octocat/Hello-World/issues/1347#issuecomment-1",
+            "body": "Me too",
+            "user": {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            },
+            "pin": {
+              "pinned_at": "2021-01-01T00:00:00Z",
+              "pinned_by": {
+                "login": "octocat",
+                "id": "1",
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": "false"
+              }
+            },
+            "created_at": "2011-04-14T16:00:49Z",
+            "updated_at": "2011-04-14T16:00:49Z",
+            "issue_url": "https://api.github.com/repos/octocat/Hello-World/issues/1347",
+            "author_association": "COLLABORATOR"
+          },
+          "labels": [
+            {
+              "id": "208045946",
+              "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
+              "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
+              "name": "bug",
+              "description": "Something isn't working",
+              "color": "f29513",
+              "default": "true"
+            }
+          ],
+          "assignee": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "assignees": [
+            {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            }
+          ],
+          "milestone": {
+            "url": "https://api.github.com/repos/octocat/Hello-World/milestones/1",
+            "html_url": "https://github.com/octocat/Hello-World/milestones/v1.0",
+            "labels_url": "https://api.github.com/repos/octocat/Hello-World/milestones/1/labels",
+            "id": "1002604",
+            "node_id": "MDk6TWlsZXN0b25lMTAwMjYwNA==",
+            "number": "1",
+            "state": "open",
+            "title": "v1.0",
+            "description": "Tracking milestone for version 1.0",
+            "creator": {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            },
+            "open_issues": "4",
+            "closed_issues": "8",
+            "created_at": "2011-04-10T20:09:31Z",
+            "updated_at": "2014-03-03T18:58:10Z",
+            "closed_at": "2013-02-12T13:22:01Z",
+            "due_on": "2012-10-09T23:39:01Z"
+          },
+          "locked": "true",
+          "active_lock_reason": "too heated",
+          "comments": "1",
+          "pull_request": {
+            "url": "https://api.github.com/repos/octocat/Hello-World/pulls/1347",
+            "html_url": "https://github.com/octocat/Hello-World/pull/1347",
+            "diff_url": "https://github.com/octocat/Hello-World/pull/1347.diff",
+            "patch_url": "https://github.com/octocat/Hello-World/pull/1347.patch"
+          },
+          "closed_at": "null",
+          "created_at": "2011-04-22T13:33:48Z",
+          "updated_at": "2011-04-22T13:33:48Z",
+          "closed_by": {
+            "login": "octocat",
+            "id": "1",
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": "false"
+          },
+          "author_association": "COLLABORATOR",
+          "state_reason": "completed"
         }
       },
       "issue-event-for-issue-items": {
@@ -294291,9 +295477,102 @@
         }
       }
     },
+    "dependabot-alert-assignees-changed": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
+        "description": "The assignees for a Dependabot alert were updated.",
+        "operationId": "dependabot-alert/assignees-changed",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#dependabot_alert"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-dependabot-alert-assignees-changed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "dependabot_alert",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
     "dependabot-alert-auto-dismissed": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A Dependabot alert was automatically closed by a Dependabot auto-triage rule.",
         "operationId": "dependabot-alert/auto-dismissed",
         "externalDocs": {
@@ -294386,7 +295665,7 @@
     },
     "dependabot-alert-auto-reopened": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A Dependabot alert, that had been automatically closed by a Dependabot auto-triage rule, was automatically reopened because the alert metadata or rule changed.",
         "operationId": "dependabot-alert/auto-reopened",
         "externalDocs": {
@@ -294479,7 +295758,7 @@
     },
     "dependabot-alert-created": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A manifest file change introduced a vulnerable dependency, or a GitHub Security Advisory was published and an existing dependency was found to be vulnerable.",
         "operationId": "dependabot-alert/created",
         "externalDocs": {
@@ -294572,7 +295851,7 @@
     },
     "dependabot-alert-dismissed": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A Dependabot alert was manually closed.",
         "operationId": "dependabot-alert/dismissed",
         "externalDocs": {
@@ -294665,7 +295944,7 @@
     },
     "dependabot-alert-fixed": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A manifest file change removed a vulnerability.",
         "operationId": "dependabot-alert/fixed",
         "externalDocs": {
@@ -294758,7 +296037,7 @@
     },
     "dependabot-alert-reintroduced": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A manifest file change introduced a vulnerable dependency that had previously been fixed.",
         "operationId": "dependabot-alert/reintroduced",
         "externalDocs": {
@@ -294851,7 +296130,7 @@
     },
     "dependabot-alert-reopened": {
       "post": {
-        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.\n\n> [!NOTE]\n> Webhook events for Dependabot alerts are currently in public preview and subject to change.",
+        "summary": "This event occurs when there is activity relating to Dependabot alerts.\n\nFor more information about Dependabot alerts, see \"[About Dependabot alerts](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).\" For information about the API to manage Dependabot alerts, see \"[Dependabot alerts](https://docs.github.com/rest/dependabot/alerts)\" in the REST API documentation.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Dependabot alerts\" repository permission.",
         "description": "A Dependabot alert was manually reopened.",
         "operationId": "dependabot-alert/reopened",
         "externalDocs": {

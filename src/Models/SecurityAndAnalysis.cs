@@ -62,6 +62,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_alert_dismissal SecretScanningDelegatedAlertDismissal { get; set; }
 #endif
+        /// <summary>The secret_scanning_delegated_bypass property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass? SecretScanningDelegatedBypass { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass SecretScanningDelegatedBypass { get; set; }
+#endif
+        /// <summary>The secret_scanning_delegated_bypass_options property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options? SecretScanningDelegatedBypassOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options SecretScanningDelegatedBypassOptions { get; set; }
+#endif
         /// <summary>The secret_scanning_non_provider_patterns property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +125,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "secret_scanning", n => { SecretScanning = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_ai_detection", n => { SecretScanningAiDetection = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_ai_detection>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_ai_detection.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_delegated_alert_dismissal", n => { SecretScanningDelegatedAlertDismissal = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_alert_dismissal>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_alert_dismissal.CreateFromDiscriminatorValue); } },
+                { "secret_scanning_delegated_bypass", n => { SecretScanningDelegatedBypass = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass.CreateFromDiscriminatorValue); } },
+                { "secret_scanning_delegated_bypass_options", n => { SecretScanningDelegatedBypassOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_non_provider_patterns", n => { SecretScanningNonProviderPatterns = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_non_provider_patterns>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_non_provider_patterns.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_push_protection", n => { SecretScanningPushProtection = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_push_protection>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_push_protection.CreateFromDiscriminatorValue); } },
             };
@@ -126,6 +144,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning>("secret_scanning", SecretScanning);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_ai_detection>("secret_scanning_ai_detection", SecretScanningAiDetection);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_alert_dismissal>("secret_scanning_delegated_alert_dismissal", SecretScanningDelegatedAlertDismissal);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass>("secret_scanning_delegated_bypass", SecretScanningDelegatedBypass);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_delegated_bypass_options>("secret_scanning_delegated_bypass_options", SecretScanningDelegatedBypassOptions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_non_provider_patterns>("secret_scanning_non_provider_patterns", SecretScanningNonProviderPatterns);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis_secret_scanning_push_protection>("secret_scanning_push_protection", SecretScanningPushProtection);
             writer.WriteAdditionalData(AdditionalData);

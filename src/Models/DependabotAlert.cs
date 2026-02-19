@@ -13,6 +13,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DependabotAlert : IParsable
     {
+        /// <summary>The users assigned to this alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Assignees { get; private set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Assignees { get; private set; }
+#endif
         /// <summary>The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? AutoDismissedAt { get; private set; }
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
@@ -111,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "auto_dismissed_at", n => { AutoDismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "dependency", n => { Dependency = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dependency>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dependency.CreateFromDiscriminatorValue); } },

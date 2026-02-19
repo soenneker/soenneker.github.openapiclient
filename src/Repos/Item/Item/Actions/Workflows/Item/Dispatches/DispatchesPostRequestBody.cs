@@ -30,6 +30,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
 #else
         public string Ref { get; set; }
 #endif
+        /// <summary>Whether the response should include the workflow run ID and URLs.</summary>
+        public bool? ReturnRunDetails { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -57,6 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
             {
                 { "inputs", n => { Inputs = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs.CreateFromDiscriminatorValue); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
+                { "return_run_details", n => { ReturnRunDetails = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -68,6 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Workflows.Item.Dispatches.DispatchesPostRequestBody_inputs>("inputs", Inputs);
             writer.WriteStringValue("ref", Ref);
+            writer.WriteBoolValue("return_run_details", ReturnRunDetails);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -416,6 +416,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether the repository is private or public.</summary>
         public bool? Private { get; set; }
+        /// <summary>The policy controlling who can create pull requests: all or collaborators_only.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_pull_request_creation_policy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -662,6 +664,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_permissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
+                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_pull_request_creation_policy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "releases_url", n => { ReleasesUrl = n.GetStringValue(); } },
@@ -768,6 +771,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_permissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("releases_url", ReleasesUrl);

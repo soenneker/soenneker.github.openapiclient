@@ -175,6 +175,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration PerformedViaGithubApp { get; set; }
 #endif
+        /// <summary>Comments provide a way for people to collaborate on an issue.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment? PinnedComment { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment PinnedComment { get; set; }
+#endif
         /// <summary>The pull_request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -318,6 +326,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "parent_issue_url", n => { ParentIssueUrl = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
+                { "pinned_comment", n => { PinnedComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment.CreateFromDiscriminatorValue); } },
                 { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_pull_request>(global::Soenneker.GitHub.OpenApiClient.Models.Issue_pull_request.CreateFromDiscriminatorValue); } },
                 { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>(global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup.CreateFromDiscriminatorValue); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
@@ -366,6 +375,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("parent_issue_url", ParentIssueUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment>("pinned_comment", PinnedComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_pull_request>("pull_request", PullRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>("reactions", Reactions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repository", Repository);

@@ -185,7 +185,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
             public string Package { get; set; }
 #endif
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
-            [Obsolete("")]
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.</summary>

@@ -47,6 +47,30 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
 #else
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_ai_detection SecretScanningAiDetection { get; set; }
 #endif
+        /// <summary>Use the `status` property to enable or disable secret scanning delegated alert dismissal for this repository.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_alert_dismissal? SecretScanningDelegatedAlertDismissal { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_alert_dismissal SecretScanningDelegatedAlertDismissal { get; set; }
+#endif
+        /// <summary>Use the `status` property to enable or disable secret scanning delegated bypass for this repository.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass? SecretScanningDelegatedBypass { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass SecretScanningDelegatedBypass { get; set; }
+#endif
+        /// <summary>Feature options for secret scanning delegated bypass.This object is only honored when `security_and_analysis.secret_scanning_delegated_bypass.status` is set to `enabled`.You can send this object in the same request as `secret_scanning_delegated_bypass`, or update just the options in a separate request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass_options? SecretScanningDelegatedBypassOptions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass_options SecretScanningDelegatedBypassOptions { get; set; }
+#endif
         /// <summary>Use the `status` property to enable or disable secret scanning non-provider patterns for this repository. For more information, see &quot;[Supported secret scanning patterns](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +116,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
                 { "code_security", n => { CodeSecurity = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_code_security>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_code_security.CreateFromDiscriminatorValue); } },
                 { "secret_scanning", n => { SecretScanning = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_ai_detection", n => { SecretScanningAiDetection = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_ai_detection>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_ai_detection.CreateFromDiscriminatorValue); } },
+                { "secret_scanning_delegated_alert_dismissal", n => { SecretScanningDelegatedAlertDismissal = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_alert_dismissal>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_alert_dismissal.CreateFromDiscriminatorValue); } },
+                { "secret_scanning_delegated_bypass", n => { SecretScanningDelegatedBypass = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass.CreateFromDiscriminatorValue); } },
+                { "secret_scanning_delegated_bypass_options", n => { SecretScanningDelegatedBypassOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass_options>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass_options.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_non_provider_patterns", n => { SecretScanningNonProviderPatterns = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_non_provider_patterns>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_non_provider_patterns.CreateFromDiscriminatorValue); } },
                 { "secret_scanning_push_protection", n => { SecretScanningPushProtection = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_push_protection>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_push_protection.CreateFromDiscriminatorValue); } },
             };
@@ -107,6 +134,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_code_security>("code_security", CodeSecurity);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning>("secret_scanning", SecretScanning);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_ai_detection>("secret_scanning_ai_detection", SecretScanningAiDetection);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_alert_dismissal>("secret_scanning_delegated_alert_dismissal", SecretScanningDelegatedAlertDismissal);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass>("secret_scanning_delegated_bypass", SecretScanningDelegatedBypass);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_delegated_bypass_options>("secret_scanning_delegated_bypass_options", SecretScanningDelegatedBypassOptions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_non_provider_patterns>("secret_scanning_non_provider_patterns", SecretScanningNonProviderPatterns);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.RepoPatchRequestBody_security_and_analysis_secret_scanning_push_protection>("secret_scanning_push_protection", SecretScanningPushProtection);
             writer.WriteAdditionalData(AdditionalData);

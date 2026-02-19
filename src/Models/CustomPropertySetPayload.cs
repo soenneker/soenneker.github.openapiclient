@@ -41,6 +41,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether the property is required.</summary>
         public bool? Required { get; set; }
+        /// <summary>Whether setting properties values is mandatory</summary>
+        public bool? RequireExplicitValues { get; set; }
         /// <summary>Who can edit the values of the property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload_values_editable_by? ValuesEditableBy { get; set; }
         /// <summary>The type of the value for the property</summary>
@@ -73,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "allowed_values", n => { AllowedValues = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "default_value", n => { DefaultValue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload.CustomPropertySetPayload_default_value>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload.CustomPropertySetPayload_default_value.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "require_explicit_values", n => { RequireExplicitValues = n.GetBoolValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
                 { "value_type", n => { ValueType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload_value_type>(); } },
                 { "values_editable_by", n => { ValuesEditableBy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload_values_editable_by>(); } },
@@ -89,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload.CustomPropertySetPayload_default_value>("default_value", DefaultValue);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("required", Required);
+            writer.WriteBoolValue("require_explicit_values", RequireExplicitValues);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload_values_editable_by>("values_editable_by", ValuesEditableBy);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayload_value_type>("value_type", ValueType);
             writer.WriteAdditionalData(AdditionalData);
