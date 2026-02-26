@@ -79,6 +79,8 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning? SecretScanning { get; set; }
         /// <summary>The enablement status of secret scanning delegated alert dismissal</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_alert_dismissal? SecretScanningDelegatedAlertDismissal { get; set; }
+        /// <summary>The enablement status of secret scanning extended metadata</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_extended_metadata? SecretScanningExtendedMetadata { get; set; }
         /// <summary>The enablement status of Copilot secret scanning</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_generic_secrets? SecretScanningGenericSecrets { get; set; }
         /// <summary>The enablement status of secret scanning non provider patterns</summary>
@@ -103,6 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
             PrivateVulnerabilityReporting = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_private_vulnerability_reporting.Disabled;
             SecretScanning = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning.Disabled;
             SecretScanningDelegatedAlertDismissal = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_alert_dismissal.Disabled;
+            SecretScanningExtendedMetadata = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_extended_metadata.Disabled;
             SecretScanningGenericSecrets = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_generic_secrets.Disabled;
             SecretScanningNonProviderPatterns = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_non_provider_patterns.Disabled;
             SecretScanningPushProtection = global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_push_protection.Disabled;
@@ -144,6 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
                 { "secret_protection", n => { SecretProtection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_protection>(); } },
                 { "secret_scanning", n => { SecretScanning = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning>(); } },
                 { "secret_scanning_delegated_alert_dismissal", n => { SecretScanningDelegatedAlertDismissal = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_alert_dismissal>(); } },
+                { "secret_scanning_extended_metadata", n => { SecretScanningExtendedMetadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_extended_metadata>(); } },
                 { "secret_scanning_generic_secrets", n => { SecretScanningGenericSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_generic_secrets>(); } },
                 { "secret_scanning_non_provider_patterns", n => { SecretScanningNonProviderPatterns = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_non_provider_patterns>(); } },
                 { "secret_scanning_push_protection", n => { SecretScanningPushProtection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_push_protection>(); } },
@@ -175,6 +179,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_protection>("secret_protection", SecretProtection);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning>("secret_scanning", SecretScanning);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_delegated_alert_dismissal>("secret_scanning_delegated_alert_dismissal", SecretScanningDelegatedAlertDismissal);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_extended_metadata>("secret_scanning_extended_metadata", SecretScanningExtendedMetadata);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_generic_secrets>("secret_scanning_generic_secrets", SecretScanningGenericSecrets);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_non_provider_patterns>("secret_scanning_non_provider_patterns", SecretScanningNonProviderPatterns);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.ConfigurationsPostRequestBody_secret_scanning_push_protection>("secret_scanning_push_protection", SecretScanningPushProtection);

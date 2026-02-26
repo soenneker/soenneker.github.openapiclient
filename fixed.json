@@ -2427,6 +2427,16 @@
                     "description": "The enablement status of secret scanning delegated alert dismissal",
                     "default": "disabled"
                   },
+                  "secret_scanning_extended_metadata": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of secret scanning extended metadata",
+                    "default": "disabled"
+                  },
                   "private_vulnerability_reporting": {
                     "enum": [
                       "enabled",
@@ -2782,6 +2792,16 @@
                     ],
                     "type": "string",
                     "description": "The enablement status of secret scanning delegated alert dismissal",
+                    "default": "disabled"
+                  },
+                  "secret_scanning_extended_metadata": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of secret scanning extended metadata",
                     "default": "disabled"
                   },
                   "private_vulnerability_reporting": {
@@ -3192,6 +3212,9 @@
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-has"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-assignees"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-scope"
@@ -13385,21 +13408,23 @@
                     "description": "The status of the artifact. Can be either deployed or decommissioned."
                   },
                   "logical_environment": {
-                    "maxLength": 64,
+                    "maxLength": 128,
                     "minLength": 1,
                     "type": "string",
                     "description": "The stage of the deployment."
                   },
                   "physical_environment": {
-                    "maxLength": 64,
+                    "maxLength": 128,
                     "type": "string",
                     "description": "The physical region of the deployment."
                   },
                   "cluster": {
+                    "maxLength": 128,
                     "type": "string",
                     "description": "The deployment cluster."
                   },
                   "deployment_name": {
+                    "maxLength": 256,
                     "type": "string",
                     "description": "The unique identifier for the deployment represented by the new record. To accommodate differing\ncontainers and namespaces within a cluster, the following format is recommended:\n{namespaceName}-{deploymentName}-{containerName}.\n"
                   },
@@ -13515,7 +13540,7 @@
             "description": "The cluster name.",
             "required": true,
             "schema": {
-              "maxLength": 64,
+              "maxLength": 128,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9._-]+$",
               "type": "string"
@@ -13533,20 +13558,20 @@
                 "type": "object",
                 "properties": {
                   "logical_environment": {
-                    "maxLength": 64,
+                    "maxLength": 128,
                     "minLength": 1,
                     "type": "string",
                     "description": "The stage of the deployment."
                   },
                   "physical_environment": {
-                    "maxLength": 64,
+                    "maxLength": 128,
                     "type": "string",
                     "description": "The physical region of the deployment."
                   },
                   "deployments": {
+                    "maxItems": 100,
                     "type": "array",
                     "items": {
-                      "maxLength": 100,
                       "required": [
                         "name",
                         "deployment_name",
@@ -13584,7 +13609,7 @@
                           "description": "The deployment status of the artifact."
                         },
                         "deployment_name": {
-                          "maxLength": 128,
+                          "maxLength": 256,
                           "minLength": 1,
                           "type": "string",
                           "description": "The unique identifier for the deployment represented by the new record. To accommodate differing\ncontainers and namespaces within a record set, the following format is recommended:\n{namespaceName}-{deploymentName}-{containerName}.\nThe deployment_name must be unique across all entries in the deployments array.\n"
@@ -15702,6 +15727,15 @@
                     "type": "string",
                     "description": "The enablement status of secret scanning delegated alert dismissal"
                   },
+                  "secret_scanning_extended_metadata": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of secret scanning extended metadata"
+                  },
                   "private_vulnerability_reporting": {
                     "enum": [
                       "enabled",
@@ -16182,6 +16216,15 @@
                     ],
                     "type": "string",
                     "description": "The enablement status of secret scanning delegated alert dismissal"
+                  },
+                  "secret_scanning_extended_metadata": {
+                    "enum": [
+                      "enabled",
+                      "disabled",
+                      "not_set"
+                    ],
+                    "type": "string",
+                    "description": "The enablement status of secret scanning extended metadata"
                   },
                   "private_vulnerability_reporting": {
                     "enum": [
@@ -17959,6 +18002,187 @@
         }
       }
     },
+    "/orgs/{org}/copilot/content_exclusion": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot content exclusion rules for an organization",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nGets information about an organization's Copilot content exclusion path rules.\nTo configure these settings, go to the organization's settings on GitHub.\nFor more information, see \"[Excluding content from GitHub Copilot](https://docs.github.com/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot#configuring-content-exclusions-for-your-organization).\"\n\nOrganization owners can view details about Copilot content exclusion rules for the organization.\n\nOAuth app tokens and personal access tokens (classic) need either the `copilot` or `read:org` scopes to use this endpoint.\n\n> [!CAUTION]\n> * At this time, the API does not support comments. This endpoint will not return any comments in the existing rules.\n> * At this time, the API does not support duplicate keys. If your content exclusion configuration contains duplicate keys, the API will return only the last occurrence of that key. For example, if duplicate entries are present, only the final value will be included in the response.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-content-exclusion-management#get-copilot-content-exclusion-rules-for-an-organization"
+        },
+        "operationId": "copilot/copilot-content-exclusion-for-organization",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-organization-content-exclusion-details"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-organization-content-exclusion-details"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-content-exclusion-management"
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Set Copilot content exclusion rules for an organization",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nSets Copilot content exclusion path rules for an organization.\nTo configure these settings, go to the organization's settings on GitHub.\nFor more information, see \"[Excluding content from GitHub Copilot](https://docs.github.com/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot#configuring-content-exclusions-for-your-organization).\"\n\nOrganization owners can set Copilot content exclusion rules for the organization.\n\nOAuth app tokens and personal access tokens (classic) need the `copilot` scope to use this endpoint.\n\n> [!CAUTION]\n> * At this time, the API does not support comments. When using this endpoint, any existing comments in your rules will be deleted.\n> * At this time, the API does not support duplicate keys. If you submit content exclusions through the API with duplicate keys, only the last occurrence will be saved. Earlier entries with the same key will be overwritten.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-content-exclusion-management#set-copilot-content-exclusion-rules-for-an-organization"
+        },
+        "operationId": "copilot/set-copilot-content-exclusion-for-organization",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "description": "The content exclusion rules to set",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "description": "The path to the file that will be excluded."
+                      },
+                      {
+                        "required": [
+                          "ifAnyMatch"
+                        ],
+                        "type": "object",
+                        "properties": {
+                          "ifAnyMatch": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      {
+                        "required": [
+                          "ifNoneMatch"
+                        ],
+                        "type": "object",
+                        "properties": {
+                          "ifNoneMatch": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "summary": "Example of content exclusion paths",
+                  "value": {
+                    "octo-repo": [
+                      "/src/some-dir/kernel.rs"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Content exclusion rules updated successfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "413": {
+            "$ref": "#/components/responses/too_large"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": null,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-content-exclusion-management"
+        }
+      }
+    },
     "/orgs/{org}/copilot/metrics": {
       "get": {
         "tags": [
@@ -18083,6 +18307,9 @@
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-org-scope-comma-separated-has"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-assignees"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-runtime-risk"
@@ -18361,7 +18588,7 @@
                         }
                       ]
                     },
-                    "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints. Use integers when possible, as strings are supported only to maintain backwards compatibility and may be removed in the future."
+                    "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
                   }
                 }
               },
@@ -26739,6 +26966,9 @@
           "404": {
             "$ref": "#/components/responses/not_found"
           },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
           "500": {
             "$ref": "#/components/responses/internal_error"
           }
@@ -27064,6 +27294,9 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
@@ -28905,6 +29138,9 @@
         "responses": {
           "204": {
             "description": "Response"
+          },
+          "422": {
+            "$ref": "#/components/responses/enterprise_team_unsupported"
           }
         },
         "x-github": {
@@ -28964,6 +29200,9 @@
                 }
               }
             }
+          },
+          "422": {
+            "$ref": "#/components/responses/enterprise_team_unsupported"
           }
         },
         "x-github": {
@@ -43780,6 +44019,32 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "response-if-content-is-a-file-github-object": {
+                  "summary": "Content is a file using the object media type"
+                },
+                "response-if-content-is-a-directory-github-object": {
+                  "summary": "Content is a directory using the object media type"
+                },
+                "response-if-content-is-a-file": {
+                  "summary": "Content is a file"
+                },
+                "response-if-content-is-a-directory": {
+                  "summary": "Content is a directory"
+                },
+                "response-if-content-is-a-symlink": {
+                  "summary": "Content is a symlink"
+                },
+                "response-if-content-is-a-submodule": {
+                  "summary": "Content is a submodule"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Response",
@@ -43789,10 +44054,10 @@
                   "$ref": "#/components/schemas/content-tree"
                 },
                 "examples": {
-                  "response-if-content-is-a-file": {
+                  "response-if-content-is-a-file-github-object": {
                     "$ref": "#/components/examples/content-file-response-if-content-is-a-file"
                   },
-                  "response-if-content-is-a-directory": {
+                  "response-if-content-is-a-directory-github-object": {
                     "$ref": "#/components/examples/content-file-response-if-content-is-a-directory-object"
                   }
                 }
@@ -44303,6 +44568,9 @@
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-has"
           },
           {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-assignees"
+          },
+          {
             "$ref": "#/components/parameters/dependabot-alert-scope"
           },
           {
@@ -44448,10 +44716,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "state"
-                ],
                 "type": "object",
+                "anyOf": [
+                  {
+                    "required": [
+                      "state"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "assignees"
+                    ]
+                  }
+                ],
                 "properties": {
                   "state": {
                     "enum": [
@@ -44476,6 +44753,13 @@
                     "maxLength": 280,
                     "type": "string",
                     "description": "An optional comment associated with dismissing the alert."
+                  },
+                  "assignees": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Usernames to assign to this Dependabot Alert.\nPass one or more user logins to _replace_ the set of assignees on this alert.\nSend an empty array (`[]`) to clear all assignees from the alert."
                   }
                 },
                 "additionalProperties": false
@@ -60312,6 +60596,9 @@
           "404": {
             "$ref": "#/components/responses/not_found"
           },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
           "500": {
             "$ref": "#/components/responses/internal_error"
           }
@@ -60644,6 +60931,9 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
@@ -62686,186 +62976,6 @@
           "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "repos"
-        }
-      }
-    },
-    "/repos/{owner}/{repo}/tags/protection": {
-      "get": {
-        "tags": [
-          "repos"
-        ],
-        "summary": "Closing down - List tag protection states for a repository",
-        "description": "> [!WARNING]\n> **Closing down notice:** This operation is closing down and will be removed after August 30, 2024. Use the \"[Repository Rulesets](https://docs.github.com/rest/repos/rules#get-all-repository-rulesets)\" endpoint instead.\n\nThis returns the tag protection states of a repository.\n\nThis information is only available to repository administrators.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/repos/tags#closing-down---list-tag-protection-states-for-a-repository"
-        },
-        "operationId": "repos/list-tag-protection",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/owner"
-          },
-          {
-            "$ref": "#/components/parameters/repo"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/tag-protection"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/tag-protection-items"
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "deprecated": true,
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "repos",
-          "subcategory": "tags",
-          "deprecationDate": "2024-05-29",
-          "removalDate": "2024-08-30"
-        }
-      },
-      "post": {
-        "tags": [
-          "repos"
-        ],
-        "summary": "Closing down - Create a tag protection state for a repository",
-        "description": "> [!WARNING]\n> **Closing down notice:** This operation is closing down and will be removed after August 30, 2024. Use the \"[Repository Rulesets](https://docs.github.com/rest/repos/rules#create-a-repository-ruleset)\" endpoint instead.\n\nThis creates a tag protection state for a repository.\nThis endpoint is only available to repository administrators.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/repos/tags#closing-down---create-a-tag-protection-state-for-a-repository"
-        },
-        "operationId": "repos/create-tag-protection",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/owner"
-          },
-          {
-            "$ref": "#/components/parameters/repo"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "pattern"
-                ],
-                "type": "object",
-                "properties": {
-                  "pattern": {
-                    "type": "string",
-                    "description": "An optional glob pattern to match against when enforcing tag protection."
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "value": {
-                    "pattern": "v1.*"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/tag-protection"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/tag-protection"
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "deprecated": true,
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "repos",
-          "subcategory": "tags",
-          "deprecationDate": "2024-05-29",
-          "removalDate": "2024-08-30"
-        }
-      }
-    },
-    "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}": {
-      "delete": {
-        "tags": [
-          "repos"
-        ],
-        "summary": "Closing down - Delete a tag protection state for a repository",
-        "description": "> [!WARNING]\n> **Closing down notice:** This operation is closing down and will be removed after August 30, 2024. Use the \"[Repository Rulesets](https://docs.github.com/rest/repos/rules#delete-a-repository-ruleset)\" endpoint instead.\n\nThis deletes a tag protection state for a repository.\nThis endpoint is only available to repository administrators.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/repos/tags#closing-down---delete-a-tag-protection-state-for-a-repository"
-        },
-        "operationId": "repos/delete-tag-protection",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/owner"
-          },
-          {
-            "$ref": "#/components/parameters/repo"
-          },
-          {
-            "$ref": "#/components/parameters/tag-protection-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        },
-        "deprecated": true,
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "repos",
-          "subcategory": "tags",
-          "deprecationDate": "2024-05-29",
-          "removalDate": "2024-08-30"
         }
       }
     },
@@ -78914,6 +79024,15 @@
             "type": "string",
             "description": "The enablement status of secret scanning delegated alert dismissal"
           },
+          "secret_scanning_extended_metadata": {
+            "enum": [
+              "enabled",
+              "disabled",
+              "not_set"
+            ],
+            "type": "string",
+            "description": "The enablement status of secret scanning extended metadata"
+          },
           "private_vulnerability_reporting": {
             "enum": [
               "enabled",
@@ -87483,6 +87602,18 @@
         "additionalProperties": false,
         "description": "Information about a Copilot Business seat assignment for a user, team, or organization."
       },
+      "copilot-organization-content-exclusion-details": {
+        "title": "Copilot Organization Content Exclusion Details",
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "The path to the file that will be excluded."
+          }
+        },
+        "description": "List all Copilot Content Exclusion rules for an organization."
+      },
       "copilot-ide-code-completions": {
         "type": "object",
         "properties": {
@@ -93924,6 +94055,84 @@
           }
         },
         "description": "Response"
+      },
+      "rule-suite-pull-request": {
+        "title": "Pull request rule suite metadata",
+        "type": "object",
+        "properties": {
+          "pull_request": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The unique identifier of the pull request.",
+                "format": "int64"
+              },
+              "number": {
+                "type": "integer",
+                "description": "The number of the pull request."
+              },
+              "user": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The unique identifier of the user.",
+                    "format": "int64"
+                  },
+                  "login": {
+                    "type": "string",
+                    "description": "The handle for the GitHub user account."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the user."
+                  }
+                },
+                "description": "The user who created the pull request."
+              },
+              "reviews": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "The unique identifier of the review.",
+                      "format": "int64"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "The unique identifier of the user.",
+                          "format": "int64"
+                        },
+                        "login": {
+                          "type": "string",
+                          "description": "The handle for the GitHub user account."
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "The type of the user."
+                        }
+                      },
+                      "description": "The user who submitted the review."
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "The state of the review."
+                    }
+                  }
+                },
+                "description": "The reviews associated with the pull request."
+              }
+            },
+            "description": "The pull request associated with the rule evaluation."
+          }
+        },
+        "description": "Metadata for a pull request rule evaluation result."
       },
       "rule-suite": {
         "title": "Rule Suite",
@@ -109346,37 +109555,6 @@
           }
         },
         "description": "Tag"
-      },
-      "tag-protection": {
-        "title": "Tag protection",
-        "required": [
-          "pattern"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 2
-          },
-          "created_at": {
-            "type": "string",
-            "example": "2011-01-26T19:01:12Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "example": "2011-01-26T19:01:12Z"
-          },
-          "enabled": {
-            "type": "boolean",
-            "example": true
-          },
-          "pattern": {
-            "type": "string",
-            "example": "v1.*"
-          }
-        },
-        "description": "Tag protection"
       },
       "topic": {
         "title": "Topic",
@@ -257752,6 +257930,16 @@
           }
         }
       },
+      "too_large": {
+        "description": "Payload Too Large",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/basic-error"
+            }
+          }
+        }
+      },
       "usage_metrics_api_disabled": {
         "description": "Copilot Usage Merics API setting is disabled at the organization or enterprise level.",
         "content": {
@@ -257764,6 +257952,9 @@
       },
       "package_es_list_error": {
         "description": "The value of `per_page` multiplied by `page` cannot be greater than 10000."
+      },
+      "enterprise_team_unsupported": {
+        "description": "Unprocessable entity if you attempt to modify an enterprise team at the organization level."
       },
       "temporary_redirect": {
         "description": "Temporary Redirect",
@@ -258157,6 +258348,14 @@
               }
             }
           ]
+        }
+      },
+      "dependabot-alert-comma-separated-assignees": {
+        "name": "assignee",
+        "in": "query",
+        "description": "Filter alerts by assignees.\nProvide a comma-separated list of user handles (e.g., `octocat` or `octocat,hubot`) to return alerts assigned to any of the specified users.\nUse `*` to list alerts with at least one assignee or `none` to list alerts with no assignees.",
+        "schema": {
+          "type": "string"
         }
       },
       "dependabot-alert-scope": {
@@ -259692,16 +259891,6 @@
         "name": "release_id",
         "in": "path",
         "description": "The unique identifier of the release.",
-        "required": true,
-        "schema": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "tag-protection-id": {
-        "name": "tag_protection_id",
-        "in": "path",
-        "description": "The unique identifier of the tag protection.",
         "required": true,
         "schema": {
           "type": "integer",
@@ -263155,6 +263344,28 @@
             "dismissed_reason": "tolerable_risk",
             "dismissed_comment": "This alert is accurate but we use a sanitizer.",
             "fixed_at": "null",
+            "assignees": [
+              {
+                "login": "octocat",
+                "id": "1",
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": "false"
+              }
+            ],
             "repository": {
               "id": "217723378",
               "node_id": "MDEwOlJlcG9zaXRvcnkyMTc3MjMzNzg=",
@@ -263340,6 +263551,7 @@
             "dismissed_reason": "null",
             "dismissed_comment": "null",
             "fixed_at": "null",
+            "assignees": [ ],
             "repository": {
               "id": "664700648",
               "node_id": "MDEwOlJlcG9zaXRvcnk2NjQ3MDA2NDg=",
@@ -267755,6 +267967,13 @@
                 "site_admin": "false"
               }
             }
+          ]
+        }
+      },
+      "copilot-organization-content-exclusion-details": {
+        "value": {
+          "octo-repo": [
+            "/src/some-dir/kernel.rs"
           ]
         }
       },
@@ -279766,7 +279985,29 @@
             },
             "dismissed_reason": "tolerable_risk",
             "dismissed_comment": "This alert is accurate but we use a sanitizer.",
-            "fixed_at": "null"
+            "fixed_at": "null",
+            "assignees": [
+              {
+                "login": "octocat",
+                "id": "1",
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": "false"
+              }
+            ]
           },
           {
             "number": "1",
@@ -279884,7 +280125,8 @@
             "dismissed_by": "null",
             "dismissed_reason": "null",
             "dismissed_comment": "null",
-            "fixed_at": "null"
+            "fixed_at": "null",
+            "assignees": [ ]
           }
         ]
       },
@@ -280011,7 +280253,29 @@
           "dismissed_by": "null",
           "dismissed_reason": "null",
           "dismissed_comment": "null",
-          "fixed_at": "null"
+          "fixed_at": "null",
+          "assignees": [
+            {
+              "login": "octocat",
+              "id": "1",
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": "false"
+            }
+          ]
         }
       },
       "dependabot-alert-dismissed": {
@@ -280145,7 +280409,8 @@
           },
           "dismissed_reason": "tolerable_risk",
           "dismissed_comment": "This alert is accurate but we use a sanitizer.",
-          "fixed_at": "null"
+          "fixed_at": "null",
+          "assignees": [ ]
         }
       },
       "dependabot-secret-paginated": {
@@ -286990,19 +287255,6 @@
             "node_id": "MDQ6VXNlcjE="
           }
         ]
-      },
-      "tag-protection-items": {
-        "value": [
-          {
-            "id": "2",
-            "pattern": "v1.*"
-          }
-        ]
-      },
-      "tag-protection": {
-        "value": {
-          "enabled": "true"
-        }
       },
       "topic": {
         "value": {
@@ -295505,7 +295757,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -295598,7 +295850,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -295691,7 +295943,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -295784,7 +296036,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -295877,7 +296129,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -295970,7 +296222,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -296063,7 +296315,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }
@@ -296156,7 +296408,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "dependabot_alert",
             "schema": {
               "type": "string"
             }

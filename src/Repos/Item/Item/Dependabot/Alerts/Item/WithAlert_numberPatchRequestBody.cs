@@ -12,6 +12,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
     public partial class WithAlert_numberPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Usernames to assign to this Dependabot Alert.Pass one or more user logins to _replace_ the set of assignees on this alert.Send an empty array (`[]`) to clear all assignees from the alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Assignees { get; set; }
+#nullable restore
+#else
+        public List<string> Assignees { get; set; }
+#endif
         /// <summary>An optional comment associated with dismissing the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,6 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "dismissed_comment", n => { DismissedComment = n.GetStringValue(); } },
                 { "dismissed_reason", n => { DismissedReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberPatchRequestBody_dismissed_reason>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberPatchRequestBody_state>(); } },
@@ -54,6 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberPatchRequestBody_dismissed_reason>("dismissed_reason", DismissedReason);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlert_numberPatchRequestBody_state>("state", State);

@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,11 +17,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TagsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The protection property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection.ProtectionRequestBuilder Protection
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.Protection.ProtectionRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Tags.TagsRequestBuilder"/> and sets the default values.
         /// </summary>

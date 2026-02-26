@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/dependabot/alerts{?after*,before*,direction*,ecosystem*,epss_percentage*,has*,package*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/dependabot/alerts{?after*,assignee*,before*,direction*,ecosystem*,epss_percentage*,has*,package*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/dependabot/alerts{?after*,before*,direction*,ecosystem*,epss_percentage*,has*,package*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/dependabot/alerts{?after*,assignee*,before*,direction*,ecosystem*,epss_percentage*,has*,package*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
         {
         }
         /// <summary>
@@ -105,6 +105,16 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts
 #else
             [QueryParameter("after")]
             public string After { get; set; }
+#endif
+            /// <summary>Filter alerts by assignees.Provide a comma-separated list of user handles (e.g., `octocat` or `octocat,hubot`) to return alerts assigned to any of the specified users.Use `*` to list alerts with at least one assignee or `none` to list alerts with no assignees.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("assignee")]
+            public string? Assignee { get; set; }
+#nullable restore
+#else
+            [QueryParameter("assignee")]
+            public string Assignee { get; set; }
 #endif
             /// <summary>A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
