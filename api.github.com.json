@@ -7938,7 +7938,7 @@
     "/organizations/{org}/settings/billing/budgets": {
       "get": {
         "summary": "Get all budgets for an organization",
-        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nGets all budgets for an organization. The authenticated user must be an organization admin or billing manager.",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nGets all budgets for an organization. The authenticated user must be an organization admin or billing manager.\nEach page returns up to 10 budgets.",
         "tags": [
           "billing"
         ],
@@ -7950,6 +7950,38 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "page",
+            "description": "The page number of the results to fetch.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "description": "The number of results per page (max 10).",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "name": "scope",
+            "description": "Filter budgets by scope type.",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "enterprise",
+                "organization",
+                "repository",
+                "cost_center"
+              ]
+            }
           }
         ],
         "responses": {
@@ -13785,7 +13817,7 @@
                   "deployments": {
                     "type": "array",
                     "description": "The list of deployments to record.",
-                    "maxItems": 100,
+                    "maxItems": 1000,
                     "items": {
                       "type": "object",
                       "properties": {
@@ -52030,21 +52062,6 @@
             "$ref": "#/components/parameters/issue-number"
           }
         ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "examples": {
-                "default": {
-                  "summary": "Get an issue"
-                },
-                "pinned_comment": {
-                  "summary": "Get an issue with a pinned comment"
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Response",
@@ -75724,7 +75741,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "branch_protection_configuration",
             "schema": {
               "type": "string"
             }
@@ -75817,7 +75834,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "branch_protection_configuration",
             "schema": {
               "type": "string"
             }
@@ -75910,7 +75927,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "branch_protection_rule",
             "schema": {
               "type": "string"
             }
@@ -76003,7 +76020,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "branch_protection_rule",
             "schema": {
               "type": "string"
             }
@@ -76096,7 +76113,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "branch_protection_rule",
             "schema": {
               "type": "string"
             }
@@ -76189,7 +76206,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_run",
             "schema": {
               "type": "string"
             }
@@ -76298,7 +76315,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_run",
             "schema": {
               "type": "string"
             }
@@ -76407,7 +76424,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_run",
             "schema": {
               "type": "string"
             }
@@ -76516,7 +76533,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_run",
             "schema": {
               "type": "string"
             }
@@ -76625,7 +76642,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_suite",
             "schema": {
               "type": "string"
             }
@@ -76718,7 +76735,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_suite",
             "schema": {
               "type": "string"
             }
@@ -76811,7 +76828,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "check_suite",
             "schema": {
               "type": "string"
             }
@@ -76904,7 +76921,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -76997,7 +77014,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -77090,7 +77107,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -77183,7 +77200,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -77276,7 +77293,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -77369,7 +77386,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -77462,7 +77479,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "code_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -77555,7 +77572,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "commit_comment",
             "schema": {
               "type": "string"
             }
@@ -77647,7 +77664,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "create",
             "schema": {
               "type": "string"
             }
@@ -77740,7 +77757,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "custom_property",
             "schema": {
               "type": "string"
             }
@@ -77833,7 +77850,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "custom_property",
             "schema": {
               "type": "string"
             }
@@ -77926,7 +77943,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "custom_property",
             "schema": {
               "type": "string"
             }
@@ -78019,7 +78036,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "custom_property",
             "schema": {
               "type": "string"
             }
@@ -78112,7 +78129,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "custom_property_values",
             "schema": {
               "type": "string"
             }
@@ -78204,7 +78221,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "delete",
             "schema": {
               "type": "string"
             }
@@ -79041,7 +79058,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deploy_key",
             "schema": {
               "type": "string"
             }
@@ -79134,7 +79151,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deploy_key",
             "schema": {
               "type": "string"
             }
@@ -79227,7 +79244,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deployment",
             "schema": {
               "type": "string"
             }
@@ -79320,7 +79337,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deployment_protection_rule",
             "schema": {
               "type": "string"
             }
@@ -79411,7 +79428,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deployment_review",
             "schema": {
               "type": "string"
             }
@@ -79502,7 +79519,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deployment_review",
             "schema": {
               "type": "string"
             }
@@ -79593,7 +79610,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deployment_review",
             "schema": {
               "type": "string"
             }
@@ -79684,7 +79701,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "deployment_status",
             "schema": {
               "type": "string"
             }
@@ -79777,7 +79794,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -79870,7 +79887,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80056,7 +80073,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion_comment",
             "schema": {
               "type": "string"
             }
@@ -80149,7 +80166,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion_comment",
             "schema": {
               "type": "string"
             }
@@ -80242,7 +80259,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion_comment",
             "schema": {
               "type": "string"
             }
@@ -80335,7 +80352,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80428,7 +80445,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80521,7 +80538,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80614,7 +80631,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80707,7 +80724,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80800,7 +80817,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -80986,7 +81003,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -81079,7 +81096,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -81172,7 +81189,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -81265,7 +81282,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -81358,7 +81375,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "discussion",
             "schema": {
               "type": "string"
             }
@@ -81450,7 +81467,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "fork",
             "schema": {
               "type": "string"
             }
@@ -81544,7 +81561,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "github_app_authorization",
             "schema": {
               "type": "string"
             }
@@ -81634,7 +81651,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "gollum",
             "schema": {
               "type": "string"
             }
@@ -81727,7 +81744,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation",
             "schema": {
               "type": "string"
             }
@@ -81818,7 +81835,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation",
             "schema": {
               "type": "string"
             }
@@ -81909,7 +81926,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation",
             "schema": {
               "type": "string"
             }
@@ -82000,7 +82017,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation_repositories",
             "schema": {
               "type": "string"
             }
@@ -82091,7 +82108,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation_repositories",
             "schema": {
               "type": "string"
             }
@@ -82182,7 +82199,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation",
             "schema": {
               "type": "string"
             }
@@ -82273,7 +82290,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation_target",
             "schema": {
               "type": "string"
             }
@@ -82364,7 +82381,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "installation",
             "schema": {
               "type": "string"
             }
@@ -82455,7 +82472,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_comment",
             "schema": {
               "type": "string"
             }
@@ -82548,7 +82565,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_comment",
             "schema": {
               "type": "string"
             }
@@ -82641,7 +82658,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_comment",
             "schema": {
               "type": "string"
             }
@@ -82734,7 +82751,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_comment",
             "schema": {
               "type": "string"
             }
@@ -82827,7 +82844,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_comment",
             "schema": {
               "type": "string"
             }
@@ -82920,7 +82937,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_dependencies",
             "schema": {
               "type": "string"
             }
@@ -83013,7 +83030,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_dependencies",
             "schema": {
               "type": "string"
             }
@@ -83106,7 +83123,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_dependencies",
             "schema": {
               "type": "string"
             }
@@ -83199,7 +83216,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "issue_dependencies",
             "schema": {
               "type": "string"
             }
@@ -84966,7 +84983,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "label",
             "schema": {
               "type": "string"
             }
@@ -85059,7 +85076,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "label",
             "schema": {
               "type": "string"
             }
@@ -85152,7 +85169,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "label",
             "schema": {
               "type": "string"
             }
@@ -85245,7 +85262,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "marketplace_purchase",
             "schema": {
               "type": "string"
             }
@@ -85336,7 +85353,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "marketplace_purchase",
             "schema": {
               "type": "string"
             }
@@ -85427,7 +85444,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "marketplace_purchase",
             "schema": {
               "type": "string"
             }
@@ -85518,7 +85535,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "marketplace_purchase",
             "schema": {
               "type": "string"
             }
@@ -85609,7 +85626,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "marketplace_purchase",
             "schema": {
               "type": "string"
             }
@@ -85700,7 +85717,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "member",
             "schema": {
               "type": "string"
             }
@@ -85794,7 +85811,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "member",
             "schema": {
               "type": "string"
             }
@@ -85888,7 +85905,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "member",
             "schema": {
               "type": "string"
             }
@@ -85982,7 +85999,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "membership",
             "schema": {
               "type": "string"
             }
@@ -86075,7 +86092,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "membership",
             "schema": {
               "type": "string"
             }
@@ -86171,7 +86188,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "merge_group",
             "schema": {
               "type": "string"
             }
@@ -86265,7 +86282,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "merge_group",
             "schema": {
               "type": "string"
             }
@@ -86356,7 +86373,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "meta",
             "schema": {
               "type": "string"
             }
@@ -86451,7 +86468,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "milestone",
             "schema": {
               "type": "string"
             }
@@ -86544,7 +86561,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "milestone",
             "schema": {
               "type": "string"
             }
@@ -86637,7 +86654,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "milestone",
             "schema": {
               "type": "string"
             }
@@ -86730,7 +86747,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "milestone",
             "schema": {
               "type": "string"
             }
@@ -86823,7 +86840,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "milestone",
             "schema": {
               "type": "string"
             }
@@ -86916,7 +86933,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "org_block",
             "schema": {
               "type": "string"
             }
@@ -87009,7 +87026,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "org_block",
             "schema": {
               "type": "string"
             }
@@ -87102,7 +87119,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "organization",
             "schema": {
               "type": "string"
             }
@@ -87195,7 +87212,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "organization",
             "schema": {
               "type": "string"
             }
@@ -87288,7 +87305,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "organization",
             "schema": {
               "type": "string"
             }
@@ -87381,7 +87398,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "organization",
             "schema": {
               "type": "string"
             }
@@ -87474,7 +87491,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "organization",
             "schema": {
               "type": "string"
             }
@@ -87567,7 +87584,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "package",
             "schema": {
               "type": "string"
             }
@@ -87659,7 +87676,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "package",
             "schema": {
               "type": "string"
             }
@@ -87750,7 +87767,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "page_build",
             "schema": {
               "type": "string"
             }
@@ -88210,7 +88227,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "ping",
             "schema": {
               "type": "string"
             }
@@ -88321,7 +88338,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_card",
             "schema": {
               "type": "string"
             }
@@ -88414,7 +88431,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_card",
             "schema": {
               "type": "string"
             }
@@ -88507,7 +88524,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_card",
             "schema": {
               "type": "string"
             }
@@ -88600,7 +88617,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_card",
             "schema": {
               "type": "string"
             }
@@ -88693,7 +88710,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_card",
             "schema": {
               "type": "string"
             }
@@ -88786,7 +88803,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project",
             "schema": {
               "type": "string"
             }
@@ -88879,7 +88896,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_column",
             "schema": {
               "type": "string"
             }
@@ -88972,7 +88989,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_column",
             "schema": {
               "type": "string"
             }
@@ -89065,7 +89082,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_column",
             "schema": {
               "type": "string"
             }
@@ -89158,7 +89175,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project_column",
             "schema": {
               "type": "string"
             }
@@ -89251,7 +89268,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project",
             "schema": {
               "type": "string"
             }
@@ -89344,7 +89361,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project",
             "schema": {
               "type": "string"
             }
@@ -89437,7 +89454,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project",
             "schema": {
               "type": "string"
             }
@@ -89530,7 +89547,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "project",
             "schema": {
               "type": "string"
             }
@@ -91002,7 +91019,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "public",
             "schema": {
               "type": "string"
             }
@@ -91095,7 +91112,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91188,7 +91205,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91281,7 +91298,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91374,7 +91391,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91467,7 +91484,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91560,7 +91577,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91653,7 +91670,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91746,7 +91763,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91839,7 +91856,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -91932,7 +91949,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -92025,7 +92042,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -92118,7 +92135,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -92211,7 +92228,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -92304,7 +92321,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -92397,7 +92414,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -92490,7 +92507,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review_comment",
             "schema": {
               "type": "string"
             }
@@ -92583,7 +92600,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review_comment",
             "schema": {
               "type": "string"
             }
@@ -92676,7 +92693,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review_comment",
             "schema": {
               "type": "string"
             }
@@ -92769,7 +92786,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review",
             "schema": {
               "type": "string"
             }
@@ -92862,7 +92879,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review",
             "schema": {
               "type": "string"
             }
@@ -92955,7 +92972,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -93048,7 +93065,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -93141,7 +93158,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review",
             "schema": {
               "type": "string"
             }
@@ -93234,7 +93251,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review_thread",
             "schema": {
               "type": "string"
             }
@@ -93327,7 +93344,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request_review_thread",
             "schema": {
               "type": "string"
             }
@@ -93420,7 +93437,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -93513,7 +93530,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -93606,7 +93623,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -93699,7 +93716,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "pull_request",
             "schema": {
               "type": "string"
             }
@@ -93791,7 +93808,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "push",
             "schema": {
               "type": "string"
             }
@@ -93884,7 +93901,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "registry_package",
             "schema": {
               "type": "string"
             }
@@ -93977,7 +93994,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "registry_package",
             "schema": {
               "type": "string"
             }
@@ -94070,7 +94087,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94163,7 +94180,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94256,7 +94273,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94349,7 +94366,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94442,7 +94459,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94535,7 +94552,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94628,7 +94645,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "release",
             "schema": {
               "type": "string"
             }
@@ -94721,7 +94738,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_advisory",
             "schema": {
               "type": "string"
             }
@@ -94814,7 +94831,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_advisory",
             "schema": {
               "type": "string"
             }
@@ -94907,7 +94924,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95001,7 +95018,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95095,7 +95112,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95188,7 +95205,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_dispatch",
             "schema": {
               "type": "string"
             }
@@ -95279,7 +95296,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95372,7 +95389,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_import",
             "schema": {
               "type": "string"
             }
@@ -95464,7 +95481,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95558,7 +95575,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95652,7 +95669,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -95746,7 +95763,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_ruleset",
             "schema": {
               "type": "string"
             }
@@ -95839,7 +95856,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_ruleset",
             "schema": {
               "type": "string"
             }
@@ -95932,7 +95949,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_ruleset",
             "schema": {
               "type": "string"
             }
@@ -96025,7 +96042,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -96119,7 +96136,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository",
             "schema": {
               "type": "string"
             }
@@ -96213,7 +96230,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_vulnerability_alert",
             "schema": {
               "type": "string"
             }
@@ -96305,7 +96322,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_vulnerability_alert",
             "schema": {
               "type": "string"
             }
@@ -96397,7 +96414,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_vulnerability_alert",
             "schema": {
               "type": "string"
             }
@@ -96489,7 +96506,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "repository_vulnerability_alert",
             "schema": {
               "type": "string"
             }
@@ -96581,7 +96598,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -96674,7 +96691,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -96767,7 +96784,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert_location",
             "schema": {
               "type": "string"
             }
@@ -96876,7 +96893,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -96969,7 +96986,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -97062,7 +97079,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -97155,7 +97172,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -97248,7 +97265,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_alert",
             "schema": {
               "type": "string"
             }
@@ -97341,7 +97358,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "secret_scanning_scan",
             "schema": {
               "type": "string"
             }
@@ -97434,7 +97451,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "security_advisory",
             "schema": {
               "type": "string"
             }
@@ -97525,7 +97542,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "security_advisory",
             "schema": {
               "type": "string"
             }
@@ -97616,7 +97633,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "security_advisory",
             "schema": {
               "type": "string"
             }
@@ -97706,7 +97723,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "security_and_analysis",
             "schema": {
               "type": "string"
             }
@@ -97799,7 +97816,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sponsorship",
             "schema": {
               "type": "string"
             }
@@ -97890,7 +97907,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sponsorship",
             "schema": {
               "type": "string"
             }
@@ -97981,7 +97998,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sponsorship",
             "schema": {
               "type": "string"
             }
@@ -98072,7 +98089,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sponsorship",
             "schema": {
               "type": "string"
             }
@@ -98163,7 +98180,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sponsorship",
             "schema": {
               "type": "string"
             }
@@ -98254,7 +98271,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sponsorship",
             "schema": {
               "type": "string"
             }
@@ -98345,7 +98362,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "star",
             "schema": {
               "type": "string"
             }
@@ -98438,7 +98455,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "star",
             "schema": {
               "type": "string"
             }
@@ -98530,7 +98547,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "status",
             "schema": {
               "type": "string"
             }
@@ -98623,7 +98640,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sub_issues",
             "schema": {
               "type": "string"
             }
@@ -98716,7 +98733,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sub_issues",
             "schema": {
               "type": "string"
             }
@@ -98809,7 +98826,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sub_issues",
             "schema": {
               "type": "string"
             }
@@ -98902,7 +98919,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "sub_issues",
             "schema": {
               "type": "string"
             }
@@ -98994,7 +99011,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "team_add",
             "schema": {
               "type": "string"
             }
@@ -99087,7 +99104,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "team",
             "schema": {
               "type": "string"
             }
@@ -99180,7 +99197,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "team",
             "schema": {
               "type": "string"
             }
@@ -99273,7 +99290,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "team",
             "schema": {
               "type": "string"
             }
@@ -99366,7 +99383,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "team",
             "schema": {
               "type": "string"
             }
@@ -99459,7 +99476,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "team",
             "schema": {
               "type": "string"
             }
@@ -99552,7 +99569,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "watch",
             "schema": {
               "type": "string"
             }
@@ -99644,7 +99661,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_dispatch",
             "schema": {
               "type": "string"
             }
@@ -99735,7 +99752,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_job",
             "schema": {
               "type": "string"
             }
@@ -99829,7 +99846,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_job",
             "schema": {
               "type": "string"
             }
@@ -99923,7 +99940,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_job",
             "schema": {
               "type": "string"
             }
@@ -100017,7 +100034,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_job",
             "schema": {
               "type": "string"
             }
@@ -100111,7 +100128,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_run",
             "schema": {
               "type": "string"
             }
@@ -100205,7 +100222,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_run",
             "schema": {
               "type": "string"
             }
@@ -100299,7 +100316,7 @@
           {
             "name": "X-Github-Event",
             "in": "header",
-            "example": "issues",
+            "example": "workflow_run",
             "schema": {
               "type": "string"
             }
@@ -106337,8 +106354,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
+            }
           },
           "milestone": {
             "$ref": "#/components/schemas/nullable-milestone"
@@ -115415,22 +115431,19 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
+            }
           },
           "requested_reviewers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
+            }
           },
           "requested_teams": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/team"
-            },
-            "nullable": true
+            }
           },
           "head": {
             "type": "object",
@@ -119125,6 +119138,57 @@
                     "state": {
                       "type": "string",
                       "description": "The state of the review."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "rule-suite-required-status-checks": {
+        "title": "Required status checks rule suite metadata",
+        "description": "Metadata for a required status checks rule evaluation result.",
+        "type": "object",
+        "properties": {
+          "checks": {
+            "type": "array",
+            "description": "The status checks associated with the rule evaluation.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the status check."
+                },
+                "context": {
+                  "type": "string",
+                  "description": "The context name of the status check."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "The state of the status check."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The type of the status check."
+                },
+                "app": {
+                  "type": "object",
+                  "nullable": true,
+                  "description": "The GitHub App associated with the status check.",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "The unique identifier of the GitHub App."
+                    },
+                    "slug": {
+                      "type": "string",
+                      "description": "The slug of the GitHub App."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the GitHub App."
                     }
                   }
                 }
@@ -129539,8 +129603,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
+            }
           },
           "milestone": {
             "$ref": "#/components/schemas/nullable-milestone"
@@ -132765,22 +132828,19 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
+            }
           },
           "requested_reviewers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/simple-user"
-            },
-            "nullable": true
+            }
           },
           "requested_teams": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/team-simple"
-            },
-            "nullable": true
+            }
           },
           "head": {
             "type": "object",
@@ -287009,7 +287069,9 @@
                 "alert_recipients": []
               }
             }
-          ]
+          ],
+          "has_next_page": false,
+          "total_count": 3
         }
       },
       "get-budget": {
@@ -292518,7 +292580,7 @@
             {
               "id": 1,
               "name": "Title",
-              "type": "title",
+              "data_type": "title",
               "value": {
                 "raw": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
                 "html": "It seemed to me that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
@@ -292533,7 +292595,7 @@
             {
               "id": 2,
               "name": "Assignees",
-              "type": "assignees",
+              "data_type": "assignees",
               "value": [
                 {
                   "login": "octocat",
@@ -292561,7 +292623,7 @@
             {
               "id": 3,
               "name": "Status",
-              "type": "single_select",
+              "data_type": "single_select",
               "value": {
                 "id": "98236657",
                 "name": {
@@ -292578,7 +292640,7 @@
             {
               "id": 4,
               "name": "Labels",
-              "type": "labels",
+              "data_type": "labels",
               "value": [
                 {
                   "id": 19,
@@ -292612,13 +292674,13 @@
             {
               "id": 5,
               "name": "Linked pull requests",
-              "type": "linked_pull_requests",
+              "data_type": "linked_pull_requests",
               "value": []
             },
             {
               "id": 6,
               "name": "Milestone",
-              "type": "milestone",
+              "data_type": "milestone",
               "value": {
                 "url": "https://api.github.com/repos/github/Hello-World/milestones/1",
                 "html_url": "https://github.com/github/Hello-World/milestone/1",
@@ -292661,7 +292723,7 @@
             {
               "id": 7,
               "name": "Repository",
-              "type": "repository",
+              "data_type": "repository",
               "value": {
                 "id": 1,
                 "node_id": "R_kgAB",
@@ -292734,13 +292796,13 @@
             {
               "id": 8,
               "name": "Type",
-              "type": "issue_type",
+              "data_type": "issue_type",
               "value": null
             },
             {
               "id": 9,
               "name": "Reviewers",
-              "type": "reviewers",
+              "data_type": "reviewers",
               "value": [
                 {
                   "type": "ReviewRequest",
@@ -292759,13 +292821,13 @@
             {
               "id": 10,
               "name": "Parent issue",
-              "type": "parent_issue",
+              "data_type": "parent_issue",
               "value": null
             },
             {
               "id": 11,
               "name": "Sub-issues progress",
-              "type": "sub_issues_progress",
+              "data_type": "sub_issues_progress",
               "value": null
             }
           ]
@@ -316840,7 +316902,7 @@
         }
       },
       "usage_metrics_api_disabled": {
-        "description": "Copilot Usage Merics API setting is disabled at the organization or enterprise level.",
+        "description": "Copilot Usage Metrics API setting is disabled at the organization or enterprise level.",
         "content": {
           "application/json": {
             "schema": {
