@@ -9780,7 +9780,7 @@
                     "type": "string"
                   },
                   "image_id": {
-                    "description": "The unique identifier of the runner image. To list all available images, use `GET /actions/hosted-runners/images/github-owned` or `GET /actions/hosted-runners/images/partner`.",
+                    "description": "The unique identifier of the runner image. To list available images, use `GET /actions/hosted-runners/images/github-owned`, `GET /actions/hosted-runners/images/partner`, or `GET /actions/hosted-runners/images/custom`.",
                     "type": "string"
                   },
                   "image_version": {
@@ -29058,6 +29058,9 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/team-type"
           }
         ],
         "responses": {
@@ -33325,6 +33328,9 @@
           },
           {
             "$ref": "#/components/parameters/artifact-name"
+          },
+          {
+            "$ref": "#/components/parameters/direction"
           }
         ],
         "responses": {
@@ -118728,25 +118734,6 @@
             }
           }
         }
-      },
-      "repository-rule-params-copilot-code-review-analysis-tool": {
-        "title": "CopilotCodeReviewAnalysisTool",
-        "description": "A tool that must provide code review results for this rule to pass.",
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of a code review analysis tool",
-            "enum": [
-              "CodeQL",
-              "ESLint",
-              "PMD"
-            ]
-          }
-        },
-        "required": [
-          "name"
-        ]
       },
       "repository-rule": {
         "title": "Repository Rule",
@@ -315897,6 +315884,21 @@
         "required": true,
         "schema": {
           "type": "string"
+        }
+      },
+      "team-type": {
+        "name": "team_type",
+        "description": "Filter team results by their type. For more information, see \"[What kind of team should I use?](https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use)\"",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "all",
+            "enterprise",
+            "organization"
+          ],
+          "default": "all"
         }
       },
       "security-product": {
