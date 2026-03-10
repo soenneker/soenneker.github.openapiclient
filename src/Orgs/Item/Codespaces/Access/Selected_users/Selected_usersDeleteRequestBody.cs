@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Access.Selected_us
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The usernames of the organization members whose codespaces should not be billed to the organization.</summary>
+        /// <summary>The usernames of the organization members and outside collaborators whose codespaces should not be billed to the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SelectedUsernames { get; set; }

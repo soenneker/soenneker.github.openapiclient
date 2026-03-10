@@ -78,6 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
         public WithClusterPostRequestBody_deployments()
         {
             AdditionalData = new Dictionary<string, object>();
+            Status = global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostRequestBody_deployments_status.Deployed;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

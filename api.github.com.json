@@ -8118,11 +8118,20 @@
                     "description": "The name of the entity to apply the budget to"
                   },
                   "budget_type": {
-                    "type": "string",
                     "description": "The type of pricing for the budget",
-                    "enum": [
-                      "ProductPricing",
-                      "SkuPricing"
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "ProductPricing"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "SkuPricing"
+                        ]
+                      }
                     ]
                   },
                   "budget_product_sku": {
@@ -8211,11 +8220,20 @@
                           "default": ""
                         },
                         "budget_type": {
-                          "type": "string",
                           "description": "The type of pricing for the budget",
-                          "enum": [
-                            "ProductPricing",
-                            "SkuPricing"
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "enum": [
+                                "ProductPricing"
+                              ]
+                            },
+                            {
+                              "type": "string",
+                              "enum": [
+                                "SkuPricing"
+                              ]
+                            }
                           ]
                         },
                         "budget_product_sku": {
@@ -13837,7 +13855,6 @@
                         "version": {
                           "type": "string",
                           "description": "The artifact version. Note that if multiple deployments have identical 'digest' parameter values,\nthe version parameter must also be identical across all entries.\n",
-                          "minLength": 1,
                           "maxLength": 100,
                           "x-multi-segment": true,
                           "example": "1.2.3"
@@ -13845,6 +13862,7 @@
                         "status": {
                           "type": "string",
                           "description": "The deployment status of the artifact.",
+                          "default": "deployed",
                           "enum": [
                             "deployed",
                             "decommissioned"
@@ -13859,7 +13877,6 @@
                         "github_repository": {
                           "type": "string",
                           "description": "The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.\n\nIf a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.",
-                          "minLength": 1,
                           "maxLength": 100,
                           "pattern": "^[A-Za-z0-9.\\-_]+$",
                           "example": "my-github-repo"
@@ -17054,7 +17071,7 @@
                 "properties": {
                   "selected_usernames": {
                     "type": "array",
-                    "description": "The usernames of the organization members whose codespaces be billed to the organization.",
+                    "description": "The usernames of the organization members and outside collaborators whose codespaces should be billed to the organization.",
                     "items": {
                       "type": "string"
                     },
@@ -17131,7 +17148,7 @@
                 "properties": {
                   "selected_usernames": {
                     "type": "array",
-                    "description": "The usernames of the organization members whose codespaces should not be billed to the organization.",
+                    "description": "The usernames of the organization members and outside collaborators whose codespaces should not be billed to the organization.",
                     "items": {
                       "type": "string"
                     },
@@ -109474,12 +109491,21 @@
             "example": "2066deda-923f-43f9-88d2-62395a28c0cdd"
           },
           "budget_type": {
-            "type": "string",
             "description": "The type of pricing for the budget",
             "example": "SkuPricing",
-            "enum": [
-              "SkuPricing",
-              "ProductPricing"
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "SkuPricing"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "ProductPricing"
+                ]
+              }
             ]
           },
           "budget_amount": {
@@ -109602,12 +109628,21 @@
             "example": "actions_linux"
           },
           "budget_type": {
-            "type": "string",
             "description": "The type of pricing for the budget",
             "example": "ProductPricing",
-            "enum": [
-              "ProductPricing",
-              "SkuPricing"
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "ProductPricing"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "SkuPricing"
+                ]
+              }
             ]
           },
           "budget_alerting": {
