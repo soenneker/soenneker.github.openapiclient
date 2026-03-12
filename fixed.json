@@ -883,7 +883,21 @@
           "enabledForGitHubApps": false,
           "category": "apps",
           "subcategory": "apps"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_delete_installation_success_status",
+            "patch": {
+              "responses": {
+                "202": {
+                  "description": "Response"
+                },
+                "204": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/app/installations/{installation_id}/access_tokens": {
@@ -8587,7 +8601,26 @@
           "enabledForGitHubApps": true,
           "category": "orgs",
           "subcategory": "orgs"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_secret_scanning_custom_link_enablement_field",
+            "patch": {
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "properties": {
+                        "secret_scanning_push_protection_custom_link_enabled": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -8621,7 +8654,20 @@
           "enabledForGitHubApps": true,
           "category": "orgs",
           "subcategory": "orgs"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_delete_organization_trade_compliance_respose_status",
+            "patch": {
+              "responses": {
+                "451": {
+                  "$ref": "#/components/responses/validation_failed"
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/actions/cache/usage": {
@@ -14270,7 +14316,36 @@
           "enabledForGitHubApps": true,
           "category": "orgs",
           "subcategory": "attestations"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_bundle",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                          "attestations_subject_digests": {
+                            "additionalProperties": {
+                              "items": {
+                                "properties": {
+                                  "bundle": null
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/attestations/delete-request": {
@@ -14639,7 +14714,34 @@
           "enabledForGitHubApps": true,
           "category": "orgs",
           "subcategory": "attestations"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_bundle",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                          "attestations": {
+                            "items": {
+                              "properties": {
+                                "bundle": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/blocks": {
@@ -18683,7 +18785,22 @@
           "enabledForGitHubApps": true,
           "category": "dependabot",
           "subcategory": "secrets"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_string_type_from_repo_id_param",
+            "patch": [
+              {
+                "op": "replace",
+                "path": "/requestBody/content/application~1json/schema/properties/selected_repository_ids/items",
+                "value": {
+                  "type": "integer"
+                }
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -20834,6 +20951,279 @@
         }
       }
     },
+    "/orgs/{org}/issue-fields": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "List issue fields for an organization",
+        "description": "Lists all issue fields for an organization. OAuth app tokens and personal access tokens (classic) need the read:org scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/issue-fields#list-issue-fields-for-an-organization"
+        },
+        "operationId": "orgs/list-issue-fields",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/issue-field"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field-items"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "issue-fields"
+        }
+      },
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Create issue field for an organization",
+        "description": "Creates a new issue field for an organization.\n\nYou can find out more about issue fields in [Managing issue fields in an organization](https://docs.github.com/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-an-organization).\n\nTo use this endpoint, the authenticated user must be an administrator for the organization. OAuth app tokens and\npersonal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/issue-fields#create-issue-field-for-an-organization"
+        },
+        "operationId": "orgs/create-issue-field",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/organization-create-issue-field"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Priority",
+                    "description": "Level of importance for the issue",
+                    "data_type": "single_select",
+                    "options": [
+                      {
+                        "name": "High",
+                        "description": "High priority",
+                        "color": "red"
+                      },
+                      {
+                        "name": "Medium",
+                        "description": "Medium priority",
+                        "color": "yellow"
+                      },
+                      {
+                        "name": "Low",
+                        "description": "Low priority",
+                        "color": "green"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/issue-field"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "issue-fields"
+        }
+      }
+    },
+    "/orgs/{org}/issue-fields/{issue_field_id}": {
+      "patch": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Update issue field for an organization",
+        "description": "Updates an issue field for an organization.\n\nYou can find out more about issue fields in [Managing issue fields in an organization](https://docs.github.com/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-an-organization).\n\nTo use this endpoint, the authenticated user must be an administrator for the organization. OAuth app tokens and\npersonal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/issue-fields#update-issue-field-for-an-organization"
+        },
+        "operationId": "orgs/update-issue-field",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/issue-field-id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/organization-update-issue-field"
+              },
+              "examples": {
+                "default": {
+                  "summary": "Update name and description",
+                  "description": "Update the name and description of an issue field",
+                  "value": {
+                    "name": "Priority",
+                    "description": "Level of importance for the issue"
+                  }
+                },
+                "update-single-select-options": {
+                  "summary": "Update single select options",
+                  "description": "Update the options for a single select issue field",
+                  "value": {
+                    "name": "Status",
+                    "description": "Current status of the issue",
+                    "options": [
+                      {
+                        "name": "Backlog",
+                        "description": "Items waiting to be prioritized",
+                        "color": "gray",
+                        "priority": 1
+                      },
+                      {
+                        "name": "In Progress",
+                        "description": "Currently being worked on",
+                        "color": "blue",
+                        "priority": 2
+                      },
+                      {
+                        "name": "Done",
+                        "description": "Completed work",
+                        "color": "green",
+                        "priority": 3
+                      }
+                    ]
+                  }
+                },
+                "update-name-only": {
+                  "summary": "Update name only",
+                  "description": "Update only the name of an issue field",
+                  "value": {
+                    "name": "Updated Field Name"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/issue-field"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "issue-fields"
+        }
+      },
+      "delete": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Delete issue field for an organization",
+        "description": "Deletes an issue field for an organization.\n\nYou can find out more about issue fields in [Managing issue fields in an organization](https://docs.github.com/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-an-organization).\n\nTo use this endpoint, the authenticated user must be an administrator for the organization. OAuth app tokens and\npersonal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/issue-fields#delete-issue-field-for-an-organization"
+        },
+        "operationId": "orgs/delete-issue-field",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/issue-field-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed_simple"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "issue-fields"
+        }
+      }
+    },
     "/orgs/{org}/issue-types": {
       "get": {
         "tags": [
@@ -21342,7 +21732,20 @@
           "enabledForGitHubApps": true,
           "category": "orgs",
           "subcategory": "members"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_remove_member_trade_compliance_response_status",
+            "patch": {
+              "responses": {
+                "451": {
+                  "$ref": "#/components/responses/validation_failed"
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/members/{username}/codespaces": {
@@ -21725,7 +22128,20 @@
           "enabledForGitHubApps": true,
           "category": "orgs",
           "subcategory": "members"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_update_user_membership_trade_compliance_response_status",
+            "patch": {
+              "responses": {
+                "451": {
+                  "$ref": "#/components/responses/validation_failed"
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -22197,7 +22613,43 @@
           "enabledForGitHubApps": false,
           "category": "migrations",
           "subcategory": "orgs"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "restrict_repo_fields_in_migration_resource",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "items": {
+                          "$ref": "#/components/schemas/simple-repository"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "restrict_repo_fields_in_migration_resource",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "examples": null
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/organization-roles": {
@@ -26820,7 +27272,20 @@
           "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "repos"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_create_repo_trade_compliance_response_status",
+            "patch": {
+              "responses": {
+                "451": {
+                  "$ref": "#/components/responses/validation_failed"
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/rulesets": {
@@ -28990,7 +29455,27 @@
           "enabledForGitHubApps": true,
           "category": "teams",
           "subcategory": "teams"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_team_permission",
+            "patch": {
+              "requestBody": {
+                "required": true,
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "properties": {
+                        "permission": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/orgs/{org}/teams/{team_slug}": {
@@ -34814,7 +35299,23 @@
           "enabledForGitHubApps": true,
           "category": "actions",
           "subcategory": "workflows"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_workflow_dispatch_response_status",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/responses/204"
+              },
+              {
+                "op": "remove",
+                "path": "/requestBody/content/application~1json/schema/properties/return_run_details"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable": {
@@ -35429,7 +35930,34 @@
           "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "attestations"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_bundle",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                          "attestations": {
+                            "items": {
+                              "properties": {
+                                "bundle": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/autolinks": {
@@ -44178,7 +44706,16 @@
           "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "contents"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "return_submodule_type_for_submodules_in_directory_lists",
+            "patch": {
+              "description": "Gets the contents of a file or directory in a repository. Specify the file path or directory with the `path` parameter. If you omit the `path` parameter, you will receive the contents of the repository's root directory.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.raw+json`**: Returns the raw file contents for files and symlinks.\n- **`application/vnd.github.html+json`**: Returns the file contents in HTML. Markup languages are rendered to HTML using GitHub's open-source [Markup library](https://github.com/github/markup).\n- **`application/vnd.github.object+json`**: Returns the contents in a consistent object format regardless of the content type. For example, instead of an array of objects for a directory, the response will be an object with an `entries` attribute containing the array of objects.\n\nIf the content is a directory: The response will be an array of objects, one object for each item in the directory.\n\nIf the content is a symlink and the symlink's target is a normal file in the repository, then the API responds with the content of the file. Otherwise, the API responds with an object describing the symlink itself.\n\nIf the content is a submodule, the `submodule_git_url` field identifies the location of the submodule repository, and the `sha` identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit. If the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links[\"git\"]`) and the github.com URLs (`html_url` and `_links[\"html\"]`) will have null values.\n\n**Notes**:\n\n- To get a repository's contents recursively, you can [recursively get the tree](https://docs.github.com/rest/git/trees#get-a-tree).\n- This API has an upper limit of 1,000 files for a directory. If you need to retrieve\nmore files, use the [Git Trees API](https://docs.github.com/rest/git/trees#get-a-tree).\n- Download URLs expire and are meant to be used just once. To ensure the download URL does not expire, please use the contents API to obtain a fresh download URL for each download.\n- If the requested file's size is:\n  - 1 MB or smaller: All features of this endpoint are supported.\n  - Between 1-100 MB: Only the `raw` or `object` custom media types are supported. Both will work as normal, except that when using the `object` media type, the `content` field will be an empty\nstring and the `encoding` field will be `\"none\"`. To get the contents of these larger files, use the `raw` media type.\n  - Greater than 100 MB: This endpoint is not supported."
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -51042,7 +51579,26 @@
           "enabledForGitHubApps": true,
           "category": "issues",
           "subcategory": "issues"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "properties": {
+                        "assignee": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/comments": {
@@ -51935,6 +52491,36 @@
                     },
                     "description": "Usernames to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this issue. Send an empty array (`[]`) to clear all assignees from the issue. Only users with push access can set assignees for new issues. Without push access to the repository, assignee changes are silently dropped."
                   },
+                  "issue_field_values": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "field_id",
+                        "value"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "field_id": {
+                          "type": "integer",
+                          "description": "The ID of the issue field to set",
+                          "format": "int64"
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ],
+                          "description": "The value to set for the field"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "description": "An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Only users with push access can set field values for issues"
+                  },
                   "type": {
                     "type": "string",
                     "description": "The name of the issue type to associate with this issue or use `null` to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.",
@@ -52002,7 +52588,26 @@
           "enabledForGitHubApps": true,
           "category": "issues",
           "subcategory": "issues"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "properties": {
+                        "assignee": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/{issue_number}/assignees": {
@@ -52751,6 +53356,77 @@
           "enabledForGitHubApps": true,
           "category": "issues",
           "subcategory": "events"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values": {
+      "get": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "List issue field values for an issue",
+        "description": "Lists all issue field values for an issue.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#list-issue-field-values-for-an-issue"
+        },
+        "operationId": "issues/list-issue-field-values-for-issue",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/issue-field-value"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field-value-items"
+                  }
+                }
+              }
+            }
+          },
+          "301": {
+            "$ref": "#/components/responses/moved_permanently"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "410": {
+            "$ref": "#/components/responses/gone"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
         }
       }
     },
@@ -63880,6 +64556,341 @@
         }
       }
     },
+    "/repositories/{repository_id}/issues/{issue_number}/issue-field-values": {
+      "post": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "Add issue field values to an issue",
+        "description": "Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository's organization.\nAdding an empty array will clear all existing field values for the issue.\n\nThis endpoint supports the following field data types:\n- **`text`**: String values for text fields\n- **`single_select`**: Option names for single-select fields (must match an existing option name)\n- **`number`**: Numeric values for number fields\n- **`date`**: ISO 8601 date strings for date fields\n\nOnly users with push access to the repository can add issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#add-issue-field-values-to-an-issue"
+        },
+        "operationId": "issues/add-issue-field-values",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/repository-id"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "issue_field_values": {
+                    "maxItems": 25,
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "field_id",
+                        "value"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "field_id": {
+                          "type": "integer",
+                          "description": "The ID of the issue field to set",
+                          "format": "int64",
+                          "example": 123
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "The value to set for text, single_select, or date fields"
+                            },
+                            {
+                              "type": "number",
+                              "description": "The value to set for number fields"
+                            }
+                          ],
+                          "description": "The value to set for the field. The type depends on the field's data type:\n- For text fields: provide a string value\n- For single_select fields: provide the option name as a string (must match an existing option)\n- For number fields: provide a numeric value\n- For date fields: provide an ISO 8601 date string",
+                          "example": "Critical"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "description": "An array of issue field values to add to this issue. Each field value must include the field ID and the value to set."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "summary": "Add multiple field values",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "Critical"
+                      },
+                      {
+                        "field_id": 456,
+                        "value": 5
+                      },
+                      {
+                        "field_id": 789,
+                        "value": "2024-12-31"
+                      }
+                    ]
+                  }
+                },
+                "single-field": {
+                  "summary": "Add a single field value",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "High Priority"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/issue-field-value"
+                  },
+                  "description": "The current issue field values for this issue after adding the new values"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field-value-items"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
+        }
+      },
+      "put": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "Set issue field values for an issue",
+        "description": "Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository's organization.\n\nThis endpoint supports the following field data types:\n- **`text`**: String values for text fields\n- **`single_select`**: Option names for single-select fields (must match an existing option name)\n- **`number`**: Numeric values for number fields\n- **`date`**: ISO 8601 date strings for date fields\n\nThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.\n\nOnly users with push access to the repository can set issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#set-issue-field-values-for-an-issue"
+        },
+        "operationId": "issues/set-issue-field-values",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/repository-id"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "issue_field_values": {
+                    "maxItems": 25,
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "field_id",
+                        "value"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "field_id": {
+                          "type": "integer",
+                          "description": "The ID of the issue field to set",
+                          "format": "int64",
+                          "example": 123
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "The value to set for text, single_select, or date fields"
+                            },
+                            {
+                              "type": "number",
+                              "description": "The value to set for number fields"
+                            }
+                          ],
+                          "description": "The value to set for the field. The type depends on the field's data type:\n- For text fields: provide a string value\n- For single_select fields: provide the option name as a string (must match an existing option)\n- For number fields: provide a numeric value\n- For date fields: provide an ISO 8601 date string",
+                          "example": "Critical"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "description": "An array of issue field values to set for this issue. Each field value must include the field ID and the value to set. All existing field values will be replaced."
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "summary": "Set multiple field values",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "Critical"
+                      },
+                      {
+                        "field_id": 456,
+                        "value": 5
+                      },
+                      {
+                        "field_id": 789,
+                        "value": "2024-12-31"
+                      }
+                    ]
+                  }
+                },
+                "single-field": {
+                  "summary": "Set a single field value",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "High Priority"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/issue-field-value"
+                  },
+                  "description": "The current issue field values for this issue after setting the new values"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field-value-items"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
+        }
+      }
+    },
+    "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}": {
+      "delete": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "Delete an issue field value from an issue",
+        "description": "Remove a specific custom field value from an issue.\n\nOnly users with push access to the repository can delete issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nIf the specified field does not have a value set on the issue, this operation will return a `404` error.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#delete-an-issue-field-value-from-an-issue"
+        },
+        "operationId": "issues/delete-issue-field-value",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/repository-id"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          },
+          {
+            "$ref": "#/components/parameters/issue-field-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Issue field value deleted successfully"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
+        }
+      }
+    },
     "/search/code": {
       "get": {
         "tags": [
@@ -69617,7 +70628,43 @@
           "enabledForGitHubApps": false,
           "category": "migrations",
           "subcategory": "users"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "restrict_repo_fields_in_migration_resource",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "items": {
+                          "$ref": "#/components/schemas/simple-repository"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "restrict_repo_fields_in_migration_resource",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "examples": null
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/user/orgs": {
@@ -70524,7 +71571,20 @@
           "enabledForGitHubApps": false,
           "category": "repos",
           "subcategory": "repos"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_create_repo_trade_compliance_response_status",
+            "patch": {
+              "responses": {
+                "451": {
+                  "$ref": "#/components/responses/validation_failed"
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/user/repository_invitations": {
@@ -70631,7 +71691,20 @@
           "enabledForGitHubApps": false,
           "category": "collaborators",
           "subcategory": "invitations"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "change_accept_repository_invitation_response_status",
+            "patch": {
+              "responses": {
+                "451": {
+                  "$ref": "#/components/responses/validation_failed"
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -72083,7 +73156,36 @@
           "enabledForGitHubApps": true,
           "category": "users",
           "subcategory": "attestations"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_bundle",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                          "attestations_subject_digests": {
+                            "additionalProperties": {
+                              "items": {
+                                "properties": {
+                                  "bundle": null
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/users/{username}/attestations/delete-request": {
@@ -72401,7 +73503,34 @@
           "enabledForGitHubApps": true,
           "category": "users",
           "subcategory": "attestations"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_bundle",
+            "patch": {
+              "responses": {
+                "200": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "properties": {
+                          "attestations": {
+                            "items": {
+                              "properties": {
+                                "bundle": null
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       }
     },
     "/users/{username}/docker/conflicts": {
@@ -75510,7 +76639,32 @@
             "type": "string",
             "format": "uri-template"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_authorizations_url_from_api_root",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/authorizations_url"
+              },
+              {
+                "op": "remove",
+                "path": "/required/2"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_hub_url_from_api_root",
+            "patch": {
+              "properties": {
+                "hub_url": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "security-advisory-ecosystems": {
         "enum": [
@@ -76033,7 +77187,40 @@
           }
         },
         "additionalProperties": false,
-        "description": "A GitHub Security Advisory."
+        "description": "A GitHub Security Advisory.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": {
+              "properties": {
+                "cvss": null
+              },
+              "required": [
+                "ghsa_id",
+                "cve_id",
+                "url",
+                "html_url",
+                "repository_advisory_url",
+                "summary",
+                "description",
+                "type",
+                "severity",
+                "source_code_location",
+                "identifiers",
+                "references",
+                "published_at",
+                "updated_at",
+                "github_reviewed_at",
+                "nvd_published_at",
+                "withdrawn_at",
+                "vulnerabilities",
+                "cwes",
+                "credits"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "basic-error": {
         "title": "Basic Error",
@@ -77847,6 +79034,12 @@
             "description": "The policy controlling who can create pull requests: all or collaborators_only.",
             "example": "all"
           },
+          "has_commit_comments": {
+            "type": "boolean",
+            "description": "Whether commit comments are enabled.",
+            "default": true,
+            "example": true
+          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -77997,7 +79190,110 @@
             "description": "The status of the code search index for this repository"
           }
         },
-        "description": "A repository on GitHub."
+        "description": "A repository on GitHub.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": {
+              "properties": {
+                "use_squash_pr_title_as_default": null
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "master_branch": null
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_has_downloads",
+            "patch": {
+              "properties": {
+                "has_downloads": null
+              },
+              "required": [
+                "archive_url",
+                "assignees_url",
+                "blobs_url",
+                "branches_url",
+                "collaborators_url",
+                "comments_url",
+                "commits_url",
+                "compare_url",
+                "contents_url",
+                "contributors_url",
+                "deployments_url",
+                "description",
+                "downloads_url",
+                "events_url",
+                "fork",
+                "forks_url",
+                "full_name",
+                "git_commits_url",
+                "git_refs_url",
+                "git_tags_url",
+                "hooks_url",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_comment_url",
+                "issue_events_url",
+                "issues_url",
+                "keys_url",
+                "labels_url",
+                "languages_url",
+                "merges_url",
+                "milestones_url",
+                "name",
+                "notifications_url",
+                "owner",
+                "private",
+                "pulls_url",
+                "releases_url",
+                "stargazers_url",
+                "statuses_url",
+                "subscribers_url",
+                "subscription_url",
+                "tags_url",
+                "teams_url",
+                "trees_url",
+                "url",
+                "clone_url",
+                "default_branch",
+                "forks",
+                "forks_count",
+                "git_url",
+                "has_issues",
+                "has_projects",
+                "has_wiki",
+                "has_pages",
+                "homepage",
+                "language",
+                "archived",
+                "disabled",
+                "mirror_url",
+                "open_issues",
+                "open_issues_count",
+                "license",
+                "pushed_at",
+                "size",
+                "ssh_url",
+                "stargazers_count",
+                "svn_url",
+                "watchers",
+                "watchers_count",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "installation-token": {
         "title": "Installation Token",
@@ -79755,7 +81051,32 @@
         },
         "additionalProperties": false,
         "description": "Details for the GitHub Security Advisory.",
-        "readOnly": true
+        "readOnly": true,
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": {
+              "properties": {
+                "cvss": null
+              },
+              "required": [
+                "ghsa_id",
+                "cve_id",
+                "summary",
+                "description",
+                "vulnerabilities",
+                "severity",
+                "cwes",
+                "identifiers",
+                "references",
+                "published_at",
+                "updated_at",
+                "withdrawn_at"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "alert-url": {
         "type": "string",
@@ -81475,7 +82796,67 @@
             }
           }
         },
-        "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects."
+        "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "pull_request": {
+                  "type": "object",
+                  "properties": {
+                    "merged_at": {
+                      "nullable": false
+                    },
+                    "diff_url": {
+                      "nullable": false
+                    },
+                    "html_url": {
+                      "nullable": false
+                    },
+                    "patch_url": {
+                      "nullable": false
+                    },
+                    "url": {
+                      "nullable": false
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "properties": {
+                "assignee": null
+              },
+              "required": [
+                "closed_at",
+                "comments",
+                "comments_url",
+                "events_url",
+                "html_url",
+                "id",
+                "node_id",
+                "labels",
+                "labels_url",
+                "milestone",
+                "number",
+                "repository_url",
+                "state",
+                "locked",
+                "title",
+                "url",
+                "user",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "issue-comment": {
         "title": "Issue Comment",
@@ -82210,7 +83591,49 @@
             "items": { }
           }
         },
-        "description": "Base Gist"
+        "description": "Base Gist",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "user": null
+              },
+              "required": [
+                "id",
+                "node_id",
+                "url",
+                "forks_url",
+                "commits_url",
+                "git_pull_url",
+                "git_push_url",
+                "html_url",
+                "comments_url",
+                "public",
+                "description",
+                "comments",
+                "files",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_forks_history_from_base_gist",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/forks"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/history"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "public-user": {
         "title": "Public User",
@@ -82709,7 +84132,23 @@
             "type": "boolean"
           }
         },
-        "description": "Gist Simple"
+        "description": "Gist Simple",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_forks_history_from_base_gist",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/forks"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/history"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "gist-comment": {
         "title": "Gist Comment",
@@ -83872,6 +85311,9 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
+          "has_commit_comments": {
+            "type": "boolean"
+          },
           "archived": {
             "type": "boolean"
           },
@@ -83987,7 +85429,18 @@
             "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
           }
         },
-        "description": "Minimal Repository"
+        "description": "Minimal Repository",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": {
+              "properties": {
+                "has_downloads": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "thread": {
         "title": "Thread",
@@ -85305,7 +86758,19 @@
             "example": false
           }
         },
-        "description": "Organization Full"
+        "description": "Organization Full",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_secret_scanning_custom_link_enablement_field",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/secret_scanning_push_protection_custom_link_enabled"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "actions-cache-usage-org-enterprise": {
         "required": [
@@ -88370,6 +89835,9 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
+          "has_commit_comments": {
+            "type": "boolean"
+          },
           "archived": {
             "type": "boolean"
           },
@@ -88486,7 +89954,18 @@
           }
         },
         "description": "Minimal Repository",
-        "nullable": true
+        "nullable": true,
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": {
+              "properties": {
+                "has_downloads": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "package": {
         "title": "Package",
@@ -88928,6 +90407,265 @@
         },
         "description": "Limit interactions to a specific type of user for a specified duration"
       },
+      "issue-field": {
+        "title": "Issue Field",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "data_type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the issue field.",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node identifier of the issue field."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the issue field."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the issue field.",
+            "nullable": true
+          },
+          "data_type": {
+            "enum": [
+              "text",
+              "date",
+              "single_select",
+              "number"
+            ],
+            "type": "string",
+            "description": "The data type of the issue field."
+          },
+          "visibility": {
+            "enum": [
+              "organization_members_only",
+              "all"
+            ],
+            "type": "string",
+            "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues)."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the option.",
+                  "format": "int64"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the option."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "The description of the option.",
+                  "nullable": true
+                },
+                "color": {
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple"
+                  ],
+                  "type": "string",
+                  "description": "The color of the option.",
+                  "nullable": true
+                },
+                "priority": {
+                  "type": "integer",
+                  "description": "The priority of the option for ordering.",
+                  "nullable": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time the option was created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The time the option was last updated.",
+                  "format": "date-time"
+                }
+              }
+            },
+            "description": "Available options for single select fields.",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time the issue field was created.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time the issue field was last updated.",
+            "format": "date-time"
+          }
+        },
+        "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
+        "nullable": true
+      },
+      "organization-create-issue-field": {
+        "required": [
+          "name",
+          "data_type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the issue field."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the issue field.",
+            "nullable": true
+          },
+          "data_type": {
+            "enum": [
+              "text",
+              "date",
+              "single_select",
+              "number"
+            ],
+            "type": "string",
+            "description": "The data type of the issue field."
+          },
+          "visibility": {
+            "enum": [
+              "organization_members_only",
+              "all"
+            ],
+            "type": "string",
+            "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues). Only used when the visibility settings feature is enabled. Defaults to `organization_members_only`."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "required": [
+                "name",
+                "color",
+                "priority"
+              ],
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the option."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of the option.",
+                  "nullable": true
+                },
+                "color": {
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple"
+                  ],
+                  "type": "string",
+                  "description": "Color for the option."
+                },
+                "priority": {
+                  "type": "integer",
+                  "description": "Priority of the option for ordering."
+                }
+              }
+            },
+            "description": "Options for single select fields. Required when data_type is 'single_select'.",
+            "nullable": true
+          }
+        }
+      },
+      "organization-update-issue-field": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the issue field."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the issue field.",
+            "nullable": true
+          },
+          "visibility": {
+            "enum": [
+              "organization_members_only",
+              "all"
+            ],
+            "type": "string",
+            "description": "The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues). Only used when the visibility settings feature is enabled."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "required": [
+                "name",
+                "color",
+                "priority"
+              ],
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the option."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of the option.",
+                  "nullable": true
+                },
+                "color": {
+                  "enum": [
+                    "gray",
+                    "blue",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "red",
+                    "pink",
+                    "purple"
+                  ],
+                  "type": "string",
+                  "description": "Color for the option."
+                },
+                "priority": {
+                  "type": "integer",
+                  "description": "Priority of the option for ordering."
+                }
+              }
+            },
+            "description": "Options for single select fields. Only applicable when updating single_select fields."
+          }
+        }
+      },
       "organization-create-issue-type": {
         "required": [
           "name",
@@ -89178,7 +90916,26 @@
             "description": "Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\"repositories\"`."
           }
         },
-        "description": "A migration."
+        "description": "A migration.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "restrict_repo_fields_in_migration_resource",
+            "patch": [
+              {
+                "op": "replace",
+                "path": "/properties/repositories",
+                "value": {
+                  "type": "array",
+                  "description": "The repositories included in the migration. Only returned for export migrations.",
+                  "items": {
+                    "$ref": "#/components/schemas/simple-repository"
+                  }
+                }
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "organization-role": {
         "title": "Organization Role",
@@ -90613,7 +92370,90 @@
             "example": false
           }
         },
-        "description": "Pull Request Simple"
+        "description": "Pull Request Simple",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": {
+              "properties": {
+                "merge_commit_sha": null
+              },
+              "required": [
+                "_links",
+                "assignee",
+                "labels",
+                "base",
+                "body",
+                "closed_at",
+                "comments_url",
+                "commits_url",
+                "created_at",
+                "diff_url",
+                "head",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_url",
+                "merged_at",
+                "milestone",
+                "number",
+                "patch_url",
+                "review_comment_url",
+                "review_comments_url",
+                "statuses_url",
+                "state",
+                "locked",
+                "title",
+                "updated_at",
+                "url",
+                "user",
+                "author_association",
+                "auto_merge"
+              ]
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "properties": {
+                "assignee": null
+              },
+              "required": [
+                "_links",
+                "labels",
+                "base",
+                "body",
+                "closed_at",
+                "comments_url",
+                "commits_url",
+                "created_at",
+                "diff_url",
+                "head",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_url",
+                "merged_at",
+                "milestone",
+                "number",
+                "patch_url",
+                "review_comment_url",
+                "review_comments_url",
+                "statuses_url",
+                "state",
+                "locked",
+                "title",
+                "updated_at",
+                "url",
+                "user",
+                "author_association",
+                "auto_merge"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "projects-v2-draft-issue": {
         "title": "Draft Issue",
@@ -90856,6 +92696,11 @@
           "id": {
             "type": "integer",
             "description": "The unique identifier of the field.",
+            "format": "int64"
+          },
+          "issue_field_id": {
+            "type": "integer",
+            "description": "The ID of the issue field.",
             "format": "int64"
           },
           "node_id": {
@@ -91847,6 +93692,12 @@
             "description": "The policy controlling who can create pull requests: all or collaborators_only.",
             "example": "all"
           },
+          "has_commit_comments": {
+            "type": "boolean",
+            "description": "Whether commit comments are enabled.",
+            "default": true,
+            "example": true
+          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -91998,7 +93849,110 @@
           }
         },
         "description": "A repository on GitHub.",
-        "nullable": true
+        "nullable": true,
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": {
+              "properties": {
+                "use_squash_pr_title_as_default": null
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "master_branch": null
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_has_downloads",
+            "patch": {
+              "properties": {
+                "has_downloads": null
+              },
+              "required": [
+                "archive_url",
+                "assignees_url",
+                "blobs_url",
+                "branches_url",
+                "collaborators_url",
+                "comments_url",
+                "commits_url",
+                "compare_url",
+                "contents_url",
+                "contributors_url",
+                "deployments_url",
+                "description",
+                "downloads_url",
+                "events_url",
+                "fork",
+                "forks_url",
+                "full_name",
+                "git_commits_url",
+                "git_refs_url",
+                "git_tags_url",
+                "hooks_url",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_comment_url",
+                "issue_events_url",
+                "issues_url",
+                "keys_url",
+                "labels_url",
+                "languages_url",
+                "merges_url",
+                "milestones_url",
+                "name",
+                "notifications_url",
+                "owner",
+                "private",
+                "pulls_url",
+                "releases_url",
+                "stargazers_url",
+                "statuses_url",
+                "subscribers_url",
+                "subscription_url",
+                "tags_url",
+                "teams_url",
+                "trees_url",
+                "url",
+                "clone_url",
+                "default_branch",
+                "forks",
+                "forks_count",
+                "git_url",
+                "has_issues",
+                "has_projects",
+                "has_wiki",
+                "has_pages",
+                "homepage",
+                "language",
+                "archived",
+                "disabled",
+                "mirror_url",
+                "open_issues",
+                "open_issues_count",
+                "license",
+                "pushed_at",
+                "size",
+                "ssh_url",
+                "stargazers_count",
+                "svn_url",
+                "watchers",
+                "watchers_count",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "code-of-conduct-simple": {
         "title": "Code Of Conduct Simple",
@@ -92421,6 +94375,10 @@
             "description": "The policy controlling who can create pull requests: all or collaborators_only.",
             "example": "all"
           },
+          "has_commit_comments": {
+            "type": "boolean",
+            "example": true
+          },
           "archived": {
             "type": "boolean"
           },
@@ -92602,7 +94560,27 @@
             "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
           }
         },
-        "description": "Full Repository"
+        "description": "Full Repository",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": {
+              "properties": {
+                "use_squash_pr_title_as_default": null
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_has_downloads",
+            "patch": {
+              "properties": {
+                "has_downloads": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "repository-rule-enforcement": {
         "enum": [
@@ -95348,7 +97326,45 @@
           }
         },
         "additionalProperties": false,
-        "description": "A repository security advisory."
+        "description": "A repository security advisory.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": {
+              "properties": {
+                "cvss": null
+              },
+              "required": [
+                "ghsa_id",
+                "cve_id",
+                "url",
+                "html_url",
+                "summary",
+                "description",
+                "severity",
+                "author",
+                "publisher",
+                "identifiers",
+                "state",
+                "created_at",
+                "updated_at",
+                "published_at",
+                "closed_at",
+                "withdrawn_at",
+                "submission",
+                "vulnerabilities",
+                "cwes",
+                "cwe_ids",
+                "credits",
+                "credits_detailed",
+                "collaborating_users",
+                "collaborating_teams",
+                "private_fork"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "immutable-releases-organization-settings": {
         "title": "Check immutable releases organization settings",
@@ -96423,7 +98439,92 @@
             "type": "string"
           }
         },
-        "description": "A team's access to a repository."
+        "description": "A team's access to a repository.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": {
+              "properties": {
+                "has_downloads": null
+              },
+              "required": [
+                "archive_url",
+                "assignees_url",
+                "blobs_url",
+                "branches_url",
+                "collaborators_url",
+                "comments_url",
+                "commits_url",
+                "compare_url",
+                "contents_url",
+                "contributors_url",
+                "deployments_url",
+                "description",
+                "downloads_url",
+                "events_url",
+                "fork",
+                "forks_url",
+                "full_name",
+                "git_commits_url",
+                "git_refs_url",
+                "git_tags_url",
+                "hooks_url",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_comment_url",
+                "issue_events_url",
+                "issues_url",
+                "keys_url",
+                "labels_url",
+                "languages_url",
+                "merges_url",
+                "milestones_url",
+                "name",
+                "notifications_url",
+                "owner",
+                "private",
+                "pulls_url",
+                "releases_url",
+                "stargazers_url",
+                "statuses_url",
+                "subscribers_url",
+                "subscription_url",
+                "tags_url",
+                "teams_url",
+                "trees_url",
+                "url",
+                "clone_url",
+                "default_branch",
+                "forks",
+                "forks_count",
+                "git_url",
+                "has_issues",
+                "has_projects",
+                "has_wiki",
+                "has_pages",
+                "homepage",
+                "language",
+                "archived",
+                "disabled",
+                "mirror_url",
+                "open_issues",
+                "open_issues_count",
+                "license",
+                "pushed_at",
+                "size",
+                "ssh_url",
+                "stargazers_count",
+                "svn_url",
+                "watchers",
+                "watchers_count",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "rate-limit": {
         "title": "Rate Limit",
@@ -96506,7 +98607,21 @@
             "$ref": "#/components/schemas/rate-limit"
           }
         },
-        "description": "Rate Limit Overview"
+        "description": "Rate Limit Overview",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_rate_limit_rate",
+            "patch": {
+              "properties": {
+                "rate": null
+              },
+              "required": [
+                "resources"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "artifact": {
         "title": "Artifact",
@@ -100708,7 +102823,32 @@
             "nullable": true
           }
         },
-        "description": "Configuration for code scanning default setup."
+        "description": "Configuration for code scanning default setup.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_single_js_ts",
+            "patch": {
+              "properties": {
+                "languages": {
+                  "items": {
+                    "enum": [
+                      "actions",
+                      "c-cpp",
+                      "csharp",
+                      "go",
+                      "java-kotlin",
+                      "javascript-typescript",
+                      "python",
+                      "ruby",
+                      "swift"
+                    ]
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "code-scanning-default-setup-update": {
         "type": "object",
@@ -104824,7 +106964,67 @@
           }
         },
         "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.",
-        "nullable": true
+        "nullable": true,
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "pull_request": {
+                  "type": "object",
+                  "properties": {
+                    "merged_at": {
+                      "nullable": false
+                    },
+                    "diff_url": {
+                      "nullable": false
+                    },
+                    "html_url": {
+                      "nullable": false
+                    },
+                    "patch_url": {
+                      "nullable": false
+                    },
+                    "url": {
+                      "nullable": false
+                    }
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "properties": {
+                "assignee": null
+              },
+              "required": [
+                "closed_at",
+                "comments",
+                "comments_url",
+                "events_url",
+                "html_url",
+                "id",
+                "node_id",
+                "labels",
+                "labels_url",
+                "milestone",
+                "number",
+                "repository_url",
+                "state",
+                "locked",
+                "title",
+                "url",
+                "user",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "issue-event-label": {
         "title": "Issue Event Label",
@@ -108156,7 +110356,112 @@
             "example": 5
           }
         },
-        "description": "Pull requests let you tell others about changes you've pushed to a repository on GitHub. Once a pull request is sent, interested parties can review the set of changes, discuss potential modifications, and even push follow-up commits if necessary."
+        "description": "Pull requests let you tell others about changes you've pushed to a repository on GitHub. Once a pull request is sent, interested parties can review the set of changes, discuss potential modifications, and even push follow-up commits if necessary.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": {
+              "properties": {
+                "merge_commit_sha": null
+              },
+              "required": [
+                "_links",
+                "assignee",
+                "labels",
+                "base",
+                "body",
+                "closed_at",
+                "comments_url",
+                "commits_url",
+                "created_at",
+                "diff_url",
+                "head",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_url",
+                "merged_at",
+                "milestone",
+                "number",
+                "patch_url",
+                "review_comment_url",
+                "review_comments_url",
+                "statuses_url",
+                "state",
+                "locked",
+                "title",
+                "updated_at",
+                "url",
+                "user",
+                "author_association",
+                "auto_merge",
+                "additions",
+                "changed_files",
+                "comments",
+                "commits",
+                "deletions",
+                "mergeable",
+                "mergeable_state",
+                "merged",
+                "maintainer_can_modify",
+                "merged_by",
+                "review_comments"
+              ]
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "properties": {
+                "assignee": null
+              },
+              "required": [
+                "_links",
+                "labels",
+                "base",
+                "body",
+                "closed_at",
+                "comments_url",
+                "commits_url",
+                "created_at",
+                "diff_url",
+                "head",
+                "html_url",
+                "id",
+                "node_id",
+                "issue_url",
+                "merged_at",
+                "milestone",
+                "number",
+                "patch_url",
+                "review_comment_url",
+                "review_comments_url",
+                "statuses_url",
+                "state",
+                "locked",
+                "title",
+                "updated_at",
+                "url",
+                "user",
+                "author_association",
+                "auto_merge",
+                "additions",
+                "changed_files",
+                "comments",
+                "commits",
+                "deletions",
+                "mergeable",
+                "mergeable_state",
+                "merged",
+                "maintainer_can_modify",
+                "merged_by",
+                "review_comments"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "pull-request-merge-result": {
         "title": "Pull Request Merge Result",
@@ -110255,7 +112560,41 @@
             "$ref": "#/components/schemas/reaction-rollup"
           }
         },
-        "description": "Issue Search Result Item"
+        "description": "Issue Search Result Item",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": {
+              "properties": {
+                "assignee": null
+              },
+              "required": [
+                "closed_at",
+                "comments",
+                "comments_url",
+                "events_url",
+                "html_url",
+                "id",
+                "node_id",
+                "labels",
+                "labels_url",
+                "milestone",
+                "number",
+                "repository_url",
+                "state",
+                "locked",
+                "title",
+                "url",
+                "user",
+                "author_association",
+                "created_at",
+                "updated_at",
+                "score"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "label-search-result-item": {
         "title": "Label Search Result Item",
@@ -110645,6 +112984,9 @@
             ],
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
+          },
+          "has_commit_comments": {
+            "type": "boolean"
           },
           "archived": {
             "type": "boolean"
@@ -112962,6 +115304,12 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
+          "has_commit_comments": {
+            "type": "boolean",
+            "description": "Whether commit comments are enabled.",
+            "default": true,
+            "example": true
+          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -113473,7 +115821,32 @@
             "description": "Whether anonymous git access is enabled for this repository"
           }
         },
-        "description": "The repository on GitHub where the event occurred. Webhook payloads contain the `repository` property\nwhen the event occurs from activity in a repository."
+        "description": "The repository on GitHub where the event occurred. Webhook payloads contain the `repository` property\nwhen the event occurs from activity in a repository.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": {
+              "properties": {
+                "use_squash_pr_title_as_default": null,
+                "template_repository": {
+                  "properties": {
+                    "use_squash_pr_title_as_default": null
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "master_branch": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhooks_rule": {
         "title": "branch protection rule",
@@ -118798,6 +121171,12 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
+          "has_commit_comments": {
+            "type": "boolean",
+            "description": "Whether commit comments are enabled.",
+            "default": true,
+            "example": true
+          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -119310,7 +121689,32 @@
           }
         },
         "description": "The repository on GitHub where the event occurred. Webhook payloads contain the `repository` property\nwhen the event occurs from activity in a repository.",
-        "nullable": true
+        "nullable": true,
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": {
+              "properties": {
+                "use_squash_pr_title_as_default": null,
+                "template_repository": {
+                  "properties": {
+                    "use_squash_pr_title_as_default": null
+                  }
+                }
+              }
+            },
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "properties": {
+                "master_branch": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhooks_milestone_3": {
         "title": "Milestone",
@@ -121282,6 +123686,11 @@
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
+                  "has_commit_comments": {
+                    "type": "boolean",
+                    "description": "Whether commit comments are enabled.",
+                    "default": true
+                  },
                   "homepage": {
                     "type": "string",
                     "nullable": true
@@ -122094,6 +124503,11 @@
                     ],
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                  },
+                  "has_commit_comments": {
+                    "type": "boolean",
+                    "description": "Whether commit comments are enabled.",
+                    "default": true
                   },
                   "homepage": {
                     "type": "string",
@@ -123460,7 +125874,55 @@
             },
             "nullable": true
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": {
+              "properties": {
+                "merge_commit_sha": null
+              },
+              "required": [
+                "url",
+                "id",
+                "node_id",
+                "html_url",
+                "diff_url",
+                "patch_url",
+                "issue_url",
+                "number",
+                "state",
+                "locked",
+                "title",
+                "user",
+                "body",
+                "created_at",
+                "updated_at",
+                "closed_at",
+                "merged_at",
+                "assignee",
+                "assignees",
+                "requested_reviewers",
+                "requested_teams",
+                "labels",
+                "milestone",
+                "commits_url",
+                "review_comments_url",
+                "review_comment_url",
+                "comments_url",
+                "statuses_url",
+                "head",
+                "base",
+                "_links",
+                "author_association",
+                "auto_merge",
+                "active_lock_reason",
+                "draft"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhooks_review_comment": {
         "title": "Pull Request Review Comment",
@@ -125321,7 +127783,31 @@
             "nullable": true
           }
         },
-        "description": "The details of the security advisory, including summary, description, and severity."
+        "description": "The details of the security advisory, including summary, description, and severity.",
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": {
+              "properties": {
+                "cvss": null
+              },
+              "required": [
+                "cwes",
+                "ghsa_id",
+                "summary",
+                "description",
+                "severity",
+                "identifiers",
+                "references",
+                "published_at",
+                "updated_at",
+                "withdrawn_at",
+                "vulnerabilities"
+              ]
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhooks_sponsorship": {
         "required": [
@@ -159950,6 +162436,11 @@
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
+                  "has_commit_comments": {
+                    "type": "boolean",
+                    "description": "Whether commit comments are enabled.",
+                    "default": true
+                  },
                   "has_downloads": {
                     "type": "boolean",
                     "description": "Whether downloads are enabled.",
@@ -164327,6 +166818,11 @@
                     ],
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                  },
+                  "has_commit_comments": {
+                    "type": "boolean",
+                    "description": "Whether commit comments are enabled.",
+                    "default": true
                   },
                   "homepage": {
                     "type": "string",
@@ -172697,6 +175193,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -173510,6 +176011,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -174897,7 +177403,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-auto-merge-disabled": {
         "title": "pull_request auto_merge_disabled event",
@@ -175712,6 +178248,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "has_pages": {
                         "type": "boolean"
@@ -176538,6 +179079,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -177926,7 +180472,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-auto-merge-enabled": {
         "title": "pull_request auto_merge_enabled event",
@@ -178754,6 +181330,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -179566,6 +182147,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -180955,7 +183541,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-closed": {
         "title": "pull_request closed event",
@@ -181903,6 +184519,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -182715,6 +185336,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -184108,7 +186734,23 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-edited": {
         "title": "pull_request edited event",
@@ -185037,6 +187679,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -185849,6 +188496,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -187225,7 +189877,23 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-labeled": {
         "title": "pull_request labeled event",
@@ -188058,6 +190726,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -188871,6 +191544,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -190259,7 +192937,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-locked": {
         "title": "pull_request locked event",
@@ -191088,6 +193796,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -191901,6 +194614,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -193288,7 +196006,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-milestoned": {
         "title": "pull_request milestoned event",
@@ -194630,6 +197378,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -195426,6 +198179,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -196690,7 +199448,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-comment-deleted": {
         "title": "pull_request_review_comment deleted event",
@@ -197512,6 +200300,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -198309,6 +201102,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -199562,7 +202360,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-comment-edited": {
         "title": "pull_request_review_comment edited event",
@@ -200391,6 +203219,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -201188,6 +204021,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -202442,7 +205280,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-dismissed": {
         "title": "pull_request_review dismissed event",
@@ -203266,6 +206134,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -204063,6 +206936,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -205534,7 +208412,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-edited": {
         "title": "pull_request_review edited event",
@@ -208316,7 +211224,23 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-request-removed": {
         "title": "pull_request review_request_removed event",
@@ -209151,6 +212075,11 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -209963,6 +212892,11 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -212283,6 +215217,11 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -213095,6 +216034,11 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -214629,6 +217573,52 @@
               }
             }
           }
+        ],
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/required/17"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
         ]
       },
       "webhook-pull-request-review-requested": {
@@ -215466,6 +218456,11 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -216278,6 +219273,11 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -218594,6 +221594,11 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
+                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -219406,6 +222411,11 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                          },
+                          "has_commit_comments": {
+                            "type": "boolean",
+                            "description": "Whether commit comments are enabled.",
+                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -220915,6 +223925,52 @@
               }
             }
           }
+        ],
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/0/properties/pull_request/required/17"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/oneOf/1/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
         ]
       },
       "webhook-pull-request-review-submitted": {
@@ -221739,6 +224795,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -222537,6 +225598,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -223804,7 +226870,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-thread-resolved": {
         "title": "pull_request_review_thread resolved event",
@@ -224625,6 +227721,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -225384,6 +228485,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -226991,7 +230097,23 @@
             "format": "date-time",
             "nullable": true
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-review-thread-unresolved": {
         "title": "pull_request_review_thread unresolved event",
@@ -227811,6 +230933,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -228569,6 +231696,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -230162,7 +233294,23 @@
             "format": "date-time",
             "nullable": true
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-synchronize": {
         "title": "pull_request synchronize event",
@@ -231000,6 +234148,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -231812,6 +234965,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -233198,7 +236356,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-unassigned": {
         "title": "pull_request unassigned event",
@@ -234031,6 +237219,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -234844,6 +238037,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -236232,7 +239430,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-unlabeled": {
         "title": "pull_request unlabeled event",
@@ -237065,6 +240293,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -237878,6 +241111,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -239265,7 +242503,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-pull-request-unlocked": {
         "title": "pull_request unlocked event",
@@ -240092,6 +243360,11 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
+                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -240904,6 +244177,11 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
+                      },
+                      "has_commit_comments": {
+                        "type": "boolean",
+                        "description": "Whether commit comments are enabled.",
+                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -242279,7 +245557,37 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-push": {
         "title": "push event",
@@ -242873,6 +246181,11 @@
                 ],
                 "type": "string",
                 "description": "The policy controlling who can create pull requests: all or collaborators_only."
+              },
+              "has_commit_comments": {
+                "type": "boolean",
+                "description": "Whether commit comments are enabled.",
+                "default": true
               },
               "homepage": {
                 "type": "string",
@@ -247353,7 +250666,23 @@
           "sender": {
             "$ref": "#/components/schemas/simple-user"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/security_advisory/properties/cvss"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/security_advisory/required/0"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "webhook-security-and-analysis": {
         "title": "security_and_analysis event",
@@ -257006,6 +260335,9 @@
                 "type": "string",
                 "description": "The policy controlling who can create pull requests: all or collaborators_only."
               },
+              "has_commit_comments": {
+                "type": "boolean"
+              },
               "forks_count": {
                 "type": "integer"
               },
@@ -259040,6 +262372,16 @@
           "format": "int64"
         }
       },
+      "issue-field-id": {
+        "name": "issue_field_id",
+        "in": "path",
+        "description": "The unique identifier of the issue field.",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
       "issue-type-id": {
         "name": "issue_type_id",
         "in": "path",
@@ -260163,7 +263505,28 @@
           "user_organizations_url": "https://api.github.com/user/orgs",
           "user_repositories_url": "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
           "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_authorizations_url_from_api_root",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/authorizations_url"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_hub_url_from_api_root",
+            "patch": {
+              "value": {
+                "hub_url": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "global-advisory-items": {
         "value": [
@@ -265667,7 +269030,19 @@
           "secret_scanning_push_protection_enabled_for_new_repositories": "false",
           "secret_scanning_push_protection_custom_link": "https://github.com/octo-org/octo-repo/blob/main/im-blocked.md",
           "secret_scanning_push_protection_custom_link_enabled": "false"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_secret_scanning_custom_link_enablement_field",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/secret_scanning_push_protection_custom_link_enabled"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "actions-cache-usage-org-enterprise": {
         "value": {
@@ -268755,6 +272130,85 @@
             "parent": "null"
           }
         ]
+      },
+      "issue-field-items": {
+        "value": [
+          {
+            "id": "1",
+            "node_id": "IFT_kwDNAd3NAZo",
+            "name": "Text field",
+            "description": "DRI",
+            "data_type": "text",
+            "created_at": "2024-12-11T14:39:09Z",
+            "updated_at": "2024-12-11T14:39:09Z"
+          },
+          {
+            "id": "2",
+            "node_id": "IFSS_kwDNAd3NAZs",
+            "name": "Priority",
+            "description": "Level of importance",
+            "data_type": "single_select",
+            "options": [
+              {
+                "id": "1",
+                "name": "High",
+                "color": "red"
+              },
+              {
+                "id": "2",
+                "name": "Medium",
+                "color": "yellow"
+              },
+              {
+                "id": "3",
+                "name": "Low",
+                "color": "green"
+              }
+            ],
+            "created_at": "2024-12-11T14:39:09Z",
+            "updated_at": "2024-12-11T14:39:09Z"
+          }
+        ]
+      },
+      "issue-field": {
+        "value": {
+          "id": "512",
+          "node_id": "IF_kwDNAd3NAZr",
+          "name": "Priority",
+          "description": "Level of importance for the issue",
+          "data_type": "single_select",
+          "options": [
+            {
+              "id": "1",
+              "name": "High",
+              "description": "High priority",
+              "color": "red",
+              "priority": "1",
+              "created_at": "2025-01-15T10:30:15Z",
+              "updated_at": "2025-01-15T10:30:15Z"
+            },
+            {
+              "id": "2",
+              "name": "Medium",
+              "description": "Medium priority",
+              "color": "yellow",
+              "priority": "2",
+              "created_at": "2025-01-15T10:30:15Z",
+              "updated_at": "2025-01-15T10:30:15Z"
+            },
+            {
+              "id": "3",
+              "name": "Low",
+              "description": "Low priority",
+              "color": "green",
+              "priority": "3",
+              "created_at": "2025-01-15T10:30:15Z",
+              "updated_at": "2025-01-15T10:30:15Z"
+            }
+          ],
+          "created_at": "2025-01-15T10:30:15Z",
+          "updated_at": "2025-01-15T10:30:15Z"
+        }
       },
       "issue-type-items": {
         "value": [
@@ -283044,6 +286498,39 @@
               "name": "label",
               "color": "red"
             }
+          }
+        ]
+      },
+      "issue-field-value-items": {
+        "value": [
+          {
+            "issue_field_id": "1",
+            "node_id": "IFT_GDKND",
+            "data_type": "text",
+            "value": "DRI"
+          },
+          {
+            "issue_field_id": "2",
+            "node_id": "IFSS_SADMS",
+            "data_type": "single_select",
+            "value": "1",
+            "single_select_option": {
+              "id": "1",
+              "name": "High",
+              "color": "red"
+            }
+          },
+          {
+            "issue_field_id": "3",
+            "node_id": "IFN_POINTS",
+            "data_type": "number",
+            "value": "42"
+          },
+          {
+            "issue_field_id": "4",
+            "node_id": "IFD_DUEDATE",
+            "data_type": "date",
+            "value": "2025-12-25"
           }
         ]
       },

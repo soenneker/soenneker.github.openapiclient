@@ -8,6 +8,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Assignees;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Comments;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Events;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Lock;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Parent;
@@ -47,6 +48,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Events.EventsRequestBuilder Events
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The issueFieldValues property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.IssueFieldValuesRequestBuilder IssueFieldValues
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.IssueFieldValuesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The labels property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder Labels

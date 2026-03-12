@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repositories.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,18 @@ namespace Soenneker.GitHub.OpenApiClient.Repositories
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoriesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repositories.item collection</summary>
+        /// <param name="position">The unique identifier of the repository.</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repositories.Item.WithRepository_ItemRequestBuilder this[long position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("repository_id", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repositories.RepositoriesRequestBuilder"/> and sets the default values.
         /// </summary>

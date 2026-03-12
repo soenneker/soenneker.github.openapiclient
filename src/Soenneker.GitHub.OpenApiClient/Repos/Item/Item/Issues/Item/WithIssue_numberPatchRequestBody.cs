@@ -38,6 +38,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
 #else
         public string Body { get; set; }
 #endif
+        /// <summary>An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Only users with push access can set field values for issues</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_issue_field_values>? IssueFieldValues { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_issue_field_values> IssueFieldValues { get; set; }
+#endif
         /// <summary>Labels to associate with this issue. Pass one or more labels to _replace_ the set of labels on this issue. Send an empty array (`[]`) to clear all labels from the issue. Only users with push access can set labels for issues. Without push access to the repository, label changes are silently dropped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,6 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
                 { "assignee", n => { Assignee = n.GetStringValue(); } },
                 { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "body", n => { Body = n.GetStringValue(); } },
+                { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_issue_field_values>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_issue_field_values.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody.WithIssue_numberPatchRequestBody_milestone>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody.WithIssue_numberPatchRequestBody_milestone.CreateFromDiscriminatorValue); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_state>(); } },
@@ -120,6 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
             writer.WriteStringValue("assignee", Assignee);
             writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
             writer.WriteStringValue("body", Body);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_issue_field_values>("issue_field_values", IssueFieldValues);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody.WithIssue_numberPatchRequestBody_milestone>("milestone", Milestone);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssue_numberPatchRequestBody_state>("state", State);

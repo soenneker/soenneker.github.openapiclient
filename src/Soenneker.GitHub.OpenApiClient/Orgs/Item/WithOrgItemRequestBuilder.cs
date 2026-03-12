@@ -23,6 +23,7 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Installation;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Installations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueFields;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Item;
@@ -153,6 +154,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations.InvitationsRequestBuilder Invitations
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations.InvitationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The issueFields property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueFields.IssueFieldsRequestBuilder IssueFields
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueFields.IssueFieldsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The issues property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues.IssuesRequestBuilder Issues
