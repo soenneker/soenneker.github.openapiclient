@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Cache;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Cache.CacheRequestBuilder Cache
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Cache.CacheRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oidc property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.OidcRequestBuilder Oidc
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.OidcRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.ActionsRequestBuilder"/> and sets the default values.

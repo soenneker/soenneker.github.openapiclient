@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Properties;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Sub;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomizationRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The properties property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Properties.PropertiesRequestBuilder Properties
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Properties.PropertiesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The sub property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc.Customization.Sub.SubRequestBuilder Sub
         {

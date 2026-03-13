@@ -2175,6 +2175,178 @@
         }
       }
     },
+    "/enterprises/{enterprise}/actions/oidc/customization/properties/repo": {
+      "get": {
+        "tags": [
+          "oidc"
+        ],
+        "summary": "List OIDC custom property inclusions for an enterprise",
+        "description": "Lists the repository custom properties that are included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/oidc#list-oidc-custom-property-inclusions-for-an-enterprise"
+        },
+        "operationId": "oidc/list-oidc-custom-property-inclusions-for-enterprise",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of OIDC custom property inclusions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/oidc-custom-property-inclusion"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": [
+                      {
+                        "custom_property_name": "environment",
+                        "inclusion_source": "enterprise"
+                      },
+                      {
+                        "custom_property_name": "team",
+                        "inclusion_source": "enterprise"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "githubCloudOnly": false,
+          "category": "actions",
+          "subcategory": "oidc"
+        }
+      },
+      "post": {
+        "tags": [
+          "oidc"
+        ],
+        "summary": "Create an OIDC custom property inclusion for an enterprise",
+        "description": "Adds a repository custom property to be included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/oidc#create-an-oidc-custom-property-inclusion-for-an-enterprise"
+        },
+        "operationId": "oidc/create-oidc-custom-property-inclusion-for-enterprise",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/oidc-custom-property-inclusion-input"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/oidc-custom-property-inclusion"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "OIDC custom property inclusion created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oidc-custom-property-inclusion"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/oidc-custom-property-inclusion"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "422": {
+            "description": "Property inclusion already exists"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "githubCloudOnly": false,
+          "category": "actions",
+          "subcategory": "oidc"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}": {
+      "delete": {
+        "tags": [
+          "oidc"
+        ],
+        "summary": "Delete an OIDC custom property inclusion for an enterprise",
+        "description": "Removes a repository custom property from being included in the OIDC token for repository actions in an enterprise.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/oidc#delete-an-oidc-custom-property-inclusion-for-an-enterprise"
+        },
+        "operationId": "oidc/delete-oidc-custom-property-inclusion-for-enterprise",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "name": "custom_property_name",
+            "in": "path",
+            "description": "The name of the custom property to remove from OIDC token inclusion",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OIDC custom property inclusion deleted"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "Property inclusion not found"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "githubCloudOnly": false,
+          "category": "actions",
+          "subcategory": "oidc"
+        }
+      }
+    },
     "/enterprises/{enterprise}/code-security/configurations": {
       "get": {
         "tags": [
@@ -9712,6 +9884,173 @@
           "enabledForGitHubApps": false,
           "category": "actions",
           "subcategory": "hosted-runners"
+        }
+      }
+    },
+    "/orgs/{org}/actions/oidc/customization/properties/repo": {
+      "get": {
+        "tags": [
+          "oidc"
+        ],
+        "summary": "List OIDC custom property inclusions for an organization",
+        "description": "Lists the repository custom properties that are included in the OIDC token for repository actions in an organization.\n\nOAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/oidc#list-oidc-custom-property-inclusions-for-an-organization"
+        },
+        "operationId": "oidc/list-oidc-custom-property-inclusions-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON array of OIDC custom property inclusions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/oidc-custom-property-inclusion"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": [
+                      {
+                        "property_name": "environment"
+                      },
+                      {
+                        "property_name": "team"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "oidc"
+        }
+      },
+      "post": {
+        "tags": [
+          "oidc"
+        ],
+        "summary": "Create an OIDC custom property inclusion for an organization",
+        "description": "Adds a repository custom property to be included in the OIDC token for repository actions in an organization.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/oidc#create-an-oidc-custom-property-inclusion-for-an-organization"
+        },
+        "operationId": "oidc/create-oidc-custom-property-inclusion-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/oidc-custom-property-inclusion-input"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/oidc-custom-property-inclusion"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "OIDC custom property inclusion created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oidc-custom-property-inclusion"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/oidc-custom-property-inclusion"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "422": {
+            "description": "Property inclusion already exists"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "oidc"
+        }
+      }
+    },
+    "/orgs/{org}/actions/oidc/customization/properties/repo/{custom_property_name}": {
+      "delete": {
+        "tags": [
+          "oidc"
+        ],
+        "summary": "Delete an OIDC custom property inclusion for an organization",
+        "description": "Removes a repository custom property from being included in the OIDC token for repository actions in an organization.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/oidc#delete-an-oidc-custom-property-inclusion-for-an-organization"
+        },
+        "operationId": "oidc/delete-oidc-custom-property-inclusion-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "custom_property_name",
+            "in": "path",
+            "description": "The name of the custom property to remove from OIDC token inclusion",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OIDC custom property inclusion deleted"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "Property inclusion not found"
+          }
+        },
+        "x-github": {
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "oidc"
         }
       }
     },
@@ -80117,6 +80456,44 @@
           }
         },
         "description": "GitHub Actions cache storage policy for an enterprise."
+      },
+      "oidc-custom-property-inclusion": {
+        "title": "Actions OIDC Custom Property Inclusion",
+        "required": [
+          "custom_property_name",
+          "inclusion_source"
+        ],
+        "type": "object",
+        "properties": {
+          "custom_property_name": {
+            "type": "string",
+            "description": "The name of the custom property that is included in the OIDC token"
+          },
+          "inclusion_source": {
+            "enum": [
+              "organization",
+              "enterprise"
+            ],
+            "type": "string",
+            "description": "Whether the inclusion was defined at the organization or enterprise level",
+            "example": "organization"
+          }
+        },
+        "description": "An OIDC custom property inclusion for repository properties"
+      },
+      "oidc-custom-property-inclusion-input": {
+        "title": "Actions OIDC Custom Property Inclusion Input",
+        "required": [
+          "custom_property_name"
+        ],
+        "type": "object",
+        "properties": {
+          "custom_property_name": {
+            "type": "string",
+            "description": "The name of the custom property to include in the OIDC token"
+          }
+        },
+        "description": "Input for creating an OIDC custom property inclusion"
       },
       "code-security-configuration": {
         "type": "object",
@@ -266379,6 +266756,11 @@
       "actions-cache-storage-limit": {
         "value": {
           "max_cache_size_gb": "150"
+        }
+      },
+      "oidc-custom-property-inclusion": {
+        "value": {
+          "custom_property_name": "environment"
         }
       },
       "enterprise-code-security-configuration-list": {
