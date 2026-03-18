@@ -63,6 +63,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration? OrganizationAdministration { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage announcement banners for an organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners? OrganizationAnnouncementBanners { get; set; }
+        /// <summary>The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings? OrganizationCopilotAgentSettings { get; set; }
         /// <summary>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management? OrganizationCopilotSeatManagement { get; set; }
         /// <summary>The level of permission to grant the access token for custom organization roles management.</summary>
@@ -170,6 +172,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "metadata", n => { Metadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata>(); } },
                 { "organization_administration", n => { OrganizationAdministration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration>(); } },
                 { "organization_announcement_banners", n => { OrganizationAnnouncementBanners = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners>(); } },
+                { "organization_copilot_agent_settings", n => { OrganizationCopilotAgentSettings = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings>(); } },
                 { "organization_copilot_seat_management", n => { OrganizationCopilotSeatManagement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management>(); } },
                 { "organization_custom_org_roles", n => { OrganizationCustomOrgRoles = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_org_roles>(); } },
                 { "organization_custom_properties", n => { OrganizationCustomProperties = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_properties>(); } },
@@ -232,6 +235,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration>("organization_administration", OrganizationAdministration);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners>("organization_announcement_banners", OrganizationAnnouncementBanners);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings>("organization_copilot_agent_settings", OrganizationCopilotAgentSettings);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management>("organization_copilot_seat_management", OrganizationCopilotSeatManagement);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_org_roles>("organization_custom_org_roles", OrganizationCustomOrgRoles);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_properties>("organization_custom_properties", OrganizationCustomProperties);

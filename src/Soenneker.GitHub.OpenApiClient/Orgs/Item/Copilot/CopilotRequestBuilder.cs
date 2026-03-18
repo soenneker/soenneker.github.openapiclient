@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Content_exclusion;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.BillingRequestBuilder Billing
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.BillingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The codingAgent property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.CodingAgentRequestBuilder CodingAgent
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.CodingAgentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The content_exclusion property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Content_exclusion.Content_exclusionRequestBuilder Content_exclusion
