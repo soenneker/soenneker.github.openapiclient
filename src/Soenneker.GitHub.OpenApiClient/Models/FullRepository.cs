@@ -235,8 +235,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string GitUrl { get; set; }
 #endif
-        /// <summary>The has_commit_comments property</summary>
-        public bool? HasCommitComments { get; set; }
         /// <summary>The has_discussions property</summary>
         public bool? HasDiscussions { get; set; }
         /// <summary>The has_downloads property</summary>
@@ -674,7 +672,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "git_refs_url", n => { GitRefsUrl = n.GetStringValue(); } },
                 { "git_tags_url", n => { GitTagsUrl = n.GetStringValue(); } },
                 { "git_url", n => { GitUrl = n.GetStringValue(); } },
-                { "has_commit_comments", n => { HasCommitComments = n.GetBoolValue(); } },
                 { "has_discussions", n => { HasDiscussions = n.GetBoolValue(); } },
                 { "has_downloads", n => { HasDownloads = n.GetBoolValue(); } },
                 { "has_issues", n => { HasIssues = n.GetBoolValue(); } },
@@ -789,7 +786,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("git_refs_url", GitRefsUrl);
             writer.WriteStringValue("git_tags_url", GitTagsUrl);
             writer.WriteStringValue("git_url", GitUrl);
-            writer.WriteBoolValue("has_commit_comments", HasCommitComments);
             writer.WriteBoolValue("has_discussions", HasDiscussions);
             writer.WriteBoolValue("has_downloads", HasDownloads);
             writer.WriteBoolValue("has_issues", HasIssues);

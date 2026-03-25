@@ -79797,12 +79797,6 @@
             "description": "The policy controlling who can create pull requests: all or collaborators_only.",
             "example": "all"
           },
-          "has_commit_comments": {
-            "type": "boolean",
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "example": true
-          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -86112,9 +86106,6 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
-          "has_commit_comments": {
-            "type": "boolean"
-          },
           "archived": {
             "type": "boolean"
           },
@@ -90636,9 +90627,6 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
-          "has_commit_comments": {
-            "type": "boolean"
-          },
           "archived": {
             "type": "boolean"
           },
@@ -94493,12 +94481,6 @@
             "description": "The policy controlling who can create pull requests: all or collaborators_only.",
             "example": "all"
           },
-          "has_commit_comments": {
-            "type": "boolean",
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "example": true
-          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -95175,10 +95157,6 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only.",
             "example": "all"
-          },
-          "has_commit_comments": {
-            "type": "boolean",
-            "example": true
           },
           "archived": {
             "type": "boolean"
@@ -113786,9 +113764,6 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
-          "has_commit_comments": {
-            "type": "boolean"
-          },
           "archived": {
             "type": "boolean"
           },
@@ -116104,12 +116079,6 @@
             ],
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
-          },
-          "has_commit_comments": {
-            "type": "boolean",
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "example": true
           },
           "archived": {
             "type": "boolean",
@@ -121972,12 +121941,6 @@
             "type": "string",
             "description": "The policy controlling who can create pull requests: all or collaborators_only."
           },
-          "has_commit_comments": {
-            "type": "boolean",
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "example": true
-          },
           "archived": {
             "type": "boolean",
             "description": "Whether the repository is archived.",
@@ -124487,11 +124450,6 @@
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
-                  "has_commit_comments": {
-                    "type": "boolean",
-                    "description": "Whether commit comments are enabled.",
-                    "default": true
-                  },
                   "homepage": {
                     "type": "string",
                     "nullable": true
@@ -125304,11 +125262,6 @@
                     ],
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean",
-                    "description": "Whether commit comments are enabled.",
-                    "default": true
                   },
                   "homepage": {
                     "type": "string",
@@ -163237,11 +163190,6 @@
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
                   },
-                  "has_commit_comments": {
-                    "type": "boolean",
-                    "description": "Whether commit comments are enabled.",
-                    "default": true
-                  },
                   "has_downloads": {
                     "type": "boolean",
                     "description": "Whether downloads are enabled.",
@@ -167619,11 +167567,6 @@
                     ],
                     "type": "string",
                     "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean",
-                    "description": "Whether commit comments are enabled.",
-                    "default": true
                   },
                   "homepage": {
                     "type": "string",
@@ -175994,11 +175937,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -176812,11 +176750,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -179050,11 +178983,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "has_pages": {
                         "type": "boolean"
                       },
@@ -179880,11 +179808,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -182131,11 +182054,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -182948,11 +182866,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -185320,11 +185233,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -186137,11 +186045,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -188480,11 +188383,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -189297,11 +189195,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -191527,11 +191420,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -192345,11 +192233,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -194597,11 +194480,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -195415,11 +195293,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -198179,11 +198052,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -198980,11 +198848,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -201101,11 +200964,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -201903,11 +201761,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -204020,11 +203873,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -204822,11 +204670,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -206935,11 +206778,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -207737,11 +207575,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -212876,11 +212709,6 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -213693,11 +213521,6 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -216018,11 +215841,6 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -216835,11 +216653,6 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -219257,11 +219070,6 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -220074,11 +219882,6 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -222395,11 +222198,6 @@
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
                           },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -223212,11 +223010,6 @@
                             ],
                             "type": "string",
                             "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean",
-                            "description": "Whether commit comments are enabled.",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -225596,11 +225389,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -226399,11 +226187,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -228522,11 +228305,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -229286,11 +229064,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -231734,11 +231507,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -232497,11 +232265,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -234949,11 +234712,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -235766,11 +235524,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -238020,11 +237773,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -238838,11 +238586,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -241094,11 +240837,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -241912,11 +241650,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -244161,11 +243894,6 @@
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
                       },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -244978,11 +244706,6 @@
                         ],
                         "type": "string",
                         "description": "The policy controlling who can create pull requests: all or collaborators_only."
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean",
-                        "description": "Whether commit comments are enabled.",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -246982,11 +246705,6 @@
                 ],
                 "type": "string",
                 "description": "The policy controlling who can create pull requests: all or collaborators_only."
-              },
-              "has_commit_comments": {
-                "type": "boolean",
-                "description": "Whether commit comments are enabled.",
-                "default": true
               },
               "homepage": {
                 "type": "string",
@@ -261135,9 +260853,6 @@
                 ],
                 "type": "string",
                 "description": "The policy controlling who can create pull requests: all or collaborators_only."
-              },
-              "has_commit_comments": {
-                "type": "boolean"
               },
               "forks_count": {
                 "type": "integer"

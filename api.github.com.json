@@ -104782,12 +104782,6 @@
             ],
             "example": "all"
           },
-          "has_commit_comments": {
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "type": "boolean",
-            "example": true
-          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -111094,9 +111088,6 @@
               "collaborators_only"
             ]
           },
-          "has_commit_comments": {
-            "type": "boolean"
-          },
           "archived": {
             "type": "boolean"
           },
@@ -115609,9 +115600,6 @@
               "collaborators_only"
             ]
           },
-          "has_commit_comments": {
-            "type": "boolean"
-          },
           "archived": {
             "type": "boolean"
           },
@@ -119422,12 +119410,6 @@
             ],
             "example": "all"
           },
-          "has_commit_comments": {
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "type": "boolean",
-            "example": true
-          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -120102,10 +120084,6 @@
               "collaborators_only"
             ],
             "example": "all"
-          },
-          "has_commit_comments": {
-            "type": "boolean",
-            "example": true
           },
           "archived": {
             "type": "boolean"
@@ -138606,9 +138584,6 @@
               "collaborators_only"
             ]
           },
-          "has_commit_comments": {
-            "type": "boolean"
-          },
           "archived": {
             "type": "boolean"
           },
@@ -140914,12 +140889,6 @@
               "all",
               "collaborators_only"
             ]
-          },
-          "has_commit_comments": {
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "type": "boolean",
-            "example": true
           },
           "archived": {
             "description": "Whether the repository is archived.",
@@ -146738,12 +146707,6 @@
               "collaborators_only"
             ]
           },
-          "has_commit_comments": {
-            "description": "Whether commit comments are enabled.",
-            "default": true,
-            "type": "boolean",
-            "example": true
-          },
           "archived": {
             "description": "Whether the repository is archived.",
             "default": false,
@@ -149188,11 +149151,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "description": "Whether commit comments are enabled.",
-                    "default": true,
-                    "type": "boolean"
-                  },
                   "homepage": {
                     "type": "string",
                     "nullable": true
@@ -150004,11 +149962,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "description": "Whether commit comments are enabled.",
-                    "default": true,
-                    "type": "boolean"
                   },
                   "homepage": {
                     "type": "string",
@@ -187724,11 +187677,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "description": "Whether commit comments are enabled.",
-                    "default": true,
-                    "type": "boolean"
-                  },
                   "has_downloads": {
                     "description": "Whether downloads are enabled.",
                     "type": "boolean",
@@ -192083,11 +192031,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "description": "Whether commit comments are enabled.",
-                    "default": true,
-                    "type": "boolean"
                   },
                   "homepage": {
                     "type": "string",
@@ -200364,11 +200307,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -201182,11 +201120,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "homepage": {
                         "type": "string",
@@ -203405,11 +203338,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "has_pages": {
                         "type": "boolean"
                       },
@@ -204234,11 +204162,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -206472,11 +206395,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -207288,11 +207206,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -209644,11 +209557,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -210460,11 +210368,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -212790,11 +212693,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -213606,11 +213504,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -215822,11 +215715,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -216640,11 +216528,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -218877,11 +218760,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -219695,11 +219573,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -222443,11 +222316,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -223245,11 +223113,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -225351,11 +225214,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -226153,11 +226011,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -228255,11 +228108,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -229057,11 +228905,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -231155,11 +230998,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -231957,11 +231795,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -237066,11 +236899,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -237882,11 +237710,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -240192,11 +240015,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -241008,11 +240826,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -243414,11 +243227,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -244230,11 +244038,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -246536,11 +246339,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
-                          },
                           "homepage": {
                             "type": "string",
                             "nullable": true
@@ -247352,11 +247150,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "type": "boolean",
-                            "default": true
                           },
                           "homepage": {
                             "type": "string",
@@ -249721,11 +249514,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -250524,11 +250312,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -252634,11 +252417,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -253398,11 +253176,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -255829,11 +255602,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -256591,11 +256359,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -259024,11 +258787,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -259840,11 +259598,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -262083,11 +261836,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -262901,11 +262649,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -265141,11 +264884,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -265959,11 +265697,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -268193,11 +267926,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
-                      },
                       "homepage": {
                         "type": "string",
                         "nullable": true
@@ -269010,11 +268738,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "type": "boolean",
-                        "default": true
                       },
                       "homepage": {
                         "type": "string",
@@ -271041,11 +270764,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              "has_commit_comments": {
-                "description": "Whether commit comments are enabled.",
-                "type": "boolean",
-                "default": true
               },
               "homepage": {
                 "type": "string",
@@ -285205,9 +284923,6 @@
                   "all",
                   "collaborators_only"
                 ]
-              },
-              "has_commit_comments": {
-                "type": "boolean"
               },
               "forks_count": {
                 "type": "integer"
