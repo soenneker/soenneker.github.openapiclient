@@ -25,6 +25,16 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem> Items { get; set; }
 #endif
+        /// <summary>When a semantic or hybrid search falls back to lexical search, this field contains the reasons for the fallback. Only present when a fallback occurred.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_lexical_fallback_reason?>? LexicalFallbackReason { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_lexical_fallback_reason?> LexicalFallbackReason { get; set; }
+#endif
+        /// <summary>The type of search that was performed. Possible values are `lexical`, `semantic`, or `hybrid`.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_search_type? SearchType { get; set; }
         /// <summary>The total_count property</summary>
         public int? TotalCount { get; set; }
         /// <summary>
@@ -54,6 +64,8 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             {
                 { "incomplete_results", n => { IncompleteResults = n.GetBoolValue(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "lexical_fallback_reason", n => { LexicalFallbackReason = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_lexical_fallback_reason>()?.AsList(); } },
+                { "search_type", n => { SearchType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_search_type>(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -66,6 +78,8 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("incomplete_results", IncompleteResults);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem>("items", Items);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_lexical_fallback_reason>("lexical_fallback_reason", LexicalFallbackReason);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse_search_type>("search_type", SearchType);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

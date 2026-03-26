@@ -12,9 +12,59 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
     public partial class PrivateRegistriesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The AWS account ID. Required when `auth_type` is `oidc_aws`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountId { get; set; }
+#nullable restore
+#else
+        public string AccountId { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint.</summary>
+        /// <summary>The OIDC audience. Optional for `oidc_aws` and `oidc_jfrog` auth types.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Audience { get; set; }
+#nullable restore
+#else
+        public string Audience { get; set; }
+#endif
+        /// <summary>The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, or `oidc_jfrog` for OIDC authentication.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_auth_type? AuthType { get; set; }
+        /// <summary>The AWS region. Required when `auth_type` is `oidc_aws`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AwsRegion { get; set; }
+#nullable restore
+#else
+        public string AwsRegion { get; set; }
+#endif
+        /// <summary>The client ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientId { get; set; }
+#nullable restore
+#else
+        public string ClientId { get; set; }
+#endif
+        /// <summary>The CodeArtifact domain. Required when `auth_type` is `oidc_aws`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Domain { get; set; }
+#nullable restore
+#else
+        public string Domain { get; set; }
+#endif
+        /// <summary>The CodeArtifact domain owner (AWS account ID). Required when `auth_type` is `oidc_aws`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DomainOwner { get; set; }
+#nullable restore
+#else
+        public string DomainOwner { get; set; }
+#endif
+        /// <summary>The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint. Required when `auth_type` is `token` or `username_password`. Should be omitted for OIDC auth types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EncryptedValue { get; set; }
@@ -22,7 +72,23 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
 #else
         public string EncryptedValue { get; set; }
 #endif
-        /// <summary>The ID of the key you used to encrypt the secret.</summary>
+        /// <summary>The JFrog identity mapping name. Optional for `oidc_jfrog` auth type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityMappingName { get; set; }
+#nullable restore
+#else
+        public string IdentityMappingName { get; set; }
+#endif
+        /// <summary>The JFrog OIDC provider name. Required when `auth_type` is `oidc_jfrog`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JfrogOidcProviderName { get; set; }
+#nullable restore
+#else
+        public string JfrogOidcProviderName { get; set; }
+#endif
+        /// <summary>The ID of the key you used to encrypt the secret. Required when `auth_type` is `token` or `username_password`. Should be omitted for OIDC auth types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? KeyId { get; set; }
@@ -34,6 +100,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type? RegistryType { get; set; }
         /// <summary>Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to `true`, Dependabot will only use this registry and will not fall back to the public registry. When set to `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</summary>
         public bool? ReplacesBase { get; set; }
+        /// <summary>The AWS IAM role name. Required when `auth_type` is `oidc_aws`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RoleName { get; set; }
+#nullable restore
+#else
+        public string RoleName { get; set; }
+#endif
         /// <summary>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when `visibility` is set to `selected`. You can manage the list of selected repositories using the [Update a private registry for an organization](https://docs.github.com/rest/private-registries/organization-configurations#update-a-private-registry-for-an-organization) endpoint. This field should be omitted if `visibility` is set to `all` or `private`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,6 +115,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
 #nullable restore
 #else
         public List<int?> SelectedRepositoryIds { get; set; }
+#endif
+        /// <summary>The tenant ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TenantId { get; set; }
+#nullable restore
+#else
+        public string TenantId { get; set; }
 #endif
         /// <summary>The URL of the private registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,11 +167,22 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_id", n => { AccountId = n.GetStringValue(); } },
+                { "audience", n => { Audience = n.GetStringValue(); } },
+                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_auth_type>(); } },
+                { "aws_region", n => { AwsRegion = n.GetStringValue(); } },
+                { "client_id", n => { ClientId = n.GetStringValue(); } },
+                { "domain", n => { Domain = n.GetStringValue(); } },
+                { "domain_owner", n => { DomainOwner = n.GetStringValue(); } },
                 { "encrypted_value", n => { EncryptedValue = n.GetStringValue(); } },
+                { "identity_mapping_name", n => { IdentityMappingName = n.GetStringValue(); } },
+                { "jfrog_oidc_provider_name", n => { JfrogOidcProviderName = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type>(); } },
                 { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
+                { "role_name", n => { RoleName = n.GetStringValue(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "tenant_id", n => { TenantId = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_visibility>(); } },
@@ -102,11 +195,22 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("account_id", AccountId);
+            writer.WriteStringValue("audience", Audience);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_auth_type>("auth_type", AuthType);
+            writer.WriteStringValue("aws_region", AwsRegion);
+            writer.WriteStringValue("client_id", ClientId);
+            writer.WriteStringValue("domain", Domain);
+            writer.WriteStringValue("domain_owner", DomainOwner);
             writer.WriteStringValue("encrypted_value", EncryptedValue);
+            writer.WriteStringValue("identity_mapping_name", IdentityMappingName);
+            writer.WriteStringValue("jfrog_oidc_provider_name", JfrogOidcProviderName);
             writer.WriteStringValue("key_id", KeyId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_registry_type>("registry_type", RegistryType);
             writer.WriteBoolValue("replaces_base", ReplacesBase);
+            writer.WriteStringValue("role_name", RoleName);
             writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteStringValue("tenant_id", TenantId);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesPostRequestBody_visibility>("visibility", Visibility);

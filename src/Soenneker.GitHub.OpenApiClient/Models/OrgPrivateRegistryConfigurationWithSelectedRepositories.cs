@@ -13,10 +13,76 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrgPrivateRegistryConfigurationWithSelectedRepositories : IAdditionalDataHolder, IParsable
     {
+        /// <summary>The AWS account ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountId { get; set; }
+#nullable restore
+#else
+        public string AccountId { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The OIDC audience.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Audience { get; set; }
+#nullable restore
+#else
+        public string Audience { get; set; }
+#endif
+        /// <summary>The authentication type for the private registry.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories_auth_type? AuthType { get; set; }
+        /// <summary>The AWS region.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AwsRegion { get; set; }
+#nullable restore
+#else
+        public string AwsRegion { get; set; }
+#endif
+        /// <summary>The client ID of the Azure AD application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientId { get; set; }
+#nullable restore
+#else
+        public string ClientId { get; set; }
+#endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The CodeArtifact domain.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Domain { get; set; }
+#nullable restore
+#else
+        public string Domain { get; set; }
+#endif
+        /// <summary>The CodeArtifact domain owner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DomainOwner { get; set; }
+#nullable restore
+#else
+        public string DomainOwner { get; set; }
+#endif
+        /// <summary>The JFrog identity mapping name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentityMappingName { get; set; }
+#nullable restore
+#else
+        public string IdentityMappingName { get; set; }
+#endif
+        /// <summary>The JFrog OIDC provider name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JfrogOidcProviderName { get; set; }
+#nullable restore
+#else
+        public string JfrogOidcProviderName { get; set; }
+#endif
         /// <summary>The name of the private registry configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,6 +95,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories_registry_type? RegistryType { get; set; }
         /// <summary>Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</summary>
         public bool? ReplacesBase { get; set; }
+        /// <summary>The AWS IAM role name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RoleName { get; set; }
+#nullable restore
+#else
+        public string RoleName { get; set; }
+#endif
         /// <summary>An array of repository IDs that can access the organization private registry when `visibility` is set to `selected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +110,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public List<int?> SelectedRepositoryIds { get; set; }
+#endif
+        /// <summary>The tenant ID of the Azure AD application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TenantId { get; set; }
+#nullable restore
+#else
+        public string TenantId { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -82,11 +164,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_id", n => { AccountId = n.GetStringValue(); } },
+                { "audience", n => { Audience = n.GetStringValue(); } },
+                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories_auth_type>(); } },
+                { "aws_region", n => { AwsRegion = n.GetStringValue(); } },
+                { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "domain", n => { Domain = n.GetStringValue(); } },
+                { "domain_owner", n => { DomainOwner = n.GetStringValue(); } },
+                { "identity_mapping_name", n => { IdentityMappingName = n.GetStringValue(); } },
+                { "jfrog_oidc_provider_name", n => { JfrogOidcProviderName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories_registry_type>(); } },
                 { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
+                { "role_name", n => { RoleName = n.GetStringValue(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "tenant_id", n => { TenantId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
@@ -100,11 +193,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("account_id", AccountId);
+            writer.WriteStringValue("audience", Audience);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories_auth_type>("auth_type", AuthType);
+            writer.WriteStringValue("aws_region", AwsRegion);
+            writer.WriteStringValue("client_id", ClientId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("domain", Domain);
+            writer.WriteStringValue("domain_owner", DomainOwner);
+            writer.WriteStringValue("identity_mapping_name", IdentityMappingName);
+            writer.WriteStringValue("jfrog_oidc_provider_name", JfrogOidcProviderName);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories_registry_type>("registry_type", RegistryType);
             writer.WriteBoolValue("replaces_base", ReplacesBase);
+            writer.WriteStringValue("role_name", RoleName);
             writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteStringValue("tenant_id", TenantId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);

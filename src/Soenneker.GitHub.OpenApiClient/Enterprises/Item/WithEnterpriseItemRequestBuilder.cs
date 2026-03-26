@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.CodeSecurityRequestBuilder CodeSecurity
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.CodeSecurityRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The copilot property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.CopilotRequestBuilder Copilot
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.CopilotRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dependabot property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.DependabotRequestBuilder Dependabot

@@ -762,6 +762,9 @@
           },
           {
             "$ref": "#/components/parameters/cursor"
+          },
+          {
+            "$ref": "#/components/parameters/webhook-delivery-status"
           }
         ],
         "responses": {
@@ -3557,6 +3560,216 @@
           "enabledForGitHubApps": false,
           "category": "code-security",
           "subcategory": "configurations"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day": {
+      "get": {
+        "summary": "Get Copilot enterprise usage metrics for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot enterprise usage metrics report for a specific day. The report provides comprehensive usage data for Copilot features across the enterprise.\n\nThe report contains aggregated metrics for the specified day, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed. Reports are available starting from October 10, 2025, and historical data can be accessed for up to 1 year from the current date.\n\nEnterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `read:enterprise` scopes to use this endpoint.",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-enterprise-one-day-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-enterprise-usage-metrics-for-a-specific-day"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-1-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest": {
+      "get": {
+        "summary": "Get Copilot enterprise usage metrics",
+        "description": "Use this endpoint to retrieve download links for the latest 28-day enterprise Copilot usage metrics report. The report provides comprehensive usage data for Copilot features across the enterprise.\n\nThe report contains aggregated metrics for the previous 28 days, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.\n\nEnterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `read:enterprise` scopes to use this endpoint.",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-enterprise-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-enterprise-usage-metrics"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-28-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-28-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day": {
+      "get": {
+        "summary": "Get Copilot users usage metrics for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot user usage metrics report for a specific day. The report provides detailed user-level usage data and engagement metrics for Copilot features across the enterprise.\n\nThe report contains user-specific metrics for the specified day, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.\n\nReports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed. Reports are available starting from October 10, 2025, and historical data can be accessed for up to 1 year from the current date.\n\nEnterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `read:enterprise` scopes to use this endpoint.",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-users-one-day-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-users-usage-metrics-for-a-specific-day"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-1-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest": {
+      "get": {
+        "summary": "Get Copilot users usage metrics",
+        "description": "Use this endpoint to retrieve download links for the latest 28-day enterprise users Copilot usage metrics report. The report provides detailed user-level usage data and engagement metrics for Copilot features across the enterprise.\n\nThe report contains user-specific metrics for the previous 28 days, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.\n\nReports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.\n\nEnterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `read:enterprise` scopes to use this endpoint.",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-users-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-users-usage-metrics"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-28-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-28-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
         }
       }
     },
@@ -14160,6 +14373,12 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         },
         "x-github": {
@@ -14352,6 +14571,12 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         },
         "x-github": {
@@ -14549,6 +14774,12 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         },
         "x-github": {
@@ -19403,6 +19634,216 @@
         }
       }
     },
+    "/orgs/{org}/copilot/metrics/reports/organization-1-day": {
+      "get": {
+        "summary": "Get Copilot organization usage metrics for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot organization usage metrics report for a specific day. The report provides comprehensive usage data for Copilot features across the organization.\n\nThe report contains aggregated metrics for the specified day, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.\n\nOrganization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.\n\nFor more information about organization metrics attribution, see [How are metrics attributed across organizations](https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations).",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-organization-one-day-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-organization-usage-metrics-for-a-specific-day"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-1-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest": {
+      "get": {
+        "summary": "Get Copilot organization usage metrics",
+        "description": "Use this endpoint to retrieve download links for the latest 28-day organization Copilot usage metrics report. The report provides comprehensive usage data for Copilot features across the organization.\n\nThe report contains aggregated metrics for the previous 28 days, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.\n\nOrganization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.\n\nFor more information about organization metrics attribution, see [How are metrics attributed across organizations](https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations).",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-organization-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-organization-usage-metrics"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-28-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-28-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/orgs/{org}/copilot/metrics/reports/users-1-day": {
+      "get": {
+        "summary": "Get Copilot organization users usage metrics for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot organization user usage metrics report for a specific day. The report provides detailed user-level usage data and engagement metrics for Copilot features across the organization.\n\nThe report contains user-specific metrics for the specified day, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.\n\nReports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.\n\nOrganization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.\n\nFor more information about organization metrics attribution, see [How are metrics attributed across organizations](https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations).",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-organization-users-one-day-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-organization-users-usage-metrics-for-a-specific-day"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-1-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
+    "/orgs/{org}/copilot/metrics/reports/users-28-day/latest": {
+      "get": {
+        "summary": "Get Copilot organization users usage metrics",
+        "description": "Use this endpoint to retrieve download links for the latest 28-day organization users Copilot usage metrics report. The report provides detailed user-level usage data and engagement metrics for Copilot features across the organization.\n\nThe report contains user-specific metrics for the previous 28 days, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.\n\nReports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.\n\nOrganization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.\n\nFor more information about organization metrics attribution, see [How are metrics attributed across organizations](https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations).",
+        "tags": [
+          "copilot"
+        ],
+        "operationId": "copilot/copilot-organization-users-usage-metrics",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-organization-users-usage-metrics"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/copilot-usage-metrics-28-day-report"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-28-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "copilot",
+          "subcategory": "copilot-usage-metrics"
+        }
+      }
+    },
     "/orgs/{org}/dependabot/alerts": {
       "get": {
         "summary": "List Dependabot alerts for an organization",
@@ -20726,6 +21167,9 @@
           },
           {
             "$ref": "#/components/parameters/cursor"
+          },
+          {
+            "$ref": "#/components/parameters/webhook-delivery-status"
           }
         ],
         "responses": {
@@ -25530,7 +25974,7 @@
       },
       "post": {
         "summary": "Create a private registry for an organization",
-        "description": "\nCreates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "description": "\nCreates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\nFor OIDC-based registries (`oidc_azure`, `oidc_aws`, or `oidc_jfrog`), the `encrypted_value` and `key_id` fields should be omitted.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
         "tags": [
           "private-registries"
         ],
@@ -25588,12 +26032,12 @@
                     "default": false
                   },
                   "encrypted_value": {
-                    "description": "The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint.",
+                    "description": "The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint. Required when `auth_type` is `token` or `username_password`. Should be omitted for OIDC auth types.",
                     "type": "string",
                     "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$"
                   },
                   "key_id": {
-                    "description": "The ID of the key you used to encrypt the secret.",
+                    "description": "The ID of the key you used to encrypt the secret. Required when `auth_type` is `token` or `username_password`. Should be omitted for OIDC auth types.",
                     "type": "string"
                   },
                   "visibility": {
@@ -25611,13 +26055,62 @@
                     "items": {
                       "type": "integer"
                     }
+                  },
+                  "auth_type": {
+                    "description": "The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, or `oidc_jfrog` for OIDC authentication.",
+                    "type": "string",
+                    "enum": [
+                      "token",
+                      "username_password",
+                      "oidc_azure",
+                      "oidc_aws",
+                      "oidc_jfrog"
+                    ]
+                  },
+                  "tenant_id": {
+                    "description": "The tenant ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.",
+                    "type": "string"
+                  },
+                  "client_id": {
+                    "description": "The client ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.",
+                    "type": "string"
+                  },
+                  "aws_region": {
+                    "description": "The AWS region. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "account_id": {
+                    "description": "The AWS account ID. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "role_name": {
+                    "description": "The AWS IAM role name. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "domain": {
+                    "description": "The CodeArtifact domain. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "domain_owner": {
+                    "description": "The CodeArtifact domain owner (AWS account ID). Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "jfrog_oidc_provider_name": {
+                    "description": "The JFrog OIDC provider name. Required when `auth_type` is `oidc_jfrog`.",
+                    "type": "string"
+                  },
+                  "audience": {
+                    "description": "The OIDC audience. Optional for `oidc_aws` and `oidc_jfrog` auth types.",
+                    "type": "string"
+                  },
+                  "identity_mapping_name": {
+                    "description": "The JFrog identity mapping name. Optional for `oidc_jfrog` auth type.",
+                    "type": "string"
                   }
                 },
                 "required": [
                   "registry_type",
                   "url",
-                  "encrypted_value",
-                  "key_id",
                   "visibility"
                 ]
               },
@@ -25647,6 +26140,17 @@
                       1296269,
                       1296280
                     ]
+                  }
+                },
+                "org-private-registry-with-oidc-azure": {
+                  "summary": "Example of an OIDC private registry configuration using Azure",
+                  "value": {
+                    "registry_type": "docker_registry",
+                    "url": "https://myregistry.azurecr.io",
+                    "auth_type": "oidc_azure",
+                    "visibility": "all",
+                    "tenant_id": "12345678-1234-1234-1234-123456789012",
+                    "client_id": "abcdef01-2345-6789-abcd-ef0123456789"
                   }
                 }
               }
@@ -25802,7 +26306,7 @@
       },
       "patch": {
         "summary": "Update a private registry for an organization",
-        "description": "\nUpdates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "description": "\nUpdates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\nFor OIDC-based registries (`oidc_azure`, `oidc_aws`, or `oidc_jfrog`), the `encrypted_value` and `key_id` fields should be omitted.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
         "tags": [
           "private-registries"
         ],
@@ -25886,15 +26390,78 @@
                     "items": {
                       "type": "integer"
                     }
+                  },
+                  "auth_type": {
+                    "description": "The authentication type for the private registry. This field cannot be changed after creation. If provided, it must match the existing `auth_type` of the configuration. To change the authentication type, delete and recreate the configuration.",
+                    "type": "string",
+                    "enum": [
+                      "token",
+                      "username_password",
+                      "oidc_azure",
+                      "oidc_aws",
+                      "oidc_jfrog"
+                    ]
+                  },
+                  "tenant_id": {
+                    "description": "The tenant ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.",
+                    "type": "string"
+                  },
+                  "client_id": {
+                    "description": "The client ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.",
+                    "type": "string"
+                  },
+                  "aws_region": {
+                    "description": "The AWS region. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "account_id": {
+                    "description": "The AWS account ID. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "role_name": {
+                    "description": "The AWS IAM role name. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "domain": {
+                    "description": "The CodeArtifact domain. Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "domain_owner": {
+                    "description": "The CodeArtifact domain owner (AWS account ID). Required when `auth_type` is `oidc_aws`.",
+                    "type": "string"
+                  },
+                  "jfrog_oidc_provider_name": {
+                    "description": "The JFrog OIDC provider name. Required when `auth_type` is `oidc_jfrog`.",
+                    "type": "string"
+                  },
+                  "audience": {
+                    "description": "The OIDC audience. Optional for `oidc_aws` and `oidc_jfrog` auth types.",
+                    "type": "string"
+                  },
+                  "identity_mapping_name": {
+                    "description": "The JFrog identity mapping name. Optional for `oidc_jfrog` auth type.",
+                    "type": "string"
                   }
                 }
               },
               "examples": {
-                "default": {
+                "secret-based-update": {
+                  "summary": "Update a secret-based private registry",
                   "value": {
                     "username": "monalisa",
                     "encrypted_value": "c2VjcmV0",
                     "key_id": "012345678912345678"
+                  }
+                },
+                "oidc-azure-update": {
+                  "summary": "Update an OIDC private registry (Azure)",
+                  "value": {
+                    "tenant_id": "12345678-1234-1234-1234-123456789012",
+                    "visibility": "selected",
+                    "selected_repository_ids": [
+                      1296269,
+                      1296280
+                    ]
                   }
                 }
               }
@@ -51004,6 +51571,9 @@
           },
           {
             "$ref": "#/components/parameters/cursor"
+          },
+          {
+            "$ref": "#/components/parameters/webhook-delivery-status"
           }
         ],
         "responses": {
@@ -61379,6 +61949,9 @@
         "responses": {
           "204": {
             "description": "Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         },
         "x-github": {
@@ -61513,6 +62086,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         },
         "x-github": {
@@ -61774,6 +62350,9 @@
         "responses": {
           "204": {
             "description": "Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         },
         "x-github": {
@@ -63147,6 +63726,11 @@
                   {
                     "required": [
                       "assignee"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "validity"
                     ]
                   }
                 ]
@@ -66254,7 +66838,8 @@
                   "required": [
                     "total_count",
                     "incomplete_results",
-                    "items"
+                    "items",
+                    "search_type"
                   ],
                   "properties": {
                     "total_count": {
@@ -66267,6 +66852,31 @@
                       "type": "array",
                       "items": {
                         "$ref": "#/components/schemas/issue-search-result-item"
+                      }
+                    },
+                    "search_type": {
+                      "type": "string",
+                      "description": "The type of search that was performed. Possible values are `lexical`, `semantic`, or `hybrid`.",
+                      "enum": [
+                        "lexical",
+                        "semantic",
+                        "hybrid"
+                      ]
+                    },
+                    "lexical_fallback_reason": {
+                      "type": "array",
+                      "description": "When a semantic or hybrid search falls back to lexical search, this field contains the reasons for the fallback. Only present when a fallback occurred.",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "no_text_terms",
+                          "quoted_text",
+                          "non_issue_target",
+                          "or_boolean_not_supported",
+                          "no_accessible_repos",
+                          "server_error",
+                          "only_non_semantic_fields_requested"
+                        ]
                       }
                     }
                   }
@@ -70408,7 +71018,7 @@
     "/user/installations/{installation_id}/repositories/{repository_id}": {
       "put": {
         "summary": "Add a repository to an app installation",
-        "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.    \n\nThis endpoint only works for PATs (classic) with the `repo` scope.",
+        "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nThis endpoint only works for PATs (classic) with the `repo` scope.",
         "tags": [
           "apps"
         ],
@@ -70448,7 +71058,7 @@
       },
       "delete": {
         "summary": "Remove a repository from an app installation",
-        "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the `repository_selection` of `selected`. \n\nThis endpoint only works for PATs (classic) with the `repo` scope.",
+        "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the `repository_selection` of `selected`.\n\nThis endpoint only works for PATs (classic) with the `repo` scope.",
         "tags": [
           "apps"
         ],
@@ -106625,6 +107235,60 @@
           }
         }
       },
+      "copilot-usage-metrics-1-day-report": {
+        "type": "object",
+        "title": "Copilot Metrics 1 Day Report",
+        "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+        "properties": {
+          "download_links": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+          },
+          "report_day": {
+            "type": "string",
+            "format": "date",
+            "description": "The day of the report in `YYYY-MM-DD` format."
+          }
+        },
+        "required": [
+          "download_links",
+          "report_day"
+        ]
+      },
+      "copilot-usage-metrics-28-day-report": {
+        "type": "object",
+        "title": "Copilot Metrics 28 Day Report",
+        "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization.",
+        "properties": {
+          "download_links": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "The URLs to download the latest Copilot usage metrics report for the enterprise/organization."
+          },
+          "report_start_day": {
+            "type": "string",
+            "format": "date",
+            "description": "The start date of the report period in `YYYY-MM-DD` format."
+          },
+          "report_end_day": {
+            "type": "string",
+            "format": "date",
+            "description": "The end date of the report period in `YYYY-MM-DD` format."
+          }
+        },
+        "required": [
+          "download_links",
+          "report_start_day",
+          "report_end_day"
+        ]
+      },
       "alert-number": {
         "type": "integer",
         "description": "The security alert number.",
@@ -114198,6 +114862,10 @@
             "properties": {
               "text": {
                 "type": "string"
+              },
+              "markdown": {
+                "type": "string",
+                "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
               }
             }
           },
@@ -117503,6 +118171,17 @@
             ],
             "type": "string"
           },
+          "auth_type": {
+            "description": "The authentication type for the private registry.",
+            "enum": [
+              "token",
+              "username_password",
+              "oidc_azure",
+              "oidc_aws",
+              "oidc_jfrog"
+            ],
+            "type": "string"
+          },
           "url": {
             "description": "The URL of the private registry.",
             "type": "string",
@@ -117526,6 +118205,46 @@
               "private",
               "selected"
             ],
+            "type": "string"
+          },
+          "tenant_id": {
+            "description": "The tenant ID of the Azure AD application.",
+            "type": "string"
+          },
+          "client_id": {
+            "description": "The client ID of the Azure AD application.",
+            "type": "string"
+          },
+          "aws_region": {
+            "description": "The AWS region.",
+            "type": "string"
+          },
+          "account_id": {
+            "description": "The AWS account ID.",
+            "type": "string"
+          },
+          "role_name": {
+            "description": "The AWS IAM role name.",
+            "type": "string"
+          },
+          "domain": {
+            "description": "The CodeArtifact domain.",
+            "type": "string"
+          },
+          "domain_owner": {
+            "description": "The CodeArtifact domain owner.",
+            "type": "string"
+          },
+          "jfrog_oidc_provider_name": {
+            "description": "The JFrog OIDC provider name.",
+            "type": "string"
+          },
+          "audience": {
+            "description": "The OIDC audience.",
+            "type": "string"
+          },
+          "identity_mapping_name": {
+            "description": "The JFrog identity mapping name.",
             "type": "string"
           },
           "created_at": {
@@ -117576,6 +118295,17 @@
             ],
             "type": "string"
           },
+          "auth_type": {
+            "description": "The authentication type for the private registry.",
+            "enum": [
+              "token",
+              "username_password",
+              "oidc_azure",
+              "oidc_aws",
+              "oidc_jfrog"
+            ],
+            "type": "string"
+          },
           "url": {
             "description": "The URL of the private registry.",
             "type": "string",
@@ -117606,6 +118336,46 @@
             "items": {
               "type": "integer"
             }
+          },
+          "tenant_id": {
+            "description": "The tenant ID of the Azure AD application.",
+            "type": "string"
+          },
+          "client_id": {
+            "description": "The client ID of the Azure AD application.",
+            "type": "string"
+          },
+          "aws_region": {
+            "description": "The AWS region.",
+            "type": "string"
+          },
+          "account_id": {
+            "description": "The AWS account ID.",
+            "type": "string"
+          },
+          "role_name": {
+            "description": "The AWS IAM role name.",
+            "type": "string"
+          },
+          "domain": {
+            "description": "The CodeArtifact domain.",
+            "type": "string"
+          },
+          "domain_owner": {
+            "description": "The CodeArtifact domain owner.",
+            "type": "string"
+          },
+          "jfrog_oidc_provider_name": {
+            "description": "The JFrog OIDC provider name.",
+            "type": "string"
+          },
+          "audience": {
+            "description": "The OIDC audience.",
+            "type": "string"
+          },
+          "identity_mapping_name": {
+            "description": "The JFrog identity mapping name.",
+            "type": "string"
           },
           "created_at": {
             "type": "string",
@@ -288784,6 +289554,25 @@
           "hooks_url": "http://api.github.com/repos/octocat/Hello-World/hooks"
         }
       },
+      "copilot-usage-metrics-1-day-report": {
+        "value": {
+          "download_links": [
+            "https://example.com/copilot-usage-report-1.json",
+            "https://example.com/copilot-usage-report-2.json"
+          ],
+          "report_day": "2025-07-01"
+        }
+      },
+      "copilot-usage-metrics-28-day-report": {
+        "value": {
+          "download_links": [
+            "https://example.com/copilot-usage-report-1.json",
+            "https://example.com/copilot-usage-report-2.json"
+          ],
+          "report_start_day": "2025-07-01",
+          "report_end_day": "2025-07-28"
+        }
+      },
       "dependabot-alerts-for-organization": {
         "value": [
           {
@@ -318688,6 +319477,19 @@
           "type": "string"
         }
       },
+      "webhook-delivery-status": {
+        "name": "status",
+        "description": "Returns webhook deliveries filtered by delivery outcome classification based on `status_code` range. A `status` of `success` returns deliveries with a `status_code` in the 200-399 range (inclusive). A `status` of `failure` returns deliveries with a `status_code` in the 400-599 range (inclusive).",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "success",
+            "failure"
+          ]
+        }
+      },
       "delivery-id": {
         "name": "delivery_id",
         "in": "path",
@@ -318785,6 +319587,17 @@
         "required": true,
         "schema": {
           "type": "integer"
+        }
+      },
+      "day": {
+        "name": "day",
+        "description": "The day to request data for, in `YYYY-MM-DD` format.",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "date",
+          "example": "2025-10-13"
         }
       },
       "dependabot-alert-comma-separated-states": {
