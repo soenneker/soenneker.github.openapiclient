@@ -37372,10 +37372,7 @@
               },
               "examples": {
                 "default": {
-                  "summary": "Example of a request body",
-                  "value": {
-                    "$ref": "#/components/examples/attestation"
-                  }
+                  "$ref": "#/components/examples/attestation"
                 }
               }
             }
@@ -62277,7 +62274,7 @@
                       "false",
                       "legacy"
                     ],
-                    "default": true
+                    "default": "true"
                   },
                   "discussion_category_name": {
                     "type": "string",
@@ -66835,6 +66832,9 @@
           },
           {
             "$ref": "#/components/parameters/issues-advanced-search"
+          },
+          {
+            "$ref": "#/components/parameters/search-type"
           }
         ],
         "responses": {
@@ -66893,6 +66893,9 @@
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/issue-search-result-item-paginated"
+                  },
+                  "lexical-fallback": {
+                    "$ref": "#/components/examples/issue-search-result-item-paginated-lexical-fallback"
                   }
                 }
               }
@@ -66909,6 +66912,9 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
           }
         },
         "x-github": {
@@ -314539,9 +314545,11 @@
         }
       },
       "issue-search-result-item-paginated": {
+        "summary": "Hybrid search response",
         "value": {
           "total_count": 280,
           "incomplete_results": false,
+          "search_type": "hybrid",
           "items": [
             {
               "url": "https://api.github.com/repos/batterseapower/pinyin-toolkit/issues/132",
@@ -314638,6 +314646,21 @@
               "author_association": "COLLABORATOR",
               "state_reason": "completed"
             }
+          ]
+        }
+      },
+      "issue-search-result-item-paginated-lexical-fallback": {
+        "summary": "Hybrid search with lexical fallback",
+        "description": "When a hybrid or semantic search falls back to lexical, the response includes search_type set to \"lexical\" and lexical_fallback_reason listing the reasons. Items are the same shape as the default example.",
+        "value": {
+          "total_count": 280,
+          "incomplete_results": false,
+          "search_type": "lexical",
+          "lexical_fallback_reason": [
+            "quoted_text"
+          ],
+          "items": [
+            "..."
           ]
         }
       },
@@ -321312,6 +321335,19 @@
         "required": false,
         "schema": {
           "type": "string"
+        }
+      },
+      "search-type": {
+        "name": "search_type",
+        "description": "The type of search to perform on issues. When not specified, the default is lexical search.\n\n- `semantic` — performs a pure semantic (vector) search using embedding-based understanding.\n- `hybrid` — combines semantic search with lexical search for best results.\n\nSemantic and hybrid search require authentication and are rate limited to 10 requests per minute.\nOnly applies to issue searches (`/search/issues`).",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "semantic",
+            "hybrid"
+          ]
         }
       },
       "team-id": {

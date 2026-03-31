@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,sort*}", pathParameters)
+        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,search_type*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,sort*}", rawUrl)
+        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/search/issues?q={q}{&advanced_search*,order*,page*,per_page*,search_type*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -40,6 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Search.Issues.IssuesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Issues503Error">When receiving a 503 status code</exception>
@@ -55,6 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.GitHub.OpenApiClient.Models.Issues503Error.CreateFromDiscriminatorValue },
@@ -124,6 +126,9 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             [QueryParameter("q")]
             public string Q { get; set; }
 #endif
+            /// <summary>The type of search to perform on issues. When not specified, the default is lexical search.- `semantic` — performs a pure semantic (vector) search using embedding-based understanding.- `hybrid` — combines semantic search with lexical search for best results.Semantic and hybrid search require authentication and are rate limited to 10 requests per minute.Only applies to issue searches (`/search/issues`).</summary>
+            [QueryParameter("search_type")]
+            public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetSearch_typeQueryParameterType? SearchType { get; set; }
             /// <summary>Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`, Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Search.Issues.GetSortQueryParameterType? Sort { get; set; }
