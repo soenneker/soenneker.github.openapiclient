@@ -51,6 +51,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public double? EndColumn { get; set; }
         /// <summary>Line number at which the secret ends in the file</summary>
         public double? EndLine { get; set; }
+        /// <summary>The GitHub URL to get the associated commit resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HtmlUrl { get; set; }
+#nullable restore
+#else
+        public string HtmlUrl { get; set; }
+#endif
         /// <summary>The file path in the repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,6 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_url", n => { CommitUrl = n.GetStringValue(); } },
                 { "end_column", n => { EndColumn = n.GetDoubleValue(); } },
                 { "end_line", n => { EndLine = n.GetDoubleValue(); } },
+                { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "start_column", n => { StartColumn = n.GetDoubleValue(); } },
                 { "start_line", n => { StartLine = n.GetDoubleValue(); } },
@@ -112,6 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_url", CommitUrl);
             writer.WriteDoubleValue("end_column", EndColumn);
             writer.WriteDoubleValue("end_line", EndLine);
+            writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("path", Path);
             writer.WriteDoubleValue("start_column", StartColumn);
             writer.WriteDoubleValue("start_line", StartLine);

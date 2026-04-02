@@ -70,6 +70,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
 #else
         public string PhysicalEnvironment { get; set; }
 #endif
+        /// <summary>If true, the endpoint will return the created or updated record in the response body.</summary>
+        public bool? ReturnRecords { get; set; }
         /// <summary>A list of runtime risks associated with the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,6 +130,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
                 { "logical_environment", n => { LogicalEnvironment = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "physical_environment", n => { PhysicalEnvironment = n.GetStringValue(); } },
+                { "return_records", n => { ReturnRecords = n.GetBoolValue(); } },
                 { "runtime_risks", n => { RuntimeRisks = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_runtime_risks>()?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_status>(); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_tags>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_tags.CreateFromDiscriminatorValue); } },
@@ -148,6 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
             writer.WriteStringValue("logical_environment", LogicalEnvironment);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("physical_environment", PhysicalEnvironment);
+            writer.WriteBoolValue("return_records", ReturnRecords);
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_runtime_risks>("runtime_risks", RuntimeRisks);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_status>("status", Status);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.DeploymentRecordPostRequestBody_tags>("tags", Tags);

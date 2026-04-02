@@ -38,6 +38,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
 #else
         public string PhysicalEnvironment { get; set; }
 #endif
+        /// <summary>If true, the endpoint will return the set records in the response body</summary>
+        public bool? ReturnRecords { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -66,6 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
                 { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostRequestBody_deployments>(global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostRequestBody_deployments.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logical_environment", n => { LogicalEnvironment = n.GetStringValue(); } },
                 { "physical_environment", n => { PhysicalEnvironment = n.GetStringValue(); } },
+                { "return_records", n => { ReturnRecords = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -78,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.Deployment
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.DeploymentRecord.Cluster.Item.WithClusterPostRequestBody_deployments>("deployments", Deployments);
             writer.WriteStringValue("logical_environment", LogicalEnvironment);
             writer.WriteStringValue("physical_environment", PhysicalEnvironment);
+            writer.WriteBoolValue("return_records", ReturnRecords);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

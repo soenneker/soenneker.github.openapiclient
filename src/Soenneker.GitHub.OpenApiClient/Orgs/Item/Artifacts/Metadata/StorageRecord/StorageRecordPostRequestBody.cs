@@ -70,6 +70,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
 #else
         public string Repository { get; set; }
 #endif
+        /// <summary>If true, the endpoint will return the created record in the response body.</summary>
+        public bool? ReturnRecords { get; set; }
         /// <summary>The status of the artifact (e.g., active, inactive).</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody_status? Status { get; set; }
         /// <summary>The artifact version.</summary>
@@ -113,6 +115,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "registry_url", n => { RegistryUrl = n.GetStringValue(); } },
                 { "repository", n => { Repository = n.GetStringValue(); } },
+                { "return_records", n => { ReturnRecords = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody_status>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -131,6 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRec
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("registry_url", RegistryUrl);
             writer.WriteStringValue("repository", Repository);
+            writer.WriteBoolValue("return_records", ReturnRecords);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.StorageRecord.StorageRecordPostRequestBody_status>("status", Status);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

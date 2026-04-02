@@ -22,6 +22,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser AssignedTo { get; set; }
 #endif
+        /// <summary>An optional comment from the closure request author.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClosureRequestComment { get; set; }
+#nullable restore
+#else
+        public string ClosureRequestComment { get; set; }
+#endif
+        /// <summary>A GitHub user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? ClosureRequestReviewer { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ClosureRequestReviewer { get; set; }
+#endif
+        /// <summary>An optional comment from the closure request reviewer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClosureRequestReviewerComment { get; set; }
+#nullable restore
+#else
+        public string ClosureRequestReviewerComment { get; set; }
+#endif
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.</summary>
@@ -186,6 +210,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assigned_to", n => { AssignedTo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "closure_request_comment", n => { ClosureRequestComment = n.GetStringValue(); } },
+                { "closure_request_reviewer", n => { ClosureRequestReviewer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "closure_request_reviewer_comment", n => { ClosureRequestReviewerComment = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "first_location_detected", n => { FirstLocationDetected = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation.CreateFromDiscriminatorValue); } },
                 { "has_more_locations", n => { HasMoreLocations = n.GetBoolValue(); } },
@@ -223,6 +250,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("assigned_to", AssignedTo);
+            writer.WriteStringValue("closure_request_comment", ClosureRequestComment);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("closure_request_reviewer", ClosureRequestReviewer);
+            writer.WriteStringValue("closure_request_reviewer_comment", ClosureRequestReviewerComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation>("first_location_detected", FirstLocationDetected);
             writer.WriteBoolValue("has_more_locations", HasMoreLocations);
             writer.WriteBoolValue("is_base64_encoded", IsBase64Encoded);

@@ -19,5 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         Transitive,
         #pragma warning restore CS1591
+        [EnumMember(Value = "inconclusive")]
+        #pragma warning disable CS1591
+        Inconclusive,
+        #pragma warning restore CS1591
     }
 }

@@ -16,6 +16,16 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hosted compute service to use for the network configuration.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_PatchRequestBody_compute_service? ComputeService { get; set; }
+        /// <summary>Indicates whether the failover network resource is enabled.</summary>
+        public bool? FailoverNetworkEnabled { get; set; }
+        /// <summary>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FailoverNetworkSettingsIds { get; set; }
+#nullable restore
+#else
+        public List<string> FailoverNetworkSettingsIds { get; set; }
+#endif
         /// <summary>Name of the network configuration. Must be between 1 and 100 characters and may only contain upper and lowercase letters a-z, numbers 0-9, &apos;.&apos;, &apos;-&apos;, and &apos;_&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +68,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "compute_service", n => { ComputeService = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_PatchRequestBody_compute_service>(); } },
+                { "failover_network_enabled", n => { FailoverNetworkEnabled = n.GetBoolValue(); } },
+                { "failover_network_settings_ids", n => { FailoverNetworkSettingsIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network_settings_ids", n => { NetworkSettingsIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -70,6 +82,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_PatchRequestBody_compute_service>("compute_service", ComputeService);
+            writer.WriteBoolValue("failover_network_enabled", FailoverNetworkEnabled);
+            writer.WriteCollectionOfPrimitiveValues<string>("failover_network_settings_ids", FailoverNetworkSettingsIds);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("network_settings_ids", NetworkSettingsIds);
             writer.WriteAdditionalData(AdditionalData);
