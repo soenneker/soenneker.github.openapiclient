@@ -525,7 +525,7 @@
     "/agents/repos/{owner}/{repo}/tasks": {
       "get": {
         "summary": "List tasks for repository",
-        "description": "Returns a list of tasks for a specific repository",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a list of tasks for a specific repository\n",
         "tags": [
           "agent-tasks"
         ],
@@ -618,9 +618,10 @@
             "name": "is_archived",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
-            "description": "Filter by archived status. When `true`, returns only archived tasks. When `false`, returns only non-archived tasks."
+            "description": "Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`."
           },
           {
             "name": "since",
@@ -1183,7 +1184,7 @@
       },
       "post": {
         "summary": "Create a task",
-        "description": "Creates a new task for a repository",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nCreates a new task for a repository\n",
         "tags": [
           "agent-tasks"
         ],
@@ -1243,7 +1244,7 @@
                   },
                   "model": {
                     "type": "string",
-                    "description": "Model identifier"
+                    "description": "The model to use for this task. The allowed models may change over time and depend on the user's GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`"
                   },
                   "custom_agent": {
                     "type": "string",
@@ -1256,21 +1257,6 @@
                   "base_ref": {
                     "type": "string",
                     "description": "Base ref for new branch/PR"
-                  },
-                  "event_type": {
-                    "type": "string",
-                    "description": "Type of event"
-                  },
-                  "event_url": {
-                    "type": "string",
-                    "description": "URL of the triggering event"
-                  },
-                  "event_identifiers": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "Identifiers for tracking"
                   }
                 }
               },
@@ -1733,7 +1719,7 @@
     "/agents/repos/{owner}/{repo}/tasks/{task_id}": {
       "get": {
         "summary": "Get a task by repo",
-        "description": "Returns a task by ID scoped to an owner/repo path",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a task by ID scoped to an owner/repo path\n",
         "tags": [
           "agent-tasks"
         ],
@@ -2490,7 +2476,7 @@
     "/agents/tasks": {
       "get": {
         "summary": "List tasks",
-        "description": "Returns a list of tasks for the authenticated user",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a list of tasks for the authenticated user\n",
         "tags": [
           "agent-tasks"
         ],
@@ -2565,9 +2551,10 @@
             "name": "is_archived",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "type": "boolean",
+              "default": false
             },
-            "description": "Filter by archived status. When `true`, returns only archived tasks. When `false`, returns only non-archived tasks."
+            "description": "Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`."
           },
           {
             "name": "since",
@@ -3068,7 +3055,7 @@
     "/agents/tasks/{task_id}": {
       "get": {
         "summary": "Get a task by ID",
-        "description": "Returns a task by ID with its associated sessions",
+        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a task by ID with its associated sessions\n",
         "tags": [
           "agent-tasks"
         ],
@@ -7077,6 +7064,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-classifications"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-states"
@@ -23209,6 +23199,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-classifications"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-states"
@@ -50131,6 +50124,9 @@
             "$ref": "#/components/parameters/repo"
           },
           {
+            "$ref": "#/components/parameters/dependabot-alert-comma-separated-classifications"
+          },
+          {
             "$ref": "#/components/parameters/dependabot-alert-comma-separated-states"
           },
           {
@@ -69942,7 +69938,7 @@
     "/search/code": {
       "get": {
         "summary": "Search code",
-        "description": "Searches for query terms inside of a file. This method returns up to 100 results [per page](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api).\n\nWhen searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://docs.github.com/rest/search/search#text-match-metadata).\n\nFor example, if you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery) repository, your query would look something like this:\n\n`q=addClass+in:file+language:js+repo:jquery/jquery`\n\nThis query searches for the keyword `addClass` within a file's contents. The query limits the search to files where the language is JavaScript in the `jquery/jquery` repository.\n\nConsiderations for code search:\n\nDue to the complexity of searching code, there are a few restrictions on how searches are performed:\n\n*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.\n*   Only files smaller than 384 KB are searchable.\n*   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago&type=Code) is not valid, while [`amazing\nlanguage:go`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ago&type=Code) is.\n\nThis endpoint requires you to authenticate and limits you to 10 requests per minute.",
+        "description": "Searches for query terms inside of a file. This method returns up to 100 results [per page](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api).\n\nWhen searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://docs.github.com/rest/search/search#text-match-metadata).\n\nFor example, if you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery) repository, your query would look something like this:\n\n`q=addClass+in:file+language:js+repo:jquery/jquery`\n\nThis query searches for the keyword `addClass` within a file's contents. The query limits the search to files where the language is JavaScript in the `jquery/jquery` repository.\n\nConsiderations for code search:\n\nDue to the complexity of searching code, there are a few restrictions on how searches are performed:\n\n*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.\n*   Only files smaller than 384 KB are searchable.\n*   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago&type=Code) is not valid, while [`amazing\nlanguage:go`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ago&type=Code) is.\n\n> [!NOTE]\n> `repository.description`, `repository.owner.type`, and `repository.owner.node_id` are closing down on this endpoint and will return `null` in a future API version. Use the [Get a repository](https://docs.github.com/rest/repos/repos#get-a-repository) endpoint (`GET /repos/{owner}/{repo}`) to retrieve full repository metadata.\n\nThis endpoint requires you to authenticate and limits you to 10 requests per minute.",
         "tags": [
           "search"
         ],
@@ -110792,6 +110788,15 @@
               "medium",
               "high",
               "critical"
+            ]
+          },
+          "classification": {
+            "type": "string",
+            "description": "The classification of the advisory.",
+            "readOnly": true,
+            "enum": [
+              "general",
+              "malware"
             ]
           },
           "cvss": {
@@ -323084,6 +323089,14 @@
           "type": "string",
           "format": "date",
           "example": "2025-10-13"
+        }
+      },
+      "dependabot-alert-comma-separated-classifications": {
+        "name": "classification",
+        "in": "query",
+        "description": "A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.\n\nCan be: `malware`, `general`",
+        "schema": {
+          "type": "string"
         }
       },
       "dependabot-alert-comma-separated-states": {

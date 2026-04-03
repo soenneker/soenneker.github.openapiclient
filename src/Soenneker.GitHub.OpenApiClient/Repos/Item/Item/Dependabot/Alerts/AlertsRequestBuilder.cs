@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,assignee*,before*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,assignee*,before*,classification*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,scope*,severity*,sort*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,assignee*,before*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,assignee*,before*,classification*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,scope*,severity*,sort*,state*}", rawUrl)
         {
         }
         /// <summary>
@@ -140,6 +140,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
 #else
             [QueryParameter("before")]
             public string Before { get; set; }
+#endif
+            /// <summary>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.Can be: `malware`, `general`</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("classification")]
+            public string? Classification { get; set; }
+#nullable restore
+#else
+            [QueryParameter("classification")]
+            public string Classification { get; set; }
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]

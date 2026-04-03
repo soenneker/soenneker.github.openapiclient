@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Tasks.Item
         {
         }
         /// <summary>
-        /// Returns a task by ID with its associated sessions
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a task by ID with its associated sessions
         /// API method documentation <see href="https://docs.github.com/rest/agent-tasks/agent-tasks#get-a-task-by-id" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.Item.WithTask_GetResponse"/></returns>
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Tasks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.Item.WithTask_GetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.Item.WithTask_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a task by ID with its associated sessions
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a task by ID with its associated sessions
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

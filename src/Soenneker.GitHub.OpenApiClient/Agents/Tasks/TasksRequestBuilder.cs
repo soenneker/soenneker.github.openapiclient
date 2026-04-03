@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Tasks
         {
         }
         /// <summary>
-        /// Returns a list of tasks for the authenticated user
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for the authenticated user
         /// API method documentation <see href="https://docs.github.com/rest/agent-tasks/agent-tasks#list-tasks" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.TasksGetResponse"/></returns>
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Tasks
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.TasksGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.TasksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of tasks for the authenticated user
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for the authenticated user
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Tasks
             return new global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.TasksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of tasks for the authenticated user
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for the authenticated user
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TasksRequestBuilderGetQueryParameters 
@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Tasks
             /// <summary>The direction to sort results. Can be `asc` or `desc`.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Agents.Tasks.GetDirectionQueryParameterType? Direction { get; set; }
-            /// <summary>Filter by archived status. When `true`, returns only archived tasks. When `false`, returns only non-archived tasks.</summary>
+            /// <summary>Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`.</summary>
             [QueryParameter("is_archived")]
             public bool? IsArchived { get; set; }
             /// <summary>The page number of the results to fetch.</summary>

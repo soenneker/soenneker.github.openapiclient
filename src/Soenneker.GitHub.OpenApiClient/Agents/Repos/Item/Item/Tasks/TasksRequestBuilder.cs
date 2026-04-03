@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
         {
         }
         /// <summary>
-        /// Returns a list of tasks for a specific repository
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for a specific repository
         /// API method documentation <see href="https://docs.github.com/rest/agent-tasks/agent-tasks#list-tasks-for-repository" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksGetResponse"/></returns>
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new task for a repository
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Creates a new task for a repository
         /// API method documentation <see href="https://docs.github.com/rest/agent-tasks/agent-tasks#create-a-task" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksPostResponse"/></returns>
@@ -110,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of tasks for a specific repository
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for a specific repository
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -129,7 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new task for a repository
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Creates a new task for a repository
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             return new global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of tasks for a specific repository
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for a specific repository
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TasksRequestBuilderGetQueryParameters 
@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             /// <summary>The direction to sort results. Can be `asc` or `desc`.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.GetDirectionQueryParameterType? Direction { get; set; }
-            /// <summary>Filter by archived status. When `true`, returns only archived tasks. When `false`, returns only non-archived tasks.</summary>
+            /// <summary>Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`.</summary>
             [QueryParameter("is_archived")]
             public bool? IsArchived { get; set; }
             /// <summary>The page number of the results to fetch.</summary>

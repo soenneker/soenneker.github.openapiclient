@@ -42,31 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
 #else
         public string EventContent { get; set; }
 #endif
-        /// <summary>Identifiers for tracking</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? EventIdentifiers { get; set; }
-#nullable restore
-#else
-        public List<string> EventIdentifiers { get; set; }
-#endif
-        /// <summary>Type of event</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EventType { get; set; }
-#nullable restore
-#else
-        public string EventType { get; set; }
-#endif
-        /// <summary>URL of the triggering event</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EventUrl { get; set; }
-#nullable restore
-#else
-        public string EventUrl { get; set; }
-#endif
-        /// <summary>Model identifier</summary>
+        /// <summary>The model to use for this task. The allowed models may change over time and depend on the user&apos;s GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -112,9 +88,6 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
                 { "create_pull_request", n => { CreatePullRequest = n.GetBoolValue(); } },
                 { "custom_agent", n => { CustomAgent = n.GetStringValue(); } },
                 { "event_content", n => { EventContent = n.GetStringValue(); } },
-                { "event_identifiers", n => { EventIdentifiers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "event_type", n => { EventType = n.GetStringValue(); } },
-                { "event_url", n => { EventUrl = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "problem_statement", n => { ProblemStatement = n.GetStringValue(); } },
             };
@@ -131,9 +104,6 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             writer.WriteBoolValue("create_pull_request", CreatePullRequest);
             writer.WriteStringValue("custom_agent", CustomAgent);
             writer.WriteStringValue("event_content", EventContent);
-            writer.WriteCollectionOfPrimitiveValues<string>("event_identifiers", EventIdentifiers);
-            writer.WriteStringValue("event_type", EventType);
-            writer.WriteStringValue("event_url", EventUrl);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("problem_statement", ProblemStatement);
             writer.WriteAdditionalData(AdditionalData);

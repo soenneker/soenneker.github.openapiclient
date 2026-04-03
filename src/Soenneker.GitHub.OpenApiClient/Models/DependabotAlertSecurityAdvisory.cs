@@ -13,6 +13,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DependabotAlertSecurityAdvisory : IParsable
     {
+        /// <summary>The classification of the advisory.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_classification? Classification { get; private set; }
         /// <summary>The unique CVE ID assigned to the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,6 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "classification", n => { Classification = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_classification>(); } },
                 { "cve_id", n => { CveId = n.GetStringValue(); } },
                 { "cvss", n => { Cvss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cvss>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cvss.CreateFromDiscriminatorValue); } },
                 { "cvss_severities", n => { CvssSeverities = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities.CreateFromDiscriminatorValue); } },
