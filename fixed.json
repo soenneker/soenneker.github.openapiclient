@@ -19732,6 +19732,15 @@
                               ],
                               "type": "string",
                               "description": "The type of the bypass reviewer"
+                            },
+                            "mode": {
+                              "enum": [
+                                "ALWAYS",
+                                "EXEMPT"
+                              ],
+                              "type": "string",
+                              "description": "The bypass mode for the reviewer",
+                              "default": "ALWAYS"
                             }
                           }
                         },
@@ -20225,6 +20234,15 @@
                               ],
                               "type": "string",
                               "description": "The type of the bypass reviewer"
+                            },
+                            "mode": {
+                              "enum": [
+                                "ALWAYS",
+                                "EXEMPT"
+                              ],
+                              "type": "string",
+                              "description": "The bypass mode for the reviewer",
+                              "default": "ALWAYS"
                             }
                           }
                         },
@@ -32688,6 +32706,9 @@
             "$ref": "#/components/parameters/secret-scanning-alert-secret-type"
           },
           {
+            "$ref": "#/components/parameters/secret-scanning-alert-exclude-secret-types"
+          },
+          {
             "$ref": "#/components/parameters/secret-scanning-alert-resolution"
           },
           {
@@ -35281,6 +35302,15 @@
                                   ],
                                   "type": "string",
                                   "description": "The type of the bypass reviewer"
+                                },
+                                "mode": {
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "default": "ALWAYS"
                                 }
                               }
                             },
@@ -66578,6 +66608,9 @@
             "$ref": "#/components/parameters/secret-scanning-alert-secret-type"
           },
           {
+            "$ref": "#/components/parameters/secret-scanning-alert-exclude-secret-types"
+          },
+          {
             "$ref": "#/components/parameters/secret-scanning-alert-resolution"
           },
           {
@@ -85093,6 +85126,15 @@
                       "type": "string",
                       "description": "The type of the bypass reviewer"
                     },
+                    "mode": {
+                      "enum": [
+                        "ALWAYS",
+                        "EXEMPT"
+                      ],
+                      "type": "string",
+                      "description": "The bypass mode for the reviewer",
+                      "default": "ALWAYS"
+                    },
                     "security_configuration_id": {
                       "type": "integer",
                       "description": "The ID of the security configuration associated with this bypass reviewer",
@@ -89814,6 +89856,15 @@
                       ],
                       "type": "string",
                       "description": "The type of the bypass reviewer"
+                    },
+                    "mode": {
+                      "enum": [
+                        "ALWAYS",
+                        "EXEMPT"
+                      ],
+                      "type": "string",
+                      "description": "The bypass mode for the reviewer",
+                      "default": "ALWAYS"
                     }
                   }
                 },
@@ -267500,6 +267551,14 @@
           "type": "string"
         }
       },
+      "secret-scanning-alert-exclude-secret-types": {
+        "name": "exclude_secret_types",
+        "in": "query",
+        "description": "A comma-separated list of secret types to exclude from the results. All default secret patterns are returned except those matching the specified types. Cannot be combined with the `secret_type` parameter. See \"[Supported secret scanning patterns](https://docs.github.com/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)\" for a complete list of secret types.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "secret-scanning-alert-resolution": {
         "name": "resolution",
         "in": "query",
@@ -271312,16 +271371,7 @@
               },
               "secret_scanning": "enabled",
               "secret_scanning_push_protection": "enabled",
-              "secret_scanning_delegated_bypass": "enabled",
-              "secret_scanning_delegated_bypass_options": {
-                "reviewers": [
-                  {
-                    "security_configuration_id": "1325",
-                    "reviewer_id": "5678",
-                    "reviewer_type": "TEAM"
-                  }
-                ]
-              },
+              "secret_scanning_delegated_bypass": "disabled",
               "secret_scanning_validity_checks": "enabled",
               "secret_scanning_non_provider_patterns": "enabled",
               "private_vulnerability_reporting": "enabled",
@@ -271393,8 +271443,17 @@
           },
           "code_scanning_delegated_alert_dismissal": "disabled",
           "secret_scanning": "enabled",
-          "secret_scanning_push_protection": "disabled",
-          "secret_scanning_delegated_bypass": "disabled",
+          "secret_scanning_push_protection": "enabled",
+          "secret_scanning_delegated_bypass": "enabled",
+          "secret_scanning_delegated_bypass_options": {
+            "reviewers": [
+              {
+                "security_configuration_id": "1325",
+                "reviewer_id": "5678",
+                "reviewer_type": "TEAM"
+              }
+            ]
+          },
           "secret_scanning_validity_checks": "disabled",
           "secret_scanning_non_provider_patterns": "disabled",
           "secret_scanning_generic_secrets": "disabled",
@@ -275620,16 +275679,7 @@
             "code_scanning_delegated_alert_dismissal": "enabled",
             "secret_scanning": "enabled",
             "secret_scanning_push_protection": "enabled",
-            "secret_scanning_delegated_bypass": "enabled",
-            "secret_scanning_delegated_bypass_options": {
-              "reviewers": [
-                {
-                  "security_configuration_id": "17",
-                  "reviewer_id": "5678",
-                  "reviewer_type": "TEAM"
-                }
-              ]
-            },
+            "secret_scanning_delegated_bypass": "disabled",
             "secret_scanning_validity_checks": "enabled",
             "secret_scanning_non_provider_patterns": "enabled",
             "secret_scanning_delegated_alert_dismissal": "not_set",

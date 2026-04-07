@@ -14,6 +14,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.I
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The bypass mode for the reviewer</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers_mode? Mode { get; set; }
         /// <summary>The ID of the team or role selected as a bypass reviewer</summary>
         public long? ReviewerId { get; set; }
         /// <summary>The type of the bypass reviewer</summary>
@@ -24,6 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.I
         public WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers()
         {
             AdditionalData = new Dictionary<string, object>();
+            Mode = global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers_mode.ALWAYS;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -43,6 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.I
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers_mode>(); } },
                 { "reviewer_id", n => { ReviewerId = n.GetLongValue(); } },
                 { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>(); } },
             };
@@ -54,6 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.I
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers_mode>("mode", Mode);
             writer.WriteLongValue("reviewer_id", ReviewerId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_PatchRequestBody_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>("reviewer_type", ReviewerType);
             writer.WriteAdditionalData(AdditionalData);
