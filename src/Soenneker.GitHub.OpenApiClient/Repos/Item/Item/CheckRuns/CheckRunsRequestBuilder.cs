@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.checkRuns.item collection</summary>
         /// <param name="position">The unique identifier of the check run.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -50,22 +50,22 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         /// Creates a new check run for a specific commit in a repository.To create a check run, you must use a GitHub App. OAuth apps and authenticated users are not able to create a check suite.In a check suite, GitHub limits the number of check runs with the same name to 1000. Once these check runs exceed 1000, GitHub will start to automatically delete older check runs.&gt; [!NOTE]&gt; The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.
         /// API method documentation <see href="https://docs.github.com/rest/checks/runs#create-a-check-run" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckRun"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Check_run"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Check_run?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Check_run> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckRun.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Check_run>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Check_run.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new check run for a specific commit in a repository.To create a check run, you must use a GitHub App. OAuth apps and authenticated users are not able to create a check suite.In a check suite, GitHub limits the number of check runs with the same name to 1000. Once these check runs exceed 1000, GitHub will start to automatically delete older check runs.&gt; [!NOTE]&gt; The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.
@@ -75,11 +75,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -97,81 +97,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CheckRunsPostRequestBody : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1? CheckRunsPostRequestBodyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1 CheckRunsPostRequestBodyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember2? CheckRunsPostRequestBodyMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember2 CheckRunsPostRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsPostRequestBody();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CheckRunsPostRequestBodyMember1 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CheckRunsPostRequestBodyMember2 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember2();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(CheckRunsPostRequestBodyMember1 != null)
-                {
-                    return CheckRunsPostRequestBodyMember1.GetFieldDeserializers();
-                }
-                else if(CheckRunsPostRequestBodyMember2 != null)
-                {
-                    return CheckRunsPostRequestBodyMember2.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(CheckRunsPostRequestBodyMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember1>(null, CheckRunsPostRequestBodyMember1);
-                }
-                else if(CheckRunsPostRequestBodyMember2 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.CheckRunsPostRequestBodyMember2>(null, CheckRunsPostRequestBodyMember2);
-                }
-            }
         }
     }
 }

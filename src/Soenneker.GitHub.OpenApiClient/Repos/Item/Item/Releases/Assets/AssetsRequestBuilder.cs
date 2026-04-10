@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.releases.assets.item collection</summary>
         /// <param name="position">The unique identifier of the asset.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAsset_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAsset_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAsset_ItemRequestBuilder this[int position]
         {
             get
             {

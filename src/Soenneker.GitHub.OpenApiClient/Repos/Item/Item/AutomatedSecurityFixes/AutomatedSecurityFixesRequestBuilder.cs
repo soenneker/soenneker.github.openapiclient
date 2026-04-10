@@ -55,38 +55,39 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes
         /// Shows whether Dependabot security updates are enabled, disabled or paused for a repository. The authenticated user must have admin read access to the repository. For more information, see &quot;[Configuring Dependabot security updates](https://docs.github.com/articles/configuring-automated-security-fixes)&quot;.
         /// API method documentation <see href="https://docs.github.com/rest/repos/repos#check-if-dependabot-security-updates-are-enabled-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckAutomatedSecurityFixes"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Check_automated_security_fixes"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckAutomatedSecurityFixes?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Check_automated_security_fixes?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckAutomatedSecurityFixes> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Check_automated_security_fixes> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckAutomatedSecurityFixes>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckAutomatedSecurityFixes.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Check_automated_security_fixes>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Check_automated_security_fixes.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Enables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see &quot;[Configuring Dependabot security updates](https://docs.github.com/articles/configuring-automated-security-fixes)&quot;.
         /// API method documentation <see href="https://docs.github.com/rest/repos/repos#enable-dependabot-security-updates" />
         /// </summary>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Disables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see &quot;[Configuring Dependabot security updates](https://docs.github.com/articles/configuring-automated-security-fixes)&quot;.
@@ -104,6 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -141,6 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes
 #endif
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

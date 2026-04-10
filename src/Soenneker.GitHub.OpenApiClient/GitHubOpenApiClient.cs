@@ -39,7 +39,6 @@ using Soenneker.GitHub.OpenApiClient.Rate_limit;
 using Soenneker.GitHub.OpenApiClient.Repos;
 using Soenneker.GitHub.OpenApiClient.Repositories;
 using Soenneker.GitHub.OpenApiClient.Search;
-using Soenneker.GitHub.OpenApiClient.Teams;
 using Soenneker.GitHub.OpenApiClient.User;
 using Soenneker.GitHub.OpenApiClient.Users;
 using Soenneker.GitHub.OpenApiClient.Versions;
@@ -211,11 +210,6 @@ namespace Soenneker.GitHub.OpenApiClient
         public global::Soenneker.GitHub.OpenApiClient.Search.SearchRequestBuilder Search
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The teams property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Teams.TeamsRequestBuilder Teams
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The user property</summary>
         public global::Soenneker.GitHub.OpenApiClient.User.UserRequestBuilder User

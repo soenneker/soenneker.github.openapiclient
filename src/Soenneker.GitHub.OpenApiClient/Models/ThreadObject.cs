@@ -42,10 +42,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository? Repository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository Repository { get; set; }
 #endif
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "last_read_at", n => { LastReadAt = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
+                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository>(global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository.CreateFromDiscriminatorValue); } },
                 { "subject", n => { Subject = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Thread_subject>(global::Soenneker.GitHub.OpenApiClient.Models.Thread_subject.CreateFromDiscriminatorValue); } },
                 { "subscription_url", n => { SubscriptionUrl = n.GetStringValue(); } },
                 { "unread", n => { Unread = n.GetBoolValue(); } },
@@ -127,7 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("last_read_at", LastReadAt);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository>("repository", Repository);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Thread_subject>("subject", Subject);
             writer.WriteStringValue("subscription_url", SubscriptionUrl);
             writer.WriteBoolValue("unread", Unread);

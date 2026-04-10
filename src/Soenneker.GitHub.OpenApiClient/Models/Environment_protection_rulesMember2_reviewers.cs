@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2_reviewers.Environment_protection_rulesMember2_reviewers_reviewer Reviewer { get; set; }
 #endif
         /// <summary>The type of reviewer.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment_reviewer_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2_reviewers"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "reviewer", n => { Reviewer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2_reviewers.Environment_protection_rulesMember2_reviewers_reviewer>(global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2_reviewers.Environment_protection_rulesMember2_reviewers_reviewer.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_reviewer_type>(); } },
             };
         }
         /// <summary>
@@ -61,22 +61,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2_reviewers.Environment_protection_rulesMember2_reviewers_reviewer>("reviewer", Reviewer);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentReviewerType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_reviewer_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Simple_user"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Environment_protection_rulesMember2_reviewers_reviewer : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Simple_user"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? SimpleUser { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? SimpleUser { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user SimpleUser { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2_reviewers.Environment_protection_rulesMember2_reviewers_reviewer();
-                result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
+                result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.Simple_user();
                 result.Team = new global::Soenneker.GitHub.OpenApiClient.Models.Team();
                 return result;
             }
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(null, SimpleUser, Team);
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(null, SimpleUser, Team);
             }
         }
     }

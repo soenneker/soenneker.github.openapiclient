@@ -37,20 +37,20 @@ namespace Soenneker.GitHub.OpenApiClient.Classrooms.Item.Assignments
         /// Lists GitHub Classroom assignments for a classroom. Assignments will only be returned if the current user is an administrator of the GitHub Classroom.
         /// API method documentation <see href="https://docs.github.com/rest/classroom/classroom#list-assignments-for-a-classroom" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom_assignment&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.Assignments.AssignmentsRequestBuilder.AssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom_assignment>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.Assignments.AssignmentsRequestBuilder.AssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.Assignments.AssignmentsRequestBuilder.AssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom_assignment>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.Assignments.AssignmentsRequestBuilder.AssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomAssignment.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom_assignment>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom_assignment.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

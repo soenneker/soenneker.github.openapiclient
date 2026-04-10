@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string GravatarId { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The login property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "avatar_url", n => { AvatarUrl = n.GetStringValue(); } },
                 { "display_login", n => { DisplayLogin = n.GetStringValue(); } },
                 { "gravatar_id", n => { GravatarId = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("avatar_url", AvatarUrl);
             writer.WriteStringValue("display_login", DisplayLogin);
             writer.WriteStringValue("gravatar_id", GravatarId);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("login", Login);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

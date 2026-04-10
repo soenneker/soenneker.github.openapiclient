@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.app.installations.item collection</summary>
         /// <param name="position">The unique identifier of the installation.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.WithInstallation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.WithInstallation_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.WithInstallation_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -115,7 +115,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
+            /// <summary>&quot;Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
         }

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user? Actor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user Actor { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Before { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,10 +87,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activity_type", n => { ActivityType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Activity_activity_type>(); } },
-                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user.CreateFromDiscriminatorValue); } },
                 { "after", n => { After = n.GetStringValue(); } },
                 { "before", n => { Before = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
@@ -104,10 +104,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Activity_activity_type>("activity_type", ActivityType);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("actor", Actor);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>("actor", Actor);
             writer.WriteStringValue("after", After);
             writer.WriteStringValue("before", Before);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("ref", Ref);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);

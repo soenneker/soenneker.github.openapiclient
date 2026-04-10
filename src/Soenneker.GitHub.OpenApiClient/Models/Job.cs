@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id of the job.</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>Labels for the workflow job. Specified by the &quot;runs_on&quot; attribute in the action&apos;s workflow file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,9 +82,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run.</summary>
         public int? RunAttempt { get; set; }
         /// <summary>The id of the associated workflow run.</summary>
-        public long? RunId { get; set; }
+        public int? RunId { get; set; }
         /// <summary>The ID of the runner group to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
-        public long? RunnerGroupId { get; set; }
+        public int? RunnerGroupId { get; set; }
         /// <summary>The name of the runner group to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RunnerGroupName { get; set; }
 #endif
         /// <summary>The ID of the runner to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
-        public long? RunnerId { get; set; }
+        public int? RunnerId { get; set; }
         /// <summary>The name of the runner to which this job has been assigned. (If a runner hasn&apos;t yet been assigned, this will be null.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -171,16 +171,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "run_attempt", n => { RunAttempt = n.GetIntValue(); } },
-                { "run_id", n => { RunId = n.GetLongValue(); } },
+                { "run_id", n => { RunId = n.GetIntValue(); } },
                 { "run_url", n => { RunUrl = n.GetStringValue(); } },
-                { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
+                { "runner_group_id", n => { RunnerGroupId = n.GetIntValue(); } },
                 { "runner_group_name", n => { RunnerGroupName = n.GetStringValue(); } },
-                { "runner_id", n => { RunnerId = n.GetLongValue(); } },
+                { "runner_id", n => { RunnerId = n.GetIntValue(); } },
                 { "runner_name", n => { RunnerName = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Job_status>(); } },
@@ -203,15 +203,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteStringValue("head_sha", HeadSha);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("run_attempt", RunAttempt);
-            writer.WriteLongValue("run_id", RunId);
-            writer.WriteLongValue("runner_group_id", RunnerGroupId);
+            writer.WriteIntValue("run_id", RunId);
+            writer.WriteIntValue("runner_group_id", RunnerGroupId);
             writer.WriteStringValue("runner_group_name", RunnerGroupName);
-            writer.WriteLongValue("runner_id", RunnerId);
+            writer.WriteIntValue("runner_id", RunnerId);
             writer.WriteStringValue("runner_name", RunnerName);
             writer.WriteStringValue("run_url", RunUrl);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);

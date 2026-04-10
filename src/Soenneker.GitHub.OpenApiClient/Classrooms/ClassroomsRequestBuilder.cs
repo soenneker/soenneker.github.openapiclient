@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Classrooms
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.classrooms.item collection</summary>
         /// <param name="position">The unique identifier of the classroom.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroom_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroom_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroom_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -50,20 +50,20 @@ namespace Soenneker.GitHub.OpenApiClient.Classrooms
         /// Lists GitHub Classroom classrooms for the current user. Classrooms will only be returned if the current user is an administrator of one or more GitHub Classrooms.
         /// API method documentation <see href="https://docs.github.com/rest/classroom/classroom#list-classrooms" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroom&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroom>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder.ClassroomsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder.ClassroomsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroom>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder.ClassroomsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder.ClassroomsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroom>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroom.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Simple_classroom.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

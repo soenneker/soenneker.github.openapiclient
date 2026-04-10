@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The author property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user Author { get; set; }
 #endif
         /// <summary>The comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,18 +42,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The committer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user Committer { get; set; }
 #endif
         /// <summary>The files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>? Files { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Diff_entry>? Files { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry> Files { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Diff_entry> Files { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,11 +128,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue); } },
                 { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },
                 { "commit", n => { CommitProp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_commit.CreateFromDiscriminatorValue); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer.CreateFromDiscriminatorValue); } },
-                { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>(global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue); } },
+                { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Diff_entry>(global::Soenneker.GitHub.OpenApiClient.Models.Diff_entry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -148,11 +148,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>("author", Author);
             writer.WriteStringValue("comments_url", CommentsUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_commit>("commit", CommitProp);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer>("committer", Committer);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>("files", Files);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>("committer", Committer);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Diff_entry>("files", Files);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents>("parents", Parents);
@@ -160,156 +160,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_stats>("stats", Stats);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Commit_author : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject? EmptyObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject EmptyObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? SimpleUser { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_author();
-                if("empty-object".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EmptyObject = new global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject();
-                }
-                else if("simple-user".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EmptyObject != null)
-                {
-                    return EmptyObject.GetFieldDeserializers();
-                }
-                else if(SimpleUser != null)
-                {
-                    return SimpleUser.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EmptyObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject>(null, EmptyObject);
-                }
-                else if(SimpleUser != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(null, SimpleUser);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Commit_committer : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject? EmptyObject { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject EmptyObject { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? SimpleUser { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.Commit.Commit_committer();
-                if("empty-object".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EmptyObject = new global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject();
-                }
-                else if("simple-user".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EmptyObject != null)
-                {
-                    return EmptyObject.GetFieldDeserializers();
-                }
-                else if(SimpleUser != null)
-                {
-                    return SimpleUser.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EmptyObject != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.EmptyObject>(null, EmptyObject);
-                }
-                else if(SimpleUser != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(null, SimpleUser);
-                }
-            }
         }
     }
 }

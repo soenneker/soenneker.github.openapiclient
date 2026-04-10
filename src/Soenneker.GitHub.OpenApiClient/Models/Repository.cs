@@ -329,10 +329,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>License Simple</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_license_simple? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_license_simple License { get; set; }
 #endif
         /// <summary>The master_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -401,10 +401,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user Owner { get; set; }
 #endif
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -416,7 +416,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether the repository is private or public.</summary>
         public bool? Private { get; set; }
-        /// <summary>The policy controlling who can create pull requests: all or collaborators_only.</summary>
+        /// <summary>&quot;The policy controlling who can create pull requests: all or collaborators_only.&quot;</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.Repository_pull_request_creation_policy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -553,7 +553,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether a squash merge commit can use the pull request title as default. **This property is closing down. Please use `squash_merge_commit_title` instead.</summary>
         [Obsolete("")]
         public bool? UseSquashPrTitleAsDefault { get; set; }
-        /// <summary>The repository visibility: public, private, or internal.</summary>
+        /// <summary>&quot;The repository visibility: public, private, or internal.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }
@@ -649,7 +649,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_license_simple>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_license_simple.CreateFromDiscriminatorValue); } },
                 { "master_branch", n => { MasterBranch = n.GetStringValue(); } },
                 { "merge_commit_message", n => { MergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_message>(); } },
                 { "merge_commit_title", n => { MergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_title>(); } },
@@ -661,7 +661,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "notifications_url", n => { NotificationsUrl = n.GetStringValue(); } },
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_permissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_pull_request_creation_policy>(); } },
@@ -756,7 +756,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", LanguagesUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_license_simple>("license", License);
             writer.WriteStringValue("master_branch", MasterBranch);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_message>("merge_commit_message", MergeCommitMessage);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_merge_commit_title>("merge_commit_title", MergeCommitTitle);
@@ -768,7 +768,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("notifications_url", NotificationsUrl);
             writer.WriteIntValue("open_issues", OpenIssues);
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_permissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);

@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -180,7 +180,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "comments", n => { Comments = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label>(global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -212,7 +212,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("comments", Comments);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label>("labels", Labels);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteStringValue("node_id", NodeId);

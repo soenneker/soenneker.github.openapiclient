@@ -27,7 +27,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.checkSuites.item collection</summary>
         /// <param name="position">The unique identifier of the check suite.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.WithCheck_suite_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.WithCheck_suite_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.WithCheck_suite_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -56,22 +56,22 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
         /// Creates a check suite manually. By default, check suites are automatically created when you create a [check run](https://docs.github.com/rest/checks/runs). You only need to use this endpoint for manually creating check suites when you&apos;ve disabled automatic creation using &quot;[Update repository preferences for check suites](https://docs.github.com/rest/checks/suites#update-repository-preferences-for-check-suites)&quot;.&gt; [!NOTE]&gt; The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.OAuth apps and personal access tokens (classic) cannot use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/checks/suites#create-a-check-suite" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Check_suite"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.CheckSuitesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Check_suite?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create_suite body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.CheckSuitesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Check_suite> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create_suite body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Check_suite>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Check_suite.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a check suite manually. By default, check suites are automatically created when you create a [check run](https://docs.github.com/rest/checks/runs). You only need to use this endpoint for manually creating check suites when you&apos;ve disabled automatic creation using &quot;[Update repository preferences for check suites](https://docs.github.com/rest/checks/suites#update-repository-preferences-for-check-suites)&quot;.&gt; [!NOTE]&gt; The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.OAuth apps and personal access tokens (classic) cannot use this endpoint.
@@ -81,11 +81,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.CheckSuitesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create_suite body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.CheckSuitesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Checks_create_suite body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

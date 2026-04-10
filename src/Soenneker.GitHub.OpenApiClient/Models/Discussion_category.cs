@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Emoji { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The is_answerable property</summary>
         public bool? IsAnswerable { get; set; }
         /// <summary>The name property</summary>
@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string NodeId { get; set; }
 #endif
         /// <summary>The repository_id property</summary>
-        public long? RepositoryId { get; set; }
+        public int? RepositoryId { get; set; }
         /// <summary>The slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,11 +98,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "emoji", n => { Emoji = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "is_answerable", n => { IsAnswerable = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -117,11 +117,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("emoji", Emoji);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("is_answerable", IsAnswerable);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteLongValue("repository_id", RepositoryId);
+            writer.WriteIntValue("repository_id", RepositoryId);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

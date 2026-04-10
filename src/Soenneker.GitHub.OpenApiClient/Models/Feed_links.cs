@@ -17,82 +17,82 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUser { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? CurrentUser { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUser { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type CurrentUser { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserActor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? CurrentUserActor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserActor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type CurrentUserActor { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserOrganization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? CurrentUserOrganization { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserOrganization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type CurrentUserOrganization { get; set; }
 #endif
         /// <summary>The current_user_organizations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>? CurrentUserOrganizations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>? CurrentUserOrganizations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType> CurrentUserOrganizations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type> CurrentUserOrganizations { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserPublic { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? CurrentUserPublic { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserPublic { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type CurrentUserPublic { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? RepositoryDiscussions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? RepositoryDiscussions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType RepositoryDiscussions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type RepositoryDiscussions { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? RepositoryDiscussionsCategory { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? RepositoryDiscussionsCategory { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType RepositoryDiscussionsCategory { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type RepositoryDiscussionsCategory { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? SecurityAdvisories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? SecurityAdvisories { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType SecurityAdvisories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type SecurityAdvisories { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? Timeline { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? Timeline { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType Timeline { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type Timeline { get; set; }
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Feed_links"/> and sets the default values.
@@ -119,16 +119,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "current_user", n => { CurrentUser = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "current_user_actor", n => { CurrentUserActor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "current_user_organization", n => { CurrentUserOrganization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "current_user_organizations", n => { CurrentUserOrganizations = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "current_user_public", n => { CurrentUserPublic = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "repository_discussions", n => { RepositoryDiscussions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "repository_discussions_category", n => { RepositoryDiscussionsCategory = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "security_advisories", n => { SecurityAdvisories = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "timeline", n => { Timeline = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>(global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType.CreateFromDiscriminatorValue); } },
+                { "current_user", n => { CurrentUser = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "current_user_actor", n => { CurrentUserActor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "current_user_organization", n => { CurrentUserOrganization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "current_user_organizations", n => { CurrentUserOrganizations = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "current_user_public", n => { CurrentUserPublic = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "repository_discussions", n => { RepositoryDiscussions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "repository_discussions_category", n => { RepositoryDiscussionsCategory = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "security_advisories", n => { SecurityAdvisories = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "timeline", n => { Timeline = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>(global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -138,16 +138,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("current_user", CurrentUser);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("current_user_actor", CurrentUserActor);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("current_user_organization", CurrentUserOrganization);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("current_user_organizations", CurrentUserOrganizations);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("current_user_public", CurrentUserPublic);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("repository_discussions", RepositoryDiscussions);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("repository_discussions_category", RepositoryDiscussionsCategory);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("security_advisories", SecurityAdvisories);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("timeline", Timeline);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("current_user", CurrentUser);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("current_user_actor", CurrentUserActor);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("current_user_organization", CurrentUserOrganization);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("current_user_organizations", CurrentUserOrganizations);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("current_user_public", CurrentUserPublic);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("repository_discussions", RepositoryDiscussions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("repository_discussions_category", RepositoryDiscussionsCategory);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("security_advisories", SecurityAdvisories);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("timeline", Timeline);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_with_type>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

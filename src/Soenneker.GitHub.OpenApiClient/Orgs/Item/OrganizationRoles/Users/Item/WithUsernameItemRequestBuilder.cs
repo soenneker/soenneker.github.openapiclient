@@ -20,7 +20,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.organizationRoles.users.item.item collection</summary>
         /// <param name="position">The unique identifier of the role.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.Item.WithRole_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.Item.WithRole_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.Item.WithRole_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -79,6 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

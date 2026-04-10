@@ -50,20 +50,20 @@ namespace Soenneker.GitHub.OpenApiClient.Licenses
         /// Lists the most commonly used licenses on GitHub. For more information, see &quot;[Licensing a repository ](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).&quot;
         /// API method documentation <see href="https://docs.github.com/rest/licenses/licenses#get-all-commonly-used-licenses" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.License_simple&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Licenses.LicensesRequestBuilder.LicensesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.License_simple>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Licenses.LicensesRequestBuilder.LicensesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Licenses.LicensesRequestBuilder.LicensesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.License_simple>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Licenses.LicensesRequestBuilder.LicensesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.LicenseSimple.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.License_simple>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.License_simple.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

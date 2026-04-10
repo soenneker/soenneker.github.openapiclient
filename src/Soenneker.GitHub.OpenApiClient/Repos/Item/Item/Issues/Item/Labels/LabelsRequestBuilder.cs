@@ -52,8 +52,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 410 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,8 +66,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "410", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -78,8 +78,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Label&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 410 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -92,8 +92,8 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "410", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Label>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -106,25 +106,25 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 410 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Validation_error">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_labels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_labels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "410", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.Validation_error.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Label>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -137,25 +137,25 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 410 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Validation_error">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_labels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Label>> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_labels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "410", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.Validation_error.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Label>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -206,11 +206,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_labels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_labels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -228,11 +228,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_labels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_labels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -250,216 +250,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2&gt;, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LabelsPostRequestBody : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1? LabelsPostRequestBodyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1 LabelsPostRequestBodyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>? LabelsPostRequestBodyMember2 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2> LabelsPostRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPostRequestBody();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.LabelsPostRequestBodyMember1 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1();
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2> labelsPostRequestBodyMember2Value)
-                {
-                    result.LabelsPostRequestBodyMember2 = labelsPostRequestBodyMember2Value;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(LabelsPostRequestBodyMember1 != null)
-                {
-                    return LabelsPostRequestBodyMember1.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(LabelsPostRequestBodyMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember1>(null, LabelsPostRequestBodyMember1);
-                }
-                else if(LabelsPostRequestBodyMember2 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPostRequestBodyMember2>(null, LabelsPostRequestBodyMember2);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember2"/>, <see cref="string"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3&gt;, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LabelsPutRequestBody : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1? LabelsPutRequestBodyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1 LabelsPutRequestBodyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember2? LabelsPutRequestBodyMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember2 LabelsPutRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3>? LabelsPutRequestBodyMember3 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3> LabelsPutRequestBodyMember3 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? LabelsPutRequestBodyString { get; set; }
-#nullable restore
-#else
-            public string LabelsPutRequestBodyString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsRequestBuilder.LabelsPutRequestBody();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.LabelsPutRequestBodyMember1 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.LabelsPutRequestBodyMember2 = new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember2();
-                }
-                else if(parseNode.GetStringValue() is string labelsPutRequestBodyStringValue)
-                {
-                    result.LabelsPutRequestBodyString = labelsPutRequestBodyStringValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3>(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3> labelsPutRequestBodyMember3Value)
-                {
-                    result.LabelsPutRequestBodyMember3 = labelsPutRequestBodyMember3Value;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(LabelsPutRequestBodyMember1 != null)
-                {
-                    return LabelsPutRequestBodyMember1.GetFieldDeserializers();
-                }
-                else if(LabelsPutRequestBodyMember2 != null)
-                {
-                    return LabelsPutRequestBodyMember2.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(LabelsPutRequestBodyMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember1>(null, LabelsPutRequestBodyMember1);
-                }
-                else if(LabelsPutRequestBodyMember2 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember2>(null, LabelsPutRequestBodyMember2);
-                }
-                else if(LabelsPutRequestBodyString != null)
-                {
-                    writer.WriteStringValue(null, LabelsPutRequestBodyString);
-                }
-                else if(LabelsPutRequestBodyMember3 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels.LabelsPutRequestBodyMember3>(null, LabelsPutRequestBodyMember3);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
         }
         /// <summary>
         /// Lists all labels for an issue.

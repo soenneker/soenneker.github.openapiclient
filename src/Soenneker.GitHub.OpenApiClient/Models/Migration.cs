@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `&quot;repositories&quot;`.</summary>
+        /// <summary>&quot;Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\&quot;repositories\&quot;`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Exclude { get; set; }
@@ -68,10 +68,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user Owner { get; set; }
 #endif
         /// <summary>The repositories included in the migration. Only returned for export migrations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "lock_repositories", n => { LockRepositories = n.GetBoolValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "org_metadata_only", n => { OrgMetadataOnly = n.GetBoolValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user.CreateFromDiscriminatorValue); } },
                 { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -164,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("lock_repositories", LockRepositories);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteBoolValue("org_metadata_only", OrgMetadataOnly);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>("owner", Owner);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repositories", Repositories);
             writer.WriteStringValue("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

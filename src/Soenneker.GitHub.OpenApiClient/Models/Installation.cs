@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The app_id property</summary>
-        public long? AppId { get; set; }
+        public int? AppId { get; set; }
         /// <summary>The app_slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,14 +78,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The ID of the installation.</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The permissions granted to the user access token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.App_permissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.App_permissions Permissions { get; set; }
 #endif
         /// <summary>The repositories_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,13 +118,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? SuspendedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user? SuspendedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser SuspendedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user SuspendedBy { get; set; }
 #endif
         /// <summary>The ID of the user or organization this token is being scoped to.</summary>
-        public long? TargetId { get; set; }
+        public int? TargetId { get; set; }
         /// <summary>The target_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "access_tokens_url", n => { AccessTokensUrl = n.GetStringValue(); } },
                 { "account", n => { Account = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account>(global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account.CreateFromDiscriminatorValue); } },
-                { "app_id", n => { AppId = n.GetLongValue(); } },
+                { "app_id", n => { AppId = n.GetIntValue(); } },
                 { "app_slug", n => { AppSlug = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "contact_email", n => { ContactEmail = n.GetStringValue(); } },
@@ -170,15 +170,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "has_multiple_single_files", n => { HasMultipleSingleFiles = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.App_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.App_permissions.CreateFromDiscriminatorValue); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation_repository_selection>(); } },
                 { "single_file_name", n => { SingleFileName = n.GetStringValue(); } },
                 { "single_file_paths", n => { SingleFilePaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "suspended_at", n => { SuspendedAt = n.GetDateTimeOffsetValue(); } },
-                { "suspended_by", n => { SuspendedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
-                { "target_id", n => { TargetId = n.GetLongValue(); } },
+                { "suspended_by", n => { SuspendedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user.CreateFromDiscriminatorValue); } },
+                { "target_id", n => { TargetId = n.GetIntValue(); } },
                 { "target_type", n => { TargetType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -192,7 +192,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_tokens_url", AccessTokensUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account>("account", Account);
-            writer.WriteLongValue("app_id", AppId);
+            writer.WriteIntValue("app_id", AppId);
             writer.WriteStringValue("app_slug", AppSlug);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("contact_email", ContactEmail);
@@ -200,21 +200,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
             writer.WriteBoolValue("has_multiple_single_files", HasMultipleSingleFiles);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteLongValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>("permissions", Permissions);
+            writer.WriteIntValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.App_permissions>("permissions", Permissions);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation_repository_selection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file_name", SingleFileName);
             writer.WriteCollectionOfPrimitiveValues<string>("single_file_paths", SingleFilePaths);
             writer.WriteDateTimeOffsetValue("suspended_at", SuspendedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("suspended_by", SuspendedBy);
-            writer.WriteLongValue("target_id", TargetId);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>("suspended_by", SuspendedBy);
+            writer.WriteIntValue("target_id", TargetId);
             writer.WriteStringValue("target_type", TargetType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Enterprise"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Enterprise"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Simple_user"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Installation_account : IComposedTypeWrapper, IParsable
@@ -227,13 +227,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
             public global::Soenneker.GitHub.OpenApiClient.Models.Enterprise Enterprise { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Simple_user"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? SimpleUser { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? SimpleUser { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user SimpleUser { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -245,7 +245,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account();
                 result.Enterprise = new global::Soenneker.GitHub.OpenApiClient.Models.Enterprise();
-                result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
+                result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.Simple_user();
                 return result;
             }
             /// <summary>

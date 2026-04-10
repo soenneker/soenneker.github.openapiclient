@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item
         {
         }
         /// <summary>
-        /// Marks a thread as &quot;done.&quot; Marking a thread as &quot;done&quot; is equivalent to marking a notification in your notification inbox on GitHub as done: https://github.com/notifications.
+        /// &quot;Marks a thread as \&quot;done.\&quot; Marking a thread as \&quot;done\&quot; is equivalent to marking a notification in your notification inbox on GitHub as done: https://github.com/notifications.&quot;
         /// API method documentation <see href="https://docs.github.com/rest/activity/notifications#mark-a-thread-as-done" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,8 +64,8 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ThreadObject"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ThreadObject?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -78,18 +78,18 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ThreadObject>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ThreadObject.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Marks a thread as &quot;read.&quot; Marking a thread as &quot;read&quot; is equivalent to clicking a notification in your notification inbox on GitHub: https://github.com/notifications.
+        /// &quot;Marks a thread as \&quot;read.\&quot; Marking a thread as \&quot;read\&quot; is equivalent to clicking a notification in your notification inbox on GitHub: https://github.com/notifications.&quot;
         /// API method documentation <see href="https://docs.github.com/rest/activity/notifications#mark-a-thread-as-read" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task PatchAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -102,12 +102,12 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item
             var requestInfo = ToPatchRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Marks a thread as &quot;done.&quot; Marking a thread as &quot;done&quot; is equivalent to marking a notification in your notification inbox on GitHub as done: https://github.com/notifications.
+        /// &quot;Marks a thread as \&quot;done.\&quot; Marking a thread as \&quot;done\&quot; is equivalent to marking a notification in your notification inbox on GitHub as done: https://github.com/notifications.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,6 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -144,7 +145,7 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item
             return requestInfo;
         }
         /// <summary>
-        /// Marks a thread as &quot;read.&quot; Marking a thread as &quot;read&quot; is equivalent to clicking a notification in your notification inbox on GitHub: https://github.com/notifications.
+        /// &quot;Marks a thread as \&quot;read.\&quot; Marking a thread as \&quot;read\&quot; is equivalent to clicking a notification in your notification inbox on GitHub: https://github.com/notifications.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

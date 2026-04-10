@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The assets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>? Assets { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Release_asset>? Assets { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset> Assets { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Release_asset> Assets { get; set; }
 #endif
         /// <summary>The assets_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,10 +34,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user Author { get; set; }
 #endif
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>Whether or not the release is immutable.</summary>
         public bool? Immutable { get; set; }
         /// <summary>The mentions_count property</summary>
@@ -112,10 +112,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The reactions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup? Reactions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Reaction_rollup? Reactions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup Reactions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Reaction_rollup Reactions { get; set; }
 #endif
         /// <summary>The name of the tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -192,9 +192,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>(global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Release_asset>(global::Soenneker.GitHub.OpenApiClient.Models.Release_asset.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "assets_url", n => { AssetsUrl = n.GetStringValue(); } },
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue); } },
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "body_html", n => { BodyHtml = n.GetStringValue(); } },
                 { "body_text", n => { BodyText = n.GetStringValue(); } },
@@ -202,14 +202,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "discussion_url", n => { DiscussionUrl = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "immutable", n => { Immutable = n.GetBoolValue(); } },
                 { "mentions_count", n => { MentionsCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "prerelease", n => { Prerelease = n.GetBoolValue(); } },
                 { "published_at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
-                { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>(global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup.CreateFromDiscriminatorValue); } },
+                { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Reaction_rollup>(global::Soenneker.GitHub.OpenApiClient.Models.Reaction_rollup.CreateFromDiscriminatorValue); } },
                 { "tag_name", n => { TagName = n.GetStringValue(); } },
                 { "tarball_url", n => { TarballUrl = n.GetStringValue(); } },
                 { "target_commitish", n => { TargetCommitish = n.GetStringValue(); } },
@@ -226,9 +226,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>("assets", Assets);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Release_asset>("assets", Assets);
             writer.WriteStringValue("assets_url", AssetsUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>("author", Author);
             writer.WriteStringValue("body", Body);
             writer.WriteStringValue("body_html", BodyHtml);
             writer.WriteStringValue("body_text", BodyText);
@@ -236,14 +236,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("discussion_url", DiscussionUrl);
             writer.WriteBoolValue("draft", Draft);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteLongValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("immutable", Immutable);
             writer.WriteIntValue("mentions_count", MentionsCount);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteBoolValue("prerelease", Prerelease);
             writer.WriteDateTimeOffsetValue("published_at", PublishedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>("reactions", Reactions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Reaction_rollup>("reactions", Reactions);
             writer.WriteStringValue("tag_name", TagName);
             writer.WriteStringValue("tarball_url", TarballUrl);
             writer.WriteStringValue("target_commitish", TargetCommitish);

@@ -43,54 +43,55 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#lists-the-repositories-dependabot-can-access-in-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_repository_access_details"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_repository_access_details?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_repository_access_details> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_repository_access_details>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_repository_access_details.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they&apos;ve updated dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
+        /// &quot;Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they&apos;ve updated dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  \&quot;repository_ids_to_add\&quot;: [123, 456],  \&quot;repository_ids_to_remove\&quot;: [789]}```&quot;
         /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#updates-dependabots-repository-access-list-for-an-organization" />
         /// </summary>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_update_repository_access_for_org body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_update_repository_access_for_org body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
@@ -112,18 +113,18 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
             return requestInfo;
         }
         /// <summary>
-        /// Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they&apos;ve updated dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
+        /// &quot;Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they&apos;ve updated dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.**Example request body:**```json{  \&quot;repository_ids_to_add\&quot;: [123, 456],  \&quot;repository_ids_to_remove\&quot;: [789]}```&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_update_repository_access_for_org body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_update_repository_access_for_org body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

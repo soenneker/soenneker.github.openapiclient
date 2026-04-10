@@ -38,10 +38,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The https_certificate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate? HttpsCertificate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Pages_https_certificate? HttpsCertificate { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate HttpsCertificate { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Pages_https_certificate HttpsCertificate { get; set; }
 #endif
         /// <summary>Whether https is enabled on the domain</summary>
         public bool? HttpsEnforced { get; set; }
@@ -54,10 +54,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Pages_source_hash? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Pages_source_hash Source { get; set; }
 #endif
         /// <summary>The status of the most recent build of the Page.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.Page_status? Status { get; set; }
@@ -98,12 +98,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "cname", n => { Cname = n.GetStringValue(); } },
                 { "custom_404", n => { Custom404 = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "https_certificate", n => { HttpsCertificate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate>(global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate.CreateFromDiscriminatorValue); } },
+                { "https_certificate", n => { HttpsCertificate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Pages_https_certificate>(global::Soenneker.GitHub.OpenApiClient.Models.Pages_https_certificate.CreateFromDiscriminatorValue); } },
                 { "https_enforced", n => { HttpsEnforced = n.GetBoolValue(); } },
                 { "pending_domain_unverified_at", n => { PendingDomainUnverifiedAt = n.GetDateTimeOffsetValue(); } },
                 { "protected_domain_state", n => { ProtectedDomainState = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Page_protected_domain_state>(); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash>(global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Pages_source_hash>(global::Soenneker.GitHub.OpenApiClient.Models.Pages_source_hash.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Page_status>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -119,12 +119,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("cname", Cname);
             writer.WriteBoolValue("custom_404", Custom404);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate>("https_certificate", HttpsCertificate);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Pages_https_certificate>("https_certificate", HttpsCertificate);
             writer.WriteBoolValue("https_enforced", HttpsEnforced);
             writer.WriteDateTimeOffsetValue("pending_domain_unverified_at", PendingDomainUnverifiedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Page_protected_domain_state>("protected_domain_state", ProtectedDomainState);
             writer.WriteBoolValue("public", Public);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Pages_source_hash>("source", Source);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Page_status>("status", Status);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

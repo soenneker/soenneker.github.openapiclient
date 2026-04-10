@@ -17,20 +17,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Metaproperties for Git author/committer information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user Author { get; set; }
 #endif
         /// <summary>The comment_count property</summary>
         public int? CommentCount { get; set; }
         /// <summary>Metaproperties for Git author/committer information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user Committer { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,9 +89,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user.CreateFromDiscriminatorValue); } },
                 { "comment_count", n => { CommentCount = n.GetIntValue(); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser.CreateFromDiscriminatorValue); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "tree", n => { Tree = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_commit_tree>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_commit_tree.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -105,9 +105,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user>("author", Author);
             writer.WriteIntValue("comment_count", CommentCount);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>("committer", Committer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_git_user>("committer", Committer);
             writer.WriteStringValue("message", Message);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_commit_tree>("tree", Tree);
             writer.WriteStringValue("url", Url);

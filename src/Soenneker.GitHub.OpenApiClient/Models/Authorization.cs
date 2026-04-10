@@ -48,10 +48,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The installation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation? Installation { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_scoped_installation? Installation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation Installation { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_scoped_installation Installation { get; set; }
 #endif
         /// <summary>The note property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,10 +106,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Authorization"/> and sets the default values.
@@ -142,7 +142,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "fingerprint", n => { Fingerprint = n.GetStringValue(); } },
                 { "hashed_token", n => { HashedToken = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "installation", n => { Installation = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation>(global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation.CreateFromDiscriminatorValue); } },
+                { "installation", n => { Installation = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_scoped_installation>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_scoped_installation.CreateFromDiscriminatorValue); } },
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "note_url", n => { NoteUrl = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -150,7 +150,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "token_last_eight", n => { TokenLastEight = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("fingerprint", Fingerprint);
             writer.WriteStringValue("hashed_token", HashedToken);
             writer.WriteLongValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableScopedInstallation>("installation", Installation);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_scoped_installation>("installation", Installation);
             writer.WriteStringValue("note", Note);
             writer.WriteStringValue("note_url", NoteUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
@@ -174,7 +174,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("token_last_eight", TokenLastEight);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_simple_user>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

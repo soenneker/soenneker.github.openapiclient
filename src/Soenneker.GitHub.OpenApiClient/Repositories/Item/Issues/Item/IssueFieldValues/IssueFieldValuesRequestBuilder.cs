@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFiel
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repositories.item.issues.item.issueFieldValues.item collection</summary>
         /// <param name="position">The unique identifier of the issue field.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -47,88 +47,88 @@ namespace Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFiel
         {
         }
         /// <summary>
-        /// Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.Adding an empty array will clear all existing field values for the issue.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsOnly users with push access to the repository can add issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see &quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)&quot;and &quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).&quot;
+        /// &quot;Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.Adding an empty array will clear all existing field values for the issue.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsOnly users with push access to the repository can add issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \&quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\&quot;and \&quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\&quot;&quot;
         /// API method documentation <see href="https://docs.github.com/rest/issues/issue-field-values#add-issue-field-values-to-an-issue" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValues503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Validation_error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_issue_field_values_200503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value>?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>> PostAsync(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value>> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValues503Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.Validation_error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_issue_field_values_200503Error.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.Only users with push access to the repository can set issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see &quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)&quot;and &quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).&quot;
+        /// &quot;Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.Only users with push access to the repository can set issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \&quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\&quot;and \&quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\&quot;&quot;
         /// API method documentation <see href="https://docs.github.com/rest/issues/issue-field-values#set-issue-field-values-for-an-issue" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValues503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Validation_error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_200503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value>?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>> PutAsync(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value>> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValues503Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.Validation_error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_200503Error.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Issue_field_value.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.Adding an empty array will clear all existing field values for the issue.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsOnly users with push access to the repository can add issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see &quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)&quot;and &quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).&quot;
+        /// &quot;Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.Adding an empty array will clear all existing field values for the issue.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsOnly users with push access to the repository can add issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \&quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\&quot;and \&quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\&quot;&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_add_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -139,18 +139,18 @@ namespace Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFiel
             return requestInfo;
         }
         /// <summary>
-        /// Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.Only users with push access to the repository can set issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see &quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)&quot;and &quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).&quot;
+        /// &quot;Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository&apos;s organization.This endpoint supports the following field data types:- **`text`**: String values for text fields- **`single_select`**: Option names for single-select fields (must match an existing option name)- **`number`**: Numeric values for number fields- **`date`**: ISO 8601 date strings for date fieldsThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.Only users with push access to the repository can set issue field values. If you don&apos;t have the proper permissions, you&apos;ll receive a `403 Forbidden` response.This endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \&quot;[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\&quot;and \&quot;[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\&quot;&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.IssueFieldValuesPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

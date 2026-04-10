@@ -40,10 +40,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Metadata? Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Metadata Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata Metadata { get; set; }
 #endif
         /// <summary>The repository branch that triggered this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The time at which the snapshot was scanned.</summary>
         public DateTimeOffset? Scanned { get; set; }
-        /// <summary>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</summary>
+        /// <summary>&quot;The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Sha { get; set; }
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "detector", n => { Detector = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_detector>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_detector.CreateFromDiscriminatorValue); } },
                 { "job", n => { Job = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_job>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_job.CreateFromDiscriminatorValue); } },
                 { "manifests", n => { Manifests = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Metadata>(global::Soenneker.GitHub.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata.CreateFromDiscriminatorValue); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "scanned", n => { Scanned = n.GetDateTimeOffsetValue(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_detector>("detector", Detector);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_job>("job", Job);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests>("manifests", Manifests);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata>("metadata", Metadata);
             writer.WriteStringValue("ref", Ref);
             writer.WriteDateTimeOffsetValue("scanned", Scanned);
             writer.WriteStringValue("sha", Sha);

@@ -41,14 +41,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.attestations.item collection</summary>
         /// <param name="position">Attestation ID</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithAttestation_ItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithAttestation_ItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("attestation_%2Did", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.Attestation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("attestation_id", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Item.WithAttestation_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

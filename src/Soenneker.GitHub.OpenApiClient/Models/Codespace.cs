@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? BillableOwner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? BillableOwner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser BillableOwner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user BillableOwner { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -84,10 +84,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A description of the machine powering a codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine? Machine { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_codespace_machine? Machine { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine Machine { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Nullable_codespace_machine Machine { get; set; }
 #endif
         /// <summary>API URL to access available alternate machine types for this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,10 +108,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Simple_user Owner { get; set; }
 #endif
         /// <summary>Whether or not a codespace has a pending async operation. This would mean that the codespace is temporarily unavailable. The only thing that you can do with a codespace in this state is delete it.</summary>
         public bool? PendingOperation { get; set; }
@@ -152,10 +152,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository? Repository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository Repository { get; set; }
 #endif
         /// <summary>When a codespace will be auto-deleted based on the &quot;retention_period_minutes&quot; and &quot;last_used_at&quot;</summary>
         public DateTimeOffset? RetentionExpiresAt { get; set; }
@@ -230,7 +230,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "billable_owner", n => { BillableOwner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "billable_owner", n => { BillableOwner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "devcontainer_path", n => { DevcontainerPath = n.GetStringValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
@@ -242,17 +242,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "last_known_stop_notice", n => { LastKnownStopNotice = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "location", n => { Location = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_location>(); } },
-                { "machine", n => { Machine = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine.CreateFromDiscriminatorValue); } },
+                { "machine", n => { Machine = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_codespace_machine>(global::Soenneker.GitHub.OpenApiClient.Models.Nullable_codespace_machine.CreateFromDiscriminatorValue); } },
                 { "machines_url", n => { MachinesUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue); } },
                 { "pending_operation", n => { PendingOperation = n.GetBoolValue(); } },
                 { "pending_operation_disabled_reason", n => { PendingOperationDisabledReason = n.GetStringValue(); } },
                 { "prebuild", n => { Prebuild = n.GetBoolValue(); } },
                 { "publish_url", n => { PublishUrl = n.GetStringValue(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
                 { "recent_folders", n => { RecentFolders = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
+                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository>(global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository.CreateFromDiscriminatorValue); } },
                 { "retention_expires_at", n => { RetentionExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "retention_period_minutes", n => { RetentionPeriodMinutes = n.GetIntValue(); } },
                 { "runtime_constraints", n => { RuntimeConstraints = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_runtime_constraints>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace_runtime_constraints.CreateFromDiscriminatorValue); } },
@@ -271,7 +271,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("billable_owner", BillableOwner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>("billable_owner", BillableOwner);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("devcontainer_path", DevcontainerPath);
             writer.WriteStringValue("display_name", DisplayName);
@@ -283,17 +283,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("last_known_stop_notice", LastKnownStopNotice);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_location>("location", Location);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine>("machine", Machine);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Nullable_codespace_machine>("machine", Machine);
             writer.WriteStringValue("machines_url", MachinesUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>("owner", Owner);
             writer.WriteBoolValue("pending_operation", PendingOperation);
             writer.WriteStringValue("pending_operation_disabled_reason", PendingOperationDisabledReason);
             writer.WriteBoolValue("prebuild", Prebuild);
             writer.WriteStringValue("publish_url", PublishUrl);
             writer.WriteStringValue("pulls_url", PullsUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("recent_folders", RecentFolders);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Minimal_repository>("repository", Repository);
             writer.WriteDateTimeOffsetValue("retention_expires_at", RetentionExpiresAt);
             writer.WriteIntValue("retention_period_minutes", RetentionPeriodMinutes);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_runtime_constraints>("runtime_constraints", RuntimeConstraints);

@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.jobs.item collection</summary>
         /// <param name="position">The unique identifier of the job.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder this[int position]
         {
             get
             {

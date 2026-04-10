@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings? DeploymentBranchPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment_branch_policy_settings? DeploymentBranchPolicy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings DeploymentBranchPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment_branch_policy_settings DeploymentBranchPolicy { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "deployment_branch_policy", n => { DeploymentBranchPolicy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings>(global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings.CreateFromDiscriminatorValue); } },
+                { "deployment_branch_policy", n => { DeploymentBranchPolicy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_branch_policy_settings>(global::Soenneker.GitHub.OpenApiClient.Models.Deployment_branch_policy_settings.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -113,7 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings>("deployment_branch_policy", DeploymentBranchPolicy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_branch_policy_settings>("deployment_branch_policy", DeploymentBranchPolicy);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);

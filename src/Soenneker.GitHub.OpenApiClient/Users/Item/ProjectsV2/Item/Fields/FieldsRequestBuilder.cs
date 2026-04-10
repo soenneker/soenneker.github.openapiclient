@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.projectsV2.item.fields.item collection</summary>
         /// <param name="position">The unique identifier of the field.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.Item.WithField_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.Item.WithField_ItemRequestBuilder this[long position]
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.Item.WithField_ItemRequestBuilder this[int position]
         {
             get
             {
@@ -50,58 +50,58 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields
         /// List all fields for a specific user-owned project.
         /// API method documentation <see href="https://docs.github.com/rest/projects/fields#list-project-fields-for-user" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
         /// Add a field to a specified user owned project.
         /// API method documentation <see href="https://docs.github.com/rest/projects/fields#add-field-to-user-owned-project" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Validation_error">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Projects_add_field_for_user body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field> PostAsync(global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Projects_add_field_for_user body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.Validation_error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Projects_v2_field.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all fields for a specific user-owned project.
@@ -130,11 +130,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Projects_add_field_for_user body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Projects_add_field_for_user body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -152,101 +152,6 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember3"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FieldsPostRequestBody : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember1? FieldsPostRequestBodyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember1 FieldsPostRequestBodyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember2? FieldsPostRequestBodyMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember2 FieldsPostRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember3? FieldsPostRequestBodyMember3 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember3 FieldsPostRequestBodyMember3 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsRequestBuilder.FieldsPostRequestBody();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.FieldsPostRequestBodyMember1 = new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.FieldsPostRequestBodyMember2 = new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember2();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.FieldsPostRequestBodyMember3 = new global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember3();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(FieldsPostRequestBodyMember1 != null)
-                {
-                    return FieldsPostRequestBodyMember1.GetFieldDeserializers();
-                }
-                else if(FieldsPostRequestBodyMember2 != null)
-                {
-                    return FieldsPostRequestBodyMember2.GetFieldDeserializers();
-                }
-                else if(FieldsPostRequestBodyMember3 != null)
-                {
-                    return FieldsPostRequestBodyMember3.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(FieldsPostRequestBodyMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember1>(null, FieldsPostRequestBodyMember1);
-                }
-                else if(FieldsPostRequestBodyMember2 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember2>(null, FieldsPostRequestBodyMember2);
-                }
-                else if(FieldsPostRequestBodyMember3 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Fields.FieldsPostRequestBodyMember3>(null, FieldsPostRequestBodyMember3);
-                }
-            }
         }
         /// <summary>
         /// List all fields for a specific user-owned project.

@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ephemeral property</summary>
         public bool? Ephemeral { get; set; }
         /// <summary>The ID of the runner.</summary>
-        public long? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Runner_label>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Runner_label> Labels { get; set; }
 #endif
         /// <summary>The name of the runner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Os { get; set; }
 #endif
         /// <summary>The ID of the runner group.</summary>
-        public long? RunnerGroupId { get; set; }
+        public int? RunnerGroupId { get; set; }
         /// <summary>The status of the runner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,11 +82,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "busy", n => { Busy = n.GetBoolValue(); } },
                 { "ephemeral", n => { Ephemeral = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel>(global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Runner_label>(global::Soenneker.GitHub.OpenApiClient.Models.Runner_label.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "os", n => { Os = n.GetStringValue(); } },
-                { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
+                { "runner_group_id", n => { RunnerGroupId = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -99,11 +99,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("busy", Busy);
             writer.WriteBoolValue("ephemeral", Ephemeral);
-            writer.WriteLongValue("id", Id);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RunnerLabel>("labels", Labels);
+            writer.WriteIntValue("id", Id);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Runner_label>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("os", Os);
-            writer.WriteLongValue("runner_group_id", RunnerGroupId);
+            writer.WriteIntValue("runner_group_id", RunnerGroupId);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
