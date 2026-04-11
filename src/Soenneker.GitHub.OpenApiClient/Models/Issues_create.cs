@@ -57,10 +57,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The title of the issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issues_create_title? Title { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? Title { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issues_create_title Title { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch Title { get; set; }
 #endif
         /// <summary>&quot;The name of the issue type to associate with this issue. _NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise._&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Issues_create.Issues_create_labels>(global::Soenneker.GitHub.OpenApiClient.Models.Issues_create.Issues_create_labels.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issues_create_title>(global::Soenneker.GitHub.OpenApiClient.Models.Issues_create_title.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -116,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("body", Body);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Issues_create.Issues_create_labels>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("milestone", Milestone);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issues_create_title>("title", Title);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("title", Title);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -33,10 +33,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_selected_repository_ids>? SelectedRepositoryIds { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>? SelectedRepositoryIds { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_selected_repository_ids> SelectedRepositoryIds { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch> SelectedRepositoryIds { get; set; }
 #endif
         /// <summary>Which type of organization repositories have access to the organization secret. `selected` means only the repositories specified by `selected_repository_ids` can access the secret.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_visibility? Visibility { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "encrypted_value", n => { EncryptedValue = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
-                { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_selected_repository_ids>(global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_selected_repository_ids.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_visibility>(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("encrypted_value", EncryptedValue);
             writer.WriteStringValue("key_id", KeyId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_selected_repository_ids>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("selected_repository_ids", SelectedRepositoryIds);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Dependabot_create_or_update_org_secret_visibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }

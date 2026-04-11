@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>&quot;The value to set for the field. The type depends on the field&apos;s data type:- For text fields: provide a string value- For single_select fields: provide the option name as a string (must match an existing option)- For number fields: provide a numeric value- For date fields: provide an ISO 8601 date string&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_issue_field_values_value? Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_issue_field_values_value Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "field_id", n => { FieldId = n.GetIntValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_issue_field_values_value>(global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_issue_field_values_value.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("field_id", FieldId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issues_set_issue_field_values_issue_field_values_value>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("value", Value);
         }
     }
 }

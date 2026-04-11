@@ -33,10 +33,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The public property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_public? Public { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? Public { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_public Public { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch Public { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Gists_create"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_files>(global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_files.CreateFromDiscriminatorValue); } },
-                { "public", n => { Public = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_public>(global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_public.CreateFromDiscriminatorValue); } },
+                { "public", n => { Public = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_files>("files", Files);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Gists_create_public>("public", Public);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("public", Public);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

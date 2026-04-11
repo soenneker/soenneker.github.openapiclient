@@ -33,10 +33,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret) endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Codespaces_create_or_update_secret_for_authenticated_user_selected_repository_ids>? SelectedRepositoryIds { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>? SelectedRepositoryIds { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Codespaces_create_or_update_secret_for_authenticated_user_selected_repository_ids> SelectedRepositoryIds { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch> SelectedRepositoryIds { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Codespaces_create_or_update_secret_for_authenticated_user"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "encrypted_value", n => { EncryptedValue = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
-                { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Codespaces_create_or_update_secret_for_authenticated_user_selected_repository_ids>(global::Soenneker.GitHub.OpenApiClient.Models.Codespaces_create_or_update_secret_for_authenticated_user_selected_repository_ids.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("encrypted_value", EncryptedValue);
             writer.WriteStringValue("key_id", KeyId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Codespaces_create_or_update_secret_for_authenticated_user_selected_repository_ids>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("selected_repository_ids", SelectedRepositoryIds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

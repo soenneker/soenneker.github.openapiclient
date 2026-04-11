@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ID of the GitHub Pages deployment. This is the Git SHA of the deployed commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Page_deployment_id? Id { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Page_deployment_id Id { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch Id { get; set; }
 #endif
         /// <summary>The URI to the deployed GitHub Pages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Page_deployment_id>(global::Soenneker.GitHub.OpenApiClient.Models.Page_deployment_id.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "page_url", n => { PageUrl = n.GetStringValue(); } },
                 { "preview_url", n => { PreviewUrl = n.GetStringValue(); } },
                 { "status_url", n => { StatusUrl = n.GetStringValue(); } },
@@ -85,7 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Page_deployment_id>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("id", Id);
             writer.WriteStringValue("page_url", PageUrl);
             writer.WriteStringValue("preview_url", PreviewUrl);
             writer.WriteStringValue("status_url", StatusUrl);

@@ -45,10 +45,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The type of pricing for the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_type? BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? BudgetType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_type BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch BudgetType { get; set; }
 #endif
         /// <summary>Whether to prevent additional spending once the budget is exceeded</summary>
         public bool? PreventFurtherUsage { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_scope>(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_type>(global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_type.CreateFromDiscriminatorValue); } },
+                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
             };
         }
@@ -98,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("budget_entity_name", BudgetEntityName);
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_scope>("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Billing_update_budget_org_budget_type>("budget_type", BudgetType);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("budget_type", BudgetType);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
             writer.WriteAdditionalData(AdditionalData);
         }
