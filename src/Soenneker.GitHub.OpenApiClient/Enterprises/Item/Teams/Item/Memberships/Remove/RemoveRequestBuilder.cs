@@ -37,23 +37,22 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships
         /// Remove multiple team members from an enterprise team.
         /// API method documentation <see href="https://docs.github.com/rest/enterprise-teams/enterprise-team-members#bulk-remove-team-members" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Simple_user&gt;</returns>
+        /// <returns>A <see cref="string"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Enterprise_team_memberships_bulk_remove body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamMembershipsBulkRemove body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Enterprise_team_memberships_bulk_remove body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamMembershipsBulkRemove body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Simple_user>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Simple_user.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-            return collectionResult?.AsList();
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Remove multiple team members from an enterprise team.
@@ -63,11 +62,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.Memberships
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Enterprise_team_memberships_bulk_remove body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamMembershipsBulkRemove body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Enterprise_team_memberships_bulk_remove body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamMembershipsBulkRemove body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -50,47 +50,46 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments
         /// &quot;Simple filtering of deployments is available via query parameters:&quot;
         /// API method documentation <see href="https://docs.github.com/rest/deployments/deployments#list-deployments" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Deployment&gt;</returns>
+        /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Deployment>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.DeploymentsRequestBuilder.DeploymentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.DeploymentsRequestBuilder.DeploymentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Deployment>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.DeploymentsRequestBuilder.DeploymentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.DeploymentsRequestBuilder.DeploymentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Deployment>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Deployment.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-            return collectionResult?.AsList();
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deployments offer a few configurable parameters with certain defaults.The `ref` parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify thembefore we merge a pull request.The `environment` parameter allows deployments to be issued to different runtime environments. Teams often havemultiple environments for verifying their applications, such as `production`, `staging`, and `qa`. This parametermakes it easier to track which environments have requested deployments. The default environment is `production`.The `auto_merge` parameter is used to ensure that the requested ref is not behind the repository&apos;s default branch. Ifthe ref _is_ behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds,the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API willreturn a failure response.By default, [commit statuses](https://docs.github.com/rest/commits/statuses) for every submitted context must be in a `success`state. The `required_contexts` parameter allows you to specify a subset of contexts that must be `success`, or tospecify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you donot require any contexts or create any commit statuses, the deployment will always succeed.The `payload` parameter is available for any extra information that a deployment system might need. It is a JSON textfield that will be passed on when a deployment event is dispatched.The `task` parameter is used by the deployment system to allow different execution paths. In the web world this mightbe `deploy:migrations` to run schema changes on the system. In the compiled world this could be a flag to compile anapplication with debugging enabled.Merged branch response:You will see this response when GitHub automatically merges the base branch into the topic branch instead of creatinga deployment. This auto-merge happens when:*   Auto-merge option is enabled in the repository*   Topic branch does not include the latest changes on the base branch, which is `master` in the response example*   There are no merge conflictsIf there are no new commits in the base branch, a new request to create a deployment should give a successfulresponse.Merge conflict response:This error happens when the `auto_merge` option is enabled and when the default branch (in this case `master`), can&apos;tbe merged into the branch that&apos;s being deployed (in this case `topic-branch`), due to merge conflicts.Failed commit status checks:This error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success`status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.OAuth app tokens and personal access tokens (classic) need the `repo` or `repo_deployment` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/deployments/deployments#create-a-deployment" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Deployment"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Validation_error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Deployment?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Repos_create_deployment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeployment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Deployment> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Repos_create_deployment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeployment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.Validation_error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Deployment>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Deployment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Simple filtering of deployments is available via query parameters:&quot;
@@ -119,11 +118,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Repos_create_deployment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeployment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Repos_create_deployment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeployment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

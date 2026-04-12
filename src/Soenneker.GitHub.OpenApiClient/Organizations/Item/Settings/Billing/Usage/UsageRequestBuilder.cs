@@ -43,31 +43,31 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usa
         /// Gets a report of the total usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.**Note:** This endpoint is only available to organizations with access to the enhanced billing platform. For more information, see &quot;[About the enhanced billing platform](https://docs.github.com/billing/using-the-new-billing-platform).&quot;
         /// API method documentation <see href="https://docs.github.com/rest/billing/usage#get-billing-usage-report-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Basic_error">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage.UsageRequestBuilder.UsageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.GitHub.OpenApiClient.Models.Basic_error.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report503Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport503Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Billing_usage_report.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReport.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets a report of the total usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.**Note:** This endpoint is only available to organizations with access to the enhanced billing platform. For more information, see &quot;[About the enhanced billing platform](https://docs.github.com/billing/using-the-new-billing-platform).&quot;

@@ -56,20 +56,20 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats
         /// Get the number of API requests and rate-limited requests made within an organization over a specified time period.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/api-insights#get-time-stats" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Api_insights_time_stats_item&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsTimeStats_item&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Api_insights_time_stats_item>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.TimeStatsRequestBuilder.TimeStatsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsTimeStats_item>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.TimeStatsRequestBuilder.TimeStatsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Api_insights_time_stats_item>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.TimeStatsRequestBuilder.TimeStatsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsTimeStats_item>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.TimeStatsRequestBuilder.TimeStatsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Api_insights_time_stats_item>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Api_insights_time_stats_item.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsTimeStats_item>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsTimeStats_item.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

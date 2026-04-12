@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitco
         /// <summary>A self hosted runner</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Runner? Runner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Runner_1? Runner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Runner Runner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Runner_1 Runner { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitconfig.GenerateJitconfigPostResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitco
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "encoded_jit_config", n => { EncodedJitConfig = n.GetStringValue(); } },
-                { "runner", n => { Runner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Runner>(global::Soenneker.GitHub.OpenApiClient.Models.Runner.CreateFromDiscriminatorValue); } },
+                { "runner", n => { Runner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Runner_1>(global::Soenneker.GitHub.OpenApiClient.Models.Runner_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitco
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("encoded_jit_config", EncodedJitConfig);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Runner>("runner", Runner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Runner_1>("runner", Runner);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

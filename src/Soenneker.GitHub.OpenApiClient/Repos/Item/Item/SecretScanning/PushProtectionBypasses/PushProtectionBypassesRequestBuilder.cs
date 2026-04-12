@@ -37,27 +37,27 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.PushProt
         /// Creates a bypass for a previously push protected secret.The authenticated user must be the original author of the committed secret.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/secret-scanning/secret-scanning#create-a-push-protection-bypass" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass503Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_create_push_protection_bypass body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCreatePushProtectionBypass body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_create_push_protection_bypass body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCreatePushProtectionBypass body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass503Error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass503Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_push_protection_bypass.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypass.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a bypass for a previously push protected secret.The authenticated user must be the original author of the committed secret.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
@@ -67,11 +67,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.PushProt
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_create_push_protection_bypass body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCreatePushProtectionBypass body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.Secret_scanning_create_push_protection_bypass body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCreatePushProtectionBypass body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

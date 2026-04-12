@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Events.Orgs;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Events.Public;
 using System.Collections.Generic;
@@ -49,21 +48,20 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Events
         /// &quot;If you are authenticated as the given user, you will see your private events. Otherwise, you&apos;ll only see public events. _Optional_: use the fine-grained token with following permission set to view private events: \&quot;Events\&quot; user permissions (read).&gt; [!NOTE]&gt; This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.&quot;
         /// API method documentation <see href="https://docs.github.com/rest/activity/events#list-events-for-the-authenticated-user" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Event&gt;</returns>
+        /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Event>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Event>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Event>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Event.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-            return collectionResult?.AsList();
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;If you are authenticated as the given user, you will see your private events. Otherwise, you&apos;ll only see public events. _Optional_: use the fine-grained token with following permission set to view private events: \&quot;Events\&quot; user permissions (read).&gt; [!NOTE]&gt; This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.&quot;
