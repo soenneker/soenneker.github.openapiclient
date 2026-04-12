@@ -74,10 +74,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The status of the code search index for this repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_code_search_index_status? CodeSearchIndexStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryCodeSearchIndexStatus? CodeSearchIndexStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_code_search_index_status CodeSearchIndexStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryCodeSearchIndexStatus CodeSearchIndexStatus { get; set; }
 #endif
         /// <summary>The collaborators_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -409,10 +409,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions Permissions { get; set; }
 #endif
         /// <summary>Whether the repository is private or public.</summary>
         public bool? Private { get; set; }
@@ -606,7 +606,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "blobs_url", n => { BlobsUrl = n.GetStringValue(); } },
                 { "branches_url", n => { BranchesUrl = n.GetStringValue(); } },
                 { "clone_url", n => { CloneUrl = n.GetStringValue(); } },
-                { "code_search_index_status", n => { CodeSearchIndexStatus = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_code_search_index_status>(global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_code_search_index_status.CreateFromDiscriminatorValue); } },
+                { "code_search_index_status", n => { CodeSearchIndexStatus = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryCodeSearchIndexStatus>(global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryCodeSearchIndexStatus.CreateFromDiscriminatorValue); } },
                 { "collaborators_url", n => { CollaboratorsUrl = n.GetStringValue(); } },
                 { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },
                 { "commits_url", n => { CommitsUrl = n.GetStringValue(); } },
@@ -662,7 +662,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_pull_request_creation_policy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
@@ -713,7 +713,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("blobs_url", BlobsUrl);
             writer.WriteStringValue("branches_url", BranchesUrl);
             writer.WriteStringValue("clone_url", CloneUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_code_search_index_status>("code_search_index_status", CodeSearchIndexStatus);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryCodeSearchIndexStatus>("code_search_index_status", CodeSearchIndexStatus);
             writer.WriteStringValue("collaborators_url", CollaboratorsUrl);
             writer.WriteStringValue("comments_url", CommentsUrl);
             writer.WriteStringValue("commits_url", CommitsUrl);
@@ -769,7 +769,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("open_issues", OpenIssues);
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);

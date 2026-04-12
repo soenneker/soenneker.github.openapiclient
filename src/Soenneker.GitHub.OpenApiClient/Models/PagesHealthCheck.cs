@@ -18,18 +18,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The alt_domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_alt_domain? AltDomain { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain? AltDomain { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_alt_domain AltDomain { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain AltDomain { get; set; }
 #endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_domain? Domain { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain? Domain { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_domain Domain { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain Domain { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "alt_domain", n => { AltDomain = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_alt_domain>(global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_alt_domain.CreateFromDiscriminatorValue); } },
-                { "domain", n => { Domain = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_domain>(global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_domain.CreateFromDiscriminatorValue); } },
+                { "alt_domain", n => { AltDomain = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain>(global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain.CreateFromDiscriminatorValue); } },
+                { "domain", n => { Domain = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain>(global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_alt_domain>("alt_domain", AltDomain);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheck_domain>("domain", Domain);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain>("alt_domain", AltDomain);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain>("domain", Domain);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

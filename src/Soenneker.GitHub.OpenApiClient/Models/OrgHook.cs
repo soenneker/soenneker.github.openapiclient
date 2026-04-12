@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgHook_config? Config { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgHookConfig? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgHook_config Config { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgHookConfig Config { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgHook_config>(global::Soenneker.GitHub.OpenApiClient.Models.OrgHook_config.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgHookConfig>(global::Soenneker.GitHub.OpenApiClient.Models.OrgHookConfig.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "deliveries_url", n => { DeliveriesUrl = n.GetStringValue(); } },
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -125,7 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgHook_config>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgHookConfig>("config", Config);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("deliveries_url", DeliveriesUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);

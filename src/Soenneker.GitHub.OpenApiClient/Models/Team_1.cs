@@ -88,10 +88,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Team_1_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Team1Permissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Team_1_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Team1Permissions Permissions { get; set; }
 #endif
         /// <summary>The privacy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -163,7 +163,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "organization_id", n => { OrganizationId = n.GetIntValue(); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple.CreateFromDiscriminatorValue); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team_1_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.Team_1_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team1Permissions>(global::Soenneker.GitHub.OpenApiClient.Models.Team1Permissions.CreateFromDiscriminatorValue); } },
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
@@ -189,7 +189,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("organization_id", OrganizationId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>("parent", Parent);
             writer.WriteStringValue("permission", Permission);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team_1_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team1Permissions>("permissions", Permissions);
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);

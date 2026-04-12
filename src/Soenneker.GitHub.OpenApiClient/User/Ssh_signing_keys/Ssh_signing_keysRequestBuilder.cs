@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys
         /// Lists the SSH signing keys for the authenticated user&apos;s GitHub account.OAuth app tokens and personal access tokens (classic) need the `read:ssh_signing_key` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/users/ssh-signing-keys#list-ssh-signing-keys-for-the-authenticated-user" />
         /// </summary>
-        /// <returns>A <see cref="string"/></returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.SshSigningKey&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
@@ -58,11 +58,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Ssh_signing_keysRequestBuilder.Ssh_signing_keysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SshSigningKey>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Ssh_signing_keysRequestBuilder.Ssh_signing_keysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Ssh_signing_keysRequestBuilder.Ssh_signing_keysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SshSigningKey>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys.Ssh_signing_keysRequestBuilder.Ssh_signing_keysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -72,7 +72,8 @@ namespace Soenneker.GitHub.OpenApiClient.User.Ssh_signing_keys
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.SshSigningKey>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SshSigningKey.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Creates an SSH signing key for the authenticated user&apos;s GitHub account.OAuth app tokens and personal access tokens (classic) need the `write:ssh_signing_key` scope to use this endpoint.

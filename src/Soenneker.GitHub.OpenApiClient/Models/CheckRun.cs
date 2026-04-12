@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The check_suite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite? CheckSuite { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite? CheckSuite { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite CheckSuite { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite CheckSuite { get; set; }
 #endif
         /// <summary>The completed_at property</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -96,10 +96,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_output? Output { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_output Output { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput Output { get; set; }
 #endif
         /// <summary>Pull requests that are open with a `head_sha` or `head_branch` that matches the check. The returned pull requests do not necessarily indicate pull requests that triggered the check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
-                { "check_suite", n => { CheckSuite = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite>(global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite.CreateFromDiscriminatorValue); } },
+                { "check_suite", n => { CheckSuite = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite>(global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite.CreateFromDiscriminatorValue); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_conclusion>(); } },
                 { "deployment", n => { Deployment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple>(global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple.CreateFromDiscriminatorValue); } },
@@ -158,7 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_output>(global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_output.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput>(global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput.CreateFromDiscriminatorValue); } },
                 { "pull_requests", n => { PullRequests = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_status>(); } },
@@ -173,7 +173,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("app", App);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_check_suite>("check_suite", CheckSuite);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRunCheckSuite>("check_suite", CheckSuite);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_conclusion>("conclusion", Conclusion);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentSimple>("deployment", Deployment);
@@ -184,7 +184,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_output>("output", Output);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRunOutput>("output", Output);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>("pull_requests", PullRequests);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun_status>("status", Status);

@@ -52,10 +52,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The base property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_base? Base { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleBase? Base { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_base Base { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleBase Base { get; set; }
 #endif
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,10 +98,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_head? Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleHead? Head { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_head Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleHead Head { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -132,10 +132,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_links? Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_links Links { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks Links { get; set; }
 #endif
         /// <summary>The locked property</summary>
         public bool? Locked { get; set; }
@@ -279,7 +279,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "author_association", n => { AuthorAssociation = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>(); } },
                 { "auto_merge", n => { AutoMerge = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge>(global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge.CreateFromDiscriminatorValue); } },
-                { "base", n => { Base = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_base>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_base.CreateFromDiscriminatorValue); } },
+                { "base", n => { Base = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleBase>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleBase.CreateFromDiscriminatorValue); } },
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "closed_at", n => { ClosedAt = n.GetDateTimeOffsetValue(); } },
                 { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },
@@ -287,12 +287,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "diff_url", n => { DiffUrl = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetBoolValue(); } },
-                { "head", n => { Head = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_head>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_head.CreateFromDiscriminatorValue); } },
+                { "head", n => { Head = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleHead>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleHead.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_url", n => { IssueUrl = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_links>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_links.CreateFromDiscriminatorValue); } },
+                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks.CreateFromDiscriminatorValue); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "merge_commit_sha", n => { MergeCommitSha = n.GetStringValue(); } },
                 { "merged_at", n => { MergedAt = n.GetDateTimeOffsetValue(); } },
@@ -324,7 +324,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignees", Assignees);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>("author_association", AuthorAssociation);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge>("auto_merge", AutoMerge);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_base>("base", Base);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleBase>("base", Base);
             writer.WriteStringValue("body", Body);
             writer.WriteDateTimeOffsetValue("closed_at", ClosedAt);
             writer.WriteStringValue("comments_url", CommentsUrl);
@@ -332,12 +332,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("diff_url", DiffUrl);
             writer.WriteBoolValue("draft", Draft);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_head>("head", Head);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleHead>("head", Head);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issue_url", IssueUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels>("labels", Labels);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_links>("_links", Links);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks>("_links", Links);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteStringValue("merge_commit_sha", MergeCommitSha);
             writer.WriteDateTimeOffsetValue("merged_at", MergedAt);

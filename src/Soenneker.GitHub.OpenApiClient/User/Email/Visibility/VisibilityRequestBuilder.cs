@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Email.Visibility
         /// Sets the visibility for your primary email addresses.
         /// API method documentation <see href="https://docs.github.com/rest/users/emails#set-primary-email-visibility-for-the-authenticated-user" />
         /// </summary>
-        /// <returns>A <see cref="string"/></returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Email_1&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,11 +47,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Email.Visibility
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.UsersSetPrimaryEmailVisibilityForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Email_1>?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.UsersSetPrimaryEmailVisibilityForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.UsersSetPrimaryEmailVisibilityForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Email_1>> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.UsersSetPrimaryEmailVisibilityForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -63,7 +63,8 @@ namespace Soenneker.GitHub.OpenApiClient.User.Email.Visibility
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Email_1>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Email_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Sets the visibility for your primary email addresses.

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The app property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Authorization_1_app? App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Authorization1App? App { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Authorization_1_app App { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Authorization1App App { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Authorization_1_app>(global::Soenneker.GitHub.OpenApiClient.Models.Authorization_1_app.CreateFromDiscriminatorValue); } },
+                { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Authorization1App>(global::Soenneker.GitHub.OpenApiClient.Models.Authorization1App.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "fingerprint", n => { Fingerprint = n.GetStringValue(); } },
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Authorization_1_app>("app", App);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Authorization1App>("app", App);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("fingerprint", Fingerprint);

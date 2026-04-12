@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
         /// &quot;Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.&quot;
         /// API method documentation <see href="https://docs.github.com/rest/pulls/pulls#update-a-pull-request-branch" />
         /// </summary>
-        /// <returns>A <see cref="string"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.&quot;

@@ -434,10 +434,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions Permissions { get; set; }
 #endif
         /// <summary>The private property</summary>
         public bool? Private { get; set; }
@@ -707,7 +707,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_pull_request_creation_policy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
@@ -821,7 +821,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("organization", Organization);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("parent", Parent);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);

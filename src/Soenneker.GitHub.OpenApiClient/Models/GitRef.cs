@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The object property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitRef_object? Object { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitRefObject? Object { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitRef_object Object { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitRefObject Object { get; set; }
 #endif
         /// <summary>The ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitRef_object>(global::Soenneker.GitHub.OpenApiClient.Models.GitRef_object.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitRefObject>(global::Soenneker.GitHub.OpenApiClient.Models.GitRefObject.CreateFromDiscriminatorValue); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitRef_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitRefObject>("object", Object);
             writer.WriteStringValue("ref", Ref);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The resources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverview_resources? Resources { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources? Resources { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverview_resources Resources { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources Resources { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverview"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "rate", n => { Rate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimit.CreateFromDiscriminatorValue); } },
-                { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverview_resources>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverview_resources.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources>(global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimit>("rate", Rate);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverview_resources>("resources", Resources);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RateLimitOverviewResources>("resources", Resources);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

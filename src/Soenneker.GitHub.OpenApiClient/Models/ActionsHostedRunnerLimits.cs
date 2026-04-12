@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Provides details of static public IP limits for GitHub-hosted Hosted Runners</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimits_public_ips? PublicIps { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps? PublicIps { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimits_public_ips PublicIps { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps PublicIps { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimits"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "public_ips", n => { PublicIps = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimits_public_ips>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimits_public_ips.CreateFromDiscriminatorValue); } },
+                { "public_ips", n => { PublicIps = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimits_public_ips>("public_ips", PublicIps);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps>("public_ips", PublicIps);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

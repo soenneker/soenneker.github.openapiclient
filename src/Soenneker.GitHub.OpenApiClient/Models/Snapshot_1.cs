@@ -16,18 +16,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A description of the detector used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_detector? Detector { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Detector? Detector { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_detector Detector { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Detector Detector { get; set; }
 #endif
         /// <summary>The job property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_job? Job { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Job? Job { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_job Job { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Job Job { get; set; }
 #endif
         /// <summary>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,8 +83,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "detector", n => { Detector = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_detector>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_detector.CreateFromDiscriminatorValue); } },
-                { "job", n => { Job = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_job>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_job.CreateFromDiscriminatorValue); } },
+                { "detector", n => { Detector = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Detector>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Detector.CreateFromDiscriminatorValue); } },
+                { "job", n => { Job = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Job>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Job.CreateFromDiscriminatorValue); } },
                 { "manifests", n => { Manifests = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_manifests>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_manifests.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_metadata>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_metadata.CreateFromDiscriminatorValue); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
@@ -100,8 +100,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_detector>("detector", Detector);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_job>("job", Job);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Detector>("detector", Detector);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot1Job>("job", Job);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_manifests>("manifests", Manifests);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_1_metadata>("metadata", Metadata);
             writer.WriteStringValue("ref", Ref);

@@ -22,10 +22,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The user who requested the dismissal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_requester? Requester { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester? Requester { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_requester Requester { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester Requester { get; set; }
 #endif
         /// <summary>The current status of the dismissal request.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status? Status { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
-                { "requester", n => { Requester = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_requester>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_requester.CreateFromDiscriminatorValue); } },
+                { "requester", n => { Requester = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteIntValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_requester>("requester", Requester);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester>("requester", Requester);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status>("status", Status);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

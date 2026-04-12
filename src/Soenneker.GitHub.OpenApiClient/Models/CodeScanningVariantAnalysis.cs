@@ -62,10 +62,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_skipped_repositories? SkippedRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories? SkippedRepositories { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_skipped_repositories SkippedRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories SkippedRepositories { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_status? Status { get; set; }
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "query_language", n => { QueryLanguage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>(); } },
                 { "query_pack_url", n => { QueryPackUrl = n.GetStringValue(); } },
                 { "scanned_repositories", n => { ScannedRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "skipped_repositories", n => { SkippedRepositories = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_skipped_repositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_skipped_repositories.CreateFromDiscriminatorValue); } },
+                { "skipped_repositories", n => { SkippedRepositories = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -128,7 +128,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>("query_language", QueryLanguage);
             writer.WriteStringValue("query_pack_url", QueryPackUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>("scanned_repositories", ScannedRepositories);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_skipped_repositories>("skipped_repositories", SkippedRepositories);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories>("skipped_repositories", SkippedRepositories);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_status>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -33,10 +33,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The iteration title, in raw text and HTML formats.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings_title? Title { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettingsTitle? Title { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings_title Title { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettingsTitle Title { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings"/> and sets the default values.
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "duration", n => { Duration = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
-                { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings_title>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings_title.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettingsTitle>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettingsTitle.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("duration", Duration);
             writer.WriteStringValue("id", Id);
             writer.WriteDateValue("start_date", StartDate);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettings_title>("title", Title);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2IterationSettingsTitle>("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

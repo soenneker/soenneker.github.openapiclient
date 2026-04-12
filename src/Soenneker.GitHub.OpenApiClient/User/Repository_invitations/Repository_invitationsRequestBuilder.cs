@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repository_invitations
         /// When authenticating as a user, this endpoint will list all currently open repository invitations for that user.
         /// API method documentation <see href="https://docs.github.com/rest/collaborators/invitations#list-repository-invitations-for-the-authenticated-user" />
         /// </summary>
-        /// <returns>A <see cref="string"/></returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
@@ -58,11 +58,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repository_invitations
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Repository_invitationsRequestBuilder.Repository_invitationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Repository_invitationsRequestBuilder.Repository_invitationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Repository_invitationsRequestBuilder.Repository_invitationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Repository_invitationsRequestBuilder.Repository_invitationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -72,7 +72,8 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repository_invitations
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// When authenticating as a user, this endpoint will list all currently open repository invitations for that user.

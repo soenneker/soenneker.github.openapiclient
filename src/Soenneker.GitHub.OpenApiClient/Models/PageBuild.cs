@@ -30,10 +30,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageBuild_error? Error { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PageBuildError? Error { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageBuild_error Error { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PageBuildError Error { get; set; }
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit", n => { Commit = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "duration", n => { Duration = n.GetIntValue(); } },
-                { "error", n => { Error = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PageBuild_error>(global::Soenneker.GitHub.OpenApiClient.Models.PageBuild_error.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PageBuildError>(global::Soenneker.GitHub.OpenApiClient.Models.PageBuildError.CreateFromDiscriminatorValue); } },
                 { "pusher", n => { Pusher = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit", Commit);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteIntValue("duration", Duration);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PageBuild_error>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PageBuildError>("error", Error);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("pusher", Pusher);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

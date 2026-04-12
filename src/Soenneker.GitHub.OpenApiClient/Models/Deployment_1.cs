@@ -62,10 +62,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1_payload? Payload { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment1Payload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1_payload Payload { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Deployment1Payload Payload { get; set; }
 #endif
         /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -161,7 +161,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "original_environment", n => { OriginalEnvironment = n.GetStringValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1_payload>(global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment1Payload>(global::Soenneker.GitHub.OpenApiClient.Models.Deployment1Payload.CreateFromDiscriminatorValue); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "production_environment", n => { ProductionEnvironment = n.GetBoolValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
@@ -188,7 +188,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("original_environment", OriginalEnvironment);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment_1_payload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Deployment1Payload>("payload", Payload);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteBoolValue("production_environment", ProductionEnvironment);
             writer.WriteStringValue("ref", Ref);

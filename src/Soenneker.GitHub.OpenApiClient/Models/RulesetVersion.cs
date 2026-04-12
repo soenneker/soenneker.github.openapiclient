@@ -16,10 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The actor who updated the ruleset</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor? Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor? Actor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor Actor { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor Actor { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor.CreateFromDiscriminatorValue); } },
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "version_id", n => { VersionId = n.GetIntValue(); } },
             };
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion_actor>("actor", Actor);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>("actor", Actor);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteIntValue("version_id", VersionId);
             writer.WriteAdditionalData(AdditionalData);

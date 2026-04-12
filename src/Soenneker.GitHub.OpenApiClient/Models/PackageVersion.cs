@@ -48,10 +48,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersion_metadata? Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersion_metadata Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata Metadata { get; set; }
 #endif
         /// <summary>The name of the package version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "license", n => { License = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersion_metadata>(global::Soenneker.GitHub.OpenApiClient.Models.PackageVersion_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata>(global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "package_html_url", n => { PackageHtmlUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -130,7 +130,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("license", License);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersion_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("package_html_url", PackageHtmlUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

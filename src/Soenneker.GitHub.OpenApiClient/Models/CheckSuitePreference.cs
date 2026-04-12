@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The preferences property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference_preferences? Preferences { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences? Preferences { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference_preferences Preferences { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences Preferences { get; set; }
 #endif
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "preferences", n => { Preferences = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference_preferences>(global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference_preferences.CreateFromDiscriminatorValue); } },
+                { "preferences", n => { Preferences = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences>(global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences.CreateFromDiscriminatorValue); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreference_preferences>("preferences", Preferences);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences>("preferences", Preferences);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
             writer.WriteAdditionalData(AdditionalData);
         }

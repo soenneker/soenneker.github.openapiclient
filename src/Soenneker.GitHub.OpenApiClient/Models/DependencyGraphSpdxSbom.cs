@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The sbom property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom_sbom? Sbom { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom? Sbom { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom_sbom Sbom { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom Sbom { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sbom", n => { Sbom = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom_sbom>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom_sbom.CreateFromDiscriminatorValue); } },
+                { "sbom", n => { Sbom = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbom_sbom>("sbom", Sbom);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom>("sbom", Sbom);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

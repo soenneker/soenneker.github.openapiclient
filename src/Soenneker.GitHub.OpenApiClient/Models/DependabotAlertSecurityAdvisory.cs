@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Details for the advisory pertaining to the Common Vulnerability Scoring System.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cvss? Cvss { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCvss? Cvss { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cvss Cvss { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCvss Cvss { get; private set; }
 #endif
         /// <summary>The cvss_severities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,7 +131,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "classification", n => { Classification = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_classification>(); } },
                 { "cve_id", n => { CveId = n.GetStringValue(); } },
-                { "cvss", n => { Cvss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cvss>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cvss.CreateFromDiscriminatorValue); } },
+                { "cvss", n => { Cvss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCvss>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCvss.CreateFromDiscriminatorValue); } },
                 { "cvss_severities", n => { CvssSeverities = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities.CreateFromDiscriminatorValue); } },
                 { "cwes", n => { Cwes = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cwes>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cwes.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },

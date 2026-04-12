@@ -62,10 +62,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Gist</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_fork_of? ForkOf { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOf? ForkOf { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_fork_of ForkOf { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOf ForkOf { get; set; }
 #endif
         /// <summary>The forks property</summary>
         [Obsolete("")]
@@ -201,7 +201,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_files>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_files.CreateFromDiscriminatorValue); } },
-                { "fork_of", n => { ForkOf = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_fork_of>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_fork_of.CreateFromDiscriminatorValue); } },
+                { "fork_of", n => { ForkOf = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOf>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOf.CreateFromDiscriminatorValue); } },
                 { "forks", n => { Forks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_forks>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_forks.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "forks_url", n => { ForksUrl = n.GetStringValue(); } },
                 { "git_pull_url", n => { GitPullUrl = n.GetStringValue(); } },
@@ -232,7 +232,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_files>("files", Files);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_fork_of>("fork_of", ForkOf);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOf>("fork_of", ForkOf);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple_forks>("forks", Forks);
             writer.WriteStringValue("forks_url", ForksUrl);
             writer.WriteStringValue("git_pull_url", GitPullUrl);

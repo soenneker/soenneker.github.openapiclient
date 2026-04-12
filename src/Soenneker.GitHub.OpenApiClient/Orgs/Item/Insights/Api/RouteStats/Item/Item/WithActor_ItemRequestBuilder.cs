@@ -37,20 +37,20 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.
         /// Get API request count statistics for an actor broken down by route within a specified time frame.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/api-insights#get-route-stats-by-actor" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStats_item&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStatsItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStats_item>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.Item.WithActor_ItemRequestBuilder.WithActor_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStatsItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.Item.WithActor_ItemRequestBuilder.WithActor_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStats_item>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.Item.WithActor_ItemRequestBuilder.WithActor_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStatsItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.Item.WithActor_ItemRequestBuilder.WithActor_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStats_item>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStats_item.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStatsItem>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStatsItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

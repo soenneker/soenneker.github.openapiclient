@@ -36,10 +36,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfile_files? Files { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles? Files { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfile_files Files { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles Files { get; set; }
 #endif
         /// <summary>The health_percentage property</summary>
         public int? HealthPercentage { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "content_reports_enabled", n => { ContentReportsEnabled = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "documentation", n => { Documentation = n.GetStringValue(); } },
-                { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfile_files>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfile_files.CreateFromDiscriminatorValue); } },
+                { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles>(global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles.CreateFromDiscriminatorValue); } },
                 { "health_percentage", n => { HealthPercentage = n.GetIntValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -88,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("content_reports_enabled", ContentReportsEnabled);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("documentation", Documentation);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfile_files>("files", Files);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommunityProfileFiles>("files", Files);
             writer.WriteIntValue("health_percentage", HealthPercentage);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -18,82 +18,82 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The allow_deletions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_deletions? AllowDeletions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions? AllowDeletions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_deletions AllowDeletions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions AllowDeletions { get; set; }
 #endif
         /// <summary>The allow_force_pushes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_force_pushes? AllowForcePushes { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes? AllowForcePushes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_force_pushes AllowForcePushes { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes AllowForcePushes { get; set; }
 #endif
         /// <summary>Whether users can pull changes from upstream when the branch is locked. Set to `true` to allow fork syncing. Set to `false` to prevent fork syncing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_fork_syncing? AllowForkSyncing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing? AllowForkSyncing { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_fork_syncing AllowForkSyncing { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing AllowForkSyncing { get; set; }
 #endif
         /// <summary>The block_creations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_block_creations? BlockCreations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations? BlockCreations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_block_creations BlockCreations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations BlockCreations { get; set; }
 #endif
         /// <summary>The enforce_admins property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_enforce_admins? EnforceAdmins { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins? EnforceAdmins { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_enforce_admins EnforceAdmins { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins EnforceAdmins { get; set; }
 #endif
         /// <summary>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_lock_branch? LockBranch { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch? LockBranch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_lock_branch LockBranch { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch LockBranch { get; set; }
 #endif
         /// <summary>The required_conversation_resolution property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_conversation_resolution? RequiredConversationResolution { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution? RequiredConversationResolution { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_conversation_resolution RequiredConversationResolution { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution RequiredConversationResolution { get; set; }
 #endif
         /// <summary>The required_linear_history property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_linear_history? RequiredLinearHistory { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory? RequiredLinearHistory { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_linear_history RequiredLinearHistory { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory RequiredLinearHistory { get; set; }
 #endif
         /// <summary>The required_pull_request_reviews property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_pull_request_reviews? RequiredPullRequestReviews { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews? RequiredPullRequestReviews { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_pull_request_reviews RequiredPullRequestReviews { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews RequiredPullRequestReviews { get; set; }
 #endif
         /// <summary>The required_signatures property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_signatures? RequiredSignatures { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures? RequiredSignatures { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_signatures RequiredSignatures { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures RequiredSignatures { get; set; }
 #endif
         /// <summary>Status Check Policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -144,16 +144,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allow_deletions", n => { AllowDeletions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_deletions>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_deletions.CreateFromDiscriminatorValue); } },
-                { "allow_force_pushes", n => { AllowForcePushes = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_force_pushes>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_force_pushes.CreateFromDiscriminatorValue); } },
-                { "allow_fork_syncing", n => { AllowForkSyncing = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_fork_syncing>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_fork_syncing.CreateFromDiscriminatorValue); } },
-                { "block_creations", n => { BlockCreations = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_block_creations>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_block_creations.CreateFromDiscriminatorValue); } },
-                { "enforce_admins", n => { EnforceAdmins = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_enforce_admins>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_enforce_admins.CreateFromDiscriminatorValue); } },
-                { "lock_branch", n => { LockBranch = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_lock_branch>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_lock_branch.CreateFromDiscriminatorValue); } },
-                { "required_conversation_resolution", n => { RequiredConversationResolution = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_conversation_resolution>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_conversation_resolution.CreateFromDiscriminatorValue); } },
-                { "required_linear_history", n => { RequiredLinearHistory = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_linear_history>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_linear_history.CreateFromDiscriminatorValue); } },
-                { "required_pull_request_reviews", n => { RequiredPullRequestReviews = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_pull_request_reviews>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_pull_request_reviews.CreateFromDiscriminatorValue); } },
-                { "required_signatures", n => { RequiredSignatures = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_signatures>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_signatures.CreateFromDiscriminatorValue); } },
+                { "allow_deletions", n => { AllowDeletions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions.CreateFromDiscriminatorValue); } },
+                { "allow_force_pushes", n => { AllowForcePushes = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes.CreateFromDiscriminatorValue); } },
+                { "allow_fork_syncing", n => { AllowForkSyncing = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing.CreateFromDiscriminatorValue); } },
+                { "block_creations", n => { BlockCreations = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations.CreateFromDiscriminatorValue); } },
+                { "enforce_admins", n => { EnforceAdmins = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins.CreateFromDiscriminatorValue); } },
+                { "lock_branch", n => { LockBranch = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch.CreateFromDiscriminatorValue); } },
+                { "required_conversation_resolution", n => { RequiredConversationResolution = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution.CreateFromDiscriminatorValue); } },
+                { "required_linear_history", n => { RequiredLinearHistory = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory.CreateFromDiscriminatorValue); } },
+                { "required_pull_request_reviews", n => { RequiredPullRequestReviews = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews.CreateFromDiscriminatorValue); } },
+                { "required_signatures", n => { RequiredSignatures = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures.CreateFromDiscriminatorValue); } },
                 { "required_status_checks", n => { RequiredStatusChecks = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy>(global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy.CreateFromDiscriminatorValue); } },
                 { "restrictions", n => { Restrictions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -166,16 +166,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_deletions>("allow_deletions", AllowDeletions);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_force_pushes>("allow_force_pushes", AllowForcePushes);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_allow_fork_syncing>("allow_fork_syncing", AllowForkSyncing);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_block_creations>("block_creations", BlockCreations);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_enforce_admins>("enforce_admins", EnforceAdmins);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_lock_branch>("lock_branch", LockBranch);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_conversation_resolution>("required_conversation_resolution", RequiredConversationResolution);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_linear_history>("required_linear_history", RequiredLinearHistory);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_pull_request_reviews>("required_pull_request_reviews", RequiredPullRequestReviews);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranch_required_signatures>("required_signatures", RequiredSignatures);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowDeletions>("allow_deletions", AllowDeletions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForcePushes>("allow_force_pushes", AllowForcePushes);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchAllowForkSyncing>("allow_fork_syncing", AllowForkSyncing);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchBlockCreations>("block_creations", BlockCreations);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchEnforceAdmins>("enforce_admins", EnforceAdmins);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch>("lock_branch", LockBranch);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredConversationResolution>("required_conversation_resolution", RequiredConversationResolution);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredLinearHistory>("required_linear_history", RequiredLinearHistory);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredPullRequestReviews>("required_pull_request_reviews", RequiredPullRequestReviews);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredSignatures>("required_signatures", RequiredSignatures);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.StatusCheckPolicy>("required_status_checks", RequiredStatusChecks);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy>("restrictions", Restrictions);
             writer.WriteStringValue("url", Url);

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_parameters? Parameters { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeploymentsParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_parameters Parameters { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeploymentsParameters Parameters { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_parameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_parameters.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeploymentsParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeploymentsParameters.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_parameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeploymentsParameters>("parameters", Parameters);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

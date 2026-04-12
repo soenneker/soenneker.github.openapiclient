@@ -324,10 +324,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The license property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_license? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryLicense? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_license License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryLicense License { get; set; }
 #endif
         /// <summary>The merges_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -394,10 +394,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryPermissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryPermissions Permissions { get; set; }
 #endif
         /// <summary>The private property</summary>
         public bool? Private { get; set; }
@@ -631,7 +631,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_license>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_license.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryLicense>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryLicense.CreateFromDiscriminatorValue); } },
                 { "merges_url", n => { MergesUrl = n.GetStringValue(); } },
                 { "milestones_url", n => { MilestonesUrl = n.GetStringValue(); } },
                 { "mirror_url", n => { MirrorUrl = n.GetStringValue(); } },
@@ -642,7 +642,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_pull_request_creation_policy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
@@ -730,7 +730,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", LanguagesUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_license>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryLicense>("license", License);
             writer.WriteStringValue("merges_url", MergesUrl);
             writer.WriteStringValue("milestones_url", MilestonesUrl);
             writer.WriteStringValue("mirror_url", MirrorUrl);
@@ -741,7 +741,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("open_issues", OpenIssues);
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);

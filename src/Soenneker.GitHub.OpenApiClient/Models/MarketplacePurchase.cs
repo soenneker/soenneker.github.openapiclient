@@ -36,18 +36,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The marketplace_pending_change property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change? MarketplacePendingChange { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange? MarketplacePendingChange { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change MarketplacePendingChange { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange MarketplacePendingChange { get; set; }
 #endif
         /// <summary>The marketplace_purchase property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase? MarketplacePurchaseProp { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePurchase? MarketplacePurchaseProp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase MarketplacePurchaseProp { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePurchase MarketplacePurchaseProp { get; set; }
 #endif
         /// <summary>The organization_billing_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,8 +101,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
-                { "marketplace_pending_change", n => { MarketplacePendingChange = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change.CreateFromDiscriminatorValue); } },
-                { "marketplace_purchase", n => { MarketplacePurchaseProp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase.CreateFromDiscriminatorValue); } },
+                { "marketplace_pending_change", n => { MarketplacePendingChange = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange.CreateFromDiscriminatorValue); } },
+                { "marketplace_purchase", n => { MarketplacePurchaseProp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePurchase>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePurchase.CreateFromDiscriminatorValue); } },
                 { "organization_billing_email", n => { OrganizationBillingEmail = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -118,8 +118,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("login", Login);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_pending_change>("marketplace_pending_change", MarketplacePendingChange);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchase_marketplace_purchase>("marketplace_purchase", MarketplacePurchaseProp);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePendingChange>("marketplace_pending_change", MarketplacePendingChange);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplacePurchaseMarketplacePurchase>("marketplace_purchase", MarketplacePurchaseProp);
             writer.WriteStringValue("organization_billing_email", OrganizationBillingEmail);
             writer.WriteStringValue("type", Type);
             writer.WriteStringValue("url", Url);

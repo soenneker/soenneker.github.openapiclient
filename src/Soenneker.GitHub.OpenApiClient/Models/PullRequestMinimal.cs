@@ -17,18 +17,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The base property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_base? Base { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase? Base { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_base Base { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase Base { get; set; }
 #endif
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_head? Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead? Head { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_head Head { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead Head { get; set; }
 #endif
         /// <summary>The id property</summary>
         public long? Id { get; set; }
@@ -67,8 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "base", n => { Base = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_base>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_base.CreateFromDiscriminatorValue); } },
-                { "head", n => { Head = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_head>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_head.CreateFromDiscriminatorValue); } },
+                { "base", n => { Base = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase.CreateFromDiscriminatorValue); } },
+                { "head", n => { Head = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -81,8 +81,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_base>("base", Base);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal_head>("head", Head);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalBase>("base", Base);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimalHead>("head", Head);
             writer.WriteLongValue("id", Id);
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("url", Url);

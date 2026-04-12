@@ -34,10 +34,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The object property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitTag_object? Object { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitTagObject? Object { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitTag_object Object { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitTagObject Object { get; set; }
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,10 +58,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The tagger property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitTag_tagger? Tagger { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger? Tagger { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitTag_tagger Tagger { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger Tagger { get; set; }
 #endif
         /// <summary>URL for the tag</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,10 +106,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "object", n => { Object = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTag_object>(global::Soenneker.GitHub.OpenApiClient.Models.GitTag_object.CreateFromDiscriminatorValue); } },
+                { "object", n => { Object = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTagObject>(global::Soenneker.GitHub.OpenApiClient.Models.GitTagObject.CreateFromDiscriminatorValue); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
-                { "tagger", n => { Tagger = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTag_tagger>(global::Soenneker.GitHub.OpenApiClient.Models.GitTag_tagger.CreateFromDiscriminatorValue); } },
+                { "tagger", n => { Tagger = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger>(global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification_1>(global::Soenneker.GitHub.OpenApiClient.Models.Verification_1.CreateFromDiscriminatorValue); } },
             };
@@ -123,10 +123,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTag_object>("object", Object);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTagObject>("object", Object);
             writer.WriteStringValue("sha", Sha);
             writer.WriteStringValue("tag", Tag);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTag_tagger>("tagger", Tagger);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger>("tagger", Tagger);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification_1>("verification", Verification);
             writer.WriteAdditionalData(AdditionalData);

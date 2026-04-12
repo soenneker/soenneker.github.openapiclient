@@ -228,10 +228,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull_plan? Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFullPlan? Plan { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull_plan Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFullPlan Plan { get; set; }
 #endif
         /// <summary>The private_gists property</summary>
         public int? PrivateGists { get; set; }
@@ -379,7 +379,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "owned_private_repos", n => { OwnedPrivateRepos = n.GetIntValue(); } },
-                { "plan", n => { Plan = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull_plan>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull_plan.CreateFromDiscriminatorValue); } },
+                { "plan", n => { Plan = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFullPlan>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFullPlan.CreateFromDiscriminatorValue); } },
                 { "private_gists", n => { PrivateGists = n.GetIntValue(); } },
                 { "public_gists", n => { PublicGists = n.GetIntValue(); } },
                 { "public_members_url", n => { PublicMembersUrl = n.GetStringValue(); } },
@@ -455,7 +455,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("owned_private_repos", OwnedPrivateRepos);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull_plan>("plan", Plan);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFullPlan>("plan", Plan);
             writer.WriteIntValue("private_gists", PrivateGists);
             writer.WriteIntValue("public_gists", PublicGists);
             writer.WriteStringValue("public_members_url", PublicMembersUrl);

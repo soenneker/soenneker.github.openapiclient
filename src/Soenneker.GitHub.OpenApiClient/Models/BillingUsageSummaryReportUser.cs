@@ -41,10 +41,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The timePeriod property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_timePeriod? TimePeriod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUserTimePeriod? TimePeriod { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_timePeriod TimePeriod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUserTimePeriod TimePeriod { get; set; }
 #endif
         /// <summary>The usageItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "repository", n => { Repository = n.GetStringValue(); } },
                 { "sku", n => { Sku = n.GetStringValue(); } },
-                { "timePeriod", n => { TimePeriod = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_timePeriod>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_timePeriod.CreateFromDiscriminatorValue); } },
+                { "timePeriod", n => { TimePeriod = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUserTimePeriod>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUserTimePeriod.CreateFromDiscriminatorValue); } },
                 { "usageItems", n => { UsageItems = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_usageItems>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_usageItems.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("product", Product);
             writer.WriteStringValue("repository", Repository);
             writer.WriteStringValue("sku", Sku);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_timePeriod>("timePeriod", TimePeriod);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUserTimePeriod>("timePeriod", TimePeriod);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportUser_usageItems>("usageItems", UsageItems);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);

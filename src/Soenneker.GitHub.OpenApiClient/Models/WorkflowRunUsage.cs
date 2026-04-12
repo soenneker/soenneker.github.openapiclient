@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The billable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsage_billable? Billable { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillable? Billable { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsage_billable Billable { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillable Billable { get; set; }
 #endif
         /// <summary>The run_duration_ms property</summary>
         public int? RunDurationMs { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "billable", n => { Billable = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsage_billable>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsage_billable.CreateFromDiscriminatorValue); } },
+                { "billable", n => { Billable = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillable>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillable.CreateFromDiscriminatorValue); } },
                 { "run_duration_ms", n => { RunDurationMs = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsage_billable>("billable", Billable);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillable>("billable", Billable);
             writer.WriteIntValue("run_duration_ms", RunDurationMs);
             writer.WriteAdditionalData(AdditionalData);
         }

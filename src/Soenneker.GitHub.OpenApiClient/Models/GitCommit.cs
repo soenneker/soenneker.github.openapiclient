@@ -18,18 +18,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Identifying information for the git-user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_author? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitAuthor? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_author Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitAuthor Author { get; set; }
 #endif
         /// <summary>Identifying information for the git-user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_committer? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitCommitter? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_committer Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitCommitter Committer { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,10 +74,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The tree property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_tree? Tree { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree? Tree { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_tree Tree { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree Tree { get; set; }
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,10 +90,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The verification property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_verification? Verification { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitVerification? Verification { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_verification Verification { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GitCommitVerification Verification { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GitCommit"/> and sets the default values.
@@ -120,16 +120,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_author>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_author.CreateFromDiscriminatorValue); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_committer>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_committer.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitAuthor>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommitAuthor.CreateFromDiscriminatorValue); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitCommitter>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommitCommitter.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
-                { "tree", n => { Tree = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_tree>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_tree.CreateFromDiscriminatorValue); } },
+                { "tree", n => { Tree = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_verification>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_verification.CreateFromDiscriminatorValue); } },
+                { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitVerification>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommitVerification.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -139,16 +139,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_author>("author", Author);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_committer>("committer", Committer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitAuthor>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitCommitter>("committer", Committer);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents>("parents", Parents);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_tree>("tree", Tree);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree>("tree", Tree);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_verification>("verification", Verification);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitVerification>("verification", Verification);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

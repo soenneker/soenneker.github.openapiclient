@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The content represented by the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content? Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimpleContent? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimpleContent Content { get; set; }
 #endif
         /// <summary>The type of content tracked in a project item</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType? ContentType { get; set; }
@@ -91,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived_at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimpleContent>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimpleContent.CreateFromDiscriminatorValue); } },
                 { "content_type", n => { ContentType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
@@ -110,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("archived_at", ArchivedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimpleContent>("content", Content);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType>("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("creator", Creator);
@@ -120,101 +120,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("project_url", ProjectUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Issue_1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ProjectsV2ItemSimple_content : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Issue_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1? Issue1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1 Issue1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue? ProjectsV2DraftIssue { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue ProjectsV2DraftIssue { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple? PullRequestSimple { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple PullRequestSimple { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple.ProjectsV2ItemSimple_content();
-                if("Issue_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.Issue1 = new global::Soenneker.GitHub.OpenApiClient.Models.Issue_1();
-                }
-                else if("ProjectsV2DraftIssue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ProjectsV2DraftIssue = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue();
-                }
-                else if("PullRequestSimple".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.PullRequestSimple = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(Issue1 != null)
-                {
-                    return Issue1.GetFieldDeserializers();
-                }
-                else if(ProjectsV2DraftIssue != null)
-                {
-                    return ProjectsV2DraftIssue.GetFieldDeserializers();
-                }
-                else if(PullRequestSimple != null)
-                {
-                    return PullRequestSimple.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Issue1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>(null, Issue1);
-                }
-                else if(ProjectsV2DraftIssue != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2DraftIssue>(null, ProjectsV2DraftIssue);
-                }
-                else if(PullRequestSimple != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple>(null, PullRequestSimple);
-                }
-            }
         }
     }
 }

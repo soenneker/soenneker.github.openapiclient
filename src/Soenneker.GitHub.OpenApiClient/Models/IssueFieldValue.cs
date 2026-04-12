@@ -30,18 +30,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Details about the selected option (only present for single_select fields)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_single_select_option? SingleSelectOption { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption? SingleSelectOption { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_single_select_option SingleSelectOption { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption SingleSelectOption { get; set; }
 #endif
         /// <summary>The value of the issue field</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueValue Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue"/> and sets the default values.
@@ -71,8 +71,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_data_type>(); } },
                 { "issue_field_id", n => { IssueFieldId = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "single_select_option", n => { SingleSelectOption = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_single_select_option>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_single_select_option.CreateFromDiscriminatorValue); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "single_select_option", n => { SingleSelectOption = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueValue>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -85,8 +85,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_data_type>("data_type", DataType);
             writer.WriteLongValue("issue_field_id", IssueFieldId);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue_single_select_option>("single_select_option", SingleSelectOption);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption>("single_select_option", SingleSelectOption);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

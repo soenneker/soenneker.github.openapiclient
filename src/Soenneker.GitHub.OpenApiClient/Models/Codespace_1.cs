@@ -52,10 +52,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Details about the codespace&apos;s git repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_git_status? GitStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace1GitStatus? GitStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_git_status GitStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace1GitStatus GitStatus { get; set; }
 #endif
         /// <summary>The id property</summary>
         public long? Id { get; set; }
@@ -164,10 +164,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The runtime_constraints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_runtime_constraints? RuntimeConstraints { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace1RuntimeConstraints? RuntimeConstraints { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_runtime_constraints RuntimeConstraints { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Codespace1RuntimeConstraints RuntimeConstraints { get; set; }
 #endif
         /// <summary>API URL to start this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -235,7 +235,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "devcontainer_path", n => { DevcontainerPath = n.GetStringValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "environment_id", n => { EnvironmentId = n.GetStringValue(); } },
-                { "git_status", n => { GitStatus = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_git_status>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_git_status.CreateFromDiscriminatorValue); } },
+                { "git_status", n => { GitStatus = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace1GitStatus>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace1GitStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "idle_timeout_minutes", n => { IdleTimeoutMinutes = n.GetIntValue(); } },
                 { "idle_timeout_notice", n => { IdleTimeoutNotice = n.GetStringValue(); } },
@@ -255,7 +255,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
                 { "retention_expires_at", n => { RetentionExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "retention_period_minutes", n => { RetentionPeriodMinutes = n.GetIntValue(); } },
-                { "runtime_constraints", n => { RuntimeConstraints = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_runtime_constraints>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_runtime_constraints.CreateFromDiscriminatorValue); } },
+                { "runtime_constraints", n => { RuntimeConstraints = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace1RuntimeConstraints>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace1RuntimeConstraints.CreateFromDiscriminatorValue); } },
                 { "start_url", n => { StartUrl = n.GetStringValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_state>(); } },
                 { "stop_url", n => { StopUrl = n.GetStringValue(); } },
@@ -276,7 +276,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("devcontainer_path", DevcontainerPath);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("environment_id", EnvironmentId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_git_status>("git_status", GitStatus);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace1GitStatus>("git_status", GitStatus);
             writer.WriteLongValue("id", Id);
             writer.WriteIntValue("idle_timeout_minutes", IdleTimeoutMinutes);
             writer.WriteStringValue("idle_timeout_notice", IdleTimeoutNotice);
@@ -296,7 +296,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
             writer.WriteDateTimeOffsetValue("retention_expires_at", RetentionExpiresAt);
             writer.WriteIntValue("retention_period_minutes", RetentionPeriodMinutes);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_runtime_constraints>("runtime_constraints", RuntimeConstraints);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace1RuntimeConstraints>("runtime_constraints", RuntimeConstraints);
             writer.WriteStringValue("start_url", StartUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1_state>("state", State);
             writer.WriteStringValue("stop_url", StopUrl);

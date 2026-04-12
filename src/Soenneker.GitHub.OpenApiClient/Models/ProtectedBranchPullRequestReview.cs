@@ -18,18 +18,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Allow specific users, teams, or apps to bypass pull request requirements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_bypass_pull_request_allowances? BypassPullRequestAllowances { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewBypassPullRequestAllowances? BypassPullRequestAllowances { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_bypass_pull_request_allowances BypassPullRequestAllowances { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewBypassPullRequestAllowances BypassPullRequestAllowances { get; set; }
 #endif
         /// <summary>The dismissal_restrictions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_dismissal_restrictions? DismissalRestrictions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewDismissalRestrictions? DismissalRestrictions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_dismissal_restrictions DismissalRestrictions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewDismissalRestrictions DismissalRestrictions { get; set; }
 #endif
         /// <summary>The dismiss_stale_reviews property</summary>
         public bool? DismissStaleReviews { get; set; }
@@ -72,9 +72,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bypass_pull_request_allowances", n => { BypassPullRequestAllowances = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_bypass_pull_request_allowances>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_bypass_pull_request_allowances.CreateFromDiscriminatorValue); } },
+                { "bypass_pull_request_allowances", n => { BypassPullRequestAllowances = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewBypassPullRequestAllowances>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewBypassPullRequestAllowances.CreateFromDiscriminatorValue); } },
                 { "dismiss_stale_reviews", n => { DismissStaleReviews = n.GetBoolValue(); } },
-                { "dismissal_restrictions", n => { DismissalRestrictions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_dismissal_restrictions>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_dismissal_restrictions.CreateFromDiscriminatorValue); } },
+                { "dismissal_restrictions", n => { DismissalRestrictions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewDismissalRestrictions>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewDismissalRestrictions.CreateFromDiscriminatorValue); } },
                 { "require_code_owner_reviews", n => { RequireCodeOwnerReviews = n.GetBoolValue(); } },
                 { "require_last_push_approval", n => { RequireLastPushApproval = n.GetBoolValue(); } },
                 { "required_approving_review_count", n => { RequiredApprovingReviewCount = n.GetIntValue(); } },
@@ -88,8 +88,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_bypass_pull_request_allowances>("bypass_pull_request_allowances", BypassPullRequestAllowances);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReview_dismissal_restrictions>("dismissal_restrictions", DismissalRestrictions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewBypassPullRequestAllowances>("bypass_pull_request_allowances", BypassPullRequestAllowances);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchPullRequestReviewDismissalRestrictions>("dismissal_restrictions", DismissalRestrictions);
             writer.WriteBoolValue("dismiss_stale_reviews", DismissStaleReviews);
             writer.WriteBoolValue("require_code_owner_reviews", RequireCodeOwnerReviews);
             writer.WriteIntValue("required_approving_review_count", RequiredApprovingReviewCount);

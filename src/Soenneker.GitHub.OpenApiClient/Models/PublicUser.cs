@@ -168,10 +168,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The plan property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PublicUser_plan? Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PublicUserPlan? Plan { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PublicUser_plan Plan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PublicUserPlan Plan { get; set; }
 #endif
         /// <summary>The private_gists property</summary>
         public int? PrivateGists { get; set; }
@@ -292,7 +292,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "notification_email", n => { NotificationEmail = n.GetStringValue(); } },
                 { "organizations_url", n => { OrganizationsUrl = n.GetStringValue(); } },
                 { "owned_private_repos", n => { OwnedPrivateRepos = n.GetIntValue(); } },
-                { "plan", n => { Plan = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PublicUser_plan>(global::Soenneker.GitHub.OpenApiClient.Models.PublicUser_plan.CreateFromDiscriminatorValue); } },
+                { "plan", n => { Plan = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PublicUserPlan>(global::Soenneker.GitHub.OpenApiClient.Models.PublicUserPlan.CreateFromDiscriminatorValue); } },
                 { "private_gists", n => { PrivateGists = n.GetIntValue(); } },
                 { "public_gists", n => { PublicGists = n.GetIntValue(); } },
                 { "public_repos", n => { PublicRepos = n.GetIntValue(); } },
@@ -341,7 +341,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("notification_email", NotificationEmail);
             writer.WriteStringValue("organizations_url", OrganizationsUrl);
             writer.WriteIntValue("owned_private_repos", OwnedPrivateRepos);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PublicUser_plan>("plan", Plan);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PublicUserPlan>("plan", Plan);
             writer.WriteIntValue("private_gists", PrivateGists);
             writer.WriteIntValue("public_gists", PublicGists);
             writer.WriteIntValue("public_repos", PublicRepos);

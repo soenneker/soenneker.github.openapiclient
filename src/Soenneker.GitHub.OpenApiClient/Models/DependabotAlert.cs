@@ -28,10 +28,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Details for the vulnerable dependency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dependency? Dependency { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDependency? Dependency { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dependency Dependency { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDependency Dependency { get; private set; }
 #endif
         /// <summary>Information about an active dismissal request for this Dependabot alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "auto_dismissed_at", n => { AutoDismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "dependency", n => { Dependency = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dependency>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dependency.CreateFromDiscriminatorValue); } },
+                { "dependency", n => { Dependency = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDependency>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDependency.CreateFromDiscriminatorValue); } },
                 { "dismissal_request", n => { DismissalRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple.CreateFromDiscriminatorValue); } },
                 { "dismissed_at", n => { DismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "dismissed_by", n => { DismissedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },

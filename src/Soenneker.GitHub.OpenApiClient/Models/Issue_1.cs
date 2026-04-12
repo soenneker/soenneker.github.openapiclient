@@ -186,10 +186,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The pull_request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1_pull_request? PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue1PullRequest? PullRequest { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1_pull_request PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue1PullRequest PullRequest { get; set; }
 #endif
         /// <summary>The reactions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -327,7 +327,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "parent_issue_url", n => { ParentIssueUrl = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "pinned_comment", n => { PinnedComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment.CreateFromDiscriminatorValue); } },
-                { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1_pull_request>(global::Soenneker.GitHub.OpenApiClient.Models.Issue_1_pull_request.CreateFromDiscriminatorValue); } },
+                { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue1PullRequest>(global::Soenneker.GitHub.OpenApiClient.Models.Issue1PullRequest.CreateFromDiscriminatorValue); } },
                 { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>(global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup.CreateFromDiscriminatorValue); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue); } },
                 { "repository_url", n => { RepositoryUrl = n.GetStringValue(); } },
@@ -376,7 +376,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("parent_issue_url", ParentIssueUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueComment>("pinned_comment", PinnedComment);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1_pull_request>("pull_request", PullRequest);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue1PullRequest>("pull_request", PullRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>("reactions", Reactions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("repository", Repository);
             writer.WriteStringValue("repository_url", RepositoryUrl);

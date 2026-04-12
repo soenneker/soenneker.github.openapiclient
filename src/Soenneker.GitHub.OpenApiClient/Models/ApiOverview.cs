@@ -66,10 +66,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The domains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_domains? Domains { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains? Domains { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_domains Domains { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains Domains { get; set; }
 #endif
         /// <summary>The git property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,10 +122,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ssh_key_fingerprints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_ssh_key_fingerprints? SshKeyFingerprints { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints? SshKeyFingerprints { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_ssh_key_fingerprints SshKeyFingerprints { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints SshKeyFingerprints { get; set; }
 #endif
         /// <summary>The ssh_keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -176,14 +176,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "codespaces", n => { Codespaces = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "copilot", n => { Copilot = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "dependabot", n => { Dependabot = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "domains", n => { Domains = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_domains>(global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_domains.CreateFromDiscriminatorValue); } },
+                { "domains", n => { Domains = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains>(global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains.CreateFromDiscriminatorValue); } },
                 { "git", n => { Git = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "github_enterprise_importer", n => { GithubEnterpriseImporter = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "hooks", n => { Hooks = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "importer", n => { Importer = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "packages", n => { Packages = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "pages", n => { Pages = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "ssh_key_fingerprints", n => { SshKeyFingerprints = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_ssh_key_fingerprints>(global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_ssh_key_fingerprints.CreateFromDiscriminatorValue); } },
+                { "ssh_key_fingerprints", n => { SshKeyFingerprints = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints>(global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints.CreateFromDiscriminatorValue); } },
                 { "ssh_keys", n => { SshKeys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "verifiable_password_authentication", n => { VerifiablePasswordAuthentication = n.GetBoolValue(); } },
                 { "web", n => { Web = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -202,14 +202,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("codespaces", Codespaces);
             writer.WriteCollectionOfPrimitiveValues<string>("copilot", Copilot);
             writer.WriteCollectionOfPrimitiveValues<string>("dependabot", Dependabot);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_domains>("domains", Domains);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewDomains>("domains", Domains);
             writer.WriteCollectionOfPrimitiveValues<string>("git", Git);
             writer.WriteCollectionOfPrimitiveValues<string>("github_enterprise_importer", GithubEnterpriseImporter);
             writer.WriteCollectionOfPrimitiveValues<string>("hooks", Hooks);
             writer.WriteCollectionOfPrimitiveValues<string>("importer", Importer);
             writer.WriteCollectionOfPrimitiveValues<string>("packages", Packages);
             writer.WriteCollectionOfPrimitiveValues<string>("pages", Pages);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverview_ssh_key_fingerprints>("ssh_key_fingerprints", SshKeyFingerprints);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ApiOverviewSshKeyFingerprints>("ssh_key_fingerprints", SshKeyFingerprints);
             writer.WriteCollectionOfPrimitiveValues<string>("ssh_keys", SshKeys);
             writer.WriteBoolValue("verifiable_password_authentication", VerifiablePasswordAuthentication);
             writer.WriteCollectionOfPrimitiveValues<string>("web", Web);

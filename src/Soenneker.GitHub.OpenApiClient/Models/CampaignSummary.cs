@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The alert_stats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary_alert_stats? AlertStats { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats? AlertStats { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary_alert_stats AlertStats { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats AlertStats { get; set; }
 #endif
         /// <summary>The date and time the campaign was closed, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.</summary>
         public DateTimeOffset? ClosedAt { get; set; }
@@ -102,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "alert_stats", n => { AlertStats = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary_alert_stats>(global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary_alert_stats.CreateFromDiscriminatorValue); } },
+                { "alert_stats", n => { AlertStats = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats>(global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats.CreateFromDiscriminatorValue); } },
                 { "closed_at", n => { ClosedAt = n.GetDateTimeOffsetValue(); } },
                 { "contact_link", n => { ContactLink = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -124,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummary_alert_stats>("alert_stats", AlertStats);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignSummaryAlertStats>("alert_stats", AlertStats);
             writer.WriteDateTimeOffsetValue("closed_at", ClosedAt);
             writer.WriteStringValue("contact_link", ContactLink);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);

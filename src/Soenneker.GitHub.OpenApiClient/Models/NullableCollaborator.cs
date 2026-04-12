@@ -116,10 +116,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaboratorPermissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaboratorPermissions Permissions { get; set; }
 #endif
         /// <summary>The received_events_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -225,7 +225,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "organizations_url", n => { OrganizationsUrl = n.GetStringValue(); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaboratorPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaboratorPermissions.CreateFromDiscriminatorValue); } },
                 { "received_events_url", n => { ReceivedEventsUrl = n.GetStringValue(); } },
                 { "repos_url", n => { ReposUrl = n.GetStringValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
@@ -257,7 +257,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("organizations_url", OrganizationsUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaborator_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCollaboratorPermissions>("permissions", Permissions);
             writer.WriteStringValue("received_events_url", ReceivedEventsUrl);
             writer.WriteStringValue("repos_url", ReposUrl);
             writer.WriteStringValue("role_name", RoleName);

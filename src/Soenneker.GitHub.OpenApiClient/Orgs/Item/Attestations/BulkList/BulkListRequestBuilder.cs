@@ -37,22 +37,22 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList
         /// List a collection of artifact attestations associated with any entry in a list of subject digests owned by an organization.The collection of attestations returned by this endpoint is filtered according to the authenticated user&apos;s permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.**Please note:** in order to offer meaningful security benefits, an attestation&apos;s signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build&apos;s provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
         /// API method documentation <see href="https://docs.github.com/rest/orgs/attestations#list-attestations-by-bulk-subject-digests" />
         /// </summary>
-        /// <returns>A <see cref="string"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder.BulkListRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk200?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder.BulkListRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder.BulkListRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk200> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.BulkList.BulkListRequestBuilder.BulkListRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestationsBulk200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List a collection of artifact attestations associated with any entry in a list of subject digests owned by an organization.The collection of attestations returned by this endpoint is filtered according to the authenticated user&apos;s permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `attestations:read` permission is required.**Please note:** in order to offer meaningful security benefits, an attestation&apos;s signature and timestamps **must** be cryptographically verified, and the identity of the attestation signer **must** be validated. Attestations can be verified using the [GitHub CLI `attestation verify` command](https://cli.github.com/manual/gh_attestation_verify). For more information, see [our guide on how to use artifact attestations to establish a build&apos;s provenance](https://docs.github.com/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).

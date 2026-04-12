@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The change_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistHistory_change_status? ChangeStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistHistoryChangeStatus? ChangeStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GistHistory_change_status ChangeStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GistHistoryChangeStatus ChangeStatus { get; set; }
 #endif
         /// <summary>The committed_at property</summary>
         public DateTimeOffset? CommittedAt { get; set; }
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "change_status", n => { ChangeStatus = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistHistory_change_status>(global::Soenneker.GitHub.OpenApiClient.Models.GistHistory_change_status.CreateFromDiscriminatorValue); } },
+                { "change_status", n => { ChangeStatus = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistHistoryChangeStatus>(global::Soenneker.GitHub.OpenApiClient.Models.GistHistoryChangeStatus.CreateFromDiscriminatorValue); } },
                 { "committed_at", n => { CommittedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
@@ -88,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistHistory_change_status>("change_status", ChangeStatus);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistHistoryChangeStatus>("change_status", ChangeStatus);
             writer.WriteDateTimeOffsetValue("committed_at", CommittedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);

@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The budget_alerting property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Budget_1_budget_alerting? BudgetAlerting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetAlerting? BudgetAlerting { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Budget_1_budget_alerting BudgetAlerting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetAlerting BudgetAlerting { get; set; }
 #endif
         /// <summary>The budget amount limit in whole dollars. For license-based products, this represents the number of licenses.</summary>
         public int? BudgetAmount { get; set; }
@@ -51,10 +51,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The type of pricing for the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetType? BudgetType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetType BudgetType { get; set; }
 #endif
         /// <summary>The unique identifier for the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,12 +91,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "budget_alerting", n => { BudgetAlerting = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Budget_1_budget_alerting>(global::Soenneker.GitHub.OpenApiClient.Models.Budget_1_budget_alerting.CreateFromDiscriminatorValue); } },
+                { "budget_alerting", n => { BudgetAlerting = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetAlerting>(global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetAlerting.CreateFromDiscriminatorValue); } },
                 { "budget_amount", n => { BudgetAmount = n.GetIntValue(); } },
                 { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { BudgetScope = n.GetStringValue(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetType.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
             };
@@ -108,12 +108,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Budget_1_budget_alerting>("budget_alerting", BudgetAlerting);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetAlerting>("budget_alerting", BudgetAlerting);
             writer.WriteIntValue("budget_amount", BudgetAmount);
             writer.WriteStringValue("budget_entity_name", BudgetEntityName);
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteStringValue("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("budget_type", BudgetType);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Budget1BudgetType>("budget_type", BudgetType);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
             writer.WriteAdditionalData(AdditionalData);

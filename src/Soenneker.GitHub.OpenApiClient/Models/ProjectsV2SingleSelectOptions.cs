@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The description of the option, in raw text and HTML formats.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_description? Description { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsDescription? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_description Description { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsDescription Description { get; set; }
 #endif
         /// <summary>The unique identifier of the option.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,10 +42,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The display name of the option, in raw text and HTML formats.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_name? Name { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_name Name { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsName Name { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions"/> and sets the default values.
@@ -73,9 +73,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "color", n => { Color = n.GetStringValue(); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_description>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsDescription>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsDescription.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_name>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_name.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsName>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsName.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,9 +86,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsDescription>("description", Description);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions_name>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptionsName>("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

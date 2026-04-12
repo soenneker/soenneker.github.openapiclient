@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_parameters? Parameters { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanningParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_parameters Parameters { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanningParameters Parameters { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_parameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_parameters.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanningParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanningParameters.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_parameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanningParameters>("parameters", Parameters);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

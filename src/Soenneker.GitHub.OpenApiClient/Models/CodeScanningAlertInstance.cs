@@ -73,10 +73,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance_message? Message { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage? Message { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance_message Message { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage Message { get; set; }
 #endif
         /// <summary>The Git reference, formatted as `refs/pull/&lt;number&gt;/merge`, `refs/pull/&lt;number&gt;/head`,`refs/heads/&lt;branch name&gt;` or simply `&lt;branch name&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "environment", n => { Environment = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation.CreateFromDiscriminatorValue); } },
-                { "message", n => { Message = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance_message>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance_message.CreateFromDiscriminatorValue); } },
+                { "message", n => { Message = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage.CreateFromDiscriminatorValue); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState>(); } },
             };
@@ -139,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertLocation>("location", Location);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance_message>("message", Message);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstanceMessage>("message", Message);
             writer.WriteStringValue("ref", Ref);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState>("state", State);
             writer.WriteAdditionalData(AdditionalData);

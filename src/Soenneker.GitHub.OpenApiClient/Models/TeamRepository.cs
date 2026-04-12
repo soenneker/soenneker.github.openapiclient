@@ -390,10 +390,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRepositoryPermissions? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRepositoryPermissions Permissions { get; set; }
 #endif
         /// <summary>Whether the repository is private or public.</summary>
         public bool? Private { get; set; }
@@ -630,7 +630,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.TeamRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
@@ -728,7 +728,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("open_issues", OpenIssues);
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("owner", Owner);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRepository_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteStringValue("pulls_url", PullsUrl);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);

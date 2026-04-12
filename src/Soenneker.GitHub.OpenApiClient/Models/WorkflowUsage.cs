@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The billable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsage_billable? Billable { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable? Billable { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsage_billable Billable { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable Billable { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsage"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "billable", n => { Billable = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsage_billable>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsage_billable.CreateFromDiscriminatorValue); } },
+                { "billable", n => { Billable = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsage_billable>("billable", Billable);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable>("billable", Billable);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

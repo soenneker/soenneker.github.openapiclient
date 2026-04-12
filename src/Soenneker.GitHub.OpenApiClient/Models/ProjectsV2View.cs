@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The creator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_creator? Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator? Creator { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_creator Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator Creator { get; set; }
 #endif
         /// <summary>The filter query for the view.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,7 +131,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_creator>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_creator.CreateFromDiscriminatorValue); } },
+                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator.CreateFromDiscriminatorValue); } },
                 { "filter", n => { Filter = n.GetStringValue(); } },
                 { "group_by", n => { GroupBy = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
@@ -155,7 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_creator>("creator", Creator);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ViewCreator>("creator", Creator);
             writer.WriteStringValue("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<int?>("group_by", GroupBy);
             writer.WriteStringValue("html_url", HtmlUrl);

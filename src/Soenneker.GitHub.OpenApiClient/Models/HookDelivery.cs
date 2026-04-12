@@ -54,18 +54,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request? Request { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequest? Request { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request Request { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequest Request { get; set; }
 #endif
         /// <summary>The response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response? Response { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse? Response { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response Response { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse Response { get; set; }
 #endif
         /// <summary>Description of the status of the attempted delivery</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,8 +121,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "installation_id", n => { InstallationId = n.GetIntValue(); } },
                 { "redelivery", n => { Redelivery = n.GetBoolValue(); } },
                 { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
-                { "request", n => { Request = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request>(global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request.CreateFromDiscriminatorValue); } },
-                { "response", n => { Response = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response>(global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response.CreateFromDiscriminatorValue); } },
+                { "request", n => { Request = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequest>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequest.CreateFromDiscriminatorValue); } },
+                { "response", n => { Response = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "status_code", n => { StatusCode = n.GetIntValue(); } },
                 { "throttled_at", n => { ThrottledAt = n.GetDateTimeOffsetValue(); } },
@@ -145,8 +145,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("installation_id", InstallationId);
             writer.WriteBoolValue("redelivery", Redelivery);
             writer.WriteIntValue("repository_id", RepositoryId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_request>("request", Request);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDelivery_response>("response", Response);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequest>("request", Request);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse>("response", Response);
             writer.WriteStringValue("status", Status);
             writer.WriteIntValue("status_code", StatusCode);
             writer.WriteDateTimeOffsetValue("throttled_at", ThrottledAt);

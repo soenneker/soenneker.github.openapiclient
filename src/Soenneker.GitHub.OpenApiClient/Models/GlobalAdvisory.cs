@@ -32,10 +32,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The cvss property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cvss? Cvss { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss? Cvss { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cvss Cvss { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss Cvss { get; set; }
 #endif
         /// <summary>The cvss_severities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -175,7 +175,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "credits", n => { Credits = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_credits>(global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_credits.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cve_id", n => { CveId = n.GetStringValue(); } },
-                { "cvss", n => { Cvss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cvss>(global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cvss.CreateFromDiscriminatorValue); } },
+                { "cvss", n => { Cvss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss>(global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss.CreateFromDiscriminatorValue); } },
                 { "cvss_severities", n => { CvssSeverities = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities.CreateFromDiscriminatorValue); } },
                 { "cwes", n => { Cwes = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cwes>(global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cwes.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -205,7 +205,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cvss>("cvss", Cvss);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisoryCvss>("cvss", Cvss);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities>("cvss_severities", CvssSeverities);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GlobalAdvisory_cwes>("cwes", Cwes);
             writer.WriteStringValue("description", Description);

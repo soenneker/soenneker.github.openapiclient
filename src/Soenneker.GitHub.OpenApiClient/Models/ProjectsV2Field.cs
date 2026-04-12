@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Configuration for iteration fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_configuration? Configuration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration? Configuration { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_configuration Configuration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration Configuration { get; set; }
 #endif
         /// <summary>The time when the field was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -90,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_configuration>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_configuration.CreateFromDiscriminatorValue); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type>(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_configuration>("configuration", Configuration);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration>("configuration", Configuration);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type>("data_type", DataType);
             writer.WriteIntValue("id", Id);
