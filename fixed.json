@@ -3103,7 +3103,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodeSecuritySetConfigurationAsDefaultForEnterprise200"
+                  "type": "object",
+                  "properties": {
+                    "default_for_new_repos": {
+                      "enum": [
+                        "all",
+                        "none",
+                        "private_and_internal",
+                        "public"
+                      ],
+                      "type": "string",
+                      "additionalProperties": false,
+                      "description": "Specifies which types of repository this security configuration is applied to by default."
+                    },
+                    "configuration": {
+                      "$ref": "#/components/schemas/CodeSecurityConfiguration"
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7537,7 +7553,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsGetActionsCacheUsageByRepoForOrg200"
+                  "required": [
+                    "total_count",
+                    "repository_cache_usages"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repository_cache_usages": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsCacheUsageByRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7579,7 +7610,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListHostedRunnersForOrg200"
+                  "required": [
+                    "total_count",
+                    "runners"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "runners": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunner"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7673,7 +7719,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListCustomImagesForOrg200"
+                  "required": [
+                    "total_count",
+                    "images"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "images": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunnerCustomImage"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7785,7 +7846,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListCustomImageVersionsForOrg200"
+                  "required": [
+                    "total_count",
+                    "image_versions"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "image_versions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunnerCustomImageVersion"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7900,7 +7976,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsGetHostedRunnersGithubOwnedImagesForOrg200"
+                  "required": [
+                    "total_count",
+                    "images"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "images": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunnerCuratedImage"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7936,7 +8027,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsGetHostedRunnersPartnerImagesForOrg200"
+                  "required": [
+                    "total_count",
+                    "images"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "images": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunnerCuratedImage"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -8008,7 +8114,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsGetHostedRunnersMachineSpecsForOrg200"
+                  "required": [
+                    "total_count",
+                    "machine_specs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "machine_specs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunnerMachineSpec"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -8798,7 +8919,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelectedRepositoriesEnabledGithubActionsOrganization200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "number"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Repository_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -9134,7 +9270,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelectedRepositoriesSelfHostedRunnersOrganization200"
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Repository_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -9384,7 +9531,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelfHostedRunnerGroupsForOrg200"
+                  "required": [
+                    "total_count",
+                    "runner_groups"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "number"
+                    },
+                    "runner_groups": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/RunnerGroupsOrg"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -9615,7 +9777,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListGithubHostedRunnersInGroupForOrg200"
+                  "required": [
+                    "total_count",
+                    "runners"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "number"
+                    },
+                    "runners": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsHostedRunner"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -9660,7 +9837,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListRepoAccessToSelfHostedRunnerGroupInOrg200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "number"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -9834,7 +10026,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelfHostedRunnersInGroupForOrg200"
+                  "required": [
+                    "total_count",
+                    "runners"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "number"
+                    },
+                    "runners": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Runner_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -10013,7 +10220,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelfHostedRunnersForOrg200"
+                  "required": [
+                    "total_count",
+                    "runners"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "runners": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Runner_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -10478,7 +10700,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListOrgSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationActionsSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -10692,7 +10929,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelectedReposForOrgSecret200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -10872,7 +11124,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListOrgVariables200"
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationActionsVariable"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -11103,7 +11370,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelectedReposForOrgVariable200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -11302,7 +11584,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsCreateArtifactDeploymentRecord200"
+                  "required": [
+                    "total_count"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The number of deployment records created"
+                    },
+                    "deployment_records": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ArtifactDeploymentRecord"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -11385,7 +11682,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords200"
+                  "required": [
+                    "total_count"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The number of deployment records created"
+                    },
+                    "deployment_records": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ArtifactDeploymentRecord"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -11528,7 +11840,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsListArtifactDeploymentRecords200"
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The number of deployment records for this digest and organization",
+                      "example": 3
+                    },
+                    "deployment_records": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ArtifactDeploymentRecord"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -12941,7 +13266,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodeSecuritySetConfigurationAsDefault200"
+                  "type": "object",
+                  "properties": {
+                    "default_for_new_repos": {
+                      "enum": [
+                        "all",
+                        "none",
+                        "private_and_internal",
+                        "public"
+                      ],
+                      "type": "string",
+                      "additionalProperties": false,
+                      "description": "Specifies which types of repository this security configuration is applied to by default."
+                    },
+                    "configuration": {
+                      "$ref": "#/components/schemas/CodeSecurityConfiguration"
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -13071,7 +13412,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListInOrganization200"
+                  "required": [
+                    "total_count",
+                    "codespaces"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "codespaces": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Codespace_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -13128,7 +13484,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListOrgSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CodespacesOrgSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -13339,7 +13710,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListSelectedReposForOrgSecret200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -13555,7 +13941,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CopilotListCopilotSeats200"
+                  "type": "object",
+                  "properties": {
+                    "total_seats": {
+                      "type": "integer",
+                      "description": "Total number of Copilot seats for the organization currently being billed."
+                    },
+                    "seats": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSeatDetails"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -13999,7 +14397,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CopilotListCopilotCodingAgentSelectedRepositoriesForOrganization200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -14732,7 +15145,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DependabotListOrgSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationDependabotSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -14946,7 +15374,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DependabotListSelectedReposForOrgSecret200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -16250,7 +16693,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsListAppInstallations200"
+                  "required": [
+                    "total_count",
+                    "installations"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "installations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Installation_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -17312,7 +17770,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesGetCodespacesForUserInOrg200"
+                  "required": [
+                    "total_count",
+                    "codespaces"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "codespaces": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Codespace_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -17956,7 +18429,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsListOrgRoles200"
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The total number of organization roles available to the organization."
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationRole"
+                      },
+                      "description": "The list of organization roles available to the organization."
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -19425,7 +19911,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PrivateRegistriesListOrgPrivateRegistries200"
+                  "required": [
+                    "total_count",
+                    "configurations"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "configurations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrgPrivateRegistryConfiguration"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -22353,7 +22854,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsGetImmutableReleasesSettingsRepositories200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -22514,7 +23030,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HostedComputeListNetworkConfigurationsForOrg200"
+                  "required": [
+                    "total_count",
+                    "network_configurations"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "network_configurations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/NetworkConfiguration"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -23800,7 +24331,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListArtifactsForRepo200"
+                  "required": [
+                    "total_count",
+                    "artifacts"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "artifacts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Artifact_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -24573,7 +25119,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListRepoOrganizationSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -24618,7 +25179,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListRepoOrganizationVariables200"
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsVariable"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -25287,7 +25863,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListSelfHostedRunnersForRepo200"
+                  "required": [
+                    "total_count",
+                    "runners"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "runners": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Runner_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -25812,7 +26403,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListWorkflowRunsForRepo200"
+                  "required": [
+                    "total_count",
+                    "workflow_runs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "workflow_runs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/WorkflowRun"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -26039,7 +26645,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListWorkflowRunArtifacts200"
+                  "required": [
+                    "total_count",
+                    "artifacts"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "artifacts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Artifact_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -26138,7 +26759,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListJobsForWorkflowRunAttempt200"
+                  "required": [
+                    "total_count",
+                    "jobs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Job_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -26394,7 +27030,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListJobsForWorkflowRun200"
+                  "required": [
+                    "total_count",
+                    "jobs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Job_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -26767,7 +27418,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListRepoSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -26988,7 +27654,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListRepoVariables200"
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsVariable"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -27221,7 +27902,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListRepoWorkflows200"
+                  "required": [
+                    "total_count",
+                    "workflows"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "workflows": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Workflow_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -27475,7 +28171,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListWorkflowRuns200"
+                  "required": [
+                    "total_count",
+                    "workflow_runs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "workflow_runs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/WorkflowRun"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -30627,7 +31338,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChecksListForSuite200"
+                  "required": [
+                    "total_count",
+                    "check_runs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "check_runs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CheckRun"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -32180,7 +32906,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListInRepositoryForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "codespaces"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "codespaces": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Codespace_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -32401,7 +33142,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesRepoMachinesForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "machines"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "machines": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CodespaceMachine"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -32601,7 +33357,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListRepoSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/RepoCodespacesSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -33891,7 +34662,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChecksListForRef200"
+                  "required": [
+                    "total_count",
+                    "check_runs"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "check_runs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CheckRun"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -33951,7 +34737,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChecksListSuitesForRef200"
+                  "required": [
+                    "total_count",
+                    "check_suites"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "check_suites": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CheckSuite"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -34812,7 +35613,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DependabotListRepoSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DependabotSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -35651,7 +36467,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetAllEnvironments200"
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The number of environments in this repository",
+                      "example": 5
+                    },
+                    "environments": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Environment_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -35859,7 +36688,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposListDeploymentBranchPolicies200"
+                  "required": [
+                    "total_count",
+                    "branch_policies"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The number of deployment branch policies for the environment.",
+                      "example": 2
+                    },
+                    "branch_policies": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DeploymentBranchPolicy"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -36122,7 +36968,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposGetAllDeploymentProtectionRules200"
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The number of enabled custom deployment protection rules for this environment",
+                      "example": 10
+                    },
+                    "custom_deployment_protection_rules": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DeploymentProtectionRule"
+                      }
+                    }
+                  },
+                  "example": {
+                    "$ref": "#/components/examples/deployment-protection-rules"
+                  }
                 },
                 "examples": {
                   "default": {
@@ -36252,7 +37114,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ReposListCustomDeploymentRuleIntegrations200"
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "The total number of custom deployment protection rule integrations available for this environment.",
+                      "example": 35
+                    },
+                    "available_custom_deployment_protection_rule_integrations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CustomDeploymentRuleApp"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -36385,7 +37260,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListEnvironmentSecrets200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -36621,7 +37511,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionsListEnvironmentVariables200"
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsVariable"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49191,7 +50096,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchCode200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CodeSearchResultItem"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49267,7 +50191,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchCommits200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CommitSearchResultItem"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49349,7 +50292,54 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchIssuesAndPullRequests200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items",
+                    "search_type"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/IssueSearchResultItem"
+                      }
+                    },
+                    "search_type": {
+                      "enum": [
+                        "lexical",
+                        "semantic",
+                        "hybrid"
+                      ],
+                      "type": "string",
+                      "additionalProperties": false,
+                      "description": "The type of search that was performed. Possible values are \u0060lexical\u0060, \u0060semantic\u0060, or \u0060hybrid\u0060."
+                    },
+                    "lexical_fallback_reason": {
+                      "type": "array",
+                      "items": {
+                        "enum": [
+                          "no_text_terms",
+                          "quoted_text",
+                          "non_issue_target",
+                          "or_boolean_not_supported",
+                          "no_accessible_repos",
+                          "server_error",
+                          "only_non_semantic_fields_requested"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false
+                      },
+                      "description": "When a semantic or hybrid search falls back to lexical search, this field contains the reasons for the fallback. Only present when a fallback occurred."
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49440,7 +50430,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchLabels200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/LabelSearchResultItem"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49518,7 +50527,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchRepos200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/RepoSearchResultItem"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49575,7 +50603,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchTopics200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TopicSearchResultItem"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49643,7 +50690,26 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SearchUsers200"
+                  "required": [
+                    "total_count",
+                    "incomplete_results",
+                    "items"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "incomplete_results": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/UserSearchResultItem"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -49955,7 +51021,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "codespaces"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "codespaces": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Codespace_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -50083,7 +51164,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListSecretsForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CodespacesSecret"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -50279,7 +51375,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesListRepositoriesForSecretForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -50697,7 +51808,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CodespacesCodespaceMachinesForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "machines"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "machines": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CodespaceMachine"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -51585,7 +52711,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppsListInstallationsForAuthenticatedUser200"
+                  "required": [
+                    "total_count",
+                    "installations"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "installations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Installation_1"
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -253275,25 +254416,6 @@
           }
         }
       },
-      "CodeSecuritySetConfigurationAsDefaultForEnterprise200": {
-        "type": "object",
-        "properties": {
-          "default_for_new_repos": {
-            "enum": [
-              "all",
-              "none",
-              "private_and_internal",
-              "public"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Specifies which types of repository this security configuration is applied to by default."
-          },
-          "configuration": {
-            "$ref": "#/components/schemas/CodeSecurityConfiguration"
-          }
-        }
-      },
       "CodeSecurityGetRepositoriesForEnterpriseConfiguration200": {
         "type": "array",
         "items": {
@@ -254152,42 +255274,6 @@
           }
         }
       },
-      "ActionsGetActionsCacheUsageByRepoForOrg200": {
-        "required": [
-          "total_count",
-          "repository_cache_usages"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repository_cache_usages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsCacheUsageByRepository"
-            }
-          }
-        }
-      },
-      "ActionsListHostedRunnersForOrg200": {
-        "required": [
-          "total_count",
-          "runners"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "runners": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunner"
-            }
-          }
-        }
-      },
       "ActionsCreateHostedRunnerForOrg": {
         "required": [
           "name",
@@ -254246,96 +255332,6 @@
             "type": "boolean",
             "description": "Whether this runner should be used to generate custom images.",
             "default": false
-          }
-        }
-      },
-      "ActionsListCustomImagesForOrg200": {
-        "required": [
-          "total_count",
-          "images"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunnerCustomImage"
-            }
-          }
-        }
-      },
-      "ActionsListCustomImageVersionsForOrg200": {
-        "required": [
-          "total_count",
-          "image_versions"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "image_versions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunnerCustomImageVersion"
-            }
-          }
-        }
-      },
-      "ActionsGetHostedRunnersGithubOwnedImagesForOrg200": {
-        "required": [
-          "total_count",
-          "images"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunnerCuratedImage"
-            }
-          }
-        }
-      },
-      "ActionsGetHostedRunnersPartnerImagesForOrg200": {
-        "required": [
-          "total_count",
-          "images"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunnerCuratedImage"
-            }
-          }
-        }
-      },
-      "ActionsGetHostedRunnersMachineSpecsForOrg200": {
-        "required": [
-          "total_count",
-          "machine_specs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "machine_specs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunnerMachineSpec"
-            }
           }
         }
       },
@@ -254429,24 +255425,6 @@
           }
         }
       },
-      "ActionsListSelectedRepositoriesEnabledGithubActionsOrganization200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "number"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Repository_1"
-            }
-          }
-        }
-      },
       "ActionsSetSelectedRepositoriesEnabledGithubActionsOrganization": {
         "required": [
           "selected_repository_ids"
@@ -254481,20 +255459,6 @@
           }
         }
       },
-      "ActionsListSelectedRepositoriesSelfHostedRunnersOrganization200": {
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Repository_1"
-            }
-          }
-        }
-      },
       "ActionsSetSelectedRepositoriesSelfHostedRunnersOrganization": {
         "required": [
           "selected_repository_ids"
@@ -254507,24 +255471,6 @@
               "type": "integer"
             },
             "description": "IDs of repositories that can use repository-level self-hosted runners"
-          }
-        }
-      },
-      "ActionsListSelfHostedRunnerGroupsForOrg200": {
-        "required": [
-          "total_count",
-          "runner_groups"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "number"
-          },
-          "runner_groups": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RunnerGroupsOrg"
-            }
           }
         }
       },
@@ -254636,42 +255582,6 @@
           }
         }
       },
-      "ActionsListGithubHostedRunnersInGroupForOrg200": {
-        "required": [
-          "total_count",
-          "runners"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "number"
-          },
-          "runners": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsHostedRunner"
-            }
-          }
-        }
-      },
-      "ActionsListRepoAccessToSelfHostedRunnerGroupInOrg200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "number"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
-          }
-        }
-      },
       "ActionsSetRepoAccessToSelfHostedRunnerGroupInOrg": {
         "required": [
           "selected_repository_ids"
@@ -254688,24 +255598,6 @@
           }
         }
       },
-      "ActionsListSelfHostedRunnersInGroupForOrg200": {
-        "required": [
-          "total_count",
-          "runners"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "number"
-          },
-          "runners": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Runner_1"
-            }
-          }
-        }
-      },
       "ActionsSetSelfHostedRunnersInGroupForOrg": {
         "required": [
           "runners"
@@ -254719,24 +255611,6 @@
               "description": "Unique identifier of the runner."
             },
             "description": "List of runner IDs to add to the runner group."
-          }
-        }
-      },
-      "ActionsListSelfHostedRunnersForOrg200": {
-        "required": [
-          "total_count",
-          "runners"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "runners": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Runner_1"
-            }
           }
         }
       },
@@ -254812,24 +255686,6 @@
           }
         }
       },
-      "ActionsListOrgSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrganizationActionsSecret"
-            }
-          }
-        }
-      },
       "ActionsCreateOrUpdateOrgSecret": {
         "required": [
           "encrypted_value",
@@ -254866,24 +255722,6 @@
           }
         }
       },
-      "ActionsListSelectedReposForOrgSecret200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
-          }
-        }
-      },
       "ActionsSetSelectedReposForOrgSecret": {
         "required": [
           "selected_repository_ids"
@@ -254896,24 +255734,6 @@
               "type": "integer"
             },
             "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060. You can add and remove individual repositories using the [Add selected repository to an organization secret](https://docs.github.com/rest/actions/secrets#add-selected-repository-to-an-organization-secret) and [Remove selected repository from an organization secret](https://docs.github.com/rest/actions/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
-          }
-        }
-      },
-      "ActionsListOrgVariables200": {
-        "required": [
-          "total_count",
-          "variables"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrganizationActionsVariable"
-            }
           }
         }
       },
@@ -254979,24 +255799,6 @@
               "type": "integer"
             },
             "description": "An array of repository ids that can access the organization variable. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060."
-          }
-        }
-      },
-      "ActionsListSelectedReposForOrgVariable200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
           }
         }
       },
@@ -255116,24 +255918,6 @@
           }
         }
       },
-      "OrgsCreateArtifactDeploymentRecord200": {
-        "required": [
-          "total_count"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The number of deployment records created"
-          },
-          "deployment_records": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ArtifactDeploymentRecord"
-            }
-          }
-        }
-      },
       "OrgsSetClusterDeploymentRecords": {
         "required": [
           "logical_environment",
@@ -255237,24 +256021,6 @@
             "type": "boolean",
             "description": "If true, the endpoint will return the set records in the response body\n",
             "default": true
-          }
-        }
-      },
-      "OrgsSetClusterDeploymentRecords200": {
-        "required": [
-          "total_count"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The number of deployment records created"
-          },
-          "deployment_records": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ArtifactDeploymentRecord"
-            }
           }
         }
       },
@@ -255387,22 +256153,6 @@
                   "type": "string"
                 }
               }
-            }
-          }
-        }
-      },
-      "OrgsListArtifactDeploymentRecords200": {
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The number of deployment records for this digest and organization",
-            "example": 3
-          },
-          "deployment_records": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ArtifactDeploymentRecord"
             }
           }
         }
@@ -256447,65 +257197,10 @@
           }
         }
       },
-      "CodeSecuritySetConfigurationAsDefault200": {
-        "type": "object",
-        "properties": {
-          "default_for_new_repos": {
-            "enum": [
-              "all",
-              "none",
-              "private_and_internal",
-              "public"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Specifies which types of repository this security configuration is applied to by default."
-          },
-          "configuration": {
-            "$ref": "#/components/schemas/CodeSecurityConfiguration"
-          }
-        }
-      },
       "CodeSecurityGetRepositoriesForConfiguration200": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/CodeSecurityConfigurationRepositories"
-        }
-      },
-      "CodespacesListInOrganization200": {
-        "required": [
-          "total_count",
-          "codespaces"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "codespaces": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Codespace_1"
-            }
-          }
-        }
-      },
-      "CodespacesListOrgSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CodespacesOrgSecret"
-            }
-          }
         }
       },
       "CodespacesCreateOrUpdateOrgSecret": {
@@ -256542,24 +257237,6 @@
           }
         }
       },
-      "CodespacesListSelectedReposForOrgSecret200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
-          }
-        }
-      },
       "CodespacesSetSelectedReposForOrgSecret": {
         "required": [
           "selected_repository_ids"
@@ -256572,21 +257249,6 @@
               "type": "integer"
             },
             "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060. You can add and remove individual repositories using the [Set selected repositories for an organization secret](https://docs.github.com/rest/codespaces/organization-secrets#set-selected-repositories-for-an-organization-secret) and [Remove selected repository from an organization secret](https://docs.github.com/rest/codespaces/organization-secrets#remove-selected-repository-from-an-organization-secret) endpoints."
-          }
-        }
-      },
-      "CopilotListCopilotSeats200": {
-        "type": "object",
-        "properties": {
-          "total_seats": {
-            "type": "integer",
-            "description": "Total number of Copilot seats for the organization currently being billed."
-          },
-          "seats": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CopilotSeatDetails"
-            }
           }
         }
       },
@@ -256742,24 +257404,6 @@
           }
         }
       },
-      "CopilotListCopilotCodingAgentSelectedRepositoriesForOrganization200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
-          }
-        }
-      },
       "CopilotSetCopilotCodingAgentSelectedRepositoriesForOrganization": {
         "required": [
           "selected_repository_ids"
@@ -256840,24 +257484,6 @@
           "$ref": "#/components/schemas/DependabotAlertWithRepository"
         }
       },
-      "DependabotListOrgSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrganizationDependabotSecret"
-            }
-          }
-        }
-      },
       "DependabotCreateOrUpdateOrgSecret": {
         "required": [
           "visibility"
@@ -256894,24 +257520,6 @@
               ]
             },
             "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
-          }
-        }
-      },
-      "DependabotListSelectedReposForOrgSecret200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
           }
         }
       },
@@ -257091,24 +257699,6 @@
           "$ref": "#/components/schemas/HookDeliveryItem"
         }
       },
-      "OrgsListAppInstallations200": {
-        "required": [
-          "total_count",
-          "installations"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "installations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Installation_1"
-            }
-          }
-        }
-      },
       "InteractionsGetRestrictionsForOrg200": {
         "required": [
           "type"
@@ -257204,24 +257794,6 @@
           "$ref": "#/components/schemas/SimpleUser"
         }
       },
-      "CodespacesGetCodespacesForUserInOrg200": {
-        "required": [
-          "total_count",
-          "codespaces"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "codespaces": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Codespace_1"
-            }
-          }
-        }
-      },
       "OrgsSetMembershipForUser": {
         "type": "object",
         "properties": {
@@ -257313,22 +257885,6 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/MinimalRepository"
-        }
-      },
-      "OrgsListOrgRoles200": {
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The total number of organization roles available to the organization."
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrganizationRole"
-            },
-            "description": "The list of organization roles available to the organization."
-          }
         }
       },
       "OrgsListOrgRoleTeams200": {
@@ -257507,24 +258063,6 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/MinimalRepository"
-        }
-      },
-      "PrivateRegistriesListOrgPrivateRegistries200": {
-        "required": [
-          "total_count",
-          "configurations"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "configurations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrgPrivateRegistryConfiguration"
-            }
-          }
         }
       },
       "PrivateRegistriesCreateOrgPrivateRegistry": {
@@ -258488,24 +259026,6 @@
           }
         }
       },
-      "OrgsGetImmutableReleasesSettingsRepositories200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
-          }
-        }
-      },
       "OrgsSetImmutableReleasesSettingsRepositories": {
         "required": [
           "selected_repository_ids"
@@ -258518,24 +259038,6 @@
               "type": "integer"
             },
             "description": "An array of repository ids for which immutable releases enforcement should be applied. You can only provide a list of repository ids when the \u0060enforced_repositories\u0060 is set to \u0060selected\u0060. You can add and remove individual repositories using the [Enable a selected repository for immutable releases in an organization](https://docs.github.com/rest/orgs/orgs#enable-a-selected-repository-for-immutable-releases-in-an-organization) and [Disable a selected repository for immutable releases in an organization](https://docs.github.com/rest/orgs/orgs#disable-a-selected-repository-for-immutable-releases-in-an-organization) endpoints."
-          }
-        }
-      },
-      "HostedComputeListNetworkConfigurationsForOrg200": {
-        "required": [
-          "total_count",
-          "network_configurations"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "network_configurations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NetworkConfiguration"
-            }
           }
         }
       },
@@ -259076,24 +259578,6 @@
           }
         }
       },
-      "ActionsListArtifactsForRepo200": {
-        "required": [
-          "total_count",
-          "artifacts"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "artifacts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Artifact_1"
-            }
-          }
-        }
-      },
       "ActionsReRunJobForWorkflowRun": {
         "type": "object",
         "properties": {
@@ -259126,42 +259610,6 @@
         },
         "description": "Actions OIDC subject customization for a repository"
       },
-      "ActionsListRepoOrganizationSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsSecret"
-            }
-          }
-        }
-      },
-      "ActionsListRepoOrganizationVariables200": {
-        "required": [
-          "total_count",
-          "variables"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsVariable"
-            }
-          }
-        }
-      },
       "ActionsSetGithubActionsPermissionsRepository": {
         "required": [
           "enabled"
@@ -259178,24 +259626,6 @@
           "sha_pinning_required": {
             "type": "boolean",
             "description": "Whether actions must be pinned to a full-length commit SHA."
-          }
-        }
-      },
-      "ActionsListSelfHostedRunnersForRepo200": {
-        "required": [
-          "total_count",
-          "runners"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "runners": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Runner_1"
-            }
           }
         }
       },
@@ -259271,64 +259701,10 @@
           }
         }
       },
-      "ActionsListWorkflowRunsForRepo200": {
-        "required": [
-          "total_count",
-          "workflow_runs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "workflow_runs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkflowRun"
-            }
-          }
-        }
-      },
       "ActionsGetReviewsForRun200": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/EnvironmentApprovals"
-        }
-      },
-      "ActionsListWorkflowRunArtifacts200": {
-        "required": [
-          "total_count",
-          "artifacts"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "artifacts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Artifact_1"
-            }
-          }
-        }
-      },
-      "ActionsListJobsForWorkflowRunAttempt200": {
-        "required": [
-          "total_count",
-          "jobs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "jobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Job_1"
-            }
-          }
         }
       },
       "ActionsReviewCustomGatesForRun": {
@@ -259355,24 +259731,6 @@
           "mapping": {
             "ReviewCustomGatesCommentRequired": "#/components/schemas/ReviewCustomGatesCommentRequired",
             "ReviewCustomGatesStateRequired": "#/components/schemas/ReviewCustomGatesStateRequired"
-          }
-        }
-      },
-      "ActionsListJobsForWorkflowRun200": {
-        "required": [
-          "total_count",
-          "jobs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "jobs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Job_1"
-            }
           }
         }
       },
@@ -259443,24 +259801,6 @@
         },
         "nullable": true
       },
-      "ActionsListRepoSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsSecret"
-            }
-          }
-        }
-      },
       "ActionsCreateOrUpdateRepoSecret": {
         "required": [
           "encrypted_value",
@@ -259476,24 +259816,6 @@
           "key_id": {
             "type": "string",
             "description": "ID of the key you used to encrypt the secret."
-          }
-        }
-      },
-      "ActionsListRepoVariables200": {
-        "required": [
-          "total_count",
-          "variables"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsVariable"
-            }
           }
         }
       },
@@ -259527,24 +259849,6 @@
           }
         }
       },
-      "ActionsListRepoWorkflows200": {
-        "required": [
-          "total_count",
-          "workflows"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "workflows": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Workflow_1"
-            }
-          }
-        }
-      },
       "ActionsCreateWorkflowDispatch": {
         "required": [
           "ref"
@@ -259563,24 +259867,6 @@
           "return_run_details": {
             "type": "boolean",
             "description": "Whether the response should include the workflow run ID and URLs."
-          }
-        }
-      },
-      "ActionsListWorkflowRuns200": {
-        "required": [
-          "total_count",
-          "workflow_runs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "workflow_runs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WorkflowRun"
-            }
           }
         }
       },
@@ -261012,24 +261298,6 @@
           }
         }
       },
-      "ChecksListForSuite200": {
-        "required": [
-          "total_count",
-          "check_runs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "check_runs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CheckRun"
-            }
-          }
-        }
-      },
       "CodeScanningListAlertsForRepo200": {
         "type": "array",
         "items": {
@@ -261215,24 +261483,6 @@
         },
         "additionalProperties": false
       },
-      "CodespacesListInRepositoryForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "codespaces"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "codespaces": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Codespace_1"
-            }
-          }
-        }
-      },
       "CodespacesCreateWithRepoForAuthenticatedUser": {
         "type": "object",
         "properties": {
@@ -261322,24 +261572,6 @@
           }
         }
       },
-      "CodespacesRepoMachinesForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "machines"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "machines": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CodespaceMachine"
-            }
-          }
-        }
-      },
       "CodespacesPreFlightWithRepoForAuthenticatedUser200": {
         "type": "object",
         "properties": {
@@ -261360,24 +261592,6 @@
                 "type": "string",
                 "nullable": true
               }
-            }
-          }
-        }
-      },
-      "CodespacesListRepoSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RepoCodespacesSecret"
             }
           }
         }
@@ -261509,42 +261723,6 @@
       },
       "ReposGetCommit200": {
         "type": "string"
-      },
-      "ChecksListForRef200": {
-        "required": [
-          "total_count",
-          "check_runs"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "check_runs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CheckRun"
-            }
-          }
-        }
-      },
-      "ChecksListSuitesForRef200": {
-        "required": [
-          "total_count",
-          "check_suites"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "check_suites": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CheckSuite"
-            }
-          }
-        }
       },
       "ReposListCommitStatusesForRef200": {
         "type": "array",
@@ -261811,24 +261989,6 @@
           "propertyName": "type"
         }
       },
-      "DependabotListRepoSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DependabotSecret"
-            }
-          }
-        }
-      },
       "DependabotCreateOrUpdateRepoSecret": {
         "type": "object",
         "properties": {
@@ -262014,22 +262174,6 @@
           }
         }
       },
-      "ReposGetAllEnvironments200": {
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The number of environments in this repository",
-            "example": 5
-          },
-          "environments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Environment_1"
-            }
-          }
-        }
-      },
       "ReposCreateOrUpdateEnvironment": {
         "type": "object",
         "properties": {
@@ -262066,85 +262210,12 @@
         "additionalProperties": false,
         "nullable": true
       },
-      "ReposListDeploymentBranchPolicies200": {
-        "required": [
-          "total_count",
-          "branch_policies"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The number of deployment branch policies for the environment.",
-            "example": 2
-          },
-          "branch_policies": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DeploymentBranchPolicy"
-            }
-          }
-        }
-      },
-      "ReposGetAllDeploymentProtectionRules200": {
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The number of enabled custom deployment protection rules for this environment",
-            "example": 10
-          },
-          "custom_deployment_protection_rules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DeploymentProtectionRule"
-            }
-          }
-        },
-        "example": {
-          "$ref": "#/components/examples/deployment-protection-rules"
-        }
-      },
       "ReposCreateDeploymentProtectionRule": {
         "type": "object",
         "properties": {
           "integration_id": {
             "type": "integer",
             "description": "The ID of the custom app that will be enabled on the environment."
-          }
-        }
-      },
-      "ReposListCustomDeploymentRuleIntegrations200": {
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer",
-            "description": "The total number of custom deployment protection rule integrations available for this environment.",
-            "example": 35
-          },
-          "available_custom_deployment_protection_rule_integrations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomDeploymentRuleApp"
-            }
-          }
-        }
-      },
-      "ActionsListEnvironmentSecrets200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsSecret"
-            }
           }
         }
       },
@@ -262163,24 +262234,6 @@
           "key_id": {
             "type": "string",
             "description": "ID of the key you used to encrypt the secret."
-          }
-        }
-      },
-      "ActionsListEnvironmentVariables200": {
-        "required": [
-          "total_count",
-          "variables"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ActionsVariable"
-            }
           }
         }
       },
@@ -264911,188 +264964,6 @@
         },
         "description": "The current issue field values for this issue after setting the new values"
       },
-      "SearchCode200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CodeSearchResultItem"
-            }
-          }
-        }
-      },
-      "SearchCommits200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CommitSearchResultItem"
-            }
-          }
-        }
-      },
-      "SearchIssuesAndPullRequests200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items",
-          "search_type"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/IssueSearchResultItem"
-            }
-          },
-          "search_type": {
-            "enum": [
-              "lexical",
-              "semantic",
-              "hybrid"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of search that was performed. Possible values are \u0060lexical\u0060, \u0060semantic\u0060, or \u0060hybrid\u0060."
-          },
-          "lexical_fallback_reason": {
-            "type": "array",
-            "items": {
-              "enum": [
-                "no_text_terms",
-                "quoted_text",
-                "non_issue_target",
-                "or_boolean_not_supported",
-                "no_accessible_repos",
-                "server_error",
-                "only_non_semantic_fields_requested"
-              ],
-              "type": "string",
-              "additionalProperties": false
-            },
-            "description": "When a semantic or hybrid search falls back to lexical search, this field contains the reasons for the fallback. Only present when a fallback occurred."
-          }
-        }
-      },
-      "SearchLabels200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LabelSearchResultItem"
-            }
-          }
-        }
-      },
-      "SearchRepos200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RepoSearchResultItem"
-            }
-          }
-        }
-      },
-      "SearchTopics200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TopicSearchResultItem"
-            }
-          }
-        }
-      },
-      "SearchUsers200": {
-        "required": [
-          "total_count",
-          "incomplete_results",
-          "items"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "incomplete_results": {
-            "type": "boolean"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserSearchResultItem"
-            }
-          }
-        }
-      },
       "UsersGetAuthenticated200": {
         "required": [
           "user_view_type"
@@ -265169,24 +265040,6 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/SimpleUser"
-        }
-      },
-      "CodespacesListForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "codespaces"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "codespaces": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Codespace_1"
-            }
-          }
         }
       },
       "CodespacesCreateForAuthenticatedUser": {
@@ -265326,24 +265179,6 @@
           "propertyName": "type"
         }
       },
-      "CodespacesListSecretsForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "secrets"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "secrets": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CodespacesSecret"
-            }
-          }
-        }
-      },
       "CodespacesCreateOrUpdateSecretForAuthenticatedUser": {
         "required": [
           "key_id"
@@ -265370,24 +265205,6 @@
               ]
             },
             "description": "An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret) endpoints."
-          }
-        }
-      },
-      "CodespacesListRepositoriesForSecretForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "repositories"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MinimalRepository"
-            }
           }
         }
       },
@@ -265423,24 +265240,6 @@
               "type": "string"
             },
             "description": "Recently opened folders inside the codespace. It is currently used by the clients to determine the folder path to load the codespace in."
-          }
-        }
-      },
-      "CodespacesCodespaceMachinesForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "machines"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "machines": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CodespaceMachine"
-            }
           }
         }
       },
@@ -265632,24 +265431,6 @@
           "armored_public_key": {
             "type": "string",
             "description": "A GPG key in ASCII-armored format."
-          }
-        }
-      },
-      "AppsListInstallationsForAuthenticatedUser200": {
-        "required": [
-          "total_count",
-          "installations"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "installations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Installation_1"
-            }
           }
         }
       },
