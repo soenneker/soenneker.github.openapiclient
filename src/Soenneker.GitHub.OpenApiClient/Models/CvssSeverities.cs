@@ -17,18 +17,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The cvss_v3 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3? CvssV3 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v3? CvssV3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3 CvssV3 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v3 CvssV3 { get; set; }
 #endif
         /// <summary>The cvss_v4 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4? CvssV4 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v4? CvssV4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4 CvssV4 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v4 CvssV4 { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities"/> and sets the default values.
@@ -55,8 +55,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cvss_v3", n => { CvssV3 = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3.CreateFromDiscriminatorValue); } },
-                { "cvss_v4", n => { CvssV4 = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4.CreateFromDiscriminatorValue); } },
+                { "cvss_v3", n => { CvssV3 = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v3>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v3.CreateFromDiscriminatorValue); } },
+                { "cvss_v4", n => { CvssV4 = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v4>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v4.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV3>("cvss_v3", CvssV3);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeveritiesCvssV4>("cvss_v4", CvssV4);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v3>("cvss_v3", CvssV3);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities_cvss_v4>("cvss_v4", CvssV4);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

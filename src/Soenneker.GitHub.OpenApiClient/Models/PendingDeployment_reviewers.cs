@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PendingDeployment_reviewers_reviewer : IComposedTypeWrapper, IParsable
@@ -78,13 +78,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
             public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.Team_1? Team1 { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Team? Team { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.GitHub.OpenApiClient.Models.Team_1 Team1 { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Team Team { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment_reviewers.PendingDeployment_reviewers_reviewer();
                 result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
-                result.Team1 = new global::Soenneker.GitHub.OpenApiClient.Models.Team_1();
+                result.Team = new global::Soenneker.GitHub.OpenApiClient.Models.Team();
                 return result;
             }
             /// <summary>
@@ -105,9 +105,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(SimpleUser != null || Team1 != null)
+                if(SimpleUser != null || Team != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SimpleUser, Team1);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(SimpleUser, Team);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(null, SimpleUser, Team1);
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(null, SimpleUser, Team);
             }
         }
     }

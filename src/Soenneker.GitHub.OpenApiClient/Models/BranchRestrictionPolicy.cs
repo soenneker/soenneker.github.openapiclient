@@ -34,10 +34,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The teams property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>? Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? Teams { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1> Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> Teams { get; set; }
 #endif
         /// <summary>The teams_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "apps", n => { Apps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "apps_url", n => { AppsUrl = n.GetStringValue(); } },
-                { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>(global::Soenneker.GitHub.OpenApiClient.Models.Team_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "teams_url", n => { TeamsUrl = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "users", n => { Users = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -114,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps>("apps", Apps);
             writer.WriteStringValue("apps_url", AppsUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>("teams", Teams);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("teams", Teams);
             writer.WriteStringValue("teams_url", TeamsUrl);
             writer.WriteStringValue("url", Url);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users>("users", Users);

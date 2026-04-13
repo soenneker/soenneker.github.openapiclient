@@ -25,10 +25,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The team through which the assignee is granted access to GitHub Copilot, if applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam? AssigningTeam { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team? AssigningTeam { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam AssigningTeam { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team AssigningTeam { get; set; }
 #endif
         /// <summary>Timestamp of when the assignee was last granted access to GitHub Copilot, in ISO 8601 format.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
-                { "assigning_team", n => { AssigningTeam = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam.CreateFromDiscriminatorValue); } },
+                { "assigning_team", n => { AssigningTeam = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "last_activity_at", n => { LastActivityAt = n.GetDateTimeOffsetValue(); } },
                 { "last_activity_editor", n => { LastActivityEditor = n.GetStringValue(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("assignee", Assignee);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetailsAssigningTeam>("assigning_team", AssigningTeam);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team>("assigning_team", AssigningTeam);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("last_activity_at", LastActivityAt);
             writer.WriteStringValue("last_activity_editor", LastActivityEditor);
@@ -106,6 +106,81 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateValue("pending_cancellation_date", PendingCancellationDate);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails_plan_type>("plan_type", PlanType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CopilotSeatDetails_assigning_team : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam? EnterpriseTeam { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam EnterpriseTeam { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Team"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.GitHub.OpenApiClient.Models.Team? Team { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.GitHub.OpenApiClient.Models.Team Team { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails.CopilotSeatDetails_assigning_team();
+                if("EnterpriseTeam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.EnterpriseTeam = new global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam();
+                }
+                else if("Team".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Team = new global::Soenneker.GitHub.OpenApiClient.Models.Team();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(EnterpriseTeam != null)
+                {
+                    return EnterpriseTeam.GetFieldDeserializers();
+                }
+                else if(Team != null)
+                {
+                    return Team.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(EnterpriseTeam != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam>(null, EnterpriseTeam);
+                }
+                else if(Team != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team>(null, Team);
+                }
+            }
         }
     }
 }

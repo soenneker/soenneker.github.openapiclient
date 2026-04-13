@@ -50,20 +50,20 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations
         /// The permissions the installation has are included under the `permissions` key.You must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/apps/apps#list-installations-for-the-authenticated-app" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Installation_1&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.Installation&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Installation_1>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.App.Installations.InstallationsRequestBuilder.InstallationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Installation>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.App.Installations.InstallationsRequestBuilder.InstallationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Installation_1>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.App.Installations.InstallationsRequestBuilder.InstallationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.Installation>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.App.Installations.InstallationsRequestBuilder.InstallationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Installation_1>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Installation_1.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.Installation>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Installation.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

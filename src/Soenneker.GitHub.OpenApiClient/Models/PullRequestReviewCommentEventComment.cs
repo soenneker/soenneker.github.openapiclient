@@ -127,10 +127,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentUser? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventComment_user? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentUser User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventComment_user User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventComment"/> and sets the default values.
@@ -176,7 +176,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "subject_type", n => { SubjectType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentUser>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentUser.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventComment_user>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventComment_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -205,7 +205,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("subject_type", SubjectType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentUser>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventComment_user>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

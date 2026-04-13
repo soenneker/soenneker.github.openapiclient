@@ -25,10 +25,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A Discussion in a repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_1? Discussion { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion? Discussion { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_1 Discussion { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion Discussion { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DiscussionEvent"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "action", n => { Action = n.GetStringValue(); } },
-                { "discussion", n => { Discussion = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_1>(global::Soenneker.GitHub.OpenApiClient.Models.Discussion_1.CreateFromDiscriminatorValue); } },
+                { "discussion", n => { Discussion = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion>(global::Soenneker.GitHub.OpenApiClient.Models.Discussion.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action", Action);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_1>("discussion", Discussion);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion>("discussion", Discussion);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

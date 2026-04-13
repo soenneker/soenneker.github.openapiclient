@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1? Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue? Issue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1 Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue Issue { get; set; }
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>(global::Soenneker.GitHub.OpenApiClient.Models.Issue_1.CreateFromDiscriminatorValue); } },
+                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>(global::Soenneker.GitHub.OpenApiClient.Models.Issue.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>("issue", Issue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>("issue", Issue);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

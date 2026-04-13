@@ -33,10 +33,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1? Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue? Issue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1 Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue Issue { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueCommentEvent"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "action", n => { Action = n.GetStringValue(); } },
                 { "comment", n => { Comment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueComment>(global::Soenneker.GitHub.OpenApiClient.Models.IssueComment.CreateFromDiscriminatorValue); } },
-                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>(global::Soenneker.GitHub.OpenApiClient.Models.Issue_1.CreateFromDiscriminatorValue); } },
+                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>(global::Soenneker.GitHub.OpenApiClient.Models.Issue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action", Action);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueComment>("comment", Comment);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>("issue", Issue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>("issue", Issue);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Default value of the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue? DefaultValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? DefaultValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue DefaultValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch DefaultValue { get; set; }
 #endif
         /// <summary>Short description of the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_values", n => { AllowedValues = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "default_value", n => { DefaultValue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue.CreateFromDiscriminatorValue); } },
+                { "default_value", n => { DefaultValue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "require_explicit_values", n => { RequireExplicitValues = n.GetBoolValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
@@ -89,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_values", AllowedValues);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySetPayloadDefaultValue>("default_value", DefaultValue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("default_value", DefaultValue);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("required", Required);
             writer.WriteBoolValue("require_explicit_values", RequireExplicitValues);

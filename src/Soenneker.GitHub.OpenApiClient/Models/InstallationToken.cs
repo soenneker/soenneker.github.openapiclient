@@ -36,10 +36,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>? Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository>? Repositories { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1> Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> Repositories { get; set; }
 #endif
         /// <summary>The repository_selection property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.InstallationToken_repository_selection? RepositorySelection { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "has_multiple_single_files", n => { HasMultipleSingleFiles = n.GetBoolValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions.CreateFromDiscriminatorValue); } },
-                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InstallationToken_repository_selection>(); } },
                 { "single_file", n => { SingleFile = n.GetStringValue(); } },
                 { "single_file_paths", n => { SingleFilePaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteBoolValue("has_multiple_single_files", HasMultipleSingleFiles);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>("permissions", Permissions);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("repositories", Repositories);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repositories", Repositories);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InstallationToken_repository_selection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file", SingleFile);
             writer.WriteCollectionOfPrimitiveValues<string>("single_file_paths", SingleFilePaths);

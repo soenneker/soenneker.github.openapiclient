@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub Classroom classroom</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Classroom_1? Classroom { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Classroom? Classroom { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Classroom_1 Classroom { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Classroom Classroom { get; set; }
 #endif
         /// <summary>The time at which the assignment is due.</summary>
         public DateTimeOffset? Deadline { get; set; }
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accepted", n => { Accepted = n.GetIntValue(); } },
-                { "classroom", n => { Classroom = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Classroom_1>(global::Soenneker.GitHub.OpenApiClient.Models.Classroom_1.CreateFromDiscriminatorValue); } },
+                { "classroom", n => { Classroom = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Classroom>(global::Soenneker.GitHub.OpenApiClient.Models.Classroom.CreateFromDiscriminatorValue); } },
                 { "deadline", n => { Deadline = n.GetDateTimeOffsetValue(); } },
                 { "editor", n => { Editor = n.GetStringValue(); } },
                 { "feedback_pull_requests_enabled", n => { FeedbackPullRequestsEnabled = n.GetBoolValue(); } },
@@ -149,7 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("accepted", Accepted);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Classroom_1>("classroom", Classroom);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Classroom>("classroom", Classroom);
             writer.WriteDateTimeOffsetValue("deadline", Deadline);
             writer.WriteStringValue("editor", Editor);
             writer.WriteBoolValue("feedback_pull_requests_enabled", FeedbackPullRequestsEnabled);

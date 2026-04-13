@@ -84,10 +84,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Groups of organization members that gives permissions on specified repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Team_1? RequestedTeam { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Team? RequestedTeam { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Team_1 RequestedTeam { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Team RequestedTeam { get; set; }
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -139,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "requested_reviewer", n => { RequestedReviewer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "requested_team", n => { RequestedTeam = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>(global::Soenneker.GitHub.OpenApiClient.Models.Team_1.CreateFromDiscriminatorValue); } },
+                { "requested_team", n => { RequestedTeam = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue); } },
                 { "review_requester", n => { ReviewRequester = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("requested_reviewer", RequestedReviewer);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>("requested_team", RequestedTeam);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team>("requested_team", RequestedTeam);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("review_requester", ReviewRequester);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

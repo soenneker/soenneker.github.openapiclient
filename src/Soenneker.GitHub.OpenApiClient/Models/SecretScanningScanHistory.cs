@@ -30,6 +30,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans> CustomPatternBackfillScans { get; set; }
 #endif
+        /// <summary>The generic_secrets_backfill_scans property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>? GenericSecretsBackfillScans { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan> GenericSecretsBackfillScans { get; set; }
+#endif
         /// <summary>The incremental_scans property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "backfill_scans", n => { BackfillScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "custom_pattern_backfill_scans", n => { CustomPatternBackfillScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "generic_secrets_backfill_scans", n => { GenericSecretsBackfillScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "incremental_scans", n => { IncrementalScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pattern_update_scans", n => { PatternUpdateScans = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -86,6 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("backfill_scans", BackfillScans);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans>("custom_pattern_backfill_scans", CustomPatternBackfillScans);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("generic_secrets_backfill_scans", GenericSecretsBackfillScans);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("incremental_scans", IncrementalScans);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan>("pattern_update_scans", PatternUpdateScans);
             writer.WriteAdditionalData(AdditionalData);

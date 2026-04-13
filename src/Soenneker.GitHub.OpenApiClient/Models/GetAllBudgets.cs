@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Array of budget objects for the enterprise</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget_1>? Budgets { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget>? Budgets { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget_1> Budgets { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget> Budgets { get; set; }
 #endif
         /// <summary>Indicates if there are more pages of results available (maps to hasNextPage from billing platform)</summary>
         public bool? HasNextPage { get; set; }
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "budgets", n => { Budgets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget_1>(global::Soenneker.GitHub.OpenApiClient.Models.Budget_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "budgets", n => { Budgets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>(global::Soenneker.GitHub.OpenApiClient.Models.Budget.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has_next_page", n => { HasNextPage = n.GetBoolValue(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget_1>("budgets", Budgets);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>("budgets", Budgets);
             writer.WriteBoolValue("has_next_page", HasNextPage);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);

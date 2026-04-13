@@ -20,20 +20,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit_1? BaseCommit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Commit? BaseCommit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit_1 BaseCommit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Commit BaseCommit { get; set; }
 #endif
         /// <summary>The behind_by property</summary>
         public int? BehindBy { get; set; }
         /// <summary>The commits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>? Commits { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Commit>? Commits { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1> Commits { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Commit> Commits { get; set; }
 #endif
         /// <summary>The diff_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,10 +62,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit_1? MergeBaseCommit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Commit? MergeBaseCommit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit_1 MergeBaseCommit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Commit MergeBaseCommit { get; set; }
 #endif
         /// <summary>The patch_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,13 +121,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ahead_by", n => { AheadBy = n.GetIntValue(); } },
-                { "base_commit", n => { BaseCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_1.CreateFromDiscriminatorValue); } },
+                { "base_commit", n => { BaseCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.CreateFromDiscriminatorValue); } },
                 { "behind_by", n => { BehindBy = n.GetIntValue(); } },
-                { "commits", n => { Commits = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "commits", n => { Commits = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "diff_url", n => { DiffUrl = n.GetStringValue(); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>(global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "merge_base_commit", n => { MergeBaseCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_1.CreateFromDiscriminatorValue); } },
+                { "merge_base_commit", n => { MergeBaseCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.CreateFromDiscriminatorValue); } },
                 { "patch_url", n => { PatchUrl = n.GetStringValue(); } },
                 { "permalink_url", n => { PermalinkUrl = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitComparison_status>(); } },
@@ -143,13 +143,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("ahead_by", AheadBy);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>("base_commit", BaseCommit);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>("base_commit", BaseCommit);
             writer.WriteIntValue("behind_by", BehindBy);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>("commits", Commits);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit>("commits", Commits);
             writer.WriteStringValue("diff_url", DiffUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>("files", Files);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>("merge_base_commit", MergeBaseCommit);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>("merge_base_commit", MergeBaseCommit);
             writer.WriteStringValue("patch_url", PatchUrl);
             writer.WriteStringValue("permalink_url", PermalinkUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitComparison_status>("status", Status);

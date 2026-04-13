@@ -9,7 +9,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AppsListReposAccessibleToInstallation200_repositories : global::Soenneker.GitHub.OpenApiClient.Models.Repository_1, IParsable
+    public partial class AppsListReposAccessibleToInstallation200_repositories : global::Soenneker.GitHub.OpenApiClient.Models.Repository, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

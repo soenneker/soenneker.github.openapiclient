@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments
         /// <summary>The environments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Environment_1>? Environments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject>? Environments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Environment_1> Environments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject> Environments { get; set; }
 #endif
         /// <summary>The number of environments in this repository</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "environments", n => { Environments = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Environment_1>(global::Soenneker.GitHub.OpenApiClient.Models.Environment_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "environments", n => { Environments = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject>(global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Environments
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Environment_1>("environments", Environments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject>("environments", Environments);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

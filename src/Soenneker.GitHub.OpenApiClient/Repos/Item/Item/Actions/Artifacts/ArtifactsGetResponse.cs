@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Artifacts
         /// <summary>The artifacts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Artifact_1>? Artifacts { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Artifact>? Artifacts { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Artifact_1> Artifacts { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Artifact> Artifacts { get; set; }
 #endif
         /// <summary>The total_count property</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Artifacts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "artifacts", n => { Artifacts = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Artifact_1>(global::Soenneker.GitHub.OpenApiClient.Models.Artifact_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "artifacts", n => { Artifacts = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Artifact>(global::Soenneker.GitHub.OpenApiClient.Models.Artifact.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Artifacts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Artifact_1>("artifacts", Artifacts);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Artifact>("artifacts", Artifacts);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

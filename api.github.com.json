@@ -67306,7 +67306,7 @@
     "/repos/{owner}/{repo}/secret-scanning/scan-history": {
       "get": {
         "summary": "Get secret scanning scan history for a repository",
-        "description": "Lists the latest default incremental and backfill scans by type for a repository. Scans from Copilot Secret Scanning are not included.\n\n> [!NOTE]\n> This endpoint requires [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security).\"\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `security_events` scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the `public_repo` scope instead.",
+        "description": "Lists the latest default incremental and backfill scans by type for a repository.\n\n> [!NOTE]\n> This endpoint requires [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security).\n\nOAuth app tokens and personal access tokens (classic) need the `repo` or `security_events` scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the `public_repo` scope instead.",
         "tags": [
           "secret-scanning"
         ],
@@ -120487,11 +120487,15 @@
             ]
           },
           "options": {
-            "description": "Options for single select fields. Only applicable when updating single_select fields.",
+            "description": "Options for single select fields. Only applicable when updating single_select fields. When provided, this array **replaces** the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its `id`. Options sent without an `id` are treated as new options and may cause existing options to be deleted and recreated.",
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
+                "id": {
+                  "description": "The id of an existing option to retain or update. Omit this when creating a new option.",
+                  "type": "integer"
+                },
                 "name": {
                   "description": "Name of the option.",
                   "type": "string"
@@ -141295,6 +141299,12 @@
                   }
                 }
               ]
+            }
+          },
+          "generic_secrets_backfill_scans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/secret-scanning-scan"
             }
           }
         }
@@ -316532,6 +316542,14 @@
               "completed_at": "2024-10-07T02:55:00Z",
               "pattern_slug": "my-custom-pattern",
               "pattern_scope": "organization"
+            }
+          ],
+          "generic_secrets_backfill_scans": [
+            {
+              "type": "git",
+              "status": "completed",
+              "started_at": "2024-10-07T02:47:00Z",
+              "completed_at": "2024-10-07T02:55:00Z"
             }
           ]
         }

@@ -426,10 +426,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A repository on GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1? Parent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository? Parent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1 Parent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository Parent { get; set; }
 #endif
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -474,10 +474,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A repository on GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1 Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository Source { get; set; }
 #endif
         /// <summary>The default value for a squash merge commit message:- `PR_BODY` - default to the pull request&apos;s body.- `COMMIT_MESSAGES` - default to the branch&apos;s commit messages.- `BLANK` - default to a blank commit message.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_squash_merge_commit_message? SquashMergeCommitMessage { get; set; }
@@ -706,7 +706,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "open_issues_count", n => { OpenIssuesCount = n.GetIntValue(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_pull_request_creation_policy>(); } },
@@ -715,7 +715,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "releases_url", n => { ReleasesUrl = n.GetStringValue(); } },
                 { "security_and_analysis", n => { SecurityAndAnalysis = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis.CreateFromDiscriminatorValue); } },
                 { "size", n => { Size = n.GetIntValue(); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
                 { "squash_merge_commit_message", n => { SquashMergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_squash_merge_commit_message>(); } },
                 { "squash_merge_commit_title", n => { SquashMergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_squash_merge_commit_title>(); } },
                 { "ssh_url", n => { SshUrl = n.GetStringValue(); } },
@@ -820,7 +820,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("open_issues_count", OpenIssuesCount);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("organization", Organization);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("parent", Parent);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("parent", Parent);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
@@ -829,7 +829,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("releases_url", ReleasesUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAndAnalysis>("security_and_analysis", SecurityAndAnalysis);
             writer.WriteIntValue("size", Size);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("source", Source);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_squash_merge_commit_message>("squash_merge_commit_message", SquashMergeCommitMessage);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository_squash_merge_commit_title>("squash_merge_commit_title", SquashMergeCommitTitle);
             writer.WriteStringValue("ssh_url", SshUrl);

@@ -41,26 +41,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1? Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue? Issue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Issue_1 Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Issue Issue { get; set; }
 #endif
         /// <summary>Color-coded labels help you categorize and filter your issues (just like labels in Gmail).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Label_1? Label { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Label? Label { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Label_1 Label { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Label Label { get; set; }
 #endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label_1> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label> Labels { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesEvent"/> and sets the default values.
@@ -90,9 +90,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "action", n => { Action = n.GetStringValue(); } },
                 { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>(global::Soenneker.GitHub.OpenApiClient.Models.Issue_1.CreateFromDiscriminatorValue); } },
-                { "label", n => { Label = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>(global::Soenneker.GitHub.OpenApiClient.Models.Label_1.CreateFromDiscriminatorValue); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>(global::Soenneker.GitHub.OpenApiClient.Models.Label_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>(global::Soenneker.GitHub.OpenApiClient.Models.Issue.CreateFromDiscriminatorValue); } },
+                { "label", n => { Label = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label>(global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label>(global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -105,9 +105,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("action", Action);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignee", Assignee);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignees", Assignees);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue_1>("issue", Issue);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>("label", Label);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>("labels", Labels);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Issue>("issue", Issue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label>("label", Label);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label>("labels", Labels);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

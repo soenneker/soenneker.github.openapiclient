@@ -33,10 +33,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A repository on GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1? Repo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository? Repo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1 Repo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository Repo { get; set; }
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
-                { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue); } },
+                { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
             };
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("ref", Ref);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("repo", Repo);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repo", Repo);
             writer.WriteStringValue("sha", Sha);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);

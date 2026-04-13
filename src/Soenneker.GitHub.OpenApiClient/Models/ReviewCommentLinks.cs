@@ -17,26 +17,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Html { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Html { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? PullRequest { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 PullRequest { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link PullRequest { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Self { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Self { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentLinks"/> and sets the default values.
@@ -63,9 +63,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "html", n => { Html = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "self", n => { Self = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
+                { "html", n => { Html = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "self", n => { Self = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +75,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("html", Html);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("pull_request", PullRequest);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("self", Self);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("html", Html);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("pull_request", PullRequest);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("self", Self);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

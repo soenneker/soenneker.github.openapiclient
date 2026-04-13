@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A repository on GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1? Repo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository? Repo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository_1 Repo { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Repository Repo { get; set; }
 #endif
         /// <summary>The starred_at property</summary>
         public DateTimeOffset? StarredAt { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue); } },
+                { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
                 { "starred_at", n => { StarredAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("repo", Repo);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repo", Repo);
             writer.WriteDateTimeOffsetValue("starred_at", StarredAt);
             writer.WriteAdditionalData(AdditionalData);
         }

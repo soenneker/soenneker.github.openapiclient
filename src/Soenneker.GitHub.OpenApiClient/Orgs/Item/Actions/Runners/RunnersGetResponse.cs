@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners
         /// <summary>The runners property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Runner_1>? Runners { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Runner>? Runners { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Runner_1> Runners { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Runner> Runners { get; set; }
 #endif
         /// <summary>The total_count property</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "runners", n => { Runners = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Runner_1>(global::Soenneker.GitHub.OpenApiClient.Models.Runner_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "runners", n => { Runners = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Runner>(global::Soenneker.GitHub.OpenApiClient.Models.Runner.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Runner_1>("runners", Runners);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Runner>("runners", Runners);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

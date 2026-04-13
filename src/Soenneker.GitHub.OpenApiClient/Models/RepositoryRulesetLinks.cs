@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The html property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksHtml? Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks_html? Html { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksHtml Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks_html Html { get; set; }
 #endif
         /// <summary>The self property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "html", n => { Html = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksHtml>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksHtml.CreateFromDiscriminatorValue); } },
+                { "html", n => { Html = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks_html>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks_html.CreateFromDiscriminatorValue); } },
                 { "self", n => { Self = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksSelf>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksSelf.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksHtml>("html", Html);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks_html>("html", Html);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinksSelf>("self", Self);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit_1? Commit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Commit? Commit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Commit_1 Commit { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Commit Commit { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "commit", n => { Commit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_1.CreateFromDiscriminatorValue); } },
+                { "commit", n => { Commit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.CreateFromDiscriminatorValue); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BranchWithProtectionLinks>(global::Soenneker.GitHub.OpenApiClient.Models.BranchWithProtectionLinks.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit_1>("commit", Commit);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>("commit", Commit);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BranchWithProtectionLinks>("_links", Links);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("pattern", Pattern);

@@ -68,10 +68,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Integration_1? PerformedViaGithubApp { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Integration? PerformedViaGithubApp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Integration_1 PerformedViaGithubApp { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Integration PerformedViaGithubApp { get; set; }
 #endif
         /// <summary>The project_card property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "event", n => { Event = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration_1>(global::Soenneker.GitHub.OpenApiClient.Models.Integration_1.CreateFromDiscriminatorValue); } },
+                { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>(global::Soenneker.GitHub.OpenApiClient.Models.Integration.CreateFromDiscriminatorValue); } },
                 { "project_card", n => { ProjectCard = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEventProjectCard>(global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEventProjectCard.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -140,7 +140,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("event", Event);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration_1>("performed_via_github_app", PerformedViaGithubApp);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEventProjectCard>("project_card", ProjectCard);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item
         /// Fetches a single user migration. The response includes the `state` of the migration, which can be one of the following values:*   `pending` - the migration hasn&apos;t started yet.*   `exporting` - the migration is in progress.*   `exported` - the migration finished successfully.*   `failed` - the migration failed.Once the migration has been `exported` you can [download the migration archive](https://docs.github.com/rest/migrations/users#download-a-user-migration-archive).
         /// API method documentation <see href="https://docs.github.com/rest/migrations/users#get-a-user-migration-status" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Migration_1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Migration"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
@@ -63,11 +63,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Migration_1?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Migrations.Item.WithMigration_ItemRequestBuilder.WithMigration_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Migration?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Migrations.Item.WithMigration_ItemRequestBuilder.WithMigration_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Migration_1> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Migrations.Item.WithMigration_ItemRequestBuilder.WithMigration_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Migration> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Migrations.Item.WithMigration_ItemRequestBuilder.WithMigration_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Migration_1>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Migration_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Migration>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Migration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetches a single user migration. The response includes the `state` of the migration, which can be one of the following values:*   `pending` - the migration hasn&apos;t started yet.*   `exporting` - the migration is in progress.*   `exported` - the migration finished successfully.*   `failed` - the migration failed.Once the migration has been `exported` you can [download the migration archive](https://docs.github.com/rest/migrations/users#download-a-user-migration-archive).

@@ -28,10 +28,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The repositories this token has access to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>? Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository>? Repositories { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1> Repositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> Repositories { get; set; }
 #endif
         /// <summary>Describe whether all repositories have been selected or there&apos;s a selection involved</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_repository_selection? RepositorySelection { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions.CreateFromDiscriminatorValue); } },
-                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>(global::Soenneker.GitHub.OpenApiClient.Models.Repository_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_repository_selection>(); } },
                 { "single_file", n => { SingleFile = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions>("permissions", Permissions);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository_1>("repositories", Repositories);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repositories", Repositories);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_repository_selection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file", SingleFile);
             writer.WriteStringValue("token", Token);

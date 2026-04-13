@@ -186,10 +186,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The requested_teams property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>? RequestedTeams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? RequestedTeams { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1> RequestedTeams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> RequestedTeams { get; set; }
 #endif
         /// <summary>The review_comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -301,7 +301,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "patch_url", n => { PatchUrl = n.GetStringValue(); } },
                 { "requested_reviewers", n => { RequestedReviewers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "requested_teams", n => { RequestedTeams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>(global::Soenneker.GitHub.OpenApiClient.Models.Team_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "requested_teams", n => { RequestedTeams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "review_comment_url", n => { ReviewCommentUrl = n.GetStringValue(); } },
                 { "review_comments_url", n => { ReviewCommentsUrl = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
@@ -346,7 +346,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("patch_url", PatchUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("requested_reviewers", RequestedReviewers);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>("requested_teams", RequestedTeams);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("requested_teams", RequestedTeams);
             writer.WriteStringValue("review_comments_url", ReviewCommentsUrl);
             writer.WriteStringValue("review_comment_url", ReviewCommentUrl);
             writer.WriteStringValue("state", State);

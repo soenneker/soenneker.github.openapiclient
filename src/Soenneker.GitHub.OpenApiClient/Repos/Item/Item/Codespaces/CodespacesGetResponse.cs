@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codespaces
         /// <summary>The codespaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1>? Codespaces { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Codespace>? Codespaces { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1> Codespaces { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Codespace> Codespaces { get; set; }
 #endif
         /// <summary>The total_count property</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codespaces
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "codespaces", n => { Codespaces = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "codespaces", n => { Codespaces = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Codespace>(global::Soenneker.GitHub.OpenApiClient.Models.Codespace.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codespaces
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Codespace_1>("codespaces", Codespaces);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Codespace>("codespaces", Codespaces);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

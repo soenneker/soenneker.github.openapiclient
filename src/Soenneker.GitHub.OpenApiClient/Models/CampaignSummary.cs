@@ -70,10 +70,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The campaign team managers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>? TeamManagers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? TeamManagers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1> TeamManagers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> TeamManagers { get; set; }
 #endif
         /// <summary>The date and time the campaign was last updated, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -113,7 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "published_at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignState>(); } },
-                { "team_managers", n => { TeamManagers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>(global::Soenneker.GitHub.OpenApiClient.Models.Team_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "team_managers", n => { TeamManagers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("number", Number);
             writer.WriteDateTimeOffsetValue("published_at", PublishedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CampaignState>("state", State);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>("team_managers", TeamManagers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("team_managers", TeamManagers);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The clones property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1>? Clones { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>? Clones { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1> Clones { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic> Clones { get; set; }
 #endif
         /// <summary>The count property</summary>
         public int? Count { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "clones", n => { Clones = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1>(global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "clones", n => { Clones = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>(global::Soenneker.GitHub.OpenApiClient.Models.Traffic.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
                 { "uniques", n => { Uniques = n.GetIntValue(); } },
             };
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1>("clones", Clones);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>("clones", Clones);
             writer.WriteIntValue("count", Count);
             writer.WriteIntValue("uniques", Uniques);
             writer.WriteAdditionalData(AdditionalData);

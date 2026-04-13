@@ -74,10 +74,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The verification property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Verification_1? Verification { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Verification? Verification { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Verification_1 Verification { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Verification Verification { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GitTag"/> and sets the default values.
@@ -111,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "tagger", n => { Tagger = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger>(global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification_1>(global::Soenneker.GitHub.OpenApiClient.Models.Verification_1.CreateFromDiscriminatorValue); } },
+                { "verification", n => { Verification = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification>(global::Soenneker.GitHub.OpenApiClient.Models.Verification.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -128,7 +128,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("tag", Tag);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitTagTagger>("tagger", Tagger);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification_1>("verification", Verification);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Verification>("verification", Verification);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

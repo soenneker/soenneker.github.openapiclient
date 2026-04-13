@@ -41,18 +41,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Color-coded labels help you categorize and filter your issues (just like labels in Gmail).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Label_1? Label { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Label? Label { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Label_1 Label { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Label Label { get; set; }
 #endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label_1> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Label> Labels { get; set; }
 #endif
         /// <summary>The number property</summary>
         public int? Number { get; set; }
@@ -92,8 +92,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "action", n => { Action = n.GetStringValue(); } },
                 { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "label", n => { Label = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>(global::Soenneker.GitHub.OpenApiClient.Models.Label_1.CreateFromDiscriminatorValue); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>(global::Soenneker.GitHub.OpenApiClient.Models.Label_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "label", n => { Label = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label>(global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label>(global::Soenneker.GitHub.OpenApiClient.Models.Label.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal.CreateFromDiscriminatorValue); } },
             };
@@ -108,8 +108,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("action", Action);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignee", Assignee);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("assignees", Assignees);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>("label", Label);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label_1>("labels", Labels);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Label>("label", Label);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Label>("labels", Labels);
             writer.WriteIntValue("number", Number);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMinimal>("pull_request", PullRequest);
             writer.WriteAdditionalData(AdditionalData);

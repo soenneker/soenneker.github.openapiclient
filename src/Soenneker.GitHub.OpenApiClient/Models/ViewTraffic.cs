@@ -22,10 +22,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The views property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1>? Views { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>? Views { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1> Views { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic> Views { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ViewTraffic"/> and sets the default values.
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "count", n => { Count = n.GetIntValue(); } },
                 { "uniques", n => { Uniques = n.GetIntValue(); } },
-                { "views", n => { Views = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1>(global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "views", n => { Views = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>(global::Soenneker.GitHub.OpenApiClient.Models.Traffic.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("count", Count);
             writer.WriteIntValue("uniques", Uniques);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic_1>("views", Views);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>("views", Views);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

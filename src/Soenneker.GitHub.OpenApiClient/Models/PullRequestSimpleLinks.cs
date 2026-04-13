@@ -17,66 +17,66 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Comments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Comments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Comments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Comments { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Commits { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Commits { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Commits { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Commits { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Html { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Html { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Html { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Issue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Issue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Issue { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? ReviewComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? ReviewComment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 ReviewComment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link ReviewComment { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? ReviewComments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? ReviewComments { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 ReviewComments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link ReviewComments { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Self { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Self { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Self { get; set; }
 #endif
         /// <summary>Hypermedia Link</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1? Statuses { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link? Statuses { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Link_1 Statuses { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Link Statuses { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks"/> and sets the default values.
@@ -103,14 +103,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "comments", n => { Comments = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "commits", n => { Commits = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "html", n => { Html = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "review_comment", n => { ReviewComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "review_comments", n => { ReviewComments = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "self", n => { Self = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
-                { "statuses", n => { Statuses = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>(global::Soenneker.GitHub.OpenApiClient.Models.Link_1.CreateFromDiscriminatorValue); } },
+                { "comments", n => { Comments = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "commits", n => { Commits = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "html", n => { Html = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "review_comment", n => { ReviewComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "review_comments", n => { ReviewComments = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "self", n => { Self = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
+                { "statuses", n => { Statuses = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>(global::Soenneker.GitHub.OpenApiClient.Models.Link.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -120,14 +120,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("comments", Comments);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("commits", Commits);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("html", Html);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("issue", Issue);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("review_comment", ReviewComment);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("review_comments", ReviewComments);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("self", Self);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link_1>("statuses", Statuses);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("comments", Comments);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("commits", Commits);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("html", Html);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("issue", Issue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("review_comment", ReviewComment);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("review_comments", ReviewComments);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("self", Self);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Link>("statuses", Statuses);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

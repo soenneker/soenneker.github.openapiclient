@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attem
         /// <summary>The jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Job_1>? Jobs { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Job>? Jobs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Job_1> Jobs { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Job> Jobs { get; set; }
 #endif
         /// <summary>The total_count property</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attem
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Job_1>(global::Soenneker.GitHub.OpenApiClient.Models.Job_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Job>(global::Soenneker.GitHub.OpenApiClient.Models.Job.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attem
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Job_1>("jobs", Jobs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Job>("jobs", Jobs);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

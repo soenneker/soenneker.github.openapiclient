@@ -9,7 +9,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReleaseEventRelease : global::Soenneker.GitHub.OpenApiClient.Models.Release_1, IParsable
+    public partial class ReleaseEventRelease : global::Soenneker.GitHub.OpenApiClient.Models.Release, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The is_short_description_html_truncated property</summary>

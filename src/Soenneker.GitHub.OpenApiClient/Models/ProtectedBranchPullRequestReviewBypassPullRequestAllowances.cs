@@ -18,18 +18,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The list of apps allowed to bypass pull request requirements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Integration_1>? Apps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Integration>? Apps { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Integration_1> Apps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Integration> Apps { get; set; }
 #endif
         /// <summary>The list of teams allowed to bypass pull request requirements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>? Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team>? Teams { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team_1> Teams { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Team> Teams { get; set; }
 #endif
         /// <summary>The list of users allowed to bypass pull request requirements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,8 +64,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apps", n => { Apps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Integration_1>(global::Soenneker.GitHub.OpenApiClient.Models.Integration_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>(global::Soenneker.GitHub.OpenApiClient.Models.Team_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Integration>(global::Soenneker.GitHub.OpenApiClient.Models.Integration.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "users", n => { Users = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -76,8 +76,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Integration_1>("apps", Apps);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team_1>("teams", Teams);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Integration>("apps", Apps);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("teams", Teams);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
