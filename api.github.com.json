@@ -522,3163 +522,6 @@
         }
       }
     },
-    "/agents/repos/{owner}/{repo}/tasks": {
-      "get": {
-        "summary": "List tasks for repository",
-        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a list of tasks for a specific repository\n",
-        "tags": [
-          "agent-tasks"
-        ],
-        "operationId": "agent-tasks/list-tasks-for-repo",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/agent-tasks/agent-tasks#list-tasks-for-repository"
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "agent-tasks",
-          "subcategory": "agent-tasks"
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The account owner of the repository. The name is not case sensitive."
-          },
-          {
-            "name": "repo",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The name of the repository. The name is not case sensitive."
-          },
-          {
-            "name": "per_page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "default": 30,
-              "minimum": 1,
-              "maximum": 100
-            },
-            "description": "The number of results per page (max 100)."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "default": 1,
-              "minimum": 1
-            },
-            "description": "The page number of the results to fetch."
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "updated_at",
-              "enum": [
-                "updated_at",
-                "created_at"
-              ]
-            },
-            "description": "The field to sort results by. Can be `updated_at` or `created_at`."
-          },
-          {
-            "name": "direction",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc",
-              "enum": [
-                "asc",
-                "desc"
-              ]
-            },
-            "description": "The direction to sort results. Can be `asc` or `desc`."
-          },
-          {
-            "name": "state",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Comma-separated list of task states to filter by. Can be any combination of: `queued`, `in_progress`, `completed`, `failed`, `idle`, `waiting_for_user`, `timed_out`, `cancelled`."
-          },
-          {
-            "name": "is_archived",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            },
-            "description": "Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`."
-          },
-          {
-            "name": "since",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "description": "Only show tasks updated at or after this time (ISO 8601 timestamp)"
-          },
-          {
-            "name": "creator_id",
-            "in": "query",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Filter tasks by creator user ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Tasks retrieved successfully",
-            "headers": {
-              "Link": {
-                "description": "Pagination links. Contains rel=\"first\" (always),\nrel=\"prev\" (when current page > 1),\nrel=\"next\" (when more pages exist), and rel=\"last\" (when on the final page).\n",
-                "schema": {
-                  "type": "string"
-                },
-                "example": "<https://api.github.com/agents/repos/{owner}/{repo}/tasks?page=2&per_page=30>; rel=\"next\", <https://api.github.com/agents/repos/{owner}/{repo}/tasks?page=1&per_page=30>; rel=\"first\""
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "tasks"
-                  ],
-                  "properties": {
-                    "tasks": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "state",
-                          "created_at"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "description": "Unique task identifier"
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "API URL for this task"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "description": "Web URL for this task"
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "Human-readable name derived from the task prompt"
-                          },
-                          "creator": {
-                            "oneOf": [
-                              {
-                                "type": "object",
-                                "description": "A GitHub user",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the user"
-                                  }
-                                }
-                              }
-                            ],
-                            "description": "The entity who created this task"
-                          },
-                          "creator_type": {
-                            "type": "string",
-                            "description": "Type of the task creator",
-                            "enum": [
-                              "user",
-                              "organization"
-                            ]
-                          },
-                          "user_collaborators": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "description": "A GitHub user",
-                              "properties": {
-                                "id": {
-                                  "type": "integer",
-                                  "format": "int64",
-                                  "description": "The unique identifier of the user"
-                                }
-                              }
-                            },
-                            "description": "User objects of collaborators on this task",
-                            "deprecated": true
-                          },
-                          "owner": {
-                            "description": "The owner of the repository",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "format": "int64",
-                                "description": "The unique identifier of the user"
-                              }
-                            }
-                          },
-                          "repository": {
-                            "description": "The repository this task belongs to",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "format": "int64",
-                                "description": "The unique identifier of the repository"
-                              }
-                            }
-                          },
-                          "state": {
-                            "type": "string",
-                            "description": "Current state of the task, derived from its most recent session",
-                            "enum": [
-                              "queued",
-                              "in_progress",
-                              "completed",
-                              "failed",
-                              "idle",
-                              "waiting_for_user",
-                              "timed_out",
-                              "cancelled"
-                            ]
-                          },
-                          "session_count": {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Number of sessions in this task"
-                          },
-                          "artifacts": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "description": "A resource generated by the task",
-                              "required": [
-                                "provider",
-                                "type",
-                                "data"
-                              ],
-                              "properties": {
-                                "provider": {
-                                  "type": "string",
-                                  "enum": [
-                                    "github"
-                                  ],
-                                  "description": "Provider namespace"
-                                },
-                                "type": {
-                                  "type": "string",
-                                  "enum": [
-                                    "pull",
-                                    "branch"
-                                  ],
-                                  "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
-                                },
-                                "data": {
-                                  "oneOf": [
-                                    {
-                                      "type": "object",
-                                      "description": "A GitHub resource (pull request, issue, etc.)",
-                                      "required": [
-                                        "id"
-                                      ],
-                                      "properties": {
-                                        "id": {
-                                          "type": "integer",
-                                          "format": "int64",
-                                          "description": "GitHub resource ID"
-                                        },
-                                        "global_id": {
-                                          "type": "string",
-                                          "description": "GraphQL global ID"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "object",
-                                      "description": "A Git branch reference",
-                                      "required": [
-                                        "head_ref",
-                                        "base_ref"
-                                      ],
-                                      "properties": {
-                                        "head_ref": {
-                                          "type": "string",
-                                          "description": "Head branch name"
-                                        },
-                                        "base_ref": {
-                                          "type": "string",
-                                          "description": "Base branch name"
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "description": "Resource data (shape depends on type)"
-                                }
-                              }
-                            },
-                            "description": "Resources created by this task (PRs, branches, etc.)"
-                          },
-                          "archived_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "nullable": true,
-                            "description": "Timestamp when the task was archived, null if not archived"
-                          },
-                          "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Timestamp of the most recent update"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Timestamp when the task was created"
-                          }
-                        }
-                      },
-                      "description": "List of tasks"
-                    },
-                    "total_active_count": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "Total count of active (non-archived) tasks"
-                    },
-                    "total_archived_count": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "Total count of archived tasks"
-                    }
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "tasks": [
-                        {
-                          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                          "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                          "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                          "name": "Fix the login button on the homepage",
-                          "creator": {
-                            "id": 1
-                          },
-                          "creator_type": "user",
-                          "owner": {
-                            "id": 1
-                          },
-                          "repository": {
-                            "id": 1296269
-                          },
-                          "state": "completed",
-                          "session_count": 1,
-                          "artifacts": [
-                            {
-                              "provider": "github",
-                              "type": "pull",
-                              "data": {
-                                "id": 42
-                              }
-                            }
-                          ],
-                          "archived_at": null,
-                          "created_at": "2025-01-01T00:00:00Z",
-                          "updated_at": "2025-01-01T01:00:00Z"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Insufficient permissions",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create a task",
-        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nCreates a new task for a repository.\n",
-        "tags": [
-          "agent-tasks"
-        ],
-        "operationId": "agent-tasks/create-task",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/agent-tasks/agent-tasks#create-a-task"
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "agent-tasks",
-          "subcategory": "agent-tasks"
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The account owner of the repository. The name is not case sensitive."
-          },
-          {
-            "name": "repo",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The name of the repository. The name is not case sensitive."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "prompt"
-                ],
-                "properties": {
-                  "prompt": {
-                    "type": "string",
-                    "description": "The user's prompt for the agent"
-                  },
-                  "model": {
-                    "type": "string",
-                    "description": "The model to use for this task. The allowed models may change over time and depend on the user's GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`"
-                  },
-                  "create_pull_request": {
-                    "type": "boolean",
-                    "description": "Whether to create a PR.",
-                    "default": false
-                  },
-                  "base_ref": {
-                    "type": "string",
-                    "description": "Base ref for new branch/PR"
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "value": {
-                    "prompt": "Fix the login button on the homepage",
-                    "base_ref": "main"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Task created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "state",
-                    "created_at"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "description": "Unique task identifier"
-                    },
-                    "url": {
-                      "type": "string",
-                      "description": "API URL for this task"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "description": "Web URL for this task"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Human-readable name derived from the task prompt"
-                    },
-                    "creator": {
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "description": "A GitHub user",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "format": "int64",
-                              "description": "The unique identifier of the user"
-                            }
-                          }
-                        }
-                      ],
-                      "description": "The entity who created this task"
-                    },
-                    "creator_type": {
-                      "type": "string",
-                      "description": "Type of the task creator",
-                      "enum": [
-                        "user",
-                        "organization"
-                      ]
-                    },
-                    "user_collaborators": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A GitHub user",
-                        "properties": {
-                          "id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "The unique identifier of the user"
-                          }
-                        }
-                      },
-                      "description": "User objects of collaborators on this task",
-                      "deprecated": true
-                    },
-                    "owner": {
-                      "description": "The owner of the repository",
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "format": "int64",
-                          "description": "The unique identifier of the user"
-                        }
-                      }
-                    },
-                    "repository": {
-                      "description": "The repository this task belongs to",
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "format": "int64",
-                          "description": "The unique identifier of the repository"
-                        }
-                      }
-                    },
-                    "state": {
-                      "type": "string",
-                      "description": "Current state of the task, derived from its most recent session",
-                      "enum": [
-                        "queued",
-                        "in_progress",
-                        "completed",
-                        "failed",
-                        "idle",
-                        "waiting_for_user",
-                        "timed_out",
-                        "cancelled"
-                      ]
-                    },
-                    "session_count": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "Number of sessions in this task"
-                    },
-                    "artifacts": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A resource generated by the task",
-                        "required": [
-                          "provider",
-                          "type",
-                          "data"
-                        ],
-                        "properties": {
-                          "provider": {
-                            "type": "string",
-                            "enum": [
-                              "github"
-                            ],
-                            "description": "Provider namespace"
-                          },
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "pull",
-                              "branch"
-                            ],
-                            "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
-                          },
-                          "data": {
-                            "oneOf": [
-                              {
-                                "type": "object",
-                                "description": "A GitHub resource (pull request, issue, etc.)",
-                                "required": [
-                                  "id"
-                                ],
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "GitHub resource ID"
-                                  },
-                                  "global_id": {
-                                    "type": "string",
-                                    "description": "GraphQL global ID"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "object",
-                                "description": "A Git branch reference",
-                                "required": [
-                                  "head_ref",
-                                  "base_ref"
-                                ],
-                                "properties": {
-                                  "head_ref": {
-                                    "type": "string",
-                                    "description": "Head branch name"
-                                  },
-                                  "base_ref": {
-                                    "type": "string",
-                                    "description": "Base branch name"
-                                  }
-                                }
-                              }
-                            ],
-                            "description": "Resource data (shape depends on type)"
-                          }
-                        }
-                      },
-                      "description": "Resources created by this task (PRs, branches, etc.)"
-                    },
-                    "archived_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "nullable": true,
-                      "description": "Timestamp when the task was archived, null if not archived"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp of the most recent update"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp when the task was created"
-                    }
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "name": "Fix the login button on the homepage",
-                      "creator": {
-                        "id": 1
-                      },
-                      "creator_type": "user",
-                      "owner": {
-                        "id": 1
-                      },
-                      "repository": {
-                        "id": 1296269
-                      },
-                      "state": "queued",
-                      "session_count": 1,
-                      "artifacts": [],
-                      "archived_at": null,
-                      "created_at": "2025-01-01T00:00:00Z",
-                      "updated_at": "2025-01-01T00:00:00Z"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Problems parsing JSON",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Insufficient permissions",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/agents/repos/{owner}/{repo}/tasks/{task_id}": {
-      "get": {
-        "summary": "Get a task by repo",
-        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a task by ID scoped to an owner/repo path\n",
-        "tags": [
-          "agent-tasks"
-        ],
-        "operationId": "agent-tasks/get-task-by-repo-and-id",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/agent-tasks/agent-tasks#get-a-task-by-repo"
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "agent-tasks",
-          "subcategory": "agent-tasks"
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The account owner of the repository. The name is not case sensitive."
-          },
-          {
-            "name": "repo",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The name of the repository. The name is not case sensitive."
-          },
-          {
-            "name": "task_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The unique identifier of the task."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Task retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "state",
-                        "created_at"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "Unique task identifier"
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "API URL for this task"
-                        },
-                        "html_url": {
-                          "type": "string",
-                          "description": "Web URL for this task"
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Human-readable name derived from the task prompt"
-                        },
-                        "creator": {
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "description": "A GitHub user",
-                              "properties": {
-                                "id": {
-                                  "type": "integer",
-                                  "format": "int64",
-                                  "description": "The unique identifier of the user"
-                                }
-                              }
-                            }
-                          ],
-                          "description": "The entity who created this task"
-                        },
-                        "creator_type": {
-                          "type": "string",
-                          "description": "Type of the task creator",
-                          "enum": [
-                            "user",
-                            "organization"
-                          ]
-                        },
-                        "user_collaborators": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "description": "A GitHub user",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "format": "int64",
-                                "description": "The unique identifier of the user"
-                              }
-                            }
-                          },
-                          "description": "User objects of collaborators on this task",
-                          "deprecated": true
-                        },
-                        "owner": {
-                          "description": "The owner of the repository",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "format": "int64",
-                              "description": "The unique identifier of the user"
-                            }
-                          }
-                        },
-                        "repository": {
-                          "description": "The repository this task belongs to",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "format": "int64",
-                              "description": "The unique identifier of the repository"
-                            }
-                          }
-                        },
-                        "state": {
-                          "type": "string",
-                          "description": "Current state of the task, derived from its most recent session",
-                          "enum": [
-                            "queued",
-                            "in_progress",
-                            "completed",
-                            "failed",
-                            "idle",
-                            "waiting_for_user",
-                            "timed_out",
-                            "cancelled"
-                          ]
-                        },
-                        "session_count": {
-                          "type": "integer",
-                          "format": "int32",
-                          "description": "Number of sessions in this task"
-                        },
-                        "artifacts": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "description": "A resource generated by the task",
-                            "required": [
-                              "provider",
-                              "type",
-                              "data"
-                            ],
-                            "properties": {
-                              "provider": {
-                                "type": "string",
-                                "enum": [
-                                  "github"
-                                ],
-                                "description": "Provider namespace"
-                              },
-                              "type": {
-                                "type": "string",
-                                "enum": [
-                                  "pull",
-                                  "branch"
-                                ],
-                                "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
-                              },
-                              "data": {
-                                "oneOf": [
-                                  {
-                                    "type": "object",
-                                    "description": "A GitHub resource (pull request, issue, etc.)",
-                                    "required": [
-                                      "id"
-                                    ],
-                                    "properties": {
-                                      "id": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "description": "GitHub resource ID"
-                                      },
-                                      "global_id": {
-                                        "type": "string",
-                                        "description": "GraphQL global ID"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "object",
-                                    "description": "A Git branch reference",
-                                    "required": [
-                                      "head_ref",
-                                      "base_ref"
-                                    ],
-                                    "properties": {
-                                      "head_ref": {
-                                        "type": "string",
-                                        "description": "Head branch name"
-                                      },
-                                      "base_ref": {
-                                        "type": "string",
-                                        "description": "Base branch name"
-                                      }
-                                    }
-                                  }
-                                ],
-                                "description": "Resource data (shape depends on type)"
-                              }
-                            }
-                          },
-                          "description": "Resources created by this task (PRs, branches, etc.)"
-                        },
-                        "archived_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "nullable": true,
-                          "description": "Timestamp when the task was archived, null if not archived"
-                        },
-                        "updated_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "Timestamp of the most recent update"
-                        },
-                        "created_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "Timestamp when the task was created"
-                        }
-                      }
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "sessions": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "description": "Full session details within a task",
-                            "required": [
-                              "id",
-                              "state",
-                              "created_at"
-                            ],
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "Session ID"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "Session name"
-                              },
-                              "user": {
-                                "description": "The user who created this session",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the user"
-                                  }
-                                }
-                              },
-                              "owner": {
-                                "description": "The owner of the repository",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the user"
-                                  }
-                                }
-                              },
-                              "repository": {
-                                "description": "The repository this session belongs to",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the repository"
-                                  }
-                                }
-                              },
-                              "task_id": {
-                                "type": "string",
-                                "description": "Task ID this session belongs to"
-                              },
-                              "state": {
-                                "type": "string",
-                                "description": "Current state of a session",
-                                "enum": [
-                                  "queued",
-                                  "in_progress",
-                                  "completed",
-                                  "failed",
-                                  "idle",
-                                  "waiting_for_user",
-                                  "timed_out",
-                                  "cancelled"
-                                ]
-                              },
-                              "created_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "description": "Creation timestamp"
-                              },
-                              "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "description": "Last update timestamp"
-                              },
-                              "completed_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "description": "Completion timestamp"
-                              },
-                              "prompt": {
-                                "type": "string",
-                                "description": "Content of the triggering event"
-                              },
-                              "head_ref": {
-                                "type": "string",
-                                "description": "Head branch name"
-                              },
-                              "base_ref": {
-                                "type": "string",
-                                "description": "Base branch name"
-                              },
-                              "model": {
-                                "type": "string",
-                                "description": "Model used for this session"
-                              },
-                              "error": {
-                                "type": "object",
-                                "description": "Error details for a failed session",
-                                "properties": {
-                                  "message": {
-                                    "type": "string",
-                                    "description": "Error message"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "description": "Sessions associated with this task"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "name": "Fix the login button on the homepage",
-                      "creator": {
-                        "id": 1
-                      },
-                      "creator_type": "user",
-                      "owner": {
-                        "id": 1
-                      },
-                      "repository": {
-                        "id": 1296269
-                      },
-                      "state": "completed",
-                      "session_count": 1,
-                      "artifacts": [
-                        {
-                          "provider": "github",
-                          "type": "pull",
-                          "data": {
-                            "id": 42
-                          }
-                        }
-                      ],
-                      "archived_at": null,
-                      "created_at": "2025-01-01T00:00:00Z",
-                      "updated_at": "2025-01-01T01:00:00Z",
-                      "sessions": [
-                        {
-                          "id": "s1a2b3c4-d5e6-7890-abcd-ef1234567890",
-                          "name": "Fix the login button on the homepage",
-                          "user": {
-                            "id": 1
-                          },
-                          "owner": {
-                            "id": 1
-                          },
-                          "repository": {
-                            "id": 1296269
-                          },
-                          "task_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                          "state": "completed",
-                          "created_at": "2025-01-01T00:00:00Z",
-                          "updated_at": "2025-01-01T01:00:00Z",
-                          "completed_at": "2025-01-01T01:00:00Z",
-                          "prompt": "Fix the login button on the homepage",
-                          "head_ref": "copilot/fix-1",
-                          "base_ref": "main",
-                          "model": "claude-sonnet-4.6"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Insufficient permissions",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/agents/tasks": {
-      "get": {
-        "summary": "List tasks",
-        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a list of tasks for the authenticated user\n",
-        "tags": [
-          "agent-tasks"
-        ],
-        "operationId": "agent-tasks/list-tasks",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/agent-tasks/agent-tasks#list-tasks"
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "agent-tasks",
-          "subcategory": "agent-tasks"
-        },
-        "parameters": [
-          {
-            "name": "per_page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "default": 30,
-              "minimum": 1,
-              "maximum": 100
-            },
-            "description": "The number of results per page (max 100)."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "default": 1,
-              "minimum": 1
-            },
-            "description": "The page number of the results to fetch."
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "updated_at",
-              "enum": [
-                "updated_at",
-                "created_at"
-              ]
-            },
-            "description": "The field to sort results by. Can be `updated_at` or `created_at`."
-          },
-          {
-            "name": "direction",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "desc",
-              "enum": [
-                "asc",
-                "desc"
-              ]
-            },
-            "description": "The direction to sort results. Can be `asc` or `desc`."
-          },
-          {
-            "name": "state",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Comma-separated list of task states to filter by. Can be any combination of: `queued`, `in_progress`, `completed`, `failed`, `idle`, `waiting_for_user`, `timed_out`, `cancelled`."
-          },
-          {
-            "name": "is_archived",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            },
-            "description": "Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`."
-          },
-          {
-            "name": "since",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "description": "Only show tasks updated at or after this time (ISO 8601 timestamp)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Tasks retrieved successfully",
-            "headers": {
-              "Link": {
-                "description": "Pagination links. Contains rel=\"first\" (always),\nrel=\"next\" (when more pages exist), and rel=\"last\" (when on the final page).\n",
-                "schema": {
-                  "type": "string"
-                },
-                "example": "<https://api.github.com/agents/tasks?page=2&per_page=30>; rel=\"next\", <https://api.github.com/agents/tasks?page=1&per_page=30>; rel=\"first\""
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "tasks"
-                  ],
-                  "properties": {
-                    "tasks": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "state",
-                          "created_at"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "description": "Unique task identifier"
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "API URL for this task"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "description": "Web URL for this task"
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "Human-readable name derived from the task prompt"
-                          },
-                          "creator": {
-                            "oneOf": [
-                              {
-                                "type": "object",
-                                "description": "A GitHub user",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the user"
-                                  }
-                                }
-                              }
-                            ],
-                            "description": "The entity who created this task"
-                          },
-                          "creator_type": {
-                            "type": "string",
-                            "description": "Type of the task creator",
-                            "enum": [
-                              "user",
-                              "organization"
-                            ]
-                          },
-                          "user_collaborators": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "description": "A GitHub user",
-                              "properties": {
-                                "id": {
-                                  "type": "integer",
-                                  "format": "int64",
-                                  "description": "The unique identifier of the user"
-                                }
-                              }
-                            },
-                            "description": "User objects of collaborators on this task",
-                            "deprecated": true
-                          },
-                          "owner": {
-                            "description": "The owner of the repository",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "format": "int64",
-                                "description": "The unique identifier of the user"
-                              }
-                            }
-                          },
-                          "repository": {
-                            "description": "The repository this task belongs to",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "format": "int64",
-                                "description": "The unique identifier of the repository"
-                              }
-                            }
-                          },
-                          "state": {
-                            "type": "string",
-                            "description": "Current state of the task, derived from its most recent session",
-                            "enum": [
-                              "queued",
-                              "in_progress",
-                              "completed",
-                              "failed",
-                              "idle",
-                              "waiting_for_user",
-                              "timed_out",
-                              "cancelled"
-                            ]
-                          },
-                          "session_count": {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Number of sessions in this task"
-                          },
-                          "artifacts": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "description": "A resource generated by the task",
-                              "required": [
-                                "provider",
-                                "type",
-                                "data"
-                              ],
-                              "properties": {
-                                "provider": {
-                                  "type": "string",
-                                  "enum": [
-                                    "github"
-                                  ],
-                                  "description": "Provider namespace"
-                                },
-                                "type": {
-                                  "type": "string",
-                                  "enum": [
-                                    "pull",
-                                    "branch"
-                                  ],
-                                  "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
-                                },
-                                "data": {
-                                  "oneOf": [
-                                    {
-                                      "type": "object",
-                                      "description": "A GitHub resource (pull request, issue, etc.)",
-                                      "required": [
-                                        "id"
-                                      ],
-                                      "properties": {
-                                        "id": {
-                                          "type": "integer",
-                                          "format": "int64",
-                                          "description": "GitHub resource ID"
-                                        },
-                                        "global_id": {
-                                          "type": "string",
-                                          "description": "GraphQL global ID"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "object",
-                                      "description": "A Git branch reference",
-                                      "required": [
-                                        "head_ref",
-                                        "base_ref"
-                                      ],
-                                      "properties": {
-                                        "head_ref": {
-                                          "type": "string",
-                                          "description": "Head branch name"
-                                        },
-                                        "base_ref": {
-                                          "type": "string",
-                                          "description": "Base branch name"
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "description": "Resource data (shape depends on type)"
-                                }
-                              }
-                            },
-                            "description": "Resources created by this task (PRs, branches, etc.)"
-                          },
-                          "archived_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "nullable": true,
-                            "description": "Timestamp when the task was archived, null if not archived"
-                          },
-                          "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Timestamp of the most recent update"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Timestamp when the task was created"
-                          }
-                        }
-                      },
-                      "description": "List of tasks"
-                    },
-                    "total_active_count": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "Total count of active (non-archived) tasks"
-                    },
-                    "total_archived_count": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "Total count of archived tasks"
-                    }
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "tasks": [
-                        {
-                          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                          "name": "Fix the login button on the homepage",
-                          "creator": {
-                            "id": 1
-                          },
-                          "creator_type": "user",
-                          "owner": {
-                            "id": 1
-                          },
-                          "repository": {
-                            "id": 1296269
-                          },
-                          "state": "completed",
-                          "session_count": 1,
-                          "artifacts": [
-                            {
-                              "provider": "github",
-                              "type": "pull",
-                              "data": {
-                                "id": 42
-                              }
-                            }
-                          ],
-                          "archived_at": null,
-                          "created_at": "2025-01-01T00:00:00Z",
-                          "updated_at": "2025-01-01T01:00:00Z"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Insufficient permissions",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/agents/tasks/{task_id}": {
-      "get": {
-        "summary": "Get a task by ID",
-        "description": "> [!NOTE]\n> This endpoint is in public preview and is subject to change.\n\nReturns a task by ID with its associated sessions\n",
-        "tags": [
-          "agent-tasks"
-        ],
-        "operationId": "agent-tasks/get-task-by-id",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/agent-tasks/agent-tasks#get-a-task-by-id"
-        },
-        "x-github": {
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "agent-tasks",
-          "subcategory": "agent-tasks"
-        },
-        "parameters": [
-          {
-            "name": "task_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The unique identifier of the task."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Task retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "state",
-                        "created_at"
-                      ],
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "Unique task identifier"
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "API URL for this task"
-                        },
-                        "html_url": {
-                          "type": "string",
-                          "description": "Web URL for this task"
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Human-readable name derived from the task prompt"
-                        },
-                        "creator": {
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "description": "A GitHub user",
-                              "properties": {
-                                "id": {
-                                  "type": "integer",
-                                  "format": "int64",
-                                  "description": "The unique identifier of the user"
-                                }
-                              }
-                            }
-                          ],
-                          "description": "The entity who created this task"
-                        },
-                        "creator_type": {
-                          "type": "string",
-                          "description": "Type of the task creator",
-                          "enum": [
-                            "user",
-                            "organization"
-                          ]
-                        },
-                        "user_collaborators": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "description": "A GitHub user",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "format": "int64",
-                                "description": "The unique identifier of the user"
-                              }
-                            }
-                          },
-                          "description": "User objects of collaborators on this task",
-                          "deprecated": true
-                        },
-                        "owner": {
-                          "description": "The owner of the repository",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "format": "int64",
-                              "description": "The unique identifier of the user"
-                            }
-                          }
-                        },
-                        "repository": {
-                          "description": "The repository this task belongs to",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "format": "int64",
-                              "description": "The unique identifier of the repository"
-                            }
-                          }
-                        },
-                        "state": {
-                          "type": "string",
-                          "description": "Current state of the task, derived from its most recent session",
-                          "enum": [
-                            "queued",
-                            "in_progress",
-                            "completed",
-                            "failed",
-                            "idle",
-                            "waiting_for_user",
-                            "timed_out",
-                            "cancelled"
-                          ]
-                        },
-                        "session_count": {
-                          "type": "integer",
-                          "format": "int32",
-                          "description": "Number of sessions in this task"
-                        },
-                        "artifacts": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "description": "A resource generated by the task",
-                            "required": [
-                              "provider",
-                              "type",
-                              "data"
-                            ],
-                            "properties": {
-                              "provider": {
-                                "type": "string",
-                                "enum": [
-                                  "github"
-                                ],
-                                "description": "Provider namespace"
-                              },
-                              "type": {
-                                "type": "string",
-                                "enum": [
-                                  "pull",
-                                  "branch"
-                                ],
-                                "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
-                              },
-                              "data": {
-                                "oneOf": [
-                                  {
-                                    "type": "object",
-                                    "description": "A GitHub resource (pull request, issue, etc.)",
-                                    "required": [
-                                      "id"
-                                    ],
-                                    "properties": {
-                                      "id": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "description": "GitHub resource ID"
-                                      },
-                                      "global_id": {
-                                        "type": "string",
-                                        "description": "GraphQL global ID"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "object",
-                                    "description": "A Git branch reference",
-                                    "required": [
-                                      "head_ref",
-                                      "base_ref"
-                                    ],
-                                    "properties": {
-                                      "head_ref": {
-                                        "type": "string",
-                                        "description": "Head branch name"
-                                      },
-                                      "base_ref": {
-                                        "type": "string",
-                                        "description": "Base branch name"
-                                      }
-                                    }
-                                  }
-                                ],
-                                "description": "Resource data (shape depends on type)"
-                              }
-                            }
-                          },
-                          "description": "Resources created by this task (PRs, branches, etc.)"
-                        },
-                        "archived_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "nullable": true,
-                          "description": "Timestamp when the task was archived, null if not archived"
-                        },
-                        "updated_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "Timestamp of the most recent update"
-                        },
-                        "created_at": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "Timestamp when the task was created"
-                        }
-                      }
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "sessions": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "description": "Full session details within a task",
-                            "required": [
-                              "id",
-                              "state",
-                              "created_at"
-                            ],
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "description": "Session ID"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "Session name"
-                              },
-                              "user": {
-                                "description": "The user who created this session",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the user"
-                                  }
-                                }
-                              },
-                              "owner": {
-                                "description": "The owner of the repository",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the user"
-                                  }
-                                }
-                              },
-                              "repository": {
-                                "description": "The repository this session belongs to",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "integer",
-                                    "format": "int64",
-                                    "description": "The unique identifier of the repository"
-                                  }
-                                }
-                              },
-                              "task_id": {
-                                "type": "string",
-                                "description": "Task ID this session belongs to"
-                              },
-                              "state": {
-                                "type": "string",
-                                "description": "Current state of a session",
-                                "enum": [
-                                  "queued",
-                                  "in_progress",
-                                  "completed",
-                                  "failed",
-                                  "idle",
-                                  "waiting_for_user",
-                                  "timed_out",
-                                  "cancelled"
-                                ]
-                              },
-                              "created_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "description": "Creation timestamp"
-                              },
-                              "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "description": "Last update timestamp"
-                              },
-                              "completed_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "description": "Completion timestamp"
-                              },
-                              "prompt": {
-                                "type": "string",
-                                "description": "Content of the triggering event"
-                              },
-                              "head_ref": {
-                                "type": "string",
-                                "description": "Head branch name"
-                              },
-                              "base_ref": {
-                                "type": "string",
-                                "description": "Base branch name"
-                              },
-                              "model": {
-                                "type": "string",
-                                "description": "Model used for this session"
-                              },
-                              "error": {
-                                "type": "object",
-                                "description": "Error details for a failed session",
-                                "properties": {
-                                  "message": {
-                                    "type": "string",
-                                    "description": "Error message"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "description": "Sessions associated with this task"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                      "name": "Fix the login button on the homepage",
-                      "creator": {
-                        "id": 1
-                      },
-                      "creator_type": "user",
-                      "owner": {
-                        "id": 1
-                      },
-                      "repository": {
-                        "id": 1296269
-                      },
-                      "state": "completed",
-                      "session_count": 1,
-                      "artifacts": [
-                        {
-                          "provider": "github",
-                          "type": "pull",
-                          "data": {
-                            "id": 42
-                          }
-                        }
-                      ],
-                      "archived_at": null,
-                      "created_at": "2025-01-01T00:00:00Z",
-                      "updated_at": "2025-01-01T01:00:00Z",
-                      "sessions": [
-                        {
-                          "id": "s1a2b3c4-d5e6-7890-abcd-ef1234567890",
-                          "name": "Fix the login button on the homepage",
-                          "user": {
-                            "id": 1
-                          },
-                          "owner": {
-                            "id": 1
-                          },
-                          "repository": {
-                            "id": 1296269
-                          },
-                          "task_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-                          "state": "completed",
-                          "created_at": "2025-01-01T00:00:00Z",
-                          "updated_at": "2025-01-01T01:00:00Z",
-                          "completed_at": "2025-01-01T01:00:00Z",
-                          "prompt": "Fix the login button on the homepage",
-                          "head_ref": "copilot/fix-1",
-                          "base_ref": "main",
-                          "model": "claude-sonnet-4.6"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Problems parsing request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Authentication required",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Insufficient permissions",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned.",
-                  "required": [
-                    "message",
-                    "documentation_url"
-                  ],
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Summary message (e.g. \"Validation Failed\", \"Not Found\")"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A single validation error",
-                        "required": [
-                          "code"
-                        ],
-                        "properties": {
-                          "code": {
-                            "type": "string",
-                            "enum": [
-                              "missing",
-                              "missing_field",
-                              "invalid",
-                              "already_exists",
-                              "unprocessable",
-                              "custom"
-                            ],
-                            "description": "Machine-readable error code"
-                          },
-                          "message": {
-                            "type": "string",
-                            "description": "Human-readable message (populated when code is \"custom\")"
-                          }
-                        }
-                      },
-                      "description": "List of validation errors (present only for 422 responses)"
-                    },
-                    "documentation_url": {
-                      "type": "string",
-                      "description": "URL to relevant API documentation"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/app": {
       "get": {
         "summary": "Get the authenticated app",
@@ -17790,7 +14633,27 @@
             }
           },
           "404": {
-            "$ref": "#/components/responses/not_found"
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/basic-error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "message": {
+                        "cause": "One or more repositories do not exist",
+                        "repositories": [
+                          "repoA",
+                          "repoB"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -290118,7 +286981,19 @@
               "type": "analyst"
             }
           ]
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/cvss"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "integration": {
         "value": {
@@ -294211,7 +291086,18 @@
             "site_admin": false
           },
           "truncated": false
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_beta_media_type",
+            "patch": {
+              "value": {
+                "user": null
+              }
+            },
+            "version": "2026-03-10"
+          }
+        ]
       },
       "gitignore-template": {
         "value": {
@@ -301770,7 +298656,19 @@
             "open_issues": 1,
             "watchers": 1
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/has_downloads"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "org-ruleset-items": {
         "value": [
@@ -302951,7 +299849,19 @@
           "forks": 1,
           "open_issues": 1,
           "watchers": 1
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/has_downloads"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "team-items-response-if-child-teams-exist": {
         "value": [
@@ -303061,7 +299971,19 @@
             "remaining": 4999,
             "reset": 1372700873
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_rate_limit_rate",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/rate"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "full-repository-default-response": {
         "summary": "Default response",
@@ -303591,7 +300513,19 @@
               }
             }
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/has_downloads"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "artifact-paginated": {
         "value": {
@@ -312159,7 +309093,19 @@
           },
           "author_association": "COLLABORATOR",
           "state_reason": "completed"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/assignee"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "issue-comment-items": {
         "value": [
@@ -312879,7 +309825,19 @@
           },
           "author_association": "COLLABORATOR",
           "state_reason": "completed"
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/assignee"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "issue-event-for-issue-items": {
         "value": [
@@ -314072,7 +311030,29 @@
           "additions": 100,
           "deletions": 3,
           "changed_files": 5
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/merge_commit_sha"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/assignee"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "pull-request-review-comment-items": {
         "value": [
@@ -315454,7 +312434,29 @@
           "author_association": "OWNER",
           "auto_merge": null,
           "draft": false
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/merge_commit_sha"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/assignee"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "pull-request-review-items": {
         "value": [
@@ -316805,7 +313807,19 @@
             "teams_url": "https://api.github.com/repos/octo-org/octo-repo-ghsa-abcd-1234-efgh/teams",
             "trees_url": "https://api.github.com/repos/octo-org/octo-repo-ghsa-abcd-1234-efgh/git/trees{/sha}"
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/cvss"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "repository-advisory-pvr": {
         "value": {
@@ -316955,7 +313969,19 @@
             }
           ],
           "private_fork": null
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "deprecate_cvss",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/cvss"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "simple-user-items-default-response": {
         "summary": "Default response",
@@ -317760,7 +314786,19 @@
             "subscribers_count": 42,
             "network_count": 0
           }
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/has_downloads"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "public-repository-items": {
         "value": [
@@ -318152,7 +315190,19 @@
               "state_reason": "completed"
             }
           ]
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_singular_assignee_from_issues_and_pull_requests",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/items/0/assignee"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "issue-search-result-item-paginated-lexical-fallback": {
         "summary": "Hybrid search with lexical fallback",
@@ -318549,7 +315599,19 @@
           "forks": 1,
           "open_issues": 1,
           "watchers": 1
-        }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_has_downloads",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/value/has_downloads"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
       },
       "private-user-response-with-public-and-private-profile-information": {
         "summary": "Response with public and private profile information",
