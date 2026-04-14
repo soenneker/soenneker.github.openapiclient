@@ -178,7 +178,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
             public int? PerPage { get; set; }
             /// <summary>ID of the Repository to filter on</summary>
             [QueryParameter("repository_id")]
-            public int? RepositoryId { get; set; }
+            public long? RepositoryId { get; set; }
         }
     }
 }

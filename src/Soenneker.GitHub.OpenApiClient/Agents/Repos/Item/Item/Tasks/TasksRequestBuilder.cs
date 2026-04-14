@@ -168,7 +168,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
         {
             /// <summary>Filter tasks by creator user ID</summary>
             [QueryParameter("creator_id")]
-            public int? CreatorId { get; set; }
+            public long? CreatorId { get; set; }
             /// <summary>The direction to sort results. Can be `asc` or `desc`.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.GetDirectionQueryParameterType? Direction { get; set; }

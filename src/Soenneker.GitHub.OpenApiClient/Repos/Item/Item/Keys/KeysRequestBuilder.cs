@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Keys
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.keys.item collection</summary>
         /// <param name="position">The unique identifier of the key.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Keys.Item.WithKey_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Keys.Item.WithKey_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Keys.Item.WithKey_ItemRequestBuilder this[long position]
         {
             get
             {

@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>Unique identifier of the enterprise to which this team belongs</summary>
-        public int? EnterpriseId { get; set; }
+        public long? EnterpriseId { get; set; }
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the team</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Distinguished Name (DN) that team maps to within LDAP environment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string NotificationSetting { get; set; }
 #endif
         /// <summary>Unique identifier of the organization to which this team belongs</summary>
-        public int? OrganizationId { get; set; }
+        public long? OrganizationId { get; set; }
         /// <summary>Permission that the team will have for its repositories</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -145,15 +145,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "enterprise_id", n => { EnterpriseId = n.GetIntValue(); } },
+                { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "ldap_dn", n => { LdapDn = n.GetStringValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetIntValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
@@ -170,15 +170,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteIntValue("enterprise_id", EnterpriseId);
+            writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("ldap_dn", LdapDn);
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("notification_setting", NotificationSetting);
-            writer.WriteIntValue("organization_id", OrganizationId);
+            writer.WriteLongValue("organization_id", OrganizationId);
             writer.WriteStringValue("permission", Permission);
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);

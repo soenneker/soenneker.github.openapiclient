@@ -89,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Required when using `squash_merge_commit_message`.The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request&apos;s title.- `COMMIT_OR_PR_TITLE` - default to the commit&apos;s title (if only one commit) or the pull request&apos;s title (when more than one commit).</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser_squash_merge_commit_title? SquashMergeCommitTitle { get; set; }
         /// <summary>The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.</summary>
-        public int? TeamId { get; set; }
+        public long? TeamId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser"/> and sets the default values.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "private", n => { Private = n.GetBoolValue(); } },
                 { "squash_merge_commit_message", n => { SquashMergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser_squash_merge_commit_message>(); } },
                 { "squash_merge_commit_title", n => { SquashMergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser_squash_merge_commit_title>(); } },
-                { "team_id", n => { TeamId = n.GetIntValue(); } },
+                { "team_id", n => { TeamId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -169,7 +169,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("private", Private);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser_squash_merge_commit_message>("squash_merge_commit_message", SquashMergeCommitMessage);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser_squash_merge_commit_title>("squash_merge_commit_title", SquashMergeCommitTitle);
-            writer.WriteIntValue("team_id", TeamId);
+            writer.WriteLongValue("team_id", TeamId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

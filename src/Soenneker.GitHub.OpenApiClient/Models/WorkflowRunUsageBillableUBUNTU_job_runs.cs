@@ -17,7 +17,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The duration_ms property</summary>
         public int? DurationMs { get; set; }
         /// <summary>The job_id property</summary>
-        public int? JobId { get; set; }
+        public long? JobId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUBUNTU_job_runs"/> and sets the default values.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "duration_ms", n => { DurationMs = n.GetIntValue(); } },
-                { "job_id", n => { JobId = n.GetIntValue(); } },
+                { "job_id", n => { JobId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("duration_ms", DurationMs);
-            writer.WriteIntValue("job_id", JobId);
+            writer.WriteLongValue("job_id", JobId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

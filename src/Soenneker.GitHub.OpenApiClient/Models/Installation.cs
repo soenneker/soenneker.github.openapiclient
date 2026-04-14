@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The app_id property</summary>
-        public int? AppId { get; set; }
+        public long? AppId { get; set; }
         /// <summary>The app_slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The ID of the installation.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The permissions granted to the user access token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser SuspendedBy { get; set; }
 #endif
         /// <summary>The ID of the user or organization this token is being scoped to.</summary>
-        public int? TargetId { get; set; }
+        public long? TargetId { get; set; }
         /// <summary>The target_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "access_tokens_url", n => { AccessTokensUrl = n.GetStringValue(); } },
                 { "account", n => { Account = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account>(global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account.CreateFromDiscriminatorValue); } },
-                { "app_id", n => { AppId = n.GetIntValue(); } },
+                { "app_id", n => { AppId = n.GetLongValue(); } },
                 { "app_slug", n => { AppSlug = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "contact_email", n => { ContactEmail = n.GetStringValue(); } },
@@ -170,7 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "has_multiple_single_files", n => { HasMultipleSingleFiles = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions.CreateFromDiscriminatorValue); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation_repository_selection>(); } },
@@ -178,7 +178,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "single_file_paths", n => { SingleFilePaths = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "suspended_at", n => { SuspendedAt = n.GetDateTimeOffsetValue(); } },
                 { "suspended_by", n => { SuspendedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
-                { "target_id", n => { TargetId = n.GetIntValue(); } },
+                { "target_id", n => { TargetId = n.GetLongValue(); } },
                 { "target_type", n => { TargetType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -192,7 +192,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_tokens_url", AccessTokensUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation.Installation_account>("account", Account);
-            writer.WriteIntValue("app_id", AppId);
+            writer.WriteLongValue("app_id", AppId);
             writer.WriteStringValue("app_slug", AppSlug);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("contact_email", ContactEmail);
@@ -200,7 +200,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
             writer.WriteBoolValue("has_multiple_single_files", HasMultipleSingleFiles);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions>("permissions", Permissions);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Installation_repository_selection>("repository_selection", RepositorySelection);
@@ -208,7 +208,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("single_file_paths", SingleFilePaths);
             writer.WriteDateTimeOffsetValue("suspended_at", SuspendedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("suspended_by", SuspendedBy);
-            writer.WriteIntValue("target_id", TargetId);
+            writer.WriteLongValue("target_id", TargetId);
             writer.WriteStringValue("target_type", TargetType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

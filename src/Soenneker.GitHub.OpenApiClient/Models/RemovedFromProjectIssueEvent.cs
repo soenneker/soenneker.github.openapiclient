@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Event { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_url", n => { CommitUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "event", n => { Event = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "project_card", n => { ProjectCard = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEventProjectCard>(global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEventProjectCard.CreateFromDiscriminatorValue); } },
@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_url", CommitUrl);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("event", Event);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEventProjectCard>("project_card", ProjectCard);

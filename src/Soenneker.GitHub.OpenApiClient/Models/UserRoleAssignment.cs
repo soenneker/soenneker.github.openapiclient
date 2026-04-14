@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Team the user has gotten the role through</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -223,7 +223,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "gists_url", n => { GistsUrl = n.GetStringValue(); } },
                 { "gravatar_id", n => { GravatarId = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "inherited_from", n => { InheritedFrom = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -256,7 +256,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("gists_url", GistsUrl);
             writer.WriteStringValue("gravatar_id", GravatarId);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TeamSimple>("inherited_from", InheritedFrom);
             writer.WriteStringValue("login", Login);
             writer.WriteStringValue("name", Name);

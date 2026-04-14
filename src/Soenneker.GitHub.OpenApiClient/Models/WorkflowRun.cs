@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string CancelUrl { get; set; }
 #endif
         /// <summary>The ID of the associated check suite.</summary>
-        public int? CheckSuiteId { get; set; }
+        public long? CheckSuiteId { get; set; }
         /// <summary>The node ID of the associated check suite.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository HeadRepository { get; set; }
 #endif
         /// <summary>The head_repository_id property</summary>
-        public int? HeadRepositoryId { get; set; }
+        public long? HeadRepositoryId { get; set; }
         /// <summary>The SHA of the head commit that points to the version of the workflow being run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The ID of the workflow run.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The URL to the jobs for the workflow run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -240,7 +240,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Url { get; set; }
 #endif
         /// <summary>The ID of the parent workflow.</summary>
-        public int? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
         /// <summary>The URL to the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -277,7 +277,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "artifacts_url", n => { ArtifactsUrl = n.GetStringValue(); } },
                 { "cancel_url", n => { CancelUrl = n.GetStringValue(); } },
-                { "check_suite_id", n => { CheckSuiteId = n.GetIntValue(); } },
+                { "check_suite_id", n => { CheckSuiteId = n.GetLongValue(); } },
                 { "check_suite_node_id", n => { CheckSuiteNodeId = n.GetStringValue(); } },
                 { "check_suite_url", n => { CheckSuiteUrl = n.GetStringValue(); } },
                 { "conclusion", n => { Conclusion = n.GetStringValue(); } },
@@ -287,10 +287,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_commit", n => { HeadCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit.CreateFromDiscriminatorValue); } },
                 { "head_repository", n => { HeadRepository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
-                { "head_repository_id", n => { HeadRepositoryId = n.GetIntValue(); } },
+                { "head_repository_id", n => { HeadRepositoryId = n.GetLongValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "jobs_url", n => { JobsUrl = n.GetStringValue(); } },
                 { "logs_url", n => { LogsUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -308,7 +308,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "triggering_actor", n => { TriggeringActor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "workflow_id", n => { WorkflowId = n.GetIntValue(); } },
+                { "workflow_id", n => { WorkflowId = n.GetLongValue(); } },
                 { "workflow_url", n => { WorkflowUrl = n.GetStringValue(); } },
             };
         }
@@ -322,7 +322,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("actor", Actor);
             writer.WriteStringValue("artifacts_url", ArtifactsUrl);
             writer.WriteStringValue("cancel_url", CancelUrl);
-            writer.WriteIntValue("check_suite_id", CheckSuiteId);
+            writer.WriteLongValue("check_suite_id", CheckSuiteId);
             writer.WriteStringValue("check_suite_node_id", CheckSuiteNodeId);
             writer.WriteStringValue("check_suite_url", CheckSuiteUrl);
             writer.WriteStringValue("conclusion", Conclusion);
@@ -332,10 +332,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleCommit>("head_commit", HeadCommit);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("head_repository", HeadRepository);
-            writer.WriteIntValue("head_repository_id", HeadRepositoryId);
+            writer.WriteLongValue("head_repository_id", HeadRepositoryId);
             writer.WriteStringValue("head_sha", HeadSha);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("jobs_url", JobsUrl);
             writer.WriteStringValue("logs_url", LogsUrl);
             writer.WriteStringValue("name", Name);
@@ -353,7 +353,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("triggering_actor", TriggeringActor);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
-            writer.WriteIntValue("workflow_id", WorkflowId);
+            writer.WriteLongValue("workflow_id", WorkflowId);
             writer.WriteStringValue("workflow_url", WorkflowUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

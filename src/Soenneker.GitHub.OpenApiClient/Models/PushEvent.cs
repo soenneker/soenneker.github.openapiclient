@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Head { get; set; }
 #endif
         /// <summary>The push_id property</summary>
-        public int? PushId { get; set; }
+        public long? PushId { get; set; }
         /// <summary>The ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Ref { get; set; }
 #endif
         /// <summary>The repository_id property</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PushEvent"/> and sets the default values.
         /// </summary>
@@ -69,9 +69,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "before", n => { Before = n.GetStringValue(); } },
                 { "head", n => { Head = n.GetStringValue(); } },
-                { "push_id", n => { PushId = n.GetIntValue(); } },
+                { "push_id", n => { PushId = n.GetLongValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -83,9 +83,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("before", Before);
             writer.WriteStringValue("head", Head);
-            writer.WriteIntValue("push_id", PushId);
+            writer.WriteLongValue("push_id", PushId);
             writer.WriteStringValue("ref", Ref);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

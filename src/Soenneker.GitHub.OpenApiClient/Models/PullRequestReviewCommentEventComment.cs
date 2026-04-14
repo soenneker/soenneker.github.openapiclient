@@ -49,9 +49,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The in_reply_to_id property</summary>
-        public int? InReplyToId { get; set; }
+        public long? InReplyToId { get; set; }
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -162,8 +162,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "diff_hunk", n => { DiffHunk = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
-                { "in_reply_to_id", n => { InReplyToId = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
+                { "in_reply_to_id", n => { InReplyToId = n.GetLongValue(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentLinks>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentLinks.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "original_commit_id", n => { OriginalCommitId = n.GetStringValue(); } },
@@ -191,8 +191,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("diff_hunk", DiffHunk);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
-            writer.WriteIntValue("in_reply_to_id", InReplyToId);
+            writer.WriteLongValue("id", Id);
+            writer.WriteLongValue("in_reply_to_id", InReplyToId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestReviewCommentEventCommentLinks>("_links", Links);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("original_commit_id", OriginalCommitId);

@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.item collection</summary>
         /// <param name="position">account_id parameter</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.User.Item.Account_ItemRequestBuilder this[long position]
         {
             get
             {

@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>Unique identifier of the enterprise to which this team belongs</summary>
-        public int? EnterpriseId { get; set; }
+        public long? EnterpriseId { get; set; }
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the team</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization Organization { get; set; }
 #endif
         /// <summary>Unique identifier of the organization to which this team belongs</summary>
-        public int? OrganizationId { get; set; }
+        public long? OrganizationId { get; set; }
         /// <summary>Groups of organization members that gives permissions on specified repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,9 +158,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "enterprise_id", n => { EnterpriseId = n.GetIntValue(); } },
+                { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "ldap_dn", n => { LdapDn = n.GetStringValue(); } },
                 { "members_count", n => { MembersCount = n.GetIntValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
@@ -168,7 +168,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting>(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization>(global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization.CreateFromDiscriminatorValue); } },
-                { "organization_id", n => { OrganizationId = n.GetIntValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple.CreateFromDiscriminatorValue); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
                 { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy>(); } },
@@ -189,9 +189,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
-            writer.WriteIntValue("enterprise_id", EnterpriseId);
+            writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("ldap_dn", LdapDn);
             writer.WriteIntValue("members_count", MembersCount);
             writer.WriteStringValue("members_url", MembersUrl);
@@ -199,7 +199,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting>("notification_setting", NotificationSetting);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization>("organization", Organization);
-            writer.WriteIntValue("organization_id", OrganizationId);
+            writer.WriteLongValue("organization_id", OrganizationId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>("parent", Parent);
             writer.WriteStringValue("permission", Permission);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy>("privacy", Privacy);

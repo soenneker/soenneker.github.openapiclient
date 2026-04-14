@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>A unique identifier of the repository.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The GraphQL identifier of the repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "default_branch", n => { DefaultBranch = n.GetStringValue(); } },
                 { "full_name", n => { FullName = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
             };
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("default_branch", DefaultBranch);
             writer.WriteStringValue("full_name", FullName);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteBoolValue("private", Private);
             writer.WriteAdditionalData(AdditionalData);

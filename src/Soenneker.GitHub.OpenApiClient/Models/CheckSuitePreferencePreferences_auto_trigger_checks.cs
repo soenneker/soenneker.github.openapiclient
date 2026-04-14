@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The app_id property</summary>
-        public int? AppId { get; set; }
+        public long? AppId { get; set; }
         /// <summary>The setting property</summary>
         public bool? Setting { get; set; }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "app_id", n => { AppId = n.GetIntValue(); } },
+                { "app_id", n => { AppId = n.GetLongValue(); } },
                 { "setting", n => { Setting = n.GetBoolValue(); } },
             };
         }
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("app_id", AppId);
+            writer.WriteLongValue("app_id", AppId);
             writer.WriteBoolValue("setting", Setting);
             writer.WriteAdditionalData(AdditionalData);
         }

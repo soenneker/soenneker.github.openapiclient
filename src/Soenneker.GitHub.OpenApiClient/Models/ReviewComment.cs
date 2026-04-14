@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The id property</summary>
         public long? Id { get; set; }
         /// <summary>The in_reply_to_id property</summary>
-        public int? InReplyToId { get; set; }
+        public long? InReplyToId { get; set; }
         /// <summary>The line of the blob to which the comment applies. The last line of the range for a multi-line comment</summary>
         public int? Line { get; set; }
         /// <summary>The links property</summary>
@@ -193,7 +193,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "diff_hunk", n => { DiffHunk = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "in_reply_to_id", n => { InReplyToId = n.GetIntValue(); } },
+                { "in_reply_to_id", n => { InReplyToId = n.GetLongValue(); } },
                 { "line", n => { Line = n.GetIntValue(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentLinks>(global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentLinks.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -231,7 +231,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("diff_hunk", DiffHunk);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
-            writer.WriteIntValue("in_reply_to_id", InReplyToId);
+            writer.WriteLongValue("in_reply_to_id", InReplyToId);
             writer.WriteIntValue("line", Line);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentLinks>("_links", Links);
             writer.WriteStringValue("node_id", NodeId);

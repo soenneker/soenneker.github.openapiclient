@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The ID of the IssueField to create the field for.</summary>
-        public int? IssueFieldId { get; set; }
+        public long? IssueFieldId { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "issue_field_id", n => { IssueFieldId = n.GetIntValue(); } },
+                { "issue_field_id", n => { IssueFieldId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("issue_field_id", IssueFieldId);
+            writer.WriteLongValue("issue_field_id", IssueFieldId);
         }
     }
 }

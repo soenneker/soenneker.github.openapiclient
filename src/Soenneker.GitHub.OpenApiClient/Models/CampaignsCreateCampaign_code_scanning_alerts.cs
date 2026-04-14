@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<int?> AlertNumbers { get; set; }
 #endif
         /// <summary>The repository id</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alert_numbers", n => { AlertNumbers = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("alert_numbers", AlertNumbers);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
         }
     }
 }

@@ -28,9 +28,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The field&apos;s data type.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type? DataType { get; set; }
         /// <summary>The unique identifier of the field.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The ID of the issue field.</summary>
-        public int? IssueFieldId { get; set; }
+        public long? IssueFieldId { get; set; }
         /// <summary>The name of the field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,8 +93,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type>(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
-                { "issue_field_id", n => { IssueFieldId = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
+                { "issue_field_id", n => { IssueFieldId = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -112,8 +112,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration>("configuration", Configuration);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type>("data_type", DataType);
-            writer.WriteIntValue("id", Id);
-            writer.WriteIntValue("issue_field_id", IssueFieldId);
+            writer.WriteLongValue("id", Id);
+            writer.WriteLongValue("issue_field_id", IssueFieldId);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2SingleSelectOptions>("options", Options);

@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>Unique identifier of the GitHub app</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The number of installations associated with the GitHub app. Only returned when the integration is requesting details about itself.</summary>
         public int? InstallationsCount { get; set; }
         /// <summary>The name of the GitHub app</summary>
@@ -134,7 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "events", n => { Events = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "external_url", n => { ExternalUrl = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "installations_count", n => { InstallationsCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -157,7 +157,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("events", Events);
             writer.WriteStringValue("external_url", ExternalUrl);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("installations_count", InstallationsCount);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);

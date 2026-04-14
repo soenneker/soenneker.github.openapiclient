@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string EffectiveDate { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The is_installed property</summary>
         public bool? IsInstalled { get; set; }
         /// <summary>Marketplace Listing Plan</summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "effective_date", n => { EffectiveDate = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "is_installed", n => { IsInstalled = n.GetBoolValue(); } },
                 { "plan", n => { Plan = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan>(global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan.CreateFromDiscriminatorValue); } },
                 { "unit_count", n => { UnitCount = n.GetIntValue(); } },
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("effective_date", EffectiveDate);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("is_installed", IsInstalled);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan>("plan", Plan);
             writer.WriteIntValue("unit_count", UnitCount);

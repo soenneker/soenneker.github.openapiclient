@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HooksUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The issues_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,7 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "events_url", n => { EventsUrl = n.GetStringValue(); } },
                 { "hooks_url", n => { HooksUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "issues_url", n => { IssuesUrl = n.GetStringValue(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
@@ -155,7 +155,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("events_url", EventsUrl);
             writer.WriteStringValue("hooks_url", HooksUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issues_url", IssuesUrl);
             writer.WriteStringValue("login", Login);
             writer.WriteStringValue("members_url", MembersUrl);

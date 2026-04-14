@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Target { get; set; }
 #endif
         /// <summary>The ID of the user or organization to scope the user access token to. **Required** unless `target` is specified.</summary>
-        public int? TargetId { get; set; }
+        public long? TargetId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AppsScopeToken"/> and sets the default values.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repositories", n => { Repositories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "repository_ids", n => { RepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "target", n => { Target = n.GetStringValue(); } },
-                { "target_id", n => { TargetId = n.GetIntValue(); } },
+                { "target_id", n => { TargetId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("repositories", Repositories);
             writer.WriteCollectionOfPrimitiveValues<int?>("repository_ids", RepositoryIds);
             writer.WriteStringValue("target", Target);
-            writer.WriteIntValue("target_id", TargetId);
+            writer.WriteLongValue("target_id", TargetId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

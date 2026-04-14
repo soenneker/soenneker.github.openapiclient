@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Notifications.Threads
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.notifications.threads.item collection</summary>
         /// <param name="position">The unique identifier of the notification thread. This corresponds to the value returned in the `id` field when you retrieve notifications (for example with the [`GET /notifications` operation](https://docs.github.com/rest/activity/notifications#list-notifications-for-the-authenticated-user)).</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Notifications.Threads.Item.WithThread_ItemRequestBuilder this[long position]
         {
             get
             {

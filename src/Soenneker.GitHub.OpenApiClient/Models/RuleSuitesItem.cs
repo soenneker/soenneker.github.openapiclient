@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The number that identifies the user.</summary>
-        public int? ActorId { get; set; }
+        public long? ActorId { get; set; }
         /// <summary>The handle for the GitHub user account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The result of the rule evaluations for rules with the `active` and `evaluate` enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were `active`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_evaluation_result? EvaluationResult { get; set; }
         /// <summary>The unique identifier of the rule insight.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The pushed_at property</summary>
         public DateTimeOffset? PushedAt { get; set; }
         /// <summary>The ref name that the evaluation ran on.</summary>
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Ref { get; set; }
 #endif
         /// <summary>The ID of the repository associated with the rule evaluation.</summary>
-        public int? RepositoryId { get; set; }
+        public long? RepositoryId { get; set; }
         /// <summary>The name of the repository without the `.git` extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,15 +91,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor_id", n => { ActorId = n.GetIntValue(); } },
+                { "actor_id", n => { ActorId = n.GetLongValue(); } },
                 { "actor_name", n => { ActorName = n.GetStringValue(); } },
                 { "after_sha", n => { AfterSha = n.GetStringValue(); } },
                 { "before_sha", n => { BeforeSha = n.GetStringValue(); } },
                 { "evaluation_result", n => { EvaluationResult = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_evaluation_result>(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetIntValue(); } },
+                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "repository_name", n => { RepositoryName = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_result>(); } },
             };
@@ -111,15 +111,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("actor_id", ActorId);
+            writer.WriteLongValue("actor_id", ActorId);
             writer.WriteStringValue("actor_name", ActorName);
             writer.WriteStringValue("after_sha", AfterSha);
             writer.WriteStringValue("before_sha", BeforeSha);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_evaluation_result>("evaluation_result", EvaluationResult);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("ref", Ref);
-            writer.WriteIntValue("repository_id", RepositoryId);
+            writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteStringValue("repository_name", RepositoryName);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_result>("result", Result);
             writer.WriteAdditionalData(AdditionalData);

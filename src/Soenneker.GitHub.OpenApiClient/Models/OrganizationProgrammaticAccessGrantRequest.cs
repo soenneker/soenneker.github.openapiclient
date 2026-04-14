@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string CreatedAt { get; set; }
 #endif
         /// <summary>Unique identifier of the request for access via fine-grained personal access token. The `pat_request_id` used to review PAT requests.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string TokenExpiresAt { get; set; }
 #endif
         /// <summary>Unique identifier of the user&apos;s token. This field can also be found in audit log events and the organization&apos;s settings for their PAT grants.</summary>
-        public int? TokenId { get; set; }
+        public long? TokenId { get; set; }
         /// <summary>Date and time when the associated fine-grained personal access token was last used for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,7 +113,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions.CreateFromDiscriminatorValue); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest_repository_selection>(); } },
                 { "token_expired", n => { TokenExpired = n.GetBoolValue(); } },
                 { "token_expires_at", n => { TokenExpiresAt = n.GetStringValue(); } },
-                { "token_id", n => { TokenId = n.GetIntValue(); } },
+                { "token_id", n => { TokenId = n.GetLongValue(); } },
                 { "token_last_used_at", n => { TokenLastUsedAt = n.GetStringValue(); } },
                 { "token_name", n => { TokenName = n.GetStringValue(); } },
             };
@@ -134,7 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions>("permissions", Permissions);
             writer.WriteStringValue("reason", Reason);
@@ -142,7 +142,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest_repository_selection>("repository_selection", RepositorySelection);
             writer.WriteBoolValue("token_expired", TokenExpired);
             writer.WriteStringValue("token_expires_at", TokenExpiresAt);
-            writer.WriteIntValue("token_id", TokenId);
+            writer.WriteLongValue("token_id", TokenId);
             writer.WriteStringValue("token_last_used_at", TokenLastUsedAt);
             writer.WriteStringValue("token_name", TokenName);
             writer.WriteAdditionalData(AdditionalData);

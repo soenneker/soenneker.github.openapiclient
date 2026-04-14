@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.projectsV2.item.fields.item collection</summary>
         /// <param name="position">The unique identifier of the field.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.Item.WithField_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.Item.WithField_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.Item.WithField_ItemRequestBuilder this[long position]
         {
             get
             {

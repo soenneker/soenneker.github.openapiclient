@@ -20,7 +20,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.runs.item collection</summary>
         /// <param name="position">The unique identifier of the workflow run.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.WithRun_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.WithRun_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.WithRun_ItemRequestBuilder this[long position]
         {
             get
             {
@@ -120,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs
 #endif
             /// <summary>Returns workflow runs with the `check_suite_id` that you specify.</summary>
             [QueryParameter("check_suite_id")]
-            public int? CheckSuiteId { get; set; }
+            public long? CheckSuiteId { get; set; }
             /// <summary>Returns workflow runs created within the given date-time range. For more information on the syntax, see &quot;[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).&quot;</summary>
             [QueryParameter("created")]
             public DateTimeOffset? Created { get; set; }

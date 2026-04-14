@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.rulesets.ruleSuites.item collection</summary>
         /// <param name="position">The unique identifier of the rule suite result.To get this ID, you can use [GET /repos/{owner}/{repo}/rulesets/rule-suites](https://docs.github.com/rest/repos/rule-suites#list-repository-rule-suites)for repositories and [GET /orgs/{org}/rulesets/rule-suites](https://docs.github.com/rest/orgs/rule-suites#list-organization-rule-suites)for organizations.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRule_suite_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRule_suite_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRule_suite_ItemRequestBuilder this[long position]
         {
             get
             {

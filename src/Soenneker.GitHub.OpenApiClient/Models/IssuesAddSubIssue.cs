@@ -17,7 +17,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Option that, when true, instructs the operation to replace the sub-issues current parent issue</summary>
         public bool? ReplaceParent { get; set; }
         /// <summary>The id of the sub-issue to add. The sub-issue must belong to the same repository owner as the parent issue</summary>
-        public int? SubIssueId { get; set; }
+        public long? SubIssueId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddSubIssue"/> and sets the default values.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "replace_parent", n => { ReplaceParent = n.GetBoolValue(); } },
-                { "sub_issue_id", n => { SubIssueId = n.GetIntValue(); } },
+                { "sub_issue_id", n => { SubIssueId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("replace_parent", ReplaceParent);
-            writer.WriteIntValue("sub_issue_id", SubIssueId);
+            writer.WriteLongValue("sub_issue_id", SubIssueId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

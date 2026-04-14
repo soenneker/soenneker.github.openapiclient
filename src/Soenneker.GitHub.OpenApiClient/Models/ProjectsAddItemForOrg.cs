@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier of the issue or pull request to add to the project.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The issue or pull request number.</summary>
         public int? Number { get; set; }
         /// <summary>The repository owner login.</summary>
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
                 { "repo", n => { Repo = n.GetStringValue(); } },
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("number", Number);
             writer.WriteStringValue("owner", Owner);
             writer.WriteStringValue("repo", Repo);

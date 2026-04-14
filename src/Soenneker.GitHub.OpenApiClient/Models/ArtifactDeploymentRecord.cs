@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Digest { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The logical_environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "deployment_name", n => { DeploymentName = n.GetStringValue(); } },
                 { "digest", n => { Digest = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "logical_environment", n => { LogicalEnvironment = n.GetStringValue(); } },
                 { "physical_environment", n => { PhysicalEnvironment = n.GetStringValue(); } },
                 { "runtime_risks", n => { RuntimeRisks = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_runtime_risks>()?.AsList(); } },
@@ -141,7 +141,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("deployment_name", DeploymentName);
             writer.WriteStringValue("digest", Digest);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("logical_environment", LogicalEnvironment);
             writer.WriteStringValue("physical_environment", PhysicalEnvironment);
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_runtime_risks>("runtime_risks", RuntimeRisks);

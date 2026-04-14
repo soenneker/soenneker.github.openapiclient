@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The id of an existing option to retain or update. Omit this when creating a new option.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Name of the option.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options_color>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
             };
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options_color>("color", Color);
             writer.WriteStringValue("description", Description);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("priority", Priority);
             writer.WriteAdditionalData(AdditionalData);

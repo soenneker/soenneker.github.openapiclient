@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Installations
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.app.installations.item collection</summary>
         /// <param name="position">The unique identifier of the installation.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.WithInstallation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.WithInstallation_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.App.Installations.Item.WithInstallation_ItemRequestBuilder this[long position]
         {
             get
             {

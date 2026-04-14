@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class CodeScanningVariantAnalysis : IAdditionalDataHolder, IParsable
     {
         /// <summary>The GitHub Actions workflow run used to execute this variant analysis. This is only available if the workflow run has started.</summary>
-        public int? ActionsWorkflowRunId { get; set; }
+        public long? ActionsWorkflowRunId { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The reason for a failure of the variant analysis. This is only available if the variant analysis has failed.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason? FailureReason { get; set; }
         /// <summary>The ID of the variant analysis.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The language targeted by the CodeQL query</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage? QueryLanguage { get; set; }
         /// <summary>The download url for the query pack.</summary>
@@ -96,13 +96,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actions_workflow_run_id", n => { ActionsWorkflowRunId = n.GetIntValue(); } },
+                { "actions_workflow_run_id", n => { ActionsWorkflowRunId = n.GetLongValue(); } },
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "controller_repo", n => { ControllerRepo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "failure_reason", n => { FailureReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason>(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "query_language", n => { QueryLanguage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>(); } },
                 { "query_pack_url", n => { QueryPackUrl = n.GetStringValue(); } },
                 { "scanned_repositories", n => { ScannedRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -118,13 +118,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("actions_workflow_run_id", ActionsWorkflowRunId);
+            writer.WriteLongValue("actions_workflow_run_id", ActionsWorkflowRunId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("actor", Actor);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("controller_repo", ControllerRepo);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason>("failure_reason", FailureReason);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>("query_language", QueryLanguage);
             writer.WriteStringValue("query_pack_url", QueryPackUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>("scanned_repositories", ScannedRepositories);

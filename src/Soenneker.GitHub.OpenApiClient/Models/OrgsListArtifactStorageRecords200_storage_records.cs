@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Digest { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "artifact_url", n => { ArtifactUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "digest", n => { Digest = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "registry_url", n => { RegistryUrl = n.GetStringValue(); } },
                 { "repository", n => { Repository = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("artifact_url", ArtifactUrl);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("digest", Digest);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("registry_url", RegistryUrl);
             writer.WriteStringValue("repository", Repository);

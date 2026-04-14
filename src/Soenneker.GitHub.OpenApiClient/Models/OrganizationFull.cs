@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The issues_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -355,7 +355,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "has_repository_projects", n => { HasRepositoryProjects = n.GetBoolValue(); } },
                 { "hooks_url", n => { HooksUrl = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "is_verified", n => { IsVerified = n.GetBoolValue(); } },
                 { "issues_url", n => { IssuesUrl = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
@@ -431,7 +431,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("has_repository_projects", HasRepositoryProjects);
             writer.WriteStringValue("hooks_url", HooksUrl);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issues_url", IssuesUrl);
             writer.WriteBoolValue("is_verified", IsVerified);
             writer.WriteStringValue("location", Location);

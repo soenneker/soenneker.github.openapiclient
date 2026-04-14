@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Whether this autolink reference matches alphanumeric characters. If false, this autolink reference only matches numeric characters.</summary>
         public bool? IsAlphanumeric { get; set; }
         /// <summary>The prefix of a key that is linkified.</summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "is_alphanumeric", n => { IsAlphanumeric = n.GetBoolValue(); } },
                 { "key_prefix", n => { KeyPrefix = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("is_alphanumeric", IsAlphanumeric);
             writer.WriteStringValue("key_prefix", KeyPrefix);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

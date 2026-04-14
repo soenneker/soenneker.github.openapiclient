@@ -28,7 +28,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The unique identifier of the issue type.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The enabled state of the issue type.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>The name of the issue type.</summary>
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueType_color>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "is_enabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueType_color>("color", Color);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("is_enabled", IsEnabled);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);

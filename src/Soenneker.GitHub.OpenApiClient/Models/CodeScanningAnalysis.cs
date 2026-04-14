@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Error { get; set; }
 #endif
         /// <summary>Unique identifier for this analysis.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The Git reference, formatted as `refs/pull/&lt;number&gt;/merge`, `refs/pull/&lt;number&gt;/head`,`refs/heads/&lt;branch name&gt;` or simply `&lt;branch name&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "deletable", n => { Deletable = n.GetBoolValue(); } },
                 { "environment", n => { Environment = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "results_count", n => { ResultsCount = n.GetIntValue(); } },
                 { "rules_count", n => { RulesCount = n.GetIntValue(); } },
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("deletable", Deletable);
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("error", Error);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("ref", Ref);
             writer.WriteIntValue("results_count", ResultsCount);
             writer.WriteIntValue("rules_count", RulesCount);

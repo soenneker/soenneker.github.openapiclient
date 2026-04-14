@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.rulesets.item.history.item collection</summary>
         /// <param name="position">The ID of the version</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersion_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersion_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersion_ItemRequestBuilder this[long position]
         {
             get
             {

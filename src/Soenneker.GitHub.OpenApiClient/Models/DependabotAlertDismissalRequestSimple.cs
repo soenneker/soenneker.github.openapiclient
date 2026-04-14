@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The date and time when the dismissal request was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The unique identifier of the dismissal request.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The user who requested the dismissal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "requester", n => { Requester = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester>("requester", Requester);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status>("status", Status);
             writer.WriteStringValue("url", Url);

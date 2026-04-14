@@ -17,7 +17,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The bypass mode for the reviewer</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate_security_and_analysis_secret_scanning_delegated_bypass_options_reviewers_mode? Mode { get; set; }
         /// <summary>The ID of the team or role selected as a bypass reviewer</summary>
-        public int? ReviewerId { get; set; }
+        public long? ReviewerId { get; set; }
         /// <summary>The type of the bypass reviewer</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate_security_and_analysis_secret_scanning_delegated_bypass_options_reviewers_reviewer_type? ReviewerType { get; set; }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate_security_and_analysis_secret_scanning_delegated_bypass_options_reviewers_mode>(); } },
-                { "reviewer_id", n => { ReviewerId = n.GetIntValue(); } },
+                { "reviewer_id", n => { ReviewerId = n.GetLongValue(); } },
                 { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate_security_and_analysis_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate_security_and_analysis_secret_scanning_delegated_bypass_options_reviewers_mode>("mode", Mode);
-            writer.WriteIntValue("reviewer_id", ReviewerId);
+            writer.WriteLongValue("reviewer_id", ReviewerId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate_security_and_analysis_secret_scanning_delegated_bypass_options_reviewers_reviewer_type>("reviewer_type", ReviewerType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The date and time at which the CodeQL database was created, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The ID of the CodeQL database.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The language of the CodeQL database.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_oid", n => { CommitOid = n.GetStringValue(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetIntValue(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_oid", CommitOid);
             writer.WriteStringValue("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("size", Size);

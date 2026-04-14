@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.issueTypes.item collection</summary>
         /// <param name="position">The unique identifier of the issue type.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssue_type_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssue_type_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssue_type_ItemRequestBuilder this[long position]
         {
             get
             {

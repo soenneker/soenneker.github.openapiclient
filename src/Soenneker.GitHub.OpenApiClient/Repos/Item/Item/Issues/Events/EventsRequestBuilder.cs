@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.issues.events.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEvent_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEvent_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEvent_ItemRequestBuilder this[long position]
         {
             get
             {

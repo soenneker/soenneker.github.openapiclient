@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencie
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.issues.item.dependencies.blocked_by.item collection</summary>
         /// <param name="position">The id of the blocking issue to remove as a dependency</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies.Blocked_by.Item.WithIssue_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies.Blocked_by.Item.WithIssue_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies.Blocked_by.Item.WithIssue_ItemRequestBuilder this[long position]
         {
             get
             {

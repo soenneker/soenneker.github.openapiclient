@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The line property</summary>
         public int? Line { get; set; }
         /// <summary>The node_id property</summary>
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_id", n => { CommitId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "line", n => { Line = n.GetIntValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -144,7 +144,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_id", CommitId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteIntValue("line", Line);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("path", Path);

@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the image. Use this ID for the `image` parameter when creating a new larger runner.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The latest image version associated with the image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "latest_version", n => { LatestVersion = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "platform", n => { Platform = n.GetStringValue(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteStringValue("latest_version", LatestVersion);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("platform", Platform);

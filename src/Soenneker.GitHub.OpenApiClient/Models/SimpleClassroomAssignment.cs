@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether feedback pull request will be created on assignment acceptance.</summary>
         public bool? FeedbackPullRequestsEnabled { get; set; }
         /// <summary>Unique identifier of the repository.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>Whether the invitation link is enabled. Visiting an enabled invitation link will accept the assignment.</summary>
         public bool? InvitationsEnabled { get; set; }
         /// <summary>The link that a student can use to accept the assignment.</summary>
@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "deadline", n => { Deadline = n.GetDateTimeOffsetValue(); } },
                 { "editor", n => { Editor = n.GetStringValue(); } },
                 { "feedback_pull_requests_enabled", n => { FeedbackPullRequestsEnabled = n.GetBoolValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "invitations_enabled", n => { InvitationsEnabled = n.GetBoolValue(); } },
                 { "invite_link", n => { InviteLink = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
@@ -144,7 +144,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("deadline", Deadline);
             writer.WriteStringValue("editor", Editor);
             writer.WriteBoolValue("feedback_pull_requests_enabled", FeedbackPullRequestsEnabled);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteBoolValue("invitations_enabled", InvitationsEnabled);
             writer.WriteStringValue("invite_link", InviteLink);
             writer.WriteStringValue("language", Language);

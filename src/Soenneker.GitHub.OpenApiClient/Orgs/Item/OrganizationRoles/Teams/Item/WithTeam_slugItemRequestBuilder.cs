@@ -20,7 +20,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.organizationRoles.teams.item.item collection</summary>
         /// <param name="position">The unique identifier of the role.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.Item.WithRole_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.Item.WithRole_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.Item.WithRole_ItemRequestBuilder this[long position]
         {
             get
             {

@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string HtmlUrl { get; set; }
 #endif
         /// <summary>The unique identifier of the view.</summary>
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         /// <summary>The layout of the view.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_layout? Layout { get; set; }
         /// <summary>The name of the view.</summary>
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "filter", n => { Filter = n.GetStringValue(); } },
                 { "group_by", n => { GroupBy = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
                 { "layout", n => { Layout = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_layout>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<int?>("group_by", GroupBy);
             writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("id", Id);
+            writer.WriteLongValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2View_layout>("layout", Layout);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);

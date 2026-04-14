@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string DismissalMessage { get; set; }
 #endif
         /// <summary>The review_id property</summary>
-        public int? ReviewId { get; set; }
+        public long? ReviewId { get; set; }
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "dismissal_commit_id", n => { DismissalCommitId = n.GetStringValue(); } },
                 { "dismissal_message", n => { DismissalMessage = n.GetStringValue(); } },
-                { "review_id", n => { ReviewId = n.GetIntValue(); } },
+                { "review_id", n => { ReviewId = n.GetLongValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("dismissal_commit_id", DismissalCommitId);
             writer.WriteStringValue("dismissal_message", DismissalMessage);
-            writer.WriteIntValue("review_id", ReviewId);
+            writer.WriteLongValue("review_id", ReviewId);
             writer.WriteStringValue("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }

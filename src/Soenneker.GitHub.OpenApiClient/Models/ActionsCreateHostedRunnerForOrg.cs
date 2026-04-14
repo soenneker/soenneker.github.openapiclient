@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The existing runner group to add this runner to.</summary>
-        public int? RunnerGroupId { get; set; }
+        public long? RunnerGroupId { get; set; }
         /// <summary>The machine size of the runner. To list available sizes, use `GET actions/hosted-runners/machine-sizes`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "image_gen", n => { ImageGen = n.GetBoolValue(); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "runner_group_id", n => { RunnerGroupId = n.GetIntValue(); } },
+                { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
                 { "size", n => { Size = n.GetStringValue(); } },
             };
         }
@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("image_gen", ImageGen);
             writer.WriteIntValue("maximum_runners", MaximumRunners);
             writer.WriteStringValue("name", Name);
-            writer.WriteIntValue("runner_group_id", RunnerGroupId);
+            writer.WriteLongValue("runner_group_id", RunnerGroupId);
             writer.WriteStringValue("size", Size);
             writer.WriteAdditionalData(AdditionalData);
         }

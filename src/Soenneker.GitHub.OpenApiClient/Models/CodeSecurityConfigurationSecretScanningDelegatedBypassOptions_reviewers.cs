@@ -17,11 +17,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The bypass mode for the reviewer</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers_mode? Mode { get; set; }
         /// <summary>The ID of the team or role selected as a bypass reviewer</summary>
-        public int? ReviewerId { get; set; }
+        public long? ReviewerId { get; set; }
         /// <summary>The type of the bypass reviewer</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers_reviewer_type? ReviewerType { get; set; }
         /// <summary>The ID of the security configuration associated with this bypass reviewer</summary>
-        public int? SecurityConfigurationId { get; set; }
+        public long? SecurityConfigurationId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers"/> and sets the default values.
         /// </summary>
@@ -49,9 +49,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers_mode>(); } },
-                { "reviewer_id", n => { ReviewerId = n.GetIntValue(); } },
+                { "reviewer_id", n => { ReviewerId = n.GetLongValue(); } },
                 { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers_reviewer_type>(); } },
-                { "security_configuration_id", n => { SecurityConfigurationId = n.GetIntValue(); } },
+                { "security_configuration_id", n => { SecurityConfigurationId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -62,9 +62,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers_mode>("mode", Mode);
-            writer.WriteIntValue("reviewer_id", ReviewerId);
+            writer.WriteLongValue("reviewer_id", ReviewerId);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers_reviewer_type>("reviewer_type", ReviewerType);
-            writer.WriteIntValue("security_configuration_id", SecurityConfigurationId);
+            writer.WriteLongValue("security_configuration_id", SecurityConfigurationId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

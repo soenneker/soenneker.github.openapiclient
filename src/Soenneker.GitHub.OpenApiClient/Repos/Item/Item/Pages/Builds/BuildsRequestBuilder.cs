@@ -27,7 +27,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.pages.builds.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuild_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuild_ItemRequestBuilder this[int position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuild_ItemRequestBuilder this[long position]
         {
             get
             {
