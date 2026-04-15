@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel
+namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org}\dependabot\repository-access\default-level
+    /// Builds and executes requests for operations under \orgs\{org}\dependabot\repository-access\default-level
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DefaultLevelRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DefaultLevelRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/dependabot/repository-access/default-level", pathParameters)
+        public DefaultLevelRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/repository-access/default-level", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DefaultLevelRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/dependabot/repository-access/default-level", rawUrl)
+        public DefaultLevelRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/repository-access/default-level", rawUrl)
         {
         }
         /// <summary>
@@ -86,11 +86,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

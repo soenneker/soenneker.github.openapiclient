@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.MetricsRequestBuilder Metrics
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.MetricsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The policies property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.PoliciesRequestBuilder Policies
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.CopilotRequestBuilder"/> and sets the default values.

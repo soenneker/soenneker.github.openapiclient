@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts.AlertsRequestBuilder Alerts
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts.AlertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The repositoryAccess property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder RepositoryAccess
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The secrets property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Secrets.SecretsRequestBuilder Secrets

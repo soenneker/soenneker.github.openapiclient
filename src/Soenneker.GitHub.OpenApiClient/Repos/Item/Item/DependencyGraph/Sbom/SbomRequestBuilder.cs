@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.GenerateReport;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +19,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SbomRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The fetchReport property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.FetchReportRequestBuilder FetchReport
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.FetchReportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The generateReport property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.GenerateReport.GenerateReportRequestBuilder GenerateReport
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.GenerateReport.GenerateReportRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.SbomRequestBuilder"/> and sets the default values.
         /// </summary>

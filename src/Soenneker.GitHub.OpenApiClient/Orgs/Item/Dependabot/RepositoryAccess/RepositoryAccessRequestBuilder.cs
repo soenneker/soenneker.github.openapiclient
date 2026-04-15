@@ -4,39 +4,39 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess
+namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org}\dependabot\repository-access
+    /// Builds and executes requests for operations under \orgs\{org}\dependabot\repository-access
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryAccessRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The defaultLevel property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder DefaultLevel
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder DefaultLevel
         {
-            get => new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.DefaultLevel.DefaultLevelRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoryAccessRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/dependabot/repository-access{?page*,per_page*}", pathParameters)
+        public RepositoryAccessRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/repository-access{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoryAccessRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/dependabot/repository-access{?page*,per_page*}", rawUrl)
+        public RepositoryAccessRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/dependabot/repository-access{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
@@ -50,11 +50,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -100,11 +100,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder.RepositoryAccessRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -137,11 +137,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.Repositor
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Lists repositories that organization admins have allowed Dependabot to access when updating dependencies.&gt; [!NOTE]&gt;    This operation supports both server-to-server and user-to-server access.Unauthorized users will not see the existence of this endpoint.
