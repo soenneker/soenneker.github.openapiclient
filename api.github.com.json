@@ -10264,6 +10264,15 @@
                     "description": "The machine size of the runner. To list available sizes, use `GET actions/hosted-runners/machine-sizes`",
                     "type": "string"
                   },
+                  "image_source": {
+                    "description": "The source type of the runner image to use. Must match the source of the image specified by `image_id`. Can be one of `github`, `partner`, or `custom`.",
+                    "type": "string",
+                    "enum": [
+                      "github",
+                      "partner",
+                      "custom"
+                    ]
+                  },
                   "image_id": {
                     "description": "The unique identifier of the runner image. To list available images, use `GET /actions/hosted-runners/images/github-owned`, `GET /actions/hosted-runners/images/partner`, or `GET /actions/hosted-runners/images/custom`.",
                     "type": "string"
@@ -10272,6 +10281,10 @@
                     "description": "The version of the runner image to deploy. This is relevant only for runners using custom images.",
                     "type": "string",
                     "nullable": true
+                  },
+                  "image_gen": {
+                    "description": "Whether to enable image generation for this runner pool. When enabled, the runner pool is used to build and publish custom runner images.",
+                    "type": "boolean"
                   }
                 }
               },
@@ -26342,7 +26355,7 @@
       },
       "post": {
         "summary": "Create a private registry for an organization",
-        "description": "\nCreates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\nFor OIDC-based registries (`oidc_azure`, `oidc_aws`, or `oidc_jfrog`), the `encrypted_value` and `key_id` fields should be omitted.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "description": "\nCreates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\nFor OIDC-based registries (`oidc_azure`, `oidc_aws`, `oidc_jfrog`, or `oidc_cloudsmith`), the `encrypted_value` and `key_id` fields should be omitted.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
         "tags": [
           "private-registries"
         ],
@@ -26425,14 +26438,15 @@
                     }
                   },
                   "auth_type": {
-                    "description": "The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, or `oidc_jfrog` for OIDC authentication.",
+                    "description": "The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, `oidc_jfrog`, or `oidc_cloudsmith` for OIDC authentication.",
                     "type": "string",
                     "enum": [
                       "token",
                       "username_password",
                       "oidc_azure",
                       "oidc_aws",
-                      "oidc_jfrog"
+                      "oidc_jfrog",
+                      "oidc_cloudsmith"
                     ]
                   },
                   "tenant_id": {
@@ -26468,11 +26482,23 @@
                     "type": "string"
                   },
                   "audience": {
-                    "description": "The OIDC audience. Optional for `oidc_aws` and `oidc_jfrog` auth types.",
+                    "description": "The OIDC audience. Optional for `oidc_aws`, `oidc_jfrog`, and required for `oidc_cloudsmith` auth types.",
                     "type": "string"
                   },
                   "identity_mapping_name": {
                     "description": "The JFrog identity mapping name. Optional for `oidc_jfrog` auth type.",
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "description": "The Cloudsmith organization namespace. Required when `auth_type` is `oidc_cloudsmith`.",
+                    "type": "string"
+                  },
+                  "service_slug": {
+                    "description": "The Cloudsmith service account slug. Required when `auth_type` is `oidc_cloudsmith`.",
+                    "type": "string"
+                  },
+                  "api_host": {
+                    "description": "The Cloudsmith API host. Optional for `oidc_cloudsmith` auth type. If omitted, `api.cloudsmith.io` is used by default.",
                     "type": "string"
                   }
                 },
@@ -26519,6 +26545,18 @@
                     "visibility": "all",
                     "tenant_id": "12345678-1234-1234-1234-123456789012",
                     "client_id": "abcdef01-2345-6789-abcd-ef0123456789"
+                  }
+                },
+                "org-private-registry-with-oidc-cloudsmith": {
+                  "summary": "Example of an OIDC private registry configuration using Cloudsmith",
+                  "value": {
+                    "registry_type": "npm_registry",
+                    "url": "https://npm.cloudsmith.io/my-org/my-repo/",
+                    "auth_type": "oidc_cloudsmith",
+                    "visibility": "all",
+                    "namespace": "my-org",
+                    "service_slug": "my-service-account",
+                    "audience": "https://github.com/my-org"
                   }
                 }
               }
@@ -26674,7 +26712,7 @@
       },
       "patch": {
         "summary": "Update a private registry for an organization",
-        "description": "\nUpdates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\nFor OIDC-based registries (`oidc_azure`, `oidc_aws`, or `oidc_jfrog`), the `encrypted_value` and `key_id` fields should be omitted.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "description": "\nUpdates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \"[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\"\nFor OIDC-based registries (`oidc_azure`, `oidc_aws`, `oidc_jfrog`, or `oidc_cloudsmith`), the `encrypted_value` and `key_id` fields should be omitted.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
         "tags": [
           "private-registries"
         ],
@@ -26767,7 +26805,8 @@
                       "username_password",
                       "oidc_azure",
                       "oidc_aws",
-                      "oidc_jfrog"
+                      "oidc_jfrog",
+                      "oidc_cloudsmith"
                     ]
                   },
                   "tenant_id": {
@@ -26803,11 +26842,23 @@
                     "type": "string"
                   },
                   "audience": {
-                    "description": "The OIDC audience. Optional for `oidc_aws` and `oidc_jfrog` auth types.",
+                    "description": "The OIDC audience. Optional for `oidc_aws`, `oidc_jfrog`, and required for `oidc_cloudsmith` auth types.",
                     "type": "string"
                   },
                   "identity_mapping_name": {
                     "description": "The JFrog identity mapping name. Optional for `oidc_jfrog` auth type.",
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "description": "The Cloudsmith organization namespace. Required when `auth_type` is `oidc_cloudsmith`.",
+                    "type": "string"
+                  },
+                  "service_slug": {
+                    "description": "The Cloudsmith service account slug. Required when `auth_type` is `oidc_cloudsmith`.",
+                    "type": "string"
+                  },
+                  "api_host": {
+                    "description": "The Cloudsmith API host. Optional for `oidc_cloudsmith` auth type. If omitted, `api.cloudsmith.io` is used by default.",
                     "type": "string"
                   }
                 }
@@ -55639,6 +55690,346 @@
           "category": "issues",
           "subcategory": "issue-field-values"
         }
+      },
+      "post": {
+        "summary": "Add issue field values to an issue",
+        "description": "Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository's organization.\nAdding an empty array will clear all existing field values for the issue.\n\nThis endpoint supports the following field data types:\n- **`text`**: String values for text fields\n- **`single_select`**: Option names for single-select fields (must match an existing option name)\n- **`number`**: Numeric values for number fields\n- **`date`**: ISO 8601 date strings for date fields\n\nOnly users with push access to the repository can add issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
+        "tags": [
+          "issues"
+        ],
+        "operationId": "issues/add-issue-field-values",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#add-issue-field-values-to-an-issue"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "issue_field_values": {
+                    "type": "array",
+                    "description": "An array of issue field values to add to this issue. Each field value must include the field ID and the value to set.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "field_id": {
+                          "type": "integer",
+                          "description": "The ID of the issue field to set",
+                          "example": 123
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "The value to set for text, single_select, or date fields"
+                            },
+                            {
+                              "type": "number",
+                              "description": "The value to set for number fields"
+                            }
+                          ],
+                          "description": "The value to set for the field. The type depends on the field's data type:\n- For text fields: provide a string value\n- For single_select fields: provide the option name as a string (must match an existing option)\n- For number fields: provide a numeric value\n- For date fields: provide an ISO 8601 date string",
+                          "example": "Critical"
+                        }
+                      },
+                      "required": [
+                        "field_id",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 25
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "summary": "Add multiple field values",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "Critical"
+                      },
+                      {
+                        "field_id": 456,
+                        "value": 5
+                      },
+                      {
+                        "field_id": 789,
+                        "value": "2024-12-31"
+                      }
+                    ]
+                  }
+                },
+                "single-field": {
+                  "summary": "Add a single field value",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "High Priority"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "The current issue field values for this issue after adding the new values",
+                  "items": {
+                    "$ref": "#/components/schemas/issue-field-value"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field-value-items"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
+        }
+      },
+      "put": {
+        "summary": "Set issue field values for an issue",
+        "description": "Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository's organization.\n\nThis endpoint supports the following field data types:\n- **`text`**: String values for text fields\n- **`single_select`**: Option names for single-select fields (must match an existing option name)\n- **`number`**: Numeric values for number fields\n- **`date`**: ISO 8601 date strings for date fields\n\nThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.\n\nOnly users with push access to the repository can set issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
+        "tags": [
+          "issues"
+        ],
+        "operationId": "issues/set-issue-field-values",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#set-issue-field-values-for-an-issue"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "issue_field_values": {
+                    "type": "array",
+                    "description": "An array of issue field values to set for this issue. Each field value must include the field ID and the value to set. All existing field values will be replaced.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "field_id": {
+                          "type": "integer",
+                          "description": "The ID of the issue field to set",
+                          "example": 123
+                        },
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "description": "The value to set for text, single_select, or date fields"
+                            },
+                            {
+                              "type": "number",
+                              "description": "The value to set for number fields"
+                            }
+                          ],
+                          "description": "The value to set for the field. The type depends on the field's data type:\n- For text fields: provide a string value\n- For single_select fields: provide the option name as a string (must match an existing option)\n- For number fields: provide a numeric value\n- For date fields: provide an ISO 8601 date string",
+                          "example": "Critical"
+                        }
+                      },
+                      "required": [
+                        "field_id",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 25
+                  }
+                }
+              },
+              "examples": {
+                "default": {
+                  "summary": "Set multiple field values",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "Critical"
+                      },
+                      {
+                        "field_id": 456,
+                        "value": 5
+                      },
+                      {
+                        "field_id": 789,
+                        "value": "2024-12-31"
+                      }
+                    ]
+                  }
+                },
+                "single-field": {
+                  "summary": "Set a single field value",
+                  "value": {
+                    "issue_field_values": [
+                      {
+                        "field_id": 123,
+                        "value": "High Priority"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "The current issue field values for this issue after setting the new values",
+                  "items": {
+                    "$ref": "#/components/schemas/issue-field-value"
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-field-value-items"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}": {
+      "delete": {
+        "summary": "Delete an issue field value from an issue",
+        "description": "Remove a specific custom field value from an issue.\n\nOnly users with push access to the repository can delete issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nIf the specified field does not have a value set on the issue, this operation will return a `404` error.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
+        "tags": [
+          "issues"
+        ],
+        "operationId": "issues/delete-issue-field-value",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issue-field-values#delete-an-issue-field-value-from-an-issue"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          },
+          {
+            "$ref": "#/components/parameters/issue-field-id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Issue field value deleted successfully"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "issues",
+          "subcategory": "issue-field-values"
+        }
       }
     },
     "/repos/{owner}/{repo}/issues/{issue_number}/labels": {
@@ -60259,6 +60650,94 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "pulls"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/pulls/{pull_number}/archive": {
+      "put": {
+        "summary": "Archive a pull request",
+        "description": "Archives a pull request. Closes, locks, and marks the pull request as archived.\nOnly repository admins can archive pull requests.\nArchived pull requests are hidden from non-admin users.",
+        "tags": [
+          "pulls"
+        ],
+        "operationId": "pulls/archive",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/pulls#archive-a-pull-request"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/pull-number"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "pulls"
+        }
+      },
+      "delete": {
+        "summary": "Unarchive a pull request",
+        "description": "Unarchives a pull request. Removes the archived flag from the pull request.\nDoes not automatically reopen or unlock the pull request.\nOnly repository admins can unarchive pull requests.",
+        "tags": [
+          "pulls"
+        ],
+        "operationId": "pulls/unarchive",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/pulls#unarchive-a-pull-request"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/pull-number"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
           }
         },
         "x-github": {
@@ -66812,339 +67291,6 @@
           "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "repos"
-        }
-      }
-    },
-    "/repositories/{repository_id}/issues/{issue_number}/issue-field-values": {
-      "post": {
-        "summary": "Add issue field values to an issue",
-        "description": "Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository's organization.\nAdding an empty array will clear all existing field values for the issue.\n\nThis endpoint supports the following field data types:\n- **`text`**: String values for text fields\n- **`single_select`**: Option names for single-select fields (must match an existing option name)\n- **`number`**: Numeric values for number fields\n- **`date`**: ISO 8601 date strings for date fields\n\nOnly users with push access to the repository can add issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
-        "tags": [
-          "issues"
-        ],
-        "operationId": "issues/add-issue-field-values",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/issues/issue-field-values#add-issue-field-values-to-an-issue"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/repository-id"
-          },
-          {
-            "$ref": "#/components/parameters/issue-number"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "issue_field_values": {
-                    "type": "array",
-                    "description": "An array of issue field values to add to this issue. Each field value must include the field ID and the value to set.",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "field_id": {
-                          "type": "integer",
-                          "description": "The ID of the issue field to set",
-                          "example": 123
-                        },
-                        "value": {
-                          "oneOf": [
-                            {
-                              "type": "string",
-                              "description": "The value to set for text, single_select, or date fields"
-                            },
-                            {
-                              "type": "number",
-                              "description": "The value to set for number fields"
-                            }
-                          ],
-                          "description": "The value to set for the field. The type depends on the field's data type:\n- For text fields: provide a string value\n- For single_select fields: provide the option name as a string (must match an existing option)\n- For number fields: provide a numeric value\n- For date fields: provide an ISO 8601 date string",
-                          "example": "Critical"
-                        }
-                      },
-                      "required": [
-                        "field_id",
-                        "value"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "maxItems": 25
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "summary": "Add multiple field values",
-                  "value": {
-                    "issue_field_values": [
-                      {
-                        "field_id": 123,
-                        "value": "Critical"
-                      },
-                      {
-                        "field_id": 456,
-                        "value": 5
-                      },
-                      {
-                        "field_id": 789,
-                        "value": "2024-12-31"
-                      }
-                    ]
-                  }
-                },
-                "single-field": {
-                  "summary": "Add a single field value",
-                  "value": {
-                    "issue_field_values": [
-                      {
-                        "field_id": 123,
-                        "value": "High Priority"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "description": "The current issue field values for this issue after adding the new values",
-                  "items": {
-                    "$ref": "#/components/schemas/issue-field-value"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/issue-field-value-items"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/bad_request"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "503": {
-            "$ref": "#/components/responses/service_unavailable"
-          }
-        },
-        "x-github": {
-          "triggersNotification": true,
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "issues",
-          "subcategory": "issue-field-values"
-        }
-      },
-      "put": {
-        "summary": "Set issue field values for an issue",
-        "description": "Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository's organization.\n\nThis endpoint supports the following field data types:\n- **`text`**: String values for text fields\n- **`single_select`**: Option names for single-select fields (must match an existing option name)\n- **`number`**: Numeric values for number fields\n- **`date`**: ISO 8601 date strings for date fields\n\nThis operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the `POST` endpoint instead.\n\nOnly users with push access to the repository can set issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
-        "tags": [
-          "issues"
-        ],
-        "operationId": "issues/set-issue-field-values",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/issues/issue-field-values#set-issue-field-values-for-an-issue"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/repository-id"
-          },
-          {
-            "$ref": "#/components/parameters/issue-number"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "issue_field_values": {
-                    "type": "array",
-                    "description": "An array of issue field values to set for this issue. Each field value must include the field ID and the value to set. All existing field values will be replaced.",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "field_id": {
-                          "type": "integer",
-                          "description": "The ID of the issue field to set",
-                          "example": 123
-                        },
-                        "value": {
-                          "oneOf": [
-                            {
-                              "type": "string",
-                              "description": "The value to set for text, single_select, or date fields"
-                            },
-                            {
-                              "type": "number",
-                              "description": "The value to set for number fields"
-                            }
-                          ],
-                          "description": "The value to set for the field. The type depends on the field's data type:\n- For text fields: provide a string value\n- For single_select fields: provide the option name as a string (must match an existing option)\n- For number fields: provide a numeric value\n- For date fields: provide an ISO 8601 date string",
-                          "example": "Critical"
-                        }
-                      },
-                      "required": [
-                        "field_id",
-                        "value"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "maxItems": 25
-                  }
-                }
-              },
-              "examples": {
-                "default": {
-                  "summary": "Set multiple field values",
-                  "value": {
-                    "issue_field_values": [
-                      {
-                        "field_id": 123,
-                        "value": "Critical"
-                      },
-                      {
-                        "field_id": 456,
-                        "value": 5
-                      },
-                      {
-                        "field_id": 789,
-                        "value": "2024-12-31"
-                      }
-                    ]
-                  }
-                },
-                "single-field": {
-                  "summary": "Set a single field value",
-                  "value": {
-                    "issue_field_values": [
-                      {
-                        "field_id": 123,
-                        "value": "High Priority"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "description": "The current issue field values for this issue after setting the new values",
-                  "items": {
-                    "$ref": "#/components/schemas/issue-field-value"
-                  }
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/issue-field-value-items"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/bad_request"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "503": {
-            "$ref": "#/components/responses/service_unavailable"
-          }
-        },
-        "x-github": {
-          "triggersNotification": true,
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "issues",
-          "subcategory": "issue-field-values"
-        }
-      }
-    },
-    "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}": {
-      "delete": {
-        "summary": "Delete an issue field value from an issue",
-        "description": "Remove a specific custom field value from an issue.\n\nOnly users with push access to the repository can delete issue field values. If you don't have the proper permissions, you'll receive a `403 Forbidden` response.\n\nIf the specified field does not have a value set on the issue, this operation will return a `404` error.\n\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\"\nand \"[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\"",
-        "tags": [
-          "issues"
-        ],
-        "operationId": "issues/delete-issue-field-value",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/issues/issue-field-values#delete-an-issue-field-value-from-an-issue"
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/repository-id"
-          },
-          {
-            "$ref": "#/components/parameters/issue-number"
-          },
-          {
-            "$ref": "#/components/parameters/issue-field-id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Issue field value deleted successfully"
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          },
-          "503": {
-            "$ref": "#/components/responses/service_unavailable"
-          }
-        },
-        "x-github": {
-          "triggersNotification": true,
-          "githubCloudOnly": false,
-          "enabledForGitHubApps": true,
-          "category": "issues",
-          "subcategory": "issue-field-values"
         }
       }
     },
@@ -118801,7 +118947,8 @@
               "username_password",
               "oidc_azure",
               "oidc_aws",
-              "oidc_jfrog"
+              "oidc_jfrog",
+              "oidc_cloudsmith"
             ],
             "type": "string"
           },
@@ -118870,6 +119017,18 @@
             "description": "The JFrog identity mapping name.",
             "type": "string"
           },
+          "namespace": {
+            "description": "The Cloudsmith organization namespace.",
+            "type": "string"
+          },
+          "service_slug": {
+            "description": "The Cloudsmith service account slug.",
+            "type": "string"
+          },
+          "api_host": {
+            "description": "The Cloudsmith API host.",
+            "type": "string"
+          },
           "created_at": {
             "type": "string",
             "format": "date-time"
@@ -118925,7 +119084,8 @@
               "username_password",
               "oidc_azure",
               "oidc_aws",
-              "oidc_jfrog"
+              "oidc_jfrog",
+              "oidc_cloudsmith"
             ],
             "type": "string"
           },
@@ -118998,6 +119158,18 @@
           },
           "identity_mapping_name": {
             "description": "The JFrog identity mapping name.",
+            "type": "string"
+          },
+          "namespace": {
+            "description": "The Cloudsmith organization namespace.",
+            "type": "string"
+          },
+          "service_slug": {
+            "description": "The Cloudsmith service account slug.",
+            "type": "string"
+          },
+          "api_host": {
+            "description": "The Cloudsmith API host.",
             "type": "string"
           },
           "created_at": {

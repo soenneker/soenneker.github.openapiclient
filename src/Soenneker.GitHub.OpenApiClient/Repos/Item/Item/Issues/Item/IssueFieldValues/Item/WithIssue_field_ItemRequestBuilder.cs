@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item
+namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repositories\{repository_id}\issues\{issue_number}\issue-field-values\{issue_field_id}
+    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\issues\{issue_number}\issue-field-values\{issue_field_id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithIssue_field_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithIssue_field_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}", pathParameters)
+        public WithIssue_field_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues/{issue_number}/issue-field-values/{issue_field_id}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithIssue_field_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}", rawUrl)
+        public WithIssue_field_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues/{issue_number}/issue-field-values/{issue_field_id}", rawUrl)
         {
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFiel
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.GitHub.OpenApiClient.Repositories.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.IssueFieldValues.Item.WithIssue_field_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

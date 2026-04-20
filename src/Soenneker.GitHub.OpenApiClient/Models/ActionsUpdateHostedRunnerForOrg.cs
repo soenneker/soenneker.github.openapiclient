@@ -16,6 +16,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this runner should be updated with a static public IP. Note limit on account. To list limits on account, use `GET actions/hosted-runners/limits`</summary>
         public bool? EnableStaticIp { get; set; }
+        /// <summary>Whether to enable image generation for this runner pool. When enabled, the runner pool is used to build and publish custom runner images.</summary>
+        public bool? ImageGen { get; set; }
         /// <summary>The unique identifier of the runner image. To list available images, use `GET /actions/hosted-runners/images/github-owned`, `GET /actions/hosted-runners/images/partner`, or `GET /actions/hosted-runners/images/custom`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,6 +26,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ImageId { get; set; }
 #endif
+        /// <summary>The source type of the runner image to use. Must match the source of the image specified by `image_id`. Can be one of `github`, `partner`, or `custom`.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrg_image_source? ImageSource { get; set; }
         /// <summary>The version of the runner image to deploy. This is relevant only for runners using custom images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +82,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enable_static_ip", n => { EnableStaticIp = n.GetBoolValue(); } },
+                { "image_gen", n => { ImageGen = n.GetBoolValue(); } },
                 { "image_id", n => { ImageId = n.GetStringValue(); } },
+                { "image_source", n => { ImageSource = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrg_image_source>(); } },
                 { "image_version", n => { ImageVersion = n.GetStringValue(); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -94,7 +100,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enable_static_ip", EnableStaticIp);
+            writer.WriteBoolValue("image_gen", ImageGen);
             writer.WriteStringValue("image_id", ImageId);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrg_image_source>("image_source", ImageSource);
             writer.WriteStringValue("image_version", ImageVersion);
             writer.WriteIntValue("maximum_runners", MaximumRunners);
             writer.WriteStringValue("name", Name);
