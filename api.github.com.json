@@ -137,6 +137,10 @@
       "description": "Interact with and view information about users and also current user."
     },
     {
+      "name": "code-quality",
+      "description": "Insights into reliability, maintainability, and efficiency of your codebase."
+    },
+    {
       "name": "codespaces",
       "description": "Endpoints to manage Codespaces using the REST API."
     },
@@ -4133,6 +4137,236 @@
           "previews": [],
           "category": "dependabot",
           "subcategory": "alerts"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/dependabot/repository-access": {
+      "get": {
+        "summary": "Lists the repositories Dependabot can access in an enterprise",
+        "description": "Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.\n\nThe authenticated user must be an enterprise owner to use this endpoint.",
+        "tags": [
+          "dependabot"
+        ],
+        "operationId": "dependabot/repository-access-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/repository-access#lists-the-repositories-dependabot-can-access-in-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The page number of results to fetch.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of results per page.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dependabot-repository-access-details"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/dependabot-repository-access-details"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "dependabot",
+          "subcategory": "repository-access"
+        }
+      },
+      "patch": {
+        "summary": "Updates Dependabot's repository access list for an enterprise",
+        "description": "Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they've updated dependencies across organizations in the enterprise.\n\nThe authenticated user must be an enterprise owner to use this endpoint.\n\n**Example request body:**\n```json\n{\n  \"repository_ids_to_add\": [123, 456],\n  \"repository_ids_to_remove\": [789]\n}\n```",
+        "tags": [
+          "dependabot"
+        ],
+        "operationId": "dependabot/update-repository-access-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/repository-access#updates-dependabots-repository-access-list-for-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "repository_ids_to_add": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "List of repository IDs to add."
+                  },
+                  "repository_ids_to_remove": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "List of repository IDs to remove."
+                  }
+                },
+                "example": {
+                  "repository_ids_to_add": [
+                    123,
+                    456
+                  ],
+                  "repository_ids_to_remove": [
+                    789
+                  ]
+                }
+              },
+              "examples": {
+                "204": {
+                  "summary": "Example with a 'succeeded' status."
+                },
+                "add-example": {
+                  "summary": "Add repositories",
+                  "value": {
+                    "repository_ids_to_add": [
+                      123,
+                      456
+                    ]
+                  }
+                },
+                "remove-example": {
+                  "summary": "Remove repositories",
+                  "value": {
+                    "repository_ids_to_remove": [
+                      789
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "dependabot",
+          "subcategory": "repository-access"
+        }
+      }
+    },
+    "/enterprises/{enterprise}/dependabot/repository-access/default-level": {
+      "put": {
+        "summary": "Set the default repository access level for Dependabot in an enterprise",
+        "description": "Sets the default level of repository access Dependabot will have while performing an update across organizations in the enterprise. Available values are:\n- 'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.\n- 'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.\n\nThe authenticated user must be an enterprise owner to use this endpoint.",
+        "tags": [
+          "dependabot"
+        ],
+        "operationId": "dependabot/set-repository-access-default-level-for-enterprise",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/dependabot/repository-access#set-the-default-repository-access-level-for-dependabot-in-an-enterprise"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "default_level": {
+                    "type": "string",
+                    "description": "The default repository access level for Dependabot updates.",
+                    "enum": [
+                      "public",
+                      "internal"
+                    ],
+                    "example": "internal"
+                  }
+                },
+                "required": [
+                  "default_level"
+                ]
+              },
+              "examples": {
+                "204": {
+                  "summary": "Example with a 'succeeded' status.",
+                  "value": {
+                    "default_level": "public"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": false,
+          "category": "dependabot",
+          "subcategory": "repository-access"
         }
       }
     },
@@ -10607,6 +10841,10 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "use_immutable_subject": {
+                    "description": "Whether to opt in to the immutable OIDC subject claim format for the organization. When `true`, new OIDC tokens will use a stable, repository-ID-based `sub` claim instead of the name-based format.",
+                    "type": "boolean"
                   }
                 }
               },
@@ -16957,6 +17195,9 @@
               "schema": {
                 "type": "object",
                 "additionalProperties": false,
+                "required": [
+                  "selected_repository_ids"
+                ],
                 "properties": {
                   "selected_repository_ids": {
                     "type": "array",
@@ -33747,6 +33988,10 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "use_immutable_subject": {
+                    "description": "Whether to opt in to the immutable OIDC subject claim format for this repository. When `true`, OIDC tokens will use a stable, repository-ID-based `sub` claim.",
+                    "type": "boolean"
                   }
                 }
               },
@@ -37352,6 +37597,11 @@
               {
                 "op": "remove",
                 "path": "/requestBody/content/application~1json/schema/properties/return_run_details"
+              },
+              {
+                "op": "replace",
+                "path": "/responses/200/description",
+                "value": "Response including the workflow run ID and URLs."
               }
             ],
             "version": "2026-03-10"
@@ -64776,6 +65026,15 @@
                   },
                   "assignee": {
                     "$ref": "#/components/schemas/secret-scanning-alert-assignee"
+                  },
+                  "validity": {
+                    "type": "string",
+                    "nullable": true,
+                    "enum": [
+                      "active",
+                      "inactive"
+                    ],
+                    "description": "Sets the validity of the secret scanning alert. Can be `active`, `inactive`, or `null` to clear the override."
                   }
                 },
                 "anyOf": [
@@ -64842,7 +65101,7 @@
             "description": "Repository is public, or secret scanning is disabled for the repository, or the resource is not found"
           },
           "422": {
-            "description": "State does not match the resolution or resolution comment, or assignee does not have write access to the repository"
+            "description": "State does not match the resolution or resolution comment, assignee does not have write access to the repository, or the requested validity change could not be applied to this alert"
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
@@ -86997,6 +87256,192 @@
         }
       }
     },
+    "issues-field-added": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to an issue. For more information about issues, see \"[About issues](https://docs.github.com/issues/tracking-your-work-with-issues/about-issues).\" For information about the APIs to manage issues, see [the GraphQL documentation](https://docs.github.com/graphql/reference/objects#issue) or \"[Issues](https://docs.github.com/rest/issues)\" in the REST API documentation.\n\nFor activity relating to a comment on an issue, use the `issue_comment` event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.",
+        "description": "An issue field value was set or updated on an issue.",
+        "operationId": "issues/field-added",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issues"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-issues-field-added"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "issues",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
+    "issues-field-removed": {
+      "post": {
+        "summary": "This event occurs when there is activity relating to an issue. For more information about issues, see \"[About issues](https://docs.github.com/issues/tracking-your-work-with-issues/about-issues).\" For information about the APIs to manage issues, see [the GraphQL documentation](https://docs.github.com/graphql/reference/objects#issue) or \"[Issues](https://docs.github.com/rest/issues)\" in the REST API documentation.\n\nFor activity relating to a comment on an issue, use the `issue_comment` event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.",
+        "description": "An issue field value was cleared from an issue.",
+        "operationId": "issues/field-removed",
+        "externalDocs": {
+          "url": "https://docs.github.com/webhooks/webhook-events-and-payloads#issues"
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "example": "GitHub-Hookshot/123abc",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Id",
+            "in": "header",
+            "example": 12312312,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Event",
+            "in": "header",
+            "example": "issues",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Id",
+            "in": "header",
+            "example": 123123,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Github-Hook-Installation-Target-Type",
+            "in": "header",
+            "example": "repository",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-GitHub-Delivery",
+            "in": "header",
+            "example": "0b989ba4-242f-11e5-81e1-c7b6966d2516",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Hub-Signature-256",
+            "in": "header",
+            "example": "sha256=6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/webhook-issues-field-removed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "webhooks",
+          "subcategory": "issues",
+          "supported-webhook-types": [
+            "repository",
+            "organization",
+            "app"
+          ]
+        }
+      }
+    },
     "issues-labeled": {
       "post": {
         "summary": "This event occurs when there is activity relating to an issue. For more information about issues, see \"[About issues](https://docs.github.com/issues/tracking-your-work-with-issues/about-issues).\" For information about the APIs to manage issues, see [the GraphQL documentation](https://docs.github.com/graphql/reference/objects#issue) or \"[Issues](https://docs.github.com/rest/issues)\" in the REST API documentation.\n\nFor activity relating to a comment on an issue, use the `issue_comment` event.\n\nTo subscribe to this event, a GitHub App must have at least read-level access for the \"Issues\" repository permission.",
@@ -108568,6 +109013,329 @@
         ],
         "additionalProperties": false
       },
+      "nullable-simple-repository": {
+        "title": "Simple Repository",
+        "description": "A GitHub repository.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1296269,
+            "description": "A unique identifier of the repository."
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+            "description": "The GraphQL identifier of the repository."
+          },
+          "name": {
+            "type": "string",
+            "example": "Hello-World",
+            "description": "The name of the repository."
+          },
+          "full_name": {
+            "type": "string",
+            "example": "octocat/Hello-World",
+            "description": "The full, globally unique, name of the repository."
+          },
+          "owner": {
+            "$ref": "#/components/schemas/simple-user"
+          },
+          "private": {
+            "type": "boolean",
+            "description": "Whether the repository is private."
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat/Hello-World",
+            "description": "The URL to view the repository on GitHub.com."
+          },
+          "description": {
+            "type": "string",
+            "example": "This your first repo!",
+            "nullable": true,
+            "description": "The repository description."
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Whether the repository is a fork."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World",
+            "description": "The URL to get more information about the repository from the GitHub API."
+          },
+          "archive_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
+            "description": "A template for the API URL to download the repository as an archive."
+          },
+          "assignees_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
+            "description": "A template for the API URL to list the available assignees for issues in the repository."
+          },
+          "blobs_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
+            "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
+          },
+          "branches_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
+            "description": "A template for the API URL to get information about branches in the repository."
+          },
+          "collaborators_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+            "description": "A template for the API URL to get information about collaborators of the repository."
+          },
+          "comments_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
+            "description": "A template for the API URL to get information about comments on the repository."
+          },
+          "commits_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
+            "description": "A template for the API URL to get information about commits on the repository."
+          },
+          "compare_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
+            "description": "A template for the API URL to compare two commits or refs."
+          },
+          "contents_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
+            "description": "A template for the API URL to get the contents of the repository."
+          },
+          "contributors_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/contributors",
+            "description": "A template for the API URL to list the contributors to the repository."
+          },
+          "deployments_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/deployments",
+            "description": "The API URL to list the deployments of the repository."
+          },
+          "downloads_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/downloads",
+            "description": "The API URL to list the downloads on the repository."
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/events",
+            "description": "The API URL to list the events of the repository."
+          },
+          "forks_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/forks",
+            "description": "The API URL to list the forks of the repository."
+          },
+          "git_commits_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
+            "description": "A template for the API URL to get information about Git commits of the repository."
+          },
+          "git_refs_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
+            "description": "A template for the API URL to get information about Git refs of the repository."
+          },
+          "git_tags_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
+            "description": "A template for the API URL to get information about Git tags of the repository."
+          },
+          "issue_comment_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
+            "description": "A template for the API URL to get information about issue comments on the repository."
+          },
+          "issue_events_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
+            "description": "A template for the API URL to get information about issue events on the repository."
+          },
+          "issues_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
+            "description": "A template for the API URL to get information about issues on the repository."
+          },
+          "keys_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
+            "description": "A template for the API URL to get information about deploy keys on the repository."
+          },
+          "labels_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
+            "description": "A template for the API URL to get information about labels of the repository."
+          },
+          "languages_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/languages",
+            "description": "The API URL to get information about the languages of the repository."
+          },
+          "merges_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/merges",
+            "description": "The API URL to merge branches in the repository."
+          },
+          "milestones_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
+            "description": "A template for the API URL to get information about milestones of the repository."
+          },
+          "notifications_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
+            "description": "A template for the API URL to get information about notifications on the repository."
+          },
+          "pulls_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
+            "description": "A template for the API URL to get information about pull requests on the repository."
+          },
+          "releases_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
+            "description": "A template for the API URL to get information about releases on the repository."
+          },
+          "stargazers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/stargazers",
+            "description": "The API URL to list the stargazers on the repository."
+          },
+          "statuses_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
+            "description": "A template for the API URL to get information about statuses of a commit."
+          },
+          "subscribers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/subscribers",
+            "description": "The API URL to list the subscribers on the repository."
+          },
+          "subscription_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/subscription",
+            "description": "The API URL to subscribe to notifications for this repository."
+          },
+          "tags_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/tags",
+            "description": "The API URL to get information about tags on the repository."
+          },
+          "teams_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/teams",
+            "description": "The API URL to list the teams on the repository."
+          },
+          "trees_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
+            "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
+          },
+          "hooks_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/hooks",
+            "description": "The API URL to list the hooks on the repository."
+          }
+        },
+        "required": [
+          "archive_url",
+          "assignees_url",
+          "blobs_url",
+          "branches_url",
+          "collaborators_url",
+          "comments_url",
+          "commits_url",
+          "compare_url",
+          "contents_url",
+          "contributors_url",
+          "deployments_url",
+          "description",
+          "downloads_url",
+          "events_url",
+          "fork",
+          "forks_url",
+          "full_name",
+          "git_commits_url",
+          "git_refs_url",
+          "git_tags_url",
+          "hooks_url",
+          "html_url",
+          "id",
+          "node_id",
+          "issue_comment_url",
+          "issue_events_url",
+          "issues_url",
+          "keys_url",
+          "labels_url",
+          "languages_url",
+          "merges_url",
+          "milestones_url",
+          "name",
+          "notifications_url",
+          "owner",
+          "private",
+          "pulls_url",
+          "releases_url",
+          "stargazers_url",
+          "statuses_url",
+          "subscribers_url",
+          "subscription_url",
+          "tags_url",
+          "teams_url",
+          "trees_url",
+          "url"
+        ],
+        "nullable": true
+      },
+      "dependabot-repository-access-details": {
+        "title": "Dependabot Repository Access Details",
+        "description": "Information about repositories that Dependabot is able to access in an organization",
+        "type": "object",
+        "properties": {
+          "default_level": {
+            "type": "string",
+            "description": "The default repository access level for Dependabot updates.",
+            "enum": [
+              "public",
+              "internal"
+            ],
+            "example": "internal",
+            "nullable": true
+          },
+          "accessible_repositories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/nullable-simple-repository"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "enterprise-team": {
         "title": "Enterprise Team",
         "description": "Group of enterprise owners and/or members",
@@ -114103,6 +114871,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "use_immutable_subject": {
+            "description": "Whether to opt in to the immutable OIDC subject claim format for the organization. When `true`, new OIDC tokens will use a stable, repository-ID-based `sub` claim instead of the name-based format.",
+            "type": "boolean"
           }
         },
         "required": [
@@ -116364,329 +117136,6 @@
           "date"
         ],
         "additionalProperties": true
-      },
-      "nullable-simple-repository": {
-        "title": "Simple Repository",
-        "description": "A GitHub repository.",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1296269,
-            "description": "A unique identifier of the repository."
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-            "description": "The GraphQL identifier of the repository."
-          },
-          "name": {
-            "type": "string",
-            "example": "Hello-World",
-            "description": "The name of the repository."
-          },
-          "full_name": {
-            "type": "string",
-            "example": "octocat/Hello-World",
-            "description": "The full, globally unique, name of the repository."
-          },
-          "owner": {
-            "$ref": "#/components/schemas/simple-user"
-          },
-          "private": {
-            "type": "boolean",
-            "description": "Whether the repository is private."
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World",
-            "description": "The URL to view the repository on GitHub.com."
-          },
-          "description": {
-            "type": "string",
-            "example": "This your first repo!",
-            "nullable": true,
-            "description": "The repository description."
-          },
-          "fork": {
-            "type": "boolean",
-            "description": "Whether the repository is a fork."
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World",
-            "description": "The URL to get more information about the repository from the GitHub API."
-          },
-          "archive_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
-            "description": "A template for the API URL to download the repository as an archive."
-          },
-          "assignees_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
-            "description": "A template for the API URL to list the available assignees for issues in the repository."
-          },
-          "blobs_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
-            "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
-          },
-          "branches_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
-            "description": "A template for the API URL to get information about branches in the repository."
-          },
-          "collaborators_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
-            "description": "A template for the API URL to get information about collaborators of the repository."
-          },
-          "comments_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
-            "description": "A template for the API URL to get information about comments on the repository."
-          },
-          "commits_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
-            "description": "A template for the API URL to get information about commits on the repository."
-          },
-          "compare_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
-            "description": "A template for the API URL to compare two commits or refs."
-          },
-          "contents_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
-            "description": "A template for the API URL to get the contents of the repository."
-          },
-          "contributors_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/contributors",
-            "description": "A template for the API URL to list the contributors to the repository."
-          },
-          "deployments_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/deployments",
-            "description": "The API URL to list the deployments of the repository."
-          },
-          "downloads_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/downloads",
-            "description": "The API URL to list the downloads on the repository."
-          },
-          "events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/events",
-            "description": "The API URL to list the events of the repository."
-          },
-          "forks_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/forks",
-            "description": "The API URL to list the forks of the repository."
-          },
-          "git_commits_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
-            "description": "A template for the API URL to get information about Git commits of the repository."
-          },
-          "git_refs_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
-            "description": "A template for the API URL to get information about Git refs of the repository."
-          },
-          "git_tags_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
-            "description": "A template for the API URL to get information about Git tags of the repository."
-          },
-          "issue_comment_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
-            "description": "A template for the API URL to get information about issue comments on the repository."
-          },
-          "issue_events_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
-            "description": "A template for the API URL to get information about issue events on the repository."
-          },
-          "issues_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
-            "description": "A template for the API URL to get information about issues on the repository."
-          },
-          "keys_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
-            "description": "A template for the API URL to get information about deploy keys on the repository."
-          },
-          "labels_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
-            "description": "A template for the API URL to get information about labels of the repository."
-          },
-          "languages_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/languages",
-            "description": "The API URL to get information about the languages of the repository."
-          },
-          "merges_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/merges",
-            "description": "The API URL to merge branches in the repository."
-          },
-          "milestones_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
-            "description": "A template for the API URL to get information about milestones of the repository."
-          },
-          "notifications_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
-            "description": "A template for the API URL to get information about notifications on the repository."
-          },
-          "pulls_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
-            "description": "A template for the API URL to get information about pull requests on the repository."
-          },
-          "releases_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
-            "description": "A template for the API URL to get information about releases on the repository."
-          },
-          "stargazers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/stargazers",
-            "description": "The API URL to list the stargazers on the repository."
-          },
-          "statuses_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
-            "description": "A template for the API URL to get information about statuses of a commit."
-          },
-          "subscribers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/subscribers",
-            "description": "The API URL to list the subscribers on the repository."
-          },
-          "subscription_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/subscription",
-            "description": "The API URL to subscribe to notifications for this repository."
-          },
-          "tags_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/tags",
-            "description": "The API URL to get information about tags on the repository."
-          },
-          "teams_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/teams",
-            "description": "The API URL to list the teams on the repository."
-          },
-          "trees_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
-            "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
-          },
-          "hooks_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/hooks",
-            "description": "The API URL to list the hooks on the repository."
-          }
-        },
-        "required": [
-          "archive_url",
-          "assignees_url",
-          "blobs_url",
-          "branches_url",
-          "collaborators_url",
-          "comments_url",
-          "commits_url",
-          "compare_url",
-          "contents_url",
-          "contributors_url",
-          "deployments_url",
-          "description",
-          "downloads_url",
-          "events_url",
-          "fork",
-          "forks_url",
-          "full_name",
-          "git_commits_url",
-          "git_refs_url",
-          "git_tags_url",
-          "hooks_url",
-          "html_url",
-          "id",
-          "node_id",
-          "issue_comment_url",
-          "issue_events_url",
-          "issues_url",
-          "keys_url",
-          "labels_url",
-          "languages_url",
-          "merges_url",
-          "milestones_url",
-          "name",
-          "notifications_url",
-          "owner",
-          "private",
-          "pulls_url",
-          "releases_url",
-          "stargazers_url",
-          "statuses_url",
-          "subscribers_url",
-          "subscription_url",
-          "tags_url",
-          "teams_url",
-          "trees_url",
-          "url"
-        ],
-        "nullable": true
-      },
-      "dependabot-repository-access-details": {
-        "title": "Dependabot Repository Access Details",
-        "description": "Information about repositories that Dependabot is able to access in an organization",
-        "type": "object",
-        "properties": {
-          "default_level": {
-            "type": "string",
-            "description": "The default repository access level for Dependabot updates.",
-            "enum": [
-              "public",
-              "internal"
-            ],
-            "example": "internal",
-            "nullable": true
-          },
-          "accessible_repositories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/nullable-simple-repository"
-            }
-          }
-        },
-        "additionalProperties": false
       },
       "organization-dependabot-secret": {
         "title": "Dependabot Secret for an Organization",
@@ -126438,6 +126887,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "use_immutable_subject": {
+            "description": "Whether the repository has opted in to the immutable OIDC subject claim format. When `true`, OIDC tokens will use a stable, repository-ID-based `sub` claim. If not set at the repository level, falls back to the organization-level setting.",
+            "type": "boolean"
+          },
+          "sub_claim_prefix": {
+            "description": "The current `sub` claim prefix for this repository.",
+            "type": "string"
           }
         },
         "required": [
@@ -184291,6 +184748,306 @@
           "action",
           "changes",
           "issue",
+          "repository",
+          "sender"
+        ]
+      },
+      "webhook-issues-field-added": {
+        "title": "issues field_added event",
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "field_added"
+            ]
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "issue": {
+            "$ref": "#/components/schemas/webhooks_issue"
+          },
+          "issue_field": {
+            "type": "object",
+            "description": "The issue field whose value was set or updated on the issue.",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The unique identifier of the issue field."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the issue field."
+              },
+              "field_type": {
+                "type": "string",
+                "description": "The data type of the issue field.",
+                "enum": [
+                  "text",
+                  "date",
+                  "single_select",
+                  "number"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "field_type"
+            ]
+          },
+          "issue_field_value": {
+            "type": "object",
+            "description": "The value that was set or updated for the issue field. When updating an existing value, the previous value is available in `changes`.",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The unique identifier of the issue field value."
+              },
+              "value": {
+                "description": "The value of the field. Present for text, date, and number field types.",
+                "nullable": true,
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "value_id": {
+                "type": "integer",
+                "description": "The identifier of the selected option. Present for single_select field types."
+              },
+              "option": {
+                "type": "object",
+                "description": "The selected option details. Present for single_select field types.",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "changes": {
+            "type": "object",
+            "description": "The previous field value, present when an existing value was updated.",
+            "properties": {
+              "issue_field_value": {
+                "type": "object",
+                "description": "The previous issue field value data.",
+                "properties": {
+                  "from": {
+                    "type": "object",
+                    "description": "The previous value of the issue field before the update.",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique identifier of the issue field value."
+                      },
+                      "value": {
+                        "description": "The previous value. Present for text, date, and number field types.",
+                        "nullable": true,
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "integer"
+                          }
+                        ]
+                      },
+                      "value_id": {
+                        "type": "integer",
+                        "description": "The identifier of the previously selected option. Present for single_select field types."
+                      },
+                      "option": {
+                        "type": "object",
+                        "description": "The previously selected option details. Present for single_select field types.",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string",
+                            "nullable": true
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "required": [
+                  "from"
+                ]
+              }
+            }
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        },
+        "required": [
+          "action",
+          "issue",
+          "issue_field",
+          "repository",
+          "sender"
+        ]
+      },
+      "webhook-issues-field-removed": {
+        "title": "issues field_removed event",
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "field_removed"
+            ]
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/enterprise-webhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/simple-installation"
+          },
+          "issue": {
+            "$ref": "#/components/schemas/webhooks_issue"
+          },
+          "issue_field": {
+            "type": "object",
+            "description": "The issue field whose value was cleared from the issue.",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The unique identifier of the issue field."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the issue field."
+              },
+              "field_type": {
+                "type": "string",
+                "description": "The data type of the issue field.",
+                "enum": [
+                  "text",
+                  "date",
+                  "single_select",
+                  "number"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "field_type"
+            ]
+          },
+          "issue_field_value": {
+            "type": "object",
+            "description": "The value that was cleared from the issue field.",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The unique identifier of the issue field value."
+              },
+              "value": {
+                "description": "The value of the field. Present for text, date, and number field types.",
+                "nullable": true,
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "value_id": {
+                "type": "integer",
+                "description": "The identifier of the selected option. Present for single_select field types."
+              },
+              "option": {
+                "type": "object",
+                "description": "The selected option details. Present for single_select field types.",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "organization": {
+            "$ref": "#/components/schemas/organization-simple-webhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/repository-webhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/simple-user"
+          }
+        },
+        "required": [
+          "action",
+          "issue",
+          "issue_field",
           "repository",
           "sender"
         ]
@@ -290923,6 +291680,84 @@
           }
         ]
       },
+      "dependabot-repository-access-details": {
+        "value": {
+          "default_level": "public",
+          "accessible_repositories": [
+            {
+              "id": 123456,
+              "node_id": "MDEwOlJlcG9zaXRvcnkxMjM0NTY=",
+              "name": "example-repo",
+              "full_name": "octocat/example-repo",
+              "owner": {
+                "name": "octocat",
+                "email": "octo@github.com",
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
+                "gravatar_id": 1,
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat/example-repo",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false,
+                "starred_at": "\"2020-07-09T00:17:55Z\"",
+                "user_view_type": "default"
+              },
+              "private": false,
+              "html_url": "https://github.com/octocat/example-repo",
+              "description": "This is an example repository.",
+              "fork": false,
+              "url": "https://api.github.com/repos/octocat/example-repo",
+              "archive_url": "https://api.github.com/repos/octocat/example-repo/{archive_format}{/ref}",
+              "assignees_url": "https://api.github.com/repos/octocat/example-repo/assignees{/user}",
+              "blobs_url": "https://api.github.com/repos/octocat/example-repo/git/blobs{/sha}",
+              "branches_url": "https://api.github.com/repos/octocat/example-repo/branches{/branch}",
+              "collaborators_url": "https://api.github.com/repos/octocat/example-repo/collaborators{/collaborator}",
+              "comments_url": "https://api.github.com/repos/octocat/example-repo/comments{/number}",
+              "commits_url": "https://api.github.com/repos/octocat/example-repo/commits{/sha}",
+              "compare_url": "https://api.github.com/repos/octocat/example-repo/compare/{base}...{head}",
+              "contents_url": "https://api.github.com/repos/octocat/example-repo/contents/{+path}",
+              "contributors_url": "https://api.github.com/repos/octocat/example-repo/contributors",
+              "deployments_url": "https://api.github.com/repos/octocat/example-repo/deployments",
+              "downloads_url": "https://api.github.com/repos/octocat/example-repo/downloads",
+              "events_url": "https://api.github.com/repos/octocat/example-repo/events",
+              "forks_url": "https://api.github.com/repos/octocat/example-repo/forks",
+              "git_commits_url": "https://api.github.com/repos/octocat/example-repo/git/commits{/sha}",
+              "git_refs_url": "https://api.github.com/repos/octocat/example-repo/git/refs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/octocat/example-repo/git/tags{/sha}",
+              "issue_comment_url": "https://api.github.com/repos/octocat/example-repo/issues/comments{/number}",
+              "issue_events_url": "https://api.github.com/repos/octocat/example-repo/issues/events{/number}",
+              "issues_url": "https://api.github.com/repos/octocat/example-repo/issues{/number}",
+              "keys_url": "https://api.github.com/repos/octocat/example-repo/keys{/key_id}",
+              "labels_url": "https://api.github.com/repos/octocat/example-repo/labels{/name}",
+              "languages_url": "https://api.github.com/repos/octocat/example-repo/languages",
+              "merges_url": "https://api.github.com/repos/octocat/example-repo/merges",
+              "milestones_url": "https://api.github.com/repos/octocat/example-repo/milestones{/number}",
+              "notifications_url": "https://api.github.com/repos/octocat/example-repo/notifications{?since,all,participating}",
+              "pulls_url": "https://api.github.com/repos/octocat/example-repo/pulls{/number}",
+              "releases_url": "https://api.github.com/repos/octocat/example-repo/releases{/id}",
+              "stargazers_url": "https://api.github.com/repos/octocat/example-repo/stargazers",
+              "statuses_url": "https://api.github.com/repos/octocat/example-repo/statuses/{sha}",
+              "subscribers_url": "https://api.github.com/repos/octocat/example-repo/subscribers",
+              "subscription_url": "https://api.github.com/repos/octocat/example-repo/subscription",
+              "tags_url": "https://api.github.com/repos/octocat/example-repo/tags",
+              "teams_url": "https://api.github.com/repos/octocat/example-repo/teams",
+              "trees_url": "https://api.github.com/repos/octocat/example-repo/git/trees{/sha}",
+              "hooks_url": "https://api.github.com/repos/octocat/example-repo/hooks"
+            }
+          ]
+        }
+      },
       "enterprise-teams-items": {
         "value": [
           {
@@ -295370,84 +296205,6 @@
             }
           }
         ]
-      },
-      "dependabot-repository-access-details": {
-        "value": {
-          "default_level": "public",
-          "accessible_repositories": [
-            {
-              "id": 123456,
-              "node_id": "MDEwOlJlcG9zaXRvcnkxMjM0NTY=",
-              "name": "example-repo",
-              "full_name": "octocat/example-repo",
-              "owner": {
-                "name": "octocat",
-                "email": "octo@github.com",
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
-                "gravatar_id": 1,
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat/example-repo",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false,
-                "starred_at": "\"2020-07-09T00:17:55Z\"",
-                "user_view_type": "default"
-              },
-              "private": false,
-              "html_url": "https://github.com/octocat/example-repo",
-              "description": "This is an example repository.",
-              "fork": false,
-              "url": "https://api.github.com/repos/octocat/example-repo",
-              "archive_url": "https://api.github.com/repos/octocat/example-repo/{archive_format}{/ref}",
-              "assignees_url": "https://api.github.com/repos/octocat/example-repo/assignees{/user}",
-              "blobs_url": "https://api.github.com/repos/octocat/example-repo/git/blobs{/sha}",
-              "branches_url": "https://api.github.com/repos/octocat/example-repo/branches{/branch}",
-              "collaborators_url": "https://api.github.com/repos/octocat/example-repo/collaborators{/collaborator}",
-              "comments_url": "https://api.github.com/repos/octocat/example-repo/comments{/number}",
-              "commits_url": "https://api.github.com/repos/octocat/example-repo/commits{/sha}",
-              "compare_url": "https://api.github.com/repos/octocat/example-repo/compare/{base}...{head}",
-              "contents_url": "https://api.github.com/repos/octocat/example-repo/contents/{+path}",
-              "contributors_url": "https://api.github.com/repos/octocat/example-repo/contributors",
-              "deployments_url": "https://api.github.com/repos/octocat/example-repo/deployments",
-              "downloads_url": "https://api.github.com/repos/octocat/example-repo/downloads",
-              "events_url": "https://api.github.com/repos/octocat/example-repo/events",
-              "forks_url": "https://api.github.com/repos/octocat/example-repo/forks",
-              "git_commits_url": "https://api.github.com/repos/octocat/example-repo/git/commits{/sha}",
-              "git_refs_url": "https://api.github.com/repos/octocat/example-repo/git/refs{/sha}",
-              "git_tags_url": "https://api.github.com/repos/octocat/example-repo/git/tags{/sha}",
-              "issue_comment_url": "https://api.github.com/repos/octocat/example-repo/issues/comments{/number}",
-              "issue_events_url": "https://api.github.com/repos/octocat/example-repo/issues/events{/number}",
-              "issues_url": "https://api.github.com/repos/octocat/example-repo/issues{/number}",
-              "keys_url": "https://api.github.com/repos/octocat/example-repo/keys{/key_id}",
-              "labels_url": "https://api.github.com/repos/octocat/example-repo/labels{/name}",
-              "languages_url": "https://api.github.com/repos/octocat/example-repo/languages",
-              "merges_url": "https://api.github.com/repos/octocat/example-repo/merges",
-              "milestones_url": "https://api.github.com/repos/octocat/example-repo/milestones{/number}",
-              "notifications_url": "https://api.github.com/repos/octocat/example-repo/notifications{?since,all,participating}",
-              "pulls_url": "https://api.github.com/repos/octocat/example-repo/pulls{/number}",
-              "releases_url": "https://api.github.com/repos/octocat/example-repo/releases{/id}",
-              "stargazers_url": "https://api.github.com/repos/octocat/example-repo/stargazers",
-              "statuses_url": "https://api.github.com/repos/octocat/example-repo/statuses/{sha}",
-              "subscribers_url": "https://api.github.com/repos/octocat/example-repo/subscribers",
-              "subscription_url": "https://api.github.com/repos/octocat/example-repo/subscription",
-              "tags_url": "https://api.github.com/repos/octocat/example-repo/tags",
-              "teams_url": "https://api.github.com/repos/octocat/example-repo/teams",
-              "trees_url": "https://api.github.com/repos/octocat/example-repo/git/trees{/sha}",
-              "hooks_url": "https://api.github.com/repos/octocat/example-repo/hooks"
-            }
-          ]
-        }
       },
       "organization-dependabot-secret-paginated": {
         "value": {

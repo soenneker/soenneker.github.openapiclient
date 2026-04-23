@@ -7,40 +7,31 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// Actions OIDC Subject customization
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class OidcCustomSub : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class DependabotSetRepositoryAccessDefaultLevelForEnterprise : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? IncludeClaimKeys { get; set; }
-#nullable restore
-#else
-        public List<string> IncludeClaimKeys { get; set; }
-#endif
-        /// <summary>Whether to opt in to the immutable OIDC subject claim format for the organization. When `true`, new OIDC tokens will use a stable, repository-ID-based `sub` claim instead of the name-based format.</summary>
-        public bool? UseImmutableSubject { get; set; }
+        /// <summary>The default repository access level for Dependabot updates.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise_default_level? DefaultLevel { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise"/> and sets the default values.
         /// </summary>
-        public OidcCustomSub()
+        public DependabotSetRepositoryAccessDefaultLevelForEnterprise()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSub();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,8 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "include_claim_keys", n => { IncludeClaimKeys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "use_immutable_subject", n => { UseImmutableSubject = n.GetBoolValue(); } },
+                { "default_level", n => { DefaultLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise_default_level>(); } },
             };
         }
         /// <summary>
@@ -61,8 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("include_claim_keys", IncludeClaimKeys);
-            writer.WriteBoolValue("use_immutable_subject", UseImmutableSubject);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterprise_default_level>("default_level", DefaultLevel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

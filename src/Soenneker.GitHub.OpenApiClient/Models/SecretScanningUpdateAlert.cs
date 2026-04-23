@@ -42,6 +42,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Type { get; set; }
 #endif
+        /// <summary>Sets the validity of the secret scanning alert. Can be `active`, `inactive`, or `null` to clear the override.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlert_validity? Validity { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlert"/> and sets the default values.
         /// </summary>
@@ -72,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "resolution_comment", n => { ResolutionComment = n.GetStringValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
+                { "validity", n => { Validity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlert_validity>(); } },
             };
         }
         /// <summary>
@@ -86,6 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("resolution_comment", ResolutionComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>("state", State);
             writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlert_validity>("validity", Validity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

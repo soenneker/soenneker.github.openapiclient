@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryAccess;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts.AlertsRequestBuilder Alerts
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts.AlertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The repositoryAccess property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder RepositoryAccess
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryAccess.RepositoryAccessRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.DependabotRequestBuilder"/> and sets the default values.

@@ -23,8 +23,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<string> IncludeClaimKeys { get; set; }
 #endif
+        /// <summary>The current `sub` claim prefix for this repository.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SubClaimPrefix { get; set; }
+#nullable restore
+#else
+        public string SubClaimPrefix { get; set; }
+#endif
         /// <summary>Whether to use the default template or not. If `true`, the `include_claim_keys` field is ignored.</summary>
         public bool? UseDefault { get; set; }
+        /// <summary>Whether the repository has opted in to the immutable OIDC subject claim format. When `true`, OIDC tokens will use a stable, repository-ID-based `sub` claim. If not set at the repository level, falls back to the organization-level setting.</summary>
+        public bool? UseImmutableSubject { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomSubRepo"/> and sets the default values.
         /// </summary>
@@ -51,7 +61,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_claim_keys", n => { IncludeClaimKeys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "sub_claim_prefix", n => { SubClaimPrefix = n.GetStringValue(); } },
                 { "use_default", n => { UseDefault = n.GetBoolValue(); } },
+                { "use_immutable_subject", n => { UseImmutableSubject = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +74,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("include_claim_keys", IncludeClaimKeys);
+            writer.WriteStringValue("sub_claim_prefix", SubClaimPrefix);
             writer.WriteBoolValue("use_default", UseDefault);
+            writer.WriteBoolValue("use_immutable_subject", UseImmutableSubject);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

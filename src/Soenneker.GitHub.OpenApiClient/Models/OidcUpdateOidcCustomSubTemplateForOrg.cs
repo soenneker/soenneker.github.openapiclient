@@ -23,6 +23,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<string> IncludeClaimKeys { get; set; }
 #endif
+        /// <summary>Whether to opt in to the immutable OIDC subject claim format for the organization. When `true`, new OIDC tokens will use a stable, repository-ID-based `sub` claim instead of the name-based format.</summary>
+        public bool? UseImmutableSubject { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcUpdateOidcCustomSubTemplateForOrg"/> and sets the default values.
         /// </summary>
@@ -49,6 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_claim_keys", n => { IncludeClaimKeys = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "use_immutable_subject", n => { UseImmutableSubject = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -59,6 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("include_claim_keys", IncludeClaimKeys);
+            writer.WriteBoolValue("use_immutable_subject", UseImmutableSubject);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
