@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
         {
         }
         /// <summary>
-        /// Sets the policy for Copilot coding agent usage across an enterprise.Enterprise owners can configure whether Copilot coding agent is enabled for allorganizations, disabled for all organizations, configured by individual organizationadmins, or enabled for selected organizations only.Only enterprise owners can set the coding agent policy for their enterprise.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
+        /// Sets the policy for Copilot cloud agent usage across an enterprise.Enterprise owners can configure whether Copilot cloud agent is enabled for allorganizations, disabled for all organizations, configured by individual organizationadmins, or enabled for selected organizations only.Only enterprise owners can set the coding agent policy for their enterprise.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-the-coding-agent-policy-for-an-enterprise" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets the policy for Copilot coding agent usage across an enterprise.Enterprise owners can configure whether Copilot coding agent is enabled for allorganizations, disabled for all organizations, configured by individual organizationadmins, or enabled for selected organizations only.Only enterprise owners can set the coding agent policy for their enterprise.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
+        /// Sets the policy for Copilot cloud agent usage across an enterprise.Enterprise owners can configure whether Copilot cloud agent is enabled for allorganizations, disabled for all organizations, configured by individual organizationadmins, or enabled for selected organizations only.Only enterprise owners can set the coding agent policy for their enterprise.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

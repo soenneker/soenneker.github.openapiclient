@@ -40,8 +40,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
         {
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets information about which repositories in an organization have been enabledor disabled for the Copilot coding agent.Organization owners can configure whether Copilot coding agent is enabled forall repositories, selected repositories, or no repositories owned by organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#get-copilot-coding-agent-permissions-for-an-organization" />
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets information about which repositories in an organization have been enabledor disabled for the Copilot cloud agent.Organization owners can configure whether Copilot cloud agent is enabled forall repositories, selected repositories, or no repositories owned by organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#get-copilot-cloud-agent-permissions-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,8 +70,8 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotGetCopilotCodingAgentPermissionsOrganization200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets the policy for which repositories in an organization can use Copilot coding agent.Organization owners can configure whether Copilot coding agent is enabled forall repositories, selected repositories, or no repositories owned by the organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
-        /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-copilot-coding-agent-permissions-for-an-organization" />
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets the policy for which repositories in an organization can use Copilot cloud agent.Organization owners can configure whether Copilot cloud agent is enabled forall repositories, selected repositories, or no repositories owned by the organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-copilot-cloud-agent-permissions-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets information about which repositories in an organization have been enabledor disabled for the Copilot coding agent.Organization owners can configure whether Copilot coding agent is enabled forall repositories, selected repositories, or no repositories owned by organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets information about which repositories in an organization have been enabledor disabled for the Copilot cloud agent.Organization owners can configure whether Copilot cloud agent is enabled forall repositories, selected repositories, or no repositories owned by organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
             return requestInfo;
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets the policy for which repositories in an organization can use Copilot coding agent.Organization owners can configure whether Copilot coding agent is enabled forall repositories, selected repositories, or no repositories owned by the organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets the policy for which repositories in an organization can use Copilot cloud agent.Organization owners can configure whether Copilot cloud agent is enabled forall repositories, selected repositories, or no repositories owned by the organization.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

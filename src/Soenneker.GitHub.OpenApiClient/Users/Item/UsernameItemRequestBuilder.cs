@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Attestations;
+using Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Docker;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Events;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Followers;
@@ -41,6 +42,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.AttestationsRequestBuilder Attestations
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.AttestationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The copilotSpaces property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.CopilotSpacesRequestBuilder CopilotSpaces
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.CopilotSpacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The docker property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Docker.DockerRequestBuilder Docker

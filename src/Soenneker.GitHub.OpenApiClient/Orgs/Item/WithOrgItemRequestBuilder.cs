@@ -13,6 +13,7 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Docker;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Events;
@@ -102,6 +103,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CopilotRequestBuilder Copilot
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CopilotRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The copilotSpaces property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesRequestBuilder CopilotSpaces
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dependabot property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.DependabotRequestBuilder Dependabot

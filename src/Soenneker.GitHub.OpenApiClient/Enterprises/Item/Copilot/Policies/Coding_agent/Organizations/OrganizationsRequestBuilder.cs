@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
         {
         }
         /// <summary>
-        /// Disables Copilot coding agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can remove organizations from the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
+        /// Disables Copilot cloud agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can remove organizations from the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#remove-organizations-from-the-enterprise-coding-agent-policy" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enables Copilot coding agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can add organizations to the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
+        /// Enables Copilot cloud agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can add organizations to the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#add-organizations-to-the-enterprise-coding-agent-policy" />
         /// </summary>
         /// <param name="body">The request body</param>
@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Disables Copilot coding agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can remove organizations from the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
+        /// Disables Copilot cloud agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can remove organizations from the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
             return requestInfo;
         }
         /// <summary>
-        /// Enables Copilot coding agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can add organizations to the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
+        /// Enables Copilot cloud agent for the specified organizations within the enterprise.The enterprise&apos;s coding agent policy must be set to `enabled_for_selected_orgs` beforeusing this endpoint. Organizations can be specified by login or matched via custom properties.Only organizations that have Copilot enabled and belong to the enterprise will be affected.Only enterprise owners can add organizations to the coding agent policy.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:enterprise` scopes to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

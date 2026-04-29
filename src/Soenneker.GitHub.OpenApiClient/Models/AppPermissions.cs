@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration? OrganizationAdministration { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage announcement banners for an organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners? OrganizationAnnouncementBanners { get; set; }
-        /// <summary>The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.</summary>
+        /// <summary>The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings? OrganizationCopilotAgentSettings { get; set; }
         /// <summary>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management? OrganizationCopilotSeatManagement { get; set; }

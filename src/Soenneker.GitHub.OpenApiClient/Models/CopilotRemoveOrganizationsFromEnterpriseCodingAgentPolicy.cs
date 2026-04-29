@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicy_custom_properties> CustomProperties { get; set; }
 #endif
-        /// <summary>List of organization logins within the enterprise to disable Copilot coding agent for.</summary>
+        /// <summary>List of organization logins within the enterprise to disable Copilot cloud agent for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Organizations { get; set; }

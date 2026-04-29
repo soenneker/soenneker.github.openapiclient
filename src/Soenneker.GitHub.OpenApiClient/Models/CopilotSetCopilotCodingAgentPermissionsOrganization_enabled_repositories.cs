@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The policy for which repositories can use Copilot coding agent. Can be one of `all`, `selected`, or `none`.</summary>
+    /// <summary>The policy for which repositories can use Copilot cloud agent. Can be one of `all`, `selected`, or `none`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CopilotSetCopilotCodingAgentPermissionsOrganization_enabled_repositories
     {

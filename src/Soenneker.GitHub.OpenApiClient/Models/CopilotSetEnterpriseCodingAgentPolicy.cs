@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The policy state for Copilot coding agent in the enterprise. Can be one of `enabled_for_all_orgs`, `disabled_for_all_orgs`, `enabled_for_selected_orgs`, or `configured_by_org_admins`.</summary>
+        /// <summary>The policy state for Copilot cloud agent in the enterprise. Can be one of `enabled_for_all_orgs`, `disabled_for_all_orgs`, `enabled_for_selected_orgs`, or `configured_by_org_admins`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicy_policy_state? PolicyState { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicy"/> and sets the default values.

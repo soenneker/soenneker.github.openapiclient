@@ -2581,7 +2581,7 @@
           "copilot"
         ],
         "summary": "Set the coding agent policy for an enterprise",
-        "description": "Sets the policy for Copilot coding agent usage across an enterprise.\n\nEnterprise owners can configure whether Copilot coding agent is enabled for all\norganizations, disabled for all organizations, configured by individual organization\nadmins, or enabled for selected organizations only.\n\nOnly enterprise owners can set the coding agent policy for their enterprise.\n\nOAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060admin:enterprise\u0060 scopes to use this endpoint.",
+        "description": "Sets the policy for Copilot cloud agent usage across an enterprise.\n\nEnterprise owners can configure whether Copilot cloud agent is enabled for all\norganizations, disabled for all organizations, configured by individual organization\nadmins, or enabled for selected organizations only.\n\nOnly enterprise owners can set the coding agent policy for their enterprise.\n\nOAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060admin:enterprise\u0060 scopes to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-the-coding-agent-policy-for-an-enterprise"
@@ -2626,7 +2626,7 @@
           "copilot"
         ],
         "summary": "Add organizations to the enterprise coding agent policy",
-        "description": "Enables Copilot coding agent for the specified organizations within the enterprise.\n\nThe enterprise\u0027s coding agent policy must be set to \u0060enabled_for_selected_orgs\u0060 before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.\n\nOnly organizations that have Copilot enabled and belong to the enterprise will be affected.\n\nOnly enterprise owners can add organizations to the coding agent policy.\n\nOAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060admin:enterprise\u0060 scopes to use this endpoint.",
+        "description": "Enables Copilot cloud agent for the specified organizations within the enterprise.\n\nThe enterprise\u0027s coding agent policy must be set to \u0060enabled_for_selected_orgs\u0060 before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.\n\nOnly organizations that have Copilot enabled and belong to the enterprise will be affected.\n\nOnly enterprise owners can add organizations to the coding agent policy.\n\nOAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060admin:enterprise\u0060 scopes to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#add-organizations-to-the-enterprise-coding-agent-policy"
@@ -2638,7 +2638,7 @@
           }
         ],
         "requestBody": {
-          "description": "The organizations to enable Copilot coding agent for",
+          "description": "The organizations to enable Copilot cloud agent for",
           "content": {
             "application/json": {
               "schema": {
@@ -2681,7 +2681,7 @@
           "copilot"
         ],
         "summary": "Remove organizations from the enterprise coding agent policy",
-        "description": "Disables Copilot coding agent for the specified organizations within the enterprise.\n\nThe enterprise\u0027s coding agent policy must be set to \u0060enabled_for_selected_orgs\u0060 before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.\n\nOnly organizations that have Copilot enabled and belong to the enterprise will be affected.\n\nOnly enterprise owners can remove organizations from the coding agent policy.\n\nOAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060admin:enterprise\u0060 scopes to use this endpoint.",
+        "description": "Disables Copilot cloud agent for the specified organizations within the enterprise.\n\nThe enterprise\u0027s coding agent policy must be set to \u0060enabled_for_selected_orgs\u0060 before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.\n\nOnly organizations that have Copilot enabled and belong to the enterprise will be affected.\n\nOnly enterprise owners can remove organizations from the coding agent policy.\n\nOAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060admin:enterprise\u0060 scopes to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#remove-organizations-from-the-enterprise-coding-agent-policy"
@@ -2693,7 +2693,7 @@
           }
         ],
         "requestBody": {
-          "description": "The organizations to disable Copilot coding agent for",
+          "description": "The organizations to disable Copilot cloud agent for",
           "content": {
             "application/json": {
               "schema": {
@@ -13211,6 +13211,1233 @@
         }
       }
     },
+    "/orgs/{org}/copilot-spaces": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "List organization Copilot Spaces",
+        "description": "Lists Copilot Spaces owned by an organization. The authenticated user must have read access to the organization\u0027s Copilot Spaces.\n\nOnly Spaces that are readable by the authenticated user are returned. This includes public Spaces and internal Spaces if the user is a member of the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#list-organization-copilot-spaces"
+        },
+        "operationId": "copilot-spaces-list-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "The number of results per page (max 100).",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 30
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "spaces"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "spaces": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSpace"
+                      },
+                      "description": "The list of Copilot Spaces on this page of results."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-spaces-organization-list"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Create an organization Copilot Space",
+        "description": "Creates a new Copilot Space owned by an organization. The authenticated user must have permissions to create spaces in the organization.\n\nOrganization members with appropriate permissions can create Copilot Spaces to be shared within their organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#create-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-create-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesCreateForOrg"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Team Planning Space",
+                    "description": "Organization space for team planning and coordination",
+                    "general_instructions": "Help the team with planning and coordination tasks",
+                    "resources_attributes": [
+                      {
+                        "resource_type": "github_file",
+                        "metadata": {
+                          "repository_id": 123456,
+                          "file_path": "docs/planning.md"
+                        }
+                      },
+                      {
+                        "resource_type": "free_text",
+                        "metadata": {
+                          "name": "Team Guidelines",
+                          "text": "Our team follows agile methodology and holds daily standups"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-organization"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot-spaces/{space_number}": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Get an organization Copilot Space",
+        "description": "Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.\n\nInternal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#get-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-get-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-organization"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Set an organization Copilot Space",
+        "description": "Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.\n\nOrganization members with appropriate permissions can update Copilot Spaces owned by their organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#set-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-update-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesUpdateForOrg"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Updated Team Planning Space",
+                    "description": "Updated organization space for team planning and coordination",
+                    "general_instructions": "Updated instructions to help the team with planning and coordination tasks",
+                    "resources_attributes": [
+                      {
+                        "resource_type": "github_file",
+                        "metadata": {
+                          "repository_id": 123456,
+                          "file_path": "docs/updated-planning.md"
+                        }
+                      },
+                      {
+                        "id": 789,
+                        "_destroy": true
+                      },
+                      {
+                        "id": 456,
+                        "resource_type": "free_text",
+                        "metadata": {
+                          "name": "Updated Team Guidelines",
+                          "text": "Our updated team follows agile methodology and holds daily standups"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-organization"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Delete an organization Copilot Space",
+        "description": "Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.\n\n**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.\n\nOrganization members with appropriate permissions can delete Copilot Spaces owned by their organization.\n\nOAuth app tokens and personal access tokens (classic) need both the \u0060read:org\u0060 and \u0060repo\u0060 scopes to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#delete-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-delete-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot-spaces/{space_number}/collaborators": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "List collaborators for an organization Copilot Space",
+        "description": "Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.\n\nEach collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.\n\n**Note:** Team collaborators listed here are teams that are defined in the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#list-collaborators-for-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-list-collaborators-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "collaborators"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "collaborators": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                      },
+                      "description": "The list of collaborators for this Copilot Space."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "collaborators": [
+                        {
+                          "actor_type": "User",
+                          "role": "writer",
+                          "login": "octocat",
+                          "id": 12345,
+                          "node_id": "MDQ6VXNlcjEyMzQ1",
+                          "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                          "gravatar_id": "",
+                          "url": "https://api.github.com/users/octocat",
+                          "html_url": "https://github.com/octocat",
+                          "followers_url": "https://api.github.com/users/octocat/followers",
+                          "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                          "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                          "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                          "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                          "organizations_url": "https://api.github.com/users/octocat/orgs",
+                          "repos_url": "https://api.github.com/users/octocat/repos",
+                          "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                          "received_events_url": "https://api.github.com/users/octocat/received_events",
+                          "type": "User",
+                          "user_view_type": "public",
+                          "site_admin": false,
+                          "name": "The Octocat",
+                          "company": "GitHub",
+                          "blog": "https://github.com/blog",
+                          "location": "San Francisco",
+                          "email": "octocat@github.com",
+                          "hireable": false,
+                          "bio": "There once was...",
+                          "twitter_username": "octocat",
+                          "public_repos": 2,
+                          "public_gists": 1,
+                          "followers": 20,
+                          "following": 0,
+                          "created_at": "2008-01-14T04:33:35Z",
+                          "updated_at": "2008-01-14T04:33:35Z"
+                        },
+                        {
+                          "actor_type": "Team",
+                          "role": "reader",
+                          "id": 67890,
+                          "node_id": "MDQ6VGVhbTY3ODkw",
+                          "url": "https://api.github.com/teams/67890",
+                          "html_url": "https://github.com/orgs/octo-org/teams/developers",
+                          "name": "Developers",
+                          "slug": "developers",
+                          "description": "Team of developers",
+                          "privacy": "closed",
+                          "notification_setting": "notifications_enabled",
+                          "members_url": "https://api.github.com/teams/67890/members{/member}",
+                          "repositories_url": "https://api.github.com/teams/67890/repos",
+                          "parent": null,
+                          "created_at": "2017-07-14T16:53:42Z",
+                          "updated_at": "2017-08-17T12:37:15Z",
+                          "organization": {
+                            "login": "octo-org",
+                            "id": 1,
+                            "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+                            "url": "https://api.github.com/orgs/octo-org",
+                            "repos_url": "https://api.github.com/orgs/octo-org/repos",
+                            "events_url": "https://api.github.com/orgs/octo-org/events",
+                            "hooks_url": "https://api.github.com/orgs/octo-org/hooks",
+                            "issues_url": "https://api.github.com/orgs/octo-org/issues",
+                            "members_url": "https://api.github.com/orgs/octo-org/members{/member}",
+                            "public_members_url": "https://api.github.com/orgs/octo-org/public_members{/member}",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "description": "A great organization"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Add a collaborator to an organization Copilot Space",
+        "description": "Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\n**Note:** When adding users as collaborators, they must already be members of the organization.\nWhen adding teams as collaborators, they must be defined in the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#add-a-collaborator-to-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-add-collaborator-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesAddCollaboratorForOrg"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "actor_type": "User",
+                    "actor_identifier": "octocat",
+                    "role": "writer"
+                  }
+                },
+                "team": {
+                  "value": {
+                    "actor_type": "Team",
+                    "actor_identifier": "developers",
+                    "role": "reader"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                },
+                "examples": {
+                  "user": {
+                    "value": {
+                      "actor_type": "User",
+                      "role": "writer",
+                      "login": "octocat",
+                      "id": 12345,
+                      "node_id": "MDQ6VXNlcjEyMzQ1",
+                      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                      "gravatar_id": "",
+                      "url": "https://api.github.com/users/octocat",
+                      "html_url": "https://github.com/octocat",
+                      "followers_url": "https://api.github.com/users/octocat/followers",
+                      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                      "organizations_url": "https://api.github.com/users/octocat/orgs",
+                      "repos_url": "https://api.github.com/users/octocat/repos",
+                      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                      "received_events_url": "https://api.github.com/users/octocat/received_events",
+                      "type": "User",
+                      "user_view_type": "public",
+                      "site_admin": false,
+                      "name": "The Octocat",
+                      "company": "GitHub",
+                      "blog": "https://github.com/blog",
+                      "location": "San Francisco",
+                      "email": "octocat@github.com",
+                      "hireable": false,
+                      "bio": "There once was...",
+                      "twitter_username": "octocat",
+                      "public_repos": 2,
+                      "public_gists": 1,
+                      "followers": 20,
+                      "following": 0,
+                      "created_at": "2008-01-14T04:33:35Z",
+                      "updated_at": "2008-01-14T04:33:35Z"
+                    }
+                  },
+                  "team": {
+                    "value": {
+                      "actor_type": "Team",
+                      "role": "reader",
+                      "id": 67890,
+                      "node_id": "MDQ6VGVhbTY3ODkw",
+                      "url": "https://api.github.com/teams/67890",
+                      "html_url": "https://github.com/orgs/octo-org/teams/developers",
+                      "name": "Developers",
+                      "slug": "developers",
+                      "type": "Team",
+                      "description": "Team of developers",
+                      "privacy": "closed",
+                      "notification_setting": "notifications_enabled",
+                      "members_url": "https://api.github.com/teams/67890/members{/member}",
+                      "repositories_url": "https://api.github.com/teams/67890/repos",
+                      "parent": null,
+                      "organization_id": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}": {
+      "put": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Set a collaborator role for an organization Copilot Space",
+        "description": "Updates the role of a collaborator for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#set-a-collaborator-role-for-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-update-collaborator-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "actor_type",
+            "in": "path",
+            "description": "The type of actor (user or team).",
+            "required": true,
+            "schema": {
+              "enum": [
+                "User",
+                "Team"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "actor_identifier",
+            "in": "path",
+            "description": "The username (for users) or team slug (for teams). The numeric ID of a user or team is also accepted.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesUpdateCollaboratorForOrg"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "role": "admin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                },
+                "examples": {
+                  "user": {
+                    "value": {
+                      "actor_type": "User",
+                      "role": "admin",
+                      "login": "octocat",
+                      "id": 12345,
+                      "node_id": "MDQ6VXNlcjEyMzQ1",
+                      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                      "gravatar_id": "",
+                      "url": "https://api.github.com/users/octocat",
+                      "html_url": "https://github.com/octocat",
+                      "followers_url": "https://api.github.com/users/octocat/followers",
+                      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                      "organizations_url": "https://api.github.com/users/octocat/orgs",
+                      "repos_url": "https://api.github.com/users/octocat/repos",
+                      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                      "received_events_url": "https://api.github.com/users/octocat/received_events",
+                      "type": "User",
+                      "user_view_type": "public",
+                      "site_admin": false,
+                      "name": "The Octocat",
+                      "company": "GitHub",
+                      "blog": "https://github.com/blog",
+                      "location": "San Francisco",
+                      "email": "octocat@github.com",
+                      "hireable": false,
+                      "bio": "There once was...",
+                      "twitter_username": "octocat",
+                      "public_repos": 2,
+                      "public_gists": 1,
+                      "followers": 20,
+                      "following": 0,
+                      "created_at": "2008-01-14T04:33:35Z",
+                      "updated_at": "2008-01-14T04:33:35Z"
+                    }
+                  },
+                  "team": {
+                    "value": {
+                      "actor_type": "Team",
+                      "role": "admin",
+                      "id": 67890,
+                      "node_id": "MDQ6VGVhbTY3ODkw",
+                      "url": "https://api.github.com/teams/67890",
+                      "html_url": "https://github.com/orgs/octo-org/teams/developers",
+                      "name": "Developers",
+                      "slug": "developers",
+                      "type": "Team",
+                      "description": "Team of developers",
+                      "privacy": "closed",
+                      "notification_setting": "notifications_enabled",
+                      "members_url": "https://api.github.com/teams/67890/members{/member}",
+                      "repositories_url": "https://api.github.com/teams/67890/repos",
+                      "parent": null,
+                      "organization_id": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Remove a collaborator from an organization Copilot Space",
+        "description": "Removes a collaborator from a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#remove-a-collaborator-from-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-remove-collaborator-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "actor_type",
+            "in": "path",
+            "description": "The type of actor (user or team).",
+            "required": true,
+            "schema": {
+              "enum": [
+                "User",
+                "Team"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "actor_identifier",
+            "in": "path",
+            "description": "The username (for users) or team slug (for teams). The numeric ID of a user or team is also accepted.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot-spaces/{space_number}/resources": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "List resources for an organization Copilot Space",
+        "description": "Lists all resources attached to a specific Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#list-resources-for-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-list-resources-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "resources"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "resources": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSpaceResource"
+                      },
+                      "description": "The list of resources attached to this Copilot Space."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "resources": [
+                        {
+                          "id": 1,
+                          "resource_type": "repository",
+                          "copilot_chat_attachment_id": null,
+                          "metadata": {
+                            "repository_id": 42
+                          },
+                          "created_at": "2025-01-01T00:00:00Z",
+                          "updated_at": "2025-01-01T00:00:00Z"
+                        },
+                        {
+                          "id": 2,
+                          "resource_type": "free_text",
+                          "copilot_chat_attachment_id": null,
+                          "metadata": {
+                            "name": "notes.txt",
+                            "text": "Some helpful notes"
+                          },
+                          "created_at": "2025-01-01T00:00:00Z",
+                          "updated_at": "2025-01-01T00:00:00Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Create a resource for an organization Copilot Space",
+        "description": "\u0022Creates a new resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nThe following resource types are supported: \u0060repository\u0060, \u0060github_file\u0060, \u0060free_text\u0060, \u0060github_issue\u0060, \u0060github_pull_request\u0060.\nThe \u0060uploaded_text_file\u0060 and \u0060media_content\u0060 types are not supported via this endpoint.\n\nFor \u0060github_file\u0060 resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a \u0060200\u0060 status.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\u0022",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#create-a-resource-for-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-create-resource-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesCreateResourceForOrg"
+              },
+              "examples": {
+                "free_text": {
+                  "value": {
+                    "resource_type": "free_text",
+                    "metadata": {
+                      "name": "notes.txt",
+                      "text": "Some helpful notes"
+                    }
+                  }
+                },
+                "repository": {
+                  "value": {
+                    "resource_type": "repository",
+                    "metadata": {
+                      "repository_id": 42
+                    }
+                  }
+                },
+                "github_file": {
+                  "value": {
+                    "resource_type": "github_file",
+                    "metadata": {
+                      "repository_id": 42,
+                      "file_path": "README.md",
+                      "sha": "abc123"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "free_text",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "name": "notes.txt",
+                        "text": "Some helpful notes"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Duplicate github_file resource already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "github_file",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "repository_id": 42,
+                        "file_path": "README.md",
+                        "sha": "abc123"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Get a resource for an organization Copilot Space",
+        "description": "Gets a specific resource attached to a Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#get-a-resource-for-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-get-resource-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "space_resource_id",
+            "in": "path",
+            "description": "The unique identifier of the resource.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "free_text",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "name": "notes.txt",
+                        "text": "Some helpful notes"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Set a resource for an organization Copilot Space",
+        "description": "Updates the metadata of a resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#set-a-resource-for-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-update-resource-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "space_resource_id",
+            "in": "path",
+            "description": "The unique identifier of the resource.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesUpdateResourceForOrg"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "metadata": {
+                      "name": "updated-notes.txt",
+                      "text": "Updated content"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "free_text",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "name": "updated-notes.txt",
+                        "text": "Updated content"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T12:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Delete a resource from an organization Copilot Space",
+        "description": "Deletes a resource from a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#delete-a-resource-from-an-organization-copilot-space"
+        },
+        "operationId": "copilot-spaces-delete-resource-for-org",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "space_resource_id",
+            "in": "path",
+            "description": "The unique identifier of the resource.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
     "/orgs/{org}/copilot/billing": {
       "get": {
         "tags": [
@@ -13612,11 +14839,11 @@
         "tags": [
           "copilot"
         ],
-        "summary": "Get Copilot coding agent permissions for an organization",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nGets information about which repositories in an organization have been enabled\nor disabled for the Copilot coding agent.\n\nOrganization owners can configure whether Copilot coding agent is enabled for\nall repositories, selected repositories, or no repositories owned by organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "summary": "Get Copilot cloud agent permissions for an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nGets information about which repositories in an organization have been enabled\nor disabled for the Copilot cloud agent.\n\nOrganization owners can configure whether Copilot cloud agent is enabled for\nall repositories, selected repositories, or no repositories owned by organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#get-copilot-coding-agent-permissions-for-an-organization"
+          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#get-copilot-cloud-agent-permissions-for-an-organization"
         },
         "operationId": "copilot-get-copilot-coding-agent-permissions-organization",
         "parameters": [
@@ -13674,11 +14901,11 @@
         "tags": [
           "copilot"
         ],
-        "summary": "Set Copilot coding agent permissions for an organization",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nSets the policy for which repositories in an organization can use Copilot coding agent.\n\nOrganization owners can configure whether Copilot coding agent is enabled for\nall repositories, selected repositories, or no repositories owned by the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "summary": "Set Copilot cloud agent permissions for an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nSets the policy for which repositories in an organization can use Copilot cloud agent.\n\nOrganization owners can configure whether Copilot cloud agent is enabled for\nall repositories, selected repositories, or no repositories owned by the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-copilot-coding-agent-permissions-for-an-organization"
+          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-copilot-cloud-agent-permissions-for-an-organization"
         },
         "operationId": "copilot-set-copilot-coding-agent-permissions-organization",
         "parameters": [
@@ -13726,11 +14953,11 @@
         "tags": [
           "copilot"
         ],
-        "summary": "List repositories enabled for Copilot coding agent in an organization",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nLists the selected repositories that are enabled for Copilot coding agent in an organization.\n\nOrganization owners can use this endpoint when the coding agent repository policy\nis set to \u0060selected\u0060 to see which repositories have been enabled.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "summary": "List repositories enabled for Copilot cloud agent in an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nLists the selected repositories that are enabled for Copilot cloud agent in an organization.\n\nOrganization owners can use this endpoint when the coding agent repository policy\nis set to \u0060selected\u0060 to see which repositories have been enabled.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#list-repositories-enabled-for-copilot-coding-agent-in-an-organization"
+          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#list-repositories-enabled-for-copilot-cloud-agent-in-an-organization"
         },
         "operationId": "copilot-list-copilot-coding-agent-selected-repositories-for-organization",
         "parameters": [
@@ -13796,11 +15023,11 @@
         "tags": [
           "copilot"
         ],
-        "summary": "Set selected repositories for Copilot coding agent in an organization",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nReplaces the list of selected repositories that are enabled for Copilot coding\nagent in an organization. This method can only be called when the coding agent\nrepository policy is set to \u0060selected\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "summary": "Set selected repositories for Copilot cloud agent in an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nReplaces the list of selected repositories that are enabled for Copilot cloud\nagent in an organization. This method can only be called when the cloud agent\nrepository policy is set to \u0060selected\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-selected-repositories-for-copilot-coding-agent-in-an-organization"
+          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-selected-repositories-for-copilot-cloud-agent-in-an-organization"
         },
         "operationId": "copilot-set-copilot-coding-agent-selected-repositories-for-organization",
         "parameters": [
@@ -13854,11 +15081,11 @@
         "tags": [
           "copilot"
         ],
-        "summary": "Enable a repository for Copilot coding agent in an organization",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nAdds a repository to the list of selected repositories enabled for Copilot\ncoding agent in an organization. This method can only be called when the\ncoding agent repository policy is set to \u0060selected\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
+        "summary": "Enable a repository for Copilot cloud agent in an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nAdds a repository to the list of selected repositories enabled for Copilot\ncloud agent in an organization. This method can only be called when the\ncloud agent repository policy is set to \u0060selected\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#enable-a-repository-for-copilot-coding-agent-in-an-organization"
+          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#enable-a-repository-for-copilot-cloud-agent-in-an-organization"
         },
         "operationId": "copilot-enable-copilot-coding-agent-for-repository-in-organization",
         "parameters": [
@@ -13894,11 +15121,11 @@
         "tags": [
           "copilot"
         ],
-        "summary": "Disable a repository for Copilot coding agent in an organization",
-        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nRemoves a repository from the list of selected repositories enabled for Copilot\ncoding agent in an organization. This method can only be called when the\ncoding agent repository policy is set to \u0060selected\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scopes to use this endpoint.",
+        "summary": "Disable a repository for Copilot cloud agent in an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nRemoves a repository from the list of selected repositories enabled for Copilot\ncloud agent in an organization. This method can only be called when the\ncloud agent repository policy is set to \u0060selected\u0060.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scopes to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#disable-a-repository-for-copilot-coding-agent-in-an-organization"
+          "url": "https://docs.github.com/rest/copilot/copilot-coding-agent-management#disable-a-repository-for-copilot-cloud-agent-in-an-organization"
         },
         "operationId": "copilot-disable-copilot-coding-agent-for-repository-in-organization",
         "parameters": [
@@ -55521,6 +56748,1181 @@
         }
       }
     },
+    "/users/{username}/copilot-spaces": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "List Copilot Spaces for a user",
+        "description": "Lists Copilot Spaces owned by a user. The authenticated user must have read access to the user\u0027s Copilot Spaces.\n\nOnly Spaces that are readable by the authenticated user are returned. This includes the user\u0027s own spaces, and public user spaces when accessing another user\u0027s spaces.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#list-copilot-spaces-for-a-user"
+        },
+        "operationId": "copilot-spaces-list-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "The number of results per page (max 100).",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 30
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "A cursor, as given in the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "spaces"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "spaces": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSpace"
+                      },
+                      "description": "The list of Copilot Spaces on this page of results."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-spaces-user-list"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Create a Copilot Space for a user",
+        "description": "Creates a new Copilot Space owned by a user. Only the authenticated user can create spaces for their own account.\n\nUsers can create personal Copilot Spaces for their individual use.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#create-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-create-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesCreateForUser"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "My Development Space",
+                    "description": "Personal space for development assistance",
+                    "general_instructions": "Help me with React development patterns and best practices",
+                    "resources_attributes": [
+                      {
+                        "resource_type": "github_file",
+                        "metadata": {
+                          "repository_id": 789012,
+                          "file_path": "src/components/App.js"
+                        }
+                      },
+                      {
+                        "resource_type": "free_text",
+                        "metadata": {
+                          "name": "Development Notes",
+                          "text": "Focus on clean code principles and modern React patterns"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-user"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/users/{username}/copilot-spaces/{space_number}": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Get a Copilot Space for a user",
+        "description": "Gets details about a specific Copilot Space owned by a user. The authenticated user must have read access to the Space.\n\nPrivate user spaces require the authenticated user to be the owner of the space.\nPublic user spaces are accessible to any authenticated user.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#get-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-get-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-user"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Set a Copilot Space for a user",
+        "description": "Updates a Copilot Space owned by a user. Only the authenticated user can update spaces for their own account.\n\nUsers can update their personal Copilot Spaces.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#set-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-update-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesUpdateForUser"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Updated Development Space",
+                    "description": "Updated personal space for development assistance",
+                    "general_instructions": "Updated instructions to help me with React development patterns and best practices",
+                    "resources_attributes": [
+                      {
+                        "resource_type": "github_file",
+                        "metadata": {
+                          "repository_id": 789012,
+                          "file_path": "src/components/UpdatedApp.js"
+                        }
+                      },
+                      {
+                        "id": 123,
+                        "_destroy": true
+                      },
+                      {
+                        "id": 456,
+                        "resource_type": "free_text",
+                        "metadata": {
+                          "name": "Updated Development Notes",
+                          "text": "Updated focus on clean code principles and modern React patterns"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpace"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-space-user"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Delete a Copilot Space for a user",
+        "description": "Deletes a Copilot Space owned by a user. The authenticated user must be the owner of the space.\n\n**Warning:** This action is permanent and cannot be undone. Deleting a space will remove all associated resources and configurations.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#delete-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-delete-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/users/{username}/copilot-spaces/{space_number}/collaborators": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "List collaborators for a Copilot Space for a user",
+        "description": "Lists all collaborators for a specific Copilot Space owned by a user. The authenticated user must be the owner of the space or have admin access to the space.\n\nEach collaborator entry specifies which user has access to the space and at what level (reader, writer, or admin). The space owner is excluded from this list.\n\nTeam collaborators are not supported for user-owned Copilot Spaces.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#list-collaborators-for-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-list-collaborators-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "collaborators"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "collaborators": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                      },
+                      "description": "The list of collaborators for this Copilot Space."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "collaborators": [
+                        {
+                          "actor_type": "User",
+                          "role": "writer",
+                          "login": "octocat",
+                          "id": 12345,
+                          "node_id": "MDQ6VXNlcjEyMzQ1",
+                          "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                          "gravatar_id": "",
+                          "url": "https://api.github.com/users/octocat",
+                          "html_url": "https://github.com/octocat",
+                          "followers_url": "https://api.github.com/users/octocat/followers",
+                          "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                          "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                          "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                          "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                          "organizations_url": "https://api.github.com/users/octocat/orgs",
+                          "repos_url": "https://api.github.com/users/octocat/repos",
+                          "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                          "received_events_url": "https://api.github.com/users/octocat/received_events",
+                          "type": "User",
+                          "user_view_type": "public",
+                          "site_admin": false,
+                          "name": "The Octocat",
+                          "company": "GitHub",
+                          "blog": "https://github.com/blog",
+                          "location": "San Francisco",
+                          "email": "octocat@github.com",
+                          "hireable": false,
+                          "bio": "There once was...",
+                          "twitter_username": "octocat",
+                          "public_repos": 2,
+                          "public_gists": 1,
+                          "followers": 20,
+                          "following": 0,
+                          "created_at": "2008-01-14T04:33:35Z",
+                          "updated_at": "2008-01-14T04:33:35Z"
+                        },
+                        {
+                          "actor_type": "User",
+                          "role": "reader",
+                          "login": "github-user",
+                          "id": 67890,
+                          "node_id": "MDQ6VXNlcjY3ODkw",
+                          "avatar_url": "https://github.com/images/error/other_user.gif",
+                          "gravatar_id": "",
+                          "url": "https://api.github.com/users/github-user",
+                          "html_url": "https://github.com/github-user",
+                          "followers_url": "https://api.github.com/users/github-user/followers",
+                          "following_url": "https://api.github.com/users/github-user/following{/other_user}",
+                          "gists_url": "https://api.github.com/users/github-user/gists{/gist_id}",
+                          "starred_url": "https://api.github.com/users/github-user/starred{/owner}{/repo}",
+                          "subscriptions_url": "https://api.github.com/users/github-user/subscriptions",
+                          "organizations_url": "https://api.github.com/users/github-user/orgs",
+                          "repos_url": "https://api.github.com/users/github-user/repos",
+                          "events_url": "https://api.github.com/users/github-user/events{/privacy}",
+                          "received_events_url": "https://api.github.com/users/github-user/received_events",
+                          "type": "User",
+                          "user_view_type": "public",
+                          "site_admin": false,
+                          "name": "GitHub User",
+                          "company": null,
+                          "blog": "",
+                          "location": null,
+                          "email": null,
+                          "hireable": null,
+                          "bio": null,
+                          "twitter_username": null,
+                          "public_repos": 5,
+                          "public_gists": 0,
+                          "followers": 10,
+                          "following": 5,
+                          "created_at": "2010-01-14T04:33:35Z",
+                          "updated_at": "2010-01-14T04:33:35Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Add a collaborator to a Copilot Space for a user",
+        "description": "Adds a collaborator to a specific Copilot Space owned by a user. The authenticated user must be the owner of the space or have admin access to the space.\n\nTeam collaborators are not supported for user-owned Copilot Spaces.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#add-a-collaborator-to-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-add-collaborator-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesAddCollaboratorForUser"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "actor_type": "User",
+                    "actor_identifier": "octocat",
+                    "role": "writer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "actor_type": "User",
+                      "role": "writer",
+                      "login": "octocat",
+                      "id": 12345,
+                      "node_id": "MDQ6VXNlcjEyMzQ1",
+                      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                      "gravatar_id": "",
+                      "url": "https://api.github.com/users/octocat",
+                      "html_url": "https://github.com/octocat",
+                      "followers_url": "https://api.github.com/users/octocat/followers",
+                      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                      "organizations_url": "https://api.github.com/users/octocat/orgs",
+                      "repos_url": "https://api.github.com/users/octocat/repos",
+                      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                      "received_events_url": "https://api.github.com/users/octocat/received_events",
+                      "type": "User",
+                      "user_view_type": "public",
+                      "site_admin": false,
+                      "name": "The Octocat",
+                      "company": "GitHub",
+                      "blog": "https://github.com/blog",
+                      "location": "San Francisco",
+                      "email": "octocat@github.com",
+                      "hireable": false,
+                      "bio": "There once was...",
+                      "twitter_username": "octocat",
+                      "public_repos": 2,
+                      "public_gists": 1,
+                      "followers": 20,
+                      "following": 0,
+                      "created_at": "2008-01-14T04:33:35Z",
+                      "updated_at": "2008-01-14T04:33:35Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/users/{username}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}": {
+      "put": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Set a collaborator role for a Copilot Space for a user",
+        "description": "Updates the role of a collaborator for a specific Copilot Space owned by a user. The authenticated user must be the owner of the space or have admin access to the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#set-a-collaborator-role-for-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-update-collaborator-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "actor_type",
+            "in": "path",
+            "description": "The type of actor (must be \u0060User\u0060 for user-owned spaces; \u0060Team\u0060 will be rejected).",
+            "required": true,
+            "schema": {
+              "enum": [
+                "User",
+                "Team"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "actor_identifier",
+            "in": "path",
+            "description": "The username of the collaborator. The numeric user ID is also accepted.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesUpdateCollaboratorForUser"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "role": "admin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceCollaborator"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "actor_type": "User",
+                      "role": "admin",
+                      "login": "octocat",
+                      "id": 12345,
+                      "node_id": "MDQ6VXNlcjEyMzQ1",
+                      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                      "gravatar_id": "",
+                      "url": "https://api.github.com/users/octocat",
+                      "html_url": "https://github.com/octocat",
+                      "followers_url": "https://api.github.com/users/octocat/followers",
+                      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                      "organizations_url": "https://api.github.com/users/octocat/orgs",
+                      "repos_url": "https://api.github.com/users/octocat/repos",
+                      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                      "received_events_url": "https://api.github.com/users/octocat/received_events",
+                      "type": "User",
+                      "user_view_type": "public",
+                      "site_admin": false,
+                      "name": "The Octocat",
+                      "company": "GitHub",
+                      "blog": "https://github.com/blog",
+                      "location": "San Francisco",
+                      "email": "octocat@github.com",
+                      "hireable": false,
+                      "bio": "There once was...",
+                      "twitter_username": "octocat",
+                      "public_repos": 2,
+                      "public_gists": 1,
+                      "followers": 20,
+                      "following": 0,
+                      "created_at": "2008-01-14T04:33:35Z",
+                      "updated_at": "2008-01-14T04:33:35Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Remove a collaborator from a Copilot Space for a user",
+        "description": "Removes a collaborator from a specific Copilot Space owned by a user. The authenticated user must be the owner of the space or have admin access to the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/collaborators#remove-a-collaborator-from-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-remove-collaborator-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "actor_type",
+            "in": "path",
+            "description": "The type of actor (must be \u0060User\u0060 for user-owned spaces; \u0060Team\u0060 will be rejected).",
+            "required": true,
+            "schema": {
+              "enum": [
+                "User",
+                "Team"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "actor_identifier",
+            "in": "path",
+            "description": "The username of the collaborator. The numeric user ID is also accepted.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/users/{username}/copilot-spaces/{space_number}/resources": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "List resources for a Copilot Space for a user",
+        "description": "Lists all resources attached to a specific Copilot Space owned by a user.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#list-resources-for-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-list-resources-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "resources"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "resources": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CopilotSpaceResource"
+                      },
+                      "description": "The list of resources attached to this Copilot Space."
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "resources": [
+                        {
+                          "id": 1,
+                          "resource_type": "free_text",
+                          "copilot_chat_attachment_id": null,
+                          "metadata": {
+                            "name": "notes.txt",
+                            "text": "Some helpful notes"
+                          },
+                          "created_at": "2025-01-01T00:00:00Z",
+                          "updated_at": "2025-01-01T00:00:00Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Create a resource for a Copilot Space for a user",
+        "description": "\u0022Creates a new resource in a specific Copilot Space owned by a user.\nThe authenticated user must have write permissions on the space.\n\nThe following resource types are supported: \u0060repository\u0060, \u0060github_file\u0060, \u0060free_text\u0060, \u0060github_issue\u0060, \u0060github_pull_request\u0060.\nThe \u0060uploaded_text_file\u0060 and \u0060media_content\u0060 types are not supported via this endpoint.\n\nFor \u0060github_file\u0060 resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a \u0060200\u0060 status.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:user\u0060 scope to use this endpoint.\u0022",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#create-a-resource-for-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-create-resource-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesCreateResourceForUser"
+              },
+              "examples": {
+                "free_text": {
+                  "value": {
+                    "resource_type": "free_text",
+                    "metadata": {
+                      "name": "notes.txt",
+                      "text": "Some helpful notes"
+                    }
+                  }
+                },
+                "repository": {
+                  "value": {
+                    "resource_type": "repository",
+                    "metadata": {
+                      "repository_id": 42
+                    }
+                  }
+                },
+                "github_file": {
+                  "value": {
+                    "resource_type": "github_file",
+                    "metadata": {
+                      "repository_id": 42,
+                      "file_path": "README.md",
+                      "sha": "abc123"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "free_text",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "name": "notes.txt",
+                        "text": "Some helpful notes"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Duplicate github_file resource already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "github_file",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "repository_id": 42,
+                        "file_path": "README.md",
+                        "sha": "abc123"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/users/{username}/copilot-spaces/{space_number}/resources/{space_resource_id}": {
+      "get": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Get a resource for a Copilot Space for a user",
+        "description": "Gets a specific resource attached to a Copilot Space owned by a user.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#get-a-resource-for-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-get-resource-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "space_resource_id",
+            "in": "path",
+            "description": "The unique identifier of the resource.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "free_text",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "name": "notes.txt",
+                        "text": "Some helpful notes"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Set a resource for a Copilot Space for a user",
+        "description": "Updates the metadata of a resource in a specific Copilot Space owned by a user.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#set-a-resource-for-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-update-resource-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "space_resource_id",
+            "in": "path",
+            "description": "The unique identifier of the resource.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CopilotSpacesUpdateResourceForUser"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "metadata": {
+                      "name": "updated-notes.txt",
+                      "text": "Updated content"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotSpaceResource"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "resource_type": "free_text",
+                      "copilot_chat_attachment_id": null,
+                      "metadata": {
+                        "name": "updated-notes.txt",
+                        "text": "Updated content"
+                      },
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T12:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "copilot-spaces"
+        ],
+        "summary": "Delete a resource from a Copilot Space for a user",
+        "description": "Deletes a resource from a specific Copilot Space owned by a user.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:user\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot-spaces/resources#delete-a-resource-from-a-copilot-space-for-a-user"
+        },
+        "operationId": "copilot-spaces-delete-resource-for-user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "name": "space_number",
+            "in": "path",
+            "description": "The unique identifier of the Copilot Space.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "space_resource_id",
+            "in": "path",
+            "description": "The unique identifier of the resource.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
     "/users/{username}/docker/conflicts": {
       "get": {
         "tags": [
@@ -59566,7 +61968,7 @@
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization."
+            "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization."
           },
           "organization_announcement_banners": {
             "enum": [
@@ -69845,6 +72247,388 @@
           }
         },
         "description": "The public key used for setting Codespaces secrets."
+      },
+      "CopilotSpace": {
+        "title": "Space",
+        "required": [
+          "id",
+          "number",
+          "name",
+          "base_role",
+          "owner",
+          "creator",
+          "created_at",
+          "updated_at",
+          "html_url",
+          "api_url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the space.",
+            "format": "int64",
+            "example": 42
+          },
+          "number": {
+            "type": "integer",
+            "description": "The number that identifies the space within its owner.",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The display name of the space.",
+            "example": "My Development Space"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the space.",
+            "nullable": true,
+            "example": "A space for discussing React development patterns"
+          },
+          "general_instructions": {
+            "maxLength": 4000,
+            "type": "string",
+            "description": "General instructions for the Copilot Space.",
+            "nullable": true,
+            "example": "Help with React development patterns and best practices"
+          },
+          "base_role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\u0022The base role that determines default permissions.\n- \u0060no_access\u0060: No default access\n- \u0060reader\u0060: Default read permissions\n- \u0060writer\u0060: Default write permissions (organization spaces only)\n- \u0060admin\u0060: Default admin permissions (organization spaces only)\u0022",
+            "example": "no_access"
+          },
+          "owner": {
+            "type": "object",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SimpleUser"
+              },
+              {
+                "$ref": "#/components/schemas/OrganizationSimple"
+              }
+            ],
+            "description": "The user or organization that owns this space."
+          },
+          "creator": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The date and time the space was created.",
+            "format": "date-time",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The date and time the space was last updated.",
+            "format": "date-time",
+            "example": "2023-01-01T12:00:00Z"
+          },
+          "html_url": {
+            "type": "string",
+            "description": "The HTML URL of the space.",
+            "format": "uri",
+            "example": "https://github.com/copilot/spaces/octo-org/5"
+          },
+          "api_url": {
+            "type": "string",
+            "description": "The API URL of the space.",
+            "format": "uri",
+            "example": "https://api.github.com/organizations/1/copilot-spaces/5"
+          },
+          "resources_attributes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the resource.",
+                  "format": "int64"
+                },
+                "resource_type": {
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "The type of resource."
+                },
+                "copilot_chat_attachment_id": {
+                  "type": "integer",
+                  "description": "The unique identifier of the chat attachment for uploaded files or media content.",
+                  "format": "int64",
+                  "nullable": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The date and time the resource was created.",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "The date and time the resource was last updated.",
+                  "format": "date-time"
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "repository_id": {
+                      "type": "integer",
+                      "description": "Repository ID for repository or file resources.",
+                      "format": "int64"
+                    },
+                    "file_path": {
+                      "type": "string",
+                      "description": "File path for file resources."
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Text content for free text resources."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name for the resource."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "Issue or PR number."
+                    },
+                    "copilot_chat_attachment_id": {
+                      "type": "integer",
+                      "description": "Chat attachment ID for uploaded files or media.",
+                      "format": "int64"
+                    },
+                    "media_type": {
+                      "type": "string",
+                      "description": "Media type for media content resources."
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "URL for media content resources."
+                    },
+                    "height": {
+                      "type": "integer",
+                      "description": "Height for media content resources."
+                    },
+                    "width": {
+                      "type": "integer",
+                      "description": "Width for media content resources."
+                    }
+                  },
+                  "description": "Metadata specific to the resource type."
+                }
+              }
+            },
+            "description": "Resources attached to the space."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A GitHub Copilot Space represents an interactive AI workspace where users can ask questions and get assistance."
+      },
+      "CopilotSpaceCollaborator": {
+        "title": "Copilot Space Collaborator",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SimpleUser"
+              },
+              {
+                "required": [
+                  "actor_type",
+                  "role"
+                ],
+                "type": "object",
+                "properties": {
+                  "actor_type": {
+                    "enum": [
+                      "User"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "The collaborator actor type."
+                  },
+                  "role": {
+                    "enum": [
+                      "reader",
+                      "writer",
+                      "admin"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "The role granted to the collaborator"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "required": [
+              "actor_type",
+              "role",
+              "id",
+              "node_id",
+              "name",
+              "slug",
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "actor_type": {
+                "enum": [
+                  "Team"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The collaborator actor type."
+              },
+              "role": {
+                "enum": [
+                  "reader",
+                  "writer",
+                  "admin"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The role granted to the collaborator"
+              },
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "node_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "Team"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "privacy": {
+                "type": "string"
+              },
+              "notification_setting": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "html_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "members_url": {
+                "type": "string"
+              },
+              "repositories_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "organization_id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "parent": {
+                "nullable": true
+              }
+            }
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "A collaborator (user or team) of a Copilot Space",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "CopilotSpaceResource": {
+        "title": "Copilot Space Resource",
+        "required": [
+          "id",
+          "resource_type",
+          "metadata",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the resource.",
+            "format": "int64"
+          },
+          "resource_type": {
+            "enum": [
+              "repository",
+              "github_file",
+              "free_text",
+              "github_issue",
+              "github_pull_request",
+              "media_content",
+              "uploaded_text_file"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the resource."
+          },
+          "copilot_chat_attachment_id": {
+            "type": "integer",
+            "description": "The ID of the associated chat attachment, if any.",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Resource-specific metadata. The keys and values depend on the resource type."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The date and time the resource was created.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The date and time the resource was last updated.",
+            "format": "date-time"
+          }
+        },
+        "description": "A resource attached to a Copilot Space."
       },
       "CopilotOrganizationSeatBreakdown": {
         "title": "Copilot Seat Breakdown",
@@ -248559,7 +251343,7 @@
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "The policy state for Copilot coding agent in the enterprise. Can be one of \u0060enabled_for_all_orgs\u0060, \u0060disabled_for_all_orgs\u0060, \u0060enabled_for_selected_orgs\u0060, or \u0060configured_by_org_admins\u0060."
+            "description": "The policy state for Copilot cloud agent in the enterprise. Can be one of \u0060enabled_for_all_orgs\u0060, \u0060disabled_for_all_orgs\u0060, \u0060enabled_for_selected_orgs\u0060, or \u0060configured_by_org_admins\u0060."
           }
         }
       },
@@ -248571,7 +251355,7 @@
             "items": {
               "type": "string"
             },
-            "description": "List of organization logins within the enterprise to enable Copilot coding agent for."
+            "description": "List of organization logins within the enterprise to enable Copilot cloud agent for."
           },
           "custom_properties": {
             "type": "array",
@@ -248607,7 +251391,7 @@
             "items": {
               "type": "string"
             },
-            "description": "List of organization logins within the enterprise to disable Copilot coding agent for."
+            "description": "List of organization logins within the enterprise to disable Copilot cloud agent for."
           },
           "custom_properties": {
             "type": "array",
@@ -251497,6 +254281,260 @@
           }
         }
       },
+      "CopilotSpacesCreateForOrg": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the Copilot Space.",
+            "example": "Team Planning Space"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the Copilot Space.",
+            "example": "Organization space for team planning and coordination"
+          },
+          "general_instructions": {
+            "maxLength": 4000,
+            "type": "string",
+            "description": "General instructions for the Copilot Space.",
+            "example": "Help the team with planning and coordination tasks"
+          },
+          "base_role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\u0022The base role that determines default permissions for organization members.\n- \u0060no_access\u0060: No default access (default)\n- \u0060reader\u0060: Organization members can read the space\n- \u0060writer\u0060: Organization members can read and edit the space\n- \u0060admin\u0060: Organization members have full admin access to the space\u0022",
+            "default": "no_access"
+          },
+          "resources_attributes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "resource_type": {
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "The type of resource."
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "repository_id": {
+                      "type": "integer",
+                      "description": "Repository ID for repository or file resources.",
+                      "format": "int64"
+                    },
+                    "file_path": {
+                      "type": "string",
+                      "description": "File path for file resources."
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Text content for free text resources."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name for the resource."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "Issue or PR number."
+                    }
+                  },
+                  "description": "Metadata specific to the resource type."
+                }
+              }
+            },
+            "description": "Resources to attach to the space."
+          }
+        }
+      },
+      "CopilotSpacesUpdateForOrg": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the Copilot Space.",
+            "example": "Updated Team Planning Space"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the Copilot Space.",
+            "example": "Updated organization space for team planning and coordination"
+          },
+          "general_instructions": {
+            "maxLength": 4000,
+            "type": "string",
+            "description": "General instructions for the Copilot Space.",
+            "example": "Updated instructions to help the team with planning and coordination tasks"
+          },
+          "base_role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\u0022The base role that determines default permissions for organization members. Changing this field requires admin permissions.\n- \u0060no_access\u0060: No default access (default)\n- \u0060reader\u0060: Organization members can read the space\n- \u0060writer\u0060: Organization members can read and edit the space\n- \u0060admin\u0060: Organization members have full admin access to the space\u0022"
+          },
+          "resources_attributes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "resource_type": {
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "The type of resource."
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "repository_id": {
+                      "type": "integer",
+                      "description": "Repository ID for repository or file resources.",
+                      "format": "int64"
+                    },
+                    "file_path": {
+                      "type": "string",
+                      "description": "File path for file resources."
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Text content for free text resources."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name for the resource."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "Issue or PR number."
+                    }
+                  },
+                  "description": "Metadata specific to the resource type."
+                }
+              }
+            },
+            "description": "Resources to attach to the space."
+          }
+        }
+      },
+      "CopilotSpacesAddCollaboratorForOrg": {
+        "required": [
+          "actor_type",
+          "actor_identifier",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "enum": [
+              "User",
+              "Team"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of actor (user or team)."
+          },
+          "actor_identifier": {
+            "type": "string",
+            "description": "The username (for users) or team slug (for teams). The numeric ID of a user or team is also accepted."
+          },
+          "role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role to grant to the collaborator."
+          }
+        }
+      },
+      "CopilotSpacesUpdateCollaboratorForOrg": {
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The new role to grant to the collaborator. Use \u0060no_access\u0060 to remove the collaborator."
+          }
+        }
+      },
+      "CopilotSpacesCreateResourceForOrg": {
+        "required": [
+          "resource_type",
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "enum": [
+              "repository",
+              "github_file",
+              "free_text",
+              "github_issue",
+              "github_pull_request"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of resource to create."
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Resource-specific metadata."
+          }
+        }
+      },
+      "CopilotSpacesUpdateResourceForOrg": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "description": "Updated resource-specific metadata."
+          }
+        }
+      },
       "CopilotAddCopilotSeatsForTeams": {
         "required": [
           "selected_teams"
@@ -251623,7 +254661,7 @@
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "The policy for which repositories can use Copilot coding agent. Can be one of \u0060all\u0060, \u0060selected\u0060, or \u0060none\u0060."
+            "description": "The policy for which repositories can use Copilot cloud agent. Can be one of \u0060all\u0060, \u0060selected\u0060, or \u0060none\u0060."
           },
           "selected_repositories_url": {
             "type": "string",
@@ -251645,7 +254683,7 @@
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "The policy for which repositories can use Copilot coding agent. Can be one of \u0060all\u0060, \u0060selected\u0060, or \u0060none\u0060."
+            "description": "The policy for which repositories can use Copilot cloud agent. Can be one of \u0060all\u0060, \u0060selected\u0060, or \u0060none\u0060."
           }
         }
       },
@@ -251661,7 +254699,7 @@
               "type": "integer",
               "description": "Unique identifier of the repository."
             },
-            "description": "List of repository IDs to enable for Copilot coding agent."
+            "description": "List of repository IDs to enable for Copilot cloud agent."
           }
         }
       },
@@ -260569,6 +263607,256 @@
                 }
               }
             }
+          }
+        }
+      },
+      "CopilotSpacesCreateForUser": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the Copilot Space.",
+            "example": "My Development Space"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the Copilot Space.",
+            "example": "Personal space for development assistance"
+          },
+          "general_instructions": {
+            "maxLength": 4000,
+            "type": "string",
+            "description": "General instructions for the Copilot Space.",
+            "example": "Help me with React development patterns and best practices"
+          },
+          "base_role": {
+            "enum": [
+              "reader",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\u0022The base role that determines default permissions for the space.\n- \u0060no_access\u0060: No default access (default)\n- \u0060reader\u0060: Makes the space publicly readable\nNote: User spaces do not support writer or admin base roles.\u0022",
+            "default": "no_access"
+          },
+          "resources_attributes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "resource_type": {
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "The type of resource."
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "repository_id": {
+                      "type": "integer",
+                      "description": "Repository ID for repository or file resources.",
+                      "format": "int64"
+                    },
+                    "file_path": {
+                      "type": "string",
+                      "description": "File path for file resources."
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Text content for free text resources."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name for the resource."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "Issue or PR number."
+                    }
+                  },
+                  "description": "Metadata specific to the resource type."
+                }
+              }
+            },
+            "description": "Resources to attach to the space."
+          }
+        }
+      },
+      "CopilotSpacesUpdateForUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the Copilot Space.",
+            "example": "Updated Development Space"
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the Copilot Space.",
+            "example": "Updated personal space for development assistance"
+          },
+          "general_instructions": {
+            "maxLength": 4000,
+            "type": "string",
+            "description": "General instructions for the Copilot Space.",
+            "example": "Updated instructions to help me with React development patterns and best practices"
+          },
+          "base_role": {
+            "enum": [
+              "reader",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\u0022The base role that determines default permissions for the space. Changing this field requires admin permissions.\n- \u0060no_access\u0060: No default access (default)\n- \u0060reader\u0060: Makes the space publicly readable\nNote: User spaces do not support writer or admin base roles.\u0022"
+          },
+          "resources_attributes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "resource_type": {
+                  "enum": [
+                    "repository",
+                    "github_file",
+                    "free_text",
+                    "github_issue",
+                    "github_pull_request",
+                    "media_content",
+                    "uploaded_text_file"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "The type of resource."
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "repository_id": {
+                      "type": "integer",
+                      "description": "Repository ID for repository or file resources.",
+                      "format": "int64"
+                    },
+                    "file_path": {
+                      "type": "string",
+                      "description": "File path for file resources."
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Text content for free text resources."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name for the resource."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "Issue or PR number."
+                    }
+                  },
+                  "description": "Metadata specific to the resource type."
+                }
+              }
+            },
+            "description": "Resources to attach to the space."
+          }
+        }
+      },
+      "CopilotSpacesAddCollaboratorForUser": {
+        "required": [
+          "actor_type",
+          "actor_identifier",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "enum": [
+              "User",
+              "Team"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of actor (must be \u0060User\u0060 for user-owned spaces; \u0060Team\u0060 will be rejected)."
+          },
+          "actor_identifier": {
+            "type": "string",
+            "description": "The username of the collaborator. The numeric user ID is also accepted."
+          },
+          "role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role to grant to the collaborator."
+          }
+        }
+      },
+      "CopilotSpacesUpdateCollaboratorForUser": {
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "reader",
+              "writer",
+              "admin",
+              "no_access"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The new role to grant to the collaborator. Use \u0060no_access\u0060 to remove the collaborator."
+          }
+        }
+      },
+      "CopilotSpacesCreateResourceForUser": {
+        "required": [
+          "resource_type",
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "enum": [
+              "repository",
+              "github_file",
+              "free_text",
+              "github_issue",
+              "github_pull_request"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of resource to create."
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Resource-specific metadata."
+          }
+        }
+      },
+      "CopilotSpacesUpdateResourceForUser": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "description": "Updated resource-specific metadata."
           }
         }
       },
@@ -271722,6 +275010,201 @@
           "created_at": "2019-08-10T14:59:22Z",
           "updated_at": "2020-01-10T14:59:22Z",
           "visibility": "all"
+        }
+      },
+      "copilot-spaces-organization-list": {
+        "summary": "Example response for listing organization copilot spaces",
+        "value": {
+          "spaces": [
+            {
+              "id": 84,
+              "number": 3,
+              "name": "Team Planning Space",
+              "description": "Organization space for team planning and coordination",
+              "owner": {
+                "login": "octo-org",
+                "id": 1,
+                "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+                "url": "https://api.github.com/orgs/octo-org",
+                "repos_url": "https://api.github.com/orgs/octo-org/repos",
+                "events_url": "https://api.github.com/orgs/octo-org/events",
+                "hooks_url": "https://api.github.com/orgs/octo-org/hooks",
+                "issues_url": "https://api.github.com/orgs/octo-org/issues",
+                "members_url": "https://api.github.com/orgs/octo-org/members{/member}",
+                "public_members_url": "https://api.github.com/orgs/octo-org/public_members{/member}",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "description": "A great organization",
+                "gravatar_id": "",
+                "name": "octo-org",
+                "company": "GitHub",
+                "blog": "https://github.com/blog",
+                "location": "San Francisco",
+                "email": "octocat@github.com",
+                "twitter_username": "octo-org",
+                "html_url": "https://github.com/octo-org",
+                "created_at": "2008-01-14T04:33:35Z",
+                "updated_at": "2017-08-17T12:37:15Z",
+                "type": "Organization"
+              },
+              "creator": {
+                "login": "defunkt",
+                "id": 2,
+                "node_id": "MDQ6VXNlcjI=",
+                "avatar_url": "https://github.com/images/error/defunkt_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/defunkt",
+                "html_url": "https://github.com/defunkt",
+                "followers_url": "https://api.github.com/users/defunkt/followers",
+                "following_url": "https://api.github.com/users/defunkt/following{/other_user}",
+                "gists_url": "https://api.github.com/users/defunkt/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/defunkt/subscriptions",
+                "organizations_url": "https://api.github.com/users/defunkt/orgs",
+                "repos_url": "https://api.github.com/users/defunkt/repos",
+                "events_url": "https://api.github.com/users/defunkt/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/defunkt/received_events",
+                "type": "User",
+                "site_admin": true
+              },
+              "created_at": "2023-02-15T08:30:00Z",
+              "updated_at": "2023-02-15T14:45:00Z",
+              "html_url": "https://github.com/copilot/spaces/octo-org/3",
+              "api_url": "https://api.github.com/organizations/1/copilot-spaces/3"
+            },
+            {
+              "id": 85,
+              "number": 4,
+              "name": "Development Resources",
+              "description": "Shared development documentation and resources",
+              "owner": {
+                "login": "octo-org",
+                "id": 1,
+                "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+                "url": "https://api.github.com/orgs/octo-org",
+                "repos_url": "https://api.github.com/orgs/octo-org/repos",
+                "events_url": "https://api.github.com/orgs/octo-org/events",
+                "hooks_url": "https://api.github.com/orgs/octo-org/hooks",
+                "issues_url": "https://api.github.com/orgs/octo-org/issues",
+                "members_url": "https://api.github.com/orgs/octo-org/members{/member}",
+                "public_members_url": "https://api.github.com/orgs/octo-org/public_members{/member}",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "description": "A great organization",
+                "gravatar_id": "",
+                "name": "octo-org",
+                "company": "GitHub",
+                "blog": "https://github.com/blog",
+                "location": "San Francisco",
+                "email": "octocat@github.com",
+                "twitter_username": "octo-org",
+                "html_url": "https://github.com/octo-org",
+                "created_at": "2008-01-14T04:33:35Z",
+                "updated_at": "2017-08-17T12:37:15Z",
+                "type": "Organization"
+              },
+              "creator": {
+                "login": "octocat",
+                "id": 3,
+                "node_id": "MDQ6VXNlcjM=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "created_at": "2023-02-16T10:15:00Z",
+              "updated_at": "2023-02-16T16:30:00Z",
+              "html_url": "https://github.com/copilot/spaces/octo-org/4",
+              "api_url": "https://api.github.com/organizations/1/copilot-spaces/4"
+            }
+          ]
+        }
+      },
+      "copilot-space-organization": {
+        "summary": "Example response for an organization copilot space",
+        "value": {
+          "id": 84,
+          "number": 3,
+          "name": "Team Planning Space",
+          "description": "Organization space for team planning and coordination",
+          "general_instructions": "Help the team with agile planning, sprint coordination, and project management best practices",
+          "owner": {
+            "login": "octo-org",
+            "id": 1,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+            "url": "https://api.github.com/orgs/octo-org",
+            "repos_url": "https://api.github.com/orgs/octo-org/repos",
+            "events_url": "https://api.github.com/orgs/octo-org/events",
+            "hooks_url": "https://api.github.com/orgs/octo-org/hooks",
+            "issues_url": "https://api.github.com/orgs/octo-org/issues",
+            "members_url": "https://api.github.com/orgs/octo-org/members{/member}",
+            "public_members_url": "https://api.github.com/orgs/octo-org/public_members{/member}",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "description": "A great organization",
+            "gravatar_id": "",
+            "name": "octo-org",
+            "company": "GitHub",
+            "blog": "https://github.com/blog",
+            "location": "San Francisco",
+            "email": "octocat@github.com",
+            "twitter_username": "octo-org",
+            "html_url": "https://github.com/octo-org",
+            "created_at": "2008-01-14T04:33:35Z",
+            "updated_at": "2017-08-17T12:37:15Z",
+            "type": "Organization"
+          },
+          "creator": {
+            "login": "defunkt",
+            "id": 2,
+            "node_id": "MDQ6VXNlcjI=",
+            "avatar_url": "https://github.com/images/error/defunkt_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/defunkt",
+            "html_url": "https://github.com/defunkt",
+            "followers_url": "https://api.github.com/users/defunkt/followers",
+            "following_url": "https://api.github.com/users/defunkt/following{/other_user}",
+            "gists_url": "https://api.github.com/users/defunkt/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/defunkt/subscriptions",
+            "organizations_url": "https://api.github.com/users/defunkt/orgs",
+            "repos_url": "https://api.github.com/users/defunkt/repos",
+            "events_url": "https://api.github.com/users/defunkt/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/defunkt/received_events",
+            "type": "User",
+            "site_admin": true
+          },
+          "created_at": "2023-02-15T08:30:00Z",
+          "updated_at": "2023-02-15T14:45:00Z",
+          "html_url": "https://github.com/copilot/spaces/octo-org/3",
+          "api_url": "https://api.github.com/organizations/1/copilot-spaces/3",
+          "base_role": "no_access",
+          "resources_attributes": [
+            {
+              "id": 123,
+              "resource_type": "github_file",
+              "metadata": {
+                "repository_id": 456,
+                "file_path": "docs/planning.md"
+              }
+            },
+            {
+              "id": 124,
+              "resource_type": "free_text",
+              "metadata": {
+                "name": "Team Guidelines",
+                "text": "Our team follows agile methodology"
+              }
+            }
+          ]
         }
       },
       "copilot-organization-details": {
@@ -295060,6 +298543,186 @@
           }
         }
       },
+      "copilot-spaces-user-list": {
+        "summary": "Example response for listing user copilot spaces",
+        "value": {
+          "spaces": [
+            {
+              "id": 42,
+              "number": 1,
+              "name": "Personal Research Space",
+              "description": "My personal space for research and development",
+              "owner": {
+                "login": "octocat",
+                "id": 3,
+                "node_id": "MDQ6VXNlcjM=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "creator": {
+                "login": "octocat",
+                "id": 3,
+                "node_id": "MDQ6VXNlcjM=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "created_at": "2023-02-16T10:15:00Z",
+              "updated_at": "2023-02-16T16:30:00Z",
+              "html_url": "https://github.com/copilot/spaces/octocat/1",
+              "api_url": "https://api.github.com/user/1/copilot-spaces/1"
+            },
+            {
+              "id": 43,
+              "number": 2,
+              "name": "Learning Space",
+              "description": "Space for learning new technologies",
+              "owner": {
+                "login": "octocat",
+                "id": 3,
+                "node_id": "MDQ6VXNlcjM=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "creator": {
+                "login": "octocat",
+                "id": 3,
+                "node_id": "MDQ6VXNlcjM=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "created_at": "2023-02-17T08:20:00Z",
+              "updated_at": "2023-02-17T14:45:00Z",
+              "html_url": "https://github.com/copilot/spaces/octocat/2",
+              "api_url": "https://api.github.com/user/1/copilot-spaces/2"
+            }
+          ]
+        }
+      },
+      "copilot-space-user": {
+        "summary": "Example response for a user copilot space",
+        "value": {
+          "id": 42,
+          "number": 5,
+          "name": "My Development Space",
+          "description": "Personal space for React development patterns",
+          "general_instructions": "Focus on React functional components, hooks, and modern development patterns",
+          "owner": {
+            "login": "octocat",
+            "id": 1,
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "creator": {
+            "login": "octocat",
+            "id": 1,
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "created_at": "2023-02-15T08:30:00Z",
+          "updated_at": "2023-02-15T14:45:00Z",
+          "html_url": "https://github.com/copilot/spaces/octocat/5",
+          "api_url": "https://api.github.com/user/1/copilot-spaces/5",
+          "base_role": "no_access",
+          "resources_attributes": [
+            {
+              "id": 789,
+              "resource_type": "github_file",
+              "metadata": {
+                "repository_id": 1234,
+                "file_path": "src/components/App.tsx"
+              }
+            },
+            {
+              "id": 790,
+              "resource_type": "free_text",
+              "metadata": {
+                "name": "React Best Practices",
+                "text": "Use functional components with hooks"
+              }
+            }
+          ]
+        }
+      },
       "user-events-items": {
         "value": [
           {
@@ -297280,6 +300943,10 @@
     {
       "name": "copilot",
       "description": "Endpoints to manage Copilot using the REST API."
+    },
+    {
+      "name": "copilot-spaces",
+      "description": "Endpoints to manage Copilot Spaces using the REST API."
     },
     {
       "name": "security-advisories",
