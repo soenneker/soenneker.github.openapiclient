@@ -119,6 +119,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string RoleName { get; set; }
 #endif
+        /// <summary>The GCP service account email to impersonate. If omitted, the federated token is used directly (direct WIF).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceAccount { get; set; }
+#nullable restore
+#else
+        public string ServiceAccount { get; set; }
+#endif
         /// <summary>The Cloudsmith service account slug.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -155,6 +163,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Which type of organization repositories have access to the private registry.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility? Visibility { get; set; }
+        /// <summary>The full resource name of the GCP Workload Identity Provider (e.g. `projects/&lt;NUM&gt;/locations/global/workloadIdentityPools/&lt;POOL&gt;/providers/&lt;PROVIDER&gt;`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkloadIdentityProvider { get; set; }
+#nullable restore
+#else
+        public string WorkloadIdentityProvider { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration"/> and sets the default values.
         /// </summary>
@@ -196,12 +212,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type>(); } },
                 { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
+                { "service_account", n => { ServiceAccount = n.GetStringValue(); } },
                 { "service_slug", n => { ServiceSlug = n.GetStringValue(); } },
                 { "tenant_id", n => { TenantId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility>(); } },
+                { "workload_identity_provider", n => { WorkloadIdentityProvider = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -227,12 +245,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type>("registry_type", RegistryType);
             writer.WriteBoolValue("replaces_base", ReplacesBase);
             writer.WriteStringValue("role_name", RoleName);
+            writer.WriteStringValue("service_account", ServiceAccount);
             writer.WriteStringValue("service_slug", ServiceSlug);
             writer.WriteStringValue("tenant_id", TenantId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility>("visibility", Visibility);
+            writer.WriteStringValue("workload_identity_provider", WorkloadIdentityProvider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

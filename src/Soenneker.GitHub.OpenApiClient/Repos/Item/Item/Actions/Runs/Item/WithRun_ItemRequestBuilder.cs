@@ -9,6 +9,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Approve;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Artifacts;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Attempts;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Cancel;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Concurrency_groups;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deployment_protection_rule;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.ForceCancel;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Jobs;
@@ -54,6 +55,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Cancel.CancelRequestBuilder Cancel
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The concurrency_groups property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Concurrency_groups.Concurrency_groupsRequestBuilder Concurrency_groups
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Concurrency_groups.Concurrency_groupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The deployment_protection_rule property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs.Item.Deployment_protection_rule.Deployment_protection_ruleRequestBuilder Deployment_protection_rule

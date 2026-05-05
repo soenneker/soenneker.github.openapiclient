@@ -31,5 +31,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         Oidc_cloudsmith,
         #pragma warning restore CS1591
+        [EnumMember(Value = "oidc_gcp")]
+        #pragma warning disable CS1591
+        Oidc_gcp,
+        #pragma warning restore CS1591
     }
 }

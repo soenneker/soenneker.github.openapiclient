@@ -14,6 +14,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether to enable the debugger for the re-run of this job.</summary>
+        public bool? EnableDebugger { get; set; }
         /// <summary>Whether to enable debug logging for the re-run.</summary>
         public bool? EnableDebugLogging { get; set; }
         /// <summary>
@@ -42,6 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enable_debug_logging", n => { EnableDebugLogging = n.GetBoolValue(); } },
+                { "enable_debugger", n => { EnableDebugger = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -51,6 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("enable_debugger", EnableDebugger);
             writer.WriteBoolValue("enable_debug_logging", EnableDebugLogging);
             writer.WriteAdditionalData(AdditionalData);
         }

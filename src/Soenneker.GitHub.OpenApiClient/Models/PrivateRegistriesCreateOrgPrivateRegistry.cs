@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ApiHost { get; set; }
 #endif
-        /// <summary>The OIDC audience. Optional for `oidc_aws`, `oidc_jfrog`, and required for `oidc_cloudsmith` auth types.</summary>
+        /// <summary>The OIDC audience. Optional for `oidc_aws`, `oidc_jfrog`, and `oidc_gcp`, and required for `oidc_cloudsmith` auth types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Audience { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Audience { get; set; }
 #endif
-        /// <summary>The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, `oidc_jfrog`, or `oidc_cloudsmith` for OIDC authentication.</summary>
+        /// <summary>The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, `oidc_jfrog`, `oidc_cloudsmith`, or `oidc_gcp` for OIDC authentication.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry_auth_type? AuthType { get; set; }
         /// <summary>The AWS region. Required when `auth_type` is `oidc_aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -132,6 +132,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<int?> SelectedRepositoryIds { get; set; }
 #endif
+        /// <summary>The GCP service account email to impersonate. Optional for `oidc_gcp` auth type. If omitted, the federated token is used directly (direct WIF).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceAccount { get; set; }
+#nullable restore
+#else
+        public string ServiceAccount { get; set; }
+#endif
         /// <summary>The Cloudsmith service account slug. Required when `auth_type` is `oidc_cloudsmith`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,6 +174,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Which type of organization repositories have access to the private registry. `selected` means only the repositories specified by `selected_repository_ids` can access the private registry.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry_visibility? Visibility { get; set; }
+        /// <summary>The full resource name of the GCP Workload Identity Provider (e.g. `projects/&lt;NUM&gt;/locations/global/workloadIdentityPools/&lt;POOL&gt;/providers/&lt;PROVIDER&gt;`). Required when `auth_type` is `oidc_gcp`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkloadIdentityProvider { get; set; }
+#nullable restore
+#else
+        public string WorkloadIdentityProvider { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry"/> and sets the default values.
         /// </summary>
@@ -208,11 +224,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "service_account", n => { ServiceAccount = n.GetStringValue(); } },
                 { "service_slug", n => { ServiceSlug = n.GetStringValue(); } },
                 { "tenant_id", n => { TenantId = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry_visibility>(); } },
+                { "workload_identity_provider", n => { WorkloadIdentityProvider = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -239,11 +257,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("replaces_base", ReplacesBase);
             writer.WriteStringValue("role_name", RoleName);
             writer.WriteCollectionOfPrimitiveValues<int?>("selected_repository_ids", SelectedRepositoryIds);
+            writer.WriteStringValue("service_account", ServiceAccount);
             writer.WriteStringValue("service_slug", ServiceSlug);
             writer.WriteStringValue("tenant_id", TenantId);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry_visibility>("visibility", Visibility);
+            writer.WriteStringValue("workload_identity_provider", WorkloadIdentityProvider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

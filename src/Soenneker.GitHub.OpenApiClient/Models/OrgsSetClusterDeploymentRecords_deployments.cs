@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string DeploymentName { get; set; }
 #endif
-        /// <summary>The hex encoded digest of the artifact. Note that if multiple deployments have identical &apos;digest&apos; parameter values,the name and version parameters must also be identical across all entries.</summary>
+        /// <summary>The hex encoded digest of the artifact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Digest { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string GithubRepository { get; set; }
 #endif
-        /// <summary>The name of the artifact. Note that if multiple deployments have identical &apos;digest&apos; parameter values,the name parameter must also be identical across all entries.</summary>
+        /// <summary>The name of the artifact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords_deployments_tags Tags { get; set; }
 #endif
-        /// <summary>The artifact version. Note that if multiple deployments have identical &apos;digest&apos; parameter values,the version parameter must also be identical across all entries.</summary>
+        /// <summary>The artifact version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, `oidc_jfrog`, or `oidc_cloudsmith` for OIDC authentication.</summary>
+    /// <summary>The authentication type for the private registry. Defaults to `token` if not specified. Use `oidc_azure`, `oidc_aws`, `oidc_jfrog`, `oidc_cloudsmith`, or `oidc_gcp` for OIDC authentication.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PrivateRegistriesCreateOrgPrivateRegistry_auth_type
     {
@@ -30,6 +30,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         [EnumMember(Value = "oidc_cloudsmith")]
         #pragma warning disable CS1591
         Oidc_cloudsmith,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "oidc_gcp")]
+        #pragma warning disable CS1591
+        Oidc_gcp,
         #pragma warning restore CS1591
     }
 }

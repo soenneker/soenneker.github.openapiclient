@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,is_multi_repo*,is_publicly_leaked*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,is_bypassed*,is_multi_repo*,is_publicly_leaked*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,is_multi_repo*,is_publicly_leaked*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,is_bypassed*,is_multi_repo*,is_publicly_leaked*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", rawUrl)
         {
         }
         /// <summary>
@@ -161,6 +161,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts
             /// <summary>A boolean value representing whether or not to hide literal secrets in the results.</summary>
             [QueryParameter("hide_secret")]
             public bool? HideSecret { get; set; }
+            /// <summary>A boolean value (`true` or `false`) indicating whether to filter alerts by their push protection bypass status. When set to `true`, only alerts that were created because a push protection rule was bypassed will be returned. When set to `false`, only alerts that were not caused by a push protection bypass will be returned.</summary>
+            [QueryParameter("is_bypassed")]
+            public bool? IsBypassed { get; set; }
             /// <summary>A boolean value representing whether or not to filter alerts by the multi-repo tag being present.</summary>
             [QueryParameter("is_multi_repo")]
             public bool? IsMultiRepo { get; set; }

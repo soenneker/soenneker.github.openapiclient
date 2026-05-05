@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Artifacts;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Cache;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.OrganizationSecrets;
@@ -41,6 +42,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.CachesRequestBuilder Caches
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.CachesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The concurrency_groups property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Concurrency_groupsRequestBuilder Concurrency_groups
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Concurrency_groupsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The jobs property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.JobsRequestBuilder Jobs

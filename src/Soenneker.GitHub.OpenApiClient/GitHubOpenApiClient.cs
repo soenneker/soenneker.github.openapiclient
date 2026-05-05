@@ -8,6 +8,7 @@ using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.GitHub.OpenApiClient.Advisories;
+using Soenneker.GitHub.OpenApiClient.Agents;
 using Soenneker.GitHub.OpenApiClient.App;
 using Soenneker.GitHub.OpenApiClient.AppManifests;
 using Soenneker.GitHub.OpenApiClient.Applications;
@@ -59,6 +60,11 @@ namespace Soenneker.GitHub.OpenApiClient
         public global::Soenneker.GitHub.OpenApiClient.Advisories.AdvisoriesRequestBuilder Advisories
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Advisories.AdvisoriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The agents property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Agents.AgentsRequestBuilder Agents
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The app property</summary>
         public global::Soenneker.GitHub.OpenApiClient.App.AppRequestBuilder App
