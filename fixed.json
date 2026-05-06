@@ -263926,6 +263926,34 @@
             },
             "description": "\u0022Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._\u0022"
           },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "required": [
+                "field_id",
+                "value"
+              ],
+              "type": "object",
+              "properties": {
+                "field_id": {
+                  "type": "integer",
+                  "description": "The ID of the issue field to set",
+                  "format": "int64"
+                },
+                "value": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/UnionBranch"
+                    }
+                  ],
+                  "description": "The value to set for the field"
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Issue fields are only available for organization-owned repositories with the feature enabled. Field values are silently dropped otherwise."
+          },
           "type": {
             "type": "string",
             "description": "\u0022The name of the issue type to associate with this issue. _NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise._\u0022",

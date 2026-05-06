@@ -38,6 +38,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Body { get; set; }
 #endif
+        /// <summary>An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Issue fields are only available for organization-owned repositories with the feature enabled. Field values are silently dropped otherwise.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate_issue_field_values>? IssueFieldValues { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate_issue_field_values> IssueFieldValues { get; set; }
+#endif
         /// <summary>&quot;Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,6 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignee", n => { Assignee = n.GetStringValue(); } },
                 { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "body", n => { Body = n.GetStringValue(); } },
+                { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate_issue_field_values>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate_issue_field_values.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate.IssuesCreate_labels>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate.IssuesCreate_labels.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
@@ -114,6 +123,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("assignee", Assignee);
             writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
             writer.WriteStringValue("body", Body);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate_issue_field_values>("issue_field_values", IssueFieldValues);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreate.IssuesCreate_labels>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("milestone", Milestone);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("title", Title);
