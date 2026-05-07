@@ -11699,6 +11699,875 @@
         }
       }
     },
+    "/orgs/{org}/agents/secrets": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List organization secrets",
+        "description": "Lists all secrets available in an organization without revealing their\nencrypted values.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#list-organization-secrets"
+        },
+        "operationId": "agents-list-org-secrets",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationActionsSecret"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-actions-secret-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/secrets/public-key": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get an organization public key",
+        "description": "Gets your public key, which you need to encrypt secrets. You need to\nencrypt a secret before you can create or update secrets.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#get-an-organization-public-key"
+        },
+        "operationId": "agents-get-org-public-key",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPublicKey"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-public-key"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/secrets/{secret_name}": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get an organization secret",
+        "description": "Gets a single organization secret without revealing its encrypted value.\n\nThe authenticated user must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#get-an-organization-secret"
+        },
+        "operationId": "agents-get-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationActionsSecret"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-actions-secret"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Create or update an organization secret",
+        "description": "Creates or updates an organization secret with an encrypted value. Encrypt your secret using\n[LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \u0022[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\u0022\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#create-or-update-an-organization-secret"
+        },
+        "operationId": "agents-create-or-update-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsCreateOrUpdateOrgSecret"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "encrypted_value": "c2VjcmV0",
+                    "key_id": "012345678912345678",
+                    "visibility": "selected",
+                    "selected_repository_ids": [
+                      1296269,
+                      1296280
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An object without any properties."
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Delete an organization secret",
+        "description": "Deletes a secret in an organization using the secret name.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#delete-an-organization-secret"
+        },
+        "operationId": "agents-delete-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/secrets/{secret_name}/repositories": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List selected repositories for an organization secret",
+        "description": "Lists all repositories that have been selected when the \u0060visibility\u0060\nfor repository access to a secret is set to \u0060selected\u0060.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#list-selected-repositories-for-an-organization-secret"
+        },
+        "operationId": "agents-list-selected-repos-for-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/public-repository-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Set selected repositories for an organization secret",
+        "description": "Replaces all repositories for an organization secret when the \u0060visibility\u0060\nfor repository access is set to \u0060selected\u0060. The visibility is set when you [Create\nor update an organization secret](https://docs.github.com/rest/agents/secrets#create-or-update-an-organization-secret).\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#set-selected-repositories-for-an-organization-secret"
+        },
+        "operationId": "agents-set-selected-repos-for-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsSetSelectedReposForOrgSecret"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "selected_repository_ids": [
+                      64780797
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}": {
+      "put": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Add selected repository to an organization secret",
+        "description": "Adds a repository to an organization secret when the \u0060visibility\u0060 for\nrepository access is set to \u0060selected\u0060. For more information about setting the visibility, see [Create or\nupdate an organization secret](https://docs.github.com/rest/agents/secrets#create-or-update-an-organization-secret).\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#add-selected-repository-to-an-organization-secret"
+        },
+        "operationId": "agents-add-selected-repo-to-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          },
+          {
+            "name": "repository_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Remove selected repository from an organization secret",
+        "description": "Removes a repository from an organization secret when the \u0060visibility\u0060\nfor repository access is set to \u0060selected\u0060. The visibility is set when you [Create\nor update an organization secret](https://docs.github.com/rest/agents/secrets#create-or-update-an-organization-secret).\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#remove-selected-repository-from-an-organization-secret"
+        },
+        "operationId": "agents-remove-selected-repo-from-org-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          },
+          {
+            "name": "repository_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/variables": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List organization variables",
+        "description": "Lists all agent variables available in an organization.\nReturned variables include their values.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#list-organization-variables"
+        },
+        "operationId": "agents-list-org-variables",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variables-per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OrganizationActionsVariable"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-actions-variables-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Create an organization variable",
+        "description": "Creates an organization agent variable that you can reference in a GitHub Actions workflow.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#create-an-organization-variable"
+        },
+        "operationId": "agents-create-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsCreateOrgVariable"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "USERNAME",
+                    "value": "octocat",
+                    "visibility": "selected",
+                    "selected_repository_ids": [
+                      1296269,
+                      1296280
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response when creating a variable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An object without any properties."
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/variables/{name}": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get an organization variable",
+        "description": "Gets a specific agent variable in an organization.\n\nThe authenticated user must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#get-an-organization-variable"
+        },
+        "operationId": "agents-get-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationActionsVariable"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-actions-variable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Update an organization variable",
+        "description": "Updates an organization agent variable that you can reference in a GitHub Actions workflow.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#update-an-organization-variable"
+        },
+        "operationId": "agents-update-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsUpdateOrgVariable"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "USERNAME",
+                    "value": "octocat",
+                    "visibility": "selected",
+                    "selected_repository_ids": [
+                      1296269,
+                      1296280
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Delete an organization variable",
+        "description": "Deletes an organization agent variable using the variable name.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#delete-an-organization-variable"
+        },
+        "operationId": "agents-delete-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/variables/{name}/repositories": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List selected repositories for an organization variable",
+        "description": "Lists all repositories that can access an organization agent variable\nthat is available to selected repositories.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#list-selected-repositories-for-an-organization-variable"
+        },
+        "operationId": "agents-list-selected-repos-for-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "repositories"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "repositories": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MinimalRepository"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/public-repository-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Set selected repositories for an organization variable",
+        "description": "Replaces all repositories for an organization agent variable that is available\nto selected repositories. Organization variables that are available to selected\nrepositories have their \u0060visibility\u0060 field set to \u0060selected\u0060.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#set-selected-repositories-for-an-organization-variable"
+        },
+        "operationId": "agents-set-selected-repos-for-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsSetSelectedReposForOrgVariable"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "selected_repository_ids": [
+                      64780797
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}": {
+      "put": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Add selected repository to an organization variable",
+        "description": "Adds a repository to an organization agent variable that is available to selected repositories.\nOrganization variables that are available to selected repositories have their \u0060visibility\u0060 field set to \u0060selected\u0060.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#add-selected-repository-to-an-organization-variable"
+        },
+        "operationId": "agents-add-selected-repo-to-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          },
+          {
+            "name": "repository_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Remove selected repository from an organization variable",
+        "description": "Removes a repository from an organization agent variable that is\navailable to selected repositories. Organization variables that are available to\nselected repositories have their \u0060visibility\u0060 field set to \u0060selected\u0060.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060 scope to use this endpoint. If the repository is private, the \u0060repo\u0060 scope is also required.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#remove-selected-repository-from-an-organization-variable"
+        },
+        "operationId": "agents-remove-selected-repo-from-org-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          },
+          {
+            "name": "repository_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orgs/{org}/artifacts/metadata/deployment-record": {
       "post": {
         "tags": [
@@ -30124,6 +30993,610 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed_simple"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/organization-secrets": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List repository organization secrets",
+        "description": "Lists all organization secrets shared with a repository without revealing their encrypted\nvalues.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#list-repository-organization-secrets"
+        },
+        "operationId": "agents-list-repo-organization-secrets",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsSecret"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-secret-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/organization-variables": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List repository organization variables",
+        "description": "Lists all organization variables shared with a repository.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#list-repository-organization-variables"
+        },
+        "operationId": "agents-list-repo-organization-variables",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/variables-per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsVariable"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-variables-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/secrets": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List repository secrets",
+        "description": "Lists all secrets available in a repository without revealing their encrypted\nvalues.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#list-repository-secrets"
+        },
+        "operationId": "agents-list-repo-secrets",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "secrets"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "secrets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsSecret"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-secret-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/secrets/public-key": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get a repository public key",
+        "description": "Gets your public key, which you need to encrypt secrets. You need to\nencrypt a secret before you can create or update secrets.\n\nAnyone with read access to the repository can use this endpoint.\n\nIf the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#get-a-repository-public-key"
+        },
+        "operationId": "agents-get-repo-public-key",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPublicKey"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-public-key"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/secrets/{secret_name}": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get a repository secret",
+        "description": "Gets a single repository secret without revealing its encrypted value.\n\nThe authenticated user must have collaborator access to the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#get-a-repository-secret"
+        },
+        "operationId": "agents-get-repo-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsSecret"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-secret"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Create or update a repository secret",
+        "description": "Creates or updates a repository secret with an encrypted value. Encrypt your secret using\n[LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see \u0022[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).\u0022\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#create-or-update-a-repository-secret"
+        },
+        "operationId": "agents-create-or-update-repo-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsCreateOrUpdateRepoSecret"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "encrypted_value": "c2VjcmV0",
+                    "key_id": "012345678912345678"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response when creating a secret",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An object without any properties."
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Delete a repository secret",
+        "description": "Deletes a secret in a repository using the secret name.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read secrets.\n\nOAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/secrets#delete-a-repository-secret"
+        },
+        "operationId": "agents-delete-repo-secret",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/secret-name"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/variables": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "List repository variables",
+        "description": "Lists all repository variables.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#list-repository-variables"
+        },
+        "operationId": "agents-list-repo-variables",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/variables-per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "total_count",
+                    "variables"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer"
+                    },
+                    "variables": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionsVariable"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-variables-paginated"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Create a repository variable",
+        "description": "Creates a repository variable that you can reference in a GitHub Actions workflow.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#create-a-repository-variable"
+        },
+        "operationId": "agents-create-repo-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsCreateRepoVariable"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "USERNAME",
+                    "value": "octocat"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An object without any properties."
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/agents/variables/{name}": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Get a repository variable",
+        "description": "Gets a specific variable in a repository.\n\nThe authenticated user must have collaborator access to the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#get-a-repository-variable"
+        },
+        "operationId": "agents-get-repo-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsVariable"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-variable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Update a repository variable",
+        "description": "Updates a repository variable that you can reference in a GitHub Actions workflow.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#update-a-repository-variable"
+        },
+        "operationId": "agents-update-repo-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentsUpdateRepoVariable"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "USERNAME",
+                    "value": "octocat"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Delete a repository variable",
+        "description": "Deletes a repository variable using the variable name.\n\nAuthenticated users must have collaborator access to a repository to create, update, or read variables.\n\nOAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/agents/variables#delete-a-repository-variable"
+        },
+        "operationId": "agents-delete-repo-variable",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/variable-name"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
+                }
+              }
+            }
           }
         }
       }
@@ -66637,6 +68110,16 @@
           "updated_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "notification_setting": {
+            "enum": [
+              "notifications_enabled",
+              "notifications_disabled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Whether team members will receive notifications when the team is mentioned.",
+            "example": "notifications_enabled"
           }
         },
         "description": "Group of enterprise owners and/or members"
@@ -136839,11 +138322,10 @@
         "title": "parent issue added event",
         "required": [
           "action",
-          "parent_issue_id",
-          "parent_issue",
-          "parent_issue_repo",
           "sub_issue_id",
-          "sub_issue"
+          "sub_issue",
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -136889,11 +138371,10 @@
         "title": "parent issue removed event",
         "required": [
           "action",
-          "parent_issue_id",
-          "parent_issue",
-          "parent_issue_repo",
           "sub_issue_id",
-          "sub_issue"
+          "sub_issue",
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -136939,11 +138420,10 @@
         "title": "sub-issue added event",
         "required": [
           "action",
-          "sub_issue_id",
-          "sub_issue",
-          "sub_issue_repo",
           "parent_issue_id",
-          "parent_issue"
+          "parent_issue",
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -136989,11 +138469,10 @@
         "title": "sub-issue removed event",
         "required": [
           "action",
-          "sub_issue_id",
-          "sub_issue",
-          "sub_issue_repo",
           "parent_issue_id",
-          "parent_issue"
+          "parent_issue",
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -255227,6 +256706,15 @@
             "type": "string",
             "description": "The ID of the IdP group to assign team membership with. You can get this value from the [REST API endpoints for SCIM](https://docs.github.com/rest/scim#list-provisioned-scim-groups-for-an-enterprise).",
             "nullable": true
+          },
+          "notification_setting": {
+            "enum": [
+              "notifications_enabled",
+              "notifications_disabled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\u0022The notification setting the team is set to. The options are:\n\n* \u0060notifications_enabled\u0060 - team members receive notifications when the team is @mentioned.\n* \u0060notifications_disabled\u0060 - no one receives notifications.\n\nDefault: \u0060notifications_enabled\u0060\n\u0022"
           }
         }
       },
@@ -255362,6 +256850,15 @@
             "type": "string",
             "description": "The ID of the IdP group to assign team membership with. The new IdP group will replace the existing one, or replace existing direct members if the team isn\u0027t currently linked to an IdP group.",
             "nullable": true
+          },
+          "notification_setting": {
+            "enum": [
+              "notifications_enabled",
+              "notifications_disabled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The notification setting the team is set to. The options are:\n\n* \u0060notifications_enabled\u0060 - team members receive notifications when the team is @mentioned.\n* \u0060notifications_disabled\u0060 - no one receives notifications.\n"
           }
         }
       },
@@ -256531,6 +258028,137 @@
         }
       },
       "ActionsSetSelectedReposForOrgVariable": {
+        "required": [
+          "selected_repository_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "selected_repository_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The IDs of the repositories that can access the organization variable."
+          }
+        }
+      },
+      "AgentsCreateOrUpdateOrgSecret": {
+        "required": [
+          "encrypted_value",
+          "key_id",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "encrypted_value": {
+            "pattern": "^(?:[A-Za-z0-9\u002B/]{4})*(?:[A-Za-z0-9\u002B/]{2}==|[A-Za-z0-9\u002B/]{3}=|[A-Za-z0-9\u002B/]{4})$",
+            "type": "string",
+            "description": "Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get an organization public key](https://docs.github.com/rest/agents/secrets#get-an-organization-public-key) endpoint."
+          },
+          "key_id": {
+            "type": "string",
+            "description": "ID of the key you used to encrypt the secret."
+          },
+          "visibility": {
+            "enum": [
+              "all",
+              "private",
+              "selected"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Which type of organization repositories have access to the organization secret. \u0060selected\u0060 means only the repositories specified by \u0060selected_repository_ids\u0060 can access the secret."
+          },
+          "selected_repository_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/agents/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/agents/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/agents/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
+          }
+        }
+      },
+      "AgentsSetSelectedReposForOrgSecret": {
+        "required": [
+          "selected_repository_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "selected_repository_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060. You can add and remove individual repositories using the [Add selected repository to an organization secret](https://docs.github.com/rest/agents/secrets#add-selected-repository-to-an-organization-secret) and [Remove selected repository from an organization secret](https://docs.github.com/rest/agents/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
+          }
+        }
+      },
+      "AgentsCreateOrgVariable": {
+        "required": [
+          "name",
+          "value",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the variable."
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the variable."
+          },
+          "visibility": {
+            "enum": [
+              "all",
+              "private",
+              "selected"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of repositories in the organization that can access the variable. \u0060selected\u0060 means only the repositories specified by \u0060selected_repository_ids\u0060 can access the variable."
+          },
+          "selected_repository_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An array of repository ids that can access the organization variable. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060."
+          }
+        }
+      },
+      "AgentsUpdateOrgVariable": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the variable."
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the variable."
+          },
+          "visibility": {
+            "enum": [
+              "all",
+              "private",
+              "selected"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of repositories in the organization that can access the variable. \u0060selected\u0060 means only the repositories specified by \u0060selected_repository_ids\u0060 can access the variable."
+          },
+          "selected_repository_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An array of repository ids that can access the organization variable. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060."
+          }
+        }
+      },
+      "AgentsSetSelectedReposForOrgVariable": {
         "required": [
           "selected_repository_ids"
         ],
@@ -260974,6 +262602,54 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Activity"
+        }
+      },
+      "AgentsCreateOrUpdateRepoSecret": {
+        "required": [
+          "encrypted_value",
+          "key_id"
+        ],
+        "type": "object",
+        "properties": {
+          "encrypted_value": {
+            "pattern": "^(?:[A-Za-z0-9\u002B/]{4})*(?:[A-Za-z0-9\u002B/]{2}==|[A-Za-z0-9\u002B/]{3}=|[A-Za-z0-9\u002B/]{4})$",
+            "type": "string",
+            "description": "Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get a repository public key](https://docs.github.com/rest/agents/secrets#get-a-repository-public-key) endpoint."
+          },
+          "key_id": {
+            "type": "string",
+            "description": "ID of the key you used to encrypt the secret."
+          }
+        }
+      },
+      "AgentsCreateRepoVariable": {
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the variable."
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the variable."
+          }
+        }
+      },
+      "AgentsUpdateRepoVariable": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the variable."
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the variable."
+          }
         }
       },
       "IssuesListAssignees200": {
@@ -304873,6 +306549,10 @@
     {
       "name": "agent-tasks",
       "description": "Endpoints to manage and interact with agent tasks."
+    },
+    {
+      "name": "agents",
+      "description": "Endpoints for Agents secrets and variables."
     }
   ],
   "externalDocs": {

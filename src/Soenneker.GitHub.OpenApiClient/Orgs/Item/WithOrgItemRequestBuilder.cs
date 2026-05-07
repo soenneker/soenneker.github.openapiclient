@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Agents;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Blocks;
@@ -63,6 +64,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.ActionsRequestBuilder Actions
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The agents property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Agents.AgentsRequestBuilder Agents
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The artifacts property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.ArtifactsRequestBuilder Artifacts

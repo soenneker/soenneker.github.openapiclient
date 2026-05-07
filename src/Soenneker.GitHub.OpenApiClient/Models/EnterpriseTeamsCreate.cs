@@ -38,6 +38,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>&quot;The notification setting the team is set to. The options are:* `notifications_enabled` - team members receive notifications when the team is @mentioned.* `notifications_disabled` - no one receives notifications.Default: `notifications_enabled`&quot;</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_notification_setting? NotificationSetting { get; set; }
         /// <summary>&quot;Specifies which organizations in the enterprise should have access to this team. Can be one of `disabled`, `selected`, or `all`.`disabled`: The team is not assigned to any organizations. This is the default when you create a new team.`selected`: The team is assigned to specific organizations. You can then use the [add organization assignments API](https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments) endpoint.`all`: The team is assigned to all current and future organizations in the enterprise.&quot;</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_organization_selection_type? OrganizationSelectionType { get; set; }
         /// <summary>&quot;Retired: this field is no longer supported.Whether the enterprise team should be reflected in each organization.This value cannot be set.&quot;</summary>
@@ -72,6 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_notification_setting>(); } },
                 { "organization_selection_type", n => { OrganizationSelectionType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_organization_selection_type>(); } },
                 { "sync_to_organizations", n => { SyncToOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_sync_to_organizations>(); } },
             };
@@ -86,6 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("group_id", GroupId);
             writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_notification_setting>("notification_setting", NotificationSetting);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_organization_selection_type>("organization_selection_type", OrganizationSelectionType);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate_sync_to_organizations>("sync_to_organizations", SyncToOrganizations);
             writer.WriteAdditionalData(AdditionalData);

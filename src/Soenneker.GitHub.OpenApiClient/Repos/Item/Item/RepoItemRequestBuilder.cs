@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Agents;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Assignees;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Attestations;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Autolinks;
@@ -92,6 +93,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity.ActivityRequestBuilder Activity
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity.ActivityRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The agents property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Agents.AgentsRequestBuilder Agents
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The assignees property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Assignees.AssigneesRequestBuilder Assignees
