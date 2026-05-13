@@ -39,11 +39,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("user_view_type")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.UsersGetByUsername200();
-            if("PrivateUser".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("private".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PrivateUser = new global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser();
             }
-            else if("PublicUser".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("public".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PublicUser = new global::Soenneker.GitHub.OpenApiClient.Models.PublicUser();
             }

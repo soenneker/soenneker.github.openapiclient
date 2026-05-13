@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200();
-            if("ContentDirectory".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("array".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ContentDirectoryWrapper = new global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectory_Wrapper();
             }

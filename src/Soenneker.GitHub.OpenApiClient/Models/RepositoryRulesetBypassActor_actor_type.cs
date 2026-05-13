@@ -27,5 +27,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         DeployKey,
         #pragma warning restore CS1591
+        [EnumMember(Value = "User")]
+        #pragma warning disable CS1591
+        User,
+        #pragma warning restore CS1591
     }
 }

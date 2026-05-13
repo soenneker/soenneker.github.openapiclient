@@ -16,10 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The author of the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Author { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_author? Author { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Author { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_author Author { get; private set; }
 #endif
         /// <summary>The date and time of when the advisory was closed, in ISO 8601 format.</summary>
         public DateTimeOffset? ClosedAt { get; private set; }
@@ -132,20 +132,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A temporary private fork of the advisory&apos;s repository for collaborating on a fix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository? PrivateFork { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_private_fork? PrivateFork { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository PrivateFork { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_private_fork PrivateFork { get; private set; }
 #endif
         /// <summary>The date and time of when the advisory was published, in ISO 8601 format.</summary>
         public DateTimeOffset? PublishedAt { get; private set; }
         /// <summary>The publisher of the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Publisher { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_publisher? Publisher { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Publisher { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_publisher Publisher { get; private set; }
 #endif
         /// <summary>The severity of the advisory.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_severity? Severity { get; set; }
@@ -205,7 +205,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_author>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_author.CreateFromDiscriminatorValue); } },
                 { "closed_at", n => { ClosedAt = n.GetDateTimeOffsetValue(); } },
                 { "collaborating_teams", n => { CollaboratingTeams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "collaborating_users", n => { CollaboratingUsers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -221,9 +221,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "ghsa_id", n => { GhsaId = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "identifiers", n => { Identifiers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_identifiers>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_identifiers.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "private_fork", n => { PrivateFork = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
+                { "private_fork", n => { PrivateFork = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_private_fork>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_private_fork.CreateFromDiscriminatorValue); } },
                 { "published_at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
-                { "publisher", n => { Publisher = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "publisher", n => { Publisher = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_publisher>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_publisher.CreateFromDiscriminatorValue); } },
                 { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_severity>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_state>(); } },
                 { "submission", n => { Submission = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_submission>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisory_submission.CreateFromDiscriminatorValue); } },

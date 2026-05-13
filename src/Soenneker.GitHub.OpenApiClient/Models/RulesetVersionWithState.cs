@@ -9,9 +9,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RulesetVersionWithState : global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersion, IParsable
+    public partial class RulesetVersionWithState : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The actor who updated the ruleset</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor? Actor { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor Actor { get; set; }
+#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The state of the ruleset version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,12 +30,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state State { get; set; }
 #endif
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>The ID of the previous version of the ruleset</summary>
+        public long? VersionId { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState"/> and sets the default values.
+        /// </summary>
+        public RulesetVersionWithState()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState();
@@ -34,22 +55,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor.CreateFromDiscriminatorValue); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state.CreateFromDiscriminatorValue); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "version_id", n => { VersionId = n.GetLongValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>("actor", Actor);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state>("state", State);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteLongValue("version_id", VersionId);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -8,28 +8,187 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// A repository rule with ruleset details.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember10"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember11"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember12"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember13"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember14"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember15"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember16"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember17"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember18"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember19"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember20"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember21"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember3"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember4"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember5"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember6"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember7"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember8"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RepositoryRuleDetailed : IAdditionalDataHolder, IParsable
+    public partial class RepositoryRuleDetailed : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember1? RepositoryRuleDetailedMember1 { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember1 RepositoryRuleDetailedMember1 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailed"/> and sets the default values.
-        /// </summary>
-        public RepositoryRuleDetailed()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember10? RepositoryRuleDetailedMember10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember10 RepositoryRuleDetailedMember10 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember11"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember11? RepositoryRuleDetailedMember11 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember11 RepositoryRuleDetailedMember11 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember12"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember12? RepositoryRuleDetailedMember12 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember12 RepositoryRuleDetailedMember12 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember13"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember13? RepositoryRuleDetailedMember13 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember13 RepositoryRuleDetailedMember13 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember14"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember14? RepositoryRuleDetailedMember14 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember14 RepositoryRuleDetailedMember14 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember15"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember15? RepositoryRuleDetailedMember15 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember15 RepositoryRuleDetailedMember15 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember16"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember16? RepositoryRuleDetailedMember16 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember16 RepositoryRuleDetailedMember16 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember17"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember17? RepositoryRuleDetailedMember17 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember17 RepositoryRuleDetailedMember17 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember18"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember18? RepositoryRuleDetailedMember18 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember18 RepositoryRuleDetailedMember18 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember19"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember19? RepositoryRuleDetailedMember19 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember19 RepositoryRuleDetailedMember19 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember2? RepositoryRuleDetailedMember2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember2 RepositoryRuleDetailedMember2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember20"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember20? RepositoryRuleDetailedMember20 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember20 RepositoryRuleDetailedMember20 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember21"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember21? RepositoryRuleDetailedMember21 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember21 RepositoryRuleDetailedMember21 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22? RepositoryRuleDetailedMember22 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22 RepositoryRuleDetailedMember22 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember3? RepositoryRuleDetailedMember3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember3 RepositoryRuleDetailedMember3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember4? RepositoryRuleDetailedMember4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember4 RepositoryRuleDetailedMember4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember5? RepositoryRuleDetailedMember5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember5 RepositoryRuleDetailedMember5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember6? RepositoryRuleDetailedMember6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember6 RepositoryRuleDetailedMember6 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember7? RepositoryRuleDetailedMember7 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember7 RepositoryRuleDetailedMember7 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember8"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember8? RepositoryRuleDetailedMember8 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember8 RepositoryRuleDetailedMember8 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember9"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember9? RepositoryRuleDetailedMember9 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember9 RepositoryRuleDetailedMember9 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +197,97 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailed CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailed();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailed();
+            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember1 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember1();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember10 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember10();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember11 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember11();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember12 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember12();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember13 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember13();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember14 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember14();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember15 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember15();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember16 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember16();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember17 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember17();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember18 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember18();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember19 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember19();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember2 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember2();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember20 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember20();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember21 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember21();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember22 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember3 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember3();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember4 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember4();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember5 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember5();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember6 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember6();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember7 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember7();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember8 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember8();
+            }
+            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleDetailedMember9 = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember9();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,10 +295,95 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(RepositoryRuleDetailedMember1 != null)
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-            };
+                return RepositoryRuleDetailedMember1.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember10 != null)
+            {
+                return RepositoryRuleDetailedMember10.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember11 != null)
+            {
+                return RepositoryRuleDetailedMember11.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember12 != null)
+            {
+                return RepositoryRuleDetailedMember12.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember13 != null)
+            {
+                return RepositoryRuleDetailedMember13.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember14 != null)
+            {
+                return RepositoryRuleDetailedMember14.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember15 != null)
+            {
+                return RepositoryRuleDetailedMember15.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember16 != null)
+            {
+                return RepositoryRuleDetailedMember16.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember17 != null)
+            {
+                return RepositoryRuleDetailedMember17.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember18 != null)
+            {
+                return RepositoryRuleDetailedMember18.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember19 != null)
+            {
+                return RepositoryRuleDetailedMember19.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember2 != null)
+            {
+                return RepositoryRuleDetailedMember2.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember20 != null)
+            {
+                return RepositoryRuleDetailedMember20.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember21 != null)
+            {
+                return RepositoryRuleDetailedMember21.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember22 != null)
+            {
+                return RepositoryRuleDetailedMember22.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember3 != null)
+            {
+                return RepositoryRuleDetailedMember3.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember4 != null)
+            {
+                return RepositoryRuleDetailedMember4.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember5 != null)
+            {
+                return RepositoryRuleDetailedMember5.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember6 != null)
+            {
+                return RepositoryRuleDetailedMember6.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember7 != null)
+            {
+                return RepositoryRuleDetailedMember7.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember8 != null)
+            {
+                return RepositoryRuleDetailedMember8.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleDetailedMember9 != null)
+            {
+                return RepositoryRuleDetailedMember9.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -58,8 +392,94 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(RepositoryRuleDetailedMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember1>(null, RepositoryRuleDetailedMember1);
+            }
+            else if(RepositoryRuleDetailedMember10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember10>(null, RepositoryRuleDetailedMember10);
+            }
+            else if(RepositoryRuleDetailedMember11 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember11>(null, RepositoryRuleDetailedMember11);
+            }
+            else if(RepositoryRuleDetailedMember12 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember12>(null, RepositoryRuleDetailedMember12);
+            }
+            else if(RepositoryRuleDetailedMember13 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember13>(null, RepositoryRuleDetailedMember13);
+            }
+            else if(RepositoryRuleDetailedMember14 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember14>(null, RepositoryRuleDetailedMember14);
+            }
+            else if(RepositoryRuleDetailedMember15 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember15>(null, RepositoryRuleDetailedMember15);
+            }
+            else if(RepositoryRuleDetailedMember16 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember16>(null, RepositoryRuleDetailedMember16);
+            }
+            else if(RepositoryRuleDetailedMember17 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember17>(null, RepositoryRuleDetailedMember17);
+            }
+            else if(RepositoryRuleDetailedMember18 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember18>(null, RepositoryRuleDetailedMember18);
+            }
+            else if(RepositoryRuleDetailedMember19 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember19>(null, RepositoryRuleDetailedMember19);
+            }
+            else if(RepositoryRuleDetailedMember2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember2>(null, RepositoryRuleDetailedMember2);
+            }
+            else if(RepositoryRuleDetailedMember20 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember20>(null, RepositoryRuleDetailedMember20);
+            }
+            else if(RepositoryRuleDetailedMember21 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember21>(null, RepositoryRuleDetailedMember21);
+            }
+            else if(RepositoryRuleDetailedMember22 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22>(null, RepositoryRuleDetailedMember22);
+            }
+            else if(RepositoryRuleDetailedMember3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember3>(null, RepositoryRuleDetailedMember3);
+            }
+            else if(RepositoryRuleDetailedMember4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember4>(null, RepositoryRuleDetailedMember4);
+            }
+            else if(RepositoryRuleDetailedMember5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember5>(null, RepositoryRuleDetailedMember5);
+            }
+            else if(RepositoryRuleDetailedMember6 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember6>(null, RepositoryRuleDetailedMember6);
+            }
+            else if(RepositoryRuleDetailedMember7 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember7>(null, RepositoryRuleDetailedMember7);
+            }
+            else if(RepositoryRuleDetailedMember8 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember8>(null, RepositoryRuleDetailedMember8);
+            }
+            else if(RepositoryRuleDetailedMember9 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember9>(null, RepositoryRuleDetailedMember9);
+            }
         }
     }
 }

@@ -9,11 +9,115 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReleaseEventRelease : global::Soenneker.GitHub.OpenApiClient.Models.Release, IParsable
+    public partial class ReleaseEventRelease : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The assets property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>? Assets { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset> Assets { get; set; }
+#endif
+        /// <summary>The assets_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AssetsUrl { get; set; }
+#nullable restore
+#else
+        public string AssetsUrl { get; set; }
+#endif
+        /// <summary>A GitHub user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Author { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Author { get; set; }
+#endif
+        /// <summary>The body property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Body { get; set; }
+#nullable restore
+#else
+        public string Body { get; set; }
+#endif
+        /// <summary>The body_html property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BodyHtml { get; set; }
+#nullable restore
+#else
+        public string BodyHtml { get; set; }
+#endif
+        /// <summary>The body_text property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BodyText { get; set; }
+#nullable restore
+#else
+        public string BodyText { get; set; }
+#endif
+        /// <summary>The created_at property</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The URL of the release discussion.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DiscussionUrl { get; set; }
+#nullable restore
+#else
+        public string DiscussionUrl { get; set; }
+#endif
+        /// <summary>true to create a draft (unpublished) release, false to create a published one.</summary>
+        public bool? Draft { get; set; }
+        /// <summary>The html_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HtmlUrl { get; set; }
+#nullable restore
+#else
+        public string HtmlUrl { get; set; }
+#endif
+        /// <summary>The id property</summary>
+        public long? Id { get; set; }
+        /// <summary>Whether or not the release is immutable.</summary>
+        public bool? Immutable { get; set; }
         /// <summary>The is_short_description_html_truncated property</summary>
         public bool? IsShortDescriptionHtmlTruncated { get; set; }
+        /// <summary>The mentions_count property</summary>
+        public int? MentionsCount { get; set; }
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
+        /// <summary>The node_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NodeId { get; set; }
+#nullable restore
+#else
+        public string NodeId { get; set; }
+#endif
+        /// <summary>Whether to identify the release as a prerelease or a full release.</summary>
+        public bool? Prerelease { get; set; }
+        /// <summary>The published_at property</summary>
+        public DateTimeOffset? PublishedAt { get; set; }
+        /// <summary>The reactions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup? Reactions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup Reactions { get; set; }
+#endif
         /// <summary>The short_description_html property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,12 +126,69 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ShortDescriptionHtml { get; set; }
 #endif
+        /// <summary>The name of the tag.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TagName { get; set; }
+#nullable restore
+#else
+        public string TagName { get; set; }
+#endif
+        /// <summary>The tarball_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TarballUrl { get; set; }
+#nullable restore
+#else
+        public string TarballUrl { get; set; }
+#endif
+        /// <summary>Specifies the commitish value that determines where the Git tag is created from.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TargetCommitish { get; set; }
+#nullable restore
+#else
+        public string TargetCommitish { get; set; }
+#endif
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>The upload_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UploadUrl { get; set; }
+#nullable restore
+#else
+        public string UploadUrl { get; set; }
+#endif
+        /// <summary>The url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
+#endif
+        /// <summary>The zipball_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ZipballUrl { get; set; }
+#nullable restore
+#else
+        public string ZipballUrl { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEventRelease"/> and sets the default values.
+        /// </summary>
+        public ReleaseEventRelease()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEventRelease"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEventRelease CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEventRelease CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.ReleaseEventRelease();
@@ -36,24 +197,74 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>(global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "assets_url", n => { AssetsUrl = n.GetStringValue(); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetStringValue(); } },
+                { "body_html", n => { BodyHtml = n.GetStringValue(); } },
+                { "body_text", n => { BodyText = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "discussion_url", n => { DiscussionUrl = n.GetStringValue(); } },
+                { "draft", n => { Draft = n.GetBoolValue(); } },
+                { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetLongValue(); } },
+                { "immutable", n => { Immutable = n.GetBoolValue(); } },
                 { "is_short_description_html_truncated", n => { IsShortDescriptionHtmlTruncated = n.GetBoolValue(); } },
+                { "mentions_count", n => { MentionsCount = n.GetIntValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "node_id", n => { NodeId = n.GetStringValue(); } },
+                { "prerelease", n => { Prerelease = n.GetBoolValue(); } },
+                { "published_at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
+                { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>(global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup.CreateFromDiscriminatorValue); } },
                 { "short_description_html", n => { ShortDescriptionHtml = n.GetStringValue(); } },
+                { "tag_name", n => { TagName = n.GetStringValue(); } },
+                { "tarball_url", n => { TarballUrl = n.GetStringValue(); } },
+                { "target_commitish", n => { TargetCommitish = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "upload_url", n => { UploadUrl = n.GetStringValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
+                { "zipball_url", n => { ZipballUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset>("assets", Assets);
+            writer.WriteStringValue("assets_url", AssetsUrl);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("author", Author);
+            writer.WriteStringValue("body", Body);
+            writer.WriteStringValue("body_html", BodyHtml);
+            writer.WriteStringValue("body_text", BodyText);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("discussion_url", DiscussionUrl);
+            writer.WriteBoolValue("draft", Draft);
+            writer.WriteStringValue("html_url", HtmlUrl);
+            writer.WriteLongValue("id", Id);
+            writer.WriteBoolValue("immutable", Immutable);
             writer.WriteBoolValue("is_short_description_html_truncated", IsShortDescriptionHtmlTruncated);
+            writer.WriteIntValue("mentions_count", MentionsCount);
+            writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("node_id", NodeId);
+            writer.WriteBoolValue("prerelease", Prerelease);
+            writer.WriteDateTimeOffsetValue("published_at", PublishedAt);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>("reactions", Reactions);
             writer.WriteStringValue("short_description_html", ShortDescriptionHtml);
+            writer.WriteStringValue("tag_name", TagName);
+            writer.WriteStringValue("tarball_url", TarballUrl);
+            writer.WriteStringValue("target_commitish", TargetCommitish);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteStringValue("upload_url", UploadUrl);
+            writer.WriteStringValue("url", Url);
+            writer.WriteStringValue("zipball_url", ZipballUrl);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
         {
         }
         /// <summary>
-        /// Commits an autofix for a code scanning alert.If an autofix is committed as a result of this request, then this endpoint will return a 201 Created response.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with private or public repositories, or the `public_repo` scope to use this endpoint with only public repositories.
+        /// Commits an autofix for a code scanning alert from the repository&apos;s default branch.If an autofix is committed as a result of this request, then this endpoint will return a 201 Created response.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with private or public repositories, or the `public_repo` scope to use this endpoint with only public repositories.
         /// API method documentation <see href="https://docs.github.com/rest/code-scanning/code-scanning#commit-an-autofix-for-a-code-scanning-alert" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAutofixCommitsResponse"/></returns>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAutofixCommitsResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAutofixCommitsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Commits an autofix for a code scanning alert.If an autofix is committed as a result of this request, then this endpoint will return a 201 Created response.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with private or public repositories, or the `public_repo` scope to use this endpoint with only public repositories.
+        /// Commits an autofix for a code scanning alert from the repository&apos;s default branch.If an autofix is committed as a result of this request, then this endpoint will return a 201 Created response.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint with private or public repositories, or the `public_repo` scope to use this endpoint with only public repositories.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Commit an autofix for a code scanning alert</param>

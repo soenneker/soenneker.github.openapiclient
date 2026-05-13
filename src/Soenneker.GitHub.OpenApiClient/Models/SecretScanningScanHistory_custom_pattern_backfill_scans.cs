@@ -9,9 +9,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SecretScanningScanHistory_custom_pattern_backfill_scans : global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScan, IParsable
+    public partial class SecretScanningScanHistory_custom_pattern_backfill_scans : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The time that the scan was completed. Empty if the scan is running</summary>
+        public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>Name of the custom pattern for custom pattern scans</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,12 +32,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string PatternScope { get; set; }
 #endif
+        /// <summary>The time that the scan was started. Empty if the scan is pending</summary>
+        public DateTimeOffset? StartedAt { get; set; }
+        /// <summary>&quot;The state of the scan. Either \&quot;completed\&quot;, \&quot;running\&quot;, \&quot;pending\&quot;, \&quot;failed\&quot;, or \&quot;unknown\&quot;.\&quot;failed\&quot;: this scan type has hit its retry limit and has been marked permanently failed.This usually resolves on its own at the next scheduled scan attempt. If \&quot;failed\&quot; persists, contact Support.\&quot;unknown\&quot;: the scan is in an unrecognized or currently unhandled state.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>The type of scan</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans"/> and sets the default values.
+        /// </summary>
+        public SecretScanningScanHistory_custom_pattern_backfill_scans()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningScanHistory_custom_pattern_backfill_scans();
@@ -42,24 +71,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "pattern_name", n => { PatternName = n.GetStringValue(); } },
                 { "pattern_scope", n => { PatternScope = n.GetStringValue(); } },
+                { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteStringValue("pattern_name", PatternName);
             writer.WriteStringValue("pattern_scope", PatternScope);
+            writer.WriteDateTimeOffsetValue("started_at", StartedAt);
+            writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

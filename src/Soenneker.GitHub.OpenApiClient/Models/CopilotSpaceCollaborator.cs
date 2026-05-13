@@ -8,124 +8,27 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// A collaborator (user or team) of a Copilot Space
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CopilotSpaceCollaborator : IAdditionalDataHolder, IParsable
+    public partial class CopilotSpaceCollaborator : IComposedTypeWrapper, IParsable
     {
-        /// <summary>The collaborator actor type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator_actor_type? ActorType { get; set; }
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The description property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1? CopilotSpaceCollaboratorMember1 { get; set; }
 #nullable restore
 #else
-        public string Description { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1 CopilotSpaceCollaboratorMember1 { get; set; }
 #endif
-        /// <summary>The html_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2? CopilotSpaceCollaboratorMember2 { get; set; }
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2 CopilotSpaceCollaboratorMember2 { get; set; }
 #endif
-        /// <summary>The id property</summary>
-        public long? Id { get; set; }
-        /// <summary>The members_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MembersUrl { get; set; }
-#nullable restore
-#else
-        public string MembersUrl { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
-        /// <summary>The node_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? NodeId { get; set; }
-#nullable restore
-#else
-        public string NodeId { get; set; }
-#endif
-        /// <summary>The notification_setting property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? NotificationSetting { get; set; }
-#nullable restore
-#else
-        public string NotificationSetting { get; set; }
-#endif
-        /// <summary>The organization_id property</summary>
-        public long? OrganizationId { get; set; }
-        /// <summary>The parent property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? Parent { get; set; }
-#nullable restore
-#else
-        public UntypedNode Parent { get; set; }
-#endif
-        /// <summary>The privacy property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Privacy { get; set; }
-#nullable restore
-#else
-        public string Privacy { get; set; }
-#endif
-        /// <summary>The repositories_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RepositoriesUrl { get; set; }
-#nullable restore
-#else
-        public string RepositoriesUrl { get; set; }
-#endif
-        /// <summary>The role granted to the collaborator</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator_role? Role { get; set; }
-        /// <summary>The slug property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Slug { get; set; }
-#nullable restore
-#else
-        public string Slug { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
-        /// <summary>The url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get; set; }
-#nullable restore
-#else
-        public string Url { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator"/> and sets the default values.
-        /// </summary>
-        public CopilotSpaceCollaborator()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -134,7 +37,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator();
+            result.CopilotSpaceCollaboratorMember1 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1();
+            result.CopilotSpaceCollaboratorMember2 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,25 +48,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CopilotSpaceCollaboratorMember1 != null || CopilotSpaceCollaboratorMember2 != null)
             {
-                { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator_actor_type>(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
-                { "members_url", n => { MembersUrl = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "notification_setting", n => { NotificationSetting = n.GetStringValue(); } },
-                { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "privacy", n => { Privacy = n.GetStringValue(); } },
-                { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator_role>(); } },
-                { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CopilotSpaceCollaboratorMember1, CopilotSpaceCollaboratorMember2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -169,23 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator_actor_type>("actor_type", ActorType);
-            writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteLongValue("id", Id);
-            writer.WriteStringValue("members_url", MembersUrl);
-            writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("node_id", NodeId);
-            writer.WriteStringValue("notification_setting", NotificationSetting);
-            writer.WriteLongValue("organization_id", OrganizationId);
-            writer.WriteObjectValue<UntypedNode>("parent", Parent);
-            writer.WriteStringValue("privacy", Privacy);
-            writer.WriteStringValue("repositories_url", RepositoriesUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator_role>("role", Role);
-            writer.WriteStringValue("slug", Slug);
-            writer.WriteStringValue("type", Type);
-            writer.WriteStringValue("url", Url);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1>(null, CopilotSpaceCollaboratorMember1, CopilotSpaceCollaboratorMember2);
         }
     }
 }
