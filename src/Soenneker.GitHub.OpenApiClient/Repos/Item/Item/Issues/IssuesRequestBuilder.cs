@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues{?assignee*,creator*,direction*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", pathParameters)
+        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues{?assignee*,creator*,direction*,issue_field_values*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues{?assignee*,creator*,direction*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", rawUrl)
+        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues{?assignee*,creator*,direction*,issue_field_values*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", rawUrl)
         {
         }
         /// <summary>
@@ -200,6 +200,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.GetDirectionQueryParameterType? Direction { get; set; }
+            /// <summary>A comma-separated list of issue field filters in `field_slug:value` format.Only issues matching all specified field values are returned.Requires issue fields to be enabled for the repository. Issue fields arenot available for user-owned repositories, and field availability fororganization-owned public repositories depends on the organization&apos;svisibility settings. For example, `priority:Urgent,severity:High` filtersissues where the `priority` field is `Urgent` AND the `severity` field is`High`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("issue_field_values")]
+            public string? IssueFieldValues { get; set; }
+#nullable restore
+#else
+            [QueryParameter("issue_field_values")]
+            public string IssueFieldValues { get; set; }
+#endif
             /// <summary>&quot;A list of comma separated label names. Example: `bug,ui,@high`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

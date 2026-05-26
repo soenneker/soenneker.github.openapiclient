@@ -8,9 +8,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public enum RepositoryRuleDetailedMember17_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "max_file_path_length")]
+        [EnumMember(Value = "code_scanning")]
         #pragma warning disable CS1591
-        Max_file_path_length,
+        Code_scanning,
         #pragma warning restore CS1591
     }
 }

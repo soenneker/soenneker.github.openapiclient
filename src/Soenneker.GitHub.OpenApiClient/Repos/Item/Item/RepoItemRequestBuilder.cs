@@ -14,6 +14,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Branches;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeSecurityConfiguration;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codeowners;
@@ -25,6 +26,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Community;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Compare;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contributors;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments;
@@ -139,6 +141,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codeowners.CodeownersRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The codeQuality property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.CodeQualityRequestBuilder CodeQuality
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.CodeQualityRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The codeScanning property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.CodeScanningRequestBuilder CodeScanning
         {
@@ -188,6 +195,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contributors.ContributorsRequestBuilder Contributors
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contributors.ContributorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The copilot property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CopilotRequestBuilder Copilot
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Copilot.CopilotRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dependabot property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.DependabotRequestBuilder Dependabot

@@ -24,6 +24,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether to create a PR.</summary>
         public bool? CreatePullRequest { get; set; }
+        /// <summary>Head ref for existing branch/PR. If provided with `base_ref`, the agent looks up open PR context for `head_ref` targeting `base_ref` and commits to `head_ref` instead of creating a new branch.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HeadRef { get; set; }
+#nullable restore
+#else
+        public string HeadRef { get; set; }
+#endif
         /// <summary>&quot;The model to use for this task. The allowed models may change over time and depend on the user&apos;s GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "base_ref", n => { BaseRef = n.GetStringValue(); } },
                 { "create_pull_request", n => { CreatePullRequest = n.GetBoolValue(); } },
+                { "head_ref", n => { HeadRef = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
             };
@@ -80,6 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("base_ref", BaseRef);
             writer.WriteBoolValue("create_pull_request", CreatePullRequest);
+            writer.WriteStringValue("head_ref", HeadRef);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("prompt", Prompt);
             writer.WriteAdditionalData(AdditionalData);

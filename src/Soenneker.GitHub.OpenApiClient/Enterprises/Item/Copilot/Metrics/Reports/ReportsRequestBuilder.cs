@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.Enterprise1Day;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.Enterprise28Day;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.UserTeams1Day;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.Users1Day;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.Users28Day;
 using System.Collections.Generic;
@@ -37,6 +38,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Report
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.Users28Day.Users28DayRequestBuilder Users28Day
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.Users28Day.Users28DayRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The userTeams1Day property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.UserTeams1Day.UserTeams1DayRequestBuilder UserTeams1Day
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.UserTeams1Day.UserTeams1DayRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Metrics.Reports.ReportsRequestBuilder"/> and sets the default values.

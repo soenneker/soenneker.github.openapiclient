@@ -166,9 +166,16 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TasksRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter tasks by creator user ID</summary>
+            /// <summary>Filter tasks by creator user ID. Accepts one or more user IDs.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("creator_id")]
-            public long? CreatorId { get; set; }
+            public int?[]? CreatorId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("creator_id")]
+            public int?[] CreatorId { get; set; }
+#endif
             /// <summary>The direction to sort results. Can be `asc` or `desc`.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.GetDirectionQueryParameterType? Direction { get; set; }

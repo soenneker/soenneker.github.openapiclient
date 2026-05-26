@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources
         {
         }
         /// <summary>
-        /// Lists all resources attached to a specific Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Lists all resources attached to a specific Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#list-resources-for-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse"/></returns>
@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.&quot;
+        /// &quot;Creates a new resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being created.&quot;
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#create-a-resource-for-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource"/></returns>
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists all resources attached to a specific Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Lists all resources attached to a specific Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a new resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.&quot;
+        /// &quot;Creates a new resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being created.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -420,10 +420,12 @@
           {
             "name": "creator_id",
             "in": "query",
-            "description": "Filter tasks by creator user ID",
+            "description": "Filter tasks by creator user ID. Accepts one or more user IDs.",
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             }
           }
         ],
@@ -3338,6 +3340,54 @@
                 "examples": {
                   "default": {
                     "$ref": "#/components/examples/copilot-usage-metrics-28-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/enterprises/{enterprise}/copilot/metrics/reports/user-teams-1-day": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot enterprise user-teams report for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot enterprise user-teams report for a specific day. The report provides user-team join data for Copilot across the enterprise, with one entry per user-team pair.\n\nThe report contains user-team membership data for the specified day, enabling consumers to join with the existing enterprise user reports to compute team-level usage metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.\n\nEnterprise owners, billing managers, and authorized users with fine-grained \u0022View Enterprise Copilot Metrics\u0022 permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060read:enterprise\u0060 scopes to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-enterprise-user-teams-report-for-a-specific-day"
+        },
+        "operationId": "copilot-copilot-enterprise-user-teams-one-day-report",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotUsageMetrics1DayReport"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
                   }
                 }
               }
@@ -15068,7 +15118,7 @@
           "copilot-spaces"
         ],
         "summary": "List organization Copilot Spaces",
-        "description": "Lists Copilot Spaces owned by an organization. The authenticated user must have read access to the organization\u0027s Copilot Spaces.\n\nOnly Spaces that are readable by the authenticated user are returned. This includes public Spaces and internal Spaces if the user is a member of the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Lists Copilot Spaces owned by an organization. The authenticated user must have read access to the organization\u0027s Copilot Spaces.\n\nOnly Spaces that are readable by the authenticated user are returned. This includes public Spaces and internal Spaces if the user is a member of the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in a space; spaces with inaccessible resources are omitted from the response.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#list-organization-copilot-spaces"
@@ -15147,7 +15197,7 @@
           "copilot-spaces"
         ],
         "summary": "Create an organization Copilot Space",
-        "description": "Creates a new Copilot Space owned by an organization. The authenticated user must have permissions to create spaces in the organization.\n\nOrganization members with appropriate permissions can create Copilot Spaces to be shared within their organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Creates a new Copilot Space owned by an organization. The authenticated user must have permissions to create spaces in the organization.\n\nOrganization members with appropriate permissions can create Copilot Spaces to be shared within their organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by the submitted resources.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#create-an-organization-copilot-space"
@@ -15226,7 +15276,7 @@
           "copilot-spaces"
         ],
         "summary": "Get an organization Copilot Space",
-        "description": "Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.\n\nInternal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.\n\nInternal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#get-an-organization-copilot-space"
@@ -15275,7 +15325,7 @@
           "copilot-spaces"
         ],
         "summary": "Set an organization Copilot Space",
-        "description": "Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.\n\nOrganization members with appropriate permissions can update Copilot Spaces owned by their organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.\n\nOrganization members with appropriate permissions can update Copilot Spaces owned by their organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including any being added or updated.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#set-an-organization-copilot-space"
@@ -15366,7 +15416,7 @@
           "copilot-spaces"
         ],
         "summary": "Delete an organization Copilot Space",
-        "description": "Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.\n\n**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.\n\nOrganization members with appropriate permissions can delete Copilot Spaces owned by their organization.\n\nOAuth app tokens and personal access tokens (classic) need both the \u0060read:org\u0060 and \u0060repo\u0060 scopes to use this endpoint.",
+        "description": "Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.\n\n**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.\n\nOrganization members with appropriate permissions can delete Copilot Spaces owned by their organization.\n\nOAuth app tokens and personal access tokens (classic) need both the \u0060read:org\u0060 and \u0060repo\u0060 scopes to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/copilot-spaces#delete-an-organization-copilot-space"
@@ -15402,7 +15452,7 @@
           "copilot-spaces"
         ],
         "summary": "List collaborators for an organization Copilot Space",
-        "description": "Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.\n\nEach collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.\n\n**Note:** Team collaborators listed here are teams that are defined in the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.\n\nEach collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.\n\n**Note:** Team collaborators listed here are teams that are defined in the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/collaborators#list-collaborators-for-an-organization-copilot-space"
@@ -15535,7 +15585,7 @@
           "copilot-spaces"
         ],
         "summary": "Add a collaborator to an organization Copilot Space",
-        "description": "Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\n**Note:** When adding users as collaborators, they must already be members of the organization.\nWhen adding teams as collaborators, they must be defined in the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\n**Note:** When adding users as collaborators, they must already be members of the organization.\nWhen adding teams as collaborators, they must be defined in the organization.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/collaborators#add-a-collaborator-to-an-organization-copilot-space"
@@ -15670,7 +15720,7 @@
           "copilot-spaces"
         ],
         "summary": "Set a collaborator role for an organization Copilot Space",
-        "description": "Updates the role of a collaborator for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Updates the role of a collaborator for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/collaborators#set-a-collaborator-role-for-an-organization-copilot-space"
@@ -15817,7 +15867,7 @@
           "copilot-spaces"
         ],
         "summary": "Remove a collaborator from an organization Copilot Space",
-        "description": "Removes a collaborator from a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Removes a collaborator from a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/collaborators#remove-a-collaborator-from-an-organization-copilot-space"
@@ -15876,7 +15926,7 @@
           "copilot-spaces"
         ],
         "summary": "List resources for an organization Copilot Space",
-        "description": "Lists all resources attached to a specific Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Lists all resources attached to a specific Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/resources#list-resources-for-an-organization-copilot-space"
@@ -15961,7 +16011,7 @@
           "copilot-spaces"
         ],
         "summary": "Create a resource for an organization Copilot Space",
-        "description": "\u0022Creates a new resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nThe following resource types are supported: \u0060repository\u0060, \u0060github_file\u0060, \u0060free_text\u0060, \u0060github_issue\u0060, \u0060github_pull_request\u0060.\nThe \u0060uploaded_text_file\u0060 and \u0060media_content\u0060 types are not supported via this endpoint.\n\nFor \u0060github_file\u0060 resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a \u0060200\u0060 status.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\u0022",
+        "description": "\u0022Creates a new resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nThe following resource types are supported: \u0060repository\u0060, \u0060github_file\u0060, \u0060free_text\u0060, \u0060github_issue\u0060, \u0060github_pull_request\u0060.\nThe \u0060uploaded_text_file\u0060 and \u0060media_content\u0060 types are not supported via this endpoint.\n\nFor \u0060github_file\u0060 resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a \u0060200\u0060 status.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being created.\u0022",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/resources#create-a-resource-for-an-organization-copilot-space"
@@ -16089,7 +16139,7 @@
           "copilot-spaces"
         ],
         "summary": "Get a resource for an organization Copilot Space",
-        "description": "Gets a specific resource attached to a Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "description": "Gets a specific resource attached to a Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/resources#get-a-resource-for-an-organization-copilot-space"
@@ -16158,7 +16208,7 @@
           "copilot-spaces"
         ],
         "summary": "Set a resource for an organization Copilot Space",
-        "description": "Updates the metadata of a resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Updates the metadata of a resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being updated.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/resources#set-a-resource-for-an-organization-copilot-space"
@@ -16249,7 +16299,7 @@
           "copilot-spaces"
         ],
         "summary": "Delete a resource from an organization Copilot Space",
-        "description": "Deletes a resource from a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Deletes a resource from a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\nFine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/copilot-spaces/resources#delete-a-resource-from-an-organization-copilot-space"
@@ -17339,6 +17389,57 @@
                 }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot/metrics/reports/user-teams-1-day": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot organization user-teams report for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot organization user-teams report for a specific day. The report provides user-team join data for Copilot across the organization, with one entry per user-team pair.\n\nThe report contains user-team membership data for the specified day, enabling consumers to join with the existing organization user reports to compute team-level usage metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.\n\nOrganization owners and authorized users with fine-grained \u0022View Organization Copilot Metrics\u0022 permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFor more information about organization metrics attribution, see [How are metrics attributed across organizations](https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations).",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-organization-user-teams-report-for-a-specific-day"
+        },
+        "operationId": "copilot-copilot-organization-user-teams-one-day-report",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotUsageMetrics1DayReport"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/components/responses/no_content"
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
@@ -35049,6 +35150,136 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/code-quality/setup": {
+      "get": {
+        "tags": [
+          "code-quality"
+        ],
+        "summary": "Get a code quality setup configuration",
+        "description": "Gets a code quality setup configuration.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint with private or public repositories, or the \u0060public_repo\u0060 scope to use this endpoint with only public repositories.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/code-quality/code-quality#get-a-code-quality-setup-configuration"
+        },
+        "operationId": "code-quality-get-setup",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeQualitySetup"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-quality-setup"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/code_quality_forbidden_read"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "code-quality"
+        ],
+        "summary": "Update a code quality setup configuration",
+        "description": "Updates a code quality setup configuration.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint with private or public repositories, or the \u0060public_repo\u0060 scope to use this endpoint with only public repositories.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/code-quality/code-quality#update-a-code-quality-setup-configuration"
+        },
+        "operationId": "code-quality-update-setup",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodeQualitySetupUpdate"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/code-quality-setup-update"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "An object without any properties."
+                },
+                "examples": {
+                  "default": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeQualitySetupUpdateResponse"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-quality-setup-update-response"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/code_quality_forbidden_write"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "$ref": "#/components/responses/code_quality_conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/code_quality_invalid_state"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/code-scanning/alerts": {
       "get": {
         "tags": [
@@ -39043,6 +39274,108 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/copilot/cloud-agent/configuration": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot cloud agent configuration for a repository",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nGets the Copilot cloud agent configuration for a repository, including MCP server\nconfiguration, enabled review tools, Actions workflow approval settings, and firewall\nconfiguration.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-cloud-agent-management#get-copilot-cloud-agent-configuration-for-a-repository"
+        },
+        "operationId": "copilot-get-copilot-cloud-agent-configuration",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotGetCopilotCloudAgentConfiguration200"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "Default configuration",
+                    "value": {
+                      "mcp_configuration": null,
+                      "enabled_tools": {
+                        "codeql": true,
+                        "copilot_code_review": true,
+                        "secret_scanning": true,
+                        "dependency_vulnerability_checks": true
+                      },
+                      "require_actions_workflow_approval": true,
+                      "is_firewall_enabled": true,
+                      "is_firewall_recommended_allowlist_enabled": true,
+                      "custom_allowlist": []
+                    }
+                  },
+                  "configured": {
+                    "summary": "Configuration with an MCP server and a custom firewall allowlist",
+                    "value": {
+                      "mcp_configuration": {
+                        "mcpServers": {
+                          "sentry": {
+                            "type": "local",
+                            "command": "npx",
+                            "args": [
+                              "@sentry/mcp-server@latest",
+                              "--host=$SENTRY_HOST"
+                            ],
+                            "env": {
+                              "SENTRY_HOST": "https://octo-org.sentry.io",
+                              "SENTRY_ACCESS_TOKEN": "$COPILOT_MCP_SENTRY_ACCESS_TOKEN"
+                            },
+                            "tools": [
+                              "search_issues",
+                              "get_issue_details"
+                            ]
+                          }
+                        }
+                      },
+                      "enabled_tools": {
+                        "codeql": true,
+                        "copilot_code_review": true,
+                        "secret_scanning": true,
+                        "dependency_vulnerability_checks": true
+                      },
+                      "require_actions_workflow_approval": false,
+                      "is_firewall_enabled": true,
+                      "is_firewall_recommended_allowlist_enabled": true,
+                      "custom_allowlist": [
+                        "sentry.io",
+                        "https://api.example.com"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/dependabot/alerts": {
       "get": {
         "tags": [
@@ -39562,6 +39895,15 @@
           },
           "403": {
             "$ref": "#/components/responses/dependency_review_forbidden"
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "503": {
+            "$ref": "#/components/responses/service_unavailable"
           }
         }
       }
@@ -43532,6 +43874,14 @@
             "name": "mentioned",
             "in": "query",
             "description": "A user that\u0027s mentioned in the issue.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issue_field_values",
+            "in": "query",
+            "description": "A comma-separated list of issue field filters in \u0060field_slug:value\u0060 format.\nOnly issues matching all specified field values are returned.\nRequires issue fields to be enabled for the repository. Issue fields are\nnot available for user-owned repositories, and field availability for\norganization-owned public repositories depends on the organization\u0027s\nvisibility settings. For example, \u0060priority:Urgent,severity:High\u0060 filters\nissues where the \u0060priority\u0060 field is \u0060Urgent\u0060 AND the \u0060severity\u0060 field is\n\u0060High\u0060.",
             "schema": {
               "type": "string"
             }
@@ -48850,76 +49200,6 @@
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
-          }
-        }
-      }
-    },
-    "/repos/{owner}/{repo}/pulls/{pull_number}/archive": {
-      "put": {
-        "tags": [
-          "pulls"
-        ],
-        "summary": "Archive a pull request",
-        "description": "Archives a pull request. Closes, locks, and marks the pull request as archived.\nOnly repository admins can archive pull requests.\nArchived pull requests are hidden from non-admin users.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/pulls/pulls#archive-a-pull-request"
-        },
-        "operationId": "pulls-archive",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/owner"
-          },
-          {
-            "$ref": "#/components/parameters/repo"
-          },
-          {
-            "$ref": "#/components/parameters/pull-number"
-          }
-        ],
-        "responses": {
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "pulls"
-        ],
-        "summary": "Unarchive a pull request",
-        "description": "Unarchives a pull request. Removes the archived flag from the pull request.\nDoes not automatically reopen or unlock the pull request.\nOnly repository admins can unarchive pull requests.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/pulls/pulls#unarchive-a-pull-request"
-        },
-        "operationId": "pulls-unarchive",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/owner"
-          },
-          {
-            "$ref": "#/components/parameters/repo"
-          },
-          {
-            "$ref": "#/components/parameters/pull-number"
-          }
-        ],
-        "responses": {
-          "403": {
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
-          "422": {
-            "$ref": "#/components/responses/validation_failed"
           }
         }
       }
@@ -54393,7 +54673,8 @@
                           "or_boolean_not_supported",
                           "no_accessible_repos",
                           "server_error",
-                          "only_non_semantic_fields_requested"
+                          "only_non_semantic_fields_requested",
+                          "service_unavailable"
                         ],
                         "type": "string",
                         "additionalProperties": false
@@ -65240,6 +65521,7 @@
           },
           "organization_copilot_seat_management": {
             "enum": [
+              "read",
               "write"
             ],
             "type": "string",
@@ -69572,7 +69854,7 @@
             "description": "The enabled state of the issue type."
           }
         },
-        "description": "The type of issue.",
+        "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
         "nullable": true
       },
       "NullableIntegration": {
@@ -82117,86 +82399,6 @@
         },
         "description": "Parameters to be used for the tag_name_pattern rule"
       },
-      "RepositoryRuleFilePathRestriction": {
-        "title": "file_path_restriction",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "file_path_restriction"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "parameters": {
-            "$ref": "#/components/schemas/RepositoryRuleFilePathRestrictionParameters"
-          }
-        },
-        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names."
-      },
-      "RepositoryRuleMaxFilePathLength": {
-        "title": "max_file_path_length",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "max_file_path_length"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "parameters": {
-            "$ref": "#/components/schemas/RepositoryRuleMaxFilePathLengthParameters"
-          }
-        },
-        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph."
-      },
-      "RepositoryRuleFileExtensionRestriction": {
-        "title": "file_extension_restriction",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "file_extension_restriction"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "parameters": {
-            "$ref": "#/components/schemas/RepositoryRuleFileExtensionRestrictionParameters"
-          }
-        },
-        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph."
-      },
-      "RepositoryRuleMaxFileSize": {
-        "title": "max_file_size",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "max_file_size"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "parameters": {
-            "$ref": "#/components/schemas/RepositoryRuleMaxFileSizeParameters"
-          }
-        },
-        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph."
-      },
       "RepositoryRuleParamsRestrictedCommits": {
         "title": "RestrictedCommits",
         "required": [
@@ -82342,6 +82544,86 @@
         },
         "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit."
       },
+      "RepositoryRuleFilePathRestriction": {
+        "title": "file_path_restriction",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "file_path_restriction"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/RepositoryRuleFilePathRestrictionParameters"
+          }
+        },
+        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names."
+      },
+      "RepositoryRuleMaxFilePathLength": {
+        "title": "max_file_path_length",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "max_file_path_length"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/RepositoryRuleMaxFilePathLengthParameters"
+          }
+        },
+        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph."
+      },
+      "RepositoryRuleFileExtensionRestriction": {
+        "title": "file_extension_restriction",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "file_extension_restriction"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/RepositoryRuleFileExtensionRestrictionParameters"
+          }
+        },
+        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph."
+      },
+      "RepositoryRuleMaxFileSize": {
+        "title": "max_file_size",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "max_file_size"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/RepositoryRuleMaxFileSizeParameters"
+          }
+        },
+        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph."
+      },
       "RepositoryRule": {
         "title": "Repository Rule",
         "required": [
@@ -82395,6 +82677,15 @@
             "$ref": "#/components/schemas/RepositoryRuleTagNamePattern"
           },
           {
+            "$ref": "#/components/schemas/RepositoryRuleWorkflows"
+          },
+          {
+            "$ref": "#/components/schemas/RepositoryRuleCodeScanning"
+          },
+          {
+            "$ref": "#/components/schemas/RepositoryRuleCopilotCodeReview"
+          },
+          {
             "$ref": "#/components/schemas/RepositoryRuleFilePathRestriction"
           },
           {
@@ -82405,15 +82696,6 @@
           },
           {
             "$ref": "#/components/schemas/RepositoryRuleMaxFileSize"
-          },
-          {
-            "$ref": "#/components/schemas/RepositoryRuleWorkflows"
-          },
-          {
-            "$ref": "#/components/schemas/RepositoryRuleCodeScanning"
-          },
-          {
-            "$ref": "#/components/schemas/RepositoryRuleCopilotCodeReview"
           }
         ],
         "properties": {
@@ -82441,13 +82723,13 @@
             "RepositoryRuleCommitterEmailPattern": "#/components/schemas/RepositoryRuleCommitterEmailPattern",
             "RepositoryRuleBranchNamePattern": "#/components/schemas/RepositoryRuleBranchNamePattern",
             "RepositoryRuleTagNamePattern": "#/components/schemas/RepositoryRuleTagNamePattern",
+            "RepositoryRuleWorkflows": "#/components/schemas/RepositoryRuleWorkflows",
+            "RepositoryRuleCodeScanning": "#/components/schemas/RepositoryRuleCodeScanning",
+            "RepositoryRuleCopilotCodeReview": "#/components/schemas/RepositoryRuleCopilotCodeReview",
             "RepositoryRuleFilePathRestriction": "#/components/schemas/RepositoryRuleFilePathRestriction",
             "RepositoryRuleMaxFilePathLength": "#/components/schemas/RepositoryRuleMaxFilePathLength",
             "RepositoryRuleFileExtensionRestriction": "#/components/schemas/RepositoryRuleFileExtensionRestriction",
-            "RepositoryRuleMaxFileSize": "#/components/schemas/RepositoryRuleMaxFileSize",
-            "RepositoryRuleWorkflows": "#/components/schemas/RepositoryRuleWorkflows",
-            "RepositoryRuleCodeScanning": "#/components/schemas/RepositoryRuleCodeScanning",
-            "RepositoryRuleCopilotCodeReview": "#/components/schemas/RepositoryRuleCopilotCodeReview"
+            "RepositoryRuleMaxFileSize": "#/components/schemas/RepositoryRuleMaxFileSize"
           }
         }
       },
@@ -88724,6 +89006,168 @@
         },
         "description": "Check suite configuration preferences for a repository."
       },
+      "CodeQualitySetup": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "configured",
+              "not-configured"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Code quality setup has been configured or not."
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "csharp",
+                "go",
+                "java-kotlin",
+                "javascript-typescript",
+                "python",
+                "ruby",
+                "rust"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "description": "Languages to be analyzed."
+          },
+          "runner_type": {
+            "enum": [
+              "standard",
+              "labeled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Runner type to be used.",
+            "nullable": true
+          },
+          "runner_label": {
+            "type": "string",
+            "description": "Runner label to be used if the runner type is labeled.",
+            "nullable": true,
+            "example": "code-scanning"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp of latest configuration update.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2023-12-06T14:20:20.000Z"
+          },
+          "schedule": {
+            "enum": [
+              "weekly"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The frequency of the periodic analysis.",
+            "nullable": true
+          }
+        },
+        "description": "Configuration for code quality setup."
+      },
+      "CodeQualitySetupUpdate": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "state"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "runner_type"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "runner_label"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "languages"
+            ],
+            "type": "object"
+          }
+        ],
+        "properties": {
+          "state": {
+            "enum": [
+              "configured",
+              "not-configured"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The desired state of code quality setup."
+          },
+          "runner_type": {
+            "enum": [
+              "standard",
+              "labeled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Runner type to be used."
+          },
+          "runner_label": {
+            "type": "string",
+            "description": "Runner label to be used if the runner type is labeled.",
+            "nullable": true,
+            "example": "code-scanning"
+          },
+          "languages": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "csharp",
+                "go",
+                "java-kotlin",
+                "javascript-typescript",
+                "python",
+                "ruby"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "description": "Languages to be analyzed."
+          },
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Configuration for code quality setup.",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "CodeQualitySetupUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "description": "ID of the corresponding run.",
+            "format": "int64"
+          },
+          "run_url": {
+            "type": "string",
+            "description": "URL of the corresponding run."
+          }
+        },
+        "description": "You can use \u0060run_url\u0060 to track the status of the run. This includes a property status and conclusion.\nYou should not rely on this always being an actions workflow run object."
+      },
       "CodeScanningAlertItems": {
         "required": [
           "number",
@@ -89373,8 +89817,8 @@
             "description": "The Git reference, formatted as \u0060refs/pull/\u003Cnumber\u003E/merge\u0060, \u0060refs/pull/\u003Cnumber\u003E/head\u0060,\n\u0060refs/heads/\u003Cbranch name\u003E\u0060 or simply \u0060\u003Cbranch name\u003E\u0060."
           },
           "commit_sha": {
-            "maxLength": 40,
-            "pattern": "^[0-9a-fA-F]\u002B$",
+            "maxLength": 64,
+            "pattern": "^([0-9a-fA-F]{40}(?:[0-9a-fA-F]{24})?)$",
             "type": "string",
             "description": "The SHA of the commit to which the analysis you are uploading relates."
           },
@@ -97251,6 +97695,114 @@
             "properties": {
               "type": {
                 "enum": [
+                  "workflows"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "parameters": {
+                "$ref": "#/components/schemas/RepositoryRuleWorkflowsParameters"
+              },
+              "ruleset_source_type": {
+                "enum": [
+                  "Repository",
+                  "Organization"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The type of source for the ruleset that includes this rule."
+              },
+              "ruleset_source": {
+                "type": "string",
+                "description": "The name of the source of the ruleset that includes this rule."
+              },
+              "ruleset_id": {
+                "type": "integer",
+                "description": "The ID of the ruleset that includes this rule.",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "code_scanning"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "parameters": {
+                "$ref": "#/components/schemas/RepositoryRuleCodeScanningParameters"
+              },
+              "ruleset_source_type": {
+                "enum": [
+                  "Repository",
+                  "Organization"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The type of source for the ruleset that includes this rule."
+              },
+              "ruleset_source": {
+                "type": "string",
+                "description": "The name of the source of the ruleset that includes this rule."
+              },
+              "ruleset_id": {
+                "type": "integer",
+                "description": "The ID of the ruleset that includes this rule.",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "copilot_code_review"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "parameters": {
+                "$ref": "#/components/schemas/RepositoryRuleCopilotCodeReviewParameters"
+              },
+              "ruleset_source_type": {
+                "enum": [
+                  "Repository",
+                  "Organization"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The type of source for the ruleset that includes this rule."
+              },
+              "ruleset_source": {
+                "type": "string",
+                "description": "The name of the source of the ruleset that includes this rule."
+              },
+              "ruleset_id": {
+                "type": "integer",
+                "description": "The ID of the ruleset that includes this rule.",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
                   "file_path_restriction"
                 ],
                 "type": "string",
@@ -97366,114 +97918,6 @@
               },
               "parameters": {
                 "$ref": "#/components/schemas/RepositoryRuleMaxFileSizeParameters"
-              },
-              "ruleset_source_type": {
-                "enum": [
-                  "Repository",
-                  "Organization"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "description": "The type of source for the ruleset that includes this rule."
-              },
-              "ruleset_source": {
-                "type": "string",
-                "description": "The name of the source of the ruleset that includes this rule."
-              },
-              "ruleset_id": {
-                "type": "integer",
-                "description": "The ID of the ruleset that includes this rule.",
-                "format": "int64"
-              }
-            }
-          },
-          {
-            "required": [
-              "type"
-            ],
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": [
-                  "workflows"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "parameters": {
-                "$ref": "#/components/schemas/RepositoryRuleWorkflowsParameters"
-              },
-              "ruleset_source_type": {
-                "enum": [
-                  "Repository",
-                  "Organization"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "description": "The type of source for the ruleset that includes this rule."
-              },
-              "ruleset_source": {
-                "type": "string",
-                "description": "The name of the source of the ruleset that includes this rule."
-              },
-              "ruleset_id": {
-                "type": "integer",
-                "description": "The ID of the ruleset that includes this rule.",
-                "format": "int64"
-              }
-            }
-          },
-          {
-            "required": [
-              "type"
-            ],
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": [
-                  "code_scanning"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "parameters": {
-                "$ref": "#/components/schemas/RepositoryRuleCodeScanningParameters"
-              },
-              "ruleset_source_type": {
-                "enum": [
-                  "Repository",
-                  "Organization"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "description": "The type of source for the ruleset that includes this rule."
-              },
-              "ruleset_source": {
-                "type": "string",
-                "description": "The name of the source of the ruleset that includes this rule."
-              },
-              "ruleset_id": {
-                "type": "integer",
-                "description": "The ID of the ruleset that includes this rule.",
-                "format": "int64"
-              }
-            }
-          },
-          {
-            "required": [
-              "type"
-            ],
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": [
-                  "copilot_code_review"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "parameters": {
-                "$ref": "#/components/schemas/RepositoryRuleCopilotCodeReviewParameters"
               },
               "ruleset_source_type": {
                 "enum": [
@@ -143187,6 +143631,53 @@
           }
         }
       },
+      "RepositoryRuleWorkflowsParameters": {
+        "required": [
+          "workflows"
+        ],
+        "type": "object",
+        "properties": {
+          "do_not_enforce_on_create": {
+            "type": "boolean",
+            "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
+          },
+          "workflows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepositoryRuleParamsWorkflowFileReference"
+            },
+            "description": "Workflows that must pass for this rule to pass."
+          }
+        }
+      },
+      "RepositoryRuleCodeScanningParameters": {
+        "required": [
+          "code_scanning_tools"
+        ],
+        "type": "object",
+        "properties": {
+          "code_scanning_tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepositoryRuleParamsCodeScanningTool"
+            },
+            "description": "Tools that must provide code scanning results for this rule to pass."
+          }
+        }
+      },
+      "RepositoryRuleCopilotCodeReviewParameters": {
+        "type": "object",
+        "properties": {
+          "review_draft_pull_requests": {
+            "type": "boolean",
+            "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
+          },
+          "review_on_push": {
+            "type": "boolean",
+            "description": "Copilot automatically reviews each new push to the pull request."
+          }
+        }
+      },
       "RepositoryRuleFilePathRestrictionParameters": {
         "required": [
           "restricted_file_paths"
@@ -143242,53 +143733,6 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS)."
-          }
-        }
-      },
-      "RepositoryRuleWorkflowsParameters": {
-        "required": [
-          "workflows"
-        ],
-        "type": "object",
-        "properties": {
-          "do_not_enforce_on_create": {
-            "type": "boolean",
-            "description": "Allow repositories and branches to be created if a check would otherwise prohibit it."
-          },
-          "workflows": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RepositoryRuleParamsWorkflowFileReference"
-            },
-            "description": "Workflows that must pass for this rule to pass."
-          }
-        }
-      },
-      "RepositoryRuleCodeScanningParameters": {
-        "required": [
-          "code_scanning_tools"
-        ],
-        "type": "object",
-        "properties": {
-          "code_scanning_tools": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RepositoryRuleParamsCodeScanningTool"
-            },
-            "description": "Tools that must provide code scanning results for this rule to pass."
-          }
-        }
-      },
-      "RepositoryRuleCopilotCodeReviewParameters": {
-        "type": "object",
-        "properties": {
-          "review_draft_pull_requests": {
-            "type": "boolean",
-            "description": "Copilot automatically reviews draft pull requests before they are marked as ready for review."
-          },
-          "review_on_push": {
-            "type": "boolean",
-            "description": "Copilot automatically reviews each new push to the pull request."
           }
         }
       },
@@ -253777,6 +254221,10 @@
           "base_ref": {
             "type": "string",
             "description": "Base ref for new branch/PR"
+          },
+          "head_ref": {
+            "type": "string",
+            "description": "Head ref for existing branch/PR. If provided with \u0060base_ref\u0060, the agent looks up open PR context for \u0060head_ref\u0060 targeting \u0060base_ref\u0060 and commits to \u0060head_ref\u0060 instead of creating a new branch."
           }
         }
       },
@@ -257498,6 +257946,10 @@
                 },
                 "code_search_index_status": {
                   "$ref": "#/components/schemas/RepositoryCodeSearchIndexStatus"
+                },
+                "custom_properties": {
+                  "type": "object",
+                  "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only."
                 }
               }
             }
@@ -264698,8 +265150,8 @@
         "type": "object",
         "properties": {
           "commit_sha": {
-            "maxLength": 40,
-            "pattern": "^[0-9a-fA-F]\u002B$",
+            "maxLength": 64,
+            "pattern": "^([0-9a-fA-F]{40}(?:[0-9a-fA-F]{24})?)$",
             "type": "string",
             "description": "The SHA of the commit to which the analysis you are uploading relates."
           },
@@ -265173,6 +265625,72 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Contributor"
+        }
+      },
+      "CopilotGetCopilotCloudAgentConfiguration200": {
+        "required": [
+          "mcp_configuration",
+          "enabled_tools",
+          "require_actions_workflow_approval",
+          "is_firewall_enabled",
+          "is_firewall_recommended_allowlist_enabled",
+          "custom_allowlist"
+        ],
+        "type": "object",
+        "properties": {
+          "mcp_configuration": {
+            "type": "object",
+            "description": "The user-supplied MCP server configuration for the repository, as a free-form JSON object. This will be set to \u0060null\u0060 if no configuration has been set.\n\nThe shape of a valid MCP configuration may evolve over time, so this property is intentionally not strictly typed. Clients should not assume a fixed schema.",
+            "nullable": true
+          },
+          "enabled_tools": {
+            "required": [
+              "codeql",
+              "copilot_code_review",
+              "secret_scanning",
+              "dependency_vulnerability_checks"
+            ],
+            "type": "object",
+            "properties": {
+              "codeql": {
+                "type": "boolean",
+                "description": "Whether the CodeQL tool is enabled for the Copilot cloud agent."
+              },
+              "copilot_code_review": {
+                "type": "boolean",
+                "description": "Whether the Copilot code review tool is enabled for the Copilot cloud agent."
+              },
+              "secret_scanning": {
+                "type": "boolean",
+                "description": "Whether the secret scanning tool is enabled for the Copilot cloud agent."
+              },
+              "dependency_vulnerability_checks": {
+                "type": "boolean",
+                "description": "Whether the dependency vulnerability checks tool is enabled for the Copilot cloud agent."
+              }
+            },
+            "description": "The enabled review tools for Copilot cloud agent."
+          },
+          "require_actions_workflow_approval": {
+            "type": "boolean",
+            "description": "Whether Actions workflow approval is required for Copilot cloud agent pull requests."
+          },
+          "is_firewall_enabled": {
+            "type": "boolean",
+            "description": "Whether the firewall is enabled."
+          },
+          "is_firewall_recommended_allowlist_enabled": {
+            "type": "boolean",
+            "description": "Whether the firewall recommended allowlist is enabled."
+          },
+          "custom_allowlist": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "A custom allowlist entry, as a host or URL, that the firewall will allow the Copilot cloud agent to access."
+            },
+            "description": "A list of custom allowlist entries, as hosts or URLs, that the firewall will allow the Copilot cloud agent to access."
+          }
         }
       },
       "DependabotListAlertsForRepo200": {
@@ -269330,6 +269848,10 @@
                 },
                 "code_search_index_status": {
                   "$ref": "#/components/schemas/RepositoryCodeSearchIndexStatus"
+                },
+                "custom_properties": {
+                  "type": "object",
+                  "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only."
                 }
               }
             }
@@ -271417,6 +271939,46 @@
       },
       "gone": {
         "description": "Gone",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
+      "code_quality_forbidden_read": {
+        "description": "Response if the user is not authorized to access Code quality for this repository.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
+      "code_quality_forbidden_write": {
+        "description": "Response if the repository is archived or if Code quality is not enabled for this repository",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
+      "code_quality_conflict": {
+        "description": "Response if there is already a code quality setup configuration update in progress",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
+      "code_quality_invalid_state": {
+        "description": "Response if the configuration change cannot be made",
         "content": {
           "application/json": {
             "schema": {
@@ -278158,7 +278720,11 @@
               },
               "forks": 1,
               "open_issues": 1,
-              "watchers": 1
+              "watchers": 1,
+              "custom_properties": {
+                "environment": "production",
+                "service": "web"
+              }
             }
           ]
         }
@@ -290579,6 +291145,35 @@
           ]
         }
       },
+      "code-quality-setup": {
+        "value": {
+          "state": "configured",
+          "languages": [
+            "javascript-typescript",
+            "python"
+          ],
+          "runner_type": "standard",
+          "runner_label": null,
+          "updated_at": "2023-01-01T00:00:00Z",
+          "schedule": "weekly"
+        }
+      },
+      "code-quality-setup-update": {
+        "value": {
+          "state": "configured",
+          "languages": [
+            "javascript-typescript",
+            "python",
+            "ruby"
+          ]
+        }
+      },
+      "code-quality-setup-update-response": {
+        "value": {
+          "run_id": 42,
+          "run_url": "https://api.github.com/repos/octocat/hello-world/actions/runs/42"
+        }
+      },
       "code-scanning-alert-items": {
         "value": [
           {
@@ -302252,6 +302847,16 @@
               "node_id": "MDU6SXNzdWUzNTgwMg==",
               "number": 132,
               "title": "Line Number Indexes Beyond 20 Not Displayed",
+              "type": {
+                "id": 1,
+                "node_id": "IT_kwDNJr9H",
+                "name": "Bug",
+                "description": "An unexpected problem or behavior",
+                "color": "red",
+                "created_at": "2023-10-09T13:30:49Z",
+                "updated_at": "2024-05-30T18:20:53Z",
+                "is_enabled": true
+              },
               "user": {
                 "login": "Nick3C",
                 "id": 90254,

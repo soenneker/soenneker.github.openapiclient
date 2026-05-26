@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
         {
         }
         /// <summary>
-        /// Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.**Note:** Team collaborators listed here are teams that are defined in the organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.**Note:** Team collaborators listed here are teams that are defined in the organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/collaborators#list-collaborators-for-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse"/></returns>
@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.**Note:** When adding users as collaborators, they must already be members of the organization.When adding teams as collaborators, they must be defined in the organization.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.**Note:** When adding users as collaborators, they must already be members of the organization.When adding teams as collaborators, they must be defined in the organization.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/collaborators#add-a-collaborator-to-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator"/></returns>
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.**Note:** Team collaborators listed here are teams that are defined in the organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.**Note:** Team collaborators listed here are teams that are defined in the organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
             return requestInfo;
         }
         /// <summary>
-        /// Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.**Note:** When adding users as collaborators, they must already be members of the organization.When adding teams as collaborators, they must be defined in the organization.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.**Note:** When adding users as collaborators, they must already be members of the organization.When adding teams as collaborators, they must be defined in the organization.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

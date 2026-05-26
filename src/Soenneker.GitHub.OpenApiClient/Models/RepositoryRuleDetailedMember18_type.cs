@@ -8,9 +8,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public enum RepositoryRuleDetailedMember18_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "file_extension_restriction")]
+        [EnumMember(Value = "copilot_code_review")]
         #pragma warning disable CS1591
-        File_extension_restriction,
+        Copilot_code_review,
         #pragma warning restore CS1591
     }
 }

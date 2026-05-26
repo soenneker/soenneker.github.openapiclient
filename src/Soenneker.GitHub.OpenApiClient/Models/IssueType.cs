@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// The type of issue.
+    /// The type assigned to the issue. This is only present for issues in repositories where issue types are supported.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssueType : IAdditionalDataHolder, IParsable

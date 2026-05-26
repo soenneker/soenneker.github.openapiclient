@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters? Parameters { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters Parameters { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters Parameters { get; set; }
 #endif
         /// <summary>The ID of the ruleset that includes this rule.</summary>
         public long? RulesetId { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters.CreateFromDiscriminatorValue); } },
                 { "ruleset_id", n => { RulesetId = n.GetLongValue(); } },
                 { "ruleset_source", n => { RulesetSource = n.GetStringValue(); } },
                 { "ruleset_source_type", n => { RulesetSourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22_ruleset_source_type>(); } },
@@ -75,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters>("parameters", Parameters);
             writer.WriteLongValue("ruleset_id", RulesetId);
             writer.WriteStringValue("ruleset_source", RulesetSource);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedMember22_ruleset_source_type>("ruleset_source_type", RulesetSourceType);

@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
-using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Archive;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Codespaces;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Comments;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Commits;
@@ -26,11 +25,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPull_numberItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The archive property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Archive.ArchiveRequestBuilder Archive
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Archive.ArchiveRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The codespaces property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Codespaces.CodespacesRequestBuilder Codespaces
         {

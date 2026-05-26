@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item
         {
         }
         /// <summary>
-        /// Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.Organization members with appropriate permissions can delete Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need both the `read:org` and `repo` scopes to use this endpoint.
+        /// Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.Organization members with appropriate permissions can delete Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need both the `read:org` and `repo` scopes to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/copilot-spaces#delete-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.Internal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.Internal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/copilot-spaces#get-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace"/></returns>
@@ -98,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.Organization members with appropriate permissions can update Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.Organization members with appropriate permissions can update Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including any being added or updated.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/copilot-spaces#set-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace"/></returns>
@@ -128,7 +128,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.Organization members with appropriate permissions can delete Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need both the `read:org` and `repo` scopes to use this endpoint.
+        /// Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.**Warning:** This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.Organization members with appropriate permissions can delete Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need both the `read:org` and `repo` scopes to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item
             return requestInfo;
         }
         /// <summary>
-        /// Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.Internal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.Internal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.Organization members with appropriate permissions can update Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.Organization members with appropriate permissions can update Copilot Spaces owned by their organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including any being added or updated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

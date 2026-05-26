@@ -8,9 +8,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public enum RepositoryRuleDetailedMember16_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "file_path_restriction")]
+        [EnumMember(Value = "workflows")]
         #pragma warning disable CS1591
-        File_path_restriction,
+        Workflows,
         #pragma warning restore CS1591
     }
 }

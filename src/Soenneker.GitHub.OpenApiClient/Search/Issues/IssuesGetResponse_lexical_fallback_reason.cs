@@ -36,5 +36,9 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         #pragma warning disable CS1591
         Only_non_semantic_fields_requested,
         #pragma warning restore CS1591
+        [EnumMember(Value = "service_unavailable")]
+        #pragma warning disable CS1591
+        Service_unavailable,
+        #pragma warning restore CS1591
     }
 }

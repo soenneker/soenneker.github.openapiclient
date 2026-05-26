@@ -7,6 +7,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AppPermissions_organization_copilot_seat_management
     {
+        [EnumMember(Value = "read")]
+        #pragma warning disable CS1591
+        Read,
+        #pragma warning restore CS1591
         [EnumMember(Value = "write")]
         #pragma warning disable CS1591
         Write,

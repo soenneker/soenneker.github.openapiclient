@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.
         {
         }
         /// <summary>
-        /// Deletes a resource from a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Deletes a resource from a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#delete-a-resource-from-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a specific resource attached to a Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Gets a specific resource attached to a Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#get-a-resource-for-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource"/></returns>
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the metadata of a resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Updates the metadata of a resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being updated.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#set-a-resource-for-an-organization-copilot-space" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource"/></returns>
@@ -116,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a resource from a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Deletes a resource from a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.
             return requestInfo;
         }
         /// <summary>
-        /// Gets a specific resource attached to a Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.
+        /// Gets a specific resource attached to a Copilot Space owned by an organization.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -154,7 +154,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Resources.
             return requestInfo;
         }
         /// <summary>
-        /// Updates the metadata of a resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.
+        /// Updates the metadata of a resource in a specific Copilot Space owned by an organization.The authenticated user must have write permissions on the space.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being updated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

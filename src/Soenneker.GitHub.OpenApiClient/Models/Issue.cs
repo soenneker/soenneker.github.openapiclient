@@ -249,7 +249,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Title { get; set; }
 #endif
-        /// <summary>The type of issue.</summary>
+        /// <summary>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.IssueType? Type { get; set; }
