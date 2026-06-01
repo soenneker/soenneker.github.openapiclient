@@ -36,6 +36,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Events;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Forks;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Generate;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.HashAlgorithm;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Installation;
@@ -245,6 +246,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.GitRequestBuilder Git
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.GitRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The hashAlgorithm property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.HashAlgorithm.HashAlgorithmRequestBuilder HashAlgorithm
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.HashAlgorithm.HashAlgorithmRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The hooks property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks.HooksRequestBuilder Hooks

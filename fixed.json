@@ -1593,7 +1593,7 @@
           "apps"
         ],
         "summary": "Create an installation access token for an app",
-        "description": "Creates an installation access token that enables a GitHub App to make authenticated API requests for the app\u0027s installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of \u0060401 - Unauthorized\u0060, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access.\n\nOptionally, you can use the \u0060repositories\u0060 or \u0060repository_ids\u0060 body parameters to specify individual repositories that the installation access token can access. If you don\u0027t use \u0060repositories\u0060 or \u0060repository_ids\u0060 to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. Up to 500 repositories can be listed in this manner.\n\nOptionally, use the \u0060permissions\u0060 body parameter to specify the permissions that the installation access token should have. If \u0060permissions\u0060 is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.\n\nYou must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
+        "description": "Creates an installation access token that enables a GitHub App to make authenticated API requests for the app\u0027s installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of \u0060401 - Unauthorized\u0060, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access.\n\n\u003E [!NOTE]\n\u003E Starting April 27, 2026, GitHub began a staged rollout of a stateless format (\u0060ghs_APPID_JWT\u0060) to all newly minted GitHub App installation tokens, making them more performant and improving the reliability of our API surface. If your application expects or relies on installation tokens being exactly 40 characters long, it may not handle this new token format correctly. You can now validate your apps and workflows using a temporary request header that lets you enable the token format on demand. For more information about the temporary header, see [the GitHub blog](https://github.blog/changelog/2026-05-15-github-app-installation-tokens-per-request-override-header).\n\nOptionally, you can use the \u0060repositories\u0060 or \u0060repository_ids\u0060 body parameters to specify individual repositories that the installation access token can access. If you don\u0027t use \u0060repositories\u0060 or \u0060repository_ids\u0060 to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. Up to 500 repositories can be listed in this manner.\n\nOptionally, use the \u0060permissions\u0060 body parameter to specify the permissions that the installation access token should have. If \u0060permissions\u0060 is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.\n\nYou must use a [JWT](https://docs.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/apps/apps#create-an-installation-access-token-for-an-app"
@@ -24898,6 +24898,9 @@
             "$ref": "#/components/parameters/rule-suite-result"
           },
           {
+            "$ref": "#/components/parameters/evaluate-status"
+          },
+          {
             "$ref": "#/components/parameters/per-page"
           },
           {
@@ -42818,6 +42821,53 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/hash-algorithm": {
+      "get": {
+        "tags": [
+          "repos"
+        ],
+        "summary": "Get the hash algorithm for a repository",
+        "description": "Returns the hash algorithm used to store repository objects.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/repos/repos#get-the-hash-algorithm-for-a-repository"
+        },
+        "operationId": "repos-get-hash-algorithm",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryHashAlgorithm"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "hash_algorithm": "sha1"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/hooks": {
       "get": {
         "tags": [
@@ -51682,6 +51732,9 @@
           },
           {
             "$ref": "#/components/parameters/rule-suite-result"
+          },
+          {
+            "$ref": "#/components/parameters/evaluate-status"
           },
           {
             "$ref": "#/components/parameters/per-page"
@@ -74361,6 +74414,12 @@
           },
           "ephemeral": {
             "type": "boolean"
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+            "nullable": true,
+            "example": "2.323.0"
           }
         },
         "description": "A self hosted runner"
@@ -82172,6 +82231,33 @@
           }
         },
         "description": "Commits pushed to matching refs must have verified signatures."
+      },
+      "RepositoryRuleParamsActor": {
+        "title": "Actor",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID of the actor that can dismiss reviews.",
+            "format": "int64"
+          },
+          "type": {
+            "enum": [
+              "User",
+              "Team",
+              "IntegrationInstallation",
+              "RepositoryRole"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the actor"
+          }
+        },
+        "description": "An actor allowed to dismiss pull request reviews"
       },
       "RepositoryRuleParamsReviewer": {
         "title": "Reviewer",
@@ -93286,6 +93372,26 @@
           }
         },
         "description": "The hierarchy between files in a Git repository."
+      },
+      "RepositoryHashAlgorithm": {
+        "title": "Repository hash algorithm",
+        "required": [
+          "hash_algorithm"
+        ],
+        "type": "object",
+        "properties": {
+          "hash_algorithm": {
+            "enum": [
+              "sha1",
+              "sha256"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The Git hash algorithm used by this repository.",
+            "example": "sha1"
+          }
+        },
+        "description": "Repository hash algorithm"
       },
       "HookResponse": {
         "title": "Hook Response",
@@ -273298,6 +273404,21 @@
           "default": "all"
         }
       },
+      "evaluate-status": {
+        "name": "evaluate_status",
+        "in": "query",
+        "description": "The evaluate status to filter on. When specified, only rule suites resulting from rulesets with the specified evaluate status will be returned.\n  - \u0060all\u0060 - all rule suites will be returned.\n  - \u0060active\u0060 - only rule suites resulting from rulesets in active (non-evaluate) mode will be returned.\n  - \u0060evaluate\u0060 - only rule suites resulting from rulesets in evaluate mode will be returned.",
+        "schema": {
+          "enum": [
+            "all",
+            "active",
+            "evaluate"
+          ],
+          "type": "string",
+          "additionalProperties": false,
+          "default": "all"
+        }
+      },
       "rule-suite-id": {
         "name": "rule_suite_id",
         "in": "path",
@@ -280468,6 +280589,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -280493,6 +280615,7 @@
               "status": "offline",
               "busy": false,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -280607,6 +280730,7 @@
           "status": "online",
           "busy": true,
           "ephemeral": false,
+          "version": "2.323.0",
           "labels": [
             {
               "id": 5,

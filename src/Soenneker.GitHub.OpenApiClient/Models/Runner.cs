@@ -55,6 +55,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
+        /// <summary>The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Version { get; set; }
+#nullable restore
+#else
+        public string Version { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Runner"/> and sets the default values.
         /// </summary>
@@ -88,6 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "os", n => { Os = n.GetStringValue(); } },
                 { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -105,6 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("os", Os);
             writer.WriteLongValue("runner_group_id", RunnerGroupId);
             writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
