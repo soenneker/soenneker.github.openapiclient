@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
     public partial class AdvisoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.advisories.item collection</summary>
-        /// <param name="position">The GHSA (GitHub Security Advisory) identifier of the advisory.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsa_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsa_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsaItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsaItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("ghsa_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsa_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("ghsaId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsaItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -159,7 +159,7 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>If specified, only advisories for these ecosystems will be returned.</summary>
             [QueryParameter("ecosystem")]
             public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems? Ecosystem { get; set; }
@@ -221,13 +221,13 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
 #endif
             /// <summary>If specified, only advisories with these severities will be returned.</summary>
             [QueryParameter("severity")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetSeverityQueryParameterType? Severity { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListGlobalAdvisoriesSeverityParameter? Severity { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListGlobalAdvisoriesSortParameter? Sort { get; set; }
             /// <summary>If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.GitHub.OpenApiClient.Advisories.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListGlobalAdvisoriesTypeParameter? Type { get; set; }
             /// <summary>If specified, only return advisories that were updated on a date or date range.For more information on the syntax of the date range, see &quot;[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

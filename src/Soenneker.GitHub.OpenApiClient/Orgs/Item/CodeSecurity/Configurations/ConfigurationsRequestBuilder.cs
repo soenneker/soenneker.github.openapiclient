@@ -31,15 +31,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Detach.DetachRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.codeSecurity.configurations.item collection</summary>
-        /// <param name="position">The unique identifier of the code security configuration.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("configuration_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("configurationId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -95,11 +95,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -133,11 +133,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -187,7 +187,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations
             public int? PerPage { get; set; }
             /// <summary>The target type of the code security configuration</summary>
             [QueryParameter("target_type")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeSecurity.Configurations.GetTarget_typeQueryParameterType? TargetType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityGetConfigurationsForOrgTargetTypeParameter? TargetType { get; set; }
         }
     }
 }

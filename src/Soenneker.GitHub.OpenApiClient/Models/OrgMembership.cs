@@ -50,9 +50,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions Permissions { get; set; }
 #endif
         /// <summary>The user&apos;s membership type in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_role? Role { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipRole? Role { get; set; }
         /// <summary>The state of the member in the organization. The `pending` state indicates the user has not yet accepted an invitation.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState? State { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,8 +99,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple.CreateFromDiscriminatorValue); } },
                 { "organization_url", n => { OrganizationUrl = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_role>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_state>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipRole>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
             };
@@ -117,8 +117,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>("organization", Organization);
             writer.WriteStringValue("organization_url", OrganizationUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions>("permissions", Permissions);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_role>("role", Role);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembership_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipState>("state", State);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);

@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string SubmoduleGitUrl { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmodule_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmoduleType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,7 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "sha", n => { Sha = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetIntValue(); } },
                 { "submodule_git_url", n => { SubmoduleGitUrl = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmodule_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmoduleType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -145,7 +145,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("sha", Sha);
             writer.WriteIntValue("size", Size);
             writer.WriteStringValue("submodule_git_url", SubmoduleGitUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmodule_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmoduleType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

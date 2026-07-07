@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The size property</summary>
         public int? Size { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,7 +124,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -144,7 +144,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("sha", Sha);
             writer.WriteIntValue("size", Size);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

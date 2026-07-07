@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Whether this rule targets a branch or tag</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithType_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithTypeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithType"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithType_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithTypeType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithType_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyNamePatternWithTypeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

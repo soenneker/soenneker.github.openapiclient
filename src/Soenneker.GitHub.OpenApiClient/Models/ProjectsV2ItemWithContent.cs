@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The content of the item, which varies by content type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_content? Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_content Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent Content { get; set; }
 #endif
         /// <summary>The type of content tracked in a project item</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType? ContentType { get; set; }
@@ -40,10 +40,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The fields and values associated with this item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_fields>? Fields { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentFieldsItemProperty>? Fields { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_fields> Fields { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentFieldsItemProperty> Fields { get; set; }
 #endif
         /// <summary>The unique identifier of the project item.</summary>
         public double? Id { get; set; }
@@ -99,11 +99,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived_at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_content>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent.CreateFromDiscriminatorValue); } },
                 { "content_type", n => { ContentType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_fields>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_fields.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentFieldsItemProperty>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentFieldsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
                 { "item_url", n => { ItemUrl = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -119,11 +119,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("archived_at", ArchivedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent>("content", Content);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType>("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("creator", Creator);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContent_fields>("fields", Fields);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentFieldsItemProperty>("fields", Fields);
             writer.WriteDoubleValue("id", Id);
             writer.WriteStringValue("item_url", ItemUrl);
             writer.WriteStringValue("node_id", NodeId);

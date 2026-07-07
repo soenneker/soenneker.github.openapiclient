@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\teams\{team_slug}\members
+    /// Builds and executes requests for operations under \orgs\{org}\teams\{teamSlug}\members
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembersRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{team_slug}/members{?page*,per_page*,role*}", pathParameters)
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{teamSlug}/members{?page*,per_page*,role*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{team_slug}/members{?page*,per_page*,role*}", rawUrl)
+        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{teamSlug}/members{?page*,per_page*,role*}", rawUrl)
         {
         }
         /// <summary>
-        /// Team members will include the members of child teams.To list members in a team, the team must be visible to the authenticated user.
+        /// Team members will include the members of child teams.Each member includes their `role` on the team (`member` or `maintainer`) and an `inherited` flag indicating whether the membership is inherited from a child team (`true`) or is a direct membership (`false`). These fields let you read a member&apos;s role and direct/inherited status without additional requests.To list members in a team, the team must be visible to the authenticated user.
         /// API method documentation <see href="https://docs.github.com/rest/teams/members#list-team-members" />
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.TeamMember&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.TeamMember>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.TeamMember>> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.TeamMember>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.TeamMember.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Team members will include the members of child teams.To list members in a team, the team must be visible to the authenticated user.
+        /// Team members will include the members of child teams.Each member includes their `role` on the team (`member` or `maintainer`) and an `inherited` flag indicating whether the membership is inherited from a child team (`true`) or is a direct membership (`false`). These fields let you read a member&apos;s role and direct/inherited status without additional requests.To list members in a team, the team must be visible to the authenticated user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members.MembersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Team members will include the members of child teams.To list members in a team, the team must be visible to the authenticated user.
+        /// Team members will include the members of child teams.Each member includes their `role` on the team (`member` or `maintainer`) and an `inherited` flag indicating whether the membership is inherited from a child team (`true`) or is a direct membership (`false`). These fields let you read a member&apos;s role and direct/inherited status without additional requests.To list members in a team, the team must be visible to the authenticated user.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembersRequestBuilderGetQueryParameters 
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members
             public int? PerPage { get; set; }
             /// <summary>Filters members returned by their role in the team.</summary>
             [QueryParameter("role")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Members.GetRoleQueryParameterType? Role { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.TeamsListMembersInOrgRoleParameter? Role { get; set; }
         }
     }
 }

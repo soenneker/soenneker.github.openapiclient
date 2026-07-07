@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.marketplace_listing.stubbed.accounts.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccountItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccountItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("account_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccount_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("accountId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Accounts.Item.WithAccountItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

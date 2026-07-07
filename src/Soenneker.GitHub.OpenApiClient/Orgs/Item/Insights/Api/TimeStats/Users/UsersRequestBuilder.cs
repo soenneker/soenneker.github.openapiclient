@@ -16,15 +16,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users
     public partial class UsersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.insights.api.timeStats.users.item collection</summary>
-        /// <param name="position">The ID of the user to query for stats</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.Item.WithUser_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.Item.WithUser_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.Item.WithUserItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.Item.WithUserItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("user_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.Item.WithUser_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("userId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.Item.WithUserItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

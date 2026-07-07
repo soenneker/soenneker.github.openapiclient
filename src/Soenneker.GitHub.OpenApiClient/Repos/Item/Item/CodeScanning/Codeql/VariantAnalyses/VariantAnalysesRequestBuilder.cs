@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.Var
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.codeScanning.codeql.variantAnalyses.item collection</summary>
         /// <param name="position">The unique identifier of the variant analysis.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.VariantAnalyses.Item.WithCodeql_variant_analysis_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.VariantAnalyses.Item.WithCodeql_variant_analysis_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.VariantAnalyses.Item.WithCodeqlVariantAnalysisItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.VariantAnalyses.Item.WithCodeqlVariantAnalysisItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("codeql_variant_analysis_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.VariantAnalyses.Item.WithCodeql_variant_analysis_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("codeqlVariantAnalysisId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.VariantAnalyses.Item.WithCodeqlVariantAnalysisItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -56,14 +56,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.Var
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysis body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysis body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.Var
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis503Error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -84,11 +84,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql.Var
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysis body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysis body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningCreateVariantAnalysisRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

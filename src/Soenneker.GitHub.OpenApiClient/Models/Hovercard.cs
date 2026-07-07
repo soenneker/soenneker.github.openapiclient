@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The contexts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Hovercard_contexts>? Contexts { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.HovercardContextsItem>? Contexts { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Hovercard_contexts> Contexts { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.HovercardContextsItem> Contexts { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Hovercard"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "contexts", n => { Contexts = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Hovercard_contexts>(global::Soenneker.GitHub.OpenApiClient.Models.Hovercard_contexts.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "contexts", n => { Contexts = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.HovercardContextsItem>(global::Soenneker.GitHub.OpenApiClient.Models.HovercardContextsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Hovercard_contexts>("contexts", Contexts);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.HovercardContextsItem>("contexts", Contexts);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

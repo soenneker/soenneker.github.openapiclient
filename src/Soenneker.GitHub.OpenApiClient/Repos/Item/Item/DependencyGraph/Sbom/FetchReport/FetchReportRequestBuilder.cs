@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.Fe
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.dependencyGraph.sbom.fetchReport.item collection</summary>
         /// <param name="position">The unique identifier of the SBOM export.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.Item.WithSbom_uuItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.Item.WithSbom_uuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.Item.WithSbomUuItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.Item.WithSbomUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("sbom_uuid", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.Item.WithSbom_uuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("sbomUuid", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.FetchReport.Item.WithSbomUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

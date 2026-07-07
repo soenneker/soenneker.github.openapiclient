@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Packages.Item.Item.Restore
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\packages\{package_type}\{package_name}\restore
+    /// Builds and executes requests for operations under \orgs\{org}\packages\{packageType}\{packageName}\restore
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RestoreRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Packages.Item.Item.Restore
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RestoreRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/packages/{package_type}/{package_name}/restore{?token*}", pathParameters)
+        public RestoreRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/packages/{packageType}/{packageName}/restore{?token*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Packages.Item.Item.Restore
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RestoreRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/packages/{package_type}/{package_name}/restore{?token*}", rawUrl)
+        public RestoreRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/packages/{packageType}/{packageName}/restore{?token*}", rawUrl)
         {
         }
         /// <summary>

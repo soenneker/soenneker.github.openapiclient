@@ -120,10 +120,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_custom_properties? CustomProperties { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryCustomPropertiesProperty? CustomProperties { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_custom_properties CustomProperties { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryCustomPropertiesProperty CustomProperties { get; set; }
 #endif
         /// <summary>The default_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -324,10 +324,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The license property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_license? License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryLicense? License { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_license License { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryLicense License { get; set; }
 #endif
         /// <summary>The merges_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -402,7 +402,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The private property</summary>
         public bool? Private { get; set; }
         /// <summary>&quot;The policy controlling who can create pull requests: all or collaborators_only.&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_pull_request_creation_policy? PullRequestCreationPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryPullRequestCreationPolicy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -595,7 +595,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "contents_url", n => { ContentsUrl = n.GetStringValue(); } },
                 { "contributors_url", n => { ContributorsUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "custom_properties", n => { CustomProperties = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_custom_properties>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_custom_properties.CreateFromDiscriminatorValue); } },
+                { "custom_properties", n => { CustomProperties = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryCustomPropertiesProperty>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryCustomPropertiesProperty.CreateFromDiscriminatorValue); } },
                 { "default_branch", n => { DefaultBranch = n.GetStringValue(); } },
                 { "delete_branch_on_merge", n => { DeleteBranchOnMerge = n.GetBoolValue(); } },
                 { "deployments_url", n => { DeploymentsUrl = n.GetStringValue(); } },
@@ -631,7 +631,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
-                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_license>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_license.CreateFromDiscriminatorValue); } },
+                { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryLicense>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryLicense.CreateFromDiscriminatorValue); } },
                 { "merges_url", n => { MergesUrl = n.GetStringValue(); } },
                 { "milestones_url", n => { MilestonesUrl = n.GetStringValue(); } },
                 { "mirror_url", n => { MirrorUrl = n.GetStringValue(); } },
@@ -644,7 +644,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
-                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_pull_request_creation_policy>(); } },
+                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryPullRequestCreationPolicy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "releases_url", n => { ReleasesUrl = n.GetStringValue(); } },
@@ -694,7 +694,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("contents_url", ContentsUrl);
             writer.WriteStringValue("contributors_url", ContributorsUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_custom_properties>("custom_properties", CustomProperties);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryCustomPropertiesProperty>("custom_properties", CustomProperties);
             writer.WriteStringValue("default_branch", DefaultBranch);
             writer.WriteBoolValue("delete_branch_on_merge", DeleteBranchOnMerge);
             writer.WriteStringValue("deployments_url", DeploymentsUrl);
@@ -730,7 +730,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("languages_url", LanguagesUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_license>("license", License);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryLicense>("license", License);
             writer.WriteStringValue("merges_url", MergesUrl);
             writer.WriteStringValue("milestones_url", MilestonesUrl);
             writer.WriteStringValue("mirror_url", MirrorUrl);
@@ -743,7 +743,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepositoryPullRequestCreationPolicy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("releases_url", ReleasesUrl);

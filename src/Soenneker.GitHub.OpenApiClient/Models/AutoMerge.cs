@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser EnabledBy { get; set; }
 #endif
         /// <summary>The merge method to use.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge_merge_method? MergeMethod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod? MergeMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_message", n => { CommitMessage = n.GetStringValue(); } },
                 { "commit_title", n => { CommitTitle = n.GetStringValue(); } },
                 { "enabled_by", n => { EnabledBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge_merge_method>(); } },
+                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commit_message", CommitMessage);
             writer.WriteStringValue("commit_title", CommitTitle);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("enabled_by", EnabledBy);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge_merge_method>("merge_method", MergeMethod);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod>("merge_method", MergeMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

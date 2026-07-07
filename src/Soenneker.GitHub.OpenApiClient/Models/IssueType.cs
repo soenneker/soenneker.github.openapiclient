@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The color of the issue type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueType_color? Color { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeColor? Color { get; set; }
         /// <summary>The time the issue type created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The description of the issue type.</summary>
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueType_color>(); } },
+                { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeColor>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
@@ -91,7 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueType_color>("color", Color);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeColor>("color", Color);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("id", Id);

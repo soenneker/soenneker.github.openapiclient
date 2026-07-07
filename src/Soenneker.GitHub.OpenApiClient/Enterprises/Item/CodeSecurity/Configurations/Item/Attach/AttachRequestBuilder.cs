@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Attach
 {
     /// <summary>
-    /// Builds and executes requests for operations under \enterprises\{enterprise}\code-security\configurations\{configuration_id}\attach
+    /// Builds and executes requests for operations under \enterprises\{enterprise}\code-security\configurations\{configurationId}\attach
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AttachRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AttachRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach", pathParameters)
+        public AttachRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/code-security/configurations/{configurationId}/attach", pathParameters)
         {
         }
         /// <summary>
@@ -30,14 +30,14 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AttachRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach", rawUrl)
+        public AttachRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/enterprises/{enterprise}/code-security/configurations/{configurationId}/attach", rawUrl)
         {
         }
         /// <summary>
         /// Attaches an enterprise code security configuration to repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.The authenticated user must be an administrator for the enterprise to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/code-security/configurations#attach-an-enterprise-configuration-to-repositories" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Attach.AttachPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Attach.AttachPostResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Attach.AttachPostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Attach.AttachPostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.Attach.AttachPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Attaches an enterprise code security configuration to repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.The authenticated user must be an administrator for the enterprise to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.
@@ -71,11 +71,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityAttachEnterpriseConfigurationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

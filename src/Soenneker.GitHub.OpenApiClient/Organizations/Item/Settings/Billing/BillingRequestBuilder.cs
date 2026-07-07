@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Ai_credit;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Premium_request;
 using Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Usage;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BillingRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The ai_credit property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Ai_credit.Ai_creditRequestBuilder Ai_credit
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Ai_credit.Ai_creditRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The budgets property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.BudgetsRequestBuilder Budgets
         {

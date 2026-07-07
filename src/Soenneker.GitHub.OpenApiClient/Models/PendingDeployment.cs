@@ -28,10 +28,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment_reviewers>? Reviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem>? Reviewers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment_reviewers> Reviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem> Reviewers { get; set; }
 #endif
         /// <summary>The set duration of the wait timer</summary>
         public int? WaitTimer { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "current_user_can_approve", n => { CurrentUserCanApprove = n.GetBoolValue(); } },
                 { "environment", n => { Environment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment>(global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment.CreateFromDiscriminatorValue); } },
-                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment_reviewers>(global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment_reviewers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem>(global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "wait_timer", n => { WaitTimer = n.GetIntValue(); } },
                 { "wait_timer_started_at", n => { WaitTimerStartedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("current_user_can_approve", CurrentUserCanApprove);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment>("environment", Environment);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment_reviewers>("reviewers", Reviewers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem>("reviewers", Reviewers);
             writer.WriteIntValue("wait_timer", WaitTimer);
             writer.WriteDateTimeOffsetValue("wait_timer_started_at", WaitTimerStartedAt);
             writer.WriteAdditionalData(AdditionalData);

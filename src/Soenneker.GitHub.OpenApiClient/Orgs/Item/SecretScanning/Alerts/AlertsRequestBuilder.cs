@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Alerts503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSecretScanningAlert>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts.AlertsRequestBuilder.AlertsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Alerts503Error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSecretScanningAlert>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSecretScanningAlert.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>A comma-separated list of provider slugs to exclude from the results.Provider slugs use lowercase with underscores (e.g., `github_secret_scanning`, `clojars`).You can find the provider slug in the `provider_slug` field of each alert.Cannot be combined with the `providers` parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -197,10 +197,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
 #endif
             /// <summary>The property to sort the results by. `created` means when the alert was created. `updated` means when the alert was updated or resolved.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertSort? Sort { get; set; }
             /// <summary>Set to `open` or `resolved` to only list secret scanning alerts in a specific state.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertStateEnum? State { get; set; }
             /// <summary>A comma-separated list of validities that, when present, will return alerts that match the validities in this list. Valid options are `active`, `inactive`, and `unknown`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

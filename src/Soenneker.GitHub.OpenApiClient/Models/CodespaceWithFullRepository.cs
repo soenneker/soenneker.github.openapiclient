@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Last known time this codespace was started.</summary>
         public DateTimeOffset? LastUsedAt { get; set; }
         /// <summary>The initally assigned location of a new codespace.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_location? Location { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryLocation? Location { get; set; }
         /// <summary>A description of the machine powering a codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -170,7 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string StartUrl { get; set; }
 #endif
         /// <summary>State of this codespace.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryState? State { get; set; }
         /// <summary>API URL to stop this codespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -232,7 +232,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "idle_timeout_minutes", n => { IdleTimeoutMinutes = n.GetIntValue(); } },
                 { "idle_timeout_notice", n => { IdleTimeoutNotice = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
-                { "location", n => { Location = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_location>(); } },
+                { "location", n => { Location = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryLocation>(); } },
                 { "machine", n => { Machine = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine>(global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine.CreateFromDiscriminatorValue); } },
                 { "machines_url", n => { MachinesUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -248,7 +248,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "retention_period_minutes", n => { RetentionPeriodMinutes = n.GetIntValue(); } },
                 { "runtime_constraints", n => { RuntimeConstraints = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryRuntimeConstraints>(global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryRuntimeConstraints.CreateFromDiscriminatorValue); } },
                 { "start_url", n => { StartUrl = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryState>(); } },
                 { "stop_url", n => { StopUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -272,7 +272,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("idle_timeout_minutes", IdleTimeoutMinutes);
             writer.WriteStringValue("idle_timeout_notice", IdleTimeoutNotice);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_location>("location", Location);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryLocation>("location", Location);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine>("machine", Machine);
             writer.WriteStringValue("machines_url", MachinesUrl);
             writer.WriteStringValue("name", Name);
@@ -288,7 +288,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("retention_period_minutes", RetentionPeriodMinutes);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryRuntimeConstraints>("runtime_constraints", RuntimeConstraints);
             writer.WriteStringValue("start_url", StartUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepository_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceWithFullRepositoryState>("state", State);
             writer.WriteStringValue("stop_url", StopUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);

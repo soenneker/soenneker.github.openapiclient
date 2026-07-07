@@ -17,13 +17,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed</summary>
         public int? CheckResponseTimeoutMinutes { get; set; }
         /// <summary>When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group, i.e. the commit containing changes from all of the PRs in the group, must pass its required checks to merge.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters_grouping_strategy? GroupingStrategy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy? GroupingStrategy { get; set; }
         /// <summary>Limit the number of queued pull requests requesting checks and workflow runs at the same time.</summary>
         public int? MaxEntriesToBuild { get; set; }
         /// <summary>The maximum number of PRs that will be merged together in a group.</summary>
         public int? MaxEntriesToMerge { get; set; }
         /// <summary>Method to use when merging changes from queued pull requests.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters_merge_method? MergeMethod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod? MergeMethod { get; set; }
         /// <summary>The minimum number of PRs that will be merged together in a group.</summary>
         public int? MinEntriesToMerge { get; set; }
         /// <summary>The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged.</summary>
@@ -54,10 +54,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "check_response_timeout_minutes", n => { CheckResponseTimeoutMinutes = n.GetIntValue(); } },
-                { "grouping_strategy", n => { GroupingStrategy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters_grouping_strategy>(); } },
+                { "grouping_strategy", n => { GroupingStrategy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy>(); } },
                 { "max_entries_to_build", n => { MaxEntriesToBuild = n.GetIntValue(); } },
                 { "max_entries_to_merge", n => { MaxEntriesToMerge = n.GetIntValue(); } },
-                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters_merge_method>(); } },
+                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod>(); } },
                 { "min_entries_to_merge", n => { MinEntriesToMerge = n.GetIntValue(); } },
                 { "min_entries_to_merge_wait_minutes", n => { MinEntriesToMergeWaitMinutes = n.GetIntValue(); } },
             };
@@ -70,10 +70,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("check_response_timeout_minutes", CheckResponseTimeoutMinutes);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters_grouping_strategy>("grouping_strategy", GroupingStrategy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersGroupingStrategy>("grouping_strategy", GroupingStrategy);
             writer.WriteIntValue("max_entries_to_build", MaxEntriesToBuild);
             writer.WriteIntValue("max_entries_to_merge", MaxEntriesToMerge);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParameters_merge_method>("merge_method", MergeMethod);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueueParametersMergeMethod>("merge_method", MergeMethod);
             writer.WriteIntValue("min_entries_to_merge", MinEntriesToMerge);
             writer.WriteIntValue("min_entries_to_merge_wait_minutes", MinEntriesToMergeWaitMinutes);
             writer.WriteAdditionalData(AdditionalData);

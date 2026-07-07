@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.issues.events.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEvent_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEvent_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEventItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEventItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("event_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEvent_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("eventId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.Item.WithEventItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

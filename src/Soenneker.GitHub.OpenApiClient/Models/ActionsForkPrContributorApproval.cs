@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls when fork PR workflows require approval from a maintainer.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval_approval_policy? ApprovalPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? ApprovalPolicy { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "approval_policy", n => { ApprovalPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval_approval_policy>(); } },
+                { "approval_policy", n => { ApprovalPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval_approval_policy>("approval_policy", ApprovalPolicy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy>("approval_policy", ApprovalPolicy);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The change_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_change_type? ChangeType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemChangeType? ChangeType { get; set; }
         /// <summary>The ecosystem property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string PackageUrl { get; set; }
 #endif
         /// <summary>Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_scope? Scope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemScope? Scope { get; set; }
         /// <summary>The source_repository_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,10 +77,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The vulnerabilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_vulnerabilities>? Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>? Vulnerabilities { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_vulnerabilities> Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem> Vulnerabilities { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem"/> and sets the default values.
@@ -107,16 +107,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "change_type", n => { ChangeType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_change_type>(); } },
+                { "change_type", n => { ChangeType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemChangeType>(); } },
                 { "ecosystem", n => { Ecosystem = n.GetStringValue(); } },
                 { "license", n => { License = n.GetStringValue(); } },
                 { "manifest", n => { Manifest = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "package_url", n => { PackageUrl = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_scope>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemScope>(); } },
                 { "source_repository_url", n => { SourceRepositoryUrl = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
-                { "vulnerabilities", n => { Vulnerabilities = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_vulnerabilities>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_vulnerabilities.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "vulnerabilities", n => { Vulnerabilities = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -126,16 +126,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_change_type>("change_type", ChangeType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemChangeType>("change_type", ChangeType);
             writer.WriteStringValue("ecosystem", Ecosystem);
             writer.WriteStringValue("license", License);
             writer.WriteStringValue("manifest", Manifest);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("package_url", PackageUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_scope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemScope>("scope", Scope);
             writer.WriteStringValue("source_repository_url", SourceRepositoryUrl);
             writer.WriteStringValue("version", Version);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItem_vulnerabilities>("vulnerabilities", Vulnerabilities);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphDiffItemVulnerabilitiesItem>("vulnerabilities", Vulnerabilities);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

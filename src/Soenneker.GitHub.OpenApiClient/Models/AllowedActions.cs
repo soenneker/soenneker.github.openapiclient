@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "local_only")]
         #pragma warning disable CS1591
-        Local_only,
+        LocalOnly,
         #pragma warning restore CS1591
         [EnumMember(Value = "selected")]
         #pragma warning disable CS1591

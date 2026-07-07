@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CopilotSpaceCollaborator : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1? CopilotSpaceCollaboratorMember1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1? CopilotSpaceCollaboratorAnyOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1 CopilotSpaceCollaboratorMember1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1 CopilotSpaceCollaboratorAnyOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2? CopilotSpaceCollaboratorMember2 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2? CopilotSpaceCollaboratorAnyOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2 CopilotSpaceCollaboratorMember2 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2 CopilotSpaceCollaboratorAnyOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +38,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator();
-            result.CopilotSpaceCollaboratorMember1 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1();
-            result.CopilotSpaceCollaboratorMember2 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember2();
+            result.CopilotSpaceCollaboratorAnyOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1();
+            result.CopilotSpaceCollaboratorAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2();
             return result;
         }
         /// <summary>
@@ -48,9 +48,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CopilotSpaceCollaboratorMember1 != null || CopilotSpaceCollaboratorMember2 != null)
+            if(CopilotSpaceCollaboratorAnyOf1 != null || CopilotSpaceCollaboratorAnyOf2 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CopilotSpaceCollaboratorMember1, CopilotSpaceCollaboratorMember2);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CopilotSpaceCollaboratorAnyOf1, CopilotSpaceCollaboratorAnyOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorMember1>(null, CopilotSpaceCollaboratorMember1, CopilotSpaceCollaboratorMember2);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1>(null, CopilotSpaceCollaboratorAnyOf1, CopilotSpaceCollaboratorAnyOf2);
         }
     }
 }

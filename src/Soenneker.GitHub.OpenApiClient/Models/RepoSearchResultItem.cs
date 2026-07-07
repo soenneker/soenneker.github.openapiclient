@@ -400,7 +400,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The private property</summary>
         public bool? Private { get; set; }
         /// <summary>&quot;The policy controlling who can create pull requests: all or collaborators_only.&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItem_pull_request_creation_policy? PullRequestCreationPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItemPullRequestCreationPolicy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -636,7 +636,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItemPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItemPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
-                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItem_pull_request_creation_policy>(); } },
+                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItemPullRequestCreationPolicy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "releases_url", n => { ReleasesUrl = n.GetStringValue(); } },
@@ -736,7 +736,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItemPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItem_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepoSearchResultItemPullRequestCreationPolicy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("releases_url", ReleasesUrl);

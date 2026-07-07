@@ -16,15 +16,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs
     public partial class JobsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.jobs.item collection</summary>
-        /// <param name="position">The unique identifier of the job.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJobItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJobItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("job_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("jobId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJobItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

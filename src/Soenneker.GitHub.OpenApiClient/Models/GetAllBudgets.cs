@@ -22,10 +22,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.Budget> Budgets { get; set; }
 #endif
+        /// <summary>Effective user-level budget details returned when the response is scoped with the `user` query parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget? EffectiveBudget { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget EffectiveBudget { get; set; }
+#endif
         /// <summary>Indicates if there are more pages of results available (maps to hasNextPage from billing platform)</summary>
         public bool? HasNextPage { get; set; }
         /// <summary>Total number of budgets matching the query</summary>
         public int? TotalCount { get; set; }
+        /// <summary>User login included when the response is scoped with the `user` query parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? User { get; set; }
+#nullable restore
+#else
+        public string User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets"/> and sets the default values.
         /// </summary>
@@ -52,8 +68,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "budgets", n => { Budgets = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>(global::Soenneker.GitHub.OpenApiClient.Models.Budget.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "effective_budget", n => { EffectiveBudget = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget>(global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget.CreateFromDiscriminatorValue); } },
                 { "has_next_page", n => { HasNextPage = n.GetBoolValue(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -64,8 +82,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Budget>("budgets", Budgets);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgetsEffectiveBudget>("effective_budget", EffectiveBudget);
             writer.WriteBoolValue("has_next_page", HasNextPage);
             writer.WriteIntValue("total_count", TotalCount);
+            writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

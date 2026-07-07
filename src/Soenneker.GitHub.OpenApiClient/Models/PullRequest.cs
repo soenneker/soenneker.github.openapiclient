@@ -134,10 +134,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_labels>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLabelsItem>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_labels> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLabelsItem> Labels { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -244,7 +244,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string ReviewCommentUrl { get; set; }
 #endif
         /// <summary>State of this Pull Request. Either `open` or `closed`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestState? State { get; set; }
         /// <summary>The statuses_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -326,7 +326,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_url", n => { IssueUrl = n.GetStringValue(); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_labels>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_labels.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks.CreateFromDiscriminatorValue); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "maintainer_can_modify", n => { MaintainerCanModify = n.GetBoolValue(); } },
@@ -346,7 +346,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "review_comment_url", n => { ReviewCommentUrl = n.GetStringValue(); } },
                 { "review_comments", n => { ReviewComments = n.GetIntValue(); } },
                 { "review_comments_url", n => { ReviewCommentsUrl = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestState>(); } },
                 { "statuses_url", n => { StatusesUrl = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -383,7 +383,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issue_url", IssueUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_labels>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLabelsItem>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestLinks>("_links", Links);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteBoolValue("maintainer_can_modify", MaintainerCanModify);
@@ -403,7 +403,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("review_comments", ReviewComments);
             writer.WriteStringValue("review_comments_url", ReviewCommentsUrl);
             writer.WriteStringValue("review_comment_url", ReviewCommentUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestState>("state", State);
             writer.WriteStringValue("statuses_url", StatusesUrl);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

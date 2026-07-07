@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata.StorageRecords
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\artifacts\{subject_digest}\metadata\storage-records
+    /// Builds and executes requests for operations under \orgs\{org}\artifacts\{subjectDigest}\metadata\storage-records
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StorageRecordsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata.Stora
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StorageRecordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records", pathParameters)
+        public StorageRecordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subjectDigest}/metadata/storage-records", pathParameters)
         {
         }
         /// <summary>
@@ -30,30 +30,30 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata.Stora
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StorageRecordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records", rawUrl)
+        public StorageRecordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subjectDigest}/metadata/storage-records", rawUrl)
         {
         }
         /// <summary>
-        /// List a collection of artifact storage records with a given subject digest that are associated with repositories owned by an organization.The collection of storage records returned by this endpoint is filtered according to the authenticated user&apos;s permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `content:read` permission is required.
+        /// List artifact storage records with a given subject digest for repositories owned by an organization.Results are filtered by the authenticated user&apos;s permissions; records for repositories the user cannot read are omitted. Fine-grained access tokens require the `artifact-metadata:read` permission.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/artifact-metadata#list-artifact-storage-records" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsListArtifactStorageRecords200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List a collection of artifact storage records with a given subject digest that are associated with repositories owned by an organization.The collection of storage records returned by this endpoint is filtered according to the authenticated user&apos;s permissions; if the authenticated user cannot read a repository, the attestations associated with that repository will not be included in the response. In addition, when using a fine-grained access token the `content:read` permission is required.
+        /// List artifact storage records with a given subject digest for repositories owned by an organization.Results are filtered by the authenticated user&apos;s permissions; records for repositories the user cannot read are omitted. Fine-grained access tokens require the `artifact-metadata:read` permission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

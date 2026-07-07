@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string ShortDescription { get; set; }
 #endif
         /// <summary>The current state of the project.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2State? State { get; set; }
         /// <summary>The project title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "short_description", n => { ShortDescription = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2State>(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteBoolValue("public", Public);
             writer.WriteStringValue("short_description", ShortDescription);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2State>("state", State);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -41,14 +41,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string BudgetProductSku { get; set; }
 #endif
         /// <summary>The type of scope for the budget</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudget_budget_scope? BudgetScope { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope? BudgetScope { get; set; }
         /// <summary>The type of pricing for the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType? BudgetType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType BudgetType { get; set; }
 #endif
         /// <summary>ID of the budget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,6 +60,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether to prevent additional spending once the budget is exceeded</summary>
         public bool? PreventFurtherUsage { get; set; }
+        /// <summary>The user login when the budget is scoped to a single user (`user` scope).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? User { get; set; }
+#nullable restore
+#else
+        public string User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetBudget"/> and sets the default values.
         /// </summary>
@@ -89,10 +97,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_amount", n => { BudgetAmount = n.GetIntValue(); } },
                 { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
-                { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudget_budget_scope>(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope>(); } },
+                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -106,10 +115,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("budget_amount", BudgetAmount);
             writer.WriteStringValue("budget_entity_name", BudgetEntityName);
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudget_budget_scope>("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("budget_type", BudgetType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope>("budget_scope", BudgetScope);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType>("budget_type", BudgetType);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
+            writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Ai_credit;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request;
 using Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Usage;
 using System.Collections.Generic;
@@ -11,11 +12,16 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\settings\billing
+    /// Builds and executes requests for operations under \users\{user-id}\settings\billing
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BillingRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The ai_credit property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Ai_credit.Ai_creditRequestBuilder Ai_credit
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Ai_credit.Ai_creditRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The premium_request property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing.Premium_request.Premium_requestRequestBuilder Premium_request
         {
@@ -31,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BillingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/settings/billing", pathParameters)
+        public BillingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/settings/billing", pathParameters)
         {
         }
         /// <summary>
@@ -39,7 +45,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Settings.Billing
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BillingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/settings/billing", rawUrl)
+        public BillingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/settings/billing", rawUrl)
         {
         }
     }

@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoryUrl { get; set; }
 #endif
         /// <summary>The state of the status.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatusState? State { get; set; }
         /// <summary>&quot;Closing down notice: the URL to associate with this status.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "repository_url", n => { RepositoryUrl = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatusState>(); } },
                 { "target_url", n => { TargetUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteStringValue("repository_url", RepositoryUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatusState>("state", State);
             writer.WriteStringValue("target_url", TargetUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);

@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\artifacts\{subject_digest}\metadata
+    /// Builds and executes requests for operations under \orgs\{org}\artifacts\{subjectDigest}\metadata
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MetadataRequestBuilder : BaseRequestBuilder
@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MetadataRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subject_digest}/metadata", pathParameters)
+        public MetadataRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subjectDigest}/metadata", pathParameters)
         {
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.Metadata
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MetadataRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subject_digest}/metadata", rawUrl)
+        public MetadataRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/artifacts/{subjectDigest}/metadata", rawUrl)
         {
         }
     }

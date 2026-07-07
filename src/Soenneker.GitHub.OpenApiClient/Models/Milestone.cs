@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The open_issues property</summary>
         public int? OpenIssues { get; set; }
         /// <summary>The state of the milestone.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Milestone_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MilestoneState? State { get; set; }
         /// <summary>The title of the milestone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,7 +95,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public Milestone()
         {
             AdditionalData = new Dictionary<string, object>();
-            State = global::Soenneker.GitHub.OpenApiClient.Models.Milestone_state.Open;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -127,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "open_issues", n => { OpenIssues = n.GetIntValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Milestone_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MilestoneState>(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -152,7 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("number", Number);
             writer.WriteIntValue("open_issues", OpenIssues);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Milestone_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MilestoneState>("state", State);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);

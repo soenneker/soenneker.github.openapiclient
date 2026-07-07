@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\packages\{package_type}\{package_name}\versions
+    /// Builds and executes requests for operations under \user\packages\{packageType}\{packageName}\versions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VersionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.packages.item.item.versions.item collection</summary>
-        /// <param name="position">Unique identifier of the package version.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackage_version_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackage_version_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("package_version_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackage_version_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("packageVersionId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VersionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/packages/{package_type}/{package_name}/versions{?page*,per_page*,state*}", pathParameters)
+        public VersionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/packages/{packageType}/{packageName}/versions{?page*,per_page*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VersionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/packages/{package_type}/{package_name}/versions{?page*,per_page*,state*}", rawUrl)
+        public VersionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/packages/{packageType}/{packageName}/versions{?page*,per_page*,state*}", rawUrl)
         {
         }
         /// <summary>
@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions
             public int? PerPage { get; set; }
             /// <summary>The state of the package, either active or deleted.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.PackagesGetAllPackageVersionsForPackageOwnedByAuthenticatedUserStateParameter? State { get; set; }
         }
     }
 }

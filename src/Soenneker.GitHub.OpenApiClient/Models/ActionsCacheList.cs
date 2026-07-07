@@ -16,10 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Array of caches</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheList_actions_caches>? ActionsCaches { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem>? ActionsCaches { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheList_actions_caches> ActionsCaches { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem> ActionsCaches { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actions_caches", n => { ActionsCaches = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheList_actions_caches>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheList_actions_caches.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "actions_caches", n => { ActionsCaches = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheList_actions_caches>("actions_caches", ActionsCaches);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem>("actions_caches", ActionsCaches);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

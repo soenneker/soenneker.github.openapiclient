@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string EnvironmentName { get; set; }
 #endif
         /// <summary>Whether to approve or reject deployment to the specified environments.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequired_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequiredState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequired"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "comment", n => { Comment = n.GetStringValue(); } },
                 { "environment_name", n => { EnvironmentName = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequired_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequiredState>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
             writer.WriteStringValue("environment_name", EnvironmentName);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequired_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCustomGatesStateRequiredState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

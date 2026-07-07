@@ -74,20 +74,20 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes
         /// Enables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see &quot;[Configuring Dependabot security updates](https://docs.github.com/articles/configuring-automated-security-fixes)&quot;.
         /// API method documentation <see href="https://docs.github.com/rest/repos/repos#enable-dependabot-security-updates" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson79"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson79?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson79> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPutRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.AutomatedSecurityFixes.AutomatedSecurityFixesPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson79>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson79.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Disables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see &quot;[Configuring Dependabot security updates](https://docs.github.com/articles/configuring-automated-security-fixes)&quot;.

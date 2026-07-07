@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\attestations\digest
+    /// Builds and executes requests for operations under \users\{user-id}\attestations\digest
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DigestRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.attestations.digest.item collection</summary>
         /// <param name="position">Subject Digest</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.Item.WithSubject_digestItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.Item.WithSubject_digestItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.Item.WithSubjectDigestItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.Item.WithSubjectDigestItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("subject_digest", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.Item.WithSubject_digestItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("subjectDigest", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest.Item.WithSubjectDigestItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DigestRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/attestations/digest", pathParameters)
+        public DigestRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/attestations/digest", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Digest
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DigestRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/attestations/digest", rawUrl)
+        public DigestRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/attestations/digest", rawUrl)
         {
         }
     }

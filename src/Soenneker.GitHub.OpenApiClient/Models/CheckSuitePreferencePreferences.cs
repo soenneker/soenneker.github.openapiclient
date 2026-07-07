@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The auto_trigger_checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences_auto_trigger_checks>? AutoTriggerChecks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem>? AutoTriggerChecks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences_auto_trigger_checks> AutoTriggerChecks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem> AutoTriggerChecks { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_trigger_checks", n => { AutoTriggerChecks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences_auto_trigger_checks>(global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences_auto_trigger_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "auto_trigger_checks", n => { AutoTriggerChecks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem>(global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferences_auto_trigger_checks>("auto_trigger_checks", AutoTriggerChecks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem>("auto_trigger_checks", AutoTriggerChecks);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

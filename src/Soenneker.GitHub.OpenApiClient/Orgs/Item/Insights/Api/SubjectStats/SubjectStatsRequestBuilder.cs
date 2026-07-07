@@ -89,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SubjectStats
         {
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SubjectStats.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>&quot;The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,11 +120,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SubjectStats
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SubjectStats.GetSortQueryParameterType[]? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSortItem[]? Sort { get; set; }
 #nullable restore
 #else
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SubjectStats.GetSortQueryParameterType[] Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsSortItem[] Sort { get; set; }
 #endif
             /// <summary>Providing a substring will filter results where the subject name contains the substring. This is a case-insensitive search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

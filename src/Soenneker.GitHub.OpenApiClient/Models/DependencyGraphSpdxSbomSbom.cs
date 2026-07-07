@@ -57,18 +57,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The packages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_packages>? Packages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem>? Packages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_packages> Packages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem> Packages { get; set; }
 #endif
         /// <summary>The relationships property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_relationships>? Relationships { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem>? Relationships { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_relationships> Relationships { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem> Relationships { get; set; }
 #endif
         /// <summary>The SPDX identifier for the SPDX document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,8 +116,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "dataLicense", n => { DataLicense = n.GetStringValue(); } },
                 { "documentNamespace", n => { DocumentNamespace = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "packages", n => { Packages = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_packages>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_packages.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_relationships>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_relationships.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "packages", n => { Packages = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem>(global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "SPDXID", n => { SPDXID = n.GetStringValue(); } },
                 { "spdxVersion", n => { SpdxVersion = n.GetStringValue(); } },
             };
@@ -134,8 +134,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("dataLicense", DataLicense);
             writer.WriteStringValue("documentNamespace", DocumentNamespace);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_packages>("packages", Packages);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom_relationships>("relationships", Relationships);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomPackagesItem>("packages", Packages);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbomRelationshipsItem>("relationships", Relationships);
             writer.WriteStringValue("SPDXID", SPDXID);
             writer.WriteStringValue("spdxVersion", SpdxVersion);
             writer.WriteAdditionalData(AdditionalData);

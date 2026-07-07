@@ -54,10 +54,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Built-in deployment protection rules for the environment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules>? ProtectionRules { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItem>? ProtectionRules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules> ProtectionRules { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItem> ProtectionRules { get; set; }
 #endif
         /// <summary>The time that the environment was last updated, in ISO 8601 format.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "protection_rules", n => { ProtectionRules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules>(global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "protection_rules", n => { ProtectionRules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItem>(global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -118,76 +118,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules>("protection_rules", ProtectionRules);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentProtectionRulesItem>("protection_rules", ProtectionRules);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember3"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Environment_protection_rules : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1? EnvironmentProtectionRulesMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1 EnvironmentProtectionRulesMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2? EnvironmentProtectionRulesMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2 EnvironmentProtectionRulesMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember3? EnvironmentProtectionRulesMember3 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember3 EnvironmentProtectionRulesMember3 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentObject.Environment_protection_rules();
-                result.EnvironmentProtectionRulesMember1 = new global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1();
-                result.EnvironmentProtectionRulesMember2 = new global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember2();
-                result.EnvironmentProtectionRulesMember3 = new global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember3();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EnvironmentProtectionRulesMember1 != null || EnvironmentProtectionRulesMember2 != null || EnvironmentProtectionRulesMember3 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EnvironmentProtectionRulesMember1, EnvironmentProtectionRulesMember2, EnvironmentProtectionRulesMember3);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Environment_protection_rulesMember1>(null, EnvironmentProtectionRulesMember1, EnvironmentProtectionRulesMember2, EnvironmentProtectionRulesMember3);
-            }
         }
     }
 }

@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Objects specifying a tree structure</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitTree_tree>? Tree { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitTreeTreeItem>? Tree { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitTree_tree> Tree { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitTreeTreeItem> Tree { get; set; }
 #endif
         /// <summary>The truncated property</summary>
         public bool? Truncated { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "sha", n => { Sha = n.GetStringValue(); } },
-                { "tree", n => { Tree = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitTree_tree>(global::Soenneker.GitHub.OpenApiClient.Models.GitTree_tree.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tree", n => { Tree = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitTreeTreeItem>(global::Soenneker.GitHub.OpenApiClient.Models.GitTreeTreeItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "truncated", n => { Truncated = n.GetBoolValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("sha", Sha);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitTree_tree>("tree", Tree);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitTreeTreeItem>("tree", Tree);
             writer.WriteBoolValue("truncated", Truncated);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

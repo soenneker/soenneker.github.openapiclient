@@ -66,10 +66,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents>? Parents { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemParentsItem>? Parents { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents> Parents { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemParentsItem> Parents { get; set; }
 #endif
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents>(global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemParentsItem>(global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemParentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
                 { "score", n => { Score = n.GetDoubleValue(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
@@ -157,7 +157,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableGitUser>("committer", Committer);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItem_parents>("parents", Parents);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitSearchResultItemParentsItem>("parents", Parents);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
             writer.WriteDoubleValue("score", Score);
             writer.WriteStringValue("sha", Sha);

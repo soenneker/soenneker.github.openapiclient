@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.git.tags.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags.Item.WithTag_shaItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags.Item.WithTag_shaItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags.Item.WithTagShaItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags.Item.WithTagShaItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("tag_sha", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags.Item.WithTag_shaItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("tagSha", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags.Item.WithTagShaItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -58,11 +58,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTag?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTag body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTag?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTag> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTag body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTag> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -82,11 +82,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Tags
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTag body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTag body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTagRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

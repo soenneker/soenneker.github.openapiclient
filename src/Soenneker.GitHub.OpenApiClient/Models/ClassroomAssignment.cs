@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Title { get; set; }
 #endif
         /// <summary>Whether it&apos;s a group assignment or individual assignment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignment_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignmentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignment"/> and sets the default values.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "students_are_repo_admins", n => { StudentsAreRepoAdmins = n.GetBoolValue(); } },
                 { "submitted", n => { Submitted = n.GetIntValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignment_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignmentType>(); } },
             };
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("students_are_repo_admins", StudentsAreRepoAdmins);
             writer.WriteIntValue("submitted", Submitted);
             writer.WriteStringValue("title", Title);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignment_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ClassroomAssignmentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

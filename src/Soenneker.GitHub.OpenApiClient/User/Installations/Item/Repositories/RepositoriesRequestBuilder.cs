@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\installations\{installation_id}\repositories
+    /// Builds and executes requests for operations under \user\installations\{installationId}\repositories
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.installations.item.repositories.item collection</summary>
-        /// <param name="position">The unique identifier of the repository.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepositoryItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepositoryItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("repository_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("repositoryId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.Item.WithRepositoryItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/installations/{installation_id}/repositories{?page*,per_page*}", pathParameters)
+        public RepositoriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/installations/{installationId}/repositories{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,25 +43,25 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/installations/{installation_id}/repositories{?page*,per_page*}", rawUrl)
+        public RepositoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/installations/{installationId}/repositories{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
         /// List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.The access the user has to each repository is included in the hash under the `permissions` key.
         /// API method documentation <see href="https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-user-access-token" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories.RepositoriesRequestBuilder.RepositoriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations.Item.Repositories
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access for an installation.The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.The access the user has to each repository is included in the hash under the `permissions` key.

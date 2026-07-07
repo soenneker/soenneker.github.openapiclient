@@ -30,16 +30,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Options for single select fields. Only applicable when updating single_select fields. When provided, this array **replaces** the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its `id`. Options sent without an `id` are treated as new options and may cause existing options to be deleted and recreated.</summary>
+        /// <summary>Options for select fields. Only applicable when updating single_select or multi_select fields. When provided, this array **replaces** the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its `id`. Options sent without an `id` are treated as new options and may cause existing options to be deleted and recreated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options>? Options { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldOptionsItem>? Options { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options> Options { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldOptionsItem> Options { get; set; }
 #endif
         /// <summary>The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues). Only used when the visibility settings feature is enabled.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField"/> and sets the default values.
         /// </summary>
@@ -67,8 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_visibility>(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldOptionsItem>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldOptionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldVisibility>(); } },
             };
         }
         /// <summary>
@@ -80,8 +80,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_options>("options", Options);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueField_visibility>("visibility", Visibility);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldOptionsItem>("options", Options);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationUpdateIssueFieldVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\repos
+    /// Builds and executes requests for operations under \users\{user-id}\repos
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReposRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/repos{?direction*,page*,per_page*,sort*,type*}", pathParameters)
+        public ReposRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/repos{?direction*,page*,per_page*,sort*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReposRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/repos{?direction*,page*,per_page*,sort*,type*}", rawUrl)
+        public ReposRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/repos{?direction*,page*,per_page*,sort*,type*}", rawUrl)
         {
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
         {
             /// <summary>&quot;The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.&quot;</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Repos.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForUserDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -98,10 +98,10 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Repos
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Repos.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForUserSortParameter? Sort { get; set; }
             /// <summary>Limit results to repositories of the specified type.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Repos.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForUserTypeParameter? Type { get; set; }
         }
     }
 }

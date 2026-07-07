@@ -84,7 +84,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string PermalinkUrl { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CommitComparison_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitComparisonStatus? Status { get; set; }
         /// <summary>The total_commits property</summary>
         public int? TotalCommits { get; set; }
         /// <summary>The url property</summary>
@@ -130,7 +130,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "merge_base_commit", n => { MergeBaseCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>(global::Soenneker.GitHub.OpenApiClient.Models.Commit.CreateFromDiscriminatorValue); } },
                 { "patch_url", n => { PatchUrl = n.GetStringValue(); } },
                 { "permalink_url", n => { PermalinkUrl = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitComparison_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitComparisonStatus>(); } },
                 { "total_commits", n => { TotalCommits = n.GetIntValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -152,7 +152,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Commit>("merge_base_commit", MergeBaseCommit);
             writer.WriteStringValue("patch_url", PatchUrl);
             writer.WriteStringValue("permalink_url", PermalinkUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitComparison_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitComparisonStatus>("status", Status);
             writer.WriteIntValue("total_commits", TotalCommits);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

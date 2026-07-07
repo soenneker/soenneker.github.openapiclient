@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The size property</summary>
         public int? Size { get; set; }
         /// <summary>State of the release asset.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAssetState? State { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>A GitHub user.</summary>
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetIntValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAssetState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uploader", n => { Uploader = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -149,7 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteIntValue("size", Size);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAsset_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReleaseAssetState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("uploader", Uploader);
             writer.WriteStringValue("url", Url);

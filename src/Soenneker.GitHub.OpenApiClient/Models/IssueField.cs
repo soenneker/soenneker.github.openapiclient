@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The time the issue field was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The data type of the issue field.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueField_data_type? DataType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldDataType? DataType { get; set; }
         /// <summary>The description of the issue field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,18 +45,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string NodeId { get; set; }
 #endif
-        /// <summary>Available options for single select fields.</summary>
+        /// <summary>Available options for single select and multi select fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_options>? Options { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldOptionsItem>? Options { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_options> Options { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldOptionsItem> Options { get; set; }
 #endif
         /// <summary>The time the issue field was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueField_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueField"/> and sets the default values.
         /// </summary>
@@ -83,14 +83,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_data_type>(); } },
+                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldDataType>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_options>(global::Soenneker.GitHub.OpenApiClient.Models.IssueField_options.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldOptionsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldOptionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldVisibility>(); } },
             };
         }
         /// <summary>
@@ -101,14 +101,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_data_type>("data_type", DataType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldDataType>("data_type", DataType);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_options>("options", Options);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldOptionsItem>("options", Options);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueField_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

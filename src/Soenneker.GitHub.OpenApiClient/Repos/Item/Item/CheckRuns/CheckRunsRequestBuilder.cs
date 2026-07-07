@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
     public partial class CheckRunsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.checkRuns.item collection</summary>
-        /// <param name="position">The unique identifier of the check run.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheckRunItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheckRunItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("check_run_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheck_run_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("checkRunId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns.Item.WithCheckRunItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -56,11 +56,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CheckRun> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -75,11 +75,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckRuns
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ChecksCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration Configuration { get; set; }
 #endif
         /// <summary>The visibility of newly created repositories for which the code security configuration will be applied to by default</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItem_default_for_new_repos? DefaultForNewRepos { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItemDefaultForNewRepos? DefaultForNewRepos { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItem"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration.CreateFromDiscriminatorValue); } },
-                { "default_for_new_repos", n => { DefaultForNewRepos = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItem_default_for_new_repos>(); } },
+                { "default_for_new_repos", n => { DefaultForNewRepos = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItemDefaultForNewRepos>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration>("configuration", Configuration);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItem_default_for_new_repos>("default_for_new_repos", DefaultForNewRepos);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityDefaultConfigurationsItemDefaultForNewRepos>("default_for_new_repos", DefaultForNewRepos);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

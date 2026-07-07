@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The response headers received when the delivery was made.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse_headers? Headers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeaders? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse_headers Headers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeaders Headers { get; set; }
 #endif
         /// <summary>The response payload received.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse_headers>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse_headers.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeaders>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeaders.CreateFromDiscriminatorValue); } },
                 { "payload", n => { Payload = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponse_headers>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeaders>("headers", Headers);
             writer.WriteStringValue("payload", Payload);
             writer.WriteAdditionalData(AdditionalData);
         }

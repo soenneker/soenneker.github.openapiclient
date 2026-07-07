@@ -25,15 +25,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.pulls.item collection</summary>
-        /// <param name="position">The number that identifies the pull request.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder this[int position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPullNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPullNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("pull_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPull_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("pullNumber", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.WithPullNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -89,11 +89,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PullRequest> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -132,11 +132,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -173,7 +173,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
 #endif
             /// <summary>&quot;The direction of the sort. Default: `desc` when sort is `created` or sort is not specified, otherwise `asc`.&quot;</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullsListDirectionParameter? Direction { get; set; }
             /// <summary>&quot;Filter pulls by head user or head organization and branch name in the format of `user:ref-name` or `organization:ref-name`. For example: `github:new-script-format` or `octocat:test-branch`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,10 +192,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls
             public int? PerPage { get; set; }
             /// <summary>What to sort results by. `popularity` will sort by the number of comments. `long-running` will sort by date created and will limit the results to pull requests that have been open for more than a month and have had activity within the past month.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullsListSortParameter? Sort { get; set; }
             /// <summary>Either `open`, `closed`, or `all` to filter by state.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.PullsListStateParameter? State { get; set; }
         }
     }
 }

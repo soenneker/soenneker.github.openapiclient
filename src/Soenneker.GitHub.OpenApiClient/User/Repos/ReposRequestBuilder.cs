@@ -77,11 +77,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -123,11 +123,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -167,7 +167,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
             public DateTimeOffset? Before { get; set; }
             /// <summary>&quot;The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.&quot;</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Repos.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForAuthenticatedUserDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -179,13 +179,13 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
             public DateTimeOffset? Since { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Repos.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForAuthenticatedUserSortParameter? Sort { get; set; }
             /// <summary>Limit results to repositories of the specified type. Will cause a `422` error if used in the same request as **visibility** or **affiliation**.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Repos.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForAuthenticatedUserTypeParameter? Type { get; set; }
             /// <summary>Limit results to repositories with the specified visibility.</summary>
             [QueryParameter("visibility")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Repos.GetVisibilityQueryParameterType? Visibility { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForAuthenticatedUserVisibilityParameter? Visibility { get; set; }
         }
     }
 }

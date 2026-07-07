@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_languages?>? Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? Languages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_languages?> Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> Languages { get; set; }
 #endif
         /// <summary>Runner label to be used if the runner type is labeled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,11 +32,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RunnerLabel { get; set; }
 #endif
         /// <summary>Runner type to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_runner_type? RunnerType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? RunnerType { get; set; }
         /// <summary>The frequency of the periodic analysis.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_schedule? Schedule { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupSchedule? Schedule { get; set; }
         /// <summary>Code quality setup has been configured or not.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? State { get; set; }
         /// <summary>Timestamp of latest configuration update.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -64,11 +64,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_languages>()?.AsList(); } },
+                { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>()?.AsList(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
-                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_runner_type>(); } },
-                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_schedule>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_state>(); } },
+                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>(); } },
+                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupSchedule>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -79,11 +79,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_languages>("languages", Languages);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>("languages", Languages);
             writer.WriteStringValue("runner_label", RunnerLabel);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_runner_type>("runner_type", RunnerType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_schedule>("schedule", Schedule);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>("runner_type", RunnerType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupSchedule>("schedule", Schedule);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

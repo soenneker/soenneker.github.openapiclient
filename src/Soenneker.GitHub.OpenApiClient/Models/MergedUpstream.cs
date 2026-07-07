@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string BaseBranch { get; set; }
 #endif
         /// <summary>The merge_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstream_merge_type? MergeType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType? MergeType { get; set; }
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "base_branch", n => { BaseBranch = n.GetStringValue(); } },
-                { "merge_type", n => { MergeType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstream_merge_type>(); } },
+                { "merge_type", n => { MergeType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("base_branch", BaseBranch);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstream_merge_type>("merge_type", MergeType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType>("merge_type", MergeType);
             writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }

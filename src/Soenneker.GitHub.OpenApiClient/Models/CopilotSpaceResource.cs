@@ -24,13 +24,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Resource-specific metadata. The keys and values depend on the resource type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_metadata? Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_metadata Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The type of the resource.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_resource_type? ResourceType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceResourceType? ResourceType { get; set; }
         /// <summary>The date and time the resource was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "copilot_chat_attachment_id", n => { CopilotChatAttachmentId = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_metadata>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_metadata.CreateFromDiscriminatorValue); } },
-                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_resource_type>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceMetadataProperty>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceMetadataProperty.CreateFromDiscriminatorValue); } },
+                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceResourceType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -76,8 +76,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("copilot_chat_attachment_id", CopilotChatAttachmentId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_metadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource_resource_type>("resource_type", ResourceType);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceMetadataProperty>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourceResourceType>("resource_type", ResourceType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

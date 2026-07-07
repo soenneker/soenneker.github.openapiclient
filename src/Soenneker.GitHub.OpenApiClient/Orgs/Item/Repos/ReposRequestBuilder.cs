@@ -65,11 +65,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,11 +108,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateInOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -139,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
         {
             /// <summary>&quot;The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.&quot;</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForOrgDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -148,10 +148,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForOrgSortParameter? Sort { get; set; }
             /// <summary>Specifies the types of repositories you want returned.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForOrgTypeParameter? Type { get; set; }
         }
     }
 }

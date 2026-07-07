@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\codespaces\secrets\{secret_name}\repositories
+    /// Builds and executes requests for operations under \user\codespaces\secrets\{secretName}\repositories
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.codespaces.secrets.item.repositories.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.Item.WithRepository_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.Item.WithRepository_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.Item.WithRepositoryItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.Item.WithRepositoryItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("repository_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.Item.WithRepository_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("repositoryId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.Item.WithRepositoryItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositori
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/secrets/{secret_name}/repositories", pathParameters)
+        public RepositoriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/secrets/{secretName}/repositories", pathParameters)
         {
         }
         /// <summary>
@@ -43,14 +43,14 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositori
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RepositoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/secrets/{secret_name}/repositories", rawUrl)
+        public RepositoriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/secrets/{secretName}/repositories", rawUrl)
         {
         }
         /// <summary>
         /// List the repositories that have been granted the ability to use a user&apos;s development environment secret.The authenticated user must have Codespaces access to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `codespace` or `codespace:secrets` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.RepositoriesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListRepositoriesForSecretForAuthenticatedUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
@@ -59,11 +59,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositori
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.RepositoriesGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListRepositoriesForSecretForAuthenticatedUser200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.RepositoriesGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListRepositoriesForSecretForAuthenticatedUser200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositori
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.RepositoriesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositories.RepositoriesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListRepositoriesForSecretForAuthenticatedUser200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodespacesListRepositoriesForSecretForAuthenticatedUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Select the repositories that will use a user&apos;s development environment secret.The authenticated user must have Codespaces access to use this endpoint.OAuth app tokens and personal access tokens (classic) need the `codespace` or `codespace:secrets` scope to use this endpoint.
@@ -90,11 +90,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositori
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -135,11 +135,11 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.Item.Repositori
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetRepositoriesForSecretForAuthenticatedUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

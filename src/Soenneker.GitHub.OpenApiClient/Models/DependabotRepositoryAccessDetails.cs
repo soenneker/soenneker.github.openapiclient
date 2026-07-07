@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository> AccessibleRepositories { get; set; }
 #endif
         /// <summary>The default repository access level for Dependabot updates.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails_default_level? DefaultLevel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel? DefaultLevel { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accessible_repositories", n => { AccessibleRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "default_level", n => { DefaultLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails_default_level>(); } },
+                { "default_level", n => { DefaultLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel>(); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleRepository>("accessible_repositories", AccessibleRepositories);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails_default_level>("default_level", DefaultLevel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetailsDefaultLevel>("default_level", DefaultLevel);
         }
     }
 }

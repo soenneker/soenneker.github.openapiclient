@@ -16,15 +16,15 @@ namespace Soenneker.GitHub.OpenApiClient.Applications
     public partial class ApplicationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.applications.item collection</summary>
-        /// <param name="position">The client ID of the GitHub app.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Applications.Item.WithClient_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Applications.Item.WithClient_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Applications.Item.WithClientItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Applications.Item.WithClientItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("client_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Applications.Item.WithClient_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("clientId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Applications.Item.WithClientItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

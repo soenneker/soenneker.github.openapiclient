@@ -7,24 +7,13 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// Starred Repository
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class StarredRepository : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A repository on GitHub.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository? Repo { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Repository Repo { get; set; }
-#endif
-        /// <summary>The starred_at property</summary>
-        public DateTimeOffset? StarredAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository"/> and sets the default values.
         /// </summary>
@@ -50,8 +39,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "repo", n => { Repo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
-                { "starred_at", n => { StarredAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -61,8 +48,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repo", Repo);
-            writer.WriteDateTimeOffsetValue("starred_at", StarredAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

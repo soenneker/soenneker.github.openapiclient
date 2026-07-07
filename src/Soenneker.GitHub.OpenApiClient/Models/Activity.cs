@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class Activity : IAdditionalDataHolder, IParsable
     {
         /// <summary>The type of the activity that was performed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Activity_activity_type? ActivityType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActivityActivityType? ActivityType { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activity_type", n => { ActivityType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Activity_activity_type>(); } },
+                { "activity_type", n => { ActivityType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActivityActivityType>(); } },
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "after", n => { After = n.GetStringValue(); } },
                 { "before", n => { Before = n.GetStringValue(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Activity_activity_type>("activity_type", ActivityType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActivityActivityType>("activity_type", ActivityType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("actor", Actor);
             writer.WriteStringValue("after", After);
             writer.WriteStringValue("before", Before);

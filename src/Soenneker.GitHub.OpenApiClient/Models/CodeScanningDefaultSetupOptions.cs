@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RunnerLabel { get; set; }
 #endif
         /// <summary>Whether to use labeled runners or standard GitHub runners.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions_runner_type? RunnerType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptionsRunnerType? RunnerType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
-                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions_runner_type>(); } },
+                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptionsRunnerType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("runner_label", RunnerLabel);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptions_runner_type>("runner_type", RunnerType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupOptionsRunnerType>("runner_type", RunnerType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

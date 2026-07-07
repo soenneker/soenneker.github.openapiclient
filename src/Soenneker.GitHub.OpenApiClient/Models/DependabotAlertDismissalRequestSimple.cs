@@ -28,7 +28,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester Requester { get; set; }
 #endif
         /// <summary>The current status of the dismissal request.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleStatus? Status { get; set; }
         /// <summary>The API URL to get more information about this dismissal request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "requester", n => { Requester = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleStatus>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleRequester>("requester", Requester);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimpleStatus>("status", Status);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

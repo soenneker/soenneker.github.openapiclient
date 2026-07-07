@@ -31,15 +31,15 @@ namespace Soenneker.GitHub.OpenApiClient.Gists
             get => new global::Soenneker.GitHub.OpenApiClient.Gists.Starred.StarredRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.gists.item collection</summary>
-        /// <param name="position">The unique identifier of the gist.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGist_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGist_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGistItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGistItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("gist_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGist_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("gistId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGistItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -96,11 +96,11 @@ namespace Soenneker.GitHub.OpenApiClient.Gists
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -140,11 +140,11 @@ namespace Soenneker.GitHub.OpenApiClient.Gists
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GistsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

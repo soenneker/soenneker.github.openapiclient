@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments
     public partial class CommentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.comments.item collection</summary>
-        /// <param name="position">The unique identifier of the comment.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.WithComment_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.WithComment_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.WithCommentItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.WithCommentItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("comment_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.WithComment_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("commentId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.WithCommentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

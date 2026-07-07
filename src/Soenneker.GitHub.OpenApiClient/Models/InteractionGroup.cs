@@ -9,15 +9,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         [EnumMember(Value = "existing_users")]
         #pragma warning disable CS1591
-        Existing_users,
+        ExistingUsers,
         #pragma warning restore CS1591
         [EnumMember(Value = "contributors_only")]
         #pragma warning disable CS1591
-        Contributors_only,
+        ContributorsOnly,
         #pragma warning restore CS1591
         [EnumMember(Value = "collaborators_only")]
         #pragma warning disable CS1591
-        Collaborators_only,
+        CollaboratorsOnly,
         #pragma warning restore CS1591
     }
 }

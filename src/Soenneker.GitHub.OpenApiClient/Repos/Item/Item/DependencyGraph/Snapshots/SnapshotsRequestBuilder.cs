@@ -37,22 +37,22 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Snapsho
         /// Create a new snapshot of a repository&apos;s dependencies.The authenticated user must have access to the repository.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/dependency-graph/dependency-submission#create-a-snapshot-of-dependencies-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201Response"/></returns>
         /// <param name="body">Create a new snapshot of a repository&apos;s dependencies.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201Response?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201Response> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphCreateRepositorySnapshot201Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new snapshot of a repository&apos;s dependencies.The authenticated user must have access to the repository.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.

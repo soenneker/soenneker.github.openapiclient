@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>If true, the rule will fail if the pattern matches.</summary>
         public bool? Negate { get; set; }
         /// <summary>The operator to use for matching.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPatternParameters_operator? Operator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPatternParametersOperator? Operator { get; set; }
         /// <summary>The pattern to match with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "negate", n => { Negate = n.GetBoolValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPatternParameters_operator>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPatternParametersOperator>(); } },
                 { "pattern", n => { Pattern = n.GetStringValue(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("negate", Negate);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPatternParameters_operator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPatternParametersOperator>("operator", Operator);
             writer.WriteStringValue("pattern", Pattern);
             writer.WriteAdditionalData(AdditionalData);
         }

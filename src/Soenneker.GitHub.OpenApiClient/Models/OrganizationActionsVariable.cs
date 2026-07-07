@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Value { get; set; }
 #endif
         /// <summary>Visibility of a variable</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariable_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariableVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariable"/> and sets the default values.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariable_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariableVisibility>(); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("value", Value);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariable_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationActionsVariableVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

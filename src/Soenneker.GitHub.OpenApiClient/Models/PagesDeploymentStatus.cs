@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current status of the deployment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatus_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatusStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatus"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatus_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatusStatus>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatus_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesDeploymentStatusStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

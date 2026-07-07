@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2
     public partial class ProjectsV2RequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.projectsV2.item collection</summary>
-        /// <param name="position">The project&apos;s number.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.WithProject_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.WithProject_numberItemRequestBuilder this[int position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.WithProjectNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.WithProjectNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("project_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.WithProject_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("projectNumber", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.WithProjectNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

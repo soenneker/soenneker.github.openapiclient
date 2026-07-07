@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Traffic.Clones
         {
             /// <summary>The time frame to display results for.</summary>
             [QueryParameter("per")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Traffic.Clones.GetPerQueryParameterType? Per { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Per? Per { get; set; }
         }
     }
 }

@@ -57,10 +57,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The usageItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg_usageItems>? UsageItems { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>? UsageItems { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg_usageItems> UsageItems { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem> UsageItems { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg"/> and sets the default values.
@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repository", n => { Repository = n.GetStringValue(); } },
                 { "sku", n => { Sku = n.GetStringValue(); } },
                 { "timePeriod", n => { TimePeriod = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod.CreateFromDiscriminatorValue); } },
-                { "usageItems", n => { UsageItems = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg_usageItems>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg_usageItems.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "usageItems", n => { UsageItems = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("repository", Repository);
             writer.WriteStringValue("sku", Sku);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgTimePeriod>("timePeriod", TimePeriod);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrg_usageItems>("usageItems", UsageItems);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageSummaryReportOrgUsageItemsItem>("usageItems", UsageItems);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item.Repos.Item.Lock
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\migrations\{migration_id}\repos\{repo_name}\lock
+    /// Builds and executes requests for operations under \user\migrations\{migrationId}\repos\{repoName}\lock
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LockRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item.Repos.Item.Lock
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LockRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/migrations/{migration_id}/repos/{repo_name}/lock", pathParameters)
+        public LockRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/migrations/{migrationId}/repos/{repoName}/lock", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Migrations.Item.Repos.Item.Lock
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LockRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/migrations/{migration_id}/repos/{repo_name}/lock", rawUrl)
+        public LockRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/migrations/{migrationId}/repos/{repoName}/lock", rawUrl)
         {
         }
         /// <summary>

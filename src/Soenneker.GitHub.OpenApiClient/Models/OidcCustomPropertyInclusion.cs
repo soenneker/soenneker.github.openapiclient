@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string CustomPropertyName { get; set; }
 #endif
         /// <summary>Whether the inclusion was defined at the organization or enterprise level</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion_inclusion_source? InclusionSource { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource? InclusionSource { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom_property_name", n => { CustomPropertyName = n.GetStringValue(); } },
-                { "inclusion_source", n => { InclusionSource = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion_inclusion_source>(); } },
+                { "inclusion_source", n => { InclusionSource = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("custom_property_name", CustomPropertyName);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion_inclusion_source>("inclusion_source", InclusionSource);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource>("inclusion_source", InclusionSource);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

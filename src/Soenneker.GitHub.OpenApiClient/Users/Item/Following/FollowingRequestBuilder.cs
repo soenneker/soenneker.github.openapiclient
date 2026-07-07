@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Following
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\following
+    /// Builds and executes requests for operations under \users\{user-id}\following
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FollowingRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.following.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item.WithTarget_userItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item.WithTarget_userItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item.WithTargetUserItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item.WithTargetUserItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("target_user", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item.WithTarget_userItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("targetUser", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Following.Item.WithTargetUserItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Following
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FollowingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/following{?page*,per_page*}", pathParameters)
+        public FollowingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/following{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Following
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FollowingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/following{?page*,per_page*}", rawUrl)
+        public FollowingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/following{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

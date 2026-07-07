@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.attestations.digest.item collection</summary>
         /// <param name="position">Subject Digest</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.Item.WithSubject_digestItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.Item.WithSubject_digestItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.Item.WithSubjectDigestItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.Item.WithSubjectDigestItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("subject_digest", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.Item.WithSubject_digestItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("subjectDigest", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Attestations.Digest.Item.WithSubjectDigestItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

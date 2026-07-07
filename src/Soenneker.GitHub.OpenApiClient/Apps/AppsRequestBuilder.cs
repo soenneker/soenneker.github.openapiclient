@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Apps
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.apps.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Apps.Item.WithApp_slugItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Apps.Item.WithApp_slugItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Apps.Item.WithAppSlugItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Apps.Item.WithAppSlugItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("app_slug", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Apps.Item.WithApp_slugItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("appSlug", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Apps.Item.WithAppSlugItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

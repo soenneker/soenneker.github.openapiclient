@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The date and time at which the secret was last updated, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The type of repositories in the organization that the secret is visible to</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecret_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecretVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecret"/> and sets the default values.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecret_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecretVisibility>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecret_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSecretVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

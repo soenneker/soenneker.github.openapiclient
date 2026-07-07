@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The system role from which this role inherits permissions.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRole_base_role? BaseRole { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRoleBaseRole? BaseRole { get; set; }
         /// <summary>The date and time the role was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>A short description about who this role is for or what permissions it grants.</summary>
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> Permissions { get; set; }
 #endif
         /// <summary>Source answers the question, &quot;where did this role come from?&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRole_source? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRoleSource? Source { get; set; }
         /// <summary>The date and time the role was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -82,14 +82,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "base_role", n => { BaseRole = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRole_base_role>(); } },
+                { "base_role", n => { BaseRole = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRoleBaseRole>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRole_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRoleSource>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -100,14 +100,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRole_base_role>("base_role", BaseRole);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRoleBaseRole>("base_role", BaseRole);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("organization", Organization);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRole_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationRoleSource>("source", Source);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

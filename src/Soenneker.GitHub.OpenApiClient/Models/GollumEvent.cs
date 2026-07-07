@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The pages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent_pages>? Pages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GollumEventPagesItem>? Pages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent_pages> Pages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GollumEventPagesItem> Pages { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "pages", n => { Pages = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent_pages>(global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent_pages.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "pages", n => { Pages = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GollumEventPagesItem>(global::Soenneker.GitHub.OpenApiClient.Models.GollumEventPagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GollumEvent_pages>("pages", Pages);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GollumEventPagesItem>("pages", Pages);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

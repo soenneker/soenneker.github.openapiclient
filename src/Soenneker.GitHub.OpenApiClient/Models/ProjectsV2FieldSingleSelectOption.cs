@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The color associated with the option.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption_color? Color { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOptionColor? Color { get; set; }
         /// <summary>The description of the option.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption_color>(); } },
+                { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOptionColor>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption_color>("color", Color);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOptionColor>("color", Color);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
         }

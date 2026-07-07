@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_gro
     public partial class Concurrency_groupsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.concurrency_groups.item collection</summary>
-        /// <param name="position">The name of the concurrency group.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item.WithConcurrency_group_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item.WithConcurrency_group_nameItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item.WithConcurrencyGroupNameItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item.WithConcurrencyGroupNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("concurrency_group_name", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item.WithConcurrency_group_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("concurrencyGroupName", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item.WithConcurrencyGroupNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

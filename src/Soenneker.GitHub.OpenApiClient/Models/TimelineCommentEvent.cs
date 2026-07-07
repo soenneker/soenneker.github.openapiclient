@@ -77,6 +77,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string IssueUrl { get; set; }
 #endif
+        /// <summary>Details about why an issue comment was minimized.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueCommentMinimized? Minimized { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueCommentMinimized Minimized { get; set; }
+#endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -162,6 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_url", n => { IssueUrl = n.GetStringValue(); } },
+                { "minimized", n => { Minimized = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueCommentMinimized>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueCommentMinimized.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "pin", n => { Pin = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment>(global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment.CreateFromDiscriminatorValue); } },
@@ -188,6 +197,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issue_url", IssueUrl);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueCommentMinimized>("minimized", Minimized);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullablePinnedIssueComment>("pin", Pin);

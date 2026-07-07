@@ -45,7 +45,6 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings;
-using Soenneker.GitHub.OpenApiClient.Orgs.Item.Team;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams;
 using System.Collections.Generic;
 using System.IO;
@@ -265,11 +264,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The team property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Team.TeamRequestBuilder Team
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Team.TeamRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The teams property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.TeamsRequestBuilder Teams
         {
@@ -295,18 +289,18 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         /// Deletes an organization and all its repositories.The organization login will be unavailable for 90 days after deletion.Please review the Terms of Service regarding account deletion before using this endpoint:https://docs.github.com/site-policy/github-terms/github-terms-of-service
         /// API method documentation <see href="https://docs.github.com/rest/orgs/orgs#delete-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.WithOrgDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.WithOrgDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.WithOrgDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -315,7 +309,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.WithOrgDeleteResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.WithOrgDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets information about an organization.When the value of `two_factor_requirement_enabled` is `true`, the organization requires all members, billing managers, outside collaborators, guest collaborators, repository collaborators, or everyone with access to any repository within the organization to enable [two-factor authentication](https://docs.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/).To see the full details about an organization, the authenticated user must be an organization owner.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to see the full details about an organization.To see information about an organization&apos;s GitHub plan, GitHub Apps need the `Organization plan` permission.
@@ -352,11 +346,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationFull> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -413,11 +407,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

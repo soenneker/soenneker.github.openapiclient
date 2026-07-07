@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AddedToProjectIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AssignedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DemilestonedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.LabeledIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.LockedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MilestonedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MovedColumnInProjectIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RenamedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewDismissedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnassignedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnlabeledIssueEvent"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AddedToProjectIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AssignedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockedByAddedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockedByRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockingAddedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockingRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DemilestonedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeAddedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeChangedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.LabeledIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.LockedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MilestonedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MovedColumnInProjectIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueAddedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RenamedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewDismissedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SubIssueAddedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SubIssueRemovedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnassignedIssueEvent"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnlabeledIssueEvent"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssueEventForIssue : IComposedTypeWrapper, IParsable
@@ -29,6 +29,38 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AssignedIssueEvent AssignedIssueEvent { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockedByAddedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockedByAddedIssueEvent? BlockedByAddedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockedByAddedIssueEvent BlockedByAddedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockedByRemovedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockedByRemovedIssueEvent? BlockedByRemovedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockedByRemovedIssueEvent BlockedByRemovedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockingAddedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockingAddedIssueEvent? BlockingAddedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockingAddedIssueEvent BlockingAddedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BlockingRemovedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockingRemovedIssueEvent? BlockingRemovedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.BlockingRemovedIssueEvent BlockingRemovedIssueEvent { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEvent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,6 +76,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.DemilestonedIssueEvent DemilestonedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeAddedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeAddedIssueEvent? IssueTypeAddedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeAddedIssueEvent IssueTypeAddedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeChangedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeChangedIssueEvent? IssueTypeChangedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeChangedIssueEvent IssueTypeChangedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeRemovedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeRemovedIssueEvent? IssueTypeRemovedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeRemovedIssueEvent IssueTypeRemovedIssueEvent { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.LabeledIssueEvent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,6 +132,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.MovedColumnInProjectIssueEvent MovedColumnInProjectIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueAddedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueAddedIssueEvent? ParentIssueAddedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueAddedIssueEvent ParentIssueAddedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueRemovedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueRemovedIssueEvent? ParentIssueRemovedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueRemovedIssueEvent ParentIssueRemovedIssueEvent { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEvent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,6 +189,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestRemovedIssueEvent ReviewRequestRemovedIssueEvent { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SubIssueAddedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SubIssueAddedIssueEvent? SubIssueAddedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SubIssueAddedIssueEvent SubIssueAddedIssueEvent { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SubIssueRemovedIssueEvent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.SubIssueRemovedIssueEvent? SubIssueRemovedIssueEvent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.SubIssueRemovedIssueEvent SubIssueRemovedIssueEvent { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnassignedIssueEvent"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -144,17 +232,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssueEventForIssue();
             result.AddedToProjectIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.AddedToProjectIssueEvent();
             result.AssignedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.AssignedIssueEvent();
+            result.BlockedByAddedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.BlockedByAddedIssueEvent();
+            result.BlockedByRemovedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.BlockedByRemovedIssueEvent();
+            result.BlockingAddedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.BlockingAddedIssueEvent();
+            result.BlockingRemovedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.BlockingRemovedIssueEvent();
             result.ConvertedNoteToIssueIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ConvertedNoteToIssueIssueEvent();
             result.DemilestonedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.DemilestonedIssueEvent();
+            result.IssueTypeAddedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeAddedIssueEvent();
+            result.IssueTypeChangedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeChangedIssueEvent();
+            result.IssueTypeRemovedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeRemovedIssueEvent();
             result.LabeledIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.LabeledIssueEvent();
             result.LockedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.LockedIssueEvent();
             result.MilestonedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.MilestonedIssueEvent();
             result.MovedColumnInProjectIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.MovedColumnInProjectIssueEvent();
+            result.ParentIssueAddedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueAddedIssueEvent();
+            result.ParentIssueRemovedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ParentIssueRemovedIssueEvent();
             result.RemovedFromProjectIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.RemovedFromProjectIssueEvent();
             result.RenamedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.RenamedIssueEvent();
             result.ReviewDismissedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ReviewDismissedIssueEvent();
             result.ReviewRequestedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestedIssueEvent();
             result.ReviewRequestRemovedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.ReviewRequestRemovedIssueEvent();
+            result.SubIssueAddedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.SubIssueAddedIssueEvent();
+            result.SubIssueRemovedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.SubIssueRemovedIssueEvent();
             result.UnassignedIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.UnassignedIssueEvent();
             result.UnlabeledIssueEvent = new global::Soenneker.GitHub.OpenApiClient.Models.UnlabeledIssueEvent();
             return result;
@@ -165,9 +264,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AddedToProjectIssueEvent != null || AssignedIssueEvent != null || ConvertedNoteToIssueIssueEvent != null || DemilestonedIssueEvent != null || LabeledIssueEvent != null || LockedIssueEvent != null || MilestonedIssueEvent != null || MovedColumnInProjectIssueEvent != null || RemovedFromProjectIssueEvent != null || RenamedIssueEvent != null || ReviewDismissedIssueEvent != null || ReviewRequestedIssueEvent != null || ReviewRequestRemovedIssueEvent != null || UnassignedIssueEvent != null || UnlabeledIssueEvent != null)
+            if(AddedToProjectIssueEvent != null || AssignedIssueEvent != null || BlockedByAddedIssueEvent != null || BlockedByRemovedIssueEvent != null || BlockingAddedIssueEvent != null || BlockingRemovedIssueEvent != null || ConvertedNoteToIssueIssueEvent != null || DemilestonedIssueEvent != null || IssueTypeAddedIssueEvent != null || IssueTypeChangedIssueEvent != null || IssueTypeRemovedIssueEvent != null || LabeledIssueEvent != null || LockedIssueEvent != null || MilestonedIssueEvent != null || MovedColumnInProjectIssueEvent != null || ParentIssueAddedIssueEvent != null || ParentIssueRemovedIssueEvent != null || RemovedFromProjectIssueEvent != null || RenamedIssueEvent != null || ReviewDismissedIssueEvent != null || ReviewRequestedIssueEvent != null || ReviewRequestRemovedIssueEvent != null || SubIssueAddedIssueEvent != null || SubIssueRemovedIssueEvent != null || UnassignedIssueEvent != null || UnlabeledIssueEvent != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AddedToProjectIssueEvent, AssignedIssueEvent, ConvertedNoteToIssueIssueEvent, DemilestonedIssueEvent, LabeledIssueEvent, LockedIssueEvent, MilestonedIssueEvent, MovedColumnInProjectIssueEvent, RemovedFromProjectIssueEvent, RenamedIssueEvent, ReviewDismissedIssueEvent, ReviewRequestedIssueEvent, ReviewRequestRemovedIssueEvent, UnassignedIssueEvent, UnlabeledIssueEvent);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AddedToProjectIssueEvent, AssignedIssueEvent, BlockedByAddedIssueEvent, BlockedByRemovedIssueEvent, BlockingAddedIssueEvent, BlockingRemovedIssueEvent, ConvertedNoteToIssueIssueEvent, DemilestonedIssueEvent, IssueTypeAddedIssueEvent, IssueTypeChangedIssueEvent, IssueTypeRemovedIssueEvent, LabeledIssueEvent, LockedIssueEvent, MilestonedIssueEvent, MovedColumnInProjectIssueEvent, ParentIssueAddedIssueEvent, ParentIssueRemovedIssueEvent, RemovedFromProjectIssueEvent, RenamedIssueEvent, ReviewDismissedIssueEvent, ReviewRequestedIssueEvent, ReviewRequestRemovedIssueEvent, SubIssueAddedIssueEvent, SubIssueRemovedIssueEvent, UnassignedIssueEvent, UnlabeledIssueEvent);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -178,7 +277,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AddedToProjectIssueEvent>(null, AddedToProjectIssueEvent, AssignedIssueEvent, ConvertedNoteToIssueIssueEvent, DemilestonedIssueEvent, LabeledIssueEvent, LockedIssueEvent, MilestonedIssueEvent, MovedColumnInProjectIssueEvent, RemovedFromProjectIssueEvent, RenamedIssueEvent, ReviewDismissedIssueEvent, ReviewRequestedIssueEvent, ReviewRequestRemovedIssueEvent, UnassignedIssueEvent, UnlabeledIssueEvent);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AddedToProjectIssueEvent>(null, AddedToProjectIssueEvent, AssignedIssueEvent, BlockedByAddedIssueEvent, BlockedByRemovedIssueEvent, BlockingAddedIssueEvent, BlockingRemovedIssueEvent, ConvertedNoteToIssueIssueEvent, DemilestonedIssueEvent, IssueTypeAddedIssueEvent, IssueTypeChangedIssueEvent, IssueTypeRemovedIssueEvent, LabeledIssueEvent, LockedIssueEvent, MilestonedIssueEvent, MovedColumnInProjectIssueEvent, ParentIssueAddedIssueEvent, ParentIssueRemovedIssueEvent, RemovedFromProjectIssueEvent, RenamedIssueEvent, ReviewDismissedIssueEvent, ReviewRequestedIssueEvent, ReviewRequestRemovedIssueEvent, SubIssueAddedIssueEvent, SubIssueRemovedIssueEvent, UnassignedIssueEvent, UnlabeledIssueEvent);
         }
     }
 }

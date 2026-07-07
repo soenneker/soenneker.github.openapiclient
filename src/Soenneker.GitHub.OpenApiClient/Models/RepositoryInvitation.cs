@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string NodeId { get; set; }
 #endif
         /// <summary>The permission associated with the invitation.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitationPermissions? Permissions { get; set; }
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "invitee", n => { Invitee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "inviter", n => { Inviter = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "permissions", n => { Permissions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation_permissions>(); } },
+                { "permissions", n => { Permissions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitationPermissions>(); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("invitee", Invitee);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("inviter", Inviter);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitation_permissions>("permissions", Permissions);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryInvitationPermissions>("permissions", Permissions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

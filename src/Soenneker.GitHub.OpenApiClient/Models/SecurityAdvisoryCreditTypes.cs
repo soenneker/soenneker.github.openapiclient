@@ -25,15 +25,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "remediation_developer")]
         #pragma warning disable CS1591
-        Remediation_developer,
+        RemediationDeveloper,
         #pragma warning restore CS1591
         [EnumMember(Value = "remediation_reviewer")]
         #pragma warning disable CS1591
-        Remediation_reviewer,
+        RemediationReviewer,
         #pragma warning restore CS1591
         [EnumMember(Value = "remediation_verifier")]
         #pragma warning disable CS1591
-        Remediation_verifier,
+        RemediationVerifier,
         #pragma warning restore CS1591
         [EnumMember(Value = "tool")]
         #pragma warning disable CS1591

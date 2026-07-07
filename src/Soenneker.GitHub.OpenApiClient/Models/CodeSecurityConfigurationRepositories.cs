@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository Repository { get; set; }
 #endif
         /// <summary>The attachment status of the code security configuration on the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositories_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositoriesStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositories"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositories_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositoriesStatus>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("repository", Repository);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositories_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationRepositoriesStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

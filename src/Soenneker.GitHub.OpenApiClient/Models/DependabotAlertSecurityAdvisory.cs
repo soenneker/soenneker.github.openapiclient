@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class DependabotAlertSecurityAdvisory : IParsable
     {
         /// <summary>The classification of the advisory.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_classification? Classification { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryClassification? Classification { get; private set; }
         /// <summary>The unique CVE ID assigned to the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,10 +42,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Details for the advisory pertaining to Common Weakness Enumeration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cwes>? Cwes { get; private set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCwesItem>? Cwes { get; private set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cwes> Cwes { get; private set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCwesItem> Cwes { get; private set; }
 #endif
         /// <summary>A long-form Markdown-supported description of the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,23 +74,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Values that identify this advisory among security information sources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_identifiers>? Identifiers { get; private set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryIdentifiersItem>? Identifiers { get; private set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_identifiers> Identifiers { get; private set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryIdentifiersItem> Identifiers { get; private set; }
 #endif
         /// <summary>&quot;The time that the advisory was published in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
         public DateTimeOffset? PublishedAt { get; private set; }
         /// <summary>Links to additional advisory information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_references>? References { get; private set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryReferencesItem>? References { get; private set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_references> References { get; private set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryReferencesItem> References { get; private set; }
 #endif
         /// <summary>The severity of the advisory.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_severity? Severity { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisorySeverity? Severity { get; private set; }
         /// <summary>A short, plain text summary of the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,18 +129,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "classification", n => { Classification = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_classification>(); } },
+                { "classification", n => { Classification = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryClassification>(); } },
                 { "cve_id", n => { CveId = n.GetStringValue(); } },
                 { "cvss", n => { Cvss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCvss>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCvss.CreateFromDiscriminatorValue); } },
                 { "cvss_severities", n => { CvssSeverities = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities>(global::Soenneker.GitHub.OpenApiClient.Models.CvssSeverities.CreateFromDiscriminatorValue); } },
-                { "cwes", n => { Cwes = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cwes>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_cwes.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "cwes", n => { Cwes = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCwesItem>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryCwesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "epss", n => { Epss = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEpss>(global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEpss.CreateFromDiscriminatorValue); } },
                 { "ghsa_id", n => { GhsaId = n.GetStringValue(); } },
-                { "identifiers", n => { Identifiers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_identifiers>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_identifiers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "identifiers", n => { Identifiers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryIdentifiersItem>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryIdentifiersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "published_at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
-                { "references", n => { References = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_references>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_references.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory_severity>(); } },
+                { "references", n => { References = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryReferencesItem>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryReferencesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisorySeverity>(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "vulnerabilities", n => { Vulnerabilities = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability.CreateFromDiscriminatorValue)?.AsList(); } },

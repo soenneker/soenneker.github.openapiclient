@@ -28,10 +28,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The weeks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivity_weeks>? Weeks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem>? Weeks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivity_weeks> Weeks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem> Weeks { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivity"/> and sets the default values.
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "total", n => { Total = n.GetIntValue(); } },
-                { "weeks", n => { Weeks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivity_weeks>(global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivity_weeks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "weeks", n => { Weeks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem>(global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("author", Author);
             writer.WriteIntValue("total", Total);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivity_weeks>("weeks", Weeks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ContributorActivityWeeksItem>("weeks", Weeks);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

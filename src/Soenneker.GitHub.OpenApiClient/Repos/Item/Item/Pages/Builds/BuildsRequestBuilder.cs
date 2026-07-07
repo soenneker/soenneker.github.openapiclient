@@ -26,14 +26,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.pages.builds.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuild_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuild_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuildItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuildItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("build_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuild_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("buildId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pages.Builds.Item.WithBuildItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

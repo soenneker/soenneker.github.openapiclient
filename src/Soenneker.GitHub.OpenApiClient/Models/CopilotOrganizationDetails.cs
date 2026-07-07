@@ -16,15 +16,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The organization policy for allowing or disallowing Copilot CLI.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_cli? Cli { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli? Cli { get; set; }
         /// <summary>The organization policy for allowing or disallowing Copilot Chat in the IDE.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_ide_chat? IdeChat { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat? IdeChat { get; set; }
         /// <summary>The Copilot plan of the organization, or the parent enterprise, when applicable.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_plan_type? PlanType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlanType? PlanType { get; set; }
         /// <summary>The organization policy for allowing or disallowing Copilot features on GitHub.com.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_platform_chat? PlatformChat { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlatformChat? PlatformChat { get; set; }
         /// <summary>The organization policy for allowing or blocking suggestions matching public code (duplication detection filter).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_public_code_suggestions? PublicCodeSuggestions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions? PublicCodeSuggestions { get; set; }
         /// <summary>The breakdown of Copilot Business seats for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown SeatBreakdown { get; set; }
 #endif
         /// <summary>The mode of assigning new seats.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_seat_management_setting? SeatManagementSetting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting? SeatManagementSetting { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails"/> and sets the default values.
         /// </summary>
@@ -60,13 +60,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cli", n => { Cli = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_cli>(); } },
-                { "ide_chat", n => { IdeChat = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_ide_chat>(); } },
-                { "plan_type", n => { PlanType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_plan_type>(); } },
-                { "platform_chat", n => { PlatformChat = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_platform_chat>(); } },
-                { "public_code_suggestions", n => { PublicCodeSuggestions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_public_code_suggestions>(); } },
+                { "cli", n => { Cli = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli>(); } },
+                { "ide_chat", n => { IdeChat = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat>(); } },
+                { "plan_type", n => { PlanType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlanType>(); } },
+                { "platform_chat", n => { PlatformChat = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlatformChat>(); } },
+                { "public_code_suggestions", n => { PublicCodeSuggestions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions>(); } },
                 { "seat_breakdown", n => { SeatBreakdown = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown.CreateFromDiscriminatorValue); } },
-                { "seat_management_setting", n => { SeatManagementSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_seat_management_setting>(); } },
+                { "seat_management_setting", n => { SeatManagementSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting>(); } },
             };
         }
         /// <summary>
@@ -76,13 +76,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_cli>("cli", Cli);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_ide_chat>("ide_chat", IdeChat);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_plan_type>("plan_type", PlanType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_platform_chat>("platform_chat", PlatformChat);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_public_code_suggestions>("public_code_suggestions", PublicCodeSuggestions);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsCli>("cli", Cli);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsIdeChat>("ide_chat", IdeChat);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlanType>("plan_type", PlanType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPlatformChat>("platform_chat", PlatformChat);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsPublicCodeSuggestions>("public_code_suggestions", PublicCodeSuggestions);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationSeatBreakdown>("seat_breakdown", SeatBreakdown);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetails_seat_management_setting>("seat_management_setting", SeatManagementSetting);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotOrganizationDetailsSeatManagementSetting>("seat_management_setting", SeatManagementSetting);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -547,7 +547,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public TeamRepository()
         {
             AdditionalData = new Dictionary<string, object>();
+            AllowAutoMerge = false;
+            AllowForking = false;
+            AllowMergeCommit = true;
+            AllowRebaseMerge = true;
+            AllowSquashMerge = true;
+            Archived = false;
+            DeleteBranchOnMerge = false;
+            HasDownloads = true;
+            HasIssues = true;
+            HasProjects = true;
+            HasWiki = true;
+            IsTemplate = false;
+            Private = false;
             Visibility = "public";
+            WebCommitSignoffRequired = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

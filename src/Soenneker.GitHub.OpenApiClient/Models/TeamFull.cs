@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string NodeId { get; set; }
 #endif
         /// <summary>The notification setting the team has set</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting? NotificationSetting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFullNotificationSetting? NotificationSetting { get; set; }
         /// <summary>Team Organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Permission { get; set; }
 #endif
         /// <summary>The level of privacy this team should have</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy? Privacy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFullPrivacy? Privacy { get; set; }
         /// <summary>The repos_count property</summary>
         public int? ReposCount { get; set; }
         /// <summary>The repositories_url property</summary>
@@ -120,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>The ownership type of the team</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamFullType? Type { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>URL for the team</summary>
@@ -166,16 +166,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting>(); } },
+                { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFullNotificationSetting>(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization>(global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization.CreateFromDiscriminatorValue); } },
                 { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
                 { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple.CreateFromDiscriminatorValue); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
-                { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy>(); } },
+                { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFullPrivacy>(); } },
                 { "repos_count", n => { ReposCount = n.GetIntValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFullType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -197,16 +197,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_notification_setting>("notification_setting", NotificationSetting);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFullNotificationSetting>("notification_setting", NotificationSetting);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganization>("organization", Organization);
             writer.WriteLongValue("organization_id", OrganizationId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple>("parent", Parent);
             writer.WriteStringValue("permission", Permission);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_privacy>("privacy", Privacy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFullPrivacy>("privacy", Privacy);
             writer.WriteIntValue("repos_count", ReposCount);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFull_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamFullType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

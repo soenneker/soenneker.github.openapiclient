@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The apps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps>? Apps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem>? Apps { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps> Apps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem> Apps { get; set; }
 #endif
         /// <summary>The apps_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,10 +58,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users>? Users { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>? Users { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users> Users { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem> Users { get; set; }
 #endif
         /// <summary>The users_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,12 +96,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apps", n => { Apps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "apps_url", n => { AppsUrl = n.GetStringValue(); } },
                 { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "teams_url", n => { TeamsUrl = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "users", n => { Users = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "users", n => { Users = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>(global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "users_url", n => { UsersUrl = n.GetStringValue(); } },
             };
         }
@@ -112,12 +112,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_apps>("apps", Apps);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyAppsItem>("apps", Apps);
             writer.WriteStringValue("apps_url", AppsUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Team>("teams", Teams);
             writer.WriteStringValue("teams_url", TeamsUrl);
             writer.WriteStringValue("url", Url);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicy_users>("users", Users);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BranchRestrictionPolicyUsersItem>("users", Users);
             writer.WriteStringValue("users_url", UsersUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

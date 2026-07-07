@@ -9,11 +9,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         [EnumMember(Value = "false_positive")]
         #pragma warning disable CS1591
-        False_positive,
+        FalsePositive,
         #pragma warning restore CS1591
         [EnumMember(Value = "wont_fix")]
         #pragma warning disable CS1591
-        Wont_fix,
+        WontFix,
         #pragma warning restore CS1591
         [EnumMember(Value = "revoked")]
         #pragma warning disable CS1591
@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "used_in_tests")]
         #pragma warning disable CS1591
-        Used_in_tests,
+        UsedInTests,
         #pragma warning restore CS1591
     }
 }

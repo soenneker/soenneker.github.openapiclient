@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reaction to use</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Reaction_content? Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReactionContent? Content { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The id property</summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Reaction_content>(); } },
+                { "content", n => { Content = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionContent>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Reaction_content>("content", Content);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionContent>("content", Content);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);

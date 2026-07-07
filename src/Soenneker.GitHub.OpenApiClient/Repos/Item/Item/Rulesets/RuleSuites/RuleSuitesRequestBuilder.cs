@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
     public partial class RuleSuitesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.rulesets.ruleSuites.item collection</summary>
-        /// <param name="position">The unique identifier of the rule suite result.To get this ID, you can use [GET /repos/{owner}/{repo}/rulesets/rule-suites](https://docs.github.com/rest/repos/rule-suites#list-repository-rule-suites)for repositories and [GET /orgs/{org}/rulesets/rule-suites](https://docs.github.com/rest/orgs/rule-suites#list-organization-rule-suites)for organizations.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRule_suite_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRule_suite_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("rule_suite_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRule_suite_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("ruleSuiteId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -119,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
 #endif
             /// <summary>The evaluate status to filter on. When specified, only rule suites resulting from rulesets with the specified evaluate status will be returned.  - `all` - all rule suites will be returned.  - `active` - only rule suites resulting from rulesets in active (non-evaluate) mode will be returned.  - `evaluate` - only rule suites resulting from rulesets in evaluate mode will be returned.</summary>
             [QueryParameter("evaluate_status")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.GetEvaluate_statusQueryParameterType? EvaluateStatus { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.EvaluateStatus? EvaluateStatus { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -138,10 +138,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites
 #endif
             /// <summary>The rule suite results to filter on. When specified, only suites with this result will be returned.</summary>
             [QueryParameter("rule_suite_result")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.GetRule_suite_resultQueryParameterType? RuleSuiteResult { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteResultEnum? RuleSuiteResult { get; set; }
             /// <summary>The time period to filter by.For example, `day` will filter for rule suites that occurred in the past 24 hours, and `week` will filter for rule suites that occurred in the past 7 days (168 hours).</summary>
             [QueryParameter("time_period")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.GetTime_periodQueryParameterType? TimePeriod { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.TimePeriod? TimePeriod { get; set; }
         }
     }
 }

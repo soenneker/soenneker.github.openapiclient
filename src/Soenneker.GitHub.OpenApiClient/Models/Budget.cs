@@ -40,21 +40,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string BudgetProductSku { get; set; }
 #endif
-        /// <summary>The scope of the budget (enterprise, organization, repository, cost center)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BudgetScope { get; set; }
-#nullable restore
-#else
-        public string BudgetScope { get; set; }
-#endif
+        /// <summary>The scope of the budget</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetScope? BudgetScope { get; set; }
         /// <summary>The type of pricing for the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetType? BudgetType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch BudgetType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetType BudgetType { get; set; }
 #endif
         /// <summary>The unique identifier for the budget</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,6 +60,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The type of limit enforcement for the budget</summary>
         public bool? PreventFurtherUsage { get; set; }
+        /// <summary>The user login when the budget is scoped to a single user (`user` scope).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? User { get; set; }
+#nullable restore
+#else
+        public string User { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Budget"/> and sets the default values.
         /// </summary>
@@ -95,10 +97,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_amount", n => { BudgetAmount = n.GetIntValue(); } },
                 { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
-                { "budget_scope", n => { BudgetScope = n.GetStringValue(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetScope>(); } },
+                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetType.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -112,10 +115,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("budget_amount", BudgetAmount);
             writer.WriteStringValue("budget_entity_name", BudgetEntityName);
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
-            writer.WriteStringValue("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("budget_type", BudgetType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetScope>("budget_scope", BudgetScope);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BudgetBudgetType>("budget_type", BudgetType);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
+            writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

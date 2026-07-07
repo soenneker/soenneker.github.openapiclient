@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\commits\{commit_sha-id}\check-runs
+    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\commits\{commitSha-id}\check-runs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckRunsRequestBuilder : BaseRequestBuilder
@@ -21,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckRunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/commits/{commit_sha%2Did}/check-runs{?app_id*,check_name*,filter*,page*,per_page*,status*}", pathParameters)
+        public CheckRunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/commits/{commitSha%2Did}/check-runs{?app_id*,check_name*,filter*,page*,per_page*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,27 +30,27 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckRunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/commits/{commit_sha%2Did}/check-runs{?app_id*,check_name*,filter*,page*,per_page*,status*}", rawUrl)
+        public CheckRunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/commits/{commitSha%2Did}/check-runs{?app_id*,check_name*,filter*,page*,per_page*,status*}", rawUrl)
         {
         }
         /// <summary>
         /// Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name.&gt; [!NOTE]&gt; The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.If there are more than 1000 check suites on a single git reference, this endpoint will limit check runs to the 1000 most recent check suites. To iterate over all possible check runs, use the [List check suites for a Git reference](https://docs.github.com/rest/reference/checks#list-check-suites-for-a-git-reference) endpoint and provide the `check_suite_id` parameter to the [List check runs in a check suite](https://docs.github.com/rest/reference/checks#list-check-runs-in-a-check-suite) endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint on a private repository.
         /// API method documentation <see href="https://docs.github.com/rest/checks/runs#list-check-runs-for-a-git-reference" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ChecksListForRef200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ChecksListForRef200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ChecksListForRef200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsRequestBuilder.CheckRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.CheckRunsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ChecksListForRef200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ChecksListForRef200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name.&gt; [!NOTE]&gt; The endpoints to manage checks only look for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.If there are more than 1000 check suites on a single git reference, this endpoint will limit check runs to the 1000 most recent check suites. To iterate over all possible check runs, use the [List check suites for a Git reference](https://docs.github.com/rest/reference/checks#list-check-suites-for-a-git-reference) endpoint and provide the `check_suite_id` parameter to the [List check runs in a check suite](https://docs.github.com/rest/reference/checks#list-check-runs-in-a-check-suite) endpoint.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint on a private repository.
@@ -99,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns
 #endif
             /// <summary>Filters check runs by their `completed_at` timestamp. `latest` returns the most recent check runs.</summary>
             [QueryParameter("filter")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.GetFilterQueryParameterType? Filter { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ChecksListForRefFilterParameter? Filter { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -108,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns
             public int? PerPage { get; set; }
             /// <summary>Returns check runs with the specified `status`.</summary>
             [QueryParameter("status")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.StatusEnum? Status { get; set; }
         }
     }
 }

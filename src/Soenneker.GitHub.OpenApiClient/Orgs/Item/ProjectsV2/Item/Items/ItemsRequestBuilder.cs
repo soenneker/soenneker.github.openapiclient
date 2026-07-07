@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\projectsV2\{project_number}\items
+    /// Builds and executes requests for operations under \orgs\{org}\projectsV2\{projectNumber}\items
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.projectsV2.item.items.item collection</summary>
-        /// <param name="position">The unique identifier of the project item.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.Item.WithItem_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.Item.WithItem_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.Item.WithItemItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.Item.WithItemItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("item_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.Item.WithItem_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("itemId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items.Item.WithItemItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/projectsV2/{project_number}/items{?after*,before*,fields*,per_page*,q*}", pathParameters)
+        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/projectsV2/{projectNumber}/items{?after*,before*,fields*,per_page*,q*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/projectsV2/{project_number}/items{?after*,before*,fields*,per_page*,q*}", rawUrl)
+        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/projectsV2/{projectNumber}/items{?after*,before*,fields*,per_page*,q*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemSimple> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -128,11 +128,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddItemForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

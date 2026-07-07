@@ -28,10 +28,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The emails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_emails>? Emails { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeyEmailsItem>? Emails { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_emails> Emails { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeyEmailsItem> Emails { get; set; }
 #endif
         /// <summary>The expires_at property</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
@@ -76,10 +76,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The subkeys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_subkeys>? Subkeys { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItem>? Subkeys { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_subkeys> Subkeys { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItem> Subkeys { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GpgKey"/> and sets the default values.
@@ -111,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "can_encrypt_storage", n => { CanEncryptStorage = n.GetBoolValue(); } },
                 { "can_sign", n => { CanSign = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_emails>(global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_emails.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeyEmailsItem>(global::Soenneker.GitHub.OpenApiClient.Models.GpgKeyEmailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
@@ -120,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "public_key", n => { PublicKey = n.GetStringValue(); } },
                 { "raw_key", n => { RawKey = n.GetStringValue(); } },
                 { "revoked", n => { Revoked = n.GetBoolValue(); } },
-                { "subkeys", n => { Subkeys = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_subkeys>(global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_subkeys.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subkeys", n => { Subkeys = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItem>(global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("can_encrypt_storage", CanEncryptStorage);
             writer.WriteBoolValue("can_sign", CanSign);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_emails>("emails", Emails);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeyEmailsItem>("emails", Emails);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("key_id", KeyId);
@@ -144,7 +144,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("public_key", PublicKey);
             writer.WriteStringValue("raw_key", RawKey);
             writer.WriteBoolValue("revoked", Revoked);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKey_subkeys>("subkeys", Subkeys);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItem>("subkeys", Subkeys);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

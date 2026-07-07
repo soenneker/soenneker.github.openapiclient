@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Whether team members will receive notifications when the team is mentioned.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam_notification_setting? NotificationSetting { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamNotificationSetting? NotificationSetting { get; set; }
         /// <summary>The organization_selection_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,7 +136,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "members_url", n => { MembersUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam_notification_setting>(); } },
+                { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamNotificationSetting>(); } },
                 { "organization_selection_type", n => { OrganizationSelectionType = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "sync_to_organizations", n => { SyncToOrganizations = n.GetStringValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("members_url", MembersUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam_notification_setting>("notification_setting", NotificationSetting);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamNotificationSetting>("notification_setting", NotificationSetting);
             writer.WriteStringValue("organization_selection_type", OrganizationSelectionType);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("sync_to_organizations", SyncToOrganizations);

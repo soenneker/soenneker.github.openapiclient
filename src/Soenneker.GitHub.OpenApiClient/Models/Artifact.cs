@@ -70,10 +70,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The workflow_run property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Artifact_workflow_run? WorkflowRun { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ArtifactWorkflowRun? WorkflowRun { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Artifact_workflow_run WorkflowRun { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ArtifactWorkflowRun WorkflowRun { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Artifact"/> and sets the default values.
@@ -111,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "size_in_bytes", n => { SizeInBytes = n.GetIntValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "workflow_run", n => { WorkflowRun = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Artifact_workflow_run>(global::Soenneker.GitHub.OpenApiClient.Models.Artifact_workflow_run.CreateFromDiscriminatorValue); } },
+                { "workflow_run", n => { WorkflowRun = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactWorkflowRun>(global::Soenneker.GitHub.OpenApiClient.Models.ArtifactWorkflowRun.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -132,7 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("size_in_bytes", SizeInBytes);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Artifact_workflow_run>("workflow_run", WorkflowRun);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactWorkflowRun>("workflow_run", WorkflowRun);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

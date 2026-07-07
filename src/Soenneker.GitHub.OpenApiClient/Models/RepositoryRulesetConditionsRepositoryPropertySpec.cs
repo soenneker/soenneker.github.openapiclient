@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> PropertyValues { get; set; }
 #endif
         /// <summary>The source of the repository property. Defaults to &apos;custom&apos; if not specified.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpec_source? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpecSource? Source { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpec"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "property_values", n => { PropertyValues = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpec_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpecSource>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("property_values", PropertyValues);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpec_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertySpecSource>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

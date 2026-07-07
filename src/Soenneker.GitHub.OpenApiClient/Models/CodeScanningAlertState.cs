@@ -17,7 +17,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "fixed")]
         #pragma warning disable CS1591
-        Fixed,
+        FixedValue,
         #pragma warning restore CS1591
     }
 }

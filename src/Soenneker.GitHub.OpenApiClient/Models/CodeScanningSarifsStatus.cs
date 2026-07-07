@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> Errors { get; private set; }
 #endif
         /// <summary>`pending` files have not yet been processed, while `complete` means results from the SARIF have been stored. `failed` files have either not been processed at all, or could only be partially processed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatus_processing_status? ProcessingStatus { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus? ProcessingStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatus"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "analyses_url", n => { AnalysesUrl = n.GetStringValue(); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "processing_status", n => { ProcessingStatus = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatus_processing_status>(); } },
+                { "processing_status", n => { ProcessingStatus = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus>(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatus_processing_status>("processing_status", ProcessingStatus);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus>("processing_status", ProcessingStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

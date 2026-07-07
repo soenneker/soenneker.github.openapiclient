@@ -62,22 +62,22 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases
         /// Sets the immutable releases policy for repositories in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/orgs#set-immutable-releases-settings-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesPutResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson52"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesPutResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettings body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson52?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettingsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesPutResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettings body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson52> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettingsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases.ImmutableReleasesPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson52>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DefaultResponseResponseJson52.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the immutable releases policy for repositories in an organization.OAuth tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -106,11 +106,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.ImmutableReleases
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettings body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettingsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettings body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetImmutableReleasesSettingsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

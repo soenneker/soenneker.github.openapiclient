@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
     public partial class MilestonesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.milestones.item collection</summary>
-        /// <param name="position">The number that identifies the milestone.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder this[int position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("milestone_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("milestoneNumber", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.Item.WithMilestoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -83,11 +83,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Milestone?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestone body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Milestone?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestoneRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Milestone> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestone body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.Milestone> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestoneRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -126,11 +126,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestone body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestoneRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestone body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateMilestoneRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -157,7 +157,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
         {
             /// <summary>The direction of the sort. Either `asc` or `desc`.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListMilestonesDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -166,10 +166,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones
             public int? PerPage { get; set; }
             /// <summary>What to sort results by. Either `due_on` or `completeness`.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListMilestonesSortParameter? Sort { get; set; }
             /// <summary>The state of the milestone. Either `open`, `closed`, or `all`.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Milestones.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListMilestonesStateParameter? State { get; set; }
         }
     }
 }

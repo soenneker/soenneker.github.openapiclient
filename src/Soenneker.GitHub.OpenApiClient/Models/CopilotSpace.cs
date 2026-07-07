@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string ApiUrl { get; set; }
 #endif
         /// <summary>&quot;The base role that determines default permissions.- `no_access`: No default access- `reader`: Default read permissions- `writer`: Default write permissions (organization spaces only)- `admin`: Default admin permissions (organization spaces only)&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_base_role? BaseRole { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceBaseRole? BaseRole { get; set; }
         /// <summary>The date and time the space was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>A GitHub user.</summary>
@@ -72,18 +72,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The user or organization that owns this space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceOwner? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceOwner Owner { get; set; }
 #endif
         /// <summary>Resources attached to the space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_resources_attributes>? ResourcesAttributes { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItem>? ResourcesAttributes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_resources_attributes> ResourcesAttributes { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItem> ResourcesAttributes { get; set; }
 #endif
         /// <summary>The date and time the space was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_url", n => { ApiUrl = n.GetStringValue(); } },
-                { "base_role", n => { BaseRole = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_base_role>(); } },
+                { "base_role", n => { BaseRole = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceBaseRole>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -115,8 +115,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner.CreateFromDiscriminatorValue); } },
-                { "resources_attributes", n => { ResourcesAttributes = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_resources_attributes>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_resources_attributes.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceOwner>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceOwner.CreateFromDiscriminatorValue); } },
+                { "resources_attributes", n => { ResourcesAttributes = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItem>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -128,7 +128,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_url", ApiUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_base_role>("base_role", BaseRole);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceBaseRole>("base_role", BaseRole);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("creator", Creator);
             writer.WriteStringValue("description", Description);
@@ -137,66 +137,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("number", Number);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner>("owner", Owner);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace_resources_attributes>("resources_attributes", ResourcesAttributes);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceOwner>("owner", Owner);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResourcesAttributesItem>("resources_attributes", ResourcesAttributes);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CopilotSpace_owner : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple? OrganizationSimple { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple OrganizationSimple { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? SimpleUser { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace.CopilotSpace_owner();
-                result.OrganizationSimple = new global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple();
-                result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OrganizationSimple != null || SimpleUser != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OrganizationSimple, SimpleUser);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationSimple>(null, OrganizationSimple, SimpleUser);
-            }
         }
     }
 }

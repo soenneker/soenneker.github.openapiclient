@@ -9,35 +9,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         [EnumMember(Value = "COLLABORATOR")]
         #pragma warning disable CS1591
-        COLLABORATOR,
+        Collaborator,
         #pragma warning restore CS1591
         [EnumMember(Value = "CONTRIBUTOR")]
         #pragma warning disable CS1591
-        CONTRIBUTOR,
+        Contributor,
         #pragma warning restore CS1591
         [EnumMember(Value = "FIRST_TIMER")]
         #pragma warning disable CS1591
-        FIRST_TIMER,
+        FirstTimer,
         #pragma warning restore CS1591
         [EnumMember(Value = "FIRST_TIME_CONTRIBUTOR")]
         #pragma warning disable CS1591
-        FIRST_TIME_CONTRIBUTOR,
+        FirstTimeContributor,
         #pragma warning restore CS1591
         [EnumMember(Value = "MANNEQUIN")]
         #pragma warning disable CS1591
-        MANNEQUIN,
+        Mannequin,
         #pragma warning restore CS1591
         [EnumMember(Value = "MEMBER")]
         #pragma warning disable CS1591
-        MEMBER,
+        Member,
         #pragma warning restore CS1591
         [EnumMember(Value = "NONE")]
         #pragma warning disable CS1591
-        NONE,
+        None,
         #pragma warning restore CS1591
         [EnumMember(Value = "OWNER")]
         #pragma warning disable CS1591
-        OWNER,
+        Owner,
         #pragma warning restore CS1591
     }
 }

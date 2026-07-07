@@ -26,13 +26,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The list of environments that were approved or rejected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_environments>? Environments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem>? Environments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_environments> Environments { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem> Environments { get; set; }
 #endif
         /// <summary>Whether deployment to the environment(s) was approved or rejected or pending (with comments)</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsState? State { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,8 +67,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "comment", n => { Comment = n.GetStringValue(); } },
-                { "environments", n => { Environments = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_environments>(global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_environments.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_state>(); } },
+                { "environments", n => { Environments = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem>(global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsState>(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
             };
         }
@@ -80,8 +80,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_environments>("environments", Environments);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovals_state>("state", State);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsEnvironmentsItem>("environments", Environments);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.EnvironmentApprovalsState>("state", State);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }

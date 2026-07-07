@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches
     public partial class CachesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.caches.item collection</summary>
-        /// <param name="position">The unique identifier of the GitHub Actions cache.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.Item.WithCache_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.Item.WithCache_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.Item.WithCacheItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.Item.WithCacheItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("cache_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.Item.WithCache_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("cacheId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.Item.WithCacheItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches
         {
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>An explicit key or prefix for identifying the cache</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -195,7 +195,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches
 #endif
             /// <summary>The property to sort the results by. `created_at` means when the cache was created. `last_accessed_at` means when the cache was last accessed. `size_in_bytes` is the size of the cache in bytes.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Caches.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListSort? Sort { get; set; }
         }
     }
 }

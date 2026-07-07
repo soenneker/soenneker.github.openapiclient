@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.Alerts503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOrganizationAlertItems>?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts.AlertsRequestBuilder.AlertsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.GitHub.OpenApiClient.Models.Alerts503Error.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.GitHub.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
             };
             var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOrganizationAlertItems>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOrganizationAlertItems.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts
             public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertSeverity? Severity { get; set; }
             /// <summary>The property by which to sort the results.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CodeScanning.Alerts.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningListAlertsForOrgSortParameter? Sort { get; set; }
             /// <summary>If specified, only code scanning alerts with this state will be returned.</summary>
             [QueryParameter("state")]
             public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertStateQuery? State { get; set; }

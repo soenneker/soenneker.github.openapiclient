@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Default value of the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? DefaultValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyDefaultValue? DefaultValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch DefaultValue { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyDefaultValue DefaultValue { get; set; }
 #endif
         /// <summary>Short description of the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether setting properties values is mandatory</summary>
         public bool? RequireExplicitValues { get; set; }
         /// <summary>The source type of the property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_source_type? SourceType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySourceType? SourceType { get; set; }
         /// <summary>The URL that can be used to fetch, update, or delete info about this property via the API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,9 +62,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Url { get; set; }
 #endif
         /// <summary>Who can edit the values of the property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_values_editable_by? ValuesEditableBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValuesEditableBy? ValuesEditableBy { get; set; }
         /// <summary>The type of the value for the property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_value_type? ValueType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueType? ValueType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty"/> and sets the default values.
         /// </summary>
@@ -91,15 +91,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowed_values", n => { AllowedValues = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "default_value", n => { DefaultValue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "default_value", n => { DefaultValue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyDefaultValue>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyDefaultValue.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "property_name", n => { PropertyName = n.GetStringValue(); } },
                 { "require_explicit_values", n => { RequireExplicitValues = n.GetBoolValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
-                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_source_type>(); } },
+                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySourceType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "value_type", n => { ValueType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_value_type>(); } },
-                { "values_editable_by", n => { ValuesEditableBy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_values_editable_by>(); } },
+                { "value_type", n => { ValueType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueType>(); } },
+                { "values_editable_by", n => { ValuesEditableBy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValuesEditableBy>(); } },
             };
         }
         /// <summary>
@@ -110,15 +110,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_values", AllowedValues);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("default_value", DefaultValue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyDefaultValue>("default_value", DefaultValue);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("property_name", PropertyName);
             writer.WriteBoolValue("required", Required);
             writer.WriteBoolValue("require_explicit_values", RequireExplicitValues);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_source_type>("source_type", SourceType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertySourceType>("source_type", SourceType);
             writer.WriteStringValue("url", Url);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_values_editable_by>("values_editable_by", ValuesEditableBy);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomProperty_value_type>("value_type", ValueType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValuesEditableBy>("values_editable_by", ValuesEditableBy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueType>("value_type", ValueType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

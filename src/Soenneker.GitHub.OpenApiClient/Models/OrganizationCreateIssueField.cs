@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The data type of the issue field.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_data_type? DataType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldDataType? DataType { get; set; }
         /// <summary>Description of the issue field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,16 +32,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Options for single select fields. Required when data_type is &apos;single_select&apos;.</summary>
+        /// <summary>Options for select fields. Required when data_type is &apos;single_select&apos; or &apos;multi_select&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_options>? Options { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldOptionsItem>? Options { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_options> Options { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldOptionsItem> Options { get; set; }
 #endif
         /// <summary>The visibility of the issue field. Can be `organization_members_only` (visible only within the organization) or `all` (visible to all users who can see issues). Only used when the visibility settings feature is enabled. Defaults to `organization_members_only`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField"/> and sets the default values.
         /// </summary>
@@ -67,11 +67,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_data_type>(); } },
+                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldDataType>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_options>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_options.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_visibility>(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldOptionsItem>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldOptionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldVisibility>(); } },
             };
         }
         /// <summary>
@@ -81,11 +81,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_data_type>("data_type", DataType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldDataType>("data_type", DataType);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_options>("options", Options);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueField_visibility>("visibility", Visibility);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldOptionsItem>("options", Options);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueFieldVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

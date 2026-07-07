@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets seats for all users specified to &quot;pending cancellation&quot;.This will cause the specified users to lose access to GitHub Copilot at the end of the current billing cycle unless they retain access through team membership.For more information about disabling access to Copilot, see &quot;[Revoking access to Copilot for members of your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization).&quot;Only organization owners can cancel Copilot seats for their organization members.The response contains the total number of seats set to &quot;pending cancellation&quot;.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-user-management#remove-users-from-the-copilot-subscription-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,11 +47,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200?> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200Response?> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200Response> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -63,13 +63,13 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Purchases a GitHub Copilot seat for each user specified.The organization will be billed for each seat based on the organization&apos;s Copilot plan. For more information about Copilot pricing, see &quot;[About billing for GitHub Copilot in your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization).&quot;Only organization owners can purchase Copilot seats for their organization members. The organization must have a Copilot Business or Copilot Enterprise subscription and a configured suggestion matching policy.For more information about setting up a Copilot subscription, see &quot;[Subscribing to Copilot for your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/subscribing-to-copilot-for-your-organization).&quot;For more information about setting a suggestion matching policy, see &quot;[Managing policies for Copilot in your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching).&quot;The response contains the total number of new seats that were created and existing seats that were refreshed.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-user-management#add-users-to-the-copilot-subscription-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -79,11 +79,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201Response?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201Response> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Sets seats for all users specified to &quot;pending cancellation&quot;.This will cause the specified users to lose access to GitHub Copilot at the end of the current billing cycle unless they retain access through team membership.For more information about disabling access to Copilot, see &quot;[Revoking access to Copilot for members of your organization](https://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization).&quot;Only organization owners can cancel Copilot seats for their organization members.The response contains the total number of seats set to &quot;pending cancellation&quot;.OAuth app tokens and personal access tokens (classic) need either the `manage_billing:copilot` or `admin:org` scopes to use this endpoint.
@@ -105,11 +105,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsers body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotCancelCopilotSeatAssignmentForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -127,11 +127,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Billing.Selected_user
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

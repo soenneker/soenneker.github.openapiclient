@@ -32,9 +32,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertPackage Package { get; private set; }
 #endif
         /// <summary>The vulnerable dependency&apos;s relationship to your project.&gt; [!NOTE]&gt; We are rolling out support for dependency relationship across ecosystems. This value will be &quot;unknown&quot; for all dependencies in unsupported ecosystems.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependency_relationship? Relationship { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependencyRelationship? Relationship { get; private set; }
         /// <summary>The execution scope of the vulnerable dependency.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependency_scope? Scope { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependencyScope? Scope { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependency"/> and sets the default values.
         /// </summary>
@@ -62,8 +62,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "manifest_path", n => { ManifestPath = n.GetStringValue(); } },
                 { "package", n => { Package = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertPackage>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertPackage.CreateFromDiscriminatorValue); } },
-                { "relationship", n => { Relationship = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependency_relationship>(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependency_scope>(); } },
+                { "relationship", n => { Relationship = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependencyRelationship>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDependencyScope>(); } },
             };
         }
         /// <summary>

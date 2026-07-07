@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Sha { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry"/> and sets the default values.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "previous_filename", n => { PreviousFilename = n.GetStringValue(); } },
                 { "raw_url", n => { RawUrl = n.GetStringValue(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus>(); } },
             };
         }
         /// <summary>
@@ -134,7 +134,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("previous_filename", PreviousFilename);
             writer.WriteStringValue("raw_url", RawUrl);
             writer.WriteStringValue("sha", Sha);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntryStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions? Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty? Permissions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions Permissions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty Permissions { get; set; }
 #endif
         /// <summary>The repositories this token has access to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> Repositories { get; set; }
 #endif
         /// <summary>Describe whether all repositories have been selected or there&apos;s a selection involved</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_repository_selection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection? RepositorySelection { get; set; }
         /// <summary>The single_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,9 +77,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions>(global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions.CreateFromDiscriminatorValue); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty>(global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty.CreateFromDiscriminatorValue); } },
                 { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_repository_selection>(); } },
+                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection>(); } },
                 { "single_file", n => { SingleFile = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
             };
@@ -92,9 +92,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_permissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenPermissionsProperty>("permissions", Permissions);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repositories", Repositories);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationToken_repository_selection>("repository_selection", RepositorySelection);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthenticationTokenRepositorySelection>("repository_selection", RepositorySelection);
             writer.WriteStringValue("single_file", SingleFile);
             writer.WriteStringValue("token", Token);
             writer.WriteAdditionalData(AdditionalData);

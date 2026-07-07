@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\copilot-spaces\{space_number}\resources
+    /// Builds and executes requests for operations under \users\{user-id}\copilot-spaces\{spaceNumber}\resources
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResourcesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.copilotSpaces.item.resources.item collection</summary>
         /// <param name="position">The unique identifier of the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item.WithSpace_resource_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item.WithSpace_resource_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item.WithSpaceResourceItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item.WithSpaceResourceItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("space_resource_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item.WithSpace_resource_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("spaceResourceId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item.WithSpaceResourceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResourcesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/copilot-spaces/{space_number}/resources", pathParameters)
+        public ResourcesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/copilot-spaces/{spaceNumber}/resources", pathParameters)
         {
         }
         /// <summary>
@@ -43,25 +43,25 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResourcesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/copilot-spaces/{space_number}/resources", rawUrl)
+        public ResourcesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/copilot-spaces/{spaceNumber}/resources", rawUrl)
         {
         }
         /// <summary>
         /// Lists all resources attached to a specific Copilot Space owned by a user.The authenticated user must have appropriate permissions to view the space.OAuth app tokens and personal access tokens (classic) need the `read:user` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#list-resources-for-a-copilot-space-for-a-user" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.ResourcesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Creates a new resource in a specific Copilot Space owned by a user.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:user` scope to use this endpoint.&quot;
@@ -85,11 +85,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -129,11 +129,11 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateResourceForUserRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -110,7 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>The ownership type of the team</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimpleType? Type { get; set; }
         /// <summary>URL for the team</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,7 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimpleType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -183,7 +183,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimple_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableTeamSimpleType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

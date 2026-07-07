@@ -27,10 +27,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ValidationError_errors>? Errors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorErrorsItem>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ValidationError_errors> Errors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorErrorsItem> Errors { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "documentation_url", n => { DocumentationUrl = n.GetStringValue(); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ValidationError_errors>(global::Soenneker.GitHub.OpenApiClient.Models.ValidationError_errors.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorErrorsItem>(global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorErrorsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("documentation_url", DocumentationUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ValidationError_errors>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorErrorsItem>("errors", Errors);
             writer.WriteStringValue("message", MessageEscaped);
             writer.WriteAdditionalData(AdditionalData);
         }

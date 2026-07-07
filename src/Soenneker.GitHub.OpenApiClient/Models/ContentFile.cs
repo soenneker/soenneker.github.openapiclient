@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Target { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentFile_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ContentFileType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,7 +152,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "size", n => { Size = n.GetIntValue(); } },
                 { "submodule_git_url", n => { SubmoduleGitUrl = n.GetStringValue(); } },
                 { "target", n => { Target = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentFile_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentFileType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -175,7 +175,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("size", Size);
             writer.WriteStringValue("submodule_git_url", SubmoduleGitUrl);
             writer.WriteStringValue("target", Target);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentFile_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentFileType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

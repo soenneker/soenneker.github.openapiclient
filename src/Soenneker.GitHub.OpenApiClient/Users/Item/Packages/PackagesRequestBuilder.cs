@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\packages
+    /// Builds and executes requests for operations under \users\{user-id}\packages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PackagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.packages.item collection</summary>
-        /// <param name="position">The type of supported package. Packages in GitHub&apos;s Gradle registry have the type `maven`. Docker images pushed to GitHub&apos;s Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub&apos;s Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackage_typeItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackage_typeItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackageTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackageTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("package_type", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackage_typeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("packageType", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackageTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PackagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", pathParameters)
+        public PackagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PackagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", rawUrl)
+        public PackagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", rawUrl)
         {
         }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         {
             /// <summary>The type of supported package. Packages in GitHub&apos;s Gradle registry have the type `maven`. Docker images pushed to GitHub&apos;s Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub&apos;s Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry.</summary>
             [QueryParameter("package_type")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.GetPackage_typeQueryParameterType? PackageType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.PackagesListPackagesForUserPackageTypeParameter? PackageType { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
             public int? PerPage { get; set; }
             /// <summary>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.The `internal` visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems `internal` is synonymous with `private`.For the list of GitHub Packages registries that support granular permissions, see &quot;[About permissions for GitHub Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages).&quot;</summary>
             [QueryParameter("visibility")]
-            public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.GetVisibilityQueryParameterType? Visibility { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.PackageVisibilityEnum? Visibility { get; set; }
         }
     }
 }

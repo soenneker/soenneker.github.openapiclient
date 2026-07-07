@@ -21,10 +21,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Zero or more iterations for the field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration_iterations>? Iterations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfigurationIterationsItem>? Iterations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration_iterations> Iterations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfigurationIterationsItem> Iterations { get; set; }
 #endif
         /// <summary>The start date of the first iteration.</summary>
         public Date? StartDate { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "duration", n => { Duration = n.GetIntValue(); } },
-                { "iterations", n => { Iterations = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration_iterations>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration_iterations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "iterations", n => { Iterations = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfigurationIterationsItem>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfigurationIterationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("duration", Duration);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration_iterations>("iterations", Iterations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfigurationIterationsItem>("iterations", Iterations);
             writer.WriteDateValue("start_date", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -116,16 +116,16 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>The number of advisories to return per page. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListOrgRepositoryAdvisoriesSortParameter? Sort { get; set; }
             /// <summary>Filter by the state of the repository advisories. Only advisories of this state will be returned.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListOrgRepositoryAdvisoriesStateParameter? State { get; set; }
         }
     }
 }

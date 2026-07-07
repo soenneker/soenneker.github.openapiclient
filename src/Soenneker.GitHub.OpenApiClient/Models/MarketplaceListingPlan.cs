@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The number property</summary>
         public int? Number { get; set; }
         /// <summary>The price_model property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan_price_model? PriceModel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlanPriceModel? PriceModel { get; set; }
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "monthly_price_in_cents", n => { MonthlyPriceInCents = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
-                { "price_model", n => { PriceModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan_price_model>(); } },
+                { "price_model", n => { PriceModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlanPriceModel>(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "unit_name", n => { UnitName = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("monthly_price_in_cents", MonthlyPriceInCents);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("number", Number);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlan_price_model>("price_model", PriceModel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MarketplaceListingPlanPriceModel>("price_model", PriceModel);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("unit_name", UnitName);
             writer.WriteStringValue("url", Url);

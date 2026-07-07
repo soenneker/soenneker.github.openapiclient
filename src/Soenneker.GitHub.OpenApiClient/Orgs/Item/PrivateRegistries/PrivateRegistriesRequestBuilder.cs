@@ -25,15 +25,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PublicKey.PublicKeyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.privateRegistries.item collection</summary>
-        /// <param name="position">The name of the secret.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecret_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecret_nameItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecretNameItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecretNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("secret_name", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecret_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("secretName", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.Item.WithSecretNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -56,18 +56,18 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         /// Lists all private registry configurations available at the organization-level without revealing their encryptedvalues.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/private-registries/organization-configurations#list-private-registries-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesListOrgPrivateRegistries200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesRequestBuilder.PrivateRegistriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesListOrgPrivateRegistries200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesRequestBuilder.PrivateRegistriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesRequestBuilder.PrivateRegistriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesListOrgPrivateRegistries200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesRequestBuilder.PrivateRegistriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
                 { "400", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries.PrivateRegistriesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesListOrgPrivateRegistries200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesListOrgPrivateRegistries200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages). For more information, see &quot;[Encrypting secrets for the REST API](https://docs.github.com/rest/guides/encrypting-secrets-for-the-rest-api).&quot;For OIDC-based registries (`oidc_azure`, `oidc_aws`, `oidc_jfrog`, `oidc_cloudsmith`, or `oidc_gcp`), the `encrypted_value` and `key_id` fields should be omitted.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
@@ -90,11 +90,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationWithSelectedRepositories> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -133,11 +133,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PrivateRegistries
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistry body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesCreateOrgPrivateRegistryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

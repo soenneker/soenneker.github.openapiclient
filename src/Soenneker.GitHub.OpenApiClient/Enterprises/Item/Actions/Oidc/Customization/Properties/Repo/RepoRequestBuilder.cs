@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customiza
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.enterprises.item.actions.oidc.customization.properties.repo.item collection</summary>
         /// <param name="position">The name of the custom property to remove from OIDC token inclusion</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customization.Properties.Repo.Item.WithCustom_property_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customization.Properties.Repo.Item.WithCustom_property_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customization.Properties.Repo.Item.WithCustomPropertyNameItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customization.Properties.Repo.Item.WithCustomPropertyNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("custom_property_name", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customization.Properties.Repo.Item.WithCustom_property_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("customPropertyName", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Oidc.Customization.Properties.Repo.Item.WithCustomPropertyNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

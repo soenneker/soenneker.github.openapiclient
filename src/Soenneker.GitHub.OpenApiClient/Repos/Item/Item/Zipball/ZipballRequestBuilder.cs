@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.zipball.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball.Item.WithRefItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball.Item.WithRefItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball.Item.WithRefValueItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball.Item.WithRefValueItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("ref", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball.Item.WithRefItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("refValue", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Zipball.Item.WithRefValueItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

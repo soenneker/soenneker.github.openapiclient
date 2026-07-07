@@ -16,10 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_languages?>? Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateLanguagesItem?>? Languages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_languages?> Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateLanguagesItem?> Languages { get; set; }
 #endif
         /// <summary>Runner label to be used if the runner type is labeled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,17 +30,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RunnerLabel { get; set; }
 #endif
         /// <summary>Runner type to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_runner_type? RunnerType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateRunnerType? RunnerType { get; set; }
         /// <summary>The desired state of code quality setup.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_state? State { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -59,11 +51,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_languages>()?.AsList(); } },
+                { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateLanguagesItem>()?.AsList(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
-                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_runner_type>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_state>(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateRunnerType>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateState>(); } },
             };
         }
         /// <summary>
@@ -73,11 +64,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_languages>("languages", Languages);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateLanguagesItem>("languages", Languages);
             writer.WriteStringValue("runner_label", RunnerLabel);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_runner_type>("runner_type", RunnerType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdate_state>("state", State);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateRunnerType>("runner_type", RunnerType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateState>("state", State);
         }
     }
 }

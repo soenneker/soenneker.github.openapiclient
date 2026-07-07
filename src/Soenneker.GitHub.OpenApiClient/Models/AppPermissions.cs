@@ -14,117 +14,117 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class AppPermissions : IAdditionalDataHolder, IParsable
     {
         /// <summary>The level of permission to grant the access token for GitHub Actions workflows, workflow runs, and artifacts.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions? Actions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsActions? Actions { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The level of permission to grant the access token for repository creation, deletion, settings, teams, and collaborators creation.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration? Administration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAdministration? Administration { get; set; }
         /// <summary>The level of permission to grant the access token to create and retrieve build artifact metadata records.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_artifact_metadata? ArtifactMetadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsArtifactMetadata? ArtifactMetadata { get; set; }
         /// <summary>The level of permission to create and retrieve the access token for repository attestations.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations? Attestations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAttestations? Attestations { get; set; }
         /// <summary>The level of permission to grant the access token for checks on code.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks? Checks { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsChecks? Checks { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage code quality data.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_code_quality? CodeQuality { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCodeQuality? CodeQuality { get; set; }
         /// <summary>The level of permission to grant the access token to create, edit, delete, and list Codespaces.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces? Codespaces { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCodespaces? Codespaces { get; set; }
         /// <summary>The level of permission to grant the access token for repository contents, commits, branches, downloads, releases, and merges.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents? Contents { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsContents? Contents { get; set; }
         /// <summary>The level of permission to grant the access token to view and edit custom properties for an organization, when allowed by the property.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations? CustomPropertiesForOrganizations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCustomPropertiesForOrganizations? CustomPropertiesForOrganizations { get; set; }
         /// <summary>The level of permission to grant the access token to manage Dependabot secrets.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets? DependabotSecrets { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDependabotSecrets? DependabotSecrets { get; set; }
         /// <summary>The level of permission to grant the access token for deployments and deployment statuses.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments? Deployments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDeployments? Deployments { get; set; }
         /// <summary>The level of permission to grant the access token for discussions and related comments and labels.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_discussions? Discussions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDiscussions? Discussions { get; set; }
         /// <summary>The level of permission to grant the access token to manage the email addresses belonging to a user.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses? EmailAddresses { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEmailAddresses? EmailAddresses { get; set; }
         /// <summary>The level of permission to grant the access token for organization custom properties management at the enterprise level.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations? EnterpriseCustomPropertiesForOrganizations { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEnterpriseCustomPropertiesForOrganizations? EnterpriseCustomPropertiesForOrganizations { get; set; }
         /// <summary>The level of permission to grant the access token for managing repository environments.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments? Environments { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEnvironments? Environments { get; set; }
         /// <summary>The level of permission to grant the access token to manage the followers belonging to a user.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_followers? Followers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsFollowers? Followers { get; set; }
         /// <summary>The level of permission to grant the access token to manage git SSH keys.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_git_ssh_keys? GitSshKeys { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsGitSshKeys? GitSshKeys { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage GPG keys belonging to a user.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_gpg_keys? GpgKeys { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsGpgKeys? GpgKeys { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage interaction limits on a repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_interaction_limits? InteractionLimits { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsInteractionLimits? InteractionLimits { get; set; }
         /// <summary>The level of permission to grant the access token for issues and related comments, assignees, labels, and milestones.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_issues? Issues { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsIssues? Issues { get; set; }
         /// <summary>The level of permission to grant the access token for organization teams and members.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_members? Members { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMembers? Members { get; set; }
         /// <summary>The level of permission to grant the access token to manage the merge queues for a repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_merge_queues? MergeQueues { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMergeQueues? MergeQueues { get; set; }
         /// <summary>The level of permission to grant the access token to search repositories, list collaborators, and access repository metadata.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata? Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMetadata? Metadata { get; set; }
         /// <summary>The level of permission to grant the access token to manage access to an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration? OrganizationAdministration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationAdministration? OrganizationAdministration { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage announcement banners for an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners? OrganizationAnnouncementBanners { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationAnnouncementBanners? OrganizationAnnouncementBanners { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings? OrganizationCopilotAgentSettings { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCopilotAgentSettings? OrganizationCopilotAgentSettings { get; set; }
         /// <summary>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management? OrganizationCopilotSeatManagement { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCopilotSeatManagement? OrganizationCopilotSeatManagement { get; set; }
         /// <summary>The level of permission to grant the access token for custom organization roles management.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_org_roles? OrganizationCustomOrgRoles { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomOrgRoles? OrganizationCustomOrgRoles { get; set; }
         /// <summary>The level of permission to grant the access token for repository custom properties management at the organization level.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_properties? OrganizationCustomProperties { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomProperties? OrganizationCustomProperties { get; set; }
         /// <summary>The level of permission to grant the access token for custom repository roles management.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_roles? OrganizationCustomRoles { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomRoles? OrganizationCustomRoles { get; set; }
         /// <summary>The level of permission to grant the access token to view events triggered by an activity in an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_events? OrganizationEvents { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationEvents? OrganizationEvents { get; set; }
         /// <summary>The level of permission to grant the access token to manage the post-receive hooks for an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_hooks? OrganizationHooks { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationHooks? OrganizationHooks { get; set; }
         /// <summary>The level of permission to grant the access token for organization packages published to GitHub Packages.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_packages? OrganizationPackages { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPackages? OrganizationPackages { get; set; }
         /// <summary>The level of permission to grant the access token for viewing and managing fine-grained personal access tokens that have been approved by an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_personal_access_token_requests? OrganizationPersonalAccessTokenRequests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokenRequests? OrganizationPersonalAccessTokenRequests { get; set; }
         /// <summary>The level of permission to grant the access token for viewing and managing fine-grained personal access token requests to an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_personal_access_tokens? OrganizationPersonalAccessTokens { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokens? OrganizationPersonalAccessTokens { get; set; }
         /// <summary>The level of permission to grant the access token for viewing an organization&apos;s plan.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_plan? OrganizationPlan { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPlan? OrganizationPlan { get; set; }
         /// <summary>The level of permission to grant the access token to manage organization projects and projects public preview (where available).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_projects? OrganizationProjects { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationProjects? OrganizationProjects { get; set; }
         /// <summary>The level of permission to grant the access token to manage organization secrets.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_secrets? OrganizationSecrets { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationSecrets? OrganizationSecrets { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage GitHub Actions self-hosted runners available to an organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_self_hosted_runners? OrganizationSelfHostedRunners { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationSelfHostedRunners? OrganizationSelfHostedRunners { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage users blocked by the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_user_blocking? OrganizationUserBlocking { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationUserBlocking? OrganizationUserBlocking { get; set; }
         /// <summary>The level of permission to grant the access token for packages published to GitHub Packages.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_packages? Packages { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPackages? Packages { get; set; }
         /// <summary>The level of permission to grant the access token to retrieve Pages statuses, configuration, and builds, as well as create new builds.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_pages? Pages { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPages? Pages { get; set; }
         /// <summary>The level of permission to grant the access token to manage the profile settings belonging to a user.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_profile? Profile { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsProfile? Profile { get; set; }
         /// <summary>The level of permission to grant the access token for pull requests and related comments, assignees, labels, milestones, and merges.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_pull_requests? PullRequests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPullRequests? PullRequests { get; set; }
         /// <summary>The level of permission to grant the access token to view and edit custom properties for a repository, when allowed by the property.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_custom_properties? RepositoryCustomProperties { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryCustomProperties? RepositoryCustomProperties { get; set; }
         /// <summary>The level of permission to grant the access token to manage the post-receive hooks for a repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_hooks? RepositoryHooks { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryHooks? RepositoryHooks { get; set; }
         /// <summary>The level of permission to grant the access token to manage repository projects, columns, and cards.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_projects? RepositoryProjects { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryProjects? RepositoryProjects { get; set; }
         /// <summary>The level of permission to grant the access token to manage repository secrets.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_secrets? Secrets { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecrets? Secrets { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage secret scanning alerts.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_secret_scanning_alerts? SecretScanningAlerts { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecretScanningAlerts? SecretScanningAlerts { get; set; }
         /// <summary>The level of permission to grant the access token to view and manage security events like code scanning alerts.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_security_events? SecurityEvents { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecurityEvents? SecurityEvents { get; set; }
         /// <summary>The level of permission to grant the access token to manage just a single file.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_single_file? SingleFile { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSingleFile? SingleFile { get; set; }
         /// <summary>The level of permission to grant the access token to list and manage repositories a user is starring.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_starring? Starring { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsStarring? Starring { get; set; }
         /// <summary>The level of permission to grant the access token for commit statuses.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_statuses? Statuses { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsStatuses? Statuses { get; set; }
         /// <summary>The level of permission to grant the access token to manage Dependabot alerts.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_vulnerability_alerts? VulnerabilityAlerts { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsVulnerabilityAlerts? VulnerabilityAlerts { get; set; }
         /// <summary>The level of permission to grant the access token to update GitHub Actions workflow files.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_workflows? Workflows { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsWorkflows? Workflows { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions"/> and sets the default values.
         /// </summary>
@@ -150,61 +150,61 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actions", n => { Actions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>(); } },
-                { "administration", n => { Administration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>(); } },
-                { "artifact_metadata", n => { ArtifactMetadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_artifact_metadata>(); } },
-                { "attestations", n => { Attestations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations>(); } },
-                { "checks", n => { Checks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>(); } },
-                { "code_quality", n => { CodeQuality = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_code_quality>(); } },
-                { "codespaces", n => { Codespaces = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>(); } },
-                { "contents", n => { Contents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents>(); } },
-                { "custom_properties_for_organizations", n => { CustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations>(); } },
-                { "dependabot_secrets", n => { DependabotSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets>(); } },
-                { "deployments", n => { Deployments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments>(); } },
-                { "discussions", n => { Discussions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_discussions>(); } },
-                { "email_addresses", n => { EmailAddresses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses>(); } },
-                { "enterprise_custom_properties_for_organizations", n => { EnterpriseCustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations>(); } },
-                { "environments", n => { Environments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments>(); } },
-                { "followers", n => { Followers = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_followers>(); } },
-                { "git_ssh_keys", n => { GitSshKeys = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_git_ssh_keys>(); } },
-                { "gpg_keys", n => { GpgKeys = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_gpg_keys>(); } },
-                { "interaction_limits", n => { InteractionLimits = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_interaction_limits>(); } },
-                { "issues", n => { Issues = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_issues>(); } },
-                { "members", n => { Members = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_members>(); } },
-                { "merge_queues", n => { MergeQueues = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_merge_queues>(); } },
-                { "metadata", n => { Metadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata>(); } },
-                { "organization_administration", n => { OrganizationAdministration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration>(); } },
-                { "organization_announcement_banners", n => { OrganizationAnnouncementBanners = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners>(); } },
-                { "organization_copilot_agent_settings", n => { OrganizationCopilotAgentSettings = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings>(); } },
-                { "organization_copilot_seat_management", n => { OrganizationCopilotSeatManagement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management>(); } },
-                { "organization_custom_org_roles", n => { OrganizationCustomOrgRoles = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_org_roles>(); } },
-                { "organization_custom_properties", n => { OrganizationCustomProperties = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_properties>(); } },
-                { "organization_custom_roles", n => { OrganizationCustomRoles = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_roles>(); } },
-                { "organization_events", n => { OrganizationEvents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_events>(); } },
-                { "organization_hooks", n => { OrganizationHooks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_hooks>(); } },
-                { "organization_packages", n => { OrganizationPackages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_packages>(); } },
-                { "organization_personal_access_token_requests", n => { OrganizationPersonalAccessTokenRequests = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_personal_access_token_requests>(); } },
-                { "organization_personal_access_tokens", n => { OrganizationPersonalAccessTokens = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_personal_access_tokens>(); } },
-                { "organization_plan", n => { OrganizationPlan = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_plan>(); } },
-                { "organization_projects", n => { OrganizationProjects = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_projects>(); } },
-                { "organization_secrets", n => { OrganizationSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_secrets>(); } },
-                { "organization_self_hosted_runners", n => { OrganizationSelfHostedRunners = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_self_hosted_runners>(); } },
-                { "organization_user_blocking", n => { OrganizationUserBlocking = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_user_blocking>(); } },
-                { "packages", n => { Packages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_packages>(); } },
-                { "pages", n => { Pages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_pages>(); } },
-                { "profile", n => { Profile = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_profile>(); } },
-                { "pull_requests", n => { PullRequests = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_pull_requests>(); } },
-                { "repository_custom_properties", n => { RepositoryCustomProperties = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_custom_properties>(); } },
-                { "repository_hooks", n => { RepositoryHooks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_hooks>(); } },
-                { "repository_projects", n => { RepositoryProjects = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_projects>(); } },
-                { "secret_scanning_alerts", n => { SecretScanningAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_secret_scanning_alerts>(); } },
-                { "secrets", n => { Secrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_secrets>(); } },
-                { "security_events", n => { SecurityEvents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_security_events>(); } },
-                { "single_file", n => { SingleFile = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_single_file>(); } },
-                { "starring", n => { Starring = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_starring>(); } },
-                { "statuses", n => { Statuses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_statuses>(); } },
-                { "vulnerability_alerts", n => { VulnerabilityAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_vulnerability_alerts>(); } },
-                { "workflows", n => { Workflows = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_workflows>(); } },
+                { "actions", n => { Actions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsActions>(); } },
+                { "administration", n => { Administration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAdministration>(); } },
+                { "artifact_metadata", n => { ArtifactMetadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsArtifactMetadata>(); } },
+                { "attestations", n => { Attestations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAttestations>(); } },
+                { "checks", n => { Checks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsChecks>(); } },
+                { "code_quality", n => { CodeQuality = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCodeQuality>(); } },
+                { "codespaces", n => { Codespaces = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCodespaces>(); } },
+                { "contents", n => { Contents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsContents>(); } },
+                { "custom_properties_for_organizations", n => { CustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCustomPropertiesForOrganizations>(); } },
+                { "dependabot_secrets", n => { DependabotSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDependabotSecrets>(); } },
+                { "deployments", n => { Deployments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDeployments>(); } },
+                { "discussions", n => { Discussions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDiscussions>(); } },
+                { "email_addresses", n => { EmailAddresses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEmailAddresses>(); } },
+                { "enterprise_custom_properties_for_organizations", n => { EnterpriseCustomPropertiesForOrganizations = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEnterpriseCustomPropertiesForOrganizations>(); } },
+                { "environments", n => { Environments = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEnvironments>(); } },
+                { "followers", n => { Followers = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsFollowers>(); } },
+                { "git_ssh_keys", n => { GitSshKeys = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsGitSshKeys>(); } },
+                { "gpg_keys", n => { GpgKeys = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsGpgKeys>(); } },
+                { "interaction_limits", n => { InteractionLimits = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsInteractionLimits>(); } },
+                { "issues", n => { Issues = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsIssues>(); } },
+                { "members", n => { Members = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMembers>(); } },
+                { "merge_queues", n => { MergeQueues = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMergeQueues>(); } },
+                { "metadata", n => { Metadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMetadata>(); } },
+                { "organization_administration", n => { OrganizationAdministration = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationAdministration>(); } },
+                { "organization_announcement_banners", n => { OrganizationAnnouncementBanners = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationAnnouncementBanners>(); } },
+                { "organization_copilot_agent_settings", n => { OrganizationCopilotAgentSettings = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCopilotAgentSettings>(); } },
+                { "organization_copilot_seat_management", n => { OrganizationCopilotSeatManagement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCopilotSeatManagement>(); } },
+                { "organization_custom_org_roles", n => { OrganizationCustomOrgRoles = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomOrgRoles>(); } },
+                { "organization_custom_properties", n => { OrganizationCustomProperties = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomProperties>(); } },
+                { "organization_custom_roles", n => { OrganizationCustomRoles = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomRoles>(); } },
+                { "organization_events", n => { OrganizationEvents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationEvents>(); } },
+                { "organization_hooks", n => { OrganizationHooks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationHooks>(); } },
+                { "organization_packages", n => { OrganizationPackages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPackages>(); } },
+                { "organization_personal_access_token_requests", n => { OrganizationPersonalAccessTokenRequests = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokenRequests>(); } },
+                { "organization_personal_access_tokens", n => { OrganizationPersonalAccessTokens = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokens>(); } },
+                { "organization_plan", n => { OrganizationPlan = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPlan>(); } },
+                { "organization_projects", n => { OrganizationProjects = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationProjects>(); } },
+                { "organization_secrets", n => { OrganizationSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationSecrets>(); } },
+                { "organization_self_hosted_runners", n => { OrganizationSelfHostedRunners = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationSelfHostedRunners>(); } },
+                { "organization_user_blocking", n => { OrganizationUserBlocking = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationUserBlocking>(); } },
+                { "packages", n => { Packages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPackages>(); } },
+                { "pages", n => { Pages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPages>(); } },
+                { "profile", n => { Profile = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsProfile>(); } },
+                { "pull_requests", n => { PullRequests = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPullRequests>(); } },
+                { "repository_custom_properties", n => { RepositoryCustomProperties = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryCustomProperties>(); } },
+                { "repository_hooks", n => { RepositoryHooks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryHooks>(); } },
+                { "repository_projects", n => { RepositoryProjects = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryProjects>(); } },
+                { "secret_scanning_alerts", n => { SecretScanningAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecretScanningAlerts>(); } },
+                { "secrets", n => { Secrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecrets>(); } },
+                { "security_events", n => { SecurityEvents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecurityEvents>(); } },
+                { "single_file", n => { SingleFile = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSingleFile>(); } },
+                { "starring", n => { Starring = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsStarring>(); } },
+                { "statuses", n => { Statuses = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsStatuses>(); } },
+                { "vulnerability_alerts", n => { VulnerabilityAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsVulnerabilityAlerts>(); } },
+                { "workflows", n => { Workflows = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsWorkflows>(); } },
             };
         }
         /// <summary>
@@ -214,61 +214,61 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_actions>("actions", Actions);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_administration>("administration", Administration);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_artifact_metadata>("artifact_metadata", ArtifactMetadata);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_attestations>("attestations", Attestations);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_checks>("checks", Checks);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_code_quality>("code_quality", CodeQuality);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_codespaces>("codespaces", Codespaces);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_contents>("contents", Contents);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_custom_properties_for_organizations>("custom_properties_for_organizations", CustomPropertiesForOrganizations);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_dependabot_secrets>("dependabot_secrets", DependabotSecrets);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_deployments>("deployments", Deployments);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_discussions>("discussions", Discussions);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_email_addresses>("email_addresses", EmailAddresses);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_enterprise_custom_properties_for_organizations>("enterprise_custom_properties_for_organizations", EnterpriseCustomPropertiesForOrganizations);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_environments>("environments", Environments);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_followers>("followers", Followers);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_git_ssh_keys>("git_ssh_keys", GitSshKeys);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_gpg_keys>("gpg_keys", GpgKeys);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_interaction_limits>("interaction_limits", InteractionLimits);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_issues>("issues", Issues);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_members>("members", Members);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_merge_queues>("merge_queues", MergeQueues);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_metadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_administration>("organization_administration", OrganizationAdministration);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_announcement_banners>("organization_announcement_banners", OrganizationAnnouncementBanners);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_agent_settings>("organization_copilot_agent_settings", OrganizationCopilotAgentSettings);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_copilot_seat_management>("organization_copilot_seat_management", OrganizationCopilotSeatManagement);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_org_roles>("organization_custom_org_roles", OrganizationCustomOrgRoles);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_properties>("organization_custom_properties", OrganizationCustomProperties);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_custom_roles>("organization_custom_roles", OrganizationCustomRoles);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_events>("organization_events", OrganizationEvents);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_hooks>("organization_hooks", OrganizationHooks);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_packages>("organization_packages", OrganizationPackages);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_personal_access_token_requests>("organization_personal_access_token_requests", OrganizationPersonalAccessTokenRequests);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_personal_access_tokens>("organization_personal_access_tokens", OrganizationPersonalAccessTokens);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_plan>("organization_plan", OrganizationPlan);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_projects>("organization_projects", OrganizationProjects);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_secrets>("organization_secrets", OrganizationSecrets);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_self_hosted_runners>("organization_self_hosted_runners", OrganizationSelfHostedRunners);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_organization_user_blocking>("organization_user_blocking", OrganizationUserBlocking);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_packages>("packages", Packages);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_pages>("pages", Pages);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_profile>("profile", Profile);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_pull_requests>("pull_requests", PullRequests);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_custom_properties>("repository_custom_properties", RepositoryCustomProperties);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_hooks>("repository_hooks", RepositoryHooks);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_repository_projects>("repository_projects", RepositoryProjects);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_secrets>("secrets", Secrets);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_secret_scanning_alerts>("secret_scanning_alerts", SecretScanningAlerts);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_security_events>("security_events", SecurityEvents);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_single_file>("single_file", SingleFile);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_starring>("starring", Starring);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_statuses>("statuses", Statuses);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_vulnerability_alerts>("vulnerability_alerts", VulnerabilityAlerts);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissions_workflows>("workflows", Workflows);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsActions>("actions", Actions);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAdministration>("administration", Administration);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsArtifactMetadata>("artifact_metadata", ArtifactMetadata);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsAttestations>("attestations", Attestations);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsChecks>("checks", Checks);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCodeQuality>("code_quality", CodeQuality);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCodespaces>("codespaces", Codespaces);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsContents>("contents", Contents);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsCustomPropertiesForOrganizations>("custom_properties_for_organizations", CustomPropertiesForOrganizations);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDependabotSecrets>("dependabot_secrets", DependabotSecrets);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDeployments>("deployments", Deployments);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsDiscussions>("discussions", Discussions);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEmailAddresses>("email_addresses", EmailAddresses);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEnterpriseCustomPropertiesForOrganizations>("enterprise_custom_properties_for_organizations", EnterpriseCustomPropertiesForOrganizations);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsEnvironments>("environments", Environments);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsFollowers>("followers", Followers);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsGitSshKeys>("git_ssh_keys", GitSshKeys);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsGpgKeys>("gpg_keys", GpgKeys);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsInteractionLimits>("interaction_limits", InteractionLimits);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsIssues>("issues", Issues);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMembers>("members", Members);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMergeQueues>("merge_queues", MergeQueues);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsMetadata>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationAdministration>("organization_administration", OrganizationAdministration);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationAnnouncementBanners>("organization_announcement_banners", OrganizationAnnouncementBanners);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCopilotAgentSettings>("organization_copilot_agent_settings", OrganizationCopilotAgentSettings);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCopilotSeatManagement>("organization_copilot_seat_management", OrganizationCopilotSeatManagement);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomOrgRoles>("organization_custom_org_roles", OrganizationCustomOrgRoles);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomProperties>("organization_custom_properties", OrganizationCustomProperties);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomRoles>("organization_custom_roles", OrganizationCustomRoles);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationEvents>("organization_events", OrganizationEvents);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationHooks>("organization_hooks", OrganizationHooks);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPackages>("organization_packages", OrganizationPackages);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokenRequests>("organization_personal_access_token_requests", OrganizationPersonalAccessTokenRequests);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokens>("organization_personal_access_tokens", OrganizationPersonalAccessTokens);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPlan>("organization_plan", OrganizationPlan);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationProjects>("organization_projects", OrganizationProjects);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationSecrets>("organization_secrets", OrganizationSecrets);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationSelfHostedRunners>("organization_self_hosted_runners", OrganizationSelfHostedRunners);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationUserBlocking>("organization_user_blocking", OrganizationUserBlocking);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPackages>("packages", Packages);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPages>("pages", Pages);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsProfile>("profile", Profile);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsPullRequests>("pull_requests", PullRequests);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryCustomProperties>("repository_custom_properties", RepositoryCustomProperties);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryHooks>("repository_hooks", RepositoryHooks);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsRepositoryProjects>("repository_projects", RepositoryProjects);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecrets>("secrets", Secrets);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecretScanningAlerts>("secret_scanning_alerts", SecretScanningAlerts);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSecurityEvents>("security_events", SecurityEvents);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsSingleFile>("single_file", SingleFile);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsStarring>("starring", Starring);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsStatuses>("statuses", Statuses);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsVulnerabilityAlerts>("vulnerability_alerts", VulnerabilityAlerts);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsWorkflows>("workflows", Workflows);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

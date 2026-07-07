@@ -25,10 +25,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The state of the ruleset version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithStateState? State { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithStateState State { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actor", n => { Actor = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithStateState>(global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithStateState.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "version_id", n => { VersionId = n.GetLongValue(); } },
             };
@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionActor>("actor", Actor);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithState_state>("state", State);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RulesetVersionWithStateState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteLongValue("version_id", VersionId);
             writer.WriteAdditionalData(AdditionalData);

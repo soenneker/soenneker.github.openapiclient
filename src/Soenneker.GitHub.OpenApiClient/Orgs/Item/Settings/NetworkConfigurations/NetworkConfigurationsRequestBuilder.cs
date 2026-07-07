@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
     public partial class NetworkConfigurationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.settings.networkConfigurations.item collection</summary>
-        /// <param name="position">Unique identifier of the hosted compute network configuration.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetworkConfigurationItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetworkConfigurationItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("network_configuration_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetwork_configuration_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("networkConfigurationId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.Item.WithNetworkConfigurationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,20 +50,20 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         /// Lists all hosted compute network configurations configured in an organization.OAuth app tokens and personal access tokens (classic) need the `read:network_configurations` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/network-configurations#list-hosted-compute-network-configurations-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeListNetworkConfigurationsForOrg200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeListNetworkConfigurationsForOrg200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeListNetworkConfigurationsForOrg200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsRequestBuilder.NetworkConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfigurations.NetworkConfigurationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeListNetworkConfigurationsForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeListNetworkConfigurationsForOrg200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a hosted compute network configuration for an organization.OAuth app tokens and personal access tokens (classic) need the `write:network_configurations` scope to use this endpoint.
@@ -75,11 +75,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.NetworkConfiguration> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -113,11 +113,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.NetworkConfiguration
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.HostedComputeCreateNetworkConfigurationForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

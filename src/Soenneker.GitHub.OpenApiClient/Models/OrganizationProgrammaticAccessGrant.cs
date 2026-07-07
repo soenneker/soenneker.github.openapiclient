@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoriesUrl { get; set; }
 #endif
         /// <summary>Type of repository selection requested.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrant_repository_selection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRepositorySelection? RepositorySelection { get; set; }
         /// <summary>Whether the associated fine-grained personal access token has expired.</summary>
         public bool? TokenExpired { get; set; }
         /// <summary>Date and time when the associated fine-grained personal access token expires.</summary>
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantPermissions.CreateFromDiscriminatorValue); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
-                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrant_repository_selection>(); } },
+                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRepositorySelection>(); } },
                 { "token_expired", n => { TokenExpired = n.GetBoolValue(); } },
                 { "token_expires_at", n => { TokenExpiresAt = n.GetStringValue(); } },
                 { "token_id", n => { TokenId = n.GetLongValue(); } },
@@ -129,7 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantPermissions>("permissions", Permissions);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrant_repository_selection>("repository_selection", RepositorySelection);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRepositorySelection>("repository_selection", RepositorySelection);
             writer.WriteBoolValue("token_expired", TokenExpired);
             writer.WriteStringValue("token_expires_at", TokenExpiresAt);
             writer.WriteLongValue("token_id", TokenId);

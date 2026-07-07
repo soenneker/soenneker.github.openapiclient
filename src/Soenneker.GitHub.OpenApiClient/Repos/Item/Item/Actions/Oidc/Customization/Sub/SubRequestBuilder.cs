@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customizat
         /// Sets the customization template and `opt-in` or `opt-out` flag for an OpenID Connect (OIDC) subject claim for a repository.OAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customization.Sub.SubPutResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo201Response"/></returns>
         /// <param name="body">Actions OIDC subject customization for a repository</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -72,11 +72,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customizat
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customization.Sub.SubPutResponse?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo201Response?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customization.Sub.SubPutResponse> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo201Response> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customizat
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customization.Sub.SubPutResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customization.Sub.SubPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo201Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets the customization template for an OpenID Connect (OIDC) subject claim.OAuth tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.
@@ -116,11 +116,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc.Customizat
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepo body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetCustomOidcSubClaimForRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

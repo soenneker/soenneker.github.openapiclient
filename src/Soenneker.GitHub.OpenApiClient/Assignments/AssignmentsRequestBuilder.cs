@@ -16,15 +16,15 @@ namespace Soenneker.GitHub.OpenApiClient.Assignments
     public partial class AssignmentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.assignments.item collection</summary>
-        /// <param name="position">The unique identifier of the classroom assignment.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Assignments.Item.WithAssignment_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Assignments.Item.WithAssignment_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Assignments.Item.WithAssignmentItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Assignments.Item.WithAssignmentItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("assignment_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Assignments.Item.WithAssignment_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("assignmentId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Assignments.Item.WithAssignmentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

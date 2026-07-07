@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string BeforeSha { get; set; }
 #endif
         /// <summary>The result of the rule evaluations for rules with the `active` and `evaluate` enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were `active`. Null if no rules with `evaluate` enforcement status were run.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_evaluation_result? EvaluationResult { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteEvaluationResult? EvaluationResult { get; set; }
         /// <summary>The unique identifier of the rule insight.</summary>
         public long? Id { get; set; }
         /// <summary>The pushed_at property</summary>
@@ -66,14 +66,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoryName { get; set; }
 #endif
         /// <summary>The result of the rule evaluations for rules with the `active` enforcement status.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_result? Result { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteResult? Result { get; set; }
         /// <summary>Details on the evaluated rules.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_rule_evaluations>? RuleEvaluations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItem>? RuleEvaluations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_rule_evaluations> RuleEvaluations { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItem> RuleEvaluations { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite"/> and sets the default values.
@@ -104,14 +104,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "actor_name", n => { ActorName = n.GetStringValue(); } },
                 { "after_sha", n => { AfterSha = n.GetStringValue(); } },
                 { "before_sha", n => { BeforeSha = n.GetStringValue(); } },
-                { "evaluation_result", n => { EvaluationResult = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_evaluation_result>(); } },
+                { "evaluation_result", n => { EvaluationResult = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteEvaluationResult>(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "repository_name", n => { RepositoryName = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_result>(); } },
-                { "rule_evaluations", n => { RuleEvaluations = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_rule_evaluations>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_rule_evaluations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteResult>(); } },
+                { "rule_evaluations", n => { RuleEvaluations = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItem>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -125,14 +125,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("actor_name", ActorName);
             writer.WriteStringValue("after_sha", AfterSha);
             writer.WriteStringValue("before_sha", BeforeSha);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_evaluation_result>("evaluation_result", EvaluationResult);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteEvaluationResult>("evaluation_result", EvaluationResult);
             writer.WriteLongValue("id", Id);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("ref", Ref);
             writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteStringValue("repository_name", RepositoryName);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_result>("result", Result);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite_rule_evaluations>("rule_evaluations", RuleEvaluations);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteResult>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItem>("rule_evaluations", RuleEvaluations);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

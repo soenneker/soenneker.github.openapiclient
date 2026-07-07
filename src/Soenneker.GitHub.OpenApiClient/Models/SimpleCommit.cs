@@ -18,18 +18,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Information about the Git author</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_author? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitAuthor? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_author Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitAuthor Author { get; set; }
 #endif
         /// <summary>Information about the Git committer</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_committer? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitCommitter? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_committer Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitCommitter Committer { get; set; }
 #endif
         /// <summary>SHA for the commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,8 +82,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_author>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_author.CreateFromDiscriminatorValue); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_committer>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_committer.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitAuthor>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitAuthor.CreateFromDiscriminatorValue); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitCommitter>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitCommitter.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
@@ -97,8 +97,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_author>("author", Author);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit_committer>("committer", Committer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitAuthor>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommitCommitter>("committer", Committer);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("message", Message);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);

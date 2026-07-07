@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\rulesets\{ruleset_id}\history
+    /// Builds and executes requests for operations under \orgs\{org}\rulesets\{rulesetId}\history
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HistoryRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.rulesets.item.history.item collection</summary>
         /// <param name="position">The ID of the version</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersion_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersion_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersionItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersionItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("version_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersion_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("versionId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History.Item.WithVersionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/rulesets/{ruleset_id}/history{?page*,per_page*}", pathParameters)
+        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/rulesets/{rulesetId}/history{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.History
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/rulesets/{ruleset_id}/history{?page*,per_page*}", rawUrl)
+        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/rulesets/{rulesetId}/history{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

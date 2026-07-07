@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The author property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor? Author { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Author { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor Author { get; set; }
 #endif
         /// <summary>The comments_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,10 +42,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The committer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitCommitter? Committer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser Committer { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitCommitter Committer { get; set; }
 #endif
         /// <summary>The files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,10 +74,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents>? Parents { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CommitParentsItem>? Parents { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents> Parents { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CommitParentsItem> Parents { get; set; }
 #endif
         /// <summary>The sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,14 +128,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "author", n => { Author = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor>(global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor.CreateFromDiscriminatorValue); } },
                 { "comments_url", n => { CommentsUrl = n.GetStringValue(); } },
                 { "commit", n => { CommitProp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitCommit>(global::Soenneker.GitHub.OpenApiClient.Models.CommitCommit.CreateFromDiscriminatorValue); } },
-                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
+                { "committer", n => { Committer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitCommitter>(global::Soenneker.GitHub.OpenApiClient.Models.CommitCommitter.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>(global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents>(global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitParentsItem>(global::Soenneker.GitHub.OpenApiClient.Models.CommitParentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
                 { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitStats>(global::Soenneker.GitHub.OpenApiClient.Models.CommitStats.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -148,14 +148,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("author", Author);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitAuthor>("author", Author);
             writer.WriteStringValue("comments_url", CommentsUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitCommit>("commit", CommitProp);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("committer", Committer);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitCommitter>("committer", Committer);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.DiffEntry>("files", Files);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Commit_parents>("parents", Parents);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CommitParentsItem>("parents", Parents);
             writer.WriteStringValue("sha", Sha);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitStats>("stats", Stats);
             writer.WriteStringValue("url", Url);

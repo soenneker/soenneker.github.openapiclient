@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The expires_at property</summary>
         public Date? ExpiresAt { get; set; }
         /// <summary>The state property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificateState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificateState>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("domains", Domains);
             writer.WriteDateValue("expires_at", ExpiresAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificateState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

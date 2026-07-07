@@ -42,7 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Image size in GB.</summary>
         public int? SizeGb { get; set; }
         /// <summary>The image provider.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage_source? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImageSource? Source { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage"/> and sets the default values.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "platform", n => { Platform = n.GetStringValue(); } },
                 { "size_gb", n => { SizeGb = n.GetIntValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImageSource>(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("platform", Platform);
             writer.WriteIntValue("size_gb", SizeGb);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImage_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerCuratedImageSource>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

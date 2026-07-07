@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Starred
         {
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Starred.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Starred
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by. `created` means when the repository was starred. `updated` means when the repository was last pushed to.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Starred.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SortStarred? Sort { get; set; }
         }
     }
 }

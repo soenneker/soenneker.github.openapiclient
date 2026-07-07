@@ -16,15 +16,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets
     public partial class AssetsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.releases.assets.item collection</summary>
-        /// <param name="position">The unique identifier of the asset.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAsset_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAsset_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAssetItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAssetItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("asset_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAsset_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("assetId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Assets.Item.WithAssetItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

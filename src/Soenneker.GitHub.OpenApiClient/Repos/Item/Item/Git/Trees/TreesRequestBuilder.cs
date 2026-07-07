@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.git.trees.item collection</summary>
         /// <param name="position">The SHA1 value or ref (branch or tag) name of the tree.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item.WithTree_shaItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item.WithTree_shaItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item.WithTreeShaItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item.WithTreeShaItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("tree_sha", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item.WithTree_shaItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("treeSha", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item.WithTreeShaItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -60,11 +60,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTree?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTree body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTree?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTree> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTree body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.GitTree> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -86,11 +86,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTree body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTree body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

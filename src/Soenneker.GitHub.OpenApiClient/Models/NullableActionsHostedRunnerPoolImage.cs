@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Image size in GB.</summary>
         public int? SizeGb { get; set; }
         /// <summary>The image provider.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage_source? Source { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImageSource? Source { get; set; }
         /// <summary>The image version of the hosted runner pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "size_gb", n => { SizeGb = n.GetIntValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImageSource>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -85,7 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("id", Id);
             writer.WriteIntValue("size_gb", SizeGb);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImageSource>("source", Source);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

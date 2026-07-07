@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Defines the level of access that workflows outside of the repository have to actions and reusable workflows within therepository.`none` means the access is only possible from workflows in this repository. `user` level access allows sharing across user owned private repositories only. `organization` level access allows sharing across the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository_access_level? AccessLevel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel? AccessLevel { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "access_level", n => { AccessLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository_access_level>(); } },
+                { "access_level", n => { AccessLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepository_access_level>("access_level", AccessLevel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel>("access_level", AccessLevel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

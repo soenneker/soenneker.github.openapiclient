@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\copilot-spaces\{space_number}\collaborators
+    /// Builds and executes requests for operations under \orgs\{org}\copilot-spaces\{spaceNumber}\collaborators
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CollaboratorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.copilotSpaces.item.collaborators.item collection</summary>
         /// <param name="position">The type of actor (user or team).</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.Item.WithActor_typeItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.Item.WithActor_typeItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.Item.WithActorTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.Item.WithActorTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("actor_type", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.Item.WithActor_typeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("actorType", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.Item.WithActorTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CollaboratorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/copilot-spaces/{space_number}/collaborators", pathParameters)
+        public CollaboratorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/copilot-spaces/{spaceNumber}/collaborators", pathParameters)
         {
         }
         /// <summary>
@@ -43,25 +43,25 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CollaboratorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/copilot-spaces/{space_number}/collaborators", rawUrl)
+        public CollaboratorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/copilot-spaces/{spaceNumber}/collaborators", rawUrl)
         {
         }
         /// <summary>
         /// Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.**Note:** Team collaborators listed here are teams that are defined in the organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/collaborators#list-collaborators-for-an-organization-copilot-space" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListCollaboratorsForOrg200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListCollaboratorsForOrg200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListCollaboratorsForOrg200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborators.CollaboratorsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListCollaboratorsForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListCollaboratorsForOrg200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.**Note:** When adding users as collaborators, they must already be members of the organization.When adding teams as collaborators, they must be defined in the organization.OAuth app tokens and personal access tokens (classic) need the `write:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.
@@ -85,11 +85,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -129,11 +129,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.Collaborat
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

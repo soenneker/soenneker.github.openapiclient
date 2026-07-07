@@ -25,15 +25,15 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Defaults.DefaultsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.enterprises.item.codeSecurity.configurations.item collection</summary>
-        /// <param name="position">The unique identifier of the code security configuration.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("configuration_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfiguration_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("configurationId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -92,11 +92,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -136,11 +136,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

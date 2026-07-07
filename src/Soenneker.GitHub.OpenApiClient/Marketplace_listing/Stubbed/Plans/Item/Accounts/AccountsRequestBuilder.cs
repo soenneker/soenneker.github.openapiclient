@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.Accounts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \marketplace_listing\stubbed\plans\{plan_id}\accounts
+    /// Builds and executes requests for operations under \marketplace_listing\stubbed\plans\{planId}\accounts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AccountsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/marketplace_listing/stubbed/plans/{plan_id}/accounts{?direction*,page*,per_page*,sort*}", pathParameters)
+        public AccountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/marketplace_listing/stubbed/plans/{planId}/accounts{?direction*,page*,per_page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/marketplace_listing/stubbed/plans/{plan_id}/accounts{?direction*,page*,per_page*,sort*}", rawUrl)
+        public AccountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/marketplace_listing/stubbed/plans/{planId}/accounts{?direction*,page*,per_page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.
         {
             /// <summary>To return the oldest accounts first, set to `asc`. Ignored without the `sort` parameter.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.Accounts.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.AppsListAccountsForPlanStubbedDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.Accounts.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Sort? Sort { get; set; }
         }
     }
 }

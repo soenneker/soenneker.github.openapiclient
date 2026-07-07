@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The bypass reviewers for secret scanning delegated bypass</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers>? Reviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem>? Reviewers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers> Reviewers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem> Reviewers { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptions_reviewers>("reviewers", Reviewers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem>("reviewers", Reviewers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

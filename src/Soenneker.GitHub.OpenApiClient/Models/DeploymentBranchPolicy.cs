@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string NodeId { get; set; }
 #endif
         /// <summary>Whether this rule targets a branch or tag.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicyType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

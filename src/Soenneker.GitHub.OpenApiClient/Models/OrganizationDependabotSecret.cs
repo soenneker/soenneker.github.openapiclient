@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Visibility of a secret</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecret_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecretVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecret"/> and sets the default values.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecret_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecretVisibility>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecret_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationDependabotSecretVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

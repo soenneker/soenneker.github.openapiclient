@@ -41,6 +41,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>How the author is associated with the repository.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation? AuthorAssociation { get; set; }
+        /// <summary>A minimal reference to an issue linked from a timeline event (e.g. sub-issue, parent-issue, or dependency events).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference? BlockedBy { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference BlockedBy { get; set; }
+#endif
+        /// <summary>A minimal reference to an issue linked from a timeline event (e.g. sub-issue, parent-issue, or dependency events).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference? Blocking { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference Blocking { get; set; }
+#endif
         /// <summary>The commit_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +101,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue Issue { get; set; }
 #endif
+        /// <summary>The type of issue.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook? IssueType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook IssueType { get; set; }
+#endif
         /// <summary>Issue Event Label</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,6 +141,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string NodeId { get; set; }
 #endif
+        /// <summary>A minimal reference to an issue linked from a timeline event (e.g. sub-issue, parent-issue, or dependency events).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference? ParentIssue { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference ParentIssue { get; set; }
+#endif
         /// <summary>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,6 +156,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration PerformedViaGithubApp { get; set; }
+#endif
+        /// <summary>The type of issue.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook? PrevIssueType { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook PrevIssueType { get; set; }
 #endif
         /// <summary>Issue Event Project Card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -165,6 +205,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser ReviewRequester { get; set; }
 #endif
+        /// <summary>A minimal reference to an issue linked from a timeline event (e.g. sub-issue, parent-issue, or dependency events).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference? SubIssue { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference SubIssue { get; set; }
+#endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -202,6 +250,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignee", n => { Assignee = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "assigner", n => { Assigner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "author_association", n => { AuthorAssociation = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>(); } },
+                { "blocked_by", n => { BlockedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference.CreateFromDiscriminatorValue); } },
+                { "blocking", n => { Blocking = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference.CreateFromDiscriminatorValue); } },
                 { "commit_id", n => { CommitId = n.GetStringValue(); } },
                 { "commit_url", n => { CommitUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -209,16 +259,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "event", n => { Event = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue", n => { Issue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.CreateFromDiscriminatorValue); } },
+                { "issue_type", n => { IssueType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook>(global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook.CreateFromDiscriminatorValue); } },
                 { "label", n => { Label = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventLabel>(global::Soenneker.GitHub.OpenApiClient.Models.IssueEventLabel.CreateFromDiscriminatorValue); } },
                 { "lock_reason", n => { LockReason = n.GetStringValue(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.IssueEventMilestone.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
+                { "parent_issue", n => { ParentIssue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference.CreateFromDiscriminatorValue); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
+                { "prev_issue_type", n => { PrevIssueType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook>(global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook.CreateFromDiscriminatorValue); } },
                 { "project_card", n => { ProjectCard = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventProjectCard>(global::Soenneker.GitHub.OpenApiClient.Models.IssueEventProjectCard.CreateFromDiscriminatorValue); } },
                 { "rename", n => { Rename = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventRename>(global::Soenneker.GitHub.OpenApiClient.Models.IssueEventRename.CreateFromDiscriminatorValue); } },
                 { "requested_reviewer", n => { RequestedReviewer = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "requested_team", n => { RequestedTeam = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team>(global::Soenneker.GitHub.OpenApiClient.Models.Team.CreateFromDiscriminatorValue); } },
                 { "review_requester", n => { ReviewRequester = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
+                { "sub_issue", n => { SubIssue = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -233,6 +287,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("assignee", Assignee);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("assigner", Assigner);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AuthorAssociation>("author_association", AuthorAssociation);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>("blocked_by", BlockedBy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>("blocking", Blocking);
             writer.WriteStringValue("commit_id", CommitId);
             writer.WriteStringValue("commit_url", CommitUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
@@ -240,16 +296,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("event", Event);
             writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue>("issue", Issue);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook>("issue_type", IssueType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventLabel>("label", Label);
             writer.WriteStringValue("lock_reason", LockReason);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventMilestone>("milestone", Milestone);
             writer.WriteStringValue("node_id", NodeId);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>("parent_issue", ParentIssue);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("performed_via_github_app", PerformedViaGithubApp);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueTypeWebhook>("prev_issue_type", PrevIssueType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventProjectCard>("project_card", ProjectCard);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueEventRename>("rename", Rename);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("requested_reviewer", RequestedReviewer);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Team>("requested_team", RequestedTeam);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("review_requester", ReviewRequester);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueReference>("sub_issue", SubIssue);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

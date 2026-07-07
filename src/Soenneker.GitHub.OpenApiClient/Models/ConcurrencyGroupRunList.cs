@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The concurrency_groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunList_concurrency_groups>? ConcurrencyGroups { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItem>? ConcurrencyGroups { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunList_concurrency_groups> ConcurrencyGroups { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItem> ConcurrencyGroups { get; set; }
 #endif
         /// <summary>The total number of concurrency groups this workflow run participates in,derived from the run&apos;s configuration. This count is not filtered bywhether the run currently holds or is waiting in each group, so it caninclude groups whose `group_members` array is empty (for example, whenthe run has already released its lease in that group).</summary>
         public int? TotalCount { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "concurrency_groups", n => { ConcurrencyGroups = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunList_concurrency_groups>(global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunList_concurrency_groups.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "concurrency_groups", n => { ConcurrencyGroups = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItem>(global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunList_concurrency_groups>("concurrency_groups", ConcurrencyGroups);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItem>("concurrency_groups", ConcurrencyGroups);
             writer.WriteIntValue("total_count", TotalCount);
             writer.WriteAdditionalData(AdditionalData);
         }

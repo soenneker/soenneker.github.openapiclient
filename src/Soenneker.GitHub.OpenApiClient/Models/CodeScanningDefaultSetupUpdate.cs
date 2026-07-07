@@ -16,13 +16,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>CodeQL languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_languages?>? Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?>? Languages { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_languages?> Languages { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem?> Languages { get; set; }
 #endif
         /// <summary>CodeQL query suite to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_query_suite? QuerySuite { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateQuerySuite? QuerySuite { get; set; }
         /// <summary>Runner label to be used if the runner type is labeled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,11 +32,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RunnerLabel { get; set; }
 #endif
         /// <summary>Runner type to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_runner_type? RunnerType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType? RunnerType { get; set; }
         /// <summary>The desired state of code scanning default setup.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState? State { get; set; }
         /// <summary>Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_threat_model? ThreatModel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel? ThreatModel { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,12 +55,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_languages>()?.AsList(); } },
-                { "query_suite", n => { QuerySuite = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_query_suite>(); } },
+                { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem>()?.AsList(); } },
+                { "query_suite", n => { QuerySuite = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateQuerySuite>(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
-                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_runner_type>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_state>(); } },
-                { "threat_model", n => { ThreatModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_threat_model>(); } },
+                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState>(); } },
+                { "threat_model", n => { ThreatModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel>(); } },
             };
         }
         /// <summary>
@@ -70,12 +70,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_languages>("languages", Languages);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_query_suite>("query_suite", QuerySuite);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateLanguagesItem>("languages", Languages);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateQuerySuite>("query_suite", QuerySuite);
             writer.WriteStringValue("runner_label", RunnerLabel);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_runner_type>("runner_type", RunnerType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_state>("state", State);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdate_threat_model>("threat_model", ThreatModel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateRunnerType>("runner_type", RunnerType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateState>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupUpdateThreatModel>("threat_model", ThreatModel);
         }
     }
 }

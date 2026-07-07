@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Classrooms
     public partial class ClassroomsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.classrooms.item collection</summary>
-        /// <param name="position">The unique identifier of the classroom.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroom_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroom_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroomItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroomItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("classroom_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroom_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("classroomId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Classrooms.Item.WithClassroomItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

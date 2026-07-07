@@ -34,10 +34,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The answer_chosen_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_answer_chosen_by? AnswerChosenBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAnswerChosenBy? AnswerChosenBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_answer_chosen_by AnswerChosenBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAnswerChosenBy AnswerChosenBy { get; set; }
 #endif
         /// <summary>The answer_html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string AnswerHtmlUrl { get; set; }
 #endif
         /// <summary>How the author is associated with the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_author_association? AuthorAssociation { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAuthorAssociation? AuthorAssociation { get; set; }
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,9 +116,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoryUrl { get; set; }
 #endif
         /// <summary>The current state of the discussion.`converting` means that the discussion is being converted from an issue.`transferring` means that the discussion is being transferred from another repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionState? State { get; set; }
         /// <summary>The reason for the current state</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_state_reason? StateReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionStateReason? StateReason { get; set; }
         /// <summary>The timeline_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,10 +140,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_user? User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionUser? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Discussion_user User { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DiscussionUser User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Discussion"/> and sets the default values.
@@ -172,9 +172,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "active_lock_reason", n => { ActiveLockReason = n.GetStringValue(); } },
                 { "answer_chosen_at", n => { AnswerChosenAt = n.GetStringValue(); } },
-                { "answer_chosen_by", n => { AnswerChosenBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_answer_chosen_by>(global::Soenneker.GitHub.OpenApiClient.Models.Discussion_answer_chosen_by.CreateFromDiscriminatorValue); } },
+                { "answer_chosen_by", n => { AnswerChosenBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAnswerChosenBy>(global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAnswerChosenBy.CreateFromDiscriminatorValue); } },
                 { "answer_html_url", n => { AnswerHtmlUrl = n.GetStringValue(); } },
-                { "author_association", n => { AuthorAssociation = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_author_association>(); } },
+                { "author_association", n => { AuthorAssociation = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAuthorAssociation>(); } },
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "category", n => { Category = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionCategory>(global::Soenneker.GitHub.OpenApiClient.Models.DiscussionCategory.CreateFromDiscriminatorValue); } },
                 { "comments", n => { Comments = n.GetIntValue(); } },
@@ -187,12 +187,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions>(global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions.CreateFromDiscriminatorValue); } },
                 { "repository_url", n => { RepositoryUrl = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_state>(); } },
-                { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_state_reason>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionState>(); } },
+                { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionStateReason>(); } },
                 { "timeline_url", n => { TimelineUrl = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_user>(global::Soenneker.GitHub.OpenApiClient.Models.Discussion_user.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionUser>(global::Soenneker.GitHub.OpenApiClient.Models.DiscussionUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -204,9 +204,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("active_lock_reason", ActiveLockReason);
             writer.WriteStringValue("answer_chosen_at", AnswerChosenAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_answer_chosen_by>("answer_chosen_by", AnswerChosenBy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAnswerChosenBy>("answer_chosen_by", AnswerChosenBy);
             writer.WriteStringValue("answer_html_url", AnswerHtmlUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_author_association>("author_association", AuthorAssociation);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionAuthorAssociation>("author_association", AuthorAssociation);
             writer.WriteStringValue("body", Body);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionCategory>("category", Category);
             writer.WriteIntValue("comments", Comments);
@@ -219,12 +219,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("number", Number);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionReactions>("reactions", Reactions);
             writer.WriteStringValue("repository_url", RepositoryUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_state>("state", State);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_state_reason>("state_reason", StateReason);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionState>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionStateReason>("state_reason", StateReason);
             writer.WriteStringValue("timeline_url", TimelineUrl);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Discussion_user>("user", User);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DiscussionUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

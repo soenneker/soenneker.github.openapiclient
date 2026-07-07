@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.app.hook.deliveries.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.Item.WithDelivery_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.Item.WithDelivery_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.Item.WithDeliveryItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.Item.WithDeliveryItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("delivery_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.Item.WithDelivery_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("deliveryId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.Item.WithDeliveryItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries
             public int? PerPage { get; set; }
             /// <summary>Returns webhook deliveries filtered by delivery outcome classification based on `status_code` range. A `status` of `success` returns deliveries with a `status_code` in the 200-399 range (inclusive). A `status` of `failure` returns deliveries with a `status_code` in the 400-599 range (inclusive).</summary>
             [QueryParameter("status")]
-            public global::Soenneker.GitHub.OpenApiClient.App.Hook.Deliveries.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.WebhookDeliveryStatus? Status { get; set; }
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string BeforeSha { get; set; }
 #endif
         /// <summary>The result of the rule evaluations for rules with the `active` and `evaluate` enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were `active`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_evaluation_result? EvaluationResult { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItemEvaluationResult? EvaluationResult { get; set; }
         /// <summary>The unique identifier of the rule insight.</summary>
         public long? Id { get; set; }
         /// <summary>The pushed_at property</summary>
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoryName { get; set; }
 #endif
         /// <summary>The result of the rule evaluations for rules with the `active` enforcement status.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_result? Result { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItemResult? Result { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem"/> and sets the default values.
         /// </summary>
@@ -95,13 +95,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "actor_name", n => { ActorName = n.GetStringValue(); } },
                 { "after_sha", n => { AfterSha = n.GetStringValue(); } },
                 { "before_sha", n => { BeforeSha = n.GetStringValue(); } },
-                { "evaluation_result", n => { EvaluationResult = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_evaluation_result>(); } },
+                { "evaluation_result", n => { EvaluationResult = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItemEvaluationResult>(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
                 { "repository_name", n => { RepositoryName = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_result>(); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItemResult>(); } },
             };
         }
         /// <summary>
@@ -115,13 +115,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("actor_name", ActorName);
             writer.WriteStringValue("after_sha", AfterSha);
             writer.WriteStringValue("before_sha", BeforeSha);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_evaluation_result>("evaluation_result", EvaluationResult);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItemEvaluationResult>("evaluation_result", EvaluationResult);
             writer.WriteLongValue("id", Id);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("ref", Ref);
             writer.WriteLongValue("repository_id", RepositoryId);
             writer.WriteStringValue("repository_name", RepositoryName);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItem_result>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitesItemResult>("result", Result);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

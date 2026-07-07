@@ -42,6 +42,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Installation;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Invitations;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.IssueTypes;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Keys;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Labels;
@@ -282,6 +283,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.IssuesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The issueTypes property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.IssueTypes.IssueTypesRequestBuilder IssueTypes
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.IssueTypes.IssueTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The keys property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Keys.KeysRequestBuilder Keys
         {
@@ -459,7 +465,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposDelete403">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposDelete403Response">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -474,7 +480,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.ReposDelete403.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.ReposDelete403Response.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
@@ -519,11 +525,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -582,11 +588,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

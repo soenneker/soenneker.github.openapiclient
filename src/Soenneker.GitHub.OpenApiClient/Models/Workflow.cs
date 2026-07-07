@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Path { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Workflow_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowState? State { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The url property</summary>
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Workflow_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -126,7 +126,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Workflow_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

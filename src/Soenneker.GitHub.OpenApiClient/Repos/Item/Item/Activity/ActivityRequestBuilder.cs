@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity
         {
             /// <summary>The activity type to filter by.For example, you can choose to filter by &quot;force_push&quot;, to see all force pushes to the repository.</summary>
             [QueryParameter("activity_type")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity.GetActivity_typeQueryParameterType? ActivityType { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListActivitiesActivityTypeParameter? ActivityType { get; set; }
             /// <summary>The GitHub username to use to filter by the actor who performed the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,7 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
@@ -143,7 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity
 #endif
             /// <summary>The time period to filter by.For example, `day` will filter for activity that occurred in the past 24 hours, and `week` will filter for activity that occurred in the past 7 days (168 hours).</summary>
             [QueryParameter("time_period")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Activity.GetTime_periodQueryParameterType? TimePeriod { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.ReposListActivitiesTimePeriodParameter? TimePeriod { get; set; }
         }
     }
 }

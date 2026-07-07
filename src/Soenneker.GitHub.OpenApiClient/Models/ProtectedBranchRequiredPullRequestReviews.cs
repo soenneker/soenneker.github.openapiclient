@@ -52,6 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public ProtectedBranchRequiredPullRequestReviews()
         {
             AdditionalData = new Dictionary<string, object>();
+            RequireLastPushApproval = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

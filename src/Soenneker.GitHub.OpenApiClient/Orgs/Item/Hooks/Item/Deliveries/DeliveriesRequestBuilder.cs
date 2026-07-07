@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\hooks\{hook_id}\deliveries
+    /// Builds and executes requests for operations under \orgs\{org}\hooks\{hookId}\deliveries
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeliveriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.hooks.item.deliveries.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDelivery_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDelivery_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDeliveryItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDeliveryItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("delivery_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDelivery_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("deliveryId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDeliveryItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeliveriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/hooks/{hook_id}/deliveries{?cursor*,per_page*,status*}", pathParameters)
+        public DeliveriesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/hooks/{hookId}/deliveries{?cursor*,per_page*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeliveriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/hooks/{hook_id}/deliveries{?cursor*,per_page*,status*}", rawUrl)
+        public DeliveriesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/hooks/{hookId}/deliveries{?cursor*,per_page*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries
             public int? PerPage { get; set; }
             /// <summary>Returns webhook deliveries filtered by delivery outcome classification based on `status_code` range. A `status` of `success` returns deliveries with a `status_code` in the 200-399 range (inclusive). A `status` of `failure` returns deliveries with a `status_code` in the 400-599 range (inclusive).</summary>
             [QueryParameter("status")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.WebhookDeliveryStatus? Status { get; set; }
         }
     }
 }

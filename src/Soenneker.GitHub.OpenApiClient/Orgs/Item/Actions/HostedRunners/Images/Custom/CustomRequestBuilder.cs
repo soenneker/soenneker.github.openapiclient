@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -18,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
     public partial class CustomRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.hostedRunners.images.custom.item collection</summary>
-        /// <param name="position">Image definition ID of custom image</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImage_definition_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImage_definition_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImageDefinitionItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImageDefinitionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("image_definition_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImage_definition_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("imageDefinitionId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImageDefinitionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,20 +50,20 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
         /// List custom images for an organization.OAuth tokens and personal access tokens (classic) need the `manage_runners:org` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/actions/hosted-runners#list-custom-images-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.CustomGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsListCustomImagesForOrg200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.CustomGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListCustomImagesForOrg200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.CustomGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListCustomImagesForOrg200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.CustomGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.CustomGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsListCustomImagesForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsListCustomImagesForOrg200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List custom images for an organization.OAuth tokens and personal access tokens (classic) need the `manage_runners:org` scope to use this endpoint.

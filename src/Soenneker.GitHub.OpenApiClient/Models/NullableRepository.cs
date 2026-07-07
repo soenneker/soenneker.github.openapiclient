@@ -343,9 +343,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string MasterBranch { get; set; }
 #endif
         /// <summary>The default value for a merge commit message.- `PR_TITLE` - default to the pull request&apos;s title.- `PR_BODY` - default to the pull request&apos;s body.- `BLANK` - default to a blank commit message.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_merge_commit_message? MergeCommitMessage { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryMergeCommitMessage? MergeCommitMessage { get; set; }
         /// <summary>The default value for a merge commit title.- `PR_TITLE` - default to the pull request&apos;s title.- `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_merge_commit_title? MergeCommitTitle { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryMergeCommitTitle? MergeCommitTitle { get; set; }
         /// <summary>The merges_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -417,7 +417,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether the repository is private or public.</summary>
         public bool? Private { get; set; }
         /// <summary>&quot;The policy controlling who can create pull requests: all or collaborators_only.&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_pull_request_creation_policy? PullRequestCreationPolicy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPullRequestCreationPolicy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -439,9 +439,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The size of the repository, in kilobytes. Size is calculated hourly. When a repository is initially created, the size is 0.</summary>
         public int? Size { get; set; }
         /// <summary>The default value for a squash merge commit message:- `PR_BODY` - default to the pull request&apos;s body.- `COMMIT_MESSAGES` - default to the branch&apos;s commit messages.- `BLANK` - default to a blank commit message.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_squash_merge_commit_message? SquashMergeCommitMessage { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositorySquashMergeCommitMessage? SquashMergeCommitMessage { get; set; }
         /// <summary>The default value for a squash merge commit title:- `PR_TITLE` - default to the pull request&apos;s title.- `COMMIT_OR_PR_TITLE` - default to the commit&apos;s title (if only one commit) or the pull request&apos;s title (when more than one commit).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_squash_merge_commit_title? SquashMergeCommitTitle { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositorySquashMergeCommitTitle? SquashMergeCommitTitle { get; set; }
         /// <summary>The ssh_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -573,7 +573,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public NullableRepository()
         {
             AdditionalData = new Dictionary<string, object>();
+            AllowAutoMerge = false;
+            AllowMergeCommit = true;
+            AllowRebaseMerge = true;
+            AllowSquashMerge = true;
+            AllowUpdateBranch = false;
+            Archived = false;
+            DeleteBranchOnMerge = false;
+            HasDiscussions = false;
+            HasDownloads = true;
+            HasIssues = true;
+            HasProjects = true;
+            HasPullRequests = true;
+            HasWiki = true;
+            IsTemplate = false;
+            Private = false;
+            UseSquashPrTitleAsDefault = false;
             Visibility = "public";
+            WebCommitSignoffRequired = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -651,8 +668,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "languages_url", n => { LanguagesUrl = n.GetStringValue(); } },
                 { "license", n => { License = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>(global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple.CreateFromDiscriminatorValue); } },
                 { "master_branch", n => { MasterBranch = n.GetStringValue(); } },
-                { "merge_commit_message", n => { MergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_merge_commit_message>(); } },
-                { "merge_commit_title", n => { MergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_merge_commit_title>(); } },
+                { "merge_commit_message", n => { MergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryMergeCommitMessage>(); } },
+                { "merge_commit_title", n => { MergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryMergeCommitTitle>(); } },
                 { "merges_url", n => { MergesUrl = n.GetStringValue(); } },
                 { "milestones_url", n => { MilestonesUrl = n.GetStringValue(); } },
                 { "mirror_url", n => { MirrorUrl = n.GetStringValue(); } },
@@ -664,13 +681,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions.CreateFromDiscriminatorValue); } },
                 { "private", n => { Private = n.GetBoolValue(); } },
-                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_pull_request_creation_policy>(); } },
+                { "pull_request_creation_policy", n => { PullRequestCreationPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPullRequestCreationPolicy>(); } },
                 { "pulls_url", n => { PullsUrl = n.GetStringValue(); } },
                 { "pushed_at", n => { PushedAt = n.GetDateTimeOffsetValue(); } },
                 { "releases_url", n => { ReleasesUrl = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetIntValue(); } },
-                { "squash_merge_commit_message", n => { SquashMergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_squash_merge_commit_message>(); } },
-                { "squash_merge_commit_title", n => { SquashMergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_squash_merge_commit_title>(); } },
+                { "squash_merge_commit_message", n => { SquashMergeCommitMessage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositorySquashMergeCommitMessage>(); } },
+                { "squash_merge_commit_title", n => { SquashMergeCommitTitle = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositorySquashMergeCommitTitle>(); } },
                 { "ssh_url", n => { SshUrl = n.GetStringValue(); } },
                 { "stargazers_count", n => { StargazersCount = n.GetIntValue(); } },
                 { "stargazers_url", n => { StargazersUrl = n.GetStringValue(); } },
@@ -758,8 +775,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("languages_url", LanguagesUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableLicenseSimple>("license", License);
             writer.WriteStringValue("master_branch", MasterBranch);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_merge_commit_message>("merge_commit_message", MergeCommitMessage);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_merge_commit_title>("merge_commit_title", MergeCommitTitle);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryMergeCommitMessage>("merge_commit_message", MergeCommitMessage);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryMergeCommitTitle>("merge_commit_title", MergeCommitTitle);
             writer.WriteStringValue("merges_url", MergesUrl);
             writer.WriteStringValue("milestones_url", MilestonesUrl);
             writer.WriteStringValue("mirror_url", MirrorUrl);
@@ -771,13 +788,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPermissions>("permissions", Permissions);
             writer.WriteBoolValue("private", Private);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_pull_request_creation_policy>("pull_request_creation_policy", PullRequestCreationPolicy);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryPullRequestCreationPolicy>("pull_request_creation_policy", PullRequestCreationPolicy);
             writer.WriteStringValue("pulls_url", PullsUrl);
             writer.WriteDateTimeOffsetValue("pushed_at", PushedAt);
             writer.WriteStringValue("releases_url", ReleasesUrl);
             writer.WriteIntValue("size", Size);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_squash_merge_commit_message>("squash_merge_commit_message", SquashMergeCommitMessage);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepository_squash_merge_commit_title>("squash_merge_commit_title", SquashMergeCommitTitle);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositorySquashMergeCommitMessage>("squash_merge_commit_message", SquashMergeCommitMessage);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositorySquashMergeCommitTitle>("squash_merge_commit_title", SquashMergeCommitTitle);
             writer.WriteStringValue("ssh_url", SshUrl);
             writer.WriteIntValue("stargazers_count", StargazersCount);
             writer.WriteStringValue("stargazers_url", StargazersUrl);

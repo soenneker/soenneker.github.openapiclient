@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser Owner { get; set; }
 #endif
         /// <summary>The package_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Package_package_type? PackageType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackagePackageType? PackageType { get; set; }
         /// <summary>Minimal Repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The number of versions of the package.</summary>
         public int? VersionCount { get; set; }
         /// <summary>The visibility property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Package_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Package"/> and sets the default values.
         /// </summary>
@@ -97,12 +97,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
-                { "package_type", n => { PackageType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Package_package_type>(); } },
+                { "package_type", n => { PackageType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackagePackageType>(); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "version_count", n => { VersionCount = n.GetIntValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Package_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVisibility>(); } },
             };
         }
         /// <summary>
@@ -117,12 +117,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("owner", Owner);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Package_package_type>("package_type", PackageType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackagePackageType>("package_type", PackageType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMinimalRepository>("repository", Repository);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteIntValue("version_count", VersionCount);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Package_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -26,15 +26,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The conditions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions? Conditions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed? Conditions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions Conditions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed Conditions { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The bypass type of the user making the API request for this ruleset. This field is only returned whenquerying the repository-level endpoint.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_current_user_can_bypass? CurrentUserCanBypass { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetCurrentUserCanBypass? CurrentUserCanBypass { get; set; }
         /// <summary>The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise).</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement? Enforcement { get; set; }
         /// <summary>The ID of the ruleset</summary>
@@ -80,9 +80,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Source { get; set; }
 #endif
         /// <summary>The type of the source of the ruleset</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_source_type? SourceType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetSourceType? SourceType { get; set; }
         /// <summary>The target of the ruleset</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_target? Target { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetTarget? Target { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -111,9 +111,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "bypass_actors", n => { BypassActors = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions.CreateFromDiscriminatorValue); } },
+                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "current_user_can_bypass", n => { CurrentUserCanBypass = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_current_user_can_bypass>(); } },
+                { "current_user_can_bypass", n => { CurrentUserCanBypass = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetCurrentUserCanBypass>(); } },
                 { "enforcement", n => { Enforcement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks.CreateFromDiscriminatorValue); } },
@@ -121,8 +121,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_source_type>(); } },
-                { "target", n => { Target = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_target>(); } },
+                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetSourceType>(); } },
+                { "target", n => { Target = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetTarget>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -134,9 +134,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetBypassActor>("bypass_actors", BypassActors);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions>("conditions", Conditions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsComposed>("conditions", Conditions);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_current_user_can_bypass>("current_user_can_bypass", CurrentUserCanBypass);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetCurrentUserCanBypass>("current_user_can_bypass", CurrentUserCanBypass);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>("enforcement", Enforcement);
             writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetLinks>("_links", Links);
@@ -144,67 +144,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRule>("rules", Rules);
             writer.WriteStringValue("source", Source);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_source_type>("source_type", SourceType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset_target>("target", Target);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetSourceType>("source_type", SourceType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetTarget>("target", Target);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RepositoryRuleset_conditions : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions? OrgRulesetConditions { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions OrgRulesetConditions { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions? RepositoryRulesetConditions { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions RepositoryRulesetConditions { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset.RepositoryRuleset_conditions();
-                result.OrgRulesetConditions = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions();
-                result.RepositoryRulesetConditions = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditions();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OrgRulesetConditions != null || RepositoryRulesetConditions != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(OrgRulesetConditions, RepositoryRulesetConditions);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions>(null, OrgRulesetConditions, RepositoryRulesetConditions);
-            }
         }
     }
 }

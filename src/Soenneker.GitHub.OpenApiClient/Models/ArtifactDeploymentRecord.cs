@@ -70,18 +70,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A list of runtime risks associated with the deployment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_runtime_risks?>? RuntimeRisks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordRuntimeRisksItem?>? RuntimeRisks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_runtime_risks?> RuntimeRisks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordRuntimeRisksItem?> RuntimeRisks { get; set; }
 #endif
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_tags? Tags { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordTagsProperty? Tags { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_tags Tags { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordTagsProperty Tags { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -124,8 +124,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "logical_environment", n => { LogicalEnvironment = n.GetStringValue(); } },
                 { "physical_environment", n => { PhysicalEnvironment = n.GetStringValue(); } },
-                { "runtime_risks", n => { RuntimeRisks = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_runtime_risks>()?.AsList(); } },
-                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_tags>(global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_tags.CreateFromDiscriminatorValue); } },
+                { "runtime_risks", n => { RuntimeRisks = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordRuntimeRisksItem>()?.AsList(); } },
+                { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordTagsProperty>(global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordTagsProperty.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -144,8 +144,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("logical_environment", LogicalEnvironment);
             writer.WriteStringValue("physical_environment", PhysicalEnvironment);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_runtime_risks>("runtime_risks", RuntimeRisks);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord_tags>("tags", Tags);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordRuntimeRisksItem>("runtime_risks", RuntimeRisks);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecordTagsProperty>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

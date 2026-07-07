@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Determines if the user has a direct, indirect, or mixed relationship to a role</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.UserRoleAssignment_assignment? Assignment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UserRoleAssignmentAssignment? Assignment { get; set; }
         /// <summary>The avatar_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -214,7 +214,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignment", n => { Assignment = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UserRoleAssignment_assignment>(); } },
+                { "assignment", n => { Assignment = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UserRoleAssignmentAssignment>(); } },
                 { "avatar_url", n => { AvatarUrl = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "events_url", n => { EventsUrl = n.GetStringValue(); } },
@@ -247,7 +247,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UserRoleAssignment_assignment>("assignment", Assignment);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UserRoleAssignmentAssignment>("assignment", Assignment);
             writer.WriteStringValue("avatar_url", AvatarUrl);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("events_url", EventsUrl);

@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{username-id}\attestations
+    /// Builds and executes requests for operations under \users\{user-id}\attestations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AttestationsRequestBuilder : BaseRequestBuilder
@@ -35,14 +35,14 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.attestations.item collection</summary>
         /// <param name="position">Attestation ID</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithAttestation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithAttestation_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithAttestationItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithAttestationItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("attestation_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithAttestation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("attestationId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Attestations.Item.WithAttestationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AttestationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/attestations", pathParameters)
+        public AttestationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/attestations", pathParameters)
         {
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Attestations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AttestationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{username%2Did}/attestations", rawUrl)
+        public AttestationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/attestations", rawUrl)
         {
         }
     }

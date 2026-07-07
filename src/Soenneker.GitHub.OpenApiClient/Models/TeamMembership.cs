@@ -16,9 +16,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The role of the user in the team.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_role? Role { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamMembershipRole? Role { get; set; }
         /// <summary>The state of the user&apos;s membership in the team.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamMembershipState? State { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +33,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public TeamMembership()
         {
             AdditionalData = new Dictionary<string, object>();
-            Role = global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_role.Member;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,8 +52,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_role>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_state>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembershipRole>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembershipState>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -65,8 +64,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_role>("role", Role);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembership_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembershipRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamMembershipState>("state", State);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

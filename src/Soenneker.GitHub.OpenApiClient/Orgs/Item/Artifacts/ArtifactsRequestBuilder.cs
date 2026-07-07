@@ -22,15 +22,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Metadata.MetadataRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.artifacts.item collection</summary>
-        /// <param name="position">The SHA256 digest of the artifact, in the form `sha256:HEX_DIGEST`.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubject_digestItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubject_digestItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubjectDigestItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubjectDigestItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("subject_digest", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubject_digestItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("subjectDigest", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Artifacts.Item.WithSubjectDigestItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

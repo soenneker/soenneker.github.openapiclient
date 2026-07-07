@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams
     public partial class TeamsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.enterprises.item.teams.item collection</summary>
-        /// <param name="position">The slug of the team name.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.Item.EnterpriseTeamItemRequestBuilder this[string position]
         {
@@ -81,11 +81,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeam> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -119,11 +119,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The aliases property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_aliases>? Aliases { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemAliasesItem>? Aliases { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_aliases> Aliases { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemAliasesItem> Aliases { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -72,10 +72,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The related property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_related>? Related { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItem>? Related { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_related> Related { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItem> Related { get; set; }
 #endif
         /// <summary>The released property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -132,7 +132,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aliases", n => { Aliases = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_aliases>(global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_aliases.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "aliases", n => { Aliases = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemAliasesItem>(global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemAliasesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "curated", n => { Curated = n.GetBoolValue(); } },
@@ -141,7 +141,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "featured", n => { Featured = n.GetBoolValue(); } },
                 { "logo_url", n => { LogoUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "related", n => { Related = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_related>(global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_related.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "related", n => { Related = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItem>(global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "released", n => { Released = n.GetStringValue(); } },
                 { "repository_count", n => { RepositoryCount = n.GetIntValue(); } },
                 { "score", n => { Score = n.GetDoubleValue(); } },
@@ -157,7 +157,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_aliases>("aliases", Aliases);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemAliasesItem>("aliases", Aliases);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteBoolValue("curated", Curated);
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("featured", Featured);
             writer.WriteStringValue("logo_url", LogoUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItem_related>("related", Related);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItem>("related", Related);
             writer.WriteStringValue("released", Released);
             writer.WriteIntValue("repository_count", RepositoryCount);
             writer.WriteDoubleValue("score", Score);

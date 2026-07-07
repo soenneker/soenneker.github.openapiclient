@@ -132,13 +132,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup Reactions { get; set; }
 #endif
         /// <summary>The side of the first line of the range for a multi-line comment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_side? Side { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentSide? Side { get; set; }
         /// <summary>The first line of the range for a multi-line comment.</summary>
         public int? StartLine { get; set; }
         /// <summary>The side of the first line of the range for a multi-line comment.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side? StartSide { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentStartSide? StartSide { get; set; }
         /// <summary>The level at which the comment is targeted, can be a diff line or a file.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_subject_type? SubjectType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentSubjectType? SubjectType { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The url property</summary>
@@ -163,8 +163,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public ReviewComment()
         {
             AdditionalData = new Dictionary<string, object>();
-            Side = global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_side.RIGHT;
-            StartSide = global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side.RIGHT;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -206,10 +204,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "pull_request_review_id", n => { PullRequestReviewId = n.GetLongValue(); } },
                 { "pull_request_url", n => { PullRequestUrl = n.GetStringValue(); } },
                 { "reactions", n => { Reactions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>(global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup.CreateFromDiscriminatorValue); } },
-                { "side", n => { Side = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_side>(); } },
+                { "side", n => { Side = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentSide>(); } },
                 { "start_line", n => { StartLine = n.GetIntValue(); } },
-                { "start_side", n => { StartSide = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side>(); } },
-                { "subject_type", n => { SubjectType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_subject_type>(); } },
+                { "start_side", n => { StartSide = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentStartSide>(); } },
+                { "subject_type", n => { SubjectType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentSubjectType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
@@ -244,10 +242,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("pull_request_review_id", PullRequestReviewId);
             writer.WriteStringValue("pull_request_url", PullRequestUrl);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReactionRollup>("reactions", Reactions);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_side>("side", Side);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentSide>("side", Side);
             writer.WriteIntValue("start_line", StartLine);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_start_side>("start_side", StartSide);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewComment_subject_type>("subject_type", SubjectType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentStartSide>("start_side", StartSide);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReviewCommentSubjectType>("subject_type", SubjectType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);

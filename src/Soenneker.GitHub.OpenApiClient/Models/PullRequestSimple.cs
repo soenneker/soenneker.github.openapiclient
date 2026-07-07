@@ -124,10 +124,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLabelsItem>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLabelsItem> Labels { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -291,7 +291,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_url", n => { IssueUrl = n.GetStringValue(); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks.CreateFromDiscriminatorValue); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "merge_commit_sha", n => { MergeCommitSha = n.GetStringValue(); } },
@@ -336,7 +336,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("issue_url", IssueUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple_labels>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLabelsItem>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimpleLinks>("_links", Links);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteStringValue("merge_commit_sha", MergeCommitSha);

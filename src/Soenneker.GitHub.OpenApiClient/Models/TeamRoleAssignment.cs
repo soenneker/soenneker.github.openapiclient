@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Determines if the team has a direct, indirect, or mixed relationship to a role</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment? Assignment { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignmentAssignment? Assignment { get; set; }
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>The ownership type of the team</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignmentType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -154,7 +154,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignment", n => { Assignment = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment>(); } },
+                { "assignment", n => { Assignment = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignmentAssignment>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
@@ -170,7 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignmentType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -181,7 +181,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_assignment>("assignment", Assignment);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignmentAssignment>("assignment", Assignment);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
@@ -197,7 +197,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignment_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamRoleAssignmentType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

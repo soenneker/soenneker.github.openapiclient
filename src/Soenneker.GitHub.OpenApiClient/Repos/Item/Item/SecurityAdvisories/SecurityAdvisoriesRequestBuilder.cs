@@ -25,15 +25,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.securityAdvisories.item collection</summary>
-        /// <param name="position">The GHSA (GitHub Security Advisory) identifier of the advisory.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.WithGhsa_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.WithGhsa_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.WithGhsaItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.WithGhsaItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("ghsa_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.WithGhsa_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("ghsaId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.WithGhsaItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -187,16 +187,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>The number of advisories to return per page. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListRepositoryAdvisoriesSortParameter? Sort { get; set; }
             /// <summary>Filter by state of the repository advisories. Only advisories of this state will be returned.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoriesListRepositoryAdvisoriesStateParameter? State { get; set; }
         }
     }
 }

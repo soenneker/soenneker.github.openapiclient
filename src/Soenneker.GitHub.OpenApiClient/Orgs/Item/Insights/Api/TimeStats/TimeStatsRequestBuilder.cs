@@ -25,15 +25,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.insights.api.timeStats.item collection</summary>
-        /// <param name="position">The type of the actor</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActor_typeItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActor_typeItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActorTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActorTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("actor_type", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActor_typeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("actorType", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.TimeStats.Item.WithActorTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

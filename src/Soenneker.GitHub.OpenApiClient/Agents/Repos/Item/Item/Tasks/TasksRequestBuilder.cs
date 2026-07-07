@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.agents.repos.item.item.tasks.item collection</summary>
         /// <param name="position">The unique identifier of the task.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item.WithTask_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item.WithTask_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item.WithTaskItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item.WithTaskItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("task_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item.WithTask_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("taskId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.Item.WithTaskItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,65 +50,65 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for a specific repository**Fine-grained access tokens for &quot;List tasks for repository&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have the following permission set:* &quot;Agent tasks&quot; repository permissions (read)GitHub App installation access tokens are not supported for this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/agent-tasks/agent-tasks#list-tasks-for-repository" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo422">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo422Response">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder.TasksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder.TasksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder.TasksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder.TasksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo401.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo403.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo404.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo422.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo403Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo404Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo422Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Starts a new Copilot cloud agent task for a repository.This endpoint is only available to users with a Copilot Business or Copilot Enterprise subscription.**Fine-grained access tokens for &quot;Start a task&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have the following permission set:* &quot;Agent tasks&quot; repository permissions (read and write)GitHub App installation access tokens are not supported for this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/agent-tasks/agent-tasks#start-a-task" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo400">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo403">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo422">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo403Response">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo422Response">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo400.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo401.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo403.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo422.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo403Response.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo422Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Returns a list of tasks for a specific repository**Fine-grained access tokens for &quot;List tasks for repository&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have the following permission set:* &quot;Agent tasks&quot; repository permissions (read)GitHub App installation access tokens are not supported for this endpoint.
@@ -137,11 +137,11 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepoRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -178,7 +178,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
 #endif
             /// <summary>The direction to sort results. Can be `asc` or `desc`.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepoDirectionParameter? Direction { get; set; }
             /// <summary>Filter by archived status. When `true`, returns only archived tasks. When `false` or omitted, returns only non-archived tasks. Defaults to `false`.</summary>
             [QueryParameter("is_archived")]
             public bool? IsArchived { get; set; }
@@ -193,7 +193,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             public DateTimeOffset? Since { get; set; }
             /// <summary>The field to sort results by. Can be `updated_at` or `created_at`.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepoSortParameter? Sort { get; set; }
             /// <summary>&quot;Comma-separated list of task states to filter by. Can be any combination of: `queued`, `in_progress`, `completed`, `failed`, `idle`, `waiting_for_user`, `timed_out`, `cancelled`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

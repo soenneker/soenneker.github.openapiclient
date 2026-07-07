@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The time that the job finished, in ISO 8601 format.</summary>
         public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>The outcome of the job.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Job_conclusion? Conclusion { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.JobConclusion? Conclusion { get; set; }
         /// <summary>The time that the job created, in ISO 8601 format.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The name of the current branch.</summary>
@@ -114,14 +114,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The time that the job started, in ISO 8601 format.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The phase of the lifecycle that the job is currently in.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Job_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.JobStatus? Status { get; set; }
         /// <summary>Steps in this job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Job_steps>? Steps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>? Steps { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Job_steps> Steps { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem> Steps { get; set; }
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "check_run_url", n => { CheckRunUrl = n.GetStringValue(); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
-                { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Job_conclusion>(); } },
+                { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.JobConclusion>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_sha", n => { HeadSha = n.GetStringValue(); } },
@@ -183,8 +183,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "runner_id", n => { RunnerId = n.GetIntValue(); } },
                 { "runner_name", n => { RunnerName = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Job_status>(); } },
-                { "steps", n => { Steps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Job_steps>(global::Soenneker.GitHub.OpenApiClient.Models.Job_steps.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.JobStatus>(); } },
+                { "steps", n => { Steps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>(global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "workflow_name", n => { WorkflowName = n.GetStringValue(); } },
             };
@@ -198,7 +198,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("check_run_url", CheckRunUrl);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Job_conclusion>("conclusion", Conclusion);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.JobConclusion>("conclusion", Conclusion);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteStringValue("head_sha", HeadSha);
@@ -215,8 +215,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("runner_name", RunnerName);
             writer.WriteStringValue("run_url", RunUrl);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Job_status>("status", Status);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Job_steps>("steps", Steps);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.JobStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.JobStepsItem>("steps", Steps);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("workflow_name", WorkflowName);
             writer.WriteAdditionalData(AdditionalData);

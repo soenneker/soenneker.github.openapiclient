@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string RepositoriesUrl { get; set; }
 #endif
         /// <summary>Type of repository selection requested.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest_repository_selection? RepositorySelection { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestRepositorySelection? RepositorySelection { get; set; }
         /// <summary>Whether the associated fine-grained personal access token has expired.</summary>
         public bool? TokenExpired { get; set; }
         /// <summary>Date and time when the associated fine-grained personal access token expires.</summary>
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions.CreateFromDiscriminatorValue); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
-                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest_repository_selection>(); } },
+                { "repository_selection", n => { RepositorySelection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestRepositorySelection>(); } },
                 { "token_expired", n => { TokenExpired = n.GetBoolValue(); } },
                 { "token_expires_at", n => { TokenExpiresAt = n.GetStringValue(); } },
                 { "token_id", n => { TokenId = n.GetLongValue(); } },
@@ -139,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions>("permissions", Permissions);
             writer.WriteStringValue("reason", Reason);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequest_repository_selection>("repository_selection", RepositorySelection);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestRepositorySelection>("repository_selection", RepositorySelection);
             writer.WriteBoolValue("token_expired", TokenExpired);
             writer.WriteStringValue("token_expires_at", TokenExpiresAt);
             writer.WriteLongValue("token_id", TokenId);

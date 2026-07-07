@@ -15,10 +15,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A list of users receiving credit for their participation in the security advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_credits>? Credits { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateCreditsItem>? Credits { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_credits> Credits { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateCreditsItem> Credits { get; set; }
 #endif
         /// <summary>The Common Vulnerabilities and Exposures (CVE) ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The severity of the advisory. You must choose between setting this field or `cvss_vector_string`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_severity? Severity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateSeverity? Severity { get; set; }
         /// <summary>Whether to create a temporary private fork of the repository to collaborate on a fix.</summary>
         public bool? StartPrivateFork { get; set; }
         /// <summary>A short summary of the advisory.</summary>
@@ -67,11 +67,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A product affected by the vulnerability detailed in a repository security advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_vulnerabilities>? Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateVulnerabilitiesItem>? Vulnerabilities { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_vulnerabilities> Vulnerabilities { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateVulnerabilitiesItem> Vulnerabilities { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate"/> and sets the default values.
+        /// </summary>
+        public RepositoryAdvisoryCreate()
+        {
+            StartPrivateFork = false;
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -90,15 +97,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "credits", n => { Credits = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_credits>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_credits.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "credits", n => { Credits = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateCreditsItem>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateCreditsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "cve_id", n => { CveId = n.GetStringValue(); } },
                 { "cvss_vector_string", n => { CvssVectorString = n.GetStringValue(); } },
                 { "cwe_ids", n => { CweIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_severity>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateSeverity>(); } },
                 { "start_private_fork", n => { StartPrivateFork = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
-                { "vulnerabilities", n => { Vulnerabilities = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_vulnerabilities>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_vulnerabilities.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "vulnerabilities", n => { Vulnerabilities = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateVulnerabilitiesItem>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateVulnerabilitiesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -108,15 +115,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_credits>("credits", Credits);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateCreditsItem>("credits", Credits);
             writer.WriteStringValue("cve_id", CveId);
             writer.WriteStringValue("cvss_vector_string", CvssVectorString);
             writer.WriteCollectionOfPrimitiveValues<string>("cwe_ids", CweIds);
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_severity>("severity", Severity);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateSeverity>("severity", Severity);
             writer.WriteBoolValue("start_private_fork", StartPrivateFork);
             writer.WriteStringValue("summary", Summary);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreate_vulnerabilities>("vulnerabilities", Vulnerabilities);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreateVulnerabilitiesItem>("vulnerabilities", Vulnerabilities);
         }
     }
 }

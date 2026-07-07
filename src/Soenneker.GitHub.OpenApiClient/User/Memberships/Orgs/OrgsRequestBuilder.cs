@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Memberships.Orgs
             public int? PerPage { get; set; }
             /// <summary>Indicates the state of the memberships to return. If not specified, the API returns both active and pending memberships.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.User.Memberships.Orgs.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.OrgsListMembershipsForAuthenticatedUserStateParameter? State { get; set; }
         }
     }
 }

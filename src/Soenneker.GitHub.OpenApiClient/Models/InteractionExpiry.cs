@@ -9,23 +9,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         [EnumMember(Value = "one_day")]
         #pragma warning disable CS1591
-        One_day,
+        OneDay,
         #pragma warning restore CS1591
         [EnumMember(Value = "three_days")]
         #pragma warning disable CS1591
-        Three_days,
+        ThreeDays,
         #pragma warning restore CS1591
         [EnumMember(Value = "one_week")]
         #pragma warning disable CS1591
-        One_week,
+        OneWeek,
         #pragma warning restore CS1591
         [EnumMember(Value = "one_month")]
         #pragma warning disable CS1591
-        One_month,
+        OneMonth,
         #pragma warning restore CS1591
         [EnumMember(Value = "six_months")]
         #pragma warning disable CS1591
-        Six_months,
+        SixMonths,
         #pragma warning restore CS1591
     }
 }

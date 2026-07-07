@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls how immutable releases are enforced in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings_enforced_repositories? EnforcedRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? EnforcedRepositories { get; set; }
         /// <summary>The API URL to use to get or set the selected repositories for immutable releases enforcement, when `enforced_repositories` is set to `selected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "enforced_repositories", n => { EnforcedRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings_enforced_repositories>(); } },
+                { "enforced_repositories", n => { EnforcedRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories>(); } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettings_enforced_repositories>("enforced_repositories", EnforcedRepositories);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories>("enforced_repositories", EnforcedRepositories);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Audience { get; set; }
 #endif
         /// <summary>The authentication type for the private registry.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_auth_type? AuthType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationAuthType? AuthType { get; set; }
         /// <summary>The AWS region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Namespace { get; set; }
 #endif
         /// <summary>The registry type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type? RegistryType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationRegistryType? RegistryType { get; set; }
         /// <summary>Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</summary>
         public bool? ReplacesBase { get; set; }
         /// <summary>The AWS IAM role name.</summary>
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Username { get; set; }
 #endif
         /// <summary>Which type of organization repositories have access to the private registry.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility? Visibility { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationVisibility? Visibility { get; set; }
         /// <summary>The full resource name of the GCP Workload Identity Provider (e.g. `projects/&lt;NUM&gt;/locations/global/workloadIdentityPools/&lt;POOL&gt;/providers/&lt;PROVIDER&gt;`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,6 +177,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public OrgPrivateRegistryConfiguration()
         {
             AdditionalData = new Dictionary<string, object>();
+            ReplacesBase = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -199,7 +200,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "api_host", n => { ApiHost = n.GetStringValue(); } },
                 { "audience", n => { Audience = n.GetStringValue(); } },
-                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_auth_type>(); } },
+                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationAuthType>(); } },
                 { "aws_region", n => { AwsRegion = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -209,7 +210,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "jfrog_oidc_provider_name", n => { JfrogOidcProviderName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
-                { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type>(); } },
+                { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationRegistryType>(); } },
                 { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
                 { "service_account", n => { ServiceAccount = n.GetStringValue(); } },
@@ -218,7 +219,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationVisibility>(); } },
                 { "workload_identity_provider", n => { WorkloadIdentityProvider = n.GetStringValue(); } },
             };
         }
@@ -232,7 +233,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("account_id", AccountId);
             writer.WriteStringValue("api_host", ApiHost);
             writer.WriteStringValue("audience", Audience);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_auth_type>("auth_type", AuthType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationAuthType>("auth_type", AuthType);
             writer.WriteStringValue("aws_region", AwsRegion);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
@@ -242,7 +243,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("jfrog_oidc_provider_name", JfrogOidcProviderName);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("namespace", Namespace);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_registry_type>("registry_type", RegistryType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationRegistryType>("registry_type", RegistryType);
             writer.WriteBoolValue("replaces_base", ReplacesBase);
             writer.WriteStringValue("role_name", RoleName);
             writer.WriteStringValue("service_account", ServiceAccount);
@@ -251,7 +252,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteStringValue("username", Username);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfigurationVisibility>("visibility", Visibility);
             writer.WriteStringValue("workload_identity_provider", WorkloadIdentityProvider);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -17,26 +17,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The MACOS property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMACOS? MACOS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos? MACOS { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMACOS MACOS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos MACOS { get; set; }
 #endif
         /// <summary>The UBUNTU property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUBUNTU? UBUNTU { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu? UBUNTU { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUBUNTU UBUNTU { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu UBUNTU { get; set; }
 #endif
         /// <summary>The WINDOWS property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWINDOWS? WINDOWS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows? WINDOWS { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWINDOWS WINDOWS { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows WINDOWS { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillable"/> and sets the default values.
@@ -63,9 +63,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "MACOS", n => { MACOS = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMACOS>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMACOS.CreateFromDiscriminatorValue); } },
-                { "UBUNTU", n => { UBUNTU = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUBUNTU>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUBUNTU.CreateFromDiscriminatorValue); } },
-                { "WINDOWS", n => { WINDOWS = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWINDOWS>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWINDOWS.CreateFromDiscriminatorValue); } },
+                { "MACOS", n => { MACOS = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos.CreateFromDiscriminatorValue); } },
+                { "UBUNTU", n => { UBUNTU = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu.CreateFromDiscriminatorValue); } },
+                { "WINDOWS", n => { WINDOWS = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows>(global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +75,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMACOS>("MACOS", MACOS);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUBUNTU>("UBUNTU", UBUNTU);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWINDOWS>("WINDOWS", WINDOWS);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos>("MACOS", MACOS);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu>("UBUNTU", UBUNTU);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows>("WINDOWS", WINDOWS);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

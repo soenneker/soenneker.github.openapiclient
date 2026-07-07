@@ -18,7 +18,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>ID of the reviewer which must review changes to matching files.</summary>
         public long? Id { get; set; }
         /// <summary>The type of the reviewer</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewerType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewerType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewerType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

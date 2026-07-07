@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrors_errors>? Errors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrorsErrorsItem>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrors_errors> Errors { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrorsErrorsItem> Errors { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrors"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrors_errors>(global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrors_errors.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrorsErrorsItem>(global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrorsErrorsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrors_errors>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeownersErrorsErrorsItem>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

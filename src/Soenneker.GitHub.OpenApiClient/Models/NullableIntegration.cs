@@ -80,10 +80,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner? Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationOwner? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner Owner { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationOwner Owner { get; set; }
 #endif
         /// <summary>The set of permissions for the GitHub app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "installations_count", n => { InstallationsCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationOwner>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationOwner.CreateFromDiscriminatorValue); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationPermissions>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationPermissions.CreateFromDiscriminatorValue); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -161,86 +161,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("installations_count", InstallationsCount);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationOwner>("owner", Owner);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegrationPermissions>("permissions", Permissions);
             writer.WriteStringValue("slug", Slug);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Enterprise"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NullableIntegration_owner : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Enterprise"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.Enterprise? Enterprise { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.Enterprise Enterprise { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? SimpleUser { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser SimpleUser { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.NullableIntegration_owner();
-                if("Enterprise".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.Enterprise = new global::Soenneker.GitHub.OpenApiClient.Models.Enterprise();
-                }
-                else if("SimpleUser".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.SimpleUser = new global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(Enterprise != null)
-                {
-                    return Enterprise.GetFieldDeserializers();
-                }
-                else if(SimpleUser != null)
-                {
-                    return SimpleUser.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Enterprise != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Enterprise>(null, Enterprise);
-                }
-                else if(SimpleUser != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(null, SimpleUser);
-                }
-            }
         }
     }
 }

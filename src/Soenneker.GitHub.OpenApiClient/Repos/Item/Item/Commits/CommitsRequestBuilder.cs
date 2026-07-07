@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits
     public partial class CommitsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.commits.item collection</summary>
-        /// <param name="position">The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see &quot;[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)&quot; in the Git documentation.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.Commit_shaItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.Commit_shaItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CommitShaItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CommitShaItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("commit_sha%2Did", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.Commit_shaItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("commitSha%2Did", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CommitShaItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

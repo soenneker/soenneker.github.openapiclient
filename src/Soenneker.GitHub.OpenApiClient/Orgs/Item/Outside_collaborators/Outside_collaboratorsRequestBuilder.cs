@@ -102,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators
         {
             /// <summary>Filter the list of outside collaborators. `2fa_disabled` means that only outside collaborators without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled will be returned. `2fa_insecure` means that only outside collaborators with [insecure 2FA methods](https://docs.github.com/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization#requiring-secure-methods-of-two-factor-authentication-in-your-organization) will be returned.</summary>
             [QueryParameter("filter")]
-            public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.GetFilterQueryParameterType? Filter { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.OrgsListOutsideCollaboratorsFilterParameter? Filter { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }

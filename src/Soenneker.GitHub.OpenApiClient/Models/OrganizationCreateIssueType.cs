@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Color for the issue type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueType_color? Color { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueTypeColor? Color { get; set; }
         /// <summary>Description of the issue type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueType_color>(); } },
+                { "color", n => { Color = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueTypeColor>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "is_enabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueType_color>("color", Color);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationCreateIssueTypeColor>("color", Color);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("is_enabled", IsEnabled);
             writer.WriteStringValue("name", Name);

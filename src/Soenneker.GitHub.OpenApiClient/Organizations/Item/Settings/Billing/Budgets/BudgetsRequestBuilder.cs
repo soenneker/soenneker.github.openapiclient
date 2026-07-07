@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
     public partial class BudgetsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.organizations.item.settings.billing.budgets.item collection</summary>
-        /// <param name="position">The ID corresponding to the budget.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudgetItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudgetItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("budget_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudget_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("budgetId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudgetItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BudgetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/settings/billing/budgets{?page*,per_page*,scope*}", pathParameters)
+        public BudgetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/settings/billing/budgets{?page*,per_page*,scope*,user*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BudgetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/settings/billing/budgets{?page*,per_page*,scope*}", rawUrl)
+        public BudgetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org}/settings/billing/budgets{?page*,per_page*,scope*,user*}", rawUrl)
         {
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.Each page returns up to 10 budgets.
+        /// Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.Each page returns up to 100 budgets.
         /// API method documentation <see href="https://docs.github.com/rest/billing/budgets#get-all-budgets-for-an-organization" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets"/></returns>
@@ -75,7 +75,43 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GetAllBudgets.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.Each page returns up to 10 budgets.
+        /// Creates a new budget for an organization. The authenticated user must be anorganization admin or billing manager.
+        /// API method documentation <see href="https://docs.github.com/rest/billing/budgets#create-a-budget-for-an-organization" />
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CreateBudget"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudget?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudget> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudget>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CreateBudget.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.Each page returns up to 100 budgets.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,6 +130,28 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
             return requestInfo;
         }
         /// <summary>
+        /// Creates a new budget for an organization. The authenticated user must be anorganization admin or billing manager.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
+        }
+        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.BudgetsRequestBuilder"/></returns>
@@ -103,7 +161,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
             return new global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.BudgetsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.Each page returns up to 10 budgets.
+        /// Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.Each page returns up to 100 budgets.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BudgetsRequestBuilderGetQueryParameters 
@@ -111,12 +169,22 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
             /// <summary>The page number of the results to fetch.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>The number of results per page (max 10).</summary>
+            /// <summary>The number of results per page (max 100).</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>Filter budgets by scope type.</summary>
+            /// <summary>&quot;Filter budgets by scope type.- `organization`: Budgets scoped to the organization.- `repository`: Budgets scoped to a repository.- `multi_user_customer`: Universal budgets that apply to all users in the organization.- `user`: Budgets scoped to an individual user.&quot;</summary>
             [QueryParameter("scope")]
-            public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.GetScopeQueryParameterType? Scope { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.BillingGetAllBudgetsOrgScopeParameter? Scope { get; set; }
+            /// <summary>Filter consumed amount details for budgets by the specified user login.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user")]
+            public string? User { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user")]
+            public string User { get; set; }
+#endif
         }
     }
 }

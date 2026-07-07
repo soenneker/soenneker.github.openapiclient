@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration Configuration { get; set; }
 #endif
         /// <summary>The attachment status of the code security configuration on the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepository_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepositoryStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepository"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepository_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepositoryStatus>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfiguration>("configuration", Configuration);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepository_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationForRepositoryStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

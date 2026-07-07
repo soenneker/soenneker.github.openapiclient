@@ -138,7 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts
 #endif
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>&quot;A comma-separated list of ecosystems. If specified, only alerts for these ecosystems will be returned.Can be: `composer`, `go`, `maven`, `npm`, `nuget`, `pip`, `pub`, `rubygems`, `rust`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -184,7 +184,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts
             public int? PerPage { get; set; }
             /// <summary>The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.</summary>
             [QueryParameter("scope")]
-            public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts.GetScopeQueryParameterType? Scope { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertScope? Scope { get; set; }
             /// <summary>&quot;A comma-separated list of severities. If specified, only alerts with these severities will be returned.Can be: `low`, `medium`, `high`, `critical`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -197,7 +197,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts
 #endif
             /// <summary>The property by which to sort the results.`created` means when the alert was created.`updated` means when the alert&apos;s state last changed.`epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.Alerts.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSort? Sort { get; set; }
             /// <summary>&quot;A comma-separated list of states. If specified, only alerts with these states will be returned.Can be: `auto_dismissed`, `dismissed`, `fixed`, `open`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

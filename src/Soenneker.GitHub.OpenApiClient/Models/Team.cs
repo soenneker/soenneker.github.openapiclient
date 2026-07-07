@@ -13,6 +13,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Team : IAdditionalDataHolder, IParsable
     {
+        /// <summary>How the team&apos;s access to the repository was granted. This property is onlypresent when the team is returned in a repository context, such as`GET /repos/{owner}/{repo}/teams`.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamAccessSource? AccessSource { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The description property</summary>
@@ -118,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>The ownership type of the team</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.Team_type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,6 +154,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "access_source", n => { AccessSource = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamAccessSource>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enterprise_id", n => { EnterpriseId = n.GetLongValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
@@ -167,7 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Team_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -178,6 +181,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamAccessSource>("access_source", AccessSource);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("enterprise_id", EnterpriseId);
             writer.WriteStringValue("html_url", HtmlUrl);
@@ -193,7 +197,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.Team_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

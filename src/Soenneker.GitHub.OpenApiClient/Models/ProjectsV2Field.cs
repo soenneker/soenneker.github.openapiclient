@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The time when the field was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The field&apos;s data type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type? DataType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldDataType? DataType { get; set; }
         /// <summary>The unique identifier of the field.</summary>
         public long? Id { get; set; }
         /// <summary>The ID of the issue field.</summary>
@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type>(); } },
+                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldDataType>(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_field_id", n => { IssueFieldId = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -111,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldConfiguration>("configuration", Configuration);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2Field_data_type>("data_type", DataType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldDataType>("data_type", DataType);
             writer.WriteLongValue("id", Id);
             writer.WriteLongValue("issue_field_id", IssueFieldId);
             writer.WriteStringValue("name", Name);

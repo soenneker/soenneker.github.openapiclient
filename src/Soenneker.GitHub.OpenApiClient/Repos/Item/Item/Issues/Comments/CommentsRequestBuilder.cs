@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments
     public partial class CommentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.issues.comments.item collection</summary>
-        /// <param name="position">The unique identifier of the comment.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.WithComment_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.WithComment_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.WithCommentItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.WithCommentItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("comment_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.WithComment_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("commentId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.WithCommentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments
         {
             /// <summary>Either `asc` or `desc`. Ignored without the `sort` parameter.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListCommentsForRepoDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments
             public DateTimeOffset? Since { get; set; }
             /// <summary>The property to sort the results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Sort? Sort { get; set; }
         }
     }
 }

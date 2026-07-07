@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The group_members property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroup_group_members>? GroupMembers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupGroupMembersItem>? GroupMembers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroup_group_members> GroupMembers { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupGroupMembersItem> GroupMembers { get; set; }
 #endif
         /// <summary>The name of the concurrency group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "group_members", n => { GroupMembers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroup_group_members>(global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroup_group_members.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "group_members", n => { GroupMembers = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupGroupMembersItem>(global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupGroupMembersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "group_name", n => { GroupName = n.GetStringValue(); } },
                 { "group_url", n => { GroupUrl = n.GetStringValue(); } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroup_group_members>("group_members", GroupMembers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupGroupMembersItem>("group_members", GroupMembers);
             writer.WriteStringValue("group_name", GroupName);
             writer.WriteStringValue("group_url", GroupUrl);
             writer.WriteIntValue("total_count", TotalCount);

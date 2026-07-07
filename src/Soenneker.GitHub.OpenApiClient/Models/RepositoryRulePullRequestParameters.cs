@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters_allowed_merge_methods?>? AllowedMergeMethods { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?>? AllowedMergeMethods { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters_allowed_merge_methods?> AllowedMergeMethods { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?> AllowedMergeMethods { get; set; }
 #endif
         /// <summary>New, reviewable commits pushed will dismiss previous pull request review approvals.</summary>
         public bool? DismissStaleReviewsOnPush { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_merge_methods", n => { AllowedMergeMethods = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters_allowed_merge_methods>()?.AsList(); } },
+                { "allowed_merge_methods", n => { AllowedMergeMethods = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem>()?.AsList(); } },
                 { "dismiss_stale_reviews_on_push", n => { DismissStaleReviewsOnPush = n.GetBoolValue(); } },
                 { "require_code_owner_review", n => { RequireCodeOwnerReview = n.GetBoolValue(); } },
                 { "require_last_push_approval", n => { RequireLastPushApproval = n.GetBoolValue(); } },
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParameters_allowed_merge_methods>("allowed_merge_methods", AllowedMergeMethods);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem>("allowed_merge_methods", AllowedMergeMethods);
             writer.WriteBoolValue("dismiss_stale_reviews_on_push", DismissStaleReviewsOnPush);
             writer.WriteBoolValue("require_code_owner_review", RequireCodeOwnerReview);
             writer.WriteIntValue("required_approving_review_count", RequiredApprovingReviewCount);

@@ -16,6 +16,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch"/> and sets the default values.
+        /// </summary>
+        public ProtectedBranchLockBranch()
+        {
+            Enabled = false;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchLockBranch"/></returns>

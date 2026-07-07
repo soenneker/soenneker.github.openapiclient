@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker Docker { get; set; }
 #endif
         /// <summary>The package_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata_package_type? PackageType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType? PackageType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "container", n => { Container = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer>(global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer.CreateFromDiscriminatorValue); } },
                 { "docker", n => { Docker = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker>(global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker.CreateFromDiscriminatorValue); } },
-                { "package_type", n => { PackageType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata_package_type>(); } },
+                { "package_type", n => { PackageType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataContainer>("container", Container);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataDocker>("docker", Docker);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadata_package_type>("package_type", PackageType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PackageVersionMetadataPackageType>("package_type", PackageType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

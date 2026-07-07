@@ -18,26 +18,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The organization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_organization? Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOrganizationProperty? Organization { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_organization Organization { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOrganizationProperty Organization { get; set; }
 #endif
         /// <summary>The other property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_other? Other { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOtherProperty? Other { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_other Other { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOtherProperty Other { get; set; }
 #endif
         /// <summary>The repository property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_repository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsRepositoryProperty? Repository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_repository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsRepositoryProperty Repository { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions"/> and sets the default values.
@@ -64,9 +64,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_organization>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_organization.CreateFromDiscriminatorValue); } },
-                { "other", n => { Other = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_other>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_other.CreateFromDiscriminatorValue); } },
-                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_repository>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_repository.CreateFromDiscriminatorValue); } },
+                { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOrganizationProperty>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOrganizationProperty.CreateFromDiscriminatorValue); } },
+                { "other", n => { Other = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOtherProperty>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOtherProperty.CreateFromDiscriminatorValue); } },
+                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsRepositoryProperty>(global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsRepositoryProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +76,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_organization>("organization", Organization);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_other>("other", Other);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissions_repository>("repository", Repository);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOrganizationProperty>("organization", Organization);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsOtherProperty>("other", Other);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationProgrammaticAccessGrantRequestPermissionsRepositoryProperty>("repository", Repository);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

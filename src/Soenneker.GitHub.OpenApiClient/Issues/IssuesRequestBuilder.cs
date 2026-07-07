@@ -98,10 +98,10 @@ namespace Soenneker.GitHub.OpenApiClient.Issues
             public bool? Collab { get; set; }
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
-            public global::Soenneker.GitHub.OpenApiClient.Issues.GetDirectionQueryParameterType? Direction { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
             /// <summary>Indicates which sorts of issues to return. `assigned` means issues assigned to you. `created` means issues created by you. `mentioned` means issues mentioning you. `subscribed` means issues you&apos;re subscribed to updates for. `all` or `repos` means all issues you can see, regardless of participation or creation.</summary>
             [QueryParameter("filter")]
-            public global::Soenneker.GitHub.OpenApiClient.Issues.GetFilterQueryParameterType? Filter { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListFilterParameter? Filter { get; set; }
             /// <summary>&quot;A list of comma separated label names. Example: `bug,ui,@high`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,10 +129,10 @@ namespace Soenneker.GitHub.OpenApiClient.Issues
             public DateTimeOffset? Since { get; set; }
             /// <summary>What to sort results by.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Issues.GetSortQueryParameterType? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListSortParameter? Sort { get; set; }
             /// <summary>Indicates the state of the issues to return.</summary>
             [QueryParameter("state")]
-            public global::Soenneker.GitHub.OpenApiClient.Issues.GetStateQueryParameterType? State { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IssuesListStateParameter? State { get; set; }
         }
     }
 }

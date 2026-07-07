@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "won't fix")]
         #pragma warning disable CS1591
-        WonTFix,
+        WonApostropheTFix,
         #pragma warning restore CS1591
         [EnumMember(Value = "used in tests")]
         #pragma warning disable CS1591

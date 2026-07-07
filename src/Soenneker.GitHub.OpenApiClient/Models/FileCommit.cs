@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommit_content? Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommit_content Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent Content { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.FileCommit"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "commit", n => { Commit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit>(global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit.CreateFromDiscriminatorValue); } },
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommit_content>(global::Soenneker.GitHub.OpenApiClient.Models.FileCommit_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent>(global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommitCommit>("commit", Commit);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommit_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.FileCommitContent>("content", Content);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

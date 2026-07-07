@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Users
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item collection</summary>
         /// <param name="position">The handle for the GitHub user account.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.UsernameItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.UsernameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.UserItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.UserItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("username%2Did", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.UsernameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("user%2Did", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Users.Item.UserItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Credentials.Revoke
         /// Submit a list of credentials to be revoked. This endpoint is intended to revoke credentials the caller does not own and may have found exposed on GitHub.com or elsewhere. It can also be used for credentials associated with an old user account that you no longer have access to. Credential owners will be notified of the revocation.This endpoint currently accepts the following credential types:- Personal access tokens (classic) (`ghp_`)- Fine-grained personal access tokens (`github_pat_`)- OAuth app access tokens (`gho_`)- User-to-server tokens from GitHub Apps (`ghu_`)- Refresh tokens from GitHub Apps (`ghr_`)Revoked credentials may impact users on GitHub Free, Pro, &amp; Team and GitHub Enterprise Cloud, and GitHub Enterprise Cloud with Enterprise Managed Users.GitHub cannot reactivate any credentials that have been revoked; new credentials will need to be generated.To prevent abuse, this API is limited to only 60 unauthenticated requests per hour and a max of 1000 tokens per API request.&gt; [!NOTE]&gt; Any authenticated requests will return a 403.
         /// API method documentation <see href="https://docs.github.com/rest/credentials/revoke#revoke-a-list-of-credentials" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Credentials.Revoke.RevokePostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Credentials.Revoke
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Credentials.Revoke.RevokePostResponse?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevoke body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevokeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Credentials.Revoke.RevokePostResponse> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevoke body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevokeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Credentials.Revoke
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Credentials.Revoke.RevokePostResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Credentials.Revoke.RevokePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.AcceptedResponseContent.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Submit a list of credentials to be revoked. This endpoint is intended to revoke credentials the caller does not own and may have found exposed on GitHub.com or elsewhere. It can also be used for credentials associated with an old user account that you no longer have access to. Credential owners will be notified of the revocation.This endpoint currently accepts the following credential types:- Personal access tokens (classic) (`ghp_`)- Fine-grained personal access tokens (`github_pat_`)- OAuth app access tokens (`gho_`)- User-to-server tokens from GitHub Apps (`ghu_`)- Refresh tokens from GitHub Apps (`ghr_`)Revoked credentials may impact users on GitHub Free, Pro, &amp; Team and GitHub Enterprise Cloud, and GitHub Enterprise Cloud with Enterprise Managed Users.GitHub cannot reactivate any credentials that have been revoked; new credentials will need to be generated.To prevent abuse, this API is limited to only 60 unauthenticated requests per hour and a max of 1000 tokens per API request.&gt; [!NOTE]&gt; Any authenticated requests will return a 403.
@@ -69,11 +69,11 @@ namespace Soenneker.GitHub.OpenApiClient.Credentials.Revoke
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevoke body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevokeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevoke body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CredentialsRevokeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

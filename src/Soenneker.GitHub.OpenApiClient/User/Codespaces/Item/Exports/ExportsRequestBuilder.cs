@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\codespaces\{codespace_name}\exports
+    /// Builds and executes requests for operations under \user\codespaces\{codespaceName}\exports
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExportsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.codespaces.item.exports.item collection</summary>
-        /// <param name="position">The ID of the export operation, or `latest`. Currently only `latest` is currently supported.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExport_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExport_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExportItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExportItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("export_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExport_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("exportId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExportItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/{codespace_name}/exports", pathParameters)
+        public ExportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/{codespaceName}/exports", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/{codespace_name}/exports", rawUrl)
+        public ExportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/codespaces/{codespaceName}/exports", rawUrl)
         {
         }
         /// <summary>

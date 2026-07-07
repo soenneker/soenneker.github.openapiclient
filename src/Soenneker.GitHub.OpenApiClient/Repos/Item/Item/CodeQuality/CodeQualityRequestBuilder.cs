@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Setup;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeQualityRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The findings property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings.FindingsRequestBuilder Findings
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings.FindingsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The setup property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Setup.SetupRequestBuilder Setup
         {

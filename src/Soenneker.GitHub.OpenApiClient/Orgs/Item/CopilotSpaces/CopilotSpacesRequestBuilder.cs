@@ -20,14 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.copilotSpaces.item collection</summary>
         /// <param name="position">The unique identifier of the Copilot Space.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.WithSpace_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.WithSpace_numberItemRequestBuilder this[int position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.WithSpaceNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.WithSpaceNumberItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("space_number", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.WithSpace_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("spaceNumber", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.Item.WithSpaceNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,18 +50,18 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces
         /// Lists Copilot Spaces owned by an organization. The authenticated user must have read access to the organization&apos;s Copilot Spaces.Only Spaces that are readable by the authenticated user are returned. This includes public Spaces and internal Spaces if the user is a member of the organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in a space; spaces with inaccessible resources are omitted from the response.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/copilot-spaces#list-organization-copilot-spaces" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListForOrg200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesRequestBuilder.CopilotSpacesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListForOrg200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesRequestBuilder.CopilotSpacesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesRequestBuilder.CopilotSpacesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListForOrg200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesRequestBuilder.CopilotSpacesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesGetResponse>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces.CopilotSpacesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListForOrg200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListForOrg200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new Copilot Space owned by an organization. The authenticated user must have permissions to create spaces in the organization.Organization members with appropriate permissions can create Copilot Spaces to be shared within their organization.OAuth app tokens and personal access tokens (classic) need the `read:org` scope to use this endpoint.Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by the submitted resources.
@@ -85,11 +85,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -129,11 +129,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.CopilotSpaces
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrg body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrg body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForOrgRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

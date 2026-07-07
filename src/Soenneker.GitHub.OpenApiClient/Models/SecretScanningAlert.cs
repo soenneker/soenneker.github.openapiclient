@@ -199,7 +199,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Url { get; set; }
 #endif
         /// <summary>The token status as of the latest validity check.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert_validity? Validity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity? Validity { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert"/> and sets the default values.
         /// </summary>
@@ -257,7 +257,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "validity", n => { Validity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert_validity>(); } },
+                { "validity", n => { Validity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity>(); } },
             };
         }
         /// <summary>
@@ -298,7 +298,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("secret_type_display_name", SecretTypeDisplayName);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>("state", State);
             writer.WriteStringValue("url", Url);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlert_validity>("validity", Validity);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity>("validity", Validity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

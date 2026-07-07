@@ -19,15 +19,15 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes
     public partial class IssueTypesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.issueTypes.item collection</summary>
-        /// <param name="position">The unique identifier of the issue type.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssue_type_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssue_type_ItemRequestBuilder this[long position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssueTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssueTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("issue_type_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssue_type_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("issueTypeId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssueTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

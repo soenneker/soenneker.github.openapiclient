@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.organizationRoles.teams.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.WithTeam_slugItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.WithTeam_slugItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.WithTeamSlugItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.WithTeamSlugItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("team_slug", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.WithTeam_slugItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("teamSlug", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Teams.Item.WithTeamSlugItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

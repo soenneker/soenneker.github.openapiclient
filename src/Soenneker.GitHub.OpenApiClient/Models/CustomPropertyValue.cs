@@ -26,10 +26,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The value assigned to the property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueValue Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValue"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "property_name", n => { PropertyName = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueValue>(global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("property_name", PropertyName);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CustomPropertyValueValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

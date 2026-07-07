@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InteractionLimitsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The pulls property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.PullsRequestBuilder Pulls
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.PullsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.InteractionLimitsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -55,20 +61,20 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits
         /// Shows which type of GitHub user can interact with this repository and when the restriction expires. If there are no restrictions, you will see an empty response.
         /// API method documentation <see href="https://docs.github.com/rest/interactions/repos#get-interaction-restrictions-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForRepo200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Temporarily restricts interactions to a certain type of GitHub user within the given repository. You must have owner or admin access to set these restrictions. If an interaction limit is set for the user or organization that owns this repository, you will receive a `409 Conflict` response and will not be able to use this endpoint to change the interaction limit for a single repository.

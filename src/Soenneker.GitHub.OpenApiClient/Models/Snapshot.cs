@@ -32,18 +32,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests? Manifests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty? Manifests { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests Manifests { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty Manifests { get; set; }
 #endif
         /// <summary>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata? Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata Metadata { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata Metadata { get; set; }
 #endif
         /// <summary>The repository branch that triggered this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,8 +85,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "detector", n => { Detector = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector>(global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector.CreateFromDiscriminatorValue); } },
                 { "job", n => { Job = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob>(global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob.CreateFromDiscriminatorValue); } },
-                { "manifests", n => { Manifests = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata>(global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata.CreateFromDiscriminatorValue); } },
+                { "manifests", n => { Manifests = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty>(global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata>(global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata.CreateFromDiscriminatorValue); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "scanned", n => { Scanned = n.GetDateTimeOffsetValue(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
@@ -102,8 +102,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotDetector>("detector", Detector);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotJob>("job", Job);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_manifests>("manifests", Manifests);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Snapshot_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotManifestsProperty>("manifests", Manifests);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SnapshotMetadata>("metadata", Metadata);
             writer.WriteStringValue("ref", Ref);
             writer.WriteDateTimeOffsetValue("scanned", Scanned);
             writer.WriteStringValue("sha", Sha);

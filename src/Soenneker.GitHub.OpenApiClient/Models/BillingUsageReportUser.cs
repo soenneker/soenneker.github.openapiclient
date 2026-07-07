@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The usageItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser_usageItems>? UsageItems { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem>? UsageItems { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser_usageItems> UsageItems { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem> UsageItems { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "usageItems", n => { UsageItems = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser_usageItems>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser_usageItems.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "usageItems", n => { UsageItems = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUser_usageItems>("usageItems", UsageItems);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem>("usageItems", UsageItems);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

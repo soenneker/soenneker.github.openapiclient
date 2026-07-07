@@ -63,9 +63,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The security severity of the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule_security_severity_level? SecuritySeverityLevel { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSecuritySeverityLevel? SecuritySeverityLevel { get; set; }
         /// <summary>The severity of the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule_severity? Severity { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSeverity? Severity { get; set; }
         /// <summary>A set of tags applicable for the rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,8 +105,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "help_uri", n => { HelpUri = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "security_severity_level", n => { SecuritySeverityLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule_security_severity_level>(); } },
-                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule_severity>(); } },
+                { "security_severity_level", n => { SecuritySeverityLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSecuritySeverityLevel>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSeverity>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -123,8 +123,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("help_uri", HelpUri);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule_security_severity_level>("security_severity_level", SecuritySeverityLevel);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule_severity>("severity", Severity);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSecuritySeverityLevel>("security_severity_level", SecuritySeverityLevel);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSeverity>("severity", Severity);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }

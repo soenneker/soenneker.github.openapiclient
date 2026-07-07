@@ -26,14 +26,14 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.rulesets.item collection</summary>
         /// <param name="position">The ID of the ruleset.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRuleset_ItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRuleset_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRulesetItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRulesetItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("ruleset_id", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRuleset_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("rulesetId", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets.Item.WithRulesetItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -92,11 +92,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRuleset body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset?> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRulesetRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRuleset body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleset> PostAsync(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRulesetRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -136,11 +136,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRuleset body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRulesetRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRuleset body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrgRulesetRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

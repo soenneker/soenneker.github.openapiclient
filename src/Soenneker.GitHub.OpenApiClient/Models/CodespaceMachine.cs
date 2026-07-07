@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string OperatingSystem { get; set; }
 #endif
         /// <summary>Whether a prebuild is currently available when creating a codespace for this machine and repository. If a branch was not specified as a ref, the default branch will be assumed. Value will be &quot;null&quot; if prebuilds are not supported or prebuild availability could not be determined. Value will be &quot;none&quot; if no prebuild is available. Latest values &quot;ready&quot; and &quot;in_progress&quot; indicate the prebuild availability status.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine_prebuild_availability? PrebuildAvailability { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachinePrebuildAvailability? PrebuildAvailability { get; set; }
         /// <summary>How much storage is available to the codespace.</summary>
         public int? StorageInBytes { get; set; }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "memory_in_bytes", n => { MemoryInBytes = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operating_system", n => { OperatingSystem = n.GetStringValue(); } },
-                { "prebuild_availability", n => { PrebuildAvailability = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine_prebuild_availability>(); } },
+                { "prebuild_availability", n => { PrebuildAvailability = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachinePrebuildAvailability>(); } },
                 { "storage_in_bytes", n => { StorageInBytes = n.GetIntValue(); } },
             };
         }
@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("memory_in_bytes", MemoryInBytes);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("operating_system", OperatingSystem);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachine_prebuild_availability>("prebuild_availability", PrebuildAvailability);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespaceMachinePrebuildAvailability>("prebuild_availability", PrebuildAvailability);
             writer.WriteIntValue("storage_in_bytes", StorageInBytes);
             writer.WriteAdditionalData(AdditionalData);
         }

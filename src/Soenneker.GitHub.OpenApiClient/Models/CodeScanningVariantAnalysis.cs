@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The date and time at which the variant analysis was created, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The reason for a failure of the variant analysis. This is only available if the variant analysis has failed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason? FailureReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisFailureReason? FailureReason { get; set; }
         /// <summary>The ID of the variant analysis.</summary>
         public long? Id { get; set; }
         /// <summary>The language targeted by the CodeQL query</summary>
@@ -54,10 +54,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The scanned_repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>? ScannedRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem>? ScannedRepositories { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories> ScannedRepositories { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem> ScannedRepositories { get; set; }
 #endif
         /// <summary>Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,7 +68,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories SkippedRepositories { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum? Status { get; set; }
         /// <summary>The date and time at which the variant analysis was last updated, in ISO 8601 format&apos;:&apos; YYYY-MM-DDTHH:MM:SSZ.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -101,13 +101,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "controller_repo", n => { ControllerRepo = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "failure_reason", n => { FailureReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason>(); } },
+                { "failure_reason", n => { FailureReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisFailureReason>(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "query_language", n => { QueryLanguage = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>(); } },
                 { "query_pack_url", n => { QueryPackUrl = n.GetStringValue(); } },
-                { "scanned_repositories", n => { ScannedRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "scanned_repositories", n => { ScannedRepositories = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "skipped_repositories", n => { SkippedRepositories = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -123,13 +123,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("controller_repo", ControllerRepo);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_failure_reason>("failure_reason", FailureReason);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisFailureReason>("failure_reason", FailureReason);
             writer.WriteLongValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisLanguage>("query_language", QueryLanguage);
             writer.WriteStringValue("query_pack_url", QueryPackUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_scanned_repositories>("scanned_repositories", ScannedRepositories);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisScannedRepositoriesItem>("scanned_repositories", ScannedRepositories);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepositories>("skipped_repositories", SkippedRepositories);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysis_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisStatusEnum>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -48,7 +48,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string CheckRunsUrl { get; set; }
 #endif
         /// <summary>The conclusion property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_conclusion? Conclusion { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion? Conclusion { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The head_branch property</summary>
@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The runs_rerequestable property</summary>
         public bool? RunsRerequestable { get; set; }
         /// <summary>The phase of the lifecycle that the check suite is currently in. Statuses of waiting, requested, and pending are reserved for GitHub Actions check suites.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The url property</summary>
@@ -148,7 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration.CreateFromDiscriminatorValue); } },
                 { "before", n => { Before = n.GetStringValue(); } },
                 { "check_runs_url", n => { CheckRunsUrl = n.GetStringValue(); } },
-                { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_conclusion>(); } },
+                { "conclusion", n => { Conclusion = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "head_branch", n => { HeadBranch = n.GetStringValue(); } },
                 { "head_commit", n => { HeadCommit = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit.CreateFromDiscriminatorValue); } },
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>(global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository.CreateFromDiscriminatorValue); } },
                 { "rerequestable", n => { Rerequestable = n.GetBoolValue(); } },
                 { "runs_rerequestable", n => { RunsRerequestable = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -176,7 +176,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration>("app", App);
             writer.WriteStringValue("before", Before);
             writer.WriteStringValue("check_runs_url", CheckRunsUrl);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_conclusion>("conclusion", Conclusion);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteConclusion>("conclusion", Conclusion);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("head_branch", HeadBranch);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleCommit>("head_commit", HeadCommit);
@@ -188,7 +188,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.MinimalRepository>("repository", Repository);
             writer.WriteBoolValue("rerequestable", Rerequestable);
             writer.WriteBoolValue("runs_rerequestable", RunsRerequestable);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuite_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuiteStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

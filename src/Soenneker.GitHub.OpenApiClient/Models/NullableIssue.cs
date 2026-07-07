@@ -126,10 +126,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem> Labels { get; set; }
 #endif
         /// <summary>The labels_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -224,7 +224,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string State { get; set; }
 #endif
         /// <summary>The reason for the current state</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_state_reason? StateReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueStateReason? StateReason { get; set; }
         /// <summary>The sub_issues_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -318,7 +318,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_dependencies_summary", n => { IssueDependenciesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary>(global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary.CreateFromDiscriminatorValue); } },
                 { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone.CreateFromDiscriminatorValue); } },
@@ -332,7 +332,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue); } },
                 { "repository_url", n => { RepositoryUrl = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
-                { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_state_reason>(); } },
+                { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueStateReason>(); } },
                 { "sub_issues_summary", n => { SubIssuesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>(global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary.CreateFromDiscriminatorValue); } },
                 { "timeline_url", n => { TimelineUrl = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -367,7 +367,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary>("issue_dependencies_summary", IssueDependenciesSummary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>("issue_field_values", IssueFieldValues);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem>("labels", Labels);
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>("milestone", Milestone);
@@ -381,7 +381,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Repository>("repository", Repository);
             writer.WriteStringValue("repository_url", RepositoryUrl);
             writer.WriteStringValue("state", State);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_state_reason>("state_reason", StateReason);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueStateReason>("state_reason", StateReason);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>("sub_issues_summary", SubIssuesSummary);
             writer.WriteStringValue("timeline_url", TimelineUrl);
             writer.WriteStringValue("title", Title);
@@ -390,81 +390,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_labelsMember1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NullableIssue_labels : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_labelsMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_labelsMember1? NullableIssueLabelsMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_labelsMember1 NullableIssueLabelsMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue.NullableIssue_labels();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.NullableIssueLabelsMember1 = new global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_labelsMember1();
-                }
-                else if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UnionBranch = new global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(NullableIssueLabelsMember1 != null)
-                {
-                    return NullableIssueLabelsMember1.GetFieldDeserializers();
-                }
-                else if(UnionBranch != null)
-                {
-                    return UnionBranch.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(NullableIssueLabelsMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssue_labelsMember1>(null, NullableIssueLabelsMember1);
-                }
-                else if(UnionBranch != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
-                }
-            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class RepositoryAdvisoryCredit : IParsable
     {
         /// <summary>The state of the user&apos;s acceptance of the credit.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCredit_state? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState? State { get; set; }
         /// <summary>The type of credit the user is receiving.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes? Type { get; set; }
         /// <summary>A GitHub user.</summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCredit_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes>(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
             };
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCredit_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryAdvisoryCreditState>("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryCreditTypes>("type", Type);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("user", User);
         }

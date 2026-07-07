@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls whether self-hosted runners can be used by repositories in the organization</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings_enabled_repositories? EnabledRepositories { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? EnabledRepositories { get; set; }
         /// <summary>The URL to the endpoint for managing selected repositories for self-hosted runners in the organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "enabled_repositories", n => { EnabledRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings_enabled_repositories>(); } },
+                { "enabled_repositories", n => { EnabledRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories>(); } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettings_enabled_repositories>("enabled_repositories", EnabledRepositories);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories>("enabled_repositories", EnabledRepositories);
             writer.WriteStringValue("selected_repositories_url", SelectedRepositoriesUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

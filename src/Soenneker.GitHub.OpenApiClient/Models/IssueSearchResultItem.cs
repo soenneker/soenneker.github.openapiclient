@@ -118,10 +118,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_labels>? Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemLabelsItem>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_labels> Labels { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemLabelsItem> Labels { get; set; }
 #endif
         /// <summary>The labels_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -317,7 +317,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "issue_dependencies_summary", n => { IssueDependenciesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary>(global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary.CreateFromDiscriminatorValue); } },
                 { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_labels>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_labels.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemLabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels_url", n => { LabelsUrl = n.GetStringValue(); } },
                 { "locked", n => { Locked = n.GetBoolValue(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone.CreateFromDiscriminatorValue); } },
@@ -366,7 +366,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary>("issue_dependencies_summary", IssueDependenciesSummary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValue>("issue_field_values", IssueFieldValues);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem_labels>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItemLabelsItem>("labels", Labels);
             writer.WriteStringValue("labels_url", LabelsUrl);
             writer.WriteBoolValue("locked", Locked);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableMilestone>("milestone", Milestone);

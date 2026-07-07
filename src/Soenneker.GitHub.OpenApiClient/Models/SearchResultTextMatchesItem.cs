@@ -25,10 +25,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The matches property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem_matches>? Matches { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? Matches { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem_matches> Matches { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> Matches { get; set; }
 #endif
         /// <summary>The object_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "fragment", n => { Fragment = n.GetStringValue(); } },
-                { "matches", n => { Matches = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem_matches>(global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem_matches.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "matches", n => { Matches = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>(global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "object_type", n => { ObjectType = n.GetStringValue(); } },
                 { "object_url", n => { ObjectUrl = n.GetStringValue(); } },
                 { "property", n => { Property = n.GetStringValue(); } },
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("fragment", Fragment);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItem_matches>("matches", Matches);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>("matches", Matches);
             writer.WriteStringValue("object_type", ObjectType);
             writer.WriteStringValue("object_url", ObjectUrl);
             writer.WriteStringValue("property", Property);

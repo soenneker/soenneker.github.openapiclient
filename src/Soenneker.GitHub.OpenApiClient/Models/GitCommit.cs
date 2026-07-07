@@ -58,10 +58,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents>? Parents { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitParentsItem>? Parents { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents> Parents { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitParentsItem> Parents { get; set; }
 #endif
         /// <summary>SHA for the commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,7 +125,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
-                { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "parents", n => { Parents = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitParentsItem>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommitParentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
                 { "tree", n => { Tree = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree>(global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -144,7 +144,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("node_id", NodeId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitCommit_parents>("parents", Parents);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitParentsItem>("parents", Parents);
             writer.WriteStringValue("sha", Sha);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GitCommitTree>("tree", Tree);
             writer.WriteStringValue("url", Url);

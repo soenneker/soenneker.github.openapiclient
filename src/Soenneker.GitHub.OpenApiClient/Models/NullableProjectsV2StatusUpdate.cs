@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The start date of the period covered by the update.</summary>
         public Date? StartDate { get; set; }
         /// <summary>The current status.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableProjectsV2StatusUpdate_status? Status { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableProjectsV2StatusUpdateStatus? Status { get; set; }
         /// <summary>The target date associated with the update.</summary>
         public Date? TargetDate { get; set; }
         /// <summary>The time when the status update was last updated.</summary>
@@ -92,7 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "project_node_id", n => { ProjectNodeId = n.GetStringValue(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableProjectsV2StatusUpdate_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableProjectsV2StatusUpdateStatus>(); } },
                 { "target_date", n => { TargetDate = n.GetDateValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -111,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("project_node_id", ProjectNodeId);
             writer.WriteDateValue("start_date", StartDate);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableProjectsV2StatusUpdate_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableProjectsV2StatusUpdateStatus>("status", Status);
             writer.WriteDateValue("target_date", TargetDate);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

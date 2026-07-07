@@ -18,10 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck_checks>? Checks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck_checks> Checks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem> Checks { get; set; }
 #endif
         /// <summary>The contexts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck_checks>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem>(global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "contexts", n => { Contexts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "contexts_url", n => { ContextsUrl = n.GetStringValue(); } },
                 { "enforcement_level", n => { EnforcementLevel = n.GetStringValue(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheck_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProtectedBranchRequiredStatusCheckChecksItem>("checks", Checks);
             writer.WriteCollectionOfPrimitiveValues<string>("contexts", Contexts);
             writer.WriteStringValue("contexts_url", ContextsUrl);
             writer.WriteStringValue("enforcement_level", EnforcementLevel);

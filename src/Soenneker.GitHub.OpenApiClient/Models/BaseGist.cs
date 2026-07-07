@@ -48,18 +48,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_files? Files { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BaseGistFilesProperty? Files { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_files Files { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.BaseGistFilesProperty Files { get; set; }
 #endif
         /// <summary>The forks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_forks>? Forks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistForksItem>? Forks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_forks> Forks { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistForksItem> Forks { get; set; }
 #endif
         /// <summary>The forks_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,10 +88,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The history property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_history>? History { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistHistoryItem>? History { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_history> History { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistHistoryItem> History { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -178,12 +178,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commits_url", n => { CommitsUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_files>(global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_files.CreateFromDiscriminatorValue); } },
-                { "forks", n => { Forks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_forks>(global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_forks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistFilesProperty>(global::Soenneker.GitHub.OpenApiClient.Models.BaseGistFilesProperty.CreateFromDiscriminatorValue); } },
+                { "forks", n => { Forks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistForksItem>(global::Soenneker.GitHub.OpenApiClient.Models.BaseGistForksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "forks_url", n => { ForksUrl = n.GetStringValue(); } },
                 { "git_pull_url", n => { GitPullUrl = n.GetStringValue(); } },
                 { "git_push_url", n => { GitPushUrl = n.GetStringValue(); } },
-                { "history", n => { History = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_history>(global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_history.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "history", n => { History = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistHistoryItem>(global::Soenneker.GitHub.OpenApiClient.Models.BaseGistHistoryItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -208,12 +208,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("commits_url", CommitsUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_files>("files", Files);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_forks>("forks", Forks);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistFilesProperty>("files", Files);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistForksItem>("forks", Forks);
             writer.WriteStringValue("forks_url", ForksUrl);
             writer.WriteStringValue("git_pull_url", GitPullUrl);
             writer.WriteStringValue("git_push_url", GitPushUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGist_history>("history", History);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.BaseGistHistoryItem>("history", History);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);

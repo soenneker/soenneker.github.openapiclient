@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships
 {
     /// <summary>
-    /// Builds and executes requests for operations under \orgs\{org}\teams\{team_slug}\memberships
+    /// Builds and executes requests for operations under \orgs\{org}\teams\{teamSlug}\memberships
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembershipsRequestBuilder : BaseRequestBuilder
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembershipsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{team_slug}/memberships", pathParameters)
+        public MembershipsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{teamSlug}/memberships", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Memberships
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembershipsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{team_slug}/memberships", rawUrl)
+        public MembershipsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/teams/{teamSlug}/memberships", rawUrl)
         {
         }
     }

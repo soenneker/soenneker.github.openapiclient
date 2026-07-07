@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string DismissedComment { get; set; }
 #endif
         /// <summary>The reason that the alert was dismissed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dismissed_reason? DismissedReason { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissedReason? DismissedReason { get; set; }
         /// <summary>&quot;The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
         public DateTimeOffset? FixedAt { get; private set; }
         /// <summary>The GitHub URL of the alert resource.</summary>
@@ -90,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability SecurityVulnerability { get; private set; }
 #endif
         /// <summary>The state of the Dependabot alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_state? State { get; private set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertState? State { get; private set; }
         /// <summary>&quot;The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The REST API URL of the alert resource.</summary>
@@ -127,13 +127,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "dismissed_at", n => { DismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "dismissed_by", n => { DismissedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "dismissed_comment", n => { DismissedComment = n.GetStringValue(); } },
-                { "dismissed_reason", n => { DismissedReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dismissed_reason>(); } },
+                { "dismissed_reason", n => { DismissedReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissedReason>(); } },
                 { "fixed_at", n => { FixedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "security_advisory", n => { SecurityAdvisory = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory.CreateFromDiscriminatorValue); } },
                 { "security_vulnerability", n => { SecurityVulnerability = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -149,7 +149,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple>("dismissal_request", DismissalRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("dismissed_by", DismissedBy);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert_dismissed_reason>("dismissed_reason", DismissedReason);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissedReason>("dismissed_reason", DismissedReason);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteIntValue("number", Number);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
