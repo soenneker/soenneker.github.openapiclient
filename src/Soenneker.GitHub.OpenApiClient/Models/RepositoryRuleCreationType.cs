@@ -80,6 +80,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         CopilotCodeReview,
         #pragma warning restore CS1591
+        [EnumMember(Value = "license_compliance_scanning")]
+        #pragma warning disable CS1591
+        LicenseComplianceScanning,
+        #pragma warning restore CS1591
         [EnumMember(Value = "file_path_restriction")]
         #pragma warning disable CS1591
         FilePathRestriction,

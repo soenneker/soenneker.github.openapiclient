@@ -77080,6 +77080,19 @@
         },
         "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit."
       },
+      "RepositoryRuleLicenseComplianceScanning": {
+        "title": "license_compliance_scanning",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/RepositoryRuleLicenseComplianceScanningType"
+          }
+        },
+        "description": "Enforce any added or changed dependencies to comply with the organization\u0027s license policy."
+      },
       "RepositoryRuleFilePathRestriction": {
         "title": "file_path_restriction",
         "required": [
@@ -77206,6 +77219,9 @@
             "$ref": "#/components/schemas/RepositoryRuleCopilotCodeReview"
           },
           {
+            "$ref": "#/components/schemas/RepositoryRuleLicenseComplianceScanning"
+          },
+          {
             "$ref": "#/components/schemas/RepositoryRuleFilePathRestriction"
           },
           {
@@ -77246,6 +77262,7 @@
             "RepositoryRuleWorkflows": "#/components/schemas/RepositoryRuleWorkflows",
             "RepositoryRuleCodeScanning": "#/components/schemas/RepositoryRuleCodeScanning",
             "RepositoryRuleCopilotCodeReview": "#/components/schemas/RepositoryRuleCopilotCodeReview",
+            "RepositoryRuleLicenseComplianceScanning": "#/components/schemas/RepositoryRuleLicenseComplianceScanning",
             "RepositoryRuleFilePathRestriction": "#/components/schemas/RepositoryRuleFilePathRestriction",
             "RepositoryRuleMaxFilePathLength": "#/components/schemas/RepositoryRuleMaxFilePathLength",
             "RepositoryRuleFileExtensionRestriction": "#/components/schemas/RepositoryRuleFileExtensionRestriction",
@@ -271602,6 +271619,7 @@
           "workflows",
           "code_scanning",
           "copilot_code_review",
+          "license_compliance_scanning",
           "file_path_restriction",
           "max_file_path_length",
           "file_extension_restriction",
@@ -271684,6 +271702,10 @@
             {
               "value": "copilot_code_review",
               "name": "CopilotCodeReview"
+            },
+            {
+              "value": "license_compliance_scanning",
+              "name": "LicenseComplianceScanning"
             },
             {
               "value": "file_path_restriction",
@@ -272079,6 +272101,23 @@
             {
               "value": "copilot_code_review",
               "name": "CopilotCodeReview"
+            }
+          ]
+        }
+      },
+      "RepositoryRuleLicenseComplianceScanningType": {
+        "enum": [
+          "license_compliance_scanning"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "RepositoryRuleLicenseComplianceScanningType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "license_compliance_scanning",
+              "name": "LicenseComplianceScanning"
             }
           ]
         }
@@ -348302,7 +348341,7 @@
           "token_last_eight": "Ae178B4a",
           "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
           "app": {
-            "url": "http://my-github-app.com",
+            "url": "https://example.com",
             "name": "my github app",
             "client_id": "Iv1.8a61f9b3a7aba766"
           },
@@ -348343,7 +348382,7 @@
           "token_last_eight": "Ae178B4a",
           "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
           "app": {
-            "url": "http://my-github-app.com",
+            "url": "https://example.com",
             "name": "my github app",
             "client_id": "Iv1.8a61f9b3a7aba766"
           },
@@ -369566,7 +369605,7 @@
         "value": {
           "vcs": "subversion",
           "use_lfs": true,
-          "vcs_url": "http://svn.mycompany.com/svn/myproject",
+          "vcs_url": "http://svn.example.com/svn/myproject",
           "status": "complete",
           "status_text": "Done",
           "has_large_files": true,
@@ -369583,7 +369622,7 @@
         "value": {
           "vcs": "subversion",
           "use_lfs": true,
-          "vcs_url": "http://svn.mycompany.com/svn/myproject",
+          "vcs_url": "http://svn.example.com/svn/myproject",
           "status": "importing",
           "status_text": "Importing...",
           "has_large_files": false,
@@ -369602,7 +369641,7 @@
         "value": {
           "vcs": "subversion",
           "use_lfs": true,
-          "vcs_url": "http://svn.mycompany.com/svn/myproject",
+          "vcs_url": "http://svn.example.com/svn/myproject",
           "status": "detecting",
           "url": "https://api.github.com/repos/octocat/socm/import",
           "html_url": "https://import.github.com/octocat/socm/import",
@@ -369615,7 +369654,7 @@
         "value": {
           "vcs": "tfvc",
           "use_lfs": true,
-          "vcs_url": "http://tfs.mycompany.com/tfs/myproject",
+          "vcs_url": "http://tfs.example.com/tfs/myproject",
           "tfvc_project": "project1",
           "status": "importing",
           "status_text": "Importing...",
@@ -369635,7 +369674,7 @@
         "value": {
           "vcs": "subversion",
           "use_lfs": true,
-          "vcs_url": "http://svn.mycompany.com/svn/myproject",
+          "vcs_url": "http://svn.example.com/svn/myproject",
           "status": "importing",
           "status_text": "Importing...",
           "has_large_files": false,
