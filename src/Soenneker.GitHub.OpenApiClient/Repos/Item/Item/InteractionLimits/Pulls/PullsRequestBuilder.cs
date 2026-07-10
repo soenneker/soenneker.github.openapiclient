@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.BypassList;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.CreationCap;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.BypassList.BypassListRequestBuilder BypassList
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.BypassList.BypassListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The creationCap property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.CreationCap.CreationCapRequestBuilder CreationCap
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.CreationCap.CreationCapRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls.PullsRequestBuilder"/> and sets the default values.

@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,is_bypassed*,is_multi_repo*,is_publicly_leaked*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,included_metadata*,is_bypassed*,is_multi_repo*,is_publicly_leaked*,owner_email_hash*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,is_bypassed*,is_multi_repo*,is_publicly_leaked*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/orgs/{org}/secret-scanning/alerts{?after*,assignee*,before*,direction*,exclude_providers*,exclude_secret_types*,hide_secret*,included_metadata*,is_bypassed*,is_multi_repo*,is_publicly_leaked*,owner_email_hash*,page*,per_page*,providers*,resolution*,secret_type*,sort*,state*,validity*}", rawUrl)
         {
         }
         /// <summary>
@@ -150,6 +150,16 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
             /// <summary>A boolean value representing whether or not to hide literal secrets in the results.</summary>
             [QueryParameter("hide_secret")]
             public bool? HideSecret { get; set; }
+            /// <summary>&quot;A comma-separated list of metadata fields to filter alerts by. Only alerts that have all of thespecified metadata fields attached will be returned. Possible values are: `owner-email`, `owner-id`,`owner-name`, `secret-id`, `secret-name`, `secret-issued-date`, `secret-expiration-date`, `organization-name`,`organization-id`, `last-used-date`, and `has-organization-access`.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("included_metadata")]
+            public string? IncludedMetadata { get; set; }
+#nullable restore
+#else
+            [QueryParameter("included_metadata")]
+            public string IncludedMetadata { get; set; }
+#endif
             /// <summary>A boolean value (`true` or `false`) indicating whether to filter alerts by their push protection bypass status. When set to `true`, only alerts that were created because a push protection rule was bypassed will be returned. When set to `false`, only alerts that were not caused by a push protection bypass will be returned.</summary>
             [QueryParameter("is_bypassed")]
             public bool? IsBypassed { get; set; }
@@ -159,6 +169,16 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
             /// <summary>A boolean value representing whether or not to filter alerts by the publicly-leaked tag being present.</summary>
             [QueryParameter("is_publicly_leaked")]
             public bool? IsPubliclyLeaked { get; set; }
+            /// <summary>Filters alerts to only those whose attached `owner_email` metadata field matches theprovided value. The value must be the lowercase hex-encoded SHA-256 hash of the emailaddress to match (for example, the SHA-256 of `user@example.com`). Only alerts thathave an `owner_email` metadata value whose SHA-256 hash equals this parameter arereturned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("owner_email_hash")]
+            public string? OwnerEmailHash { get; set; }
+#nullable restore
+#else
+            [QueryParameter("owner_email_hash")]
+            public string OwnerEmailHash { get; set; }
+#endif
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }

@@ -22,6 +22,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem?> AllowedMergeMethods { get; set; }
 #endif
+        /// <summary>Specify people, teams, or apps allowed to dismiss pull request reviews.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction? DismissalRestriction { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction DismissalRestriction { get; set; }
+#endif
         /// <summary>New, reviewable commits pushed will dismiss previous pull request review approvals.</summary>
         public bool? DismissStaleReviewsOnPush { get; set; }
         /// <summary>Require an approving review in pull requests that modify files that have a designated code owner.</summary>
@@ -67,6 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "allowed_merge_methods", n => { AllowedMergeMethods = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem>()?.AsList(); } },
                 { "dismiss_stale_reviews_on_push", n => { DismissStaleReviewsOnPush = n.GetBoolValue(); } },
+                { "dismissal_restriction", n => { DismissalRestriction = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction.CreateFromDiscriminatorValue); } },
                 { "require_code_owner_review", n => { RequireCodeOwnerReview = n.GetBoolValue(); } },
                 { "require_last_push_approval", n => { RequireLastPushApproval = n.GetBoolValue(); } },
                 { "required_approving_review_count", n => { RequiredApprovingReviewCount = n.GetIntValue(); } },
@@ -82,6 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequestParametersAllowedMergeMethodsItem>("allowed_merge_methods", AllowedMergeMethods);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsDismissalRestriction>("dismissal_restriction", DismissalRestriction);
             writer.WriteBoolValue("dismiss_stale_reviews_on_push", DismissStaleReviewsOnPush);
             writer.WriteBoolValue("require_code_owner_review", RequireCodeOwnerReview);
             writer.WriteIntValue("required_approving_review_count", RequiredApprovingReviewCount);

@@ -24230,6 +24230,12 @@
           },
           {
             "$ref": "#/components/parameters/secret-scanning-alert-bypassed"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-alert-included-metadata"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-alert-owner-email-hash"
           }
         ],
         "responses": {
@@ -41923,6 +41929,143 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/interaction-limits/pulls/creation-cap": {
+      "get": {
+        "tags": [
+          "interactions"
+        ],
+        "summary": "Get pull request creation cap for a repository",
+        "description": "Gets the pull request creation cap configuration for a repository.\nThe cap limits the number of open pull requests a user can have at one time.\n\nOnly users with admin access to the repository can view the cap configuration.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/interactions/repos#get-pull-request-creation-cap-for-a-repository"
+        },
+        "operationId": "InteractionsGetPullRequestCreationCapForRepo",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InteractionsGetPullRequestCreationCapForRepo200Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "Response when cap is enabled",
+                    "value": {
+                      "enabled": true,
+                      "max_open_pull_requests": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "interactions"
+        ],
+        "summary": "Update pull request creation cap for a repository",
+        "description": "Updates the pull request creation cap for a repository. The cap limits the number\nof open pull requests a user can have at one time.\n\nOnly users with admin access to the repository can configure the cap.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/interactions/repos#update-pull-request-creation-cap-for-a-repository"
+        },
+        "operationId": "InteractionsUpdatePullRequestCreationCapForRepo",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InteractionsUpdatePullRequestCreationCapForRepoRequest"
+              },
+              "examples": {
+                "default": {
+                  "summary": "Example request body",
+                  "value": {
+                    "enabled": true,
+                    "max_open_pull_requests": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InteractionsUpdatePullRequestCreationCapForRepo200Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "Response",
+                    "value": {
+                      "enabled": true,
+                      "max_open_pull_requests": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/invitations": {
       "get": {
         "tags": [
@@ -50218,6 +50361,12 @@
           },
           {
             "$ref": "#/components/parameters/secret-scanning-alert-bypassed"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-alert-included-metadata"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-alert-owner-email-hash"
           }
         ],
         "responses": {
@@ -50274,7 +50423,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SecretScanningAlert"
+                  "$ref": "#/components/schemas/SecretScanningAlertWithMetadata"
                 },
                 "examples": {
                   "default": {
@@ -50349,7 +50498,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SecretScanningAlert"
+                  "$ref": "#/components/schemas/SecretScanningAlertWithMetadata"
                 },
                 "examples": {
                   "default": {
@@ -62174,128 +62323,6 @@
         "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
         "nullable": true
       },
-      "ProjectsV2ViewCreator": {
-        "required": [
-          "avatar_url",
-          "events_url",
-          "followers_url",
-          "following_url",
-          "gists_url",
-          "gravatar_id",
-          "html_url",
-          "id",
-          "node_id",
-          "login",
-          "organizations_url",
-          "received_events_url",
-          "repos_url",
-          "site_admin",
-          "starred_url",
-          "subscriptions_url",
-          "type",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          }
-        }
-      },
       "ProjectsV2ItemSimpleContent": {
         "required": [
           "type"
@@ -62353,6 +62380,74 @@
           "mapping": {
             "Team": "#/components/schemas/Team",
             "EnterpriseTeam": "#/components/schemas/EnterpriseTeam"
+          }
+        }
+      },
+      "CopilotSpaceCollaboratorAnyOf2": {
+        "required": [
+          "actor_type",
+          "role",
+          "id",
+          "node_id",
+          "name",
+          "slug",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2ActorType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Type"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "privacy": {
+            "type": "string"
+          },
+          "notification_setting": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organization_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parent": {
+            "nullable": true
           }
         }
       },
@@ -65077,71 +65172,18 @@
         },
         "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization."
       },
-      "CopilotSpaceCollaboratorAnyOf2": {
+      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
         "required": [
           "actor_type",
-          "role",
-          "id",
-          "node_id",
-          "name",
-          "slug",
-          "type"
+          "role"
         ],
         "type": "object",
         "properties": {
           "actor_type": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2ActorType"
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2ActorType"
           },
           "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Type"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "privacy": {
-            "type": "string"
-          },
-          "notification_setting": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "members_url": {
-            "type": "string"
-          },
-          "repositories_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "organization_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "parent": {
-            "nullable": true
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
           }
         }
       },
@@ -65331,21 +65373,6 @@
           }
         ]
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
-        "required": [
-          "actor_type",
-          "role"
-        ],
-        "type": "object",
-        "properties": {
-          "actor_type": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2ActorType"
-          },
-          "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
-          }
-        }
-      },
       "CopilotSpaceOwner": {
         "required": [
           "type"
@@ -65395,6 +65422,19 @@
           },
           {
             "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "ProductPricing"
+      },
+      "CreateBudgetBudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
           }
         ],
         "description": "The type of pricing for the budget",
@@ -69999,19 +70039,6 @@
           ]
         }
       },
-      "CreateBudgetBudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "ProductPricing"
-      },
       "BudgetBudgetType": {
         "type": "object",
         "oneOf": [
@@ -70024,6 +70051,89 @@
         ],
         "description": "The type of pricing for the budget",
         "example": "SkuPricing"
+      },
+      "EventTypePayload": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DeleteEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DiscussionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssueCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ForkEvent"
+          },
+          {
+            "$ref": "#/components/schemas/GollumEvent"
+          },
+          {
+            "$ref": "#/components/schemas/MemberEvent"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/PushEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewEvent"
+          },
+          {
+            "$ref": "#/components/schemas/CommitCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ReleaseEvent"
+          },
+          {
+            "$ref": "#/components/schemas/WatchEvent"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateEvent": "#/components/schemas/CreateEvent",
+            "DeleteEvent": "#/components/schemas/DeleteEvent",
+            "DiscussionEvent": "#/components/schemas/DiscussionEvent",
+            "IssuesEvent": "#/components/schemas/IssuesEvent",
+            "IssueCommentEvent": "#/components/schemas/IssueCommentEvent",
+            "ForkEvent": "#/components/schemas/ForkEvent",
+            "GollumEvent": "#/components/schemas/GollumEvent",
+            "MemberEvent": "#/components/schemas/MemberEvent",
+            "PublicEvent": "#/components/schemas/PublicEvent",
+            "PushEvent": "#/components/schemas/PushEvent",
+            "PullRequestEvent": "#/components/schemas/PullRequestEvent",
+            "PullRequestReviewCommentEvent": "#/components/schemas/PullRequestReviewCommentEvent",
+            "PullRequestReviewEvent": "#/components/schemas/PullRequestReviewEvent",
+            "CommitCommentEvent": "#/components/schemas/CommitCommentEvent",
+            "ReleaseEvent": "#/components/schemas/ReleaseEvent",
+            "WatchEvent": "#/components/schemas/WatchEvent"
+          }
+        }
       },
       "ActionsOrganizationPermissions": {
         "required": [
@@ -70200,59 +70310,17 @@
           ]
         }
       },
-      "EventTypePayload": {
+      "IssueLabelsItem": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/CreateEvent"
+            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
           },
           {
-            "$ref": "#/components/schemas/DeleteEvent"
-          },
-          {
-            "$ref": "#/components/schemas/DiscussionEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssuesEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssueCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ForkEvent"
-          },
-          {
-            "$ref": "#/components/schemas/GollumEvent"
-          },
-          {
-            "$ref": "#/components/schemas/MemberEvent"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/PushEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewEvent"
-          },
-          {
-            "$ref": "#/components/schemas/CommitCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ReleaseEvent"
-          },
-          {
-            "$ref": "#/components/schemas/WatchEvent"
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
           }
         ],
         "properties": {
@@ -70264,22 +70332,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "CreateEvent": "#/components/schemas/CreateEvent",
-            "DeleteEvent": "#/components/schemas/DeleteEvent",
-            "DiscussionEvent": "#/components/schemas/DiscussionEvent",
-            "IssuesEvent": "#/components/schemas/IssuesEvent",
-            "IssueCommentEvent": "#/components/schemas/IssueCommentEvent",
-            "ForkEvent": "#/components/schemas/ForkEvent",
-            "GollumEvent": "#/components/schemas/GollumEvent",
-            "MemberEvent": "#/components/schemas/MemberEvent",
-            "PublicEvent": "#/components/schemas/PublicEvent",
-            "PushEvent": "#/components/schemas/PushEvent",
-            "PullRequestEvent": "#/components/schemas/PullRequestEvent",
-            "PullRequestReviewCommentEvent": "#/components/schemas/PullRequestReviewCommentEvent",
-            "PullRequestReviewEvent": "#/components/schemas/PullRequestReviewEvent",
-            "CommitCommentEvent": "#/components/schemas/CommitCommentEvent",
-            "ReleaseEvent": "#/components/schemas/ReleaseEvent",
-            "WatchEvent": "#/components/schemas/WatchEvent"
+            "IssueLabelsItem_1": "#/components/schemas/IssueLabelsItemBranch1",
+            "IssueLabelsItemOneOf2": "#/components/schemas/IssueLabelsItemOneOf2"
           }
         }
       },
@@ -71015,32 +71069,23 @@
         },
         "description": "The campaign metadata and alert stats."
       },
-      "IssueLabelsItem": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
+      "IssueFieldValueValue": {
+        "anyOf": [
           {
-            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
+            "type": "string",
+            "example": "Sample text"
           },
           {
-            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
+            "type": "number",
+            "example": 42.5
+          },
+          {
+            "type": "integer",
+            "example": 1
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "IssueLabelsItem_1": "#/components/schemas/IssueLabelsItemBranch1",
-            "IssueLabelsItemOneOf2": "#/components/schemas/IssueLabelsItemOneOf2"
-          }
-        }
+        "description": "The value of the issue field",
+        "nullable": true
       },
       "CodeScanningAnalysisToolGuid": {
         "type": "string",
@@ -71128,23 +71173,32 @@
           ]
         }
       },
-      "IssueFieldValueValue": {
-        "anyOf": [
+      "NullableIntegrationOwner": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
           {
-            "type": "string",
-            "example": "Sample text"
+            "$ref": "#/components/schemas/SimpleUser"
           },
           {
-            "type": "number",
-            "example": 42.5
-          },
-          {
-            "type": "integer",
-            "example": 1
+            "$ref": "#/components/schemas/Enterprise"
           }
         ],
-        "description": "The value of the issue field",
-        "nullable": true
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "SimpleUser": "#/components/schemas/SimpleUser",
+            "Enterprise": "#/components/schemas/Enterprise"
+          }
+        }
       },
       "CodeScanningAlertState": {
         "enum": [
@@ -71276,33 +71330,6 @@
           }
         }
       },
-      "NullableIntegrationOwner": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/Enterprise"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "SimpleUser": "#/components/schemas/SimpleUser",
-            "Enterprise": "#/components/schemas/Enterprise"
-          }
-        }
-      },
       "InstallationAccount": {
         "required": [
           "type"
@@ -71376,6 +71403,33 @@
             "nullable": true
           }
         ]
+      },
+      "IntegrationOwner": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          {
+            "$ref": "#/components/schemas/Enterprise"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "SimpleUser": "#/components/schemas/SimpleUser",
+            "Enterprise": "#/components/schemas/Enterprise"
+          }
+        }
       },
       "CodeScanningAlertLocation": {
         "type": "object",
@@ -78921,30 +78975,21 @@
         },
         "description": "Team Organization"
       },
-      "IntegrationOwner": {
+      "ActionsRunnerLabelsReadonlyResponse": {
         "required": [
-          "type"
+          "total_count",
+          "labels"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/Enterprise"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "SimpleUser": "#/components/schemas/SimpleUser",
-            "Enterprise": "#/components/schemas/Enterprise"
+          "total_count": {
+            "type": "integer"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RunnerLabel"
+            }
           }
         }
       },
@@ -80264,7 +80309,7 @@
           }
         }
       },
-      "ActionsRunnerLabelsReadonlyResponse": {
+      "ActionsRunnerLabelsResponse": {
         "required": [
           "total_count",
           "labels"
@@ -80915,21 +80960,19 @@
         },
         "description": "A GitHub Actions workflow"
       },
-      "ActionsRunnerLabelsResponse": {
+      "ActionsRunnerJitconfigResponse": {
         "required": [
-          "total_count",
-          "labels"
+          "runner",
+          "encoded_jit_config"
         ],
         "type": "object",
         "properties": {
-          "total_count": {
-            "type": "integer"
+          "runner": {
+            "$ref": "#/components/schemas/Runner"
           },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RunnerLabel"
-            }
+          "encoded_jit_config": {
+            "type": "string",
+            "description": "The base64 encoded runner configuration."
           }
         }
       },
@@ -82504,19 +82547,17 @@
           ]
         }
       },
-      "ActionsRunnerJitconfigResponse": {
-        "required": [
-          "runner",
-          "encoded_jit_config"
-        ],
+      "ForbiddenGistResponse": {
         "type": "object",
         "properties": {
-          "runner": {
-            "$ref": "#/components/schemas/Runner"
+          "block": {
+            "$ref": "#/components/schemas/ForbiddenGistResponseBlock"
           },
-          "encoded_jit_config": {
-            "type": "string",
-            "description": "The base64 encoded runner configuration."
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
           }
         }
       },
@@ -82565,11 +82606,11 @@
         "description": "The description of an autofix.",
         "nullable": true
       },
-      "ForbiddenGistResponse": {
+      "ServiceUnavailableResponse": {
         "type": "object",
         "properties": {
-          "block": {
-            "$ref": "#/components/schemas/ForbiddenGistResponseBlock"
+          "code": {
+            "type": "string"
           },
           "message": {
             "type": "string"
@@ -82695,20 +82736,6 @@
           }
         }
       },
-      "ServiceUnavailableResponse": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          },
-          "documentation_url": {
-            "type": "string"
-          }
-        }
-      },
       "AcceptedResponse": {
         "type": "object"
       },
@@ -82782,6 +82809,30 @@
           },
           "type": {
             "$ref": "#/components/schemas/WebhooksReviewersItemType"
+          }
+        }
+      },
+      "SearchResultTextMatchesItem": {
+        "type": "object",
+        "properties": {
+          "object_url": {
+            "type": "string"
+          },
+          "object_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "property": {
+            "type": "string"
+          },
+          "fragment": {
+            "type": "string"
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResultTextMatchesItemMatchesItem"
+            }
           }
         }
       },
@@ -83392,27 +83443,20 @@
         },
         "description": "You can use \u0060run_url\u0060 to track the status of the run. This includes a property status and conclusion.\nYou should not rely on this always being an actions workflow run object."
       },
-      "SearchResultTextMatchesItem": {
+      "SecretScanningAlertMetadataItem": {
+        "required": [
+          "key",
+          "value"
+        ],
         "type": "object",
         "properties": {
-          "object_url": {
-            "type": "string"
-          },
-          "object_type": {
+          "key": {
             "type": "string",
-            "nullable": true
+            "description": "The metadata key."
           },
-          "property": {
-            "type": "string"
-          },
-          "fragment": {
-            "type": "string"
-          },
-          "matches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchResultTextMatchesItemMatchesItem"
-            }
+          "value": {
+            "type": "string",
+            "description": "The metadata value."
           }
         }
       },
@@ -90176,6 +90220,169 @@
           },
           "closure_request_reviewer": {
             "$ref": "#/components/schemas/NullableSimpleUser"
+          }
+        }
+      },
+      "SecretScanningAlertMetadata": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SecretScanningAlertMetadataItem"
+        },
+        "description": "A list of metadata key/value pairs associated with the secret scanning alert.",
+        "readOnly": true
+      },
+      "SecretScanningAlertWithMetadata": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "The security alert number."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "\u0022The time that the alert was created in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/NullableAlertUpdatedAt"
+          },
+          "url": {
+            "type": "string",
+            "description": "The REST API URL of the alert resource.",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "description": "The GitHub URL of the alert resource.",
+            "format": "uri"
+          },
+          "locations_url": {
+            "type": "string",
+            "description": "The REST API URL of the code locations for this alert.",
+            "format": "uri"
+          },
+          "state": {
+            "$ref": "#/components/schemas/SecretScanningAlertState"
+          },
+          "resolution": {
+            "$ref": "#/components/schemas/SecretScanningAlertResolution"
+          },
+          "resolved_at": {
+            "type": "string",
+            "description": "\u0022The time that the alert was resolved in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
+            "format": "date-time",
+            "nullable": true
+          },
+          "resolved_by": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "resolution_comment": {
+            "type": "string",
+            "description": "An optional comment to resolve an alert.",
+            "nullable": true
+          },
+          "secret_type": {
+            "type": "string",
+            "description": "The type of secret that secret scanning detected."
+          },
+          "secret_type_display_name": {
+            "type": "string",
+            "description": "User-friendly name for the detected secret, matching the \u0060secret_type\u0060.\nFor a list of built-in patterns, see \u0022[Supported secret scanning patterns](https://docs.github.com/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).\u0022"
+          },
+          "provider": {
+            "type": "string",
+            "description": "The provider of the secret that was detected.",
+            "nullable": true
+          },
+          "provider_slug": {
+            "type": "string",
+            "description": "The slug identifier for the provider of the secret that was detected. Use this value for filtering by provider with the \u0060providers\u0060 or \u0060exclude_providers\u0060 parameters.",
+            "nullable": true
+          },
+          "secret": {
+            "type": "string",
+            "description": "The secret that was detected."
+          },
+          "push_protection_bypassed": {
+            "type": "boolean",
+            "description": "Whether push protection was bypassed for the detected secret.",
+            "nullable": true
+          },
+          "push_protection_bypassed_by": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "push_protection_bypassed_at": {
+            "type": "string",
+            "description": "\u0022The time that push protection was bypassed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
+            "format": "date-time",
+            "nullable": true
+          },
+          "push_protection_bypass_request_reviewer": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "push_protection_bypass_request_reviewer_comment": {
+            "type": "string",
+            "description": "An optional comment when reviewing a push protection bypass.",
+            "nullable": true
+          },
+          "push_protection_bypass_request_comment": {
+            "type": "string",
+            "description": "An optional comment when requesting a push protection bypass.",
+            "nullable": true
+          },
+          "push_protection_bypass_request_html_url": {
+            "type": "string",
+            "description": "The URL to a push protection bypass request.",
+            "format": "uri",
+            "nullable": true
+          },
+          "validity": {
+            "$ref": "#/components/schemas/SecretScanningAlertWithMetadataValidity"
+          },
+          "publicly_leaked": {
+            "type": "boolean",
+            "description": "Whether the detected secret was publicly leaked.",
+            "nullable": true
+          },
+          "multi_repo": {
+            "type": "boolean",
+            "description": "Whether the detected secret was found in multiple repositories under the same organization or enterprise.",
+            "nullable": true
+          },
+          "is_base64_encoded": {
+            "type": "boolean",
+            "description": "A boolean value representing whether or not alert is base64 encoded",
+            "nullable": true
+          },
+          "first_location_detected": {
+            "$ref": "#/components/schemas/NullableSecretScanningFirstDetectedLocation"
+          },
+          "has_more_locations": {
+            "type": "boolean",
+            "description": "A boolean value representing whether or not the token in the alert was detected in more than one location."
+          },
+          "assigned_to": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "closure_request_comment": {
+            "type": "string",
+            "description": "An optional comment from the closure request author.",
+            "nullable": true
+          },
+          "closure_request_reviewer_comment": {
+            "type": "string",
+            "description": "An optional comment from the closure request reviewer.",
+            "nullable": true
+          },
+          "closure_request_reviewer": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningAlertMetadataItem"
+            },
+            "description": "A list of metadata key/value pairs associated with the secret scanning alert."
           }
         }
       },
@@ -97752,6 +97959,13 @@
           },
           "closure_request_reviewer": {
             "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningAlertMetadataItem"
+            },
+            "description": "A list of metadata key/value pairs associated with the secret scanning alert."
           }
         }
       },
@@ -105393,6 +105607,74 @@
           }
         ]
       },
+      "WebhookPullRequestStacked": {
+        "title": "pull_request stacked event",
+        "required": [
+          "action",
+          "number",
+          "pull_request",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedAction"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
+          },
+          "number": {
+            "type": "integer",
+            "description": "The pull request number."
+          },
+          "organization": {
+            "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
+          },
+          "pull_request": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequest"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/RepositoryWebhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/SimpleUser"
+          }
+        },
+        "x-github-breaking-changes": [
+          {
+            "changeset": "remove_use_squash_pr_title_as_default",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/base/properties/repo/properties/use_squash_pr_title_as_default"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/head/properties/repo/properties/use_squash_pr_title_as_default"
+              }
+            ],
+            "version": "2026-03-10"
+          },
+          {
+            "changeset": "remove_pull_request_merge_commit_sha",
+            "patch": [
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/properties/merge_commit_sha"
+              },
+              {
+                "op": "remove",
+                "path": "/properties/pull_request/required/17"
+              }
+            ],
+            "version": "2026-03-10"
+          }
+        ]
+      },
       "WebhookPullRequestSynchronize": {
         "title": "pull_request synchronize event",
         "required": [
@@ -106795,6 +107077,70 @@
           "payload": {
             "type": "string",
             "description": "A URL-encoded string of the secret_scanning_alert_location.created JSON payload. The decoded payload is a JSON object."
+          }
+        }
+      },
+      "WebhookSecretScanningAlertMetadataCreated": {
+        "title": "secret_scanning_alert metadata created event",
+        "required": [
+          "action",
+          "alert",
+          "repository"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/WebhookSecretScanningAlertMetadataCreatedAction"
+          },
+          "alert": {
+            "$ref": "#/components/schemas/SecretScanningAlertWebhook"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/RepositoryWebhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/SimpleUser"
+          }
+        }
+      },
+      "WebhookSecretScanningAlertMetadataRemoved": {
+        "title": "secret_scanning_alert metadata removed event",
+        "required": [
+          "action",
+          "alert",
+          "repository"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/WebhookSecretScanningAlertMetadataRemovedAction"
+          },
+          "alert": {
+            "$ref": "#/components/schemas/SecretScanningAlertWebhook"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/RepositoryWebhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/SimpleUser"
           }
         }
       },
@@ -108550,6 +108896,128 @@
         "properties": {
           "action": {
             "type": "string"
+          }
+        }
+      },
+      "ProjectsV2ViewCreator": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
           }
         }
       },
@@ -112595,6 +113063,81 @@
           "mapping": {
             "WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemUser": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemUser",
             "WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemTeam": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemTeam"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoCreatedAt": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string",
+            "format": "date-time"
+          }
+        ]
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoPushedAt": {
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoCreatedAt": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string",
+            "format": "date-time"
+          }
+        ]
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoPushedAt": {
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemUser"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemTeam"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "WebhookPullRequestStackedPullRequestRequestedReviewersItemUser": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemUser",
+            "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeam": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemTeam"
           }
         }
       },
@@ -119044,6 +119587,167 @@
         },
         "description": "Groups of organization members that gives permissions on specified repositories."
       },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItemUser": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemUserType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeam": {
+        "title": "Team",
+        "required": [
+          "name",
+          "id",
+          "node_id",
+          "slug",
+          "description",
+          "privacy",
+          "url",
+          "html_url",
+          "members_url",
+          "repositories_url",
+          "permission"
+        ],
+        "type": "object",
+        "properties": {
+          "deleted": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the team",
+            "nullable": true
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the team",
+            "format": "int64"
+          },
+          "members_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the team"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamParent"
+          },
+          "permission": {
+            "type": "string",
+            "description": "Permission that the team will have for its repositories"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamPrivacy"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the team",
+            "format": "uri"
+          }
+        },
+        "description": "Groups of organization members that gives permissions on specified repositories."
+      },
       "WebhookPullRequestSynchronizePullRequestRequestedReviewersItemUser": {
         "title": "User",
         "required": [
@@ -123789,6 +124493,9 @@
             "type": "boolean",
             "description": "New, reviewable commits pushed will dismiss previous pull request review approvals."
           },
+          "dismissal_restriction": {
+            "$ref": "#/components/schemas/RepositoryRuleParamsDismissalRestriction"
+          },
           "require_code_owner_review": {
             "type": "boolean",
             "description": "Require an approving review in pull requests that modify files that have a designated code owner."
@@ -125476,6 +126183,20 @@
         },
         "nullable": true
       },
+      "SearchResultTextMatchesItemMatchesItem": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "indices": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
       "CodeScanningVariantAnalysisScannedRepositoriesItem": {
         "required": [
           "repository",
@@ -125526,20 +126247,6 @@
           }
         },
         "description": "Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis."
-      },
-      "SearchResultTextMatchesItemMatchesItem": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string"
-          },
-          "indices": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
-          }
-        }
       },
       "DependencyGraphDiffItemVulnerabilitiesItem": {
         "required": [
@@ -141151,6 +141858,232 @@
           }
         }
       },
+      "WebhookPullRequestStackedPullRequest": {
+        "title": "Pull Request",
+        "required": [
+          "url",
+          "id",
+          "node_id",
+          "html_url",
+          "diff_url",
+          "patch_url",
+          "issue_url",
+          "number",
+          "state",
+          "locked",
+          "title",
+          "user",
+          "body",
+          "created_at",
+          "updated_at",
+          "closed_at",
+          "merged_at",
+          "merge_commit_sha",
+          "assignee",
+          "assignees",
+          "requested_reviewers",
+          "requested_teams",
+          "labels",
+          "milestone",
+          "commits_url",
+          "review_comments_url",
+          "review_comment_url",
+          "comments_url",
+          "statuses_url",
+          "head",
+          "base",
+          "_links",
+          "author_association",
+          "auto_merge",
+          "active_lock_reason",
+          "draft"
+        ],
+        "type": "object",
+        "properties": {
+          "_links": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinks"
+          },
+          "active_lock_reason": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestActiveLockReason"
+          },
+          "additions": {
+            "type": "integer"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAssignee"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAssigneesItem"
+            }
+          },
+          "author_association": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAuthorAssociation"
+          },
+          "auto_merge": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAutoMerge"
+          },
+          "base": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBase"
+          },
+          "body": {
+            "type": "string",
+            "nullable": true
+          },
+          "changed_files": {
+            "type": "integer"
+          },
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "comments": {
+            "type": "integer"
+          },
+          "comments_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "commits": {
+            "type": "integer"
+          },
+          "commits_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletions": {
+            "type": "integer"
+          },
+          "diff_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "draft": {
+            "type": "boolean",
+            "description": "Indicates whether or not the pull request is a draft."
+          },
+          "head": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHead"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "issue_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLabelsItem"
+            }
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "maintainer_can_modify": {
+            "type": "boolean",
+            "description": "Indicates whether maintainers can modify the pull request."
+          },
+          "merge_commit_sha": {
+            "type": "string",
+            "nullable": true
+          },
+          "mergeable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "mergeable_state": {
+            "type": "string"
+          },
+          "merged": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "merged_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "merged_by": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestMergedBy"
+          },
+          "milestone": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestMilestone"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "description": "Number uniquely identifying the pull request within its repository."
+          },
+          "patch_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "rebaseable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "requested_reviewers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItem"
+            }
+          },
+          "requested_teams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedTeamsItem"
+            }
+          },
+          "review_comment_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "review_comments": {
+            "type": "integer"
+          },
+          "review_comments_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "state": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestState"
+          },
+          "statuses_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the pull request."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestUser"
+          }
+        }
+      },
       "WebhookPullRequestSynchronizePullRequest": {
         "title": "Pull Request",
         "required": [
@@ -153951,6 +154884,69 @@
           },
           "privacy": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemTeamParentPrivacy"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the team",
+            "format": "uri"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamParent": {
+        "required": [
+          "name",
+          "id",
+          "node_id",
+          "slug",
+          "description",
+          "privacy",
+          "url",
+          "html_url",
+          "members_url",
+          "repositories_url",
+          "permission"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Description of the team",
+            "nullable": true
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the team",
+            "format": "int64"
+          },
+          "members_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the team"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "permission": {
+            "type": "string",
+            "description": "Permission that the team will have for its repositories"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamParentPrivacy"
           },
           "repositories_url": {
             "type": "string",
@@ -181230,6 +182226,681 @@
           }
         },
         "description": "The [comment](https://docs.github.com/rest/pulls/comments#get-a-review-comment-for-a-pull-request) itself."
+      },
+      "WebhookPullRequestStackedPullRequestLinks": {
+        "required": [
+          "self",
+          "html",
+          "issue",
+          "comments",
+          "review_comments",
+          "review_comment",
+          "commits",
+          "statuses"
+        ],
+        "type": "object",
+        "properties": {
+          "comments": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksComments"
+          },
+          "commits": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksCommits"
+          },
+          "html": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksHtml"
+          },
+          "issue": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksIssue"
+          },
+          "review_comment": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksReviewComment"
+          },
+          "review_comments": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksReviewComments"
+          },
+          "self": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksSelf"
+          },
+          "statuses": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestLinksStatuses"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestAssignee": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAssigneeType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestAssigneesItem": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAssigneesItemType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestAutoMerge": {
+        "title": "PullRequestAutoMerge",
+        "required": [
+          "enabled_by",
+          "merge_method",
+          "commit_title",
+          "commit_message"
+        ],
+        "type": "object",
+        "properties": {
+          "commit_message": {
+            "type": "string",
+            "description": "Commit message for the merge commit.",
+            "nullable": true
+          },
+          "commit_title": {
+            "type": "string",
+            "description": "Title for the merge commit message.",
+            "nullable": true
+          },
+          "enabled_by": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAutoMergeEnabledBy"
+          },
+          "merge_method": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAutoMergeMergeMethod"
+          }
+        },
+        "description": "The status of auto merging a pull request.",
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestBase": {
+        "required": [
+          "label",
+          "ref",
+          "sha",
+          "user",
+          "repo"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepo"
+          },
+          "sha": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseUser"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHead": {
+        "required": [
+          "label",
+          "ref",
+          "sha",
+          "user",
+          "repo"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "ref": {
+            "type": "string"
+          },
+          "repo": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepo"
+          },
+          "sha": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadUser"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLabelsItem": {
+        "title": "Label",
+        "required": [
+          "id",
+          "node_id",
+          "url",
+          "name",
+          "color",
+          "default",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "description": "6-character hex code, without the leading #, identifying the color"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the label."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the label",
+            "format": "uri"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestMergedBy": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestMergedByType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestMilestone": {
+        "title": "Milestone",
+        "required": [
+          "url",
+          "html_url",
+          "labels_url",
+          "id",
+          "node_id",
+          "number",
+          "title",
+          "description",
+          "creator",
+          "open_issues",
+          "closed_issues",
+          "state",
+          "created_at",
+          "updated_at",
+          "due_on",
+          "closed_at"
+        ],
+        "type": "object",
+        "properties": {
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "closed_issues": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestMilestoneCreator"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "due_on": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "labels_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "description": "The number of the milestone."
+          },
+          "open_issues": {
+            "type": "integer"
+          },
+          "state": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestMilestoneState"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the milestone."
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "description": "A collection of related issues and pull requests.",
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestRequestedTeamsItem": {
+        "title": "Team",
+        "required": [
+          "name",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "deleted": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the team",
+            "nullable": true
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the team",
+            "format": "int64"
+          },
+          "members_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the team"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedTeamsItemParent"
+          },
+          "permission": {
+            "type": "string",
+            "description": "Permission that the team will have for its repositories"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedTeamsItemPrivacy"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the team",
+            "format": "uri"
+          }
+        },
+        "description": "Groups of organization members that gives permissions on specified repositories."
+      },
+      "WebhookPullRequestStackedPullRequestUser": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestUserType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
       },
       "WebhookPullRequestSynchronizePullRequestLinks": {
         "required": [
@@ -223102,6 +224773,1464 @@
         },
         "nullable": true
       },
+      "WebhookPullRequestStackedPullRequestLinksComments": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksCommits": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksHtml": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksIssue": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksReviewComment": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksReviewComments": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksSelf": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestLinksStatuses": {
+        "title": "Link",
+        "required": [
+          "href"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri-template"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestAutoMergeEnabledBy": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestAutoMergeEnabledByType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepo": {
+        "title": "Repository",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private",
+          "owner",
+          "html_url",
+          "description",
+          "fork",
+          "url",
+          "forks_url",
+          "keys_url",
+          "collaborators_url",
+          "teams_url",
+          "hooks_url",
+          "issue_events_url",
+          "events_url",
+          "assignees_url",
+          "branches_url",
+          "tags_url",
+          "blobs_url",
+          "git_tags_url",
+          "git_refs_url",
+          "trees_url",
+          "statuses_url",
+          "languages_url",
+          "stargazers_url",
+          "contributors_url",
+          "subscribers_url",
+          "subscription_url",
+          "commits_url",
+          "git_commits_url",
+          "comments_url",
+          "issue_comment_url",
+          "contents_url",
+          "compare_url",
+          "merges_url",
+          "archive_url",
+          "downloads_url",
+          "issues_url",
+          "pulls_url",
+          "milestones_url",
+          "notifications_url",
+          "labels_url",
+          "releases_url",
+          "deployments_url",
+          "created_at",
+          "updated_at",
+          "pushed_at",
+          "git_url",
+          "ssh_url",
+          "clone_url",
+          "svn_url",
+          "homepage",
+          "size",
+          "stargazers_count",
+          "watchers_count",
+          "language",
+          "has_issues",
+          "has_projects",
+          "has_downloads",
+          "has_wiki",
+          "has_pages",
+          "has_discussions",
+          "forks_count",
+          "mirror_url",
+          "archived",
+          "open_issues_count",
+          "license",
+          "forks",
+          "open_issues",
+          "watchers",
+          "default_branch",
+          "topics",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "allow_auto_merge": {
+            "type": "boolean",
+            "description": "Whether to allow auto-merge for pull requests.",
+            "default": false
+          },
+          "allow_forking": {
+            "type": "boolean",
+            "description": "Whether to allow private forks"
+          },
+          "allow_merge_commit": {
+            "type": "boolean",
+            "description": "Whether to allow merge commits for pull requests.",
+            "default": true
+          },
+          "allow_rebase_merge": {
+            "type": "boolean",
+            "description": "Whether to allow rebase merges for pull requests.",
+            "default": true
+          },
+          "allow_squash_merge": {
+            "type": "boolean",
+            "description": "Whether to allow squash merges for pull requests.",
+            "default": true
+          },
+          "allow_update_branch": {
+            "type": "boolean"
+          },
+          "archive_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "archived": {
+            "type": "boolean",
+            "description": "Whether the repository is archived.",
+            "default": false
+          },
+          "assignees_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "blobs_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "branches_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "clone_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "collaborators_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "comments_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "commits_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "compare_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "contents_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "contributors_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoCreatedAt"
+          },
+          "default_branch": {
+            "type": "string",
+            "description": "The default branch of the repository."
+          },
+          "delete_branch_on_merge": {
+            "type": "boolean",
+            "description": "Whether to delete head branches when pull requests are merged",
+            "default": false
+          },
+          "deployments_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "disabled": {
+            "type": "boolean",
+            "description": "Returns whether or not this repository is disabled."
+          },
+          "downloads_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "fork": {
+            "type": "boolean"
+          },
+          "forks": {
+            "type": "integer"
+          },
+          "forks_count": {
+            "type": "integer"
+          },
+          "forks_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "git_commits_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "git_refs_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "git_tags_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "git_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "has_downloads": {
+            "type": "boolean",
+            "description": "Whether downloads are enabled.",
+            "default": true
+          },
+          "has_issues": {
+            "type": "boolean",
+            "description": "Whether issues are enabled.",
+            "default": true
+          },
+          "has_pages": {
+            "type": "boolean"
+          },
+          "has_projects": {
+            "type": "boolean",
+            "description": "Whether projects are enabled.",
+            "default": true
+          },
+          "has_wiki": {
+            "type": "boolean",
+            "description": "Whether the wiki is enabled.",
+            "default": true
+          },
+          "has_discussions": {
+            "type": "boolean",
+            "description": "Whether discussions are enabled.",
+            "default": false
+          },
+          "has_pull_requests": {
+            "type": "boolean",
+            "description": "Whether pull requests are enabled.",
+            "default": true
+          },
+          "pull_request_creation_policy": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoPullRequestCreationPolicy"
+          },
+          "homepage": {
+            "type": "string",
+            "nullable": true
+          },
+          "hooks_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the repository",
+            "format": "int64"
+          },
+          "is_template": {
+            "type": "boolean"
+          },
+          "issue_comment_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "issue_events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "issues_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "keys_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "labels_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "languages_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "license": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoLicense"
+          },
+          "master_branch": {
+            "type": "string"
+          },
+          "merge_commit_message": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoMergeCommitMessage"
+          },
+          "merge_commit_title": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoMergeCommitTitle"
+          },
+          "merges_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "milestones_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "mirror_url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the repository."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "notifications_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "open_issues": {
+            "type": "integer"
+          },
+          "open_issues_count": {
+            "type": "integer"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoOwner"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoPermissions"
+          },
+          "private": {
+            "type": "boolean",
+            "description": "Whether the repository is private or public."
+          },
+          "public": {
+            "type": "boolean"
+          },
+          "pulls_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "pushed_at": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoPushedAt"
+          },
+          "releases_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "role_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer"
+          },
+          "squash_merge_commit_message": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoSquashMergeCommitMessage"
+          },
+          "squash_merge_commit_title": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoSquashMergeCommitTitle"
+          },
+          "ssh_url": {
+            "type": "string"
+          },
+          "stargazers": {
+            "type": "integer"
+          },
+          "stargazers_count": {
+            "type": "integer"
+          },
+          "stargazers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "statuses_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscribers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "subscription_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "svn_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tags_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "teams_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "trees_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "use_squash_pr_title_as_default": {
+            "type": "boolean",
+            "description": "Whether a squash merge commit can use the pull request title as default. **This property is closing down. Please use \u0060squash_merge_commit_title\u0060 instead.",
+            "default": false
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoVisibility"
+          },
+          "watchers": {
+            "type": "integer"
+          },
+          "watchers_count": {
+            "type": "integer"
+          },
+          "web_commit_signoff_required": {
+            "type": "boolean",
+            "description": "Whether to require contributors to sign off on web-based commits"
+          }
+        },
+        "description": "A git repository"
+      },
+      "WebhookPullRequestStackedPullRequestBaseUser": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseUserType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepo": {
+        "title": "Repository",
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private",
+          "owner",
+          "html_url",
+          "description",
+          "fork",
+          "url",
+          "forks_url",
+          "keys_url",
+          "collaborators_url",
+          "teams_url",
+          "hooks_url",
+          "issue_events_url",
+          "events_url",
+          "assignees_url",
+          "branches_url",
+          "tags_url",
+          "blobs_url",
+          "git_tags_url",
+          "git_refs_url",
+          "trees_url",
+          "statuses_url",
+          "languages_url",
+          "stargazers_url",
+          "contributors_url",
+          "subscribers_url",
+          "subscription_url",
+          "commits_url",
+          "git_commits_url",
+          "comments_url",
+          "issue_comment_url",
+          "contents_url",
+          "compare_url",
+          "merges_url",
+          "archive_url",
+          "downloads_url",
+          "issues_url",
+          "pulls_url",
+          "milestones_url",
+          "notifications_url",
+          "labels_url",
+          "releases_url",
+          "deployments_url",
+          "created_at",
+          "updated_at",
+          "pushed_at",
+          "git_url",
+          "ssh_url",
+          "clone_url",
+          "svn_url",
+          "homepage",
+          "size",
+          "stargazers_count",
+          "watchers_count",
+          "language",
+          "has_issues",
+          "has_projects",
+          "has_downloads",
+          "has_wiki",
+          "has_pages",
+          "has_discussions",
+          "forks_count",
+          "mirror_url",
+          "archived",
+          "open_issues_count",
+          "license",
+          "forks",
+          "open_issues",
+          "watchers",
+          "default_branch",
+          "topics",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "allow_auto_merge": {
+            "type": "boolean",
+            "description": "Whether to allow auto-merge for pull requests.",
+            "default": false
+          },
+          "allow_forking": {
+            "type": "boolean",
+            "description": "Whether to allow private forks"
+          },
+          "allow_merge_commit": {
+            "type": "boolean",
+            "description": "Whether to allow merge commits for pull requests.",
+            "default": true
+          },
+          "allow_rebase_merge": {
+            "type": "boolean",
+            "description": "Whether to allow rebase merges for pull requests.",
+            "default": true
+          },
+          "allow_squash_merge": {
+            "type": "boolean",
+            "description": "Whether to allow squash merges for pull requests.",
+            "default": true
+          },
+          "allow_update_branch": {
+            "type": "boolean"
+          },
+          "archive_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "archived": {
+            "type": "boolean",
+            "description": "Whether the repository is archived.",
+            "default": false
+          },
+          "assignees_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "blobs_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "branches_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "clone_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "collaborators_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "comments_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "commits_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "compare_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "contents_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "contributors_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoCreatedAt"
+          },
+          "default_branch": {
+            "type": "string",
+            "description": "The default branch of the repository."
+          },
+          "delete_branch_on_merge": {
+            "type": "boolean",
+            "description": "Whether to delete head branches when pull requests are merged",
+            "default": false
+          },
+          "deployments_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "disabled": {
+            "type": "boolean",
+            "description": "Returns whether or not this repository is disabled."
+          },
+          "downloads_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "fork": {
+            "type": "boolean"
+          },
+          "forks": {
+            "type": "integer"
+          },
+          "forks_count": {
+            "type": "integer"
+          },
+          "forks_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "git_commits_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "git_refs_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "git_tags_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "git_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "has_downloads": {
+            "type": "boolean",
+            "description": "Whether downloads are enabled.",
+            "default": true
+          },
+          "has_issues": {
+            "type": "boolean",
+            "description": "Whether issues are enabled.",
+            "default": true
+          },
+          "has_pages": {
+            "type": "boolean"
+          },
+          "has_projects": {
+            "type": "boolean",
+            "description": "Whether projects are enabled.",
+            "default": true
+          },
+          "has_wiki": {
+            "type": "boolean",
+            "description": "Whether the wiki is enabled.",
+            "default": true
+          },
+          "has_discussions": {
+            "type": "boolean",
+            "description": "Whether discussions are enabled.",
+            "default": false
+          },
+          "has_pull_requests": {
+            "type": "boolean",
+            "description": "Whether pull requests are enabled.",
+            "default": true
+          },
+          "pull_request_creation_policy": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoPullRequestCreationPolicy"
+          },
+          "homepage": {
+            "type": "string",
+            "nullable": true
+          },
+          "hooks_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the repository",
+            "format": "int64"
+          },
+          "is_template": {
+            "type": "boolean"
+          },
+          "issue_comment_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "issue_events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "issues_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "keys_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "labels_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "languages_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "license": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoLicense"
+          },
+          "master_branch": {
+            "type": "string"
+          },
+          "merge_commit_message": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoMergeCommitMessage"
+          },
+          "merge_commit_title": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoMergeCommitTitle"
+          },
+          "merges_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "milestones_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "mirror_url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the repository."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "notifications_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "open_issues": {
+            "type": "integer"
+          },
+          "open_issues_count": {
+            "type": "integer"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoOwner"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoPermissions"
+          },
+          "private": {
+            "type": "boolean",
+            "description": "Whether the repository is private or public."
+          },
+          "public": {
+            "type": "boolean"
+          },
+          "pulls_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "pushed_at": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoPushedAt"
+          },
+          "releases_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "role_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer"
+          },
+          "squash_merge_commit_message": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoSquashMergeCommitMessage"
+          },
+          "squash_merge_commit_title": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoSquashMergeCommitTitle"
+          },
+          "ssh_url": {
+            "type": "string"
+          },
+          "stargazers": {
+            "type": "integer"
+          },
+          "stargazers_count": {
+            "type": "integer"
+          },
+          "stargazers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "statuses_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscribers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "subscription_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "svn_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tags_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "teams_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "trees_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "use_squash_pr_title_as_default": {
+            "type": "boolean",
+            "description": "Whether a squash merge commit can use the pull request title as default. **This property is closing down. Please use \u0060squash_merge_commit_title\u0060 instead.",
+            "default": false
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoVisibility"
+          },
+          "watchers": {
+            "type": "integer"
+          },
+          "watchers_count": {
+            "type": "integer"
+          },
+          "web_commit_signoff_required": {
+            "type": "boolean",
+            "description": "Whether to require contributors to sign off on web-based commits"
+          }
+        },
+        "description": "A git repository",
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestHeadUser": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadUserType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestMilestoneCreator": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestMilestoneCreatorType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestRequestedTeamsItemParent": {
+        "required": [
+          "name",
+          "id",
+          "node_id",
+          "slug",
+          "description",
+          "privacy",
+          "url",
+          "html_url",
+          "members_url",
+          "repositories_url",
+          "permission"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Description of the team",
+            "nullable": true
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the team",
+            "format": "int64"
+          },
+          "members_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the team"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "permission": {
+            "type": "string",
+            "description": "Permission that the team will have for its repositories"
+          },
+          "privacy": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestRequestedTeamsItemParentPrivacy"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the team",
+            "format": "uri"
+          }
+        },
+        "nullable": true
+      },
       "WebhookPullRequestSynchronizePullRequestLinksComments": {
         "title": "Link",
         "required": [
@@ -242113,6 +245242,300 @@
           }
         }
       },
+      "WebhookPullRequestStackedPullRequestBaseRepoLicense": {
+        "title": "License",
+        "required": [
+          "key",
+          "name",
+          "spdx_id",
+          "url",
+          "node_id"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "spdx_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoOwner": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoOwnerType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoPermissions": {
+        "required": [
+          "pull",
+          "push",
+          "admin"
+        ],
+        "type": "object",
+        "properties": {
+          "admin": {
+            "type": "boolean"
+          },
+          "maintain": {
+            "type": "boolean"
+          },
+          "pull": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean"
+          },
+          "triage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoLicense": {
+        "title": "License",
+        "required": [
+          "key",
+          "name",
+          "spdx_id",
+          "url",
+          "node_id"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "spdx_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoOwner": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoOwnerType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user_view_type": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoPermissions": {
+        "required": [
+          "pull",
+          "push",
+          "admin"
+        ],
+        "type": "object",
+        "properties": {
+          "admin": {
+            "type": "boolean"
+          },
+          "maintain": {
+            "type": "boolean"
+          },
+          "pull": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean"
+          },
+          "triage": {
+            "type": "boolean"
+          }
+        }
+      },
       "WebhookPullRequestSynchronizePullRequestBaseRepoLicense": {
         "title": "License",
         "required": [
@@ -252586,6 +256009,62 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/SimpleUser"
+        }
+      },
+      "InteractionsGetPullRequestCreationCapForRepo200Response": {
+        "required": [
+          "enabled",
+          "max_open_pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the pull request creation cap is enabled"
+          },
+          "max_open_pull_requests": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of open pull requests a user can have at one time"
+          }
+        }
+      },
+      "InteractionsUpdatePullRequestCreationCapForRepoRequest": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the pull request creation cap is enabled"
+          },
+          "max_open_pull_requests": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of open pull requests a user can have at one time"
+          }
+        }
+      },
+      "InteractionsUpdatePullRequestCreationCapForRepo200Response": {
+        "required": [
+          "enabled",
+          "max_open_pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the pull request creation cap is enabled"
+          },
+          "max_open_pull_requests": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of open pull requests a user can have at one time"
+          }
         }
       },
       "ReposListInvitations200Response": {
@@ -266210,6 +269689,49 @@
           ]
         }
       },
+      "CopilotSpaceCollaboratorAnyOf2ActorType": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The collaborator actor type."
+      },
+      "CopilotSpaceCollaboratorAnyOf2Role": {
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The role granted to the collaborator",
+        "x-ms-enum": {
+          "name": "CopilotSpaceCollaboratorAnyOf2Role",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reader",
+              "name": "Reader"
+            },
+            {
+              "value": "writer",
+              "name": "Writer"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
+      "CopilotSpaceCollaboratorAnyOf2Type": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
       "AppPermissionsActions": {
         "enum": [
           "read",
@@ -268355,15 +271877,15 @@
           ]
         }
       },
-      "CopilotSpaceCollaboratorAnyOf2ActorType": {
+      "CopilotSpaceCollaboratorAnyOf1AllOf2ActorType": {
         "enum": [
-          "Team"
+          "User"
         ],
         "type": "string",
         "additionalProperties": false,
         "description": "The collaborator actor type."
       },
-      "CopilotSpaceCollaboratorAnyOf2Role": {
+      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
         "enum": [
           "reader",
           "writer",
@@ -268373,7 +271895,7 @@
         "additionalProperties": false,
         "description": "The role granted to the collaborator",
         "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf2Role",
+          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
           "modelAsString": false,
           "values": [
             {
@@ -268390,13 +271912,6 @@
             }
           ]
         }
-      },
-      "CopilotSpaceCollaboratorAnyOf2Type": {
-        "enum": [
-          "Team"
-        ],
-        "type": "string",
-        "additionalProperties": false
       },
       "DependabotAlertSecurityVulnerabilitySeverity": {
         "enum": [
@@ -268486,42 +272001,6 @@
             {
               "value": "malware",
               "name": "Malware"
-            }
-          ]
-        }
-      },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2ActorType": {
-        "enum": [
-          "User"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The collaborator actor type."
-      },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
-        "enum": [
-          "reader",
-          "writer",
-          "admin"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The role granted to the collaborator",
-        "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "reader",
-              "name": "Reader"
-            },
-            {
-              "value": "writer",
-              "name": "Writer"
-            },
-            {
-              "value": "admin",
-              "name": "Admin"
             }
           ]
         }
@@ -275306,6 +278785,34 @@
           ]
         }
       },
+      "SecretScanningAlertWithMetadataValidity": {
+        "enum": [
+          "active",
+          "inactive",
+          "unknown"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The token status as of the latest validity check.",
+        "x-ms-enum": {
+          "name": "SecretScanningAlertWithMetadataValidity",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "inactive",
+              "name": "Inactive"
+            },
+            {
+              "value": "unknown",
+              "name": "Unknown"
+            }
+          ]
+        }
+      },
       "SecretScanningLocationType": {
         "enum": [
           "commit",
@@ -280776,6 +284283,23 @@
           ]
         }
       },
+      "WebhookPullRequestStackedAction": {
+        "enum": [
+          "stacked"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "stacked",
+              "name": "Stacked"
+            }
+          ]
+        }
+      },
       "WebhookPullRequestSynchronizeAction": {
         "enum": [
           "synchronize"
@@ -281377,6 +284901,40 @@
             {
               "value": "created",
               "name": "Created"
+            }
+          ]
+        }
+      },
+      "WebhookSecretScanningAlertMetadataCreatedAction": {
+        "enum": [
+          "metadata_created"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookSecretScanningAlertMetadataCreatedAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "metadata_created",
+              "name": "MetadataCreated"
+            }
+          ]
+        }
+      },
+      "WebhookSecretScanningAlertMetadataRemovedAction": {
+        "enum": [
+          "metadata_removed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookSecretScanningAlertMetadataRemovedAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "metadata_removed",
+              "name": "MetadataRemoved"
             }
           ]
         }
@@ -283690,6 +287248,43 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemTeamPrivacy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            },
+            {
+              "value": "secret",
+              "name": "Secret"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItemUserType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization",
+          "Mannequin"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamPrivacy": {
+        "enum": [
+          "open",
+          "closed",
+          "secret"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamPrivacy",
           "modelAsString": false,
           "values": [
             {
@@ -290958,6 +294553,116 @@
           ]
         }
       },
+      "WebhookPullRequestStackedPullRequestActiveLockReason": {
+        "enum": [
+          "resolved",
+          "off-topic",
+          "too heated",
+          "spam"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestActiveLockReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "resolved",
+              "name": "Resolved"
+            },
+            {
+              "value": "off-topic",
+              "name": "OffTopic"
+            },
+            {
+              "value": "too heated",
+              "name": "TooHeated"
+            },
+            {
+              "value": "spam",
+              "name": "Spam"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestAuthorAssociation": {
+        "title": "AuthorAssociation",
+        "enum": [
+          "COLLABORATOR",
+          "CONTRIBUTOR",
+          "FIRST_TIMER",
+          "FIRST_TIME_CONTRIBUTOR",
+          "MANNEQUIN",
+          "MEMBER",
+          "NONE",
+          "OWNER"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How the author is associated with the repository.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestAuthorAssociation",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "COLLABORATOR",
+              "name": "Collaborator"
+            },
+            {
+              "value": "CONTRIBUTOR",
+              "name": "Contributor"
+            },
+            {
+              "value": "FIRST_TIMER",
+              "name": "FirstTimer"
+            },
+            {
+              "value": "FIRST_TIME_CONTRIBUTOR",
+              "name": "FirstTimeContributor"
+            },
+            {
+              "value": "MANNEQUIN",
+              "name": "Mannequin"
+            },
+            {
+              "value": "MEMBER",
+              "name": "Member"
+            },
+            {
+              "value": "NONE",
+              "name": "None"
+            },
+            {
+              "value": "OWNER",
+              "name": "Owner"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestState": {
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "State of this Pull Request. Either \u0060open\u0060 or \u0060closed\u0060.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            }
+          ]
+        }
+      },
       "WebhookPullRequestSynchronizePullRequestActiveLockReason": {
         "enum": [
           "resolved",
@@ -294771,6 +298476,33 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItemTeamParentPrivacy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            },
+            {
+              "value": "secret",
+              "name": "Secret"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamParentPrivacy": {
+        "enum": [
+          "open",
+          "closed",
+          "secret"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestRequestedReviewersItemTeamParentPrivacy",
           "modelAsString": false,
           "values": [
             {
@@ -304686,6 +308418,124 @@
             }
           ]
         }
+      },
+      "WebhookPullRequestStackedPullRequestAssigneeType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization",
+          "Mannequin"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestAssigneesItemType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization",
+          "Mannequin"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestAutoMergeMergeMethod": {
+        "enum": [
+          "merge",
+          "squash",
+          "rebase"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The merge method to use.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestAutoMergeMergeMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "merge",
+              "name": "Merge"
+            },
+            {
+              "value": "squash",
+              "name": "Squash"
+            },
+            {
+              "value": "rebase",
+              "name": "Rebase"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestMergedByType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization",
+          "Mannequin"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestMilestoneState": {
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The state of the milestone.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestMilestoneState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestRequestedTeamsItemPrivacy": {
+        "enum": [
+          "open",
+          "closed",
+          "secret"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestRequestedTeamsItemPrivacy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            },
+            {
+              "value": "secret",
+              "name": "Secret"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestUserType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization",
+          "Mannequin"
+        ],
+        "type": "string",
+        "additionalProperties": false
       },
       "WebhookPullRequestSynchronizePullRequestAssigneeType": {
         "enum": [
@@ -327958,6 +331808,374 @@
         "type": "string",
         "additionalProperties": false
       },
+      "WebhookPullRequestStackedPullRequestAutoMergeEnabledByType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoPullRequestCreationPolicy": {
+        "enum": [
+          "all",
+          "collaborators_only"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022The policy controlling who can create pull requests: all or collaborators_only.\u0022",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestBaseRepoPullRequestCreationPolicy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "collaborators_only",
+              "name": "CollaboratorsOnly"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoMergeCommitMessage": {
+        "enum": [
+          "PR_BODY",
+          "PR_TITLE",
+          "BLANK"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a merge commit message.\n\n- \u0060PR_TITLE\u0060 - default to the pull request\u0027s title.\n- \u0060PR_BODY\u0060 - default to the pull request\u0027s body.\n- \u0060BLANK\u0060 - default to a blank commit message.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestBaseRepoMergeCommitMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_BODY",
+              "name": "PrBody"
+            },
+            {
+              "value": "PR_TITLE",
+              "name": "PrTitle"
+            },
+            {
+              "value": "BLANK",
+              "name": "Blank"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoMergeCommitTitle": {
+        "enum": [
+          "PR_TITLE",
+          "MERGE_MESSAGE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a merge commit title.\n\n- \u0060PR_TITLE\u0060 - default to the pull request\u0027s title.\n- \u0060MERGE_MESSAGE\u0060 - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestBaseRepoMergeCommitTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_TITLE",
+              "name": "PrTitle"
+            },
+            {
+              "value": "MERGE_MESSAGE",
+              "name": "MergeMessage"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoSquashMergeCommitMessage": {
+        "enum": [
+          "PR_BODY",
+          "COMMIT_MESSAGES",
+          "BLANK"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a squash merge commit message:\n\n- \u0060PR_BODY\u0060 - default to the pull request\u0027s body.\n- \u0060COMMIT_MESSAGES\u0060 - default to the branch\u0027s commit messages.\n- \u0060BLANK\u0060 - default to a blank commit message.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestBaseRepoSquashMergeCommitMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_BODY",
+              "name": "PrBody"
+            },
+            {
+              "value": "COMMIT_MESSAGES",
+              "name": "CommitMessages"
+            },
+            {
+              "value": "BLANK",
+              "name": "Blank"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoSquashMergeCommitTitle": {
+        "enum": [
+          "PR_TITLE",
+          "COMMIT_OR_PR_TITLE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a squash merge commit title:\n\n- \u0060PR_TITLE\u0060 - default to the pull request\u0027s title.\n- \u0060COMMIT_OR_PR_TITLE\u0060 - default to the commit\u0027s title (if only one commit) or the pull request\u0027s title (when more than one commit).",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestBaseRepoSquashMergeCommitTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_TITLE",
+              "name": "PrTitle"
+            },
+            {
+              "value": "COMMIT_OR_PR_TITLE",
+              "name": "CommitOrPrTitle"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoVisibility": {
+        "enum": [
+          "public",
+          "private",
+          "internal"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestBaseRepoVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "public",
+              "name": "PublicValue"
+            },
+            {
+              "value": "private",
+              "name": "PrivateValue"
+            },
+            {
+              "value": "internal",
+              "name": "InternalValue"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestBaseUserType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoPullRequestCreationPolicy": {
+        "enum": [
+          "all",
+          "collaborators_only"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022The policy controlling who can create pull requests: all or collaborators_only.\u0022",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestHeadRepoPullRequestCreationPolicy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "collaborators_only",
+              "name": "CollaboratorsOnly"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoMergeCommitMessage": {
+        "enum": [
+          "PR_BODY",
+          "PR_TITLE",
+          "BLANK"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a merge commit message.\n\n- \u0060PR_TITLE\u0060 - default to the pull request\u0027s title.\n- \u0060PR_BODY\u0060 - default to the pull request\u0027s body.\n- \u0060BLANK\u0060 - default to a blank commit message.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestHeadRepoMergeCommitMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_BODY",
+              "name": "PrBody"
+            },
+            {
+              "value": "PR_TITLE",
+              "name": "PrTitle"
+            },
+            {
+              "value": "BLANK",
+              "name": "Blank"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoMergeCommitTitle": {
+        "enum": [
+          "PR_TITLE",
+          "MERGE_MESSAGE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a merge commit title.\n\n- \u0060PR_TITLE\u0060 - default to the pull request\u0027s title.\n- \u0060MERGE_MESSAGE\u0060 - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestHeadRepoMergeCommitTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_TITLE",
+              "name": "PrTitle"
+            },
+            {
+              "value": "MERGE_MESSAGE",
+              "name": "MergeMessage"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoSquashMergeCommitMessage": {
+        "enum": [
+          "PR_BODY",
+          "COMMIT_MESSAGES",
+          "BLANK"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a squash merge commit message:\n\n- \u0060PR_BODY\u0060 - default to the pull request\u0027s body.\n- \u0060COMMIT_MESSAGES\u0060 - default to the branch\u0027s commit messages.\n- \u0060BLANK\u0060 - default to a blank commit message.",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestHeadRepoSquashMergeCommitMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_BODY",
+              "name": "PrBody"
+            },
+            {
+              "value": "COMMIT_MESSAGES",
+              "name": "CommitMessages"
+            },
+            {
+              "value": "BLANK",
+              "name": "Blank"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoSquashMergeCommitTitle": {
+        "enum": [
+          "PR_TITLE",
+          "COMMIT_OR_PR_TITLE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The default value for a squash merge commit title:\n\n- \u0060PR_TITLE\u0060 - default to the pull request\u0027s title.\n- \u0060COMMIT_OR_PR_TITLE\u0060 - default to the commit\u0027s title (if only one commit) or the pull request\u0027s title (when more than one commit).",
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestHeadRepoSquashMergeCommitTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PR_TITLE",
+              "name": "PrTitle"
+            },
+            {
+              "value": "COMMIT_OR_PR_TITLE",
+              "name": "CommitOrPrTitle"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoVisibility": {
+        "enum": [
+          "public",
+          "private",
+          "internal"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestHeadRepoVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "public",
+              "name": "PublicValue"
+            },
+            {
+              "value": "private",
+              "name": "PrivateValue"
+            },
+            {
+              "value": "internal",
+              "name": "InternalValue"
+            }
+          ]
+        }
+      },
+      "WebhookPullRequestStackedPullRequestHeadUserType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestMilestoneCreatorType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization",
+          "Mannequin"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestRequestedTeamsItemParentPrivacy": {
+        "enum": [
+          "open",
+          "closed",
+          "secret"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WebhookPullRequestStackedPullRequestRequestedTeamsItemParentPrivacy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            },
+            {
+              "value": "secret",
+              "name": "Secret"
+            }
+          ]
+        }
+      },
       "WebhookPullRequestSynchronizePullRequestAutoMergeEnabledByType": {
         "enum": [
           "Bot",
@@ -332861,6 +337079,24 @@
         "additionalProperties": false
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestHeadRepoOwnerType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestBaseRepoOwnerType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "WebhookPullRequestStackedPullRequestHeadRepoOwnerType": {
         "enum": [
           "Bot",
           "User",
@@ -346970,6 +351206,22 @@
         "description": "A boolean value (\u0060true\u0060 or \u0060false\u0060) indicating whether to filter alerts by their push protection bypass status. When set to \u0060true\u0060, only alerts that were created because a push protection rule was bypassed will be returned. When set to \u0060false\u0060, only alerts that were not caused by a push protection bypass will be returned.",
         "schema": {
           "type": "boolean"
+        }
+      },
+      "secret-scanning-alert-included-metadata": {
+        "name": "included_metadata",
+        "in": "query",
+        "description": "\u0022A comma-separated list of metadata fields to filter alerts by. Only alerts that have all of the\nspecified metadata fields attached will be returned. Possible values are: \u0060owner-email\u0060, \u0060owner-id\u0060,\n\u0060owner-name\u0060, \u0060secret-id\u0060, \u0060secret-name\u0060, \u0060secret-issued-date\u0060, \u0060secret-expiration-date\u0060, \u0060organization-name\u0060,\n\u0060organization-id\u0060, \u0060last-used-date\u0060, and \u0060has-organization-access\u0060.\u0022",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "secret-scanning-alert-owner-email-hash": {
+        "name": "owner_email_hash",
+        "in": "query",
+        "description": "Filters alerts to only those whose attached \u0060owner_email\u0060 metadata field matches the\nprovided value. The value must be the lowercase hex-encoded SHA-256 hash of the email\naddress to match (for example, the SHA-256 of \u0060user@example.com\u0060). Only alerts that\nhave an \u0060owner_email\u0060 metadata value whose SHA-256 hash equals this parameter are\nreturned.",
+        "schema": {
+          "type": "string"
         }
       },
       "network-configuration-id": {
@@ -374595,7 +378847,13 @@
           "resolution_comment": null,
           "validity": "unknown",
           "publicly_leaked": false,
-          "multi_repo": false
+          "multi_repo": false,
+          "metadata": [
+            {
+              "key": "owner_email",
+              "value": "owner@example.com"
+            }
+          ]
         }
       },
       "secret-scanning-alert-resolved": {
@@ -374642,6 +378900,12 @@
           "validity": "unknown",
           "publicly_leaked": false,
           "multi_repo": false,
+          "metadata": [
+            {
+              "key": "owner_email",
+              "value": "owner@example.com"
+            }
+          ],
           "assigned_to": {
             "login": "octocat",
             "id": 1,
