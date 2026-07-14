@@ -1952,246 +1952,6 @@
         }
       }
     },
-    "/assignments/{assignmentId}": {
-      "get": {
-        "tags": [
-          "classroom"
-        ],
-        "summary": "Get an assignment",
-        "description": "Gets a GitHub Classroom assignment. Assignment will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#get-an-assignment"
-        },
-        "operationId": "ClassroomGetAnAssignment",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/assignment-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomAssignment"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom-assignment"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        }
-      }
-    },
-    "/assignments/{assignmentId}/accepted_assignments": {
-      "get": {
-        "tags": [
-          "classroom"
-        ],
-        "summary": "List accepted assignments for an assignment",
-        "description": "Lists any assignment repositories that have been created by students accepting a GitHub Classroom assignment. Accepted assignments will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#list-accepted-assignments-for-an-assignment"
-        },
-        "operationId": "ClassroomListAcceptedAssignmentsForAnAssignment",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/assignment-id"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomListAcceptedAssignmentsForAnAssignment200ResponseResponseJson"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom-accepted-assignment"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/assignments/{assignmentId}/grades": {
-      "get": {
-        "tags": [
-          "classroom"
-        ],
-        "summary": "Get assignment grades",
-        "description": "Gets grades for a GitHub Classroom assignment. Grades will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#get-assignment-grades"
-        },
-        "operationId": "ClassroomGetAssignmentGrades",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/assignment-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomGetAssignmentGrades200ResponseResponseJson"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom-assignment-grades"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        }
-      }
-    },
-    "/classrooms": {
-      "get": {
-        "tags": [
-          "classroom"
-        ],
-        "summary": "List classrooms",
-        "description": "Lists GitHub Classroom classrooms for the current user. Classrooms will only be returned if the current user is an administrator of one or more GitHub Classrooms.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#list-classrooms"
-        },
-        "operationId": "ClassroomListClassrooms",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomListClassrooms200ResponseResponseJson"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/simple-classroom"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/classrooms/{classroomId}": {
-      "get": {
-        "tags": [
-          "classroom"
-        ],
-        "summary": "Get a classroom",
-        "description": "Gets a GitHub Classroom classroom for the current user. Classroom will only be returned if the current user is an administrator of the GitHub Classroom.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#get-a-classroom"
-        },
-        "operationId": "ClassroomGetAClassroom",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/classroom-id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Classroom"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          }
-        }
-      }
-    },
-    "/classrooms/{classroomId}/assignments": {
-      "get": {
-        "tags": [
-          "classroom"
-        ],
-        "summary": "List assignments for a classroom",
-        "description": "Lists GitHub Classroom assignments for a classroom. Assignments will only be returned if the current user is an administrator of the GitHub Classroom.",
-        "externalDocs": {
-          "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#list-assignments-for-a-classroom"
-        },
-        "operationId": "ClassroomListAssignmentsForAClassroom",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/classroom-id"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomListAssignmentsForAClassroom200ResponseResponseJson"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/simple-classroom-assignment"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/codes_of_conduct": {
       "get": {
         "tags": [
@@ -24259,6 +24019,253 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/secret-scanning/custom-patterns": {
+      "get": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "List organization custom patterns",
+        "description": "Lists secret scanning custom patterns for an organization.\n\nPersonal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#list-organization-custom-patterns"
+        },
+        "operationId": "SecretScanningListOrgCustomPatterns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-custom-pattern-state"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-custom-pattern-push-protection"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-custom-pattern-sort"
+          },
+          {
+            "$ref": "#/components/parameters/direction"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningListOrgCustomPatterns200ResponseResponseJson"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern-list"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "Bulk create organization custom patterns",
+        "description": "Bulk creates secret scanning custom patterns for an organization.\n\nPersonal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#bulk-create-organization-custom-patterns"
+        },
+        "operationId": "SecretScanningBulkCreateOrgCustomPatterns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretScanningBulkCreateOrgCustomPatternsRequest"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-create-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "All patterns created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningBulkCreateOrgCustomPatterns201Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-create-response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed for one or more patterns.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningBulkCreateOrgCustomPatterns422Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "Bulk delete organization custom patterns",
+        "description": "Bulk deletes secret scanning custom patterns for an organization.\n\nPersonal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#bulk-delete-organization-custom-patterns"
+        },
+        "operationId": "SecretScanningBulkDeleteOrgCustomPatterns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretScanningBulkDeleteOrgCustomPatternsRequest"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-delete-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/secret-scanning/custom-patterns/{patternId}": {
+      "patch": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "Update an organization custom pattern",
+        "description": "Updates a secret scanning custom pattern for an organization.\n\nPersonal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#update-an-organization-custom-pattern"
+        },
+        "operationId": "SecretScanningUpdateOrgCustomPattern",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "patternId",
+            "in": "path",
+            "description": "The ID of the custom pattern.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretScanningCustomPatternToUpdate"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/secret-scanning-custom-pattern-update-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pattern updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningCustomPattern"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
           }
         }
       }
@@ -50565,6 +50572,265 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/secret-scanning/custom-patterns": {
+      "get": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "List repository custom patterns",
+        "description": "Lists secret scanning custom patterns for a repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060security_events\u0060 scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the \u0060public_repo\u0060 scope instead.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#list-repository-custom-patterns"
+        },
+        "operationId": "SecretScanningListRepoCustomPatterns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-custom-pattern-state"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-custom-pattern-push-protection"
+          },
+          {
+            "$ref": "#/components/parameters/secret-scanning-custom-pattern-sort"
+          },
+          {
+            "$ref": "#/components/parameters/direction"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningListRepoCustomPatterns200ResponseResponseJson"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern-list"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "Bulk create repository custom patterns",
+        "description": "Bulk creates secret scanning custom patterns for a repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060security_events\u0060 scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the \u0060public_repo\u0060 scope instead.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#bulk-create-repository-custom-patterns"
+        },
+        "operationId": "SecretScanningBulkCreateRepoCustomPatterns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretScanningBulkCreateRepoCustomPatternsRequest"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-create-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "All patterns created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningBulkCreateRepoCustomPatterns201Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-create-response"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed for one or more patterns.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningBulkCreateRepoCustomPatterns422Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "Bulk delete repository custom patterns",
+        "description": "Bulk deletes secret scanning custom patterns for a repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060security_events\u0060 scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the \u0060public_repo\u0060 scope instead.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#bulk-delete-repository-custom-patterns"
+        },
+        "operationId": "SecretScanningBulkDeleteRepoCustomPatterns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretScanningBulkDeleteRepoCustomPatternsRequest"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/secret-scanning-custom-pattern-bulk-delete-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{patternId}": {
+      "patch": {
+        "tags": [
+          "secret-scanning"
+        ],
+        "summary": "Update a repository custom pattern",
+        "description": "Updates a secret scanning custom pattern for a repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060security_events\u0060 scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the \u0060public_repo\u0060 scope instead.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/secret-scanning/custom-patterns#update-a-repository-custom-pattern"
+        },
+        "operationId": "SecretScanningUpdateRepoCustomPattern",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "patternId",
+            "in": "path",
+            "description": "The ID of the custom pattern.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretScanningCustomPatternToUpdate"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/secret-scanning-custom-pattern-update-request"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pattern updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecretScanningCustomPattern"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/secret-scanning-custom-pattern"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad_request"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "412": {
+            "$ref": "#/components/responses/precondition_failed"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses": {
       "post": {
         "tags": [
@@ -62935,7 +63201,7 @@
             "$ref": "#/components/schemas/AppPermissionsEnterpriseCustomPropertiesForOrganizations"
           }
         },
-        "description": "The permissions granted to the user access token.",
+        "description": "The permissions granted to the fine-grained access token.",
         "example": {
           "contents": "read",
           "issues": "read",
@@ -78264,6 +78530,230 @@
         "type": "string",
         "description": "The version of the entity. This is used to confirm you\u0027re updating the current version of the entity and mitigate unintentionally overriding someone else\u0027s update.",
         "nullable": true
+      },
+      "SecretScanningCustomPattern": {
+        "title": "Secret Scanning Custom Pattern",
+        "required": [
+          "id",
+          "name",
+          "pattern",
+          "slug",
+          "state",
+          "push_protection_enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The ID of the custom pattern.",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the custom pattern."
+          },
+          "pattern": {
+            "type": "string",
+            "description": "The regular expression of the custom pattern."
+          },
+          "slug": {
+            "type": "string",
+            "description": "A URL-friendly identifier for the custom pattern, derived from its name."
+          },
+          "state": {
+            "$ref": "#/components/schemas/SecretScanningCustomPatternState"
+          },
+          "push_protection_enabled": {
+            "type": "boolean",
+            "description": "Whether push protection is enabled for this custom pattern."
+          },
+          "start_delimiter": {
+            "type": "string",
+            "description": "The start delimiter regex for the custom pattern.",
+            "nullable": true
+          },
+          "end_delimiter": {
+            "type": "string",
+            "description": "The end delimiter regex for the custom pattern.",
+            "nullable": true
+          },
+          "must_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of regexes that the secret must match.",
+            "nullable": true
+          },
+          "must_not_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of regexes that the secret must not match.",
+            "nullable": true
+          },
+          "custom_pattern_version": {
+            "$ref": "#/components/schemas/SecretScanningRowVersion"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The date and time the custom pattern was created in ISO 8601 format.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The date and time the custom pattern was last updated in ISO 8601 format.",
+            "format": "date-time"
+          }
+        },
+        "description": "A custom pattern for secret scanning."
+      },
+      "SecretScanningCustomPatternToCreate": {
+        "title": "Secret Scanning Custom Pattern To Create",
+        "required": [
+          "name",
+          "pattern"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the custom pattern."
+          },
+          "pattern": {
+            "type": "string",
+            "description": "The regular expression of the custom pattern."
+          },
+          "start_delimiter": {
+            "type": "string",
+            "description": "The start delimiter regex for the custom pattern.\nDefaults to \u0060\\A|[^0-9A-Za-z]\u0060 when not specified.",
+            "default": "\\A|[^0-9A-Za-z]"
+          },
+          "end_delimiter": {
+            "type": "string",
+            "description": "The end delimiter regex for the custom pattern.\nDefaults to \u0060\\z|[^0-9A-Za-z]\u0060 when not specified.",
+            "default": "\\z|[^0-9A-Za-z]"
+          },
+          "must_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of regexes that the secret must match."
+          },
+          "must_not_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of regexes that the secret must not match."
+          }
+        },
+        "description": "A custom pattern to create in a bulk operation."
+      },
+      "SecretScanningCustomPatternValidationError": {
+        "title": "Secret Scanning Custom Pattern Validation Error",
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/SecretScanningCustomPatternValidationErrorCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the error."
+          }
+        },
+        "description": "A validation error for a custom pattern in a batch operation."
+      },
+      "SecretScanningCustomPatternToDelete": {
+        "title": "Secret Scanning Custom Pattern To Delete",
+        "required": [
+          "pattern_id"
+        ],
+        "type": "object",
+        "properties": {
+          "pattern_id": {
+            "type": "integer",
+            "description": "The ID of the custom pattern to delete.",
+            "format": "int64"
+          },
+          "custom_pattern_version": {
+            "$ref": "#/components/schemas/SecretScanningRowVersion"
+          }
+        },
+        "description": "A custom pattern to delete in a bulk operation."
+      },
+      "SecretScanningCustomPatternToUpdate": {
+        "title": "Secret Scanning Custom Pattern To Update",
+        "required": [
+          "custom_pattern_version"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "pattern"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "start_delimiter"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "end_delimiter"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "must_match"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "must_not_match"
+            ],
+            "type": "object"
+          }
+        ],
+        "properties": {
+          "pattern": {
+            "type": "string",
+            "description": "The updated regular expression of the custom pattern."
+          },
+          "start_delimiter": {
+            "type": "string",
+            "description": "The updated start delimiter regex for the custom pattern."
+          },
+          "end_delimiter": {
+            "type": "string",
+            "description": "The updated end delimiter regex for the custom pattern."
+          },
+          "must_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Updated list of regexes that the secret must match."
+          },
+          "must_not_match": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Updated list of regexes that the secret must not match."
+          },
+          "custom_pattern_version": {
+            "$ref": "#/components/schemas/SecretScanningRowVersion"
+          }
+        },
+        "description": "Fields to update on a custom pattern. At least one updatable field (\u0060pattern\u0060, \u0060start_delimiter\u0060, \u0060end_delimiter\u0060, \u0060must_match\u0060, or \u0060must_not_match\u0060) must also be provided. Only provided fields will be updated."
       },
       "SecretScanningPatternOverride": {
         "type": "object",
@@ -249566,30 +250056,6 @@
           }
         }
       },
-      "ClassroomListAcceptedAssignmentsForAnAssignment200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAcceptedAssignment"
-        }
-      },
-      "ClassroomGetAssignmentGrades200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAssignmentGrade"
-        }
-      },
-      "ClassroomListClassrooms200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroom"
-        }
-      },
-      "ClassroomListAssignmentsForAClassroom200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroomAssignment"
-        }
-      },
       "CodesOfConductGetAllCodesOfConduct200Response": {
         "type": "array",
         "items": {
@@ -253355,6 +253821,58 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/OrganizationSecretScanningAlert"
+        }
+      },
+      "SecretScanningListOrgCustomPatterns200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SecretScanningCustomPattern"
+        }
+      },
+      "SecretScanningBulkCreateOrgCustomPatternsRequest": {
+        "required": [
+          "patterns"
+        ],
+        "type": "object",
+        "properties": {
+          "patterns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPatternToCreate"
+            },
+            "description": "The list of custom patterns to create."
+          }
+        }
+      },
+      "SecretScanningBulkCreateOrgCustomPatterns422Response": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "A summary message describing the error."
+          },
+          "validation_errors": {
+            "$ref": "#/components/schemas/SecretScanningBulkCreateOrgCustomPatterns422ResponseValidationErrors"
+          }
+        }
+      },
+      "SecretScanningBulkDeleteOrgCustomPatternsRequest": {
+        "required": [
+          "patterns"
+        ],
+        "type": "object",
+        "properties": {
+          "patterns": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPatternToDelete"
+            },
+            "description": "The list of custom patterns to delete."
+          },
+          "post_delete_action": {
+            "$ref": "#/components/schemas/SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction"
+          }
         }
       },
       "SecretScanningUpdateOrgPatternConfigsRequest": {
@@ -257800,6 +258318,58 @@
         },
         "description": "List of locations where the secret was detected"
       },
+      "SecretScanningListRepoCustomPatterns200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SecretScanningCustomPattern"
+        }
+      },
+      "SecretScanningBulkCreateRepoCustomPatternsRequest": {
+        "required": [
+          "patterns"
+        ],
+        "type": "object",
+        "properties": {
+          "patterns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPatternToCreate"
+            },
+            "description": "The list of custom patterns to create."
+          }
+        }
+      },
+      "SecretScanningBulkCreateRepoCustomPatterns422Response": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "A summary message describing the error."
+          },
+          "validation_errors": {
+            "$ref": "#/components/schemas/SecretScanningBulkCreateRepoCustomPatterns422ResponseValidationErrors"
+          }
+        }
+      },
+      "SecretScanningBulkDeleteRepoCustomPatternsRequest": {
+        "required": [
+          "patterns"
+        ],
+        "type": "object",
+        "properties": {
+          "patterns": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPatternToDelete"
+            },
+            "description": "The list of custom patterns to delete."
+          },
+          "post_delete_action": {
+            "$ref": "#/components/schemas/SecretScanningBulkDeleteRepoCustomPatternsRequestPostDeleteAction"
+          }
+        }
+      },
       "SecretScanningCreatePushProtectionBypassRequest": {
         "required": [
           "reason",
@@ -259995,30 +260565,6 @@
           "$ref": "#/components/schemas/Installation"
         }
       },
-      "ClassroomListAcceptedAssignmentsForAnAssignment200ResponseResponseJson": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAcceptedAssignment"
-        }
-      },
-      "ClassroomGetAssignmentGrades200ResponseResponseJson": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAssignmentGrade"
-        }
-      },
-      "ClassroomListClassrooms200ResponseResponseJson": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroom"
-        }
-      },
-      "ClassroomListAssignmentsForAClassroom200ResponseResponseJson": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroomAssignment"
-        }
-      },
       "CodesOfConductGetAllCodesOfConduct200ResponseResponseJson": {
         "type": "array",
         "items": {
@@ -261549,6 +262095,24 @@
           "$ref": "#/components/schemas/OrganizationSecretScanningAlert"
         }
       },
+      "SecretScanningListOrgCustomPatterns200ResponseResponseJson": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SecretScanningCustomPattern"
+        }
+      },
+      "SecretScanningBulkCreateOrgCustomPatterns201Response": {
+        "type": "object",
+        "properties": {
+          "created_patterns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPattern"
+            },
+            "description": "The list of successfully created custom patterns."
+          }
+        }
+      },
       "SecurityAdvisoriesListOrgRepositoryAdvisories200ResponseResponseJson": {
         "type": "array",
         "items": {
@@ -263064,6 +263628,24 @@
           "$ref": "#/components/schemas/SecretScanningLocation"
         },
         "description": "List of locations where the secret was detected"
+      },
+      "SecretScanningListRepoCustomPatterns200ResponseResponseJson": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SecretScanningCustomPattern"
+        }
+      },
+      "SecretScanningBulkCreateRepoCustomPatterns201Response": {
+        "type": "object",
+        "properties": {
+          "created_patterns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPattern"
+            },
+            "description": "The list of successfully created custom patterns."
+          }
+        }
       },
       "SecurityAdvisoriesListRepositoryAdvisories200ResponseResponseJson": {
         "type": "array",
@@ -267201,6 +267783,13 @@
         "type": "object",
         "description": "The custom properties for the new repository. The keys are the custom property names, and the values are the corresponding custom property values."
       },
+      "SecretScanningBulkCreateOrgCustomPatterns422ResponseValidationErrors": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SecretScanningBulkCreateOrgCustomPatterns422ResponseValidationErrorsAdditionalProperties"
+        },
+        "description": "A map of validation errors keyed by the zero-based index of the pattern that failed."
+      },
       "SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem": {
         "type": "object",
         "properties": {
@@ -268022,6 +268611,13 @@
             "example": "LEFT"
           }
         }
+      },
+      "SecretScanningBulkCreateRepoCustomPatterns422ResponseValidationErrors": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SecretScanningBulkCreateRepoCustomPatterns422ResponseValidationErrorsAdditionalProperties"
+        },
+        "description": "A map of validation errors keyed by the zero-based index of the pattern that failed."
       },
       "AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem": {
         "required": [
@@ -269144,6 +269740,18 @@
         },
         "description": "Metadata specific to the resource type."
       },
+      "SecretScanningBulkCreateOrgCustomPatterns422ResponseValidationErrorsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPatternValidationError"
+            },
+            "description": "List of validation errors for this pattern."
+          }
+        }
+      },
       "ReposUpdateRequestSecurityAndAnalysisAdvancedSecurity": {
         "type": "object",
         "properties": {
@@ -269462,6 +270070,18 @@
           "caption": {
             "type": "string",
             "description": "A short image description."
+          }
+        }
+      },
+      "SecretScanningBulkCreateRepoCustomPatterns422ResponseValidationErrorsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecretScanningCustomPatternValidationError"
+            },
+            "description": "List of validation errors for this pattern."
           }
         }
       },
@@ -275826,6 +276446,97 @@
             {
               "value": "unknown",
               "name": "Unknown"
+            }
+          ]
+        }
+      },
+      "SecretScanningCustomPatternState": {
+        "enum": [
+          "published",
+          "unpublished"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The state of the custom pattern.",
+        "x-ms-enum": {
+          "name": "SecretScanningCustomPatternState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "published",
+              "name": "Published"
+            },
+            {
+              "value": "unpublished",
+              "name": "Unpublished"
+            }
+          ]
+        }
+      },
+      "SecretScanningCustomPatternValidationErrorCode": {
+        "enum": [
+          "none",
+          "config_load",
+          "compile_db",
+          "start_delimiter",
+          "end_delimiter",
+          "display_name",
+          "must_match",
+          "must_not_match",
+          "custom_pattern_version_mismatch",
+          "db_size",
+          "db_size_calculation"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A machine-readable code describing the error.",
+        "x-ms-enum": {
+          "name": "SecretScanningCustomPatternValidationErrorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "config_load",
+              "name": "ConfigLoad"
+            },
+            {
+              "value": "compile_db",
+              "name": "CompileDb"
+            },
+            {
+              "value": "start_delimiter",
+              "name": "StartDelimiter"
+            },
+            {
+              "value": "end_delimiter",
+              "name": "EndDelimiter"
+            },
+            {
+              "value": "display_name",
+              "name": "DisplayName"
+            },
+            {
+              "value": "must_match",
+              "name": "MustMatch"
+            },
+            {
+              "value": "must_not_match",
+              "name": "MustNotMatch"
+            },
+            {
+              "value": "custom_pattern_version_mismatch",
+              "name": "CustomPatternVersionMismatch"
+            },
+            {
+              "value": "db_size",
+              "name": "DbSize"
+            },
+            {
+              "value": "db_size_calculation",
+              "name": "DbSizeCalculation"
             }
           ]
         }
@@ -341493,6 +342204,29 @@
           ]
         }
       },
+      "SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction": {
+        "enum": [
+          "delete_alerts",
+          "resolve_alerts"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What to do with alerts associated with the deleted patterns.\n\u0060delete_alerts\u0060 permanently removes the alerts.\n\u0060resolve_alerts\u0060 resolves the alerts as \u0022pattern deleted\u0022.\nDefaults to \u0060delete_alerts\u0060 when not specified.",
+        "x-ms-enum": {
+          "name": "SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "delete_alerts",
+              "name": "DeleteAlerts"
+            },
+            {
+              "value": "resolve_alerts",
+              "name": "ResolveAlerts"
+            }
+          ]
+        }
+      },
       "OrgsSetImmutableReleasesSettingsRequestEnforcedRepositories": {
         "enum": [
           "all",
@@ -343064,6 +343798,29 @@
             {
               "value": "inactive",
               "name": "Inactive"
+            }
+          ]
+        }
+      },
+      "SecretScanningBulkDeleteRepoCustomPatternsRequestPostDeleteAction": {
+        "enum": [
+          "delete_alerts",
+          "resolve_alerts"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What to do with alerts associated with the deleted patterns.\n\u0060delete_alerts\u0060 permanently removes the alerts.\n\u0060resolve_alerts\u0060 resolves the alerts as \u0022pattern deleted\u0022.\nDefaults to \u0060delete_alerts\u0060 when not specified.",
+        "x-ms-enum": {
+          "name": "SecretScanningBulkDeleteRepoCustomPatternsRequestPostDeleteAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "delete_alerts",
+              "name": "DeleteAlerts"
+            },
+            {
+              "value": "resolve_alerts",
+              "name": "ResolveAlerts"
             }
           ]
         }
@@ -346553,6 +347310,77 @@
           ]
         }
       },
+      "SecretScanningCustomPatternStateEnum": {
+        "enum": [
+          "published",
+          "unpublished"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SecretScanningCustomPatternStateEnum",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "published",
+              "name": "Published"
+            },
+            {
+              "value": "unpublished",
+              "name": "Unpublished"
+            }
+          ]
+        }
+      },
+      "SecretScanningCustomPatternPushProtection": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SecretScanningCustomPatternPushProtection",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "SecretScanningCustomPatternSort": {
+        "enum": [
+          "created",
+          "updated",
+          "name"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SecretScanningCustomPatternSort",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "created",
+              "name": "Created"
+            },
+            {
+              "value": "updated",
+              "name": "Updated"
+            },
+            {
+              "value": "name",
+              "name": "Name"
+            }
+          ]
+        }
+      },
       "TeamTypeEnum": {
         "enum": [
           "all",
@@ -349750,6 +350578,16 @@
       "package_es_list_error": {
         "description": "The value of \u0060per_page\u0060 multiplied by \u0060page\u0060 cannot be greater than 10000."
       },
+      "precondition_failed": {
+        "description": "Precondition Failed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
       "enterprise_team_unsupported": {
         "description": "Unprocessable entity if you attempt to modify an enterprise team at the organization level."
       },
@@ -351222,6 +352060,30 @@
         "description": "Filters alerts to only those whose attached \u0060owner_email\u0060 metadata field matches the\nprovided value. The value must be the lowercase hex-encoded SHA-256 hash of the email\naddress to match (for example, the SHA-256 of \u0060user@example.com\u0060). Only alerts that\nhave an \u0060owner_email\u0060 metadata value whose SHA-256 hash equals this parameter are\nreturned.",
         "schema": {
           "type": "string"
+        }
+      },
+      "secret-scanning-custom-pattern-state": {
+        "name": "state",
+        "in": "query",
+        "description": "Filter custom patterns by state. When absent, returns patterns in all states.",
+        "schema": {
+          "$ref": "#/components/schemas/SecretScanningCustomPatternStateEnum"
+        }
+      },
+      "secret-scanning-custom-pattern-push-protection": {
+        "name": "push_protection",
+        "in": "query",
+        "description": "Filter custom patterns by whether push protection is enabled. When absent, returns patterns regardless of push protection status.",
+        "schema": {
+          "$ref": "#/components/schemas/SecretScanningCustomPatternPushProtection"
+        }
+      },
+      "secret-scanning-custom-pattern-sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "The property to sort the results by.",
+        "schema": {
+          "$ref": "#/components/schemas/SecretScanningCustomPatternSort"
         }
       },
       "network-configuration-id": {
@@ -364391,6 +365253,147 @@
             }
           }
         ]
+      },
+      "secret-scanning-custom-pattern-list": {
+        "value": [
+          {
+            "id": 1,
+            "name": "Example Custom Pattern",
+            "pattern": "[a-z]\u002B_token_[0-9]\u002B",
+            "slug": "example-custom-pattern",
+            "state": "published",
+            "push_protection_enabled": true,
+            "start_delimiter": null,
+            "end_delimiter": null,
+            "must_match": null,
+            "must_not_match": null,
+            "created_at": "2024-01-15T10:30:00Z",
+            "updated_at": "2024-01-15T10:30:00Z"
+          },
+          {
+            "id": 2,
+            "name": "Another Custom Pattern",
+            "pattern": "prefix_[a-zA-Z0-9]{32}",
+            "slug": "another-custom-pattern",
+            "state": "published",
+            "push_protection_enabled": false,
+            "start_delimiter": "\\b",
+            "end_delimiter": "\\b",
+            "must_match": [
+              "^prefix_prod"
+            ],
+            "must_not_match": [
+              "test"
+            ],
+            "created_at": "2024-01-16T14:20:00Z",
+            "updated_at": "2024-01-17T09:15:00Z"
+          }
+        ]
+      },
+      "secret-scanning-custom-pattern-bulk-create-request": {
+        "value": {
+          "patterns": [
+            {
+              "name": "Example Custom Pattern",
+              "pattern": "[a-z]\u002B_token_[0-9]\u002B"
+            },
+            {
+              "name": "Another Custom Pattern",
+              "pattern": "prefix_[a-zA-Z0-9]{32}",
+              "start_delimiter": "\\b",
+              "end_delimiter": "\\b",
+              "must_match": [
+                "^prefix_prod"
+              ],
+              "must_not_match": [
+                "test"
+              ]
+            }
+          ]
+        }
+      },
+      "secret-scanning-custom-pattern-bulk-create-response": {
+        "value": {
+          "created_patterns": [
+            {
+              "id": 1,
+              "name": "Example Custom Pattern",
+              "pattern": "[a-z]\u002B_token_[0-9]\u002B",
+              "slug": "example-custom-pattern",
+              "state": "unpublished",
+              "push_protection_enabled": false,
+              "start_delimiter": null,
+              "end_delimiter": null,
+              "must_match": null,
+              "must_not_match": null,
+              "created_at": "2024-01-15T10:30:00Z",
+              "updated_at": "2024-01-15T10:30:00Z"
+            },
+            {
+              "id": 2,
+              "name": "Another Custom Pattern",
+              "pattern": "prefix_[a-zA-Z0-9]{32}",
+              "slug": "another-custom-pattern",
+              "state": "unpublished",
+              "push_protection_enabled": false,
+              "start_delimiter": "\\b",
+              "end_delimiter": "\\b",
+              "must_match": [
+                "^prefix_prod"
+              ],
+              "must_not_match": [
+                "test"
+              ],
+              "created_at": "2024-01-15T10:30:00Z",
+              "updated_at": "2024-01-15T10:30:00Z"
+            }
+          ]
+        }
+      },
+      "secret-scanning-custom-pattern-bulk-delete-request": {
+        "value": {
+          "patterns": [
+            {
+              "pattern_id": 2,
+              "custom_pattern_version": "0ujsswThIGTUYm2K8FjOOfXtY1K"
+            }
+          ]
+        }
+      },
+      "secret-scanning-custom-pattern-update-request": {
+        "value": {
+          "pattern": "updated_secret_[0-9A-Z]{16}",
+          "start_delimiter": "[^0-9A-Za-z]",
+          "end_delimiter": "[^0-9A-Za-z]",
+          "must_match": [
+            "updated_secret_[0-9]{2}*"
+          ],
+          "must_not_match": [
+            "updated_secret_1234567890ABCDEF"
+          ],
+          "custom_pattern_version": "0ujsswThIGTUYm2K8FjOOfXtY1K"
+        }
+      },
+      "secret-scanning-custom-pattern": {
+        "value": {
+          "id": 1,
+          "name": "Example Custom Pattern",
+          "pattern": "updated_secret_[0-9A-Z]{16}",
+          "slug": "example_custom_pattern",
+          "state": "published",
+          "push_protection_enabled": true,
+          "start_delimiter": "[^0-9A-Za-z]",
+          "end_delimiter": "[^0-9A-Za-z]",
+          "must_match": [
+            "updated_secret_[0-9]{2}*"
+          ],
+          "must_not_match": [
+            "updated_secret_1234567890ABCDEF"
+          ],
+          "custom_pattern_version": "0ujsswThIGTUYm2K8FjOOfXtY1K",
+          "created_at": "2024-01-15T10:30:00Z",
+          "updated_at": "2024-06-01T12:00:00Z"
+        }
       },
       "secret-scanning-pattern-configuration": {
         "value": {

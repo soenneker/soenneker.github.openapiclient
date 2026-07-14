@@ -3,17 +3,18 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>Whether it&apos;s a group assignment or individual assignment.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ClassroomAssignmentType
+    #pragma warning disable CS1591
+    public enum SecretScanningCustomPatternPushProtection
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "individual")]
+        [EnumMember(Value = "enabled")]
         #pragma warning disable CS1591
-        Individual,
+        Enabled,
         #pragma warning restore CS1591
-        [EnumMember(Value = "group")]
+        [EnumMember(Value = "disabled")]
         #pragma warning disable CS1591
-        Group,
+        Disabled,
         #pragma warning restore CS1591
     }
 }

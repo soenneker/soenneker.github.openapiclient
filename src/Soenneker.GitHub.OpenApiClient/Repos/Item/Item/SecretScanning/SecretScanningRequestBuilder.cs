@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.CustomPatterns;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.PushProtectionBypasses;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.ScanHistory;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.AlertsRequestBuilder Alerts
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.Alerts.AlertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The customPatterns property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.CustomPatterns.CustomPatternsRequestBuilder CustomPatterns
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.CustomPatterns.CustomPatternsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pushProtectionBypasses property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning.PushProtectionBypasses.PushProtectionBypassesRequestBuilder PushProtectionBypasses

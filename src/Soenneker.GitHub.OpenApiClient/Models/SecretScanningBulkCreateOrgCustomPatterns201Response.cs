@@ -7,56 +7,37 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// A GitHub user simplified for Classroom.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SimpleClassroomUser : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class SecretScanningBulkCreateOrgCustomPatterns201Response : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The avatar_url property</summary>
+        /// <summary>The list of successfully created custom patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AvatarUrl { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPattern>? CreatedPatterns { get; set; }
 #nullable restore
 #else
-        public string AvatarUrl { get; set; }
-#endif
-        /// <summary>The html_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? HtmlUrl { get; set; }
-#nullable restore
-#else
-        public string HtmlUrl { get; set; }
-#endif
-        /// <summary>The id property</summary>
-        public long? Id { get; set; }
-        /// <summary>The login property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Login { get; set; }
-#nullable restore
-#else
-        public string Login { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPattern> CreatedPatterns { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkCreateOrgCustomPatterns201Response"/> and sets the default values.
         /// </summary>
-        public SimpleClassroomUser()
+        public SecretScanningBulkCreateOrgCustomPatterns201Response()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkCreateOrgCustomPatterns201Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkCreateOrgCustomPatterns201Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.SimpleClassroomUser();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkCreateOrgCustomPatterns201Response();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,10 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "avatar_url", n => { AvatarUrl = n.GetStringValue(); } },
-                { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
-                { "login", n => { Login = n.GetStringValue(); } },
+                { "created_patterns", n => { CreatedPatterns = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPattern>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPattern.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -79,10 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("avatar_url", AvatarUrl);
-            writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteLongValue("id", Id);
-            writer.WriteStringValue("login", Login);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPattern>("created_patterns", CreatedPatterns);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
