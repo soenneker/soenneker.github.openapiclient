@@ -62625,6 +62625,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/Team"
@@ -62640,7 +62641,6 @@
           }
         },
         "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable.",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -62713,7 +62713,7 @@
             "format": "int64"
           },
           "parent": {
-            "nullable": true
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
           }
         }
       },
@@ -71336,6 +71336,7 @@
         "description": "The campaign metadata and alert stats."
       },
       "IssueFieldValueValue": {
+        "type": "object",
         "anyOf": [
           {
             "type": "string",
@@ -71350,8 +71351,7 @@
             "example": 1
           }
         ],
-        "description": "The value of the issue field",
-        "nullable": true
+        "description": "The value of the issue field"
       },
       "CodeScanningAnalysisToolGuid": {
         "type": "string",
@@ -71600,6 +71600,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/SimpleUser"
@@ -71614,7 +71615,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -78307,6 +78307,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SecretScanningLocationCommit"
@@ -78355,7 +78356,6 @@
           }
         },
         "description": "Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.\n",
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -94932,7 +94932,7 @@
         "type": "object",
         "properties": {
           "conclusion": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhooksWorkflowJobRunConclusion"
           },
           "created_at": {
             "type": "string"
@@ -94948,7 +94948,7 @@
             "format": "int64"
           },
           "name": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhooksWorkflowJobRunName"
           },
           "status": {
             "type": "string"
@@ -95094,7 +95094,7 @@
             "type": "string"
           },
           "parent_id": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhooksAnswerParentId"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhooksAnswerReactions"
@@ -95889,7 +95889,7 @@
             "type": "string"
           },
           "free_trial_ends_on": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhooksPreviousMarketplacePurchaseFreeTrialEndsOn"
           },
           "next_billing_date": {
             "type": "string",
@@ -101121,7 +101121,7 @@
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
           "requester": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookInstallationDeletedRequester"
           },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -101160,7 +101160,7 @@
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
           "requester": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookInstallationNewPermissionsAcceptedRequester"
           },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -101305,7 +101305,7 @@
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
           "requester": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookInstallationSuspendRequester"
           },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -101383,7 +101383,7 @@
             "$ref": "#/components/schemas/RepositoryWebhooks"
           },
           "requester": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookInstallationUnsuspendRequester"
           },
           "sender": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -108273,8 +108273,7 @@
             "$ref": "#/components/schemas/SimpleUser"
           },
           "starred_at": {
-            "description": "\u0022The time the star was created. This is a timestamp in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060. Will be \u0060null\u0060 for the \u0060deleted\u0060 action.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookStarDeletedStarredAt"
           }
         }
       },
@@ -109523,6 +109522,7 @@
         ]
       },
       "CustomPropertyDefaultValue": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -109534,10 +109534,10 @@
             }
           }
         ],
-        "description": "Default value of the property",
-        "nullable": true
+        "description": "Default value of the property"
       },
       "CustomPropertySetPayloadDefaultValue": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -109549,10 +109549,10 @@
             }
           }
         ],
-        "description": "Default value of the property",
-        "nullable": true
+        "description": "Default value of the property"
       },
       "CustomPropertyValueValue": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -109564,13 +109564,13 @@
             }
           }
         ],
-        "description": "The value assigned to the property",
-        "nullable": true
+        "description": "The value assigned to the property"
       },
       "RepositoryRulesetConditionsComposed": {
         "required": [
           "type"
         ],
+        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/RepositoryRulesetConditions"
@@ -109585,7 +109585,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -110208,6 +110207,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SimpleUser"
@@ -110223,7 +110223,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -110236,6 +110235,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SimpleUser"
@@ -110251,7 +110251,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -110261,6 +110260,7 @@
         }
       },
       "MetadataAdditionalProperties": {
+        "type": "object",
         "anyOf": [
           {
             "type": "string"
@@ -110271,8 +110271,7 @@
           {
             "type": "boolean"
           }
-        ],
-        "nullable": true
+        ]
       },
       "EnvironmentProtectionRulesItem": {
         "required": [
@@ -110523,6 +110522,7 @@
         ]
       },
       "WebhooksPullRequest5BaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -110531,8 +110531,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhooksPullRequest5HeadRepoCreatedAt": {
         "type": "object",
@@ -110547,6 +110546,7 @@
         ]
       },
       "WebhooksPullRequest5HeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -110555,8 +110555,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhooksPullRequest5RequestedReviewersItem": {
         "required": [
@@ -110615,6 +110614,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayloadBranch1"
@@ -110629,7 +110629,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -112005,6 +112004,7 @@
         "description": "The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself."
       },
       "WebhookIssuesFieldAddedIssueFieldValueValue": {
+        "type": "object",
         "anyOf": [
           {
             "type": "string"
@@ -112016,10 +112016,10 @@
             "type": "integer"
           }
         ],
-        "description": "The value of the field. Present for text, date, and number field types.",
-        "nullable": true
+        "description": "The value of the field. Present for text, date, and number field types."
       },
       "WebhookIssuesFieldAddedChangesIssueFieldValueFromValue": {
+        "type": "object",
         "anyOf": [
           {
             "type": "string"
@@ -112031,10 +112031,10 @@
             "type": "integer"
           }
         ],
-        "description": "The previous value. Present for text, date, and number field types.",
-        "nullable": true
+        "description": "The previous value. Present for text, date, and number field types."
       },
       "WebhookIssuesFieldRemovedIssueFieldValueValue": {
+        "type": "object",
         "anyOf": [
           {
             "type": "string"
@@ -112046,8 +112046,7 @@
             "type": "integer"
           }
         ],
-        "description": "The value of the field. Present for text, date, and number field types.",
-        "nullable": true
+        "description": "The value of the field. Present for text, date, and number field types."
       },
       "WebhookIssuesOpenedChangesOldRepositoryCreatedAt": {
         "type": "object",
@@ -112062,6 +112061,7 @@
         ]
       },
       "WebhookIssuesOpenedChangesOldRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112070,8 +112070,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookIssuesTransferredChangesNewRepositoryCreatedAt": {
         "type": "object",
@@ -112086,6 +112085,7 @@
         ]
       },
       "WebhookIssuesTransferredChangesNewRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112094,8 +112094,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPackagePublishedPackagePackageVersionBody": {
         "required": [
@@ -112280,6 +112279,7 @@
         ]
       },
       "WebhookPullRequestAssignedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112288,8 +112288,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestAssignedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112304,6 +112303,7 @@
         ]
       },
       "WebhookPullRequestAssignedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112312,8 +112312,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestAssignedPullRequestRequestedReviewersItem": {
         "required": [
@@ -112355,6 +112354,7 @@
         ]
       },
       "WebhookPullRequestAutoMergeDisabledPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112363,8 +112363,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestAutoMergeDisabledPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112379,6 +112378,7 @@
         ]
       },
       "WebhookPullRequestAutoMergeDisabledPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112387,8 +112387,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestAutoMergeDisabledPullRequestRequestedReviewersItem": {
         "required": [
@@ -112430,6 +112429,7 @@
         ]
       },
       "WebhookPullRequestAutoMergeEnabledPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112438,8 +112438,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestAutoMergeEnabledPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112454,6 +112453,7 @@
         ]
       },
       "WebhookPullRequestAutoMergeEnabledPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112462,8 +112462,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestAutoMergeEnabledPullRequestRequestedReviewersItem": {
         "required": [
@@ -112505,6 +112504,7 @@
         ]
       },
       "WebhookPullRequestDequeuedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112513,8 +112513,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestDequeuedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112529,6 +112528,7 @@
         ]
       },
       "WebhookPullRequestDequeuedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112537,8 +112537,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestDequeuedPullRequestRequestedReviewersItem": {
         "required": [
@@ -112580,6 +112579,7 @@
         ]
       },
       "WebhookPullRequestEnqueuedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112588,8 +112588,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestEnqueuedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112604,6 +112603,7 @@
         ]
       },
       "WebhookPullRequestEnqueuedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112612,8 +112612,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestEnqueuedPullRequestRequestedReviewersItem": {
         "required": [
@@ -112655,6 +112654,7 @@
         ]
       },
       "WebhookPullRequestLabeledPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112663,8 +112663,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestLabeledPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112679,6 +112678,7 @@
         ]
       },
       "WebhookPullRequestLabeledPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112687,8 +112687,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestLabeledPullRequestRequestedReviewersItem": {
         "required": [
@@ -112730,6 +112729,7 @@
         ]
       },
       "WebhookPullRequestLockedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112738,8 +112738,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestLockedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112754,6 +112753,7 @@
         ]
       },
       "WebhookPullRequestLockedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112762,8 +112762,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestLockedPullRequestRequestedReviewersItem": {
         "required": [
@@ -112805,6 +112804,7 @@
         ]
       },
       "WebhookPullRequestReviewCommentCreatedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112813,8 +112813,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewCommentCreatedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112829,6 +112828,7 @@
         ]
       },
       "WebhookPullRequestReviewCommentCreatedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112837,8 +112837,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewCommentCreatedPullRequestRequestedReviewersItem": {
         "required": [
@@ -112880,6 +112879,7 @@
         ]
       },
       "WebhookPullRequestReviewCommentDeletedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112888,8 +112888,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewCommentDeletedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112904,6 +112903,7 @@
         ]
       },
       "WebhookPullRequestReviewCommentDeletedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112912,8 +112912,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewCommentDeletedPullRequestRequestedReviewersItem": {
         "required": [
@@ -112955,6 +112954,7 @@
         ]
       },
       "WebhookPullRequestReviewCommentEditedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112963,8 +112963,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewCommentEditedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -112979,6 +112978,7 @@
         ]
       },
       "WebhookPullRequestReviewCommentEditedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -112987,8 +112987,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewCommentEditedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113030,6 +113029,7 @@
         ]
       },
       "WebhookPullRequestReviewDismissedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113038,8 +113038,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewDismissedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113054,6 +113053,7 @@
         ]
       },
       "WebhookPullRequestReviewDismissedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113062,8 +113062,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewDismissedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113105,6 +113104,7 @@
         ]
       },
       "WebhookPullRequestReviewEditedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113113,8 +113113,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewEditedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113129,6 +113128,7 @@
         ]
       },
       "WebhookPullRequestReviewEditedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113137,8 +113137,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewEditedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113344,6 +113343,7 @@
         ]
       },
       "WebhookPullRequestReviewSubmittedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113352,8 +113352,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewSubmittedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113368,6 +113367,7 @@
         ]
       },
       "WebhookPullRequestReviewSubmittedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113376,8 +113376,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewSubmittedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113419,6 +113418,7 @@
         ]
       },
       "WebhookPullRequestReviewThreadResolvedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113427,8 +113427,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewThreadResolvedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113443,6 +113442,7 @@
         ]
       },
       "WebhookPullRequestReviewThreadResolvedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113451,8 +113451,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewThreadResolvedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113494,6 +113493,7 @@
         ]
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113502,8 +113502,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113518,6 +113517,7 @@
         ]
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113526,8 +113526,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewThreadUnresolvedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113569,6 +113568,7 @@
         ]
       },
       "WebhookPullRequestStackedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113577,8 +113577,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestStackedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113593,6 +113592,7 @@
         ]
       },
       "WebhookPullRequestStackedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113601,8 +113601,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestStackedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113644,6 +113643,7 @@
         ]
       },
       "WebhookPullRequestSynchronizePullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113652,8 +113652,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestSynchronizePullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113668,6 +113667,7 @@
         ]
       },
       "WebhookPullRequestSynchronizePullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113676,8 +113676,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestSynchronizePullRequestRequestedReviewersItem": {
         "required": [
@@ -113719,6 +113718,7 @@
         ]
       },
       "WebhookPullRequestUnassignedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113727,8 +113727,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestUnassignedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113743,6 +113742,7 @@
         ]
       },
       "WebhookPullRequestUnassignedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113751,8 +113751,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestUnassignedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113794,6 +113793,7 @@
         ]
       },
       "WebhookPullRequestUnlabeledPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113802,8 +113802,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestUnlabeledPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113818,6 +113817,7 @@
         ]
       },
       "WebhookPullRequestUnlabeledPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113826,8 +113826,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestUnlabeledPullRequestRequestedReviewersItem": {
         "required": [
@@ -113869,6 +113868,7 @@
         ]
       },
       "WebhookPullRequestUnlockedPullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113877,8 +113877,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestUnlockedPullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -113893,6 +113892,7 @@
         ]
       },
       "WebhookPullRequestUnlockedPullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113901,8 +113901,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestUnlockedPullRequestRequestedReviewersItem": {
         "required": [
@@ -113944,6 +113943,7 @@
         ]
       },
       "WebhookPushRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -113952,8 +113952,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionBody": {
         "required": [
@@ -113985,6 +113984,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthorBranch1"
@@ -113999,7 +113999,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -114011,6 +114010,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugsBranch1"
@@ -114025,7 +114025,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -114037,6 +114036,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDistBranch1"
@@ -114051,7 +114051,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -114063,6 +114062,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepositoryBranch1"
@@ -114077,7 +114077,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -114089,6 +114088,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectoriesBranch1"
@@ -114103,7 +114103,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -114115,6 +114114,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch1"
@@ -114132,7 +114132,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -114241,6 +114240,7 @@
         ]
       },
       "WebhookTeamAddedToRepositoryRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -114249,8 +114249,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookTeamCreatedRepositoryCreatedAt": {
         "type": "object",
@@ -114265,6 +114264,7 @@
         ]
       },
       "WebhookTeamCreatedRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -114273,8 +114273,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookTeamDeletedRepositoryCreatedAt": {
         "type": "object",
@@ -114289,6 +114288,7 @@
         ]
       },
       "WebhookTeamDeletedRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -114297,8 +114297,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookTeamEditedRepositoryCreatedAt": {
         "type": "object",
@@ -114313,6 +114312,7 @@
         ]
       },
       "WebhookTeamEditedRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -114321,8 +114321,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookTeamRemovedFromRepositoryRepositoryCreatedAt": {
         "type": "object",
@@ -114337,6 +114336,7 @@
         ]
       },
       "WebhookTeamRemovedFromRepositoryRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -114345,8 +114345,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookWorkflowJobCompletedWorkflowJob": {
         "required": [
@@ -115613,7 +115612,7 @@
             "type": "string"
           },
           "language": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookForkForkeeAllOf2Language"
           },
           "languages_url": {
             "type": "string"
@@ -115628,7 +115627,7 @@
             "type": "string"
           },
           "mirror_url": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookForkForkeeAllOf2MirrorUrl"
           },
           "name": {
             "type": "string"
@@ -115696,7 +115695,7 @@
           "topics": {
             "type": "array",
             "items": {
-              "nullable": true
+              "$ref": "#/components/schemas/WebhookForkForkeeAllOf2TopicsItem"
             }
           },
           "trees_url": {
@@ -119316,6 +119315,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119324,8 +119324,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -119340,6 +119339,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119348,8 +119348,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestRequestedReviewersItem": {
         "required": [
@@ -119391,6 +119390,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf2PullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119399,8 +119399,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf2PullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -119415,6 +119414,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf2PullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119423,8 +119423,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestRemovedOneOf2PullRequestRequestedReviewersItem": {
         "required": [
@@ -119466,6 +119465,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestedOneOf1PullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119474,8 +119474,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestedOneOf1PullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -119490,6 +119489,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestedOneOf1PullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119498,8 +119498,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestedOneOf1PullRequestRequestedReviewersItem": {
         "required": [
@@ -119541,6 +119540,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestedOneOf2PullRequestBaseRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119549,8 +119549,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestedOneOf2PullRequestHeadRepoCreatedAt": {
         "type": "object",
@@ -119565,6 +119564,7 @@
         ]
       },
       "WebhookPullRequestReviewRequestedOneOf2PullRequestHeadRepoPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -119573,8 +119573,7 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookPullRequestReviewRequestedOneOf2PullRequestRequestedReviewersItem": {
         "required": [
@@ -121475,6 +121474,7 @@
         ]
       },
       "WebhookForkForkeeRepositoryPushedAt": {
+        "type": "object",
         "oneOf": [
           {
             "type": "integer"
@@ -121483,13 +121483,13 @@
             "type": "string",
             "format": "date-time"
           }
-        ],
-        "nullable": true
+        ]
       },
       "WebhookProjectsV2ItemEditedChangesOneOf1FieldValueFrom": {
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookProjectsV2ItemEditedChangesOneOf1FieldValueFromBranch1"
@@ -121510,7 +121510,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -121525,6 +121524,7 @@
         "required": [
           "type"
         ],
+        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/WebhookProjectsV2ItemEditedChangesOneOf1FieldValueToBranch1"
@@ -121545,7 +121545,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -134438,8 +134437,7 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertAppearedInBranchAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertAppearedInBranchAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -134510,8 +134508,7 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertClosedByUserAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertClosedByUserAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -134566,22 +134563,19 @@
             "nullable": true
           },
           "dismissed_at": {
-            "description": "\u0022The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertCreatedAlertDismissedAt"
           },
           "dismissed_by": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertCreatedAlertDismissedBy"
           },
           "dismissed_comment": {
             "$ref": "#/components/schemas/CodeScanningAlertDismissedComment"
           },
           "dismissed_reason": {
-            "description": "\u0022The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, and \u0060used in tests\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertCreatedAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertCreatedAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -134616,7 +134610,7 @@
             "format": "uri"
           },
           "dismissal_approved_by": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertCreatedAlertDismissalApprovedBy"
           },
           "assignees": {
             "type": "array",
@@ -134669,8 +134663,7 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertFixedAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertFixedAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -134747,8 +134740,7 @@
             "nullable": true
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -134783,7 +134775,7 @@
             "format": "uri"
           },
           "dismissal_approved_by": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedAlertDismissalApprovedBy"
           }
         },
         "description": "The code scanning alert involved in the event."
@@ -134815,22 +134807,19 @@
             "format": "date-time"
           },
           "dismissed_at": {
-            "description": "\u0022The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedByUserAlertDismissedAt"
           },
           "dismissed_by": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedByUserAlertDismissedBy"
           },
           "dismissed_comment": {
             "$ref": "#/components/schemas/CodeScanningAlertDismissedComment"
           },
           "dismissed_reason": {
-            "description": "\u0022The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, and \u0060used in tests\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedByUserAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedByUserAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -134902,8 +134891,7 @@
             "$ref": "#/components/schemas/WebhookCodeScanningAlertUpdatedAssignmentAlertDismissedReason"
           },
           "fixed_at": {
-            "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022",
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertUpdatedAssignmentAlertFixedAt"
           },
           "html_url": {
             "type": "string",
@@ -135168,7 +135156,7 @@
             "type": "string"
           },
           "head_commit": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentCreatedWorkflowRunHeadCommit"
           },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentCreatedWorkflowRunHeadRepository"
@@ -135200,7 +135188,7 @@
             "type": "string"
           },
           "previous_attempt_url": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentCreatedWorkflowRunPreviousAttemptUrl"
           },
           "pull_requests": {
             "type": "array",
@@ -135259,7 +135247,7 @@
         "type": "object",
         "properties": {
           "conclusion": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentReviewApprovedWorkflowJobRunsItemConclusion"
           },
           "created_at": {
             "type": "string"
@@ -135649,7 +135637,7 @@
         "type": "object",
         "properties": {
           "conclusion": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentReviewRequestedWorkflowJobRunConclusion"
           },
           "created_at": {
             "type": "string"
@@ -136117,7 +136105,7 @@
             "type": "string"
           },
           "head_commit": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedWorkflowRunHeadCommit"
           },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedWorkflowRunHeadRepository"
@@ -136149,7 +136137,7 @@
             "type": "string"
           },
           "previous_attempt_url": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedWorkflowRunPreviousAttemptUrl"
           },
           "pull_requests": {
             "type": "array",
@@ -136364,7 +136352,7 @@
             "type": "string"
           },
           "description": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookInstallationTargetRenamedAccountDescription"
           },
           "events_url": {
             "type": "string"
@@ -136461,7 +136449,7 @@
             "type": "string"
           },
           "website_url": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookInstallationTargetRenamedAccountWebsiteUrl"
           },
           "user_view_type": {
             "type": "string"
@@ -138292,7 +138280,7 @@
             "type": "string"
           },
           "free_trial_ends_on": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookMarketplacePurchasePendingChangeCancelledMarketplacePurchaseFreeTrialEndsOn"
           },
           "next_billing_date": {
             "type": "string",
@@ -144168,7 +144156,7 @@
             "type": "string"
           },
           "description": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookRegistryPackageUpdatedRegistryPackageDescription"
           },
           "ecosystem": {
             "type": "string"
@@ -162032,7 +162020,7 @@
             "type": "string"
           },
           "description": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentCreatedWorkflowRunHeadRepositoryDescription"
           },
           "downloads_url": {
             "type": "string"
@@ -162224,7 +162212,7 @@
             "type": "string"
           },
           "description": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentCreatedWorkflowRunRepositoryDescription"
           },
           "downloads_url": {
             "type": "string"
@@ -164536,7 +164524,7 @@
             "type": "string"
           },
           "description": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedWorkflowRunHeadRepositoryDescription"
           },
           "downloads_url": {
             "type": "string"
@@ -164728,7 +164716,7 @@
             "type": "string"
           },
           "description": {
-            "nullable": true
+            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedWorkflowRunRepositoryDescription"
           },
           "downloads_url": {
             "type": "string"
@@ -264798,6 +264786,7 @@
         "additionalProperties": false
       },
       "ProjectsUpdateItemForOrgRequestFieldsItemValue": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -264806,8 +264795,7 @@
             "type": "number"
           }
         ],
-        "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
-        "nullable": true
+        "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
       },
       "ReposAddStatusCheckContextsRequestOneOf1": {
         "required": [
@@ -264992,6 +264980,7 @@
         "description": "The title of the issue."
       },
       "IssuesCreateRequestMilestone": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -265000,8 +264989,7 @@
             "type": "integer",
             "description": "\u0022The \u0060number\u0060 of the milestone to associate this issue with. _NOTE: Only users with push access can set the milestone for new issues. The milestone is silently dropped otherwise._\u0022"
           }
-        ],
-        "nullable": true
+        ]
       },
       "IssuesCreateRequestLabelsItem": {
         "type": "object",
@@ -265033,6 +265021,7 @@
         "description": "The value to set for the field. For multi-select fields, provide an array of option names."
       },
       "IssuesUpdateRequestTitle": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -265041,10 +265030,10 @@
             "type": "integer"
           }
         ],
-        "description": "The title of the issue.",
-        "nullable": true
+        "description": "The title of the issue."
       },
       "IssuesUpdateRequestMilestone": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -265053,8 +265042,7 @@
             "type": "integer",
             "description": "The \u0060number\u0060 of the milestone to associate this issue with or use \u0060null\u0060 to remove the current milestone. Only users with push access can set the milestone for issues. Without push access to the repository, milestone changes are silently dropped."
           }
-        ],
-        "nullable": true
+        ]
       },
       "IssuesUpdateRequestLabelsItem": {
         "type": "object",
@@ -265429,6 +265417,7 @@
         "additionalProperties": false
       },
       "ProjectsUpdateItemForUserRequestFieldsItemValue": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -265437,8 +265426,7 @@
             "type": "number"
           }
         ],
-        "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null.",
-        "nullable": true
+        "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
       },
       "AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1": {
         "type": "object",
@@ -265590,6 +265578,9 @@
         },
         "description": "Update the source for the repository. Must include the branch name and path."
       },
+      "CopilotSpaceCollaboratorAnyOf2Parent": {
+        "type": "object"
+      },
       "BaseGistFilesProperty": {
         "type": "object",
         "additionalProperties": {
@@ -265679,9 +265670,33 @@
         "type": "object",
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
       },
+      "WebhooksWorkflowJobRunConclusion": {
+        "type": "object"
+      },
+      "WebhooksWorkflowJobRunName": {
+        "type": "object"
+      },
+      "WebhooksAnswerParentId": {
+        "type": "object"
+      },
+      "WebhooksPreviousMarketplacePurchaseFreeTrialEndsOn": {
+        "type": "object"
+      },
       "NullableRepositoryWebhooksCustomPropertiesProperty": {
         "type": "object",
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
+      },
+      "WebhookInstallationDeletedRequester": {
+        "type": "object"
+      },
+      "WebhookInstallationNewPermissionsAcceptedRequester": {
+        "type": "object"
+      },
+      "WebhookInstallationSuspendRequester": {
+        "type": "object"
+      },
+      "WebhookInstallationUnsuspendRequester": {
+        "type": "object"
       },
       "WebhookRubygemsMetadataMetadataProperty": {
         "type": "object",
@@ -265695,9 +265710,22 @@
           "type": "string"
         }
       },
+      "WebhookStarDeletedStarredAt": {
+        "type": "object",
+        "description": "\u0022The time the star was created. This is a timestamp in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060. Will be \u0060null\u0060 for the \u0060deleted\u0060 action.\u0022"
+      },
       "RulesetVersionWithStateAllOf2StateProperty": {
         "type": "object",
         "description": "The state of the ruleset version"
+      },
+      "WebhookForkForkeeAllOf2Language": {
+        "type": "object"
+      },
+      "WebhookForkForkeeAllOf2MirrorUrl": {
+        "type": "object"
+      },
+      "WebhookForkForkeeAllOf2TopicsItem": {
+        "type": "object"
       },
       "GistSimpleForkOfFilesProperty": {
         "type": "object",
@@ -265804,9 +265832,95 @@
           "type": "string"
         }
       },
+      "WebhookCodeScanningAlertAppearedInBranchAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertClosedByUserAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertCreatedAlertDismissedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertCreatedAlertDismissedBy": {
+        "type": "object"
+      },
+      "WebhookCodeScanningAlertCreatedAlertDismissedReason": {
+        "type": "object",
+        "description": "\u0022The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, and \u0060used in tests\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertCreatedAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertCreatedAlertDismissalApprovedBy": {
+        "type": "object"
+      },
+      "WebhookCodeScanningAlertFixedAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertReopenedAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertReopenedAlertDismissalApprovedBy": {
+        "type": "object"
+      },
+      "WebhookCodeScanningAlertReopenedByUserAlertDismissedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was dismissed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertReopenedByUserAlertDismissedBy": {
+        "type": "object"
+      },
+      "WebhookCodeScanningAlertReopenedByUserAlertDismissedReason": {
+        "type": "object",
+        "description": "\u0022The reason for dismissing or closing the alert. Can be one of: \u0060false positive\u0060, \u0060won\u0027t fix\u0060, and \u0060used in tests\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertReopenedByUserAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookCodeScanningAlertUpdatedAssignmentAlertFixedAt": {
+        "type": "object",
+        "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
+      },
+      "WebhookDeploymentCreatedWorkflowRunHeadCommit": {
+        "type": "object"
+      },
+      "WebhookDeploymentCreatedWorkflowRunPreviousAttemptUrl": {
+        "type": "object"
+      },
+      "WebhookDeploymentReviewApprovedWorkflowJobRunsItemConclusion": {
+        "type": "object"
+      },
+      "WebhookDeploymentReviewRequestedWorkflowJobRunConclusion": {
+        "type": "object"
+      },
+      "WebhookDeploymentStatusCreatedWorkflowRunHeadCommit": {
+        "type": "object"
+      },
+      "WebhookDeploymentStatusCreatedWorkflowRunPreviousAttemptUrl": {
+        "type": "object"
+      },
+      "WebhookInstallationTargetRenamedAccountDescription": {
+        "type": "object"
+      },
+      "WebhookInstallationTargetRenamedAccountWebsiteUrl": {
+        "type": "object"
+      },
+      "WebhookMarketplacePurchasePendingChangeCancelledMarketplacePurchaseFreeTrialEndsOn": {
+        "type": "object"
+      },
       "WebhookPushRepositoryCustomPropertiesProperty": {
         "type": "object",
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
+      },
+      "WebhookRegistryPackageUpdatedRegistryPackageDescription": {
+        "type": "object"
       },
       "WebhookTeamAddedToRepositoryRepositoryCustomPropertiesProperty": {
         "type": "object",
@@ -265827,6 +265941,18 @@
       "WebhookTeamRemovedFromRepositoryRepositoryCustomPropertiesProperty": {
         "type": "object",
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
+      },
+      "WebhookDeploymentCreatedWorkflowRunHeadRepositoryDescription": {
+        "type": "object"
+      },
+      "WebhookDeploymentCreatedWorkflowRunRepositoryDescription": {
+        "type": "object"
+      },
+      "WebhookDeploymentStatusCreatedWorkflowRunHeadRepositoryDescription": {
+        "type": "object"
+      },
+      "WebhookDeploymentStatusCreatedWorkflowRunRepositoryDescription": {
+        "type": "object"
       },
       "WebhookIssuesOpenedChangesOldRepositoryCustomPropertiesProperty": {
         "type": "object",

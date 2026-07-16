@@ -71,10 +71,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The parent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Parent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Parent? Parent { get; set; }
 #nullable restore
 #else
-        public UntypedNode Parent { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Parent Parent { get; set; }
 #endif
         /// <summary>The privacy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +146,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetLongValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Parent>(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Parent.CreateFromDiscriminatorValue); } },
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Role>(); } },
@@ -171,7 +171,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteStringValue("notification_setting", NotificationSetting);
             writer.WriteLongValue("organization_id", OrganizationId);
-            writer.WriteObjectValue<UntypedNode>("parent", Parent);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Parent>("parent", Parent);
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Role>("role", Role);
