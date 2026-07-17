@@ -543,6 +543,14 @@
                     "prompt": "Fix the login button on the homepage",
                     "base_ref": "main"
                   }
+                },
+                "with-custom-agent": {
+                  "summary": "Task with a custom agent",
+                  "value": {
+                    "prompt": "Fix the login button on the homepage",
+                    "base_ref": "main",
+                    "custom_agent": "my-custom-agent"
+                  }
                 }
               }
             }
@@ -575,6 +583,34 @@
                       },
                       "state": "queued",
                       "session_count": 1,
+                      "artifacts": [],
+                      "archived_at": null,
+                      "created_at": "2025-01-01T00:00:00Z",
+                      "updated_at": "2025-01-01T00:00:00Z"
+                    }
+                  },
+                  "with-custom-agent": {
+                    "summary": "Task created with a custom agent",
+                    "value": {
+                      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "name": "Fix the login button on the homepage",
+                      "creator": {
+                        "id": 1
+                      },
+                      "creator_type": "user",
+                      "owner": {
+                        "id": 1
+                      },
+                      "repository": {
+                        "id": 1296269
+                      },
+                      "state": "queued",
+                      "session_count": 1,
+                      "custom_agent": {
+                        "id": "my-custom-agent"
+                      },
                       "artifacts": [],
                       "archived_at": null,
                       "created_at": "2025-01-01T00:00:00Z",
@@ -3005,6 +3041,57 @@
                 }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/enterprises/{enterprise}/copilot/metrics/reports/repos-1-day": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot enterprise repository report for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot enterprise repository report for a specific day. The report provides per-repository pull request metrics for Copilot across the enterprise, with one entry per repository.\n\nThe report contains repository-level pull request activity for the specified day, including the Copilot Coding Agent (CCA) and Copilot Code Review (CCR) breakdowns. Only repositories that had activity on the specified day are included. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.\n\nEnterprise owners, billing managers, and authorized users with fine-grained \u0022View Enterprise Copilot Metrics\u0022 permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the \u0060manage_billing:copilot\u0060 or \u0060read:enterprise\u0060 scopes to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-enterprise-repository-report-for-a-specific-day"
+        },
+        "operationId": "CopilotCopilotEnterpriseReposOneDayReport",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotUsageMetrics1DayReport"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/components/responses/no_content"
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
@@ -12205,6 +12292,61 @@
               }
             }
           },
+          "207": {
+            "description": "This response format is only returned when \u0060partial_success\u0060 is set to true in the request body.\nSuccessfully processed deployments are included in the \u0060deployment_records\u0060 field. Records that could\nnot be processed and were skipped because of unresolvable repositories, missing actor permissions, or lack of a matching attestation are\nincluded in the \u0060errors\u0060 field.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207Response"
+                },
+                "examples": {
+                  "partial_success": {
+                    "value": {
+                      "total_count": 1,
+                      "deployment_records": [
+                        {
+                          "id": 42,
+                          "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                          "logical_environment": "prod",
+                          "physical_environment": "us-east-1a",
+                          "cluster": "production-cluster",
+                          "deployment_name": "deployment-pod",
+                          "tags": {
+                            "owning-team": "platform"
+                          },
+                          "runtime_risks": [
+                            "sensitive-data"
+                          ],
+                          "created_at": "2024-01-01T12:00:00Z",
+                          "updated_at": "2024-01-01T12:30:00Z",
+                          "attestation_id": 777
+                        }
+                      ],
+                      "errors": [
+                        {
+                          "cause": "unauthorized",
+                          "deployment": {
+                            "name": "my-image",
+                            "digest": "sha256:5aa19f9a13f67a644f6d8528e2eb5cf64431e236df5dbbd44ff9b9e3f6fc6cb2",
+                            "deployment_name": "restricted-deployment",
+                            "version": "2.1.1",
+                            "status": "deployed",
+                            "github_repository": "private-repo",
+                            "tags": {
+                              "owning-team": "platform"
+                            },
+                            "runtime_risks": [
+                              "sensitive-data"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -16358,6 +16500,57 @@
                 }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/copilot/metrics/reports/repos-1-day": {
+      "get": {
+        "tags": [
+          "copilot"
+        ],
+        "summary": "Get Copilot organization repository report for a specific day",
+        "description": "Use this endpoint to retrieve download links for the Copilot organization repository report for a specific day. The report provides per-repository pull request metrics for Copilot across the organization, with one entry per repository.\n\nThe report contains repository-level pull request activity for the specified day, including the Copilot Coding Agent (CCA) and Copilot Code Review (CCR) breakdowns. Only repositories that had activity on the specified day are included. Reports are generated daily and made available for download through signed URLs with a limited expiration time.\n\nThe response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.\n\nOrganization owners and authorized users with fine-grained \u0022View Organization Copilot Metrics\u0022 permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 scope to use this endpoint.\n\nFor more information about organization metrics attribution, see [How are metrics attributed across organizations](https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations).",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/copilot/copilot-usage-metrics#get-copilot-organization-repository-report-for-a-specific-day"
+        },
+        "operationId": "CopilotCopilotOrganizationReposOneDayReport",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/day"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CopilotUsageMetrics1DayReport"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/copilot-usage-metrics-1-day-report"
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/components/responses/no_content"
           },
           "500": {
             "$ref": "#/components/responses/internal_error"
@@ -37558,7 +37751,9 @@
                       "require_actions_workflow_approval": true,
                       "is_firewall_enabled": true,
                       "is_firewall_recommended_allowlist_enabled": true,
-                      "custom_allowlist": []
+                      "custom_allowlist": [],
+                      "is_automations_enabled": true,
+                      "require_write_access_for_automation_triggers": true
                     }
                   },
                   "configured": {
@@ -37596,7 +37791,9 @@
                       "custom_allowlist": [
                         "sentry.io",
                         "https://api.example.com"
-                      ]
+                      ],
+                      "is_automations_enabled": true,
+                      "require_write_access_for_automation_triggers": false
                     }
                   }
                 }
@@ -74724,6 +74921,37 @@
         "description": "The status of auto merging a pull request.",
         "nullable": true
       },
+      "PullRequestStack": {
+        "title": "Pull Request Stack",
+        "required": [
+          "base"
+        ],
+        "type": "object",
+        "properties": {
+          "base": {
+            "$ref": "#/components/schemas/PullRequestStackBase"
+          },
+          "size": {
+            "type": "integer",
+            "description": "The total number of pull requests in the stack."
+          },
+          "position": {
+            "type": "integer",
+            "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+          },
+          "id": {
+            "type": "integer",
+            "description": "The ID of the stack that this pull request belongs to.",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer",
+            "description": "The number of the stack that this pull request belongs to."
+          }
+        },
+        "description": "The stack information associated with a pull request.",
+        "nullable": true
+      },
       "PullRequestSimple": {
         "title": "Pull Request Simple",
         "required": [
@@ -74919,6 +75147,9 @@
           },
           "auto_merge": {
             "$ref": "#/components/schemas/AutoMerge"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "draft": {
             "type": "boolean",
@@ -90069,6 +90300,9 @@
           "auto_merge": {
             "$ref": "#/components/schemas/AutoMerge"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "draft": {
             "type": "boolean",
             "description": "Indicates whether or not the pull request is a draft.",
@@ -97386,6 +97620,9 @@
           "auto_merge": {
             "$ref": "#/components/schemas/AutoMerge"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "draft": {
             "type": "boolean",
             "description": "Indicates whether or not the pull request is a draft.",
@@ -97674,6 +97911,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhooksPullRequest5State"
@@ -98387,6 +98627,9 @@
             "type": "string",
             "description": "The slug identifier for the provider of the secret that was detected.",
             "nullable": true
+          },
+          "secret_category": {
+            "$ref": "#/components/schemas/SecretScanningAlertWebhookSecretCategory"
           },
           "validity": {
             "$ref": "#/components/schemas/SecretScanningAlertWebhookValidity"
@@ -106116,6 +106359,9 @@
           },
           "installation": {
             "$ref": "#/components/schemas/SimpleInstallation"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "number": {
             "type": "integer",
@@ -124521,6 +124767,23 @@
         },
         "description": "Permissions requested, categorized by type of permission."
       },
+      "PullRequestStackBase": {
+        "required": [
+          "ref",
+          "sha"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string",
+            "description": "The base ref of the stack this pull request belongs to."
+          },
+          "sha": {
+            "type": "string",
+            "description": "The base SHA of the stack this pull request belongs to."
+          }
+        }
+      },
       "PullRequestSimpleLabelsItem": {
         "required": [
           "id",
@@ -139263,6 +139526,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestAssignedPullRequestState"
           },
@@ -139488,6 +139754,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestAutoMergeDisabledPullRequestState"
@@ -139715,6 +139984,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestAutoMergeEnabledPullRequestState"
           },
@@ -139940,6 +140212,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestDequeuedPullRequestState"
@@ -140182,6 +140457,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestEnqueuedPullRequestState"
           },
@@ -140408,6 +140686,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestLabeledPullRequestState"
           },
@@ -140633,6 +140914,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestLockedPullRequestState"
@@ -140958,6 +141242,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewCommentCreatedPullRequestState"
           },
@@ -141134,6 +141421,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewCommentDeletedPullRequestState"
           },
@@ -141309,6 +141599,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewCommentEditedPullRequestState"
@@ -141488,6 +141781,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewDismissedPullRequestState"
@@ -141920,6 +142216,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewSubmittedPullRequestState"
           },
@@ -142098,6 +142397,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewThreadResolvedPullRequestState"
@@ -142295,6 +142597,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestState"
@@ -142538,6 +142843,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestState"
           },
@@ -142763,6 +143071,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestSynchronizePullRequestState"
@@ -142990,6 +143301,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestUnassignedPullRequestState"
           },
@@ -143216,6 +143530,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestUnlabeledPullRequestState"
           },
@@ -143441,6 +143758,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestUnlockedPullRequestState"
@@ -148330,6 +148650,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf1PullRequestState"
           },
@@ -148647,6 +148970,9 @@
             "type": "string",
             "format": "uri"
           },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf2PullRequestState"
           },
@@ -148942,6 +149268,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf1PullRequestState"
@@ -149259,6 +149588,9 @@
           "review_comments_url": {
             "type": "string",
             "format": "uri"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
           },
           "state": {
             "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf2PullRequestState"
@@ -249128,6 +249460,10 @@
             "type": "string",
             "description": "\u0022The model to use for this task. The allowed models may change over time and depend on the user\u0027s GitHub Copilot plan and organization policies. Currently supported values: \u0060claude-sonnet-4.6\u0060, \u0060claude-opus-4.6\u0060, \u0060gpt-5.2-codex\u0060, \u0060gpt-5.3-codex\u0060, \u0060gpt-5.4\u0060, \u0060claude-sonnet-4.5\u0060, \u0060claude-opus-4.5\u0060\u0022"
           },
+          "custom_agent": {
+            "type": "string",
+            "description": "Optional identifier for a custom agent to use for this task. Use the custom agent\u0027s filename without the extension - for example, for a \u0060.github/agents/performance-optimizer.agent.md\u0060 custom agent, use \u0060performance-optimizer\u0060."
+          },
           "create_pull_request": {
             "type": "boolean",
             "description": "Whether to create a PR.",
@@ -249217,6 +249553,9 @@
             "type": "string",
             "description": "Timestamp when the task was created",
             "format": "date-time"
+          },
+          "custom_agent": {
+            "$ref": "#/components/schemas/AgentTasksCreateTaskInRepo201ResponseCustomAgent"
           }
         }
       },
@@ -249394,6 +249733,9 @@
             "type": "string",
             "description": "Timestamp when the task was created",
             "format": "date-time"
+          },
+          "custom_agent": {
+            "$ref": "#/components/schemas/AgentTasksGetTaskByRepoAndId200ResponseCustomAgent"
           },
           "sessions": {
             "type": "array",
@@ -249728,6 +250070,9 @@
             "type": "string",
             "description": "Timestamp when the task was created",
             "format": "date-time"
+          },
+          "custom_agent": {
+            "$ref": "#/components/schemas/AgentTasksGetTaskById200ResponseCustomAgent"
           },
           "sessions": {
             "type": "array",
@@ -251712,6 +252057,11 @@
               "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecordsRequestDeploymentsItem"
             },
             "description": "The list of deployments to record."
+          },
+          "partial_success": {
+            "type": "boolean",
+            "description": "When enabled, deployments associated with repositories the actor can write to are processed\nwhile deployments associated with repositories that cannot be resolved or written to by the actor\nare skipped and reported in the \u0060errors\u0060 array. When false (the default), the endpoint returns\nan error if any targeted repository cannot be resolved, the actor lacks write access, or no matching attestation can be found.\n",
+            "default": false
           },
           "return_records": {
             "type": "boolean",
@@ -255851,7 +256201,9 @@
           "require_actions_workflow_approval",
           "is_firewall_enabled",
           "is_firewall_recommended_allowlist_enabled",
-          "custom_allowlist"
+          "custom_allowlist",
+          "is_automations_enabled",
+          "require_write_access_for_automation_triggers"
         ],
         "type": "object",
         "properties": {
@@ -255880,6 +256232,14 @@
               "description": "A custom allowlist entry, as a host or URL, that the firewall will allow the Copilot cloud agent to access."
             },
             "description": "A list of custom allowlist entries, as hosts or URLs, that the firewall will allow the Copilot cloud agent to access."
+          },
+          "is_automations_enabled": {
+            "type": "boolean",
+            "description": "Whether automations are enabled in this repository. When true, users can create automations that automatically run agents on a schedule or in response to events like new issues or updated pull requests."
+          },
+          "require_write_access_for_automation_triggers": {
+            "type": "boolean",
+            "description": "Whether write access is required for automation triggers. When true, automations will only run if the user triggering the event has write access to the repository. When false, users can create automations that listen for events triggered by users without write access."
           }
         }
       },
@@ -261408,6 +261768,31 @@
           }
         }
       },
+      "OrgsSetClusterDeploymentRecords207Response": {
+        "required": [
+          "total_count"
+        ],
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "description": "The number of deployment records created or updated."
+          },
+          "deployment_records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArtifactDeploymentRecord"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207ResponseErrorsItem"
+            },
+            "description": "A list of errors for deployments that could not be processed."
+          }
+        }
+      },
       "OrgsListArtifactDeploymentRecords200Response": {
         "type": "object",
         "properties": {
@@ -266102,6 +266487,9 @@
             "type": "string",
             "description": "Timestamp when the task was created",
             "format": "date-time"
+          },
+          "custom_agent": {
+            "$ref": "#/components/schemas/AgentTasksListTasksForRepo200ResponseTasksItemCustomAgent"
           }
         }
       },
@@ -266238,6 +266626,16 @@
         },
         "description": "A resource generated by the task"
       },
+      "AgentTasksCreateTaskInRepo201ResponseCustomAgent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The custom agent\u0027s filename without the extension - for example, \u0060performance-optimizer\u0060 for a \u0060.github/agents/performance-optimizer.agent.md\u0060 custom agent."
+          }
+        },
+        "description": "Custom agent metadata associated with this task"
+      },
       "AgentTasksCreateTaskInRepo400ResponseErrorsItem": {
         "required": [
           "code"
@@ -266355,6 +266753,16 @@
         },
         "description": "A resource generated by the task"
       },
+      "AgentTasksGetTaskByRepoAndId200ResponseCustomAgent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The custom agent\u0027s filename without the extension - for example, \u0060performance-optimizer\u0060 for a \u0060.github/agents/performance-optimizer.agent.md\u0060 custom agent."
+          }
+        },
+        "description": "Custom agent metadata associated with this task"
+      },
       "AgentTasksGetTaskByRepoAndId200ResponseSessionsItem": {
         "required": [
           "id",
@@ -266417,6 +266825,9 @@
           "model": {
             "type": "string",
             "description": "Model used for this session"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/AgentTasksGetTaskByRepoAndId200ResponseSessionsItemUsage"
           },
           "error": {
             "$ref": "#/components/schemas/AgentTasksGetTaskByRepoAndId200ResponseSessionsItemError"
@@ -266578,6 +266989,9 @@
             "type": "string",
             "description": "Timestamp when the task was created",
             "format": "date-time"
+          },
+          "custom_agent": {
+            "$ref": "#/components/schemas/AgentTasksListTasks200ResponseTasksItemCustomAgent"
           }
         }
       },
@@ -266698,6 +267112,16 @@
         },
         "description": "A resource generated by the task"
       },
+      "AgentTasksGetTaskById200ResponseCustomAgent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The custom agent\u0027s filename without the extension - for example, \u0060performance-optimizer\u0060 for a \u0060.github/agents/performance-optimizer.agent.md\u0060 custom agent."
+          }
+        },
+        "description": "Custom agent metadata associated with this task"
+      },
       "AgentTasksGetTaskById200ResponseSessionsItem": {
         "required": [
           "id",
@@ -266760,6 +267184,9 @@
           "model": {
             "type": "string",
             "description": "Model used for this session"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/AgentTasksGetTaskById200ResponseSessionsItemUsage"
           },
           "error": {
             "$ref": "#/components/schemas/AgentTasksGetTaskById200ResponseSessionsItemError"
@@ -269415,6 +269842,17 @@
           }
         }
       },
+      "OrgsSetClusterDeploymentRecords207ResponseErrorsItem": {
+        "type": "object",
+        "properties": {
+          "cause": {
+            "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause"
+          },
+          "deployment": {
+            "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment"
+          }
+        }
+      },
       "OrgsListAttestationRepositories200ResponseResponseJsonItem": {
         "type": "object",
         "properties": {
@@ -269510,6 +269948,16 @@
         },
         "description": "A resource generated by the task"
       },
+      "AgentTasksListTasksForRepo200ResponseTasksItemCustomAgent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The custom agent\u0027s filename without the extension - for example, \u0060performance-optimizer\u0060 for a \u0060.github/agents/performance-optimizer.agent.md\u0060 custom agent."
+          }
+        },
+        "description": "Custom agent metadata associated with this task"
+      },
       "AgentTasksCreateTaskInRepo201ResponseArtifactsItemData": {
         "type": "object",
         "properties": {
@@ -269589,6 +270037,24 @@
         },
         "description": "The repository this session belongs to"
       },
+      "AgentTasksGetTaskByRepoAndId200ResponseSessionsItemUsage": {
+        "required": [
+          "type",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentTasksGetTaskByRepoAndId200ResponseSessionsItemUsageType"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Number of billing units used by this session. When the \u0060type\u0060 is \u0060ai_credits\u0060, the value is a whole number, expressed in nano units. When presenting this to a human, divide by 1,000,000,000 and round to one decimal place. When aggregating (for example, summing usage across sessions), sum the nano values first, and divide once at the end before presenting to a human to avoid losing precision. When the \u0060type\u0060 is \u0060premium_requests\u0060, the value may be fractional (for example \u00601.5\u0060).",
+            "format": "double"
+          }
+        },
+        "description": "Structured information about billing units consumed by the session."
+      },
       "AgentTasksGetTaskByRepoAndId200ResponseSessionsItemError": {
         "type": "object",
         "properties": {
@@ -269652,6 +270118,16 @@
         },
         "description": "A resource generated by the task"
       },
+      "AgentTasksListTasks200ResponseTasksItemCustomAgent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The custom agent\u0027s filename without the extension - for example, \u0060performance-optimizer\u0060 for a \u0060.github/agents/performance-optimizer.agent.md\u0060 custom agent."
+          }
+        },
+        "description": "Custom agent metadata associated with this task"
+      },
       "AgentTasksGetTaskById200ResponseArtifactsItemData": {
         "type": "object",
         "properties": {
@@ -269707,6 +270183,24 @@
           }
         },
         "description": "The repository this session belongs to"
+      },
+      "AgentTasksGetTaskById200ResponseSessionsItemUsage": {
+        "required": [
+          "type",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/AgentTasksGetTaskById200ResponseSessionsItemUsageType"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Number of billing units used by this session. When the \u0060type\u0060 is \u0060ai_credits\u0060, the value is a whole number, expressed in nano units. When presenting this to a human, divide by 1,000,000,000 and round to one decimal place. When aggregating (for example, summing usage across sessions), sum the nano values first, and divide once at the end before presenting to a human to avoid losing precision. When the \u0060type\u0060 is \u0060premium_requests\u0060, the value may be fractional (for example \u00601.5\u0060).",
+            "format": "double"
+          }
+        },
+        "description": "Structured information about billing units consumed by the session."
       },
       "AgentTasksGetTaskById200ResponseSessionsItemError": {
         "type": "object",
@@ -270284,6 +270778,48 @@
         },
         "description": "Metadata specific to the resource type."
       },
+      "OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the artifact."
+          },
+          "digest": {
+            "type": "string",
+            "description": "The digest of the artifact."
+          },
+          "deployment_name": {
+            "type": "string",
+            "description": "The name of the deployment that failed processing."
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the deployment.",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "description": "The deployment status."
+          },
+          "github_repository": {
+            "type": "string",
+            "description": "The repository associated with the deployment.",
+            "nullable": true
+          },
+          "tags": {
+            "$ref": "#/components/schemas/OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeploymentTags"
+          },
+          "runtime_risks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Runtime risk classifications for the deployment."
+          }
+        },
+        "description": "The deployment payload that could not be processed."
+      },
       "AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemData": {
         "type": "object",
         "properties": {
@@ -270367,6 +270903,13 @@
       },
       "UsersListAttestations200ResponseAttestationsItemBundleDsseEnvelope": {
         "type": "object"
+      },
+      "OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeploymentTags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Custom metadata tags for the deployment."
       },
       "GlobalAdvisoryType": {
         "enum": [
@@ -281713,6 +282256,29 @@
             {
               "value": "open",
               "name": "Open"
+            }
+          ]
+        }
+      },
+      "SecretScanningAlertWebhookSecretCategory": {
+        "enum": [
+          "default",
+          "generic"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The category of the detected secret. \u0060default\u0060 covers specific provider patterns and custom patterns; \u0060generic\u0060 covers non-specific patterns and AI-detected secrets.",
+        "x-ms-enum": {
+          "name": "SecretScanningAlertWebhookSecretCategory",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "default",
+              "name": "DefaultValue"
+            },
+            {
+              "value": "generic",
+              "name": "Generic"
             }
           ]
         }
@@ -346669,6 +347235,29 @@
           ]
         }
       },
+      "OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause": {
+        "enum": [
+          "unauthorized",
+          "not_found"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The reason the deployment failed processing.",
+        "x-ms-enum": {
+          "name": "OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "unauthorized",
+              "name": "Unauthorized"
+            },
+            {
+              "value": "not_found",
+              "name": "NotFound"
+            }
+          ]
+        }
+      },
       "AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemProvider": {
         "enum": [
           "github"
@@ -346710,6 +347299,29 @@
           ]
         }
       },
+      "AgentTasksGetTaskByRepoAndId200ResponseSessionsItemUsageType": {
+        "enum": [
+          "ai_credits",
+          "premium_requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Billing unit used for this session. New sessions since June 1, 2026 use \u0060ai_credits\u0060, but older sessions use \u0060premium_requests\u0060.",
+        "x-ms-enum": {
+          "name": "AgentTasksGetTaskByRepoAndId200ResponseSessionsItemUsageType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ai_credits",
+              "name": "AiCredits"
+            },
+            {
+              "value": "premium_requests",
+              "name": "PremiumRequests"
+            }
+          ]
+        }
+      },
       "AgentTasksListTasks200ResponseTasksItemArtifactsItemProvider": {
         "enum": [
           "github"
@@ -346747,6 +347359,29 @@
             {
               "value": "branch",
               "name": "Branch"
+            }
+          ]
+        }
+      },
+      "AgentTasksGetTaskById200ResponseSessionsItemUsageType": {
+        "enum": [
+          "ai_credits",
+          "premium_requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Billing unit used for this session. New sessions since June 1, 2026 use \u0060ai_credits\u0060, but older sessions use \u0060premium_requests\u0060.",
+        "x-ms-enum": {
+          "name": "AgentTasksGetTaskById200ResponseSessionsItemUsageType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ai_credits",
+              "name": "AiCredits"
+            },
+            {
+              "value": "premium_requests",
+              "name": "PremiumRequests"
             }
           ]
         }
@@ -350485,6 +351120,16 @@
           }
         }
       },
+      "gone": {
+        "description": "Gone",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BasicError"
+            }
+          }
+        }
+      },
       "internal_error": {
         "description": "Internal Error",
         "content": {
@@ -350719,16 +351364,6 @@
       },
       "temporary_redirect": {
         "description": "Temporary Redirect",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/BasicError"
-            }
-          }
-        }
-      },
-      "gone": {
-        "description": "Gone",
         "content": {
           "application/json": {
             "schema": {

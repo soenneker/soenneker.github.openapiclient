@@ -36,6 +36,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Type of the task creator</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorType? CreatorType { get; set; }
+        /// <summary>Custom agent metadata associated with this task</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent? CustomAgent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent CustomAgent { get; set; }
+#endif
         /// <summary>Web URL for this task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,6 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorOneOf1>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorOneOf1.CreateFromDiscriminatorValue); } },
                 { "creator_type", n => { CreatorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorType>(); } },
+                { "custom_agent", n => { CustomAgent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -153,6 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorOneOf1>("creator", Creator);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCreatorType>("creator_type", CreatorType);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseCustomAgent>("custom_agent", CustomAgent);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);

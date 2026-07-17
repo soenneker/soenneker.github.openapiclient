@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Organization1Day;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Organization28Day;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Repos1Day;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.UserTeams1Day;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Users1Day;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Users28Day;
@@ -28,6 +29,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Organization28Day.Organization28DayRequestBuilder Organization28Day
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Organization28Day.Organization28DayRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The repos1Day property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Repos1Day.Repos1DayRequestBuilder Repos1Day
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Repos1Day.Repos1DayRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users1Day property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.Metrics.Reports.Users1Day.Users1DayRequestBuilder Users1Day

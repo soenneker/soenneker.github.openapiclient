@@ -103,6 +103,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Last update timestamp</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>Structured information about billing units consumed by the session.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUsage? Usage { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUsage Usage { get; set; }
+#endif
         /// <summary>The user who created this session</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,6 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemState>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUsage>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUsage.CreateFromDiscriminatorValue); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUser>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUser.CreateFromDiscriminatorValue); } },
             };
         }
@@ -174,6 +183,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemState>("state", State);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUsage>("usage", Usage);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksGetTaskById200ResponseSessionsItemUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
