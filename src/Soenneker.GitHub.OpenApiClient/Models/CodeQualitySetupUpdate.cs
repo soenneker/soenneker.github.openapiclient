@@ -13,6 +13,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeQualitySetupUpdate : IParsable
     {
+        /// <summary>Whether AI findings run for Code Quality on this repository.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateAiFindingsOption? AiFindingsOption { get; set; }
         /// <summary>Languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,6 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_findings_option", n => { AiFindingsOption = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateAiFindingsOption>(); } },
                 { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateLanguagesItem>()?.AsList(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
                 { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateRunnerType>(); } },
@@ -64,6 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateAiFindingsOption>("ai_findings_option", AiFindingsOption);
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateLanguagesItem>("languages", Languages);
             writer.WriteStringValue("runner_label", RunnerLabel);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupUpdateRunnerType>("runner_type", RunnerType);

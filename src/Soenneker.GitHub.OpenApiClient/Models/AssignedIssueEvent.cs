@@ -73,6 +73,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public long? Id { get; set; }
+        /// <summary>The intent behind an agent&apos;s action on an issue, including the rationale and confidence. Present (and `null` when the event carried no agent intent) on supported event types while the issue suggestions feature is enabled for the repository; the property is omitted entirely when the feature is disabled or the event type does not support intent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent? Intent { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent Intent { get; set; }
+#endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -130,6 +138,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "event", n => { Event = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
+                { "intent", n => { Intent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent>(global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent.CreateFromDiscriminatorValue); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
                 { "performed_via_github_app", n => { PerformedViaGithubApp = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>(global::Soenneker.GitHub.OpenApiClient.Models.Integration.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -150,6 +159,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("event", Event);
             writer.WriteLongValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueEventIntent>("intent", Intent);
             writer.WriteStringValue("node_id", NodeId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.Integration>("performed_via_github_app", PerformedViaGithubApp);
             writer.WriteStringValue("url", Url);

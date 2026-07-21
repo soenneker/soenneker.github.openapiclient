@@ -15,6 +15,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The AI findings configuration for the repository.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? AiFindingsOption { get; set; }
         /// <summary>Languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_findings_option", n => { AiFindingsOption = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption>(); } },
                 { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>()?.AsList(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
                 { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>(); } },
@@ -79,6 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption>("ai_findings_option", AiFindingsOption);
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>("languages", Languages);
             writer.WriteStringValue("runner_label", RunnerLabel);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>("runner_type", RunnerType);
