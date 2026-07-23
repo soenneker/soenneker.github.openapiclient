@@ -76,13 +76,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestTitle Title { get; set; }
 #endif
-        /// <summary>The name of the issue type to associate with this issue or use `null` to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</summary>
+        /// <summary>The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType? Type { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequest"/> and sets the default values.
@@ -119,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState>(); } },
                 { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason>(); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestTitle>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestTitle.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -139,7 +139,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestState>("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestStateReason>("state_reason", StateReason);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestTitle>("title", Title);
-            writer.WriteStringValue("type", Type);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>&quot;Usernames of people to assign this issue to. _NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise._&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Assignees { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddAssigneesRequestAssigneesItem>? Assignees { get; set; }
 #nullable restore
 #else
-        public List<string> Assignees { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddAssigneesRequestAssigneesItem> Assignees { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddAssigneesRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddAssigneesRequestAssigneesItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddAssigneesRequestAssigneesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddAssigneesRequestAssigneesItem>("assignees", Assignees);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,6 +22,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Color { get; set; }
 #endif
+        /// <summary>The confidence level for this label choice.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestLabelsItemOneOf2Confidence? Confidence { get; set; }
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +42,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Optional reasoning for selecting this label.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Rationale { get; set; }
+#nullable restore
+#else
+        public string Rationale { get; set; }
+#endif
+        /// <summary>If `true`, the change is stored as a pending suggestion for human review rather than applied directly.</summary>
+        public bool? Suggest { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestLabelsItemOneOf2"/> and sets the default values.
         /// </summary>
@@ -66,9 +78,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "color", n => { Color = n.GetStringValue(); } },
+                { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestLabelsItemOneOf2Confidence>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "rationale", n => { Rationale = n.GetStringValue(); } },
+                { "suggest", n => { Suggest = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -79,9 +94,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestLabelsItemOneOf2Confidence>("confidence", Confidence);
             writer.WriteStringValue("description", Description);
             writer.WriteLongValue("id", Id);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("rationale", Rationale);
+            writer.WriteBoolValue("suggest", Suggest);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

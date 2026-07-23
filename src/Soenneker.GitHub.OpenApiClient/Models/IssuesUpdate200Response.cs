@@ -232,6 +232,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary SubIssuesSummary { get; set; }
 #endif
+        /// <summary>Pending suggestions for each suggestible field (`type`,`issue_field_values`, `labels`, `assignees`, `state`) therequest touched. Omitted for fields not in the request orwith no pending suggestions. Items tagged `already_applied`are echoes of the current request&apos;s inputs whose target isalready applied to the issue; they are not persisted aspending suggestions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions? Suggestions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions Suggestions { get; set; }
+#endif
         /// <summary>The timeline_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -333,6 +341,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "state", n => { State = n.GetStringValue(); } },
                 { "state_reason", n => { StateReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueStateReason>(); } },
                 { "sub_issues_summary", n => { SubIssuesSummary = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>(global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary.CreateFromDiscriminatorValue); } },
+                { "suggestions", n => { Suggestions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions.CreateFromDiscriminatorValue); } },
                 { "timeline_url", n => { TimelineUrl = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueType>(global::Soenneker.GitHub.OpenApiClient.Models.IssueType.CreateFromDiscriminatorValue); } },
@@ -382,6 +391,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueStateReason>("state_reason", StateReason);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary>("sub_issues_summary", SubIssuesSummary);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions>("suggestions", Suggestions);
             writer.WriteStringValue("timeline_url", TimelineUrl);
             writer.WriteStringValue("title", Title);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueType>("type", Type);

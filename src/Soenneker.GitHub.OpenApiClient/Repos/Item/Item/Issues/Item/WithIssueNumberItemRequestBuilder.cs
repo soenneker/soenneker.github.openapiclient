@@ -15,6 +15,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Parent;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Reactions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Suggestions;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Timeline;
 using System.Collections.Generic;
 using System.IO;
@@ -83,6 +84,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues.Sub_issuesRequestBuilder Sub_issues
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues.Sub_issuesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The suggestions property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Suggestions.SuggestionsRequestBuilder Suggestions
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Suggestions.SuggestionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The timeline property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Timeline.TimelineRequestBuilder Timeline

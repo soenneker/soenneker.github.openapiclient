@@ -14,6 +14,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The confidence level for this assignee choice.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestAssigneesItemOneOf2Confidence? Confidence { get; set; }
         /// <summary>The login property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +24,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Login { get; set; }
 #endif
+        /// <summary>Optional reasoning for selecting this assignee.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Rationale { get; set; }
+#nullable restore
+#else
+        public string Rationale { get; set; }
+#endif
+        /// <summary>If `true`, the change is stored as a pending suggestion for human review rather than applied directly.</summary>
+        public bool? Suggest { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestAssigneesItemOneOf2"/> and sets the default values.
         /// </summary>
@@ -47,7 +59,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestAssigneesItemOneOf2Confidence>(); } },
                 { "login", n => { Login = n.GetStringValue(); } },
+                { "rationale", n => { Rationale = n.GetStringValue(); } },
+                { "suggest", n => { Suggest = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +72,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestAssigneesItemOneOf2Confidence>("confidence", Confidence);
             writer.WriteStringValue("login", Login);
+            writer.WriteStringValue("rationale", Rationale);
+            writer.WriteBoolValue("suggest", Suggest);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

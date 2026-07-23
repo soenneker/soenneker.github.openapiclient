@@ -45132,6 +45132,198 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/issues/{issueNumber}/suggestions": {
+      "get": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "List issue suggestions",
+        "description": "Lists the suggestions on an issue. A suggestion is an agent-proposed change to an issue\u0027s type, labels, fields, assignees, or closed state that a maintainer can approve or dismiss.\n\nBy default only pending suggestions are returned. Use \u0060state=all\u0060 to return suggestions in every state, or \u0060state=\u003Cstate\u003E\u0060 to filter to a single state. Use \u0060action=\u003Caction\u003E\u0060 to return only suggestions for a specific change.\n\nThis endpoint is only available while the issue suggestions feature is enabled for the repository, and only supports issues, not pull requests.\n\nRequires triage access to the repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issues#list-issue-suggestions"
+        },
+        "operationId": "IssuesListSuggestions",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter suggestions by their state.",
+            "schema": {
+              "$ref": "#/components/schemas/IssuesListSuggestionsStateParameter"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "description": "Filter suggestions by the change they propose.",
+            "schema": {
+              "$ref": "#/components/schemas/IssuesListSuggestionsActionParameter"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssuesListSuggestions200ResponseResponseJson"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-suggestions"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/issues/{issueNumber}/suggestions/{suggestionId}/approve": {
+      "post": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "Approve an issue suggestion",
+        "description": "Approves a pending suggestion on an issue. Applies the proposed change (creating the corresponding timeline event), transitions the suggestion to \u0060approved\u0060, and dismisses any competing pending suggestions for the same change.\n\nRequires triage access to the repository. Approving a suggestion also requires permission to perform the change it applies (for example, setting the issue type, adding a label or assignee, or closing the issue); this only affects fine-grained access tokens and GitHub Apps whose permissions are narrower than the triage role. This endpoint only supports issues, not pull requests.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issues#approve-an-issue-suggestion"
+        },
+        "operationId": "IssuesApproveSuggestion",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          },
+          {
+            "name": "suggestionId",
+            "in": "path",
+            "description": "The unique identifier of the suggestion.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueSuggestion"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-suggestion"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/issues/{issueNumber}/suggestions/{suggestionId}/dismiss": {
+      "post": {
+        "tags": [
+          "issues"
+        ],
+        "summary": "Dismiss an issue suggestion",
+        "description": "Dismisses a pending suggestion on an issue. Transitions the suggestion to \u0060dismissed\u0060 without applying any change or creating a timeline event.\n\nRequires triage access to the repository. This endpoint only supports issues, not pull requests.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/issues/issues#dismiss-an-issue-suggestion"
+        },
+        "operationId": "IssuesDismissSuggestion",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/issue-number"
+          },
+          {
+            "name": "suggestionId",
+            "in": "path",
+            "description": "The unique identifier of the suggestion.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueSuggestion"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/issue-suggestion"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/issues/{issueNumber}/timeline": {
       "get": {
         "tags": [
@@ -45159,6 +45351,9 @@
           },
           {
             "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/issue-timeline-exclude"
           }
         ],
         "responses": {
@@ -88899,6 +89094,85 @@
           }
         }
       },
+      "IssueSuggestion": {
+        "title": "Issue Suggestion",
+        "required": [
+          "id",
+          "issue_id",
+          "action",
+          "state",
+          "target_id",
+          "target_value",
+          "rationale",
+          "confidence",
+          "actor_id",
+          "issue_event_id",
+          "resolved_by",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the suggestion.",
+            "format": "int64"
+          },
+          "issue_id": {
+            "type": "integer",
+            "description": "The unique identifier of the issue the suggestion applies to.",
+            "format": "int64"
+          },
+          "action": {
+            "$ref": "#/components/schemas/IssueSuggestionAction"
+          },
+          "state": {
+            "$ref": "#/components/schemas/IssueSuggestionState"
+          },
+          "target_id": {
+            "type": "integer",
+            "description": "The identifier of the target the change applies to (issue type, label, field, assignee, or duplicate issue), when applicable.",
+            "nullable": true
+          },
+          "target_value": {
+            "$ref": "#/components/schemas/IssueSuggestionTargetValue"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "The rationale the actor provided for the suggestion.",
+            "nullable": true
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssueSuggestionConfidence"
+          },
+          "actor_id": {
+            "type": "integer",
+            "description": "The unique identifier of the actor that proposed the suggestion.",
+            "nullable": true
+          },
+          "issue_event_id": {
+            "type": "integer",
+            "description": "The identifier of the timeline event created when the suggestion was approved, when applicable.",
+            "nullable": true
+          },
+          "resolved_by": {
+            "type": "integer",
+            "description": "The unique identifier of the user who approved or dismissed the suggestion.",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The time the suggestion was created.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The time the suggestion was last updated.",
+            "format": "date-time"
+          }
+        },
+        "description": "An agent-proposed change to an issue that a maintainer can approve or dismiss."
+      },
       "TimelineCommentEvent": {
         "title": "Timeline Comment Event",
         "required": [
@@ -110637,6 +110911,27 @@
             "NullableIssueLabelsItemOneOf2": "#/components/schemas/NullableIssueLabelsItemOneOf2"
           }
         }
+      },
+      "IssueSuggestionTargetValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "The proposed value, when applicable. An array for multi-select field suggestions."
       },
       "PageDeploymentId": {
         "type": "object",
@@ -257163,10 +257458,7 @@
             "description": "An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Only users with push access can set field values for issues"
           },
           "type": {
-            "type": "string",
-            "description": "The name of the issue type to associate with this issue or use \u0060null\u0060 to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.",
-            "nullable": true,
-            "example": "Epic"
+            "$ref": "#/components/schemas/IssuesUpdateRequestType"
           }
         }
       },
@@ -257350,6 +257642,9 @@
             "items": {
               "$ref": "#/components/schemas/IssueFieldValue"
             }
+          },
+          "suggestions": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestions"
           }
         }
       },
@@ -257359,7 +257654,7 @@
           "assignees": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/IssuesAddAssigneesRequestAssigneesItem"
             },
             "description": "\u0022Usernames of people to assign this issue to. _NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise._\u0022"
           }
@@ -257646,6 +257941,12 @@
             "description": "The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified).",
             "format": "int64"
           }
+        }
+      },
+      "IssuesListSuggestions200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/IssueSuggestion"
         }
       },
       "IssuesListEventsForTimeline200Response": {
@@ -260939,6 +261240,41 @@
           }
         }
       },
+      "IssuesUpdateRequestTypeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The name of the issue type.",
+            "example": "Epic"
+          }
+        }
+      },
+      "IssuesAddAssigneesRequestAssigneesItemBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "IssuesAddLabelsRequestOneOf1LabelsItemBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "ReposUpdateInformationAboutPagesSiteRequestSourceBranch1": {
         "required": [
           "value"
@@ -263875,6 +264211,12 @@
           "$ref": "#/components/schemas/Issue"
         }
       },
+      "IssuesListSuggestions200ResponseResponseJson": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/IssueSuggestion"
+        }
+      },
       "IssuesListEventsForTimeline200ResponseResponseJson": {
         "type": "array",
         "items": {
@@ -265530,6 +265872,46 @@
         ],
         "description": "The value to set for the field. For multi-select fields, provide an array of option names."
       },
+      "IssuesUpdateRequestType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IssuesUpdateRequestTypeBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesUpdateRequestTypeOneOf2"
+          }
+        ],
+        "description": "The issue type to associate with this issue. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped."
+      },
+      "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "IssuesAddAssigneesRequestAssigneesItem": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IssuesAddAssigneesRequestAssigneesItemBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesAddAssigneesRequestAssigneesItemOneOf2"
+          }
+        ]
+      },
       "IssuesAddIssueFieldValuesRequestIssueFieldValuesItemValue": {
         "type": "object",
         "oneOf": [
@@ -265574,9 +265956,9 @@
             "minItems": 1,
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/IssuesAddLabelsRequestOneOf1LabelsItem"
             },
-            "description": "The names of the labels to add to the issue\u0027s existing labels. You can also pass an \u0060array\u0060 of labels directly, but GitHub recommends passing an object with the \u0060labels\u0060 key. To replace all of the labels for an issue, use \u0022[Set labels for an issue](https://docs.github.com/rest/issues/labels#set-labels-for-an-issue).\u0022"
+            "description": "The labels to add to the issue\u0027s existing labels. You can also pass an \u0060array\u0060 of labels directly, but GitHub recommends passing an object with the \u0060labels\u0060 key. To replace all of the labels for an issue, use \u0022[Set labels for an issue](https://docs.github.com/rest/issues/labels#set-labels-for-an-issue).\u0022"
           }
         }
       },
@@ -265996,6 +266378,17 @@
           "color": {
             "type": "string",
             "nullable": true
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for selecting this label."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the change is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdateRequestLabelsItemOneOf2Confidence"
           }
         }
       },
@@ -266004,8 +266397,76 @@
         "properties": {
           "login": {
             "type": "string"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for selecting this assignee."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the change is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdateRequestAssigneesItemOneOf2Confidence"
           }
         }
+      },
+      "IssuesUpdateRequestTypeOneOf2": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The name of the issue type to associate with this issue, or \u0060null\u0060 to remove the current issue type.",
+            "nullable": true,
+            "example": "Epic"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for selecting this type."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the change is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdateRequestTypeOneOf2Confidence"
+          }
+        },
+        "description": "The issue type with optional metadata."
+      },
+      "IssuesAddAssigneesRequestAssigneesItemOneOf2": {
+        "required": [
+          "login"
+        ],
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "description": "The login of the user to assign."
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for adding this assignee."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the assignee is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesAddAssigneesRequestAssigneesItemOneOf2Confidence"
+          }
+        }
+      },
+      "IssuesAddLabelsRequestOneOf1LabelsItem": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IssuesAddLabelsRequestOneOf1LabelsItemBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesAddLabelsRequestOneOf1LabelsItemOneOf2"
+          }
+        ]
       },
       "ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2": {
         "required": [
@@ -266023,6 +266484,29 @@
           }
         },
         "description": "Update the source for the repository. Must include the branch name and path."
+      },
+      "IssuesAddLabelsRequestOneOf1LabelsItemOneOf2": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the label to add."
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for adding this label."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the label is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesAddLabelsRequestOneOf1LabelsItemOneOf2Confidence"
+          }
+        }
       },
       "CopilotSpaceCollaboratorAnyOf2Parent": {
         "type": "object"
@@ -269131,9 +269615,56 @@
           },
           "value": {
             "$ref": "#/components/schemas/IssuesUpdateRequestIssueFieldValuesItemValue"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for setting this field value."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the change is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdateRequestIssueFieldValuesItemConfidence"
           }
         },
         "additionalProperties": false
+      },
+      "IssuesUpdate200ResponseSuggestions": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsTypeItem"
+            }
+          },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem"
+            }
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsLabelsItem"
+            }
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsAssigneesItem"
+            }
+          },
+          "state": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsStateItem"
+            }
+          }
+        },
+        "description": "Pending suggestions for each suggestible field (\u0060type\u0060,\n\u0060issue_field_values\u0060, \u0060labels\u0060, \u0060assignees\u0060, \u0060state\u0060) the\nrequest touched. Omitted for fields not in the request or\nwith no pending suggestions. Items tagged \u0060already_applied\u0060\nare echoes of the current request\u0027s inputs whose target is\nalready applied to the issue; they are not persisted as\npending suggestions.\n"
       },
       "IssuesAddIssueFieldValuesRequestIssueFieldValuesItem": {
         "required": [
@@ -269889,6 +270420,17 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Optional reasoning for adding this label."
+          },
+          "suggest": {
+            "type": "boolean",
+            "description": "If \u0060true\u0060, the label is stored as a pending suggestion for human review rather than applied directly."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesAddLabelsRequestBranch3ValueItemConfidence"
           }
         }
       },
@@ -270751,6 +271293,117 @@
           "caption": {
             "type": "string",
             "description": "A short image description."
+          }
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsTypeItem": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "suggest": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsTypeItemConfidence"
+          },
+          "already_applied": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItem": {
+        "type": "object",
+        "properties": {
+          "field_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemValue"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "suggest": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemConfidence"
+          },
+          "already_applied": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsLabelsItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "suggest": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsLabelsItemConfidence"
+          },
+          "already_applied": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsAssigneesItem": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "suggest": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsAssigneesItemConfidence"
+          },
+          "already_applied": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsStateItem": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "state_reason": {
+            "type": "string"
+          },
+          "duplicate_issue_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "suggest": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsStateItemConfidence"
+          },
+          "already_applied": {
+            "type": "boolean"
           }
         }
       },
@@ -279792,6 +280445,111 @@
         "nullable": true,
         "x-ms-enum": {
           "name": "NullableIssueEventIntentConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "LOW",
+              "name": "Low"
+            },
+            {
+              "value": "MEDIUM",
+              "name": "Medium"
+            },
+            {
+              "value": "HIGH",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssueSuggestionAction": {
+        "enum": [
+          "set_type",
+          "add_label",
+          "add_field",
+          "add_assignee",
+          "close_issue"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The kind of change proposed.",
+        "x-ms-enum": {
+          "name": "IssueSuggestionAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "set_type",
+              "name": "SetType"
+            },
+            {
+              "value": "add_label",
+              "name": "AddLabel"
+            },
+            {
+              "value": "add_field",
+              "name": "AddField"
+            },
+            {
+              "value": "add_assignee",
+              "name": "AddAssignee"
+            },
+            {
+              "value": "close_issue",
+              "name": "CloseIssue"
+            }
+          ]
+        }
+      },
+      "IssueSuggestionState": {
+        "enum": [
+          "pending",
+          "applied",
+          "approved",
+          "dismissed",
+          "replaced"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The suggestion\u0027s lifecycle state.",
+        "x-ms-enum": {
+          "name": "IssueSuggestionState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "applied",
+              "name": "Applied"
+            },
+            {
+              "value": "approved",
+              "name": "Approved"
+            },
+            {
+              "value": "dismissed",
+              "name": "Dismissed"
+            },
+            {
+              "value": "replaced",
+              "name": "Replaced"
+            }
+          ]
+        }
+      },
+      "IssueSuggestionConfidence": {
+        "enum": [
+          "LOW",
+          "MEDIUM",
+          "HIGH"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The actor\u0027s confidence level in the suggestion.",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "IssueSuggestionConfidence",
           "modelAsString": false,
           "values": [
             {
@@ -345549,6 +346307,118 @@
           ]
         }
       },
+      "IssuesUpdateRequestLabelsItemOneOf2Confidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this label choice.",
+        "x-ms-enum": {
+          "name": "IssuesUpdateRequestLabelsItemOneOf2Confidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdateRequestAssigneesItemOneOf2Confidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this assignee choice.",
+        "x-ms-enum": {
+          "name": "IssuesUpdateRequestAssigneesItemOneOf2Confidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdateRequestTypeOneOf2Confidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this type choice.",
+        "x-ms-enum": {
+          "name": "IssuesUpdateRequestTypeOneOf2Confidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesAddAssigneesRequestAssigneesItemOneOf2Confidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this assignee choice.",
+        "x-ms-enum": {
+          "name": "IssuesAddAssigneesRequestAssigneesItemOneOf2Confidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
       "ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2Path": {
         "enum": [
           "/",
@@ -345568,6 +346438,34 @@
             {
               "value": "/docs",
               "name": "Docs"
+            }
+          ]
+        }
+      },
+      "IssuesAddLabelsRequestOneOf1LabelsItemOneOf2Confidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this label choice.",
+        "x-ms-enum": {
+          "name": "IssuesAddLabelsRequestOneOf1LabelsItemOneOf2Confidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
             }
           ]
         }
@@ -347238,6 +348136,34 @@
           ]
         }
       },
+      "IssuesUpdateRequestIssueFieldValuesItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this field value choice.",
+        "x-ms-enum": {
+          "name": "IssuesUpdateRequestIssueFieldValuesItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
       "ReposCreatePagesSiteRequestSourcePath": {
         "enum": [
           "/",
@@ -347353,6 +348279,34 @@
             {
               "value": "uploaded_text_file",
               "name": "UploadedTextFile"
+            }
+          ]
+        }
+      },
+      "IssuesAddLabelsRequestBranch3ValueItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The confidence level for this label choice.",
+        "x-ms-enum": {
+          "name": "IssuesAddLabelsRequestBranch3ValueItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
             }
           ]
         }
@@ -347652,6 +348606,141 @@
             {
               "value": "failure",
               "name": "Failure"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsTypeItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsTypeItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsLabelsItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsLabelsItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsAssigneesItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsAssigneesItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsStateItemConfidence": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsStateItemConfidence",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "high",
+              "name": "High"
             }
           ]
         }
@@ -350097,6 +351186,85 @@
             {
               "value": "eyes",
               "name": "Eyes"
+            }
+          ]
+        }
+      },
+      "IssuesListSuggestionsStateParameter": {
+        "enum": [
+          "pending",
+          "applied",
+          "approved",
+          "dismissed",
+          "replaced",
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesListSuggestionsStateParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "applied",
+              "name": "Applied"
+            },
+            {
+              "value": "approved",
+              "name": "Approved"
+            },
+            {
+              "value": "dismissed",
+              "name": "Dismissed"
+            },
+            {
+              "value": "replaced",
+              "name": "Replaced"
+            },
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "IssuesListSuggestionsActionParameter": {
+        "enum": [
+          "set_type",
+          "add_label",
+          "add_field",
+          "add_assignee",
+          "close_issue"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesListSuggestionsActionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "set_type",
+              "name": "SetType"
+            },
+            {
+              "value": "add_label",
+              "name": "AddLabel"
+            },
+            {
+              "value": "add_field",
+              "name": "AddField"
+            },
+            {
+              "value": "add_assignee",
+              "name": "AddAssignee"
+            },
+            {
+              "value": "close_issue",
+              "name": "CloseIssue"
             }
           ]
         }
@@ -353401,6 +354569,14 @@
         "required": true,
         "schema": {
           "type": "integer"
+        }
+      },
+      "issue-timeline-exclude": {
+        "name": "exclude",
+        "in": "query",
+        "description": "A comma-separated list of timeline event names to exclude from the response.",
+        "schema": {
+          "type": "string"
         }
       },
       "key-id": {
@@ -377252,6 +378428,57 @@
             "default": true
           }
         ]
+      },
+      "issue-suggestions": {
+        "value": [
+          {
+            "id": 12,
+            "issue_id": 4567,
+            "action": "add_label",
+            "state": "pending",
+            "target_id": 208045946,
+            "target_value": null,
+            "rationale": "This looks like a bug report based on the stack trace in the description.",
+            "confidence": "HIGH",
+            "actor_id": 41898282,
+            "issue_event_id": null,
+            "resolved_by": null,
+            "created_at": "2026-06-01T14:20:00Z",
+            "updated_at": "2026-06-01T14:20:00Z"
+          },
+          {
+            "id": 13,
+            "issue_id": 4567,
+            "action": "set_type",
+            "state": "pending",
+            "target_id": 3,
+            "target_value": "Bug",
+            "rationale": "The report describes unexpected behaviour with reproduction steps.",
+            "confidence": "MEDIUM",
+            "actor_id": 41898282,
+            "issue_event_id": null,
+            "resolved_by": null,
+            "created_at": "2026-06-01T14:21:00Z",
+            "updated_at": "2026-06-01T14:21:00Z"
+          }
+        ]
+      },
+      "issue-suggestion": {
+        "value": {
+          "id": 12,
+          "issue_id": 4567,
+          "action": "add_label",
+          "state": "approved",
+          "target_id": 208045946,
+          "target_value": null,
+          "rationale": "This looks like a bug report based on the stack trace in the description.",
+          "confidence": "HIGH",
+          "actor_id": 41898282,
+          "issue_event_id": 6430295168,
+          "resolved_by": 583231,
+          "created_at": "2026-06-01T14:20:00Z",
+          "updated_at": "2026-06-01T15:05:00Z"
+        }
       },
       "timeline-issue-events": {
         "value": [

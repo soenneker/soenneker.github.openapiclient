@@ -12,8 +12,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class IssuesUpdateRequestIssueFieldValuesItem : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The confidence level for this field value choice.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemConfidence? Confidence { get; set; }
         /// <summary>The ID of the issue field to set</summary>
         public long? FieldId { get; set; }
+        /// <summary>Optional reasoning for setting this field value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Rationale { get; set; }
+#nullable restore
+#else
+        public string Rationale { get; set; }
+#endif
+        /// <summary>If `true`, the change is stored as a pending suggestion for human review rather than applied directly.</summary>
+        public bool? Suggest { get; set; }
         /// <summary>The value to set for the field. For multi-select fields, provide an array of option names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +52,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemConfidence>(); } },
                 { "field_id", n => { FieldId = n.GetLongValue(); } },
+                { "rationale", n => { Rationale = n.GetStringValue(); } },
+                { "suggest", n => { Suggest = n.GetBoolValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue.CreateFromDiscriminatorValue); } },
             };
         }
@@ -51,7 +66,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemConfidence>("confidence", Confidence);
             writer.WriteLongValue("field_id", FieldId);
+            writer.WriteStringValue("rationale", Rationale);
+            writer.WriteBoolValue("suggest", Suggest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateRequestIssueFieldValuesItemValue>("value", Value);
         }
     }
