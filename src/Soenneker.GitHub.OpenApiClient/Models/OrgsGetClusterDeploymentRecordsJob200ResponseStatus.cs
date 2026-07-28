@@ -3,33 +3,25 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The suggestion&apos;s lifecycle state.</summary>
+    /// <summary>The current status of the job.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum IssueSuggestionState
+    public enum OrgsGetClusterDeploymentRecordsJob200ResponseStatus
     {
         [EnumMember(Value = "pending")]
         #pragma warning disable CS1591
         Pending,
         #pragma warning restore CS1591
-        [EnumMember(Value = "applied")]
+        [EnumMember(Value = "processing")]
         #pragma warning disable CS1591
-        Applied,
+        Processing,
         #pragma warning restore CS1591
-        [EnumMember(Value = "approved")]
+        [EnumMember(Value = "completed")]
         #pragma warning disable CS1591
-        Approved,
+        Completed,
         #pragma warning restore CS1591
-        [EnumMember(Value = "dismissed")]
+        [EnumMember(Value = "failed")]
         #pragma warning disable CS1591
-        Dismissed,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "replaced")]
-        #pragma warning disable CS1591
-        Replaced,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "invalidated")]
-        #pragma warning disable CS1591
-        Invalidated,
+        Failed,
         #pragma warning restore CS1591
     }
 }

@@ -70,6 +70,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string InstancesUrl { get; set; }
 #endif
+        /// <summary>Pull requests linked to this alert.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple>? LinkedPullRequests { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple> LinkedPullRequests { get; set; }
+#endif
         /// <summary>The most_recent_instance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,6 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "fixed_at", n => { FixedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "instances_url", n => { InstancesUrl = n.GetStringValue(); } },
+                { "linked_pull_requests", n => { LinkedPullRequests = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "most_recent_instance", n => { MostRecentInstance = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance.CreateFromDiscriminatorValue); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "rule", n => { Rule = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule.CreateFromDiscriminatorValue); } },
@@ -167,6 +176,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>("dismissed_reason", DismissedReason);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("instances_url", InstancesUrl);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestSimple>("linked_pull_requests", LinkedPullRequests);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>("most_recent_instance", MostRecentInstance);
             writer.WriteIntValue("number", Number);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRule>("rule", Rule);

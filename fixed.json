@@ -12396,6 +12396,201 @@
         }
       }
     },
+    "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs": {
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Create a cluster deployment records job",
+        "description": "Create a background job to set deployment records for a given cluster.\nPerforms validation and permission checks synchronously, returning rejected\ndeployments immediately, then enqueues a background job for the actual\ndeployment updates. Use the companion GET endpoint to poll for job status.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#create-a-cluster-deployment-records-job"
+        },
+        "operationId": "OrgsCreateClusterDeploymentRecordsJob",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "description": "The cluster name.",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9._-]\u002B$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJobRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "logical_environment": "prod",
+                    "physical_environment": "pacific-east",
+                    "deployments": [
+                      {
+                        "name": "awesome-image",
+                        "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                        "version": "2.1.0",
+                        "status": "deployed",
+                        "deployment_name": "deployment-pod",
+                        "tags": {
+                          "owning-team": "platform"
+                        },
+                        "runtime_risks": [
+                          "sensitive-data"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Job created successfully. Authorized deployments will be processed in the background.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJob202Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "job_id": 123
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A job is already in progress for this cluster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{jobId}": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Get cluster deployment records job status",
+        "description": "Get the status and results of a previously created cluster deployment records job.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/artifact-metadata#get-cluster-deployment-records-job-status"
+        },
+        "operationId": "OrgsGetClusterDeploymentRecordsJob",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "cluster",
+            "in": "path",
+            "description": "The cluster name.",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9._-]\u002B$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "description": "The ID of the job.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job status retrieved successfully.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsGetClusterDeploymentRecordsJob200Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "job_id": 123,
+                      "status": "completed",
+                      "started_at": "2026-06-10T12:00:00Z",
+                      "total_count": 5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orgs/{org}/artifacts/metadata/storage-record": {
       "post": {
         "tags": [
@@ -17998,7 +18193,7 @@
           "orgs"
         ],
         "summary": "Get route stats by actor",
-        "description": "Get API request count statistics for an actor broken down by route within a specified time frame.",
+        "description": "Get API request count statistics for an actor broken down by route within a specified time frame.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-route-stats-by-actor"
@@ -18061,7 +18256,7 @@
           "orgs"
         ],
         "summary": "Get subject stats",
-        "description": "Get API request statistics for all subjects within an organization within a specified time frame. Subjects can be users or GitHub Apps.",
+        "description": "Get API request statistics for all subjects within an organization within a specified time frame. Subjects can be users or GitHub Apps.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-subject-stats"
@@ -18118,7 +18313,7 @@
           "orgs"
         ],
         "summary": "Get summary stats",
-        "description": "Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.",
+        "description": "Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-summary-stats"
@@ -18160,7 +18355,7 @@
           "orgs"
         ],
         "summary": "Get summary stats by user",
-        "description": "Get overall statistics of API requests within the organization for a user.",
+        "description": "Get overall statistics of API requests within the organization for a user.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-summary-stats-by-user"
@@ -18205,7 +18400,7 @@
           "orgs"
         ],
         "summary": "Get summary stats by actor",
-        "description": "Get overall statistics of API requests within the organization made by a specific actor. Actors can be GitHub App installations, OAuth apps or other tokens on behalf of a user.",
+        "description": "Get overall statistics of API requests within the organization made by a specific actor. Actors can be GitHub App installations, OAuth apps or other tokens on behalf of a user.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-summary-stats-by-actor"
@@ -18253,7 +18448,7 @@
           "orgs"
         ],
         "summary": "Get time stats",
-        "description": "Get the number of API requests and rate-limited requests made within an organization over a specified time period.",
+        "description": "Get the number of API requests and rate-limited requests made within an organization over a specified time period.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-time-stats"
@@ -18298,7 +18493,7 @@
           "orgs"
         ],
         "summary": "Get time stats by user",
-        "description": "Get the number of API requests and rate-limited requests made within an organization by a specific user over a specified time period.",
+        "description": "Get the number of API requests and rate-limited requests made within an organization by a specific user over a specified time period.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-time-stats-by-user"
@@ -18346,7 +18541,7 @@
           "orgs"
         ],
         "summary": "Get time stats by actor",
-        "description": "Get the number of API requests and rate-limited requests made within an organization by a specific actor within a specified time period.",
+        "description": "Get the number of API requests and rate-limited requests made within an organization by a specific actor within a specified time period.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-time-stats-by-actor"
@@ -18397,7 +18592,7 @@
           "orgs"
         ],
         "summary": "Get user stats",
-        "description": "Get API usage statistics within an organization for a user broken down by the type of access.",
+        "description": "Get API usage statistics within an organization for a user broken down by the type of access.\n\nUnder normal conditions, you can expect API data to appear within 4\u20136 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/api-insights#get-user-stats"
@@ -51910,6 +52105,877 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/stacks": {
+      "get": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "List pull request stacks",
+        "description": "Lists pull request stacks in a repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/stacks#list-pull-request-stacks"
+        },
+        "operationId": "PullRequestStacksList",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "pull_request",
+            "in": "query",
+            "description": "Filter to the stack containing this repository pull request number.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestStacksList200ResponseResponseJson"
+                },
+                "examples": {
+                  "default": {
+                    "value": [
+                      {
+                        "id": 9876543,
+                        "number": 42,
+                        "node_id": "S_kwDOABCDEF4AAAAA",
+                        "url": "https://api.github.com/repos/octocat/hello-world/stacks/42",
+                        "base": {
+                          "ref": "main"
+                        },
+                        "pull_requests": [
+                          {
+                            "number": 101,
+                            "state": "open",
+                            "draft": false,
+                            "merged_at": null,
+                            "head": {
+                              "ref": "user-model",
+                              "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11"
+                            }
+                          },
+                          {
+                            "number": 102,
+                            "state": "open",
+                            "draft": false,
+                            "merged_at": null,
+                            "head": {
+                              "ref": "user-api",
+                              "sha": "bbb2222bbb2222bbb2222bbb2222bbb2222bbb22"
+                            }
+                          }
+                        ],
+                        "open": true,
+                        "created_at": "2026-04-15T10:00:00Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Create a pull request stack",
+        "description": "Creates a stack from an ordered list of pull request numbers. Provide the pull\nrequest numbers from the bottom of the stack to the top. Each pull request\u0027s\nbase ref must match the previous pull request\u0027s head ref.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/stacks#create-a-pull-request-stack"
+        },
+        "operationId": "PullRequestStacksCreate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PullRequestStacksCreateRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "pull_requests": [
+                      101,
+                      102,
+                      103
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestStacksCreate201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 9876543,
+                      "number": 42,
+                      "node_id": "S_kwDOABCDEF4AAAAA",
+                      "url": "https://api.github.com/repos/octocat/hello-world/stacks/42",
+                      "base": {
+                        "ref": "main"
+                      },
+                      "open": true,
+                      "created_at": "2026-04-15T10:00:00Z",
+                      "pull_requests": [
+                        {
+                          "id": 100001,
+                          "node_id": "PR_kwDOABCDEF4AAAAA",
+                          "title": "Add user model",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": false,
+                          "html_url": "https://github.com/octocat/hello-world/pull/101",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 101,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/101",
+                          "head": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "main",
+                            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        },
+                        {
+                          "id": 100002,
+                          "node_id": "PR_kwDOABCDEF4AAAAB",
+                          "title": "Add user API",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": true,
+                          "html_url": "https://github.com/octocat/hello-world/pull/102",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 102,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/102",
+                          "head": {
+                            "ref": "user-api",
+                            "sha": "bbb2222bbb2222bbb2222bbb2222bbb2222bbb22",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed. Returned when the request references pull requests that\ndon\u0027t exist in the repository, or when the pull requests can\u0027t form a\nvalid stack.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponseJson"
+                },
+                "examples": {
+                  "missing_pull_requests": {
+                    "summary": "One or more pull request numbers don\u0027t exist in the repository",
+                    "value": {
+                      "message": "Validation Failed",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#create-a-pull-request-stack",
+                      "errors": [
+                        {
+                          "resource": "Stack",
+                          "field": "pull_requests",
+                          "code": "missing",
+                          "value": [
+                            123
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "not_a_linear_stack": {
+                    "summary": "The pull requests don\u0027t form a linear stack",
+                    "value": {
+                      "message": "Pull requests must form a stack, where each PR\u0027s base ref is the previous PR\u0027s head ref",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#create-a-pull-request-stack"
+                    }
+                  },
+                  "already_stacked": {
+                    "summary": "A pull request already belongs to a stack",
+                    "value": {
+                      "message": "Pull request #123 is already part of a stack",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#create-a-pull-request-stack"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/stacks/{stackNumber}": {
+      "get": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Get a pull request stack",
+        "description": "Gets a pull request stack by providing its stack number.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/stacks#get-a-pull-request-stack"
+        },
+        "operationId": "PullRequestStacksGet",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "stackNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request stack.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestStacksGet200Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 9876543,
+                      "number": 42,
+                      "node_id": "S_kwDOABCDEF4AAAAA",
+                      "url": "https://api.github.com/repos/octocat/hello-world/stacks/42",
+                      "base": {
+                        "ref": "main"
+                      },
+                      "open": true,
+                      "created_at": "2026-04-15T10:00:00Z",
+                      "pull_requests": [
+                        {
+                          "id": 100001,
+                          "node_id": "PR_kwDOABCDEF4AAAAA",
+                          "title": "Add user model",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": false,
+                          "html_url": "https://github.com/octocat/hello-world/pull/101",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 101,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/101",
+                          "head": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "main",
+                            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        },
+                        {
+                          "id": 100002,
+                          "node_id": "PR_kwDOABCDEF4AAAAB",
+                          "title": "Add user API",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": true,
+                          "html_url": "https://github.com/octocat/hello-world/pull/102",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 102,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/102",
+                          "head": {
+                            "ref": "user-api",
+                            "sha": "bbb2222bbb2222bbb2222bbb2222bbb2222bbb22",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/stacks/{stackNumber}/add": {
+      "post": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Add pull requests to a pull request stack",
+        "description": "Appends an ordered list of pull request numbers onto the top of an existing\nstack. Provide only the pull requests you want to add, from the current top of\nthe stack upward. The first new pull request\u0027s base ref must match the current\ntop pull request\u0027s head ref.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/stacks#add-pull-requests-to-a-pull-request-stack"
+        },
+        "operationId": "PullRequestStacksAdd",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "stackNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request stack.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PullRequestStacksAddRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "pull_requests": [
+                      104,
+                      102
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestStacksAdd200Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 9876543,
+                      "number": 42,
+                      "node_id": "S_kwDOABCDEF4AAAAA",
+                      "url": "https://api.github.com/repos/octocat/hello-world/stacks/42",
+                      "base": {
+                        "ref": "main"
+                      },
+                      "open": true,
+                      "created_at": "2026-04-15T10:00:00Z",
+                      "pull_requests": [
+                        {
+                          "id": 100001,
+                          "node_id": "PR_kwDOABCDEF4AAAAA",
+                          "title": "Add user model",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": false,
+                          "html_url": "https://github.com/octocat/hello-world/pull/101",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 101,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/101",
+                          "head": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "main",
+                            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        },
+                        {
+                          "id": 100002,
+                          "node_id": "PR_kwDOABCDEF4AAAAB",
+                          "title": "Add user API",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": true,
+                          "html_url": "https://github.com/octocat/hello-world/pull/102",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 102,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/102",
+                          "head": {
+                            "ref": "user-api",
+                            "sha": "bbb2222bbb2222bbb2222bbb2222bbb2222bbb22",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "Conflict. Returned when the stack is being modified by another request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                },
+                "examples": {
+                  "being_modified": {
+                    "summary": "Another request is currently modifying the stack",
+                    "value": {
+                      "message": "Stack is currently being modified",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#add-pull-requests-to-a-pull-request-stack",
+                      "status": "409"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed. Returned when the request references pull requests that\ndon\u0027t exist in the repository, or when the pull requests can\u0027t be appended\nto the stack.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponseJson2"
+                },
+                "examples": {
+                  "missing_pull_requests": {
+                    "summary": "One or more pull request numbers don\u0027t exist in the repository",
+                    "value": {
+                      "message": "Validation Failed",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#add-pull-requests-to-a-pull-request-stack",
+                      "errors": [
+                        {
+                          "resource": "Stack",
+                          "field": "pull_requests",
+                          "code": "missing",
+                          "value": [
+                            123
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "not_a_linear_stack": {
+                    "summary": "The pull requests don\u0027t continue the stack linearly",
+                    "value": {
+                      "message": "Pull requests must form a stack, where each PR\u0027s base ref is the previous PR\u0027s head ref",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#add-pull-requests-to-a-pull-request-stack"
+                    }
+                  },
+                  "already_stacked": {
+                    "summary": "A pull request already belongs to a stack",
+                    "value": {
+                      "message": "Pull request #123 is already part of a stack",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#add-pull-requests-to-a-pull-request-stack"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/stacks/{stackNumber}/unstack": {
+      "post": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Remove pull requests from a pull request stack",
+        "description": "Removes the unmerged pull requests from a stack. Pull requests that cannot be\nunstacked (for example, those that are queued for merge) are left in place. When pull requests remain in the stack, the updated\nstack is returned with a \u0060200\u0060. When no pull requests remain, the stack is\ndissolved and a \u0060204\u0060 is returned.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/stacks#remove-pull-requests-from-a-pull-request-stack"
+        },
+        "operationId": "PullRequestStacksUnstack",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "stackNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request stack.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestStacksUnstack200Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 9876543,
+                      "number": 42,
+                      "node_id": "S_kwDOABCDEF4AAAAA",
+                      "url": "https://api.github.com/repos/octocat/hello-world/stacks/42",
+                      "base": {
+                        "ref": "main"
+                      },
+                      "open": true,
+                      "created_at": "2026-04-15T10:00:00Z",
+                      "pull_requests": [
+                        {
+                          "id": 100001,
+                          "node_id": "PR_kwDOABCDEF4AAAAA",
+                          "title": "Add user model",
+                          "state": "open",
+                          "merged_at": null,
+                          "draft": false,
+                          "html_url": "https://github.com/octocat/hello-world/pull/101",
+                          "user": {
+                            "login": "octocat",
+                            "id": 1,
+                            "node_id": "MDQ6VXNlcjE=",
+                            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                            "gravatar_id": "",
+                            "url": "https://api.github.com/users/octocat",
+                            "html_url": "https://github.com/octocat",
+                            "followers_url": "https://api.github.com/users/octocat/followers",
+                            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                            "organizations_url": "https://api.github.com/users/octocat/orgs",
+                            "repos_url": "https://api.github.com/users/octocat/repos",
+                            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                            "received_events_url": "https://api.github.com/users/octocat/received_events",
+                            "type": "User",
+                            "site_admin": false,
+                            "user_view_type": "public"
+                          },
+                          "number": 101,
+                          "url": "https://api.github.com/repos/octocat/hello-world/pulls/101",
+                          "head": {
+                            "ref": "user-model",
+                            "sha": "aaa1111aaa1111aaa1111aaa1111aaa1111aaa11",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          },
+                          "base": {
+                            "ref": "main",
+                            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                            "repo": {
+                              "id": 1296269,
+                              "url": "https://api.github.com/repos/octocat/hello-world",
+                              "name": "hello-world"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "Conflict. Returned when the stack is being modified by another request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                },
+                "examples": {
+                  "being_modified": {
+                    "summary": "Another request is currently modifying the stack",
+                    "value": {
+                      "message": "Stack is currently being modified",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#remove-pull-requests-from-a-pull-request-stack",
+                      "status": "409"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed. Returned when the stack can\u0027t be unstacked because every\npull request in it is locked and cannot be removed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                },
+                "examples": {
+                  "cannot_be_removed": {
+                    "summary": "Every pull request in the stack is locked and can\u0027t be removed",
+                    "value": {
+                      "message": "Pull requests in this stack cannot be removed",
+                      "documentation_url": "https://docs.github.com/rest/pulls/stacks#remove-pull-requests-from-a-pull-request-stack"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/stargazers": {
       "get": {
         "tags": [
@@ -83455,6 +84521,13 @@
             "items": {
               "$ref": "#/components/schemas/SimpleUser"
             }
+          },
+          "linked_pull_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PullRequestSimple"
+            },
+            "description": "Pull requests linked to this alert."
           }
         }
       },
@@ -91754,6 +92827,113 @@
           }
         },
         "additionalProperties": false
+      },
+      "PullRequestStackMinimal": {
+        "title": "Pull Request Stack Minimal",
+        "required": [
+          "id",
+          "number",
+          "node_id",
+          "url",
+          "base",
+          "open",
+          "created_at",
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestStackMinimalBase"
+          },
+          "open": {
+            "type": "boolean",
+            "description": "Whether the stack has any open pull request. False when all pull requests are merged or closed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pull_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PullRequestStackMinimalPullRequestsItem"
+            }
+          }
+        }
+      },
+      "PullRequestStackPullRequest": {
+        "title": "Pull Request Stack Pull Request",
+        "required": [
+          "id",
+          "number",
+          "url",
+          "head",
+          "base",
+          "node_id",
+          "title",
+          "state",
+          "merged_at",
+          "draft",
+          "html_url",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          },
+          "head": {
+            "$ref": "#/components/schemas/PullRequestMinimalHead"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestMinimalBase"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/PullRequestStackPullRequestState"
+          },
+          "merged_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "draft": {
+            "type": "boolean"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          }
+        }
       },
       "Stargazer": {
         "title": "Stargazer",
@@ -111049,6 +112229,44 @@
           }
         }
       },
+      "PullRequestStackPullRequestAllOf2": {
+        "required": [
+          "node_id",
+          "title",
+          "state",
+          "merged_at",
+          "draft",
+          "html_url",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "node_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/PullRequestStackPullRequestState"
+          },
+          "merged_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "draft": {
+            "type": "boolean"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "user": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          }
+        }
+      },
       "NullableDeploymentPayload": {
         "required": [
           "type"
@@ -129195,6 +130413,46 @@
           }
         },
         "additionalProperties": false
+      },
+      "PullRequestStackMinimalBase": {
+        "required": [
+          "ref"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          }
+        }
+      },
+      "PullRequestStackMinimalPullRequestsItem": {
+        "required": [
+          "number",
+          "state",
+          "draft",
+          "merged_at",
+          "head"
+        ],
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer"
+          },
+          "state": {
+            "$ref": "#/components/schemas/PullRequestStackMinimalPullRequestsItemState"
+          },
+          "draft": {
+            "type": "boolean"
+          },
+          "merged_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "head": {
+            "$ref": "#/components/schemas/PullRequestStackMinimalPullRequestsItemHead"
+          }
+        }
       },
       "ContributorActivityWeeksItem": {
         "type": "object",
@@ -157921,6 +159179,21 @@
           }
         },
         "description": "The name of the package affected by the vulnerability."
+      },
+      "PullRequestStackMinimalPullRequestsItemHead": {
+        "required": [
+          "ref",
+          "sha"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "sha": {
+            "type": "string"
+          }
+        }
       },
       "CommitSearchResultItemCommitAuthor": {
         "required": [
@@ -252426,6 +253699,87 @@
           }
         }
       },
+      "OrgsCreateClusterDeploymentRecordsJobRequest": {
+        "required": [
+          "logical_environment",
+          "deployments"
+        ],
+        "type": "object",
+        "properties": {
+          "logical_environment": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "The stage of the deployment."
+          },
+          "physical_environment": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "The physical region of the deployment."
+          },
+          "deployments": {
+            "maxItems": 5000,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItem"
+            },
+            "description": "The list of deployments to record."
+          }
+        }
+      },
+      "OrgsCreateClusterDeploymentRecordsJob202Response": {
+        "required": [
+          "job_id"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "integer",
+            "description": "The ID of the created job.",
+            "format": "int64"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJob202ResponseErrorsItem"
+            },
+            "description": "Deployments that were rejected during authorization."
+          }
+        }
+      },
+      "OrgsGetClusterDeploymentRecordsJob200Response": {
+        "required": [
+          "job_id",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "integer",
+            "description": "The ID of the job.",
+            "format": "int64"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrgsGetClusterDeploymentRecordsJob200ResponseStatus"
+          },
+          "started_at": {
+            "type": "string",
+            "description": "When the job started processing (only present when processing, completed, or failed).",
+            "format": "date-time"
+          },
+          "total_count": {
+            "type": "integer",
+            "description": "The number of records successfully mutated (only present when completed)."
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrgsGetClusterDeploymentRecordsJob200ResponseErrorsItem"
+            },
+            "description": "Processing errors (only present when completed or failed)."
+          }
+        }
+      },
       "OrgsCreateArtifactStorageRecordRequest": {
         "required": [
           "name",
@@ -259102,6 +260456,276 @@
           "$ref": "#/components/schemas/RepositoryAdvisory"
         }
       },
+      "PullRequestStacksList200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PullRequestStackMinimal"
+        }
+      },
+      "PullRequestStacksCreateRequest": {
+        "required": [
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "pull_requests": {
+            "maxItems": 100,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An ordered list of pull request numbers forming the stack from bottom to top."
+          }
+        }
+      },
+      "PullRequestStacksCreate201Response": {
+        "required": [
+          "id",
+          "number",
+          "node_id",
+          "url",
+          "base",
+          "open",
+          "created_at",
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestStacksCreate201ResponseBase"
+          },
+          "open": {
+            "type": "boolean",
+            "description": "Whether the stack has any open pull request. False when all pull requests are merged or closed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pull_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PullRequestStackPullRequest"
+            }
+          }
+        }
+      },
+      "ValidationErrorResponseJson": {
+        "title": "Validation Error",
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationErrorResponseJsonErrorsItem"
+            }
+          }
+        },
+        "description": "Validation Error"
+      },
+      "PullRequestStacksGet200Response": {
+        "required": [
+          "id",
+          "number",
+          "node_id",
+          "url",
+          "base",
+          "open",
+          "created_at",
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestStacksGet200ResponseBase"
+          },
+          "open": {
+            "type": "boolean",
+            "description": "Whether the stack has any open pull request. False when all pull requests are merged or closed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pull_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PullRequestStackPullRequest"
+            }
+          }
+        }
+      },
+      "PullRequestStacksAddRequest": {
+        "required": [
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "pull_requests": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "An ordered list of pull request numbers to append to the stack, from the current top upward."
+          }
+        }
+      },
+      "PullRequestStacksAdd200Response": {
+        "required": [
+          "id",
+          "number",
+          "node_id",
+          "url",
+          "base",
+          "open",
+          "created_at",
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestStacksAdd200ResponseBase"
+          },
+          "open": {
+            "type": "boolean",
+            "description": "Whether the stack has any open pull request. False when all pull requests are merged or closed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pull_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PullRequestStackPullRequest"
+            }
+          }
+        }
+      },
+      "ValidationErrorResponseJson2": {
+        "title": "Validation Error",
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationErrorResponseJson2ErrorsItem"
+            }
+          }
+        },
+        "description": "Validation Error"
+      },
+      "PullRequestStacksUnstack200Response": {
+        "required": [
+          "id",
+          "number",
+          "node_id",
+          "url",
+          "base",
+          "open",
+          "created_at",
+          "pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestStacksUnstack200ResponseBase"
+          },
+          "open": {
+            "type": "boolean",
+            "description": "Whether the stack has any open pull request. False when all pull requests are merged or closed."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pull_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PullRequestStackPullRequest"
+            }
+          }
+        }
+      },
       "ActivityListStargazersForRepo200Response": {
         "type": "object",
         "anyOf": [
@@ -264429,6 +266053,12 @@
           "$ref": "#/components/schemas/RepositoryAdvisory"
         }
       },
+      "PullRequestStacksList200ResponseResponseJson": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/PullRequestStackMinimal"
+        }
+      },
       "ReposGetCodeFrequencyStats200ResponseResponseJson": {
         "type": "array",
         "items": {
@@ -265998,6 +267628,46 @@
           }
         ]
       },
+      "ValidationErrorResponseJsonErrorsItemValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "type": "integer",
+            "nullable": true
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationErrorResponseJsonErrorsItemValueOneOf3Item"
+            },
+            "nullable": true
+          }
+        ]
+      },
+      "ValidationErrorResponseJson2ErrorsItemValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "type": "integer",
+            "nullable": true
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationErrorResponseJson2ErrorsItemValueOneOf3Item"
+            },
+            "nullable": true
+          }
+        ]
+      },
       "CodespacesCreateForAuthenticatedUserRequestOneOf1": {
         "required": [
           "repository_id"
@@ -266484,6 +268154,28 @@
           }
         },
         "description": "Update the source for the repository. Must include the branch name and path."
+      },
+      "ValidationErrorResponseJsonErrorsItemValueOneOf3Item": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "ValidationErrorResponseJson2ErrorsItemValueOneOf3Item": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ]
       },
       "IssuesAddLabelsRequestOneOf1LabelsItemOneOf2": {
         "required": [
@@ -268547,6 +270239,70 @@
           }
         }
       },
+      "OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItem": {
+        "required": [
+          "name",
+          "deployment_name",
+          "digest"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the artifact."
+          },
+          "digest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string",
+            "description": "The hex encoded digest of the artifact."
+          },
+          "version": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "The artifact version.",
+            "example": "1.2.3",
+            "x-multi-segment": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemStatus"
+          },
+          "deployment_name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The unique identifier for the deployment represented by the new record.\n"
+          },
+          "github_repository": {
+            "maxLength": 100,
+            "pattern": "^[A-Za-z0-9.\\-_]\u002B$",
+            "type": "string",
+            "description": "The name of the GitHub repository associated with the artifact.",
+            "example": "my-github-repo"
+          },
+          "tags": {
+            "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemTags"
+          },
+          "runtime_risks": {
+            "maxItems": 4,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemRuntimeRisksItem"
+            },
+            "description": "A list of runtime risks associated with the deployment."
+          }
+        }
+      },
+      "OrgsCreateClusterDeploymentRecordsJob202ResponseErrorsItem": {
+        "type": "object"
+      },
+      "OrgsGetClusterDeploymentRecordsJob200ResponseErrorsItem": {
+        "type": "object"
+      },
       "OrgsCreateArtifactStorageRecord200ResponseStorageRecordsItem": {
         "type": "object",
         "properties": {
@@ -269764,6 +271520,102 @@
         },
         "description": "A map of validation errors keyed by the zero-based index of the pattern that failed."
       },
+      "PullRequestStacksCreate201ResponseBase": {
+        "required": [
+          "ref"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationErrorResponseJsonErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ValidationErrorResponseJsonErrorsItemValue"
+          }
+        }
+      },
+      "PullRequestStacksGet200ResponseBase": {
+        "required": [
+          "ref"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          }
+        }
+      },
+      "PullRequestStacksAdd200ResponseBase": {
+        "required": [
+          "ref"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationErrorResponseJson2ErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ValidationErrorResponseJson2ErrorsItemValue"
+          }
+        }
+      },
+      "PullRequestStacksUnstack200ResponseBase": {
+        "required": [
+          "ref"
+        ],
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          }
+        }
+      },
       "AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem": {
         "required": [
           "archive_url",
@@ -270847,6 +272699,13 @@
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only."
       },
       "OrgsSetClusterDeploymentRecordsRequestDeploymentsItemTags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Key-value pairs to tag the deployment record."
+      },
+      "OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemTags": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
@@ -280506,7 +282365,8 @@
           "applied",
           "approved",
           "dismissed",
-          "replaced"
+          "replaced",
+          "invalidated"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -280534,6 +282394,10 @@
             {
               "value": "replaced",
               "name": "Replaced"
+            },
+            {
+              "value": "invalidated",
+              "name": "Invalidated"
             }
           ]
         }
@@ -281278,6 +283142,28 @@
             {
               "value": "draft",
               "name": "Draft"
+            }
+          ]
+        }
+      },
+      "PullRequestStackPullRequestState": {
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PullRequestStackPullRequestState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
             }
           ]
         }
@@ -291085,6 +292971,28 @@
             {
               "value": "inconclusive",
               "name": "Inconclusive"
+            }
+          ]
+        }
+      },
+      "PullRequestStackMinimalPullRequestsItemState": {
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PullRequestStackMinimalPullRequestsItemState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
             }
           ]
         }
@@ -341534,6 +343442,39 @@
           ]
         }
       },
+      "OrgsGetClusterDeploymentRecordsJob200ResponseStatus": {
+        "enum": [
+          "pending",
+          "processing",
+          "completed",
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The current status of the job.",
+        "x-ms-enum": {
+          "name": "OrgsGetClusterDeploymentRecordsJob200ResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
       "OrgsCreateArtifactStorageRecordRequestStatus": {
         "enum": [
           "active",
@@ -347923,6 +349864,61 @@
           ]
         }
       },
+      "OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemStatus": {
+        "enum": [
+          "deployed",
+          "decommissioned"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The deployment status of the artifact.",
+        "x-ms-enum": {
+          "name": "OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deployed",
+              "name": "Deployed"
+            },
+            {
+              "value": "decommissioned",
+              "name": "Decommissioned"
+            }
+          ]
+        }
+      },
+      "OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemRuntimeRisksItem": {
+        "enum": [
+          "critical-resource",
+          "internet-exposed",
+          "lateral-movement",
+          "sensitive-data"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "OrgsCreateClusterDeploymentRecordsJobRequestDeploymentsItemRuntimeRisksItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "critical-resource",
+              "name": "CriticalResource"
+            },
+            {
+              "value": "internet-exposed",
+              "name": "InternetExposed"
+            },
+            {
+              "value": "lateral-movement",
+              "name": "LateralMovement"
+            },
+            {
+              "value": "sensitive-data",
+              "name": "SensitiveData"
+            }
+          ]
+        }
+      },
       "CopilotSpacesCreateForOrgRequestResourcesAttributesItemResourceType": {
         "enum": [
           "repository",
@@ -351197,6 +353193,7 @@
           "approved",
           "dismissed",
           "replaced",
+          "invalidated",
           "all"
         ],
         "type": "string",
@@ -351224,6 +353221,10 @@
             {
               "value": "replaced",
               "name": "Replaced"
+            },
+            {
+              "value": "invalidated",
+              "name": "Invalidated"
             },
             {
               "value": "all",

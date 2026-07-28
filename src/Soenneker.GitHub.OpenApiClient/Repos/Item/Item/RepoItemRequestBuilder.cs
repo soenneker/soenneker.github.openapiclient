@@ -62,6 +62,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rules;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecretScanning;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stacks;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stats;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Statuses;
@@ -377,6 +378,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.SecurityAdvisoriesRequestBuilder SecurityAdvisories
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.SecurityAdvisoriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The stacks property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stacks.StacksRequestBuilder Stacks
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stacks.StacksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The stargazers property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.StargazersRequestBuilder Stargazers
