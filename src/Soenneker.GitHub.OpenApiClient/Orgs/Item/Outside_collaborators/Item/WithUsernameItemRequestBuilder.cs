@@ -61,18 +61,18 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item
         /// When an organization member is converted to an outside collaborator, they&apos;ll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see &quot;[Converting an organization member to an outside collaborator](https://docs.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)&quot;. Converting an organization member to an outside collaborator may be restricted by enterprise administrators. For more information, see &quot;[Enforcing repository management policies in your enterprise](https://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories).&quot;
         /// API method documentation <see href="https://docs.github.com/rest/orgs/outside-collaborators#convert-an-organization-member-to-outside-collaborator" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseResponseJson?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaboratorRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseSchema?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaboratorRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseResponseJson> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaboratorRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseSchema> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaboratorRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -81,7 +81,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Outside_collaborators.Item
             {
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseResponseJson>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseSchema>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrgsConvertMemberToOutsideCollaborator202ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removing a user from this list will remove them from all the organization&apos;s repositories.
