@@ -14,10 +14,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The already_applied property</summary>
-        public bool? AlreadyApplied { get; set; }
         /// <summary>The confidence property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItemConfidence? Confidence { get; set; }
+        /// <summary>The ignored property</summary>
+        public bool? Ignored { get; set; }
+        /// <summary>The ignored_reason property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItemIgnoredReason? IgnoredReason { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,8 +63,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "already_applied", n => { AlreadyApplied = n.GetBoolValue(); } },
                 { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItemConfidence>(); } },
+                { "ignored", n => { Ignored = n.GetBoolValue(); } },
+                { "ignored_reason", n => { IgnoredReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItemIgnoredReason>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "rationale", n => { Rationale = n.GetStringValue(); } },
                 { "suggest", n => { Suggest = n.GetBoolValue(); } },
@@ -75,8 +78,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("already_applied", AlreadyApplied);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItemConfidence>("confidence", Confidence);
+            writer.WriteBoolValue("ignored", Ignored);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsLabelsItemIgnoredReason>("ignored_reason", IgnoredReason);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("rationale", Rationale);
             writer.WriteBoolValue("suggest", Suggest);

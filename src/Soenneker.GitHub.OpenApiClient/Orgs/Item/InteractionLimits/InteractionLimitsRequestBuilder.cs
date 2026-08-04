@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits.Pulls;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InteractionLimitsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The pulls property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits.Pulls.PullsRequestBuilder Pulls
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits.Pulls.PullsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.InteractionLimits.InteractionLimitsRequestBuilder"/> and sets the default values.
         /// </summary>

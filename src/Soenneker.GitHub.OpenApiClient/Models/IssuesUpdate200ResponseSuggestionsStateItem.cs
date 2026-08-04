@@ -14,12 +14,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The already_applied property</summary>
-        public bool? AlreadyApplied { get; set; }
         /// <summary>The confidence property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence? Confidence { get; set; }
         /// <summary>The duplicate_issue_id property</summary>
         public long? DuplicateIssueId { get; set; }
+        /// <summary>The ignored property</summary>
+        public bool? Ignored { get; set; }
+        /// <summary>The ignored_reason property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason? IgnoredReason { get; set; }
         /// <summary>The rationale property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,9 +73,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "already_applied", n => { AlreadyApplied = n.GetBoolValue(); } },
                 { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence>(); } },
                 { "duplicate_issue_id", n => { DuplicateIssueId = n.GetLongValue(); } },
+                { "ignored", n => { Ignored = n.GetBoolValue(); } },
+                { "ignored_reason", n => { IgnoredReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason>(); } },
                 { "rationale", n => { Rationale = n.GetStringValue(); } },
                 { "state_reason", n => { StateReason = n.GetStringValue(); } },
                 { "suggest", n => { Suggest = n.GetBoolValue(); } },
@@ -87,9 +90,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("already_applied", AlreadyApplied);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence>("confidence", Confidence);
             writer.WriteLongValue("duplicate_issue_id", DuplicateIssueId);
+            writer.WriteBoolValue("ignored", Ignored);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason>("ignored_reason", IgnoredReason);
             writer.WriteStringValue("rationale", Rationale);
             writer.WriteStringValue("state_reason", StateReason);
             writer.WriteBoolValue("suggest", Suggest);

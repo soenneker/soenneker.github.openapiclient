@@ -42,6 +42,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting? NotificationSetting { get; set; }
         /// <summary>The ID of a team to set as the parent team.</summary>
         public long? ParentTeamId { get; set; }
+        /// <summary>The slug of a team to set as the parent team. Ignored when `parent_team_id` is also provided.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParentTeamSlug { get; set; }
+#nullable restore
+#else
+        public string ParentTeamSlug { get; set; }
+#endif
         /// <summary>**Closing down notice**. The permission that new repositories will be added to the team with when none is specified.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission? Permission { get; set; }
         /// <summary>&quot;The level of privacy this team should have. The options are:  **For a non-nested team:**   * `secret` - only visible to organization owners and members of this team.   * `closed` - visible to all members of this organization.  Default: `secret`  **For a parent or child team:**   * `closed` - visible to all members of this organization.  Default for child team: `closed`&quot;</summary>
@@ -84,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting>(); } },
                 { "parent_team_id", n => { ParentTeamId = n.GetLongValue(); } },
+                { "parent_team_slug", n => { ParentTeamSlug = n.GetStringValue(); } },
                 { "permission", n => { Permission = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission>(); } },
                 { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy>(); } },
                 { "repo_names", n => { RepoNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -101,6 +110,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting>("notification_setting", NotificationSetting);
             writer.WriteLongValue("parent_team_id", ParentTeamId);
+            writer.WriteStringValue("parent_team_slug", ParentTeamSlug);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission>("permission", Permission);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy>("privacy", Privacy);
             writer.WriteCollectionOfPrimitiveValues<string>("repo_names", RepoNames);

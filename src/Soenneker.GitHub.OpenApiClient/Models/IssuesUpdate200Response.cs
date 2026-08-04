@@ -232,7 +232,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.SubIssuesSummary SubIssuesSummary { get; set; }
 #endif
-        /// <summary>Pending suggestions for each suggestible field (`type`,`issue_field_values`, `labels`, `assignees`, `state`) therequest touched. Omitted for fields not in the request orwith no pending suggestions. Items tagged `already_applied`are echoes of the current request&apos;s inputs whose target isalready applied to the issue; they are not persisted aspending suggestions.</summary>
+        /// <summary>Pending suggestions for each suggestible field (`type`,`issue_field_values`, `labels`, `assignees`, `state`) therequest touched. Omitted for fields not in the request orwith no pending or ignored suggestions. Items tagged`ignored` are echoes of the current request&apos;s inputs thatwere not persisted as pending suggestions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestions? Suggestions { get; set; }

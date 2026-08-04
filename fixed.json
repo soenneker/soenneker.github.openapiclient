@@ -6196,7 +6196,7 @@
           "meta"
         ],
         "summary": "Get GitHub meta information",
-        "description": "Returns meta information about GitHub, including a list of GitHub\u0027s IP addresses. For more information, see \u0022[About GitHub\u0027s IP addresses](https://docs.github.com/articles/about-github-s-ip-addresses/).\u0022\n\nThe API\u0027s response also includes a list of GitHub\u0027s domain names.\n\nThe values shown in the documentation\u0027s response are example values. You must always query the API directly to get the latest values.\n\n\u003E [!NOTE]\n\u003E This endpoint returns both IPv4 and IPv6 addresses. However, not all features support IPv6. You should refer to the specific documentation for each feature to determine if IPv6 is supported.",
+        "description": "Returns meta information about GitHub, including a list of GitHub\u0027s IP addresses. For more information, see \u0022[About GitHub\u0027s IP addresses](https://docs.github.com/articles/about-github-s-ip-addresses/).\u0022\n\nThe API\u0027s response also includes a list of GitHub\u0027s domain names, and the public keys used by GitHub to sign commits made through the web UI.\n\nThe values shown in the documentation\u0027s response are example values. You must always query the API directly to get the latest values.\n\n\u003E [!NOTE]\n\u003E This endpoint returns both IPv4 and IPv6 addresses. However, not all features support IPv6. You should refer to the specific documentation for each feature to determine if IPv6 is supported.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/meta/meta#get-apiname-meta-information"
@@ -18843,6 +18843,137 @@
         }
       }
     },
+    "/orgs/{org}/interaction-limits/pulls/creation-cap": {
+      "get": {
+        "tags": [
+          "interactions"
+        ],
+        "summary": "Get pull request creation cap for an org",
+        "description": "Gets the pull request creation cap configuration for an organization.\nThe cap limits the total number of open pull requests a user can have across all public\nrepositories in the organization at one time.\n\nOnly users with admin access to the organization can view the cap configuration.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/interactions/orgs#get-pull-request-creation-cap-for-an-org"
+        },
+        "operationId": "InteractionsGetPullRequestCreationCapForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InteractionsGetPullRequestCreationCapForOrg200Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "Response when cap is enabled",
+                    "value": {
+                      "enabled": true,
+                      "max_open_pull_requests": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "interactions"
+        ],
+        "summary": "Update pull request creation cap for an org",
+        "description": "Updates the pull request creation cap for an organization. The cap limits the total number\nof open pull requests a user can have across all public repositories in the organization\nat one time.\n\nOnly users with admin access to the organization can configure the cap.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/interactions/orgs#update-pull-request-creation-cap-for-an-org"
+        },
+        "operationId": "InteractionsUpdatePullRequestCreationCapForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InteractionsUpdatePullRequestCreationCapForOrgRequest"
+              },
+              "examples": {
+                "default": {
+                  "summary": "Example request body",
+                  "value": {
+                    "enabled": true,
+                    "max_open_pull_requests": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InteractionsUpdatePullRequestCreationCapForOrg200Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "Response",
+                    "value": {
+                      "enabled": true,
+                      "max_open_pull_requests": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
     "/orgs/{org}/invitations": {
       "get": {
         "tags": [
@@ -25855,7 +25986,7 @@
           "teams"
         ],
         "summary": "List team repositories",
-        "description": "Lists a team\u0027s repositories visible to the authenticated user.\n\n\u003E [!NOTE]\n\u003E You can also specify a team by \u0060org_id\u0060 and \u0060team_id\u0060 using the route \u0060GET /organizations/{org_id}/team/{team_id}/repos\u0060.",
+        "description": "Lists a team\u0027s repositories visible to the authenticated user.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060read:org\u0060 or \u0060repo\u0060 scope to use this endpoint.\n\n\u003E [!NOTE]\n\u003E You can also specify a team by \u0060org_id\u0060 and \u0060team_id\u0060 using the route \u0060GET /organizations/{org_id}/team/{team_id}/repos\u0060.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/teams/teams#list-team-repositories"
@@ -48552,6 +48683,257 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/pulls/{pullNumber}/merge-async": {
+      "put": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Merge a pull request asynchronously",
+        "description": "Merges a pull request into the base branch in the background. Merging in this way allows certain types of errors to be retried, and avoids the risk of timeouts for particularly complex merges.\n\nThis is the required method for merging stacked PRs, but also supports unstacked PRs. When using this endpoint to merge a stacked pull request, all pull requests in the stack up to and including the requested PR will be merged into the base branch.\n\nThe response includes a UUID that can be used to fetch the result of the merge. If another asynchronous merge request has already been made for this pull request, the UUID of that request will be returned instead with a 409 response status to indicate that the merge options may be different from those that were requested. If there isn\u0027t an existing asynchronous merge request, a 202 response status is used.\n\nIf the pull request is already merged, the merge commit OID will be returned immediately with a 200 status.\n\nIf the pull request cannot be merged (e.g. because it is closed, or still a draft) this result will be returned immediately with a 400 response status. Branch protection rules and repository rules are not run at this stage, only basic pull request state checks are performed.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/pulls#merge-a-pull-request-asynchronously"
+        },
+        "operationId": "PullsMergeAsync",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/pull-number"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PullsMergeAsyncRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "commit_title": "Fix race condition",
+                    "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
+                    "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
+                    "merge_method": "squash",
+                    "merge_action": "default"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "if the merge request was accepted and will run in the background",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestMergeAsyncResult"
+                },
+                "examples": {
+                  "response-if-merge-request-was-accepted": {
+                    "summary": "Request accepted",
+                    "value": {
+                      "status": "pending",
+                      "details": {
+                        "message": "Merge request enqueued.",
+                        "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
+                        "merge_method": "merge",
+                        "merge_action": "default",
+                        "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "if the pull request was already merged, or is already in a merge queue",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestMergeAsyncResult"
+                },
+                "examples": {
+                  "response-if-pull-request-was-already-merged": {
+                    "summary": "Already merged",
+                    "value": {
+                      "status": "merged",
+                      "details": {
+                        "message": "Pull request is already merged.",
+                        "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                      }
+                    }
+                  },
+                  "response-if-pull-request-is-already-enqueued": {
+                    "summary": "Already enqueued",
+                    "value": {
+                      "status": "enqueued",
+                      "details": {
+                        "message": "Pull request is already in the merge queue."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "if there is an existing merge request already enqueued for this pull request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestMergeAsyncResult"
+                },
+                "examples": {
+                  "response-if-a-merge-request-already-exists": {
+                    "value": {
+                      "status": "pending",
+                      "details": {
+                        "message": "A merge request already exists for this pull request.",
+                        "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
+                        "merge_method": "squash",
+                        "merge_action": "default",
+                        "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "if the pull request is not ready to be merged, e.g. because it is closed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestMergeAsyncResult"
+                },
+                "examples": {
+                  "response-if-pull-request-is-not-ready-to-be-merged": {
+                    "value": {
+                      "status": "failed",
+                      "details": {
+                        "message": "Pull request is closed."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/pulls/{pullNumber}/merge-async/{uuid}": {
+      "get": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Get the result of an asynchronous merge",
+        "description": "Fetches the current result of an asynchronous merge request, identified by the UUID that was returned when the merge was requested.\n\nWhile the merge is still queued, the response includes the UUID, merge method, and expected head SHA of the request. Once the merge has completed, the response reports whether it was merged, including the merge commit OID on success or a message describing why it could not be merged on failure.\n\nThe result of an asynchronous merge request is retained for 24 hours after its most recent update. After this window the request expires and this endpoint returns a \u0060404\u0060 response for its UUID.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/pulls#get-the-result-of-an-asynchronous-merge"
+        },
+        "operationId": "PullsGetMergeAsyncResult",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/pull-number"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "The UUID of the asynchronous merge request, as returned when the merge was requested.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the current result of the asynchronous merge request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestMergeAsyncResult"
+                },
+                "examples": {
+                  "response-if-the-merge-is-still-queued": {
+                    "summary": "Still queued",
+                    "value": {
+                      "status": "pending",
+                      "details": {
+                        "message": "Merge request is in progress.",
+                        "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
+                        "merge_method": "merge",
+                        "merge_action": "default",
+                        "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                      }
+                    }
+                  },
+                  "response-if-the-pull-request-is-enqueued": {
+                    "summary": "Enqueued in the merge queue",
+                    "value": {
+                      "status": "enqueued",
+                      "details": {
+                        "message": "Pull request is in the merge queue."
+                      }
+                    }
+                  },
+                  "response-if-the-merge-succeeded": {
+                    "summary": "Merge succeeded",
+                    "value": {
+                      "status": "merged",
+                      "details": {
+                        "message": "Pull request was merged.",
+                        "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                      }
+                    }
+                  },
+                  "response-if-the-merge-failed": {
+                    "summary": "Merge failed",
+                    "value": {
+                      "status": "failed",
+                      "details": {
+                        "message": "Merge conflict: the pull request could not be merged."
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
@@ -83368,6 +83750,26 @@
         "description": "Metaproperties for Git author/committer information.",
         "nullable": true
       },
+      "GitUser": {
+        "title": "Git User",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Chris Wanstrath"
+          },
+          "email": {
+            "type": "string",
+            "example": "chris@ozmm.org"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2007-10-29T02:42:39.000-07:00"
+          }
+        },
+        "description": "Metaproperties for Git author/committer information."
+      },
       "Verification": {
         "title": "Verification",
         "required": [
@@ -91893,6 +92295,24 @@
           }
         },
         "description": "Pull Request Merge Result"
+      },
+      "PullRequestMergeAsyncResult": {
+        "title": "Pull Request Merge Async Result",
+        "required": [
+          "status",
+          "details"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultStatus"
+          },
+          "details": {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultDetails"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Pull Request Merge Async Result"
       },
       "PullRequestReviewRequest": {
         "title": "Pull Request Review Request",
@@ -112125,6 +112545,37 @@
         ],
         "description": "The ID of the GitHub Pages deployment. This is the Git SHA of the deployed commit."
       },
+      "PullRequestMergeAsyncResultDetails": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf3"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "PullRequestMergeAsyncResultDetailsOneOf1": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf1",
+            "PullRequestMergeAsyncResultDetailsOneOf2": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf2",
+            "PullRequestMergeAsyncResultDetailsOneOf3": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf3"
+          }
+        }
+      },
       "SecretScanningLocationDetails": {
         "required": [
           "type"
@@ -116696,6 +117147,66 @@
             "type": "boolean"
           }
         }
+      },
+      "PullRequestMergeAsyncResultDetailsOneOf1": {
+        "required": [
+          "message",
+          "uuid",
+          "merge_method",
+          "merge_action",
+          "expected_head_sha"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "merge_method": {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf1MergeMethod"
+          },
+          "merge_action": {
+            "$ref": "#/components/schemas/PullRequestMergeAsyncResultDetailsOneOf1MergeAction"
+          },
+          "expected_head_sha": {
+            "type": "string",
+            "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+          }
+        },
+        "additionalProperties": false,
+        "description": "When an asynchronous merge request was created or already existed"
+      },
+      "PullRequestMergeAsyncResultDetailsOneOf2": {
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "When the pull request cannot be merged"
+      },
+      "PullRequestMergeAsyncResultDetailsOneOf3": {
+        "required": [
+          "message",
+          "sha"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "sha": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "When the pull request is already merged"
       },
       "SecretScanningScanHistoryCustomPatternBackfillScansItemAllOf2": {
         "type": "object",
@@ -125264,6 +125775,13 @@
             }
           },
           "packages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "example.com"
+            }
+          },
+          "storage": {
             "type": "array",
             "items": {
               "type": "string",
@@ -254904,6 +255422,62 @@
           }
         }
       },
+      "InteractionsGetPullRequestCreationCapForOrg200Response": {
+        "required": [
+          "enabled",
+          "max_open_pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the pull request creation cap is enabled"
+          },
+          "max_open_pull_requests": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of open pull requests a user can have at one time"
+          }
+        }
+      },
+      "InteractionsUpdatePullRequestCreationCapForOrgRequest": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the pull request creation cap is enabled"
+          },
+          "max_open_pull_requests": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of open pull requests a user can have at one time"
+          }
+        }
+      },
+      "InteractionsUpdatePullRequestCreationCapForOrg200Response": {
+        "required": [
+          "enabled",
+          "max_open_pull_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the pull request creation cap is enabled"
+          },
+          "max_open_pull_requests": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The maximum number of open pull requests a user can have at one time"
+          }
+        }
+      },
       "OrgsListPendingInvitations200Response": {
         "type": "array",
         "items": {
@@ -256112,6 +256686,10 @@
             "type": "integer",
             "description": "The ID of a team to set as the parent team.",
             "format": "int64"
+          },
+          "parent_team_slug": {
+            "type": "string",
+            "description": "The slug of a team to set as the parent team. Ignored when \u0060parent_team_id\u0060 is also provided."
           }
         }
       },
@@ -256138,6 +256716,11 @@
           "parent_team_id": {
             "type": "integer",
             "description": "The ID of a team to set as the parent team.",
+            "nullable": true
+          },
+          "parent_team_slug": {
+            "type": "string",
+            "description": "The slug of a team to set as the parent team. Ignored when \u0060parent_team_id\u0060 is also provided.",
             "nullable": true
           }
         }
@@ -259924,6 +260507,30 @@
             "type": "string"
           }
         }
+      },
+      "PullsMergeAsyncRequest": {
+        "type": "object",
+        "properties": {
+          "commit_title": {
+            "type": "string",
+            "description": "Title for the automatic commit message."
+          },
+          "commit_message": {
+            "type": "string",
+            "description": "Extra detail to append to automatic commit message."
+          },
+          "sha": {
+            "type": "string",
+            "description": "SHA that pull request head must match to allow merge. If not provided, the current head of the PR at the time of the request will be used; if the PR is pushed in between the merge being requested and being executed, the merge will be cancelled."
+          },
+          "merge_method": {
+            "$ref": "#/components/schemas/PullsMergeAsyncRequestMergeMethod"
+          },
+          "merge_action": {
+            "$ref": "#/components/schemas/PullsMergeAsyncRequestMergeAction"
+          }
+        },
+        "nullable": true
       },
       "PullsRequestReviewersRequest": {
         "type": "object",
@@ -271420,7 +272027,7 @@
             }
           }
         },
-        "description": "Pending suggestions for each suggestible field (\u0060type\u0060,\n\u0060issue_field_values\u0060, \u0060labels\u0060, \u0060assignees\u0060, \u0060state\u0060) the\nrequest touched. Omitted for fields not in the request or\nwith no pending suggestions. Items tagged \u0060already_applied\u0060\nare echoes of the current request\u0027s inputs whose target is\nalready applied to the issue; they are not persisted as\npending suggestions.\n"
+        "description": "Pending suggestions for each suggestible field (\u0060type\u0060,\n\u0060issue_field_values\u0060, \u0060labels\u0060, \u0060assignees\u0060, \u0060state\u0060) the\nrequest touched. Omitted for fields not in the request or\nwith no pending or ignored suggestions. Items tagged\n\u0060ignored\u0060 are echoes of the current request\u0027s inputs that\nwere not persisted as pending suggestions.\n"
       },
       "IssuesAddIssueFieldValuesRequestIssueFieldValuesItem": {
         "required": [
@@ -273170,8 +273777,11 @@
           "confidence": {
             "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsTypeItemConfidence"
           },
-          "already_applied": {
+          "ignored": {
             "type": "boolean"
+          },
+          "ignored_reason": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsTypeItemIgnoredReason"
           }
         }
       },
@@ -273194,8 +273804,11 @@
           "confidence": {
             "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemConfidence"
           },
-          "already_applied": {
+          "ignored": {
             "type": "boolean"
+          },
+          "ignored_reason": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemIgnoredReason"
           }
         }
       },
@@ -273214,8 +273827,11 @@
           "confidence": {
             "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsLabelsItemConfidence"
           },
-          "already_applied": {
+          "ignored": {
             "type": "boolean"
+          },
+          "ignored_reason": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsLabelsItemIgnoredReason"
           }
         }
       },
@@ -273234,8 +273850,11 @@
           "confidence": {
             "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsAssigneesItemConfidence"
           },
-          "already_applied": {
+          "ignored": {
             "type": "boolean"
+          },
+          "ignored_reason": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsAssigneesItemIgnoredReason"
           }
         }
       },
@@ -273261,8 +273880,11 @@
           "confidence": {
             "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsStateItemConfidence"
           },
-          "already_applied": {
+          "ignored": {
             "type": "boolean"
+          },
+          "ignored_reason": {
+            "$ref": "#/components/schemas/IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason"
           }
         }
       },
@@ -282802,6 +283424,38 @@
           ]
         }
       },
+      "PullRequestMergeAsyncResultStatus": {
+        "enum": [
+          "pending",
+          "merged",
+          "enqueued",
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PullRequestMergeAsyncResultStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "merged",
+              "name": "Merged"
+            },
+            {
+              "value": "enqueued",
+              "name": "Enqueued"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
       "ReviewCommentSide": {
         "enum": [
           "LEFT",
@@ -290707,6 +291361,65 @@
             {
               "value": "completed",
               "name": "Completed"
+            }
+          ]
+        }
+      },
+      "PullRequestMergeAsyncResultDetailsOneOf1MergeMethod": {
+        "enum": [
+          "default",
+          "merge",
+          "squash",
+          "rebase"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PullRequestMergeAsyncResultDetailsOneOf1MergeMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "default",
+              "name": "DefaultValue"
+            },
+            {
+              "value": "merge",
+              "name": "Merge"
+            },
+            {
+              "value": "squash",
+              "name": "Squash"
+            },
+            {
+              "value": "rebase",
+              "name": "Rebase"
+            }
+          ]
+        }
+      },
+      "PullRequestMergeAsyncResultDetailsOneOf1MergeAction": {
+        "enum": [
+          "default",
+          "merge_queue",
+          "direct_merge"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PullRequestMergeAsyncResultDetailsOneOf1MergeAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "default",
+              "name": "DefaultValue"
+            },
+            {
+              "value": "merge_queue",
+              "name": "MergeQueue"
+            },
+            {
+              "value": "direct_merge",
+              "name": "DirectMerge"
             }
           ]
         }
@@ -347062,6 +347775,62 @@
           ]
         }
       },
+      "PullsMergeAsyncRequestMergeMethod": {
+        "enum": [
+          "merge",
+          "squash",
+          "rebase"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The merge method to use.",
+        "x-ms-enum": {
+          "name": "PullsMergeAsyncRequestMergeMethod",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "merge",
+              "name": "Merge"
+            },
+            {
+              "value": "squash",
+              "name": "Squash"
+            },
+            {
+              "value": "rebase",
+              "name": "Rebase"
+            }
+          ]
+        }
+      },
+      "PullsMergeAsyncRequestMergeAction": {
+        "enum": [
+          "default",
+          "direct_merge",
+          "merge_queue"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The action that will be taken to merge the pull request. \u0060direct_merge\u0060 merges the pull request directly without using a merge queue; \u0060merge_queue\u0060 adds the pull request to a merge queue; \u0060default\u0060 selects the most appropriate option.",
+        "x-ms-enum": {
+          "name": "PullsMergeAsyncRequestMergeAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "default",
+              "name": "DefaultValue"
+            },
+            {
+              "value": "direct_merge",
+              "name": "DirectMerge"
+            },
+            {
+              "value": "merge_queue",
+              "name": "MergeQueue"
+            }
+          ]
+        }
+      },
       "PullsCreateReviewRequestEvent": {
         "enum": [
           "APPROVE",
@@ -350633,6 +351402,28 @@
           ]
         }
       },
+      "IssuesUpdate200ResponseSuggestionsTypeItemIgnoredReason": {
+        "enum": [
+          "already_applied",
+          "issue_already_closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsTypeItemIgnoredReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "already_applied",
+              "name": "AlreadyApplied"
+            },
+            {
+              "value": "issue_already_closed",
+              "name": "IssueAlreadyClosed"
+            }
+          ]
+        }
+      },
       "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemConfidence": {
         "enum": [
           "low",
@@ -350656,6 +351447,28 @@
             {
               "value": "high",
               "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemIgnoredReason": {
+        "enum": [
+          "already_applied",
+          "issue_already_closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsIssueFieldValuesItemIgnoredReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "already_applied",
+              "name": "AlreadyApplied"
+            },
+            {
+              "value": "issue_already_closed",
+              "name": "IssueAlreadyClosed"
             }
           ]
         }
@@ -350687,6 +351500,28 @@
           ]
         }
       },
+      "IssuesUpdate200ResponseSuggestionsLabelsItemIgnoredReason": {
+        "enum": [
+          "already_applied",
+          "issue_already_closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsLabelsItemIgnoredReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "already_applied",
+              "name": "AlreadyApplied"
+            },
+            {
+              "value": "issue_already_closed",
+              "name": "IssueAlreadyClosed"
+            }
+          ]
+        }
+      },
       "IssuesUpdate200ResponseSuggestionsAssigneesItemConfidence": {
         "enum": [
           "low",
@@ -350714,6 +351549,28 @@
           ]
         }
       },
+      "IssuesUpdate200ResponseSuggestionsAssigneesItemIgnoredReason": {
+        "enum": [
+          "already_applied",
+          "issue_already_closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsAssigneesItemIgnoredReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "already_applied",
+              "name": "AlreadyApplied"
+            },
+            {
+              "value": "issue_already_closed",
+              "name": "IssueAlreadyClosed"
+            }
+          ]
+        }
+      },
       "IssuesUpdate200ResponseSuggestionsStateItemConfidence": {
         "enum": [
           "low",
@@ -350737,6 +351594,28 @@
             {
               "value": "high",
               "name": "High"
+            }
+          ]
+        }
+      },
+      "IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason": {
+        "enum": [
+          "already_applied",
+          "issue_already_closed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "already_applied",
+              "name": "AlreadyApplied"
+            },
+            {
+              "value": "issue_already_closed",
+              "name": "IssueAlreadyClosed"
             }
           ]
         }
