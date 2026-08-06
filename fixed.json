@@ -3447,6 +3447,9 @@
             "$ref": "#/components/parameters/dependabot-alert-scope"
           },
           {
+            "$ref": "#/components/parameters/dependabot-alert-relationship"
+          },
+          {
             "$ref": "#/components/parameters/dependabot-alert-sort"
           },
           {
@@ -16957,6 +16960,9 @@
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-scope"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-relationship"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-sort"
@@ -38189,6 +38195,9 @@
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-scope"
+          },
+          {
+            "$ref": "#/components/parameters/dependabot-alert-relationship"
           },
           {
             "$ref": "#/components/parameters/dependabot-alert-sort"
@@ -71141,6 +71150,10 @@
             "type": "string",
             "description": "The user login when the budget is scoped to a single user (\u0060user\u0060 scope).",
             "example": "octocat"
+          },
+          "consumed_amount": {
+            "type": "number",
+            "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
           },
           "budget_product_sku": {
             "type": "string",
@@ -256159,6 +256172,34 @@
               "type": "integer"
             },
             "description": "\u0060visible_fields\u0060 is not applicable to \u0060roadmap\u0060 layout views.\nFor \u0060table\u0060 and \u0060board\u0060 layouts, this represents the field IDs that should be visible in the view. If not provided, the default visible fields will be used."
+          },
+          "sort_by": {
+            "type": "array",
+            "items": {
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ProjectsCreateViewForOrgRequestSortByItemItem"
+              }
+            },
+            "description": "Sorting configuration for the view. Each element is a two-element array of \u0060[field_id, direction]\u0060 where \u0060direction\u0060 is \u0060\u0022asc\u0022\u0060 or \u0060\u0022desc\u0022\u0060. Supports multiple sort criteria applied in order."
+          },
+          "group_by": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The field IDs to group items by (horizontal grouping). Supports a single field. The field must support grouping; fields such as \u0060Title\u0060, \u0060Reviewers\u0060, \u0060Linked pull requests\u0060, \u0060Sub-issues progress\u0060, \u0060Tracked by\u0060, and \u0060Tracks\u0060 cannot be grouped on."
+          },
+          "vertical_group_by": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The field IDs to use as columns in \u0060board\u0060 layout (vertical grouping). Supports a single field. The field must support grouping; fields such as \u0060Title\u0060, \u0060Reviewers\u0060, \u0060Linked pull requests\u0060, \u0060Sub-issues progress\u0060, \u0060Tracked by\u0060, and \u0060Tracks\u0060 cannot be grouped on."
           }
         },
         "additionalProperties": false
@@ -262352,6 +262393,34 @@
               "type": "integer"
             },
             "description": "\u0060visible_fields\u0060 is not applicable to \u0060roadmap\u0060 layout views.\nFor \u0060table\u0060 and \u0060board\u0060 layouts, this represents the field IDs that should be visible in the view. If not provided, the default visible fields will be used."
+          },
+          "sort_by": {
+            "type": "array",
+            "items": {
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ProjectsCreateViewForUserRequestSortByItemItem"
+              }
+            },
+            "description": "Sorting configuration for the view. Each element is a two-element array of \u0060[field_id, direction]\u0060 where \u0060direction\u0060 is \u0060\u0022asc\u0022\u0060 or \u0060\u0022desc\u0022\u0060. Supports multiple sort criteria applied in order."
+          },
+          "group_by": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The field IDs to group items by (horizontal grouping). Supports a single field. The field must support grouping; fields such as \u0060Title\u0060, \u0060Reviewers\u0060, \u0060Linked pull requests\u0060, \u0060Sub-issues progress\u0060, \u0060Tracked by\u0060, and \u0060Tracks\u0060 cannot be grouped on."
+          },
+          "vertical_group_by": {
+            "maxItems": 1,
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The field IDs to use as columns in \u0060board\u0060 layout (vertical grouping). Supports a single field. The field must support grouping; fields such as \u0060Title\u0060, \u0060Reviewers\u0060, \u0060Linked pull requests\u0060, \u0060Sub-issues progress\u0060, \u0060Tracked by\u0060, and \u0060Tracks\u0060 cannot be grouped on."
           }
         },
         "additionalProperties": false
@@ -267822,6 +267891,17 @@
         ],
         "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
       },
+      "ProjectsCreateViewForOrgRequestSortByItemItem": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
       "ReposAddStatusCheckContextsRequestOneOf1": {
         "required": [
           "contexts"
@@ -268423,6 +268503,17 @@
             "mona@github.com"
           ]
         }
+      },
+      "ProjectsCreateViewForUserRequestSortByItemItem": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          }
+        ]
       },
       "UsersDeleteAttestationsBulkRequestOneOf1": {
         "required": [
@@ -356006,6 +356097,14 @@
           "$ref": "#/components/schemas/DependabotAlertScope"
         }
       },
+      "dependabot-alert-relationship": {
+        "name": "relationship",
+        "in": "query",
+        "description": "A comma-separated list of relationships of the vulnerable dependency to your project. If specified, only alerts with these relationships will be returned.\n\n\u003E [!NOTE]\n\u003E We are rolling out support for dependency relationship across ecosystems. This value will be \u0022unknown\u0022 for all dependencies in unsupported ecosystems.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "dependabot-alert-sort": {
         "name": "sort",
         "in": "query",
@@ -360900,7 +360999,8 @@
                 "name": "django"
               },
               "manifest_path": "path/to/requirements.txt",
-              "scope": "runtime"
+              "scope": "runtime",
+              "relationship": "direct"
             },
             "security_advisory": {
               "ghsa_id": "GHSA-rf4j-j272-fj86",
@@ -361125,7 +361225,8 @@
                 "name": "ansible"
               },
               "manifest_path": "path/to/requirements.txt",
-              "scope": "runtime"
+              "scope": "runtime",
+              "relationship": "direct"
             },
             "security_advisory": {
               "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -378079,7 +378180,8 @@
                 "name": "django"
               },
               "manifest_path": "path/to/requirements.txt",
-              "scope": "runtime"
+              "scope": "runtime",
+              "relationship": "direct"
             },
             "security_advisory": {
               "ghsa_id": "GHSA-rf4j-j272-fj86",
@@ -378237,7 +378339,8 @@
                 "name": "ansible"
               },
               "manifest_path": "path/to/requirements.txt",
-              "scope": "runtime"
+              "scope": "runtime",
+              "relationship": "direct"
             },
             "security_advisory": {
               "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -378359,7 +378462,8 @@
               "name": "ansible"
             },
             "manifest_path": "path/to/requirements.txt",
-            "scope": "runtime"
+            "scope": "runtime",
+            "relationship": "direct"
           },
           "security_advisory": {
             "ghsa_id": "GHSA-8f4m-hccc-8qph",
@@ -378505,7 +378609,8 @@
               "name": "django"
             },
             "manifest_path": "path/to/requirements.txt",
-            "scope": "runtime"
+            "scope": "runtime",
+            "relationship": "direct"
           },
           "security_advisory": {
             "ghsa_id": "GHSA-rf4j-j272-fj86",
