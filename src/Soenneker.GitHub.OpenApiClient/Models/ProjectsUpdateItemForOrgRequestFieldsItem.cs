@@ -19,10 +19,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The new value for the field:- For text, number, and date fields, provide the new value directly.- For single select and iteration fields, provide the ID of the option or iteration.- To clear the field, set this to null.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItemValue? Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItemValue Value { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem"/> and sets the default values.
@@ -50,7 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItemValue>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItemValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,8 +61,68 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItemValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="double"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ProjectsUpdateItemForOrgRequestFieldsItem_value : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="double"/></summary>
+            public double? Double { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsUpdateItemForOrgRequestFieldsItem.ProjectsUpdateItemForOrgRequestFieldsItem_value();
+                if(parseNode.GetDoubleValue() is double doubleValue)
+                {
+                    result.Double = doubleValue;
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Double != null)
+                {
+                    writer.WriteDoubleValue(null, Double);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

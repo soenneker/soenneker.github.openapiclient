@@ -64438,6 +64438,128 @@
         "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
         "nullable": true
       },
+      "ProjectsV2ViewCreator": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        }
+      },
       "ProjectsV2ItemSimpleContent": {
         "required": [
           "type"
@@ -64495,74 +64617,6 @@
           "mapping": {
             "Team": "#/components/schemas/Team",
             "EnterpriseTeam": "#/components/schemas/EnterpriseTeam"
-          }
-        }
-      },
-      "CopilotSpaceCollaboratorAnyOf2": {
-        "required": [
-          "actor_type",
-          "role",
-          "id",
-          "node_id",
-          "name",
-          "slug",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "actor_type": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2ActorType"
-          },
-          "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Type"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "privacy": {
-            "type": "string"
-          },
-          "notification_setting": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "members_url": {
-            "type": "string"
-          },
-          "repositories_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "organization_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "parent": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
           }
         }
       },
@@ -67287,18 +67341,71 @@
         },
         "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization."
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
+      "CopilotSpaceCollaboratorAnyOf2": {
         "required": [
           "actor_type",
-          "role"
+          "role",
+          "id",
+          "node_id",
+          "name",
+          "slug",
+          "type"
         ],
         "type": "object",
         "properties": {
           "actor_type": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2ActorType"
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2ActorType"
           },
           "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Type"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "privacy": {
+            "type": "string"
+          },
+          "notification_setting": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organization_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
           }
         }
       },
@@ -67488,6 +67595,21 @@
           }
         ]
       },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
+        "required": [
+          "actor_type",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2ActorType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
+          }
+        }
+      },
       "CopilotSpaceOwner": {
         "required": [
           "type"
@@ -67537,19 +67659,6 @@
           },
           {
             "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "ProductPricing"
-      },
-      "CreateBudgetBudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
           }
         ],
         "description": "The type of pricing for the budget",
@@ -68891,7 +69000,18 @@
             "$ref": "#/components/schemas/IssueFieldValueDataType"
           },
           "value": {
-            "$ref": "#/components/schemas/IssueFieldValueValue"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The value of the issue field"
           },
           "single_select_option": {
             "$ref": "#/components/schemas/IssueFieldValueSingleSelectOption"
@@ -72164,6 +72284,19 @@
           ]
         }
       },
+      "CreateBudgetBudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "ProductPricing"
+      },
       "BudgetBudgetType": {
         "type": "object",
         "oneOf": [
@@ -72176,89 +72309,6 @@
         ],
         "description": "The type of pricing for the budget",
         "example": "SkuPricing"
-      },
-      "EventTypePayload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateEvent"
-          },
-          {
-            "$ref": "#/components/schemas/DeleteEvent"
-          },
-          {
-            "$ref": "#/components/schemas/DiscussionEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssuesEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssueCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ForkEvent"
-          },
-          {
-            "$ref": "#/components/schemas/GollumEvent"
-          },
-          {
-            "$ref": "#/components/schemas/MemberEvent"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/PushEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewEvent"
-          },
-          {
-            "$ref": "#/components/schemas/CommitCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ReleaseEvent"
-          },
-          {
-            "$ref": "#/components/schemas/WatchEvent"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateEvent": "#/components/schemas/CreateEvent",
-            "DeleteEvent": "#/components/schemas/DeleteEvent",
-            "DiscussionEvent": "#/components/schemas/DiscussionEvent",
-            "IssuesEvent": "#/components/schemas/IssuesEvent",
-            "IssueCommentEvent": "#/components/schemas/IssueCommentEvent",
-            "ForkEvent": "#/components/schemas/ForkEvent",
-            "GollumEvent": "#/components/schemas/GollumEvent",
-            "MemberEvent": "#/components/schemas/MemberEvent",
-            "PublicEvent": "#/components/schemas/PublicEvent",
-            "PushEvent": "#/components/schemas/PushEvent",
-            "PullRequestEvent": "#/components/schemas/PullRequestEvent",
-            "PullRequestReviewCommentEvent": "#/components/schemas/PullRequestReviewCommentEvent",
-            "PullRequestReviewEvent": "#/components/schemas/PullRequestReviewEvent",
-            "CommitCommentEvent": "#/components/schemas/CommitCommentEvent",
-            "ReleaseEvent": "#/components/schemas/ReleaseEvent",
-            "WatchEvent": "#/components/schemas/WatchEvent"
-          }
-        }
       },
       "ActionsOrganizationPermissions": {
         "required": [
@@ -72435,17 +72485,59 @@
           ]
         }
       },
-      "IssueLabelsItem": {
+      "EventTypePayload": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
+            "$ref": "#/components/schemas/CreateEvent"
           },
           {
-            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
+            "$ref": "#/components/schemas/DeleteEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DiscussionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssueCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ForkEvent"
+          },
+          {
+            "$ref": "#/components/schemas/GollumEvent"
+          },
+          {
+            "$ref": "#/components/schemas/MemberEvent"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/PushEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewEvent"
+          },
+          {
+            "$ref": "#/components/schemas/CommitCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ReleaseEvent"
+          },
+          {
+            "$ref": "#/components/schemas/WatchEvent"
           }
         ],
         "properties": {
@@ -72457,8 +72549,22 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "IssueLabelsItem_1": "#/components/schemas/IssueLabelsItemBranch1",
-            "IssueLabelsItemOneOf2": "#/components/schemas/IssueLabelsItemOneOf2"
+            "CreateEvent": "#/components/schemas/CreateEvent",
+            "DeleteEvent": "#/components/schemas/DeleteEvent",
+            "DiscussionEvent": "#/components/schemas/DiscussionEvent",
+            "IssuesEvent": "#/components/schemas/IssuesEvent",
+            "IssueCommentEvent": "#/components/schemas/IssueCommentEvent",
+            "ForkEvent": "#/components/schemas/ForkEvent",
+            "GollumEvent": "#/components/schemas/GollumEvent",
+            "MemberEvent": "#/components/schemas/MemberEvent",
+            "PublicEvent": "#/components/schemas/PublicEvent",
+            "PushEvent": "#/components/schemas/PushEvent",
+            "PullRequestEvent": "#/components/schemas/PullRequestEvent",
+            "PullRequestReviewCommentEvent": "#/components/schemas/PullRequestReviewCommentEvent",
+            "PullRequestReviewEvent": "#/components/schemas/PullRequestReviewEvent",
+            "CommitCommentEvent": "#/components/schemas/CommitCommentEvent",
+            "ReleaseEvent": "#/components/schemas/ReleaseEvent",
+            "WatchEvent": "#/components/schemas/WatchEvent"
           }
         }
       },
@@ -73194,23 +73300,32 @@
         },
         "description": "The campaign metadata and alert stats."
       },
-      "IssueFieldValueValue": {
+      "IssueLabelsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
-            "type": "string",
-            "example": "Sample text"
+            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
           },
           {
-            "type": "number",
-            "example": 42.5
-          },
-          {
-            "type": "integer",
-            "example": 1
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
           }
         ],
-        "description": "The value of the issue field"
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IssueLabelsItem_1": "#/components/schemas/IssueLabelsItemBranch1",
+            "IssueLabelsItemOneOf2": "#/components/schemas/IssueLabelsItemOneOf2"
+          }
+        }
       },
       "CodeScanningAnalysisToolGuid": {
         "type": "string",
@@ -77339,7 +77454,14 @@
               "minItems": 2,
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/ProjectsV2ViewSortByItemItem"
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               }
             },
             "description": "The sorting configuration for the view. Each element is a tuple of [field_id, direction] where direction is \u0022asc\u0022 or \u0022desc\u0022."
@@ -87483,7 +87605,17 @@
         "maxProperties": 8,
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/MetadataAdditionalProperties"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -91870,7 +92002,15 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "#/components/schemas/PageDeploymentId"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The ID of the GitHub Pages deployment. This is the Git SHA of the deployed commit."
           },
           "status_url": {
             "type": "string",
@@ -111582,139 +111722,6 @@
           }
         }
       },
-      "ProjectsV2ViewCreator": {
-        "required": [
-          "avatar_url",
-          "events_url",
-          "followers_url",
-          "following_url",
-          "gists_url",
-          "gravatar_id",
-          "html_url",
-          "id",
-          "node_id",
-          "login",
-          "organizations_url",
-          "received_events_url",
-          "repos_url",
-          "site_admin",
-          "starred_url",
-          "subscriptions_url",
-          "type",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          }
-        }
-      },
-      "ProjectsV2ViewSortByItemItem": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
       "CustomPropertyDefaultValue": {
         "type": "object",
         "oneOf": [
@@ -112371,32 +112378,6 @@
           }
         }
       },
-      "DeploymentPayload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/DeploymentPayloadBranch2"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "DeploymentPayload_2": "#/components/schemas/DeploymentPayloadBranch2"
-          }
-        }
-      },
       "CommitAuthor": {
         "required": [
           "type"
@@ -112452,20 +112433,6 @@
             "EmptyObject": "#/components/schemas/EmptyObject"
           }
         }
-      },
-      "MetadataAdditionalProperties": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "boolean"
-          }
-        ]
       },
       "EnvironmentProtectionRulesItem": {
         "required": [
@@ -112545,18 +112512,6 @@
           }
         ],
         "description": "The proposed value, when applicable. An array for multi-select field suggestions."
-      },
-      "PageDeploymentId": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
-          }
-        ],
-        "description": "The ID of the GitHub Pages deployment. This is the Git SHA of the deployed commit."
       },
       "PullRequestMergeAsyncResultDetails": {
         "required": [
@@ -112731,32 +112686,6 @@
           }
         }
       },
-      "NullableDeploymentPayload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/NullableDeploymentPayloadBranch2"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "NullableDeploymentPayload_2": "#/components/schemas/NullableDeploymentPayloadBranch2"
-          }
-        }
-      },
       "PullRequestWebhookAllOf2": {
         "type": "object",
         "properties": {
@@ -112865,58 +112794,6 @@
           "mapping": {
             "WebhooksPullRequest5RequestedReviewersItemUser": "#/components/schemas/WebhooksPullRequest5RequestedReviewersItemUser",
             "WebhooksPullRequest5RequestedReviewersItemTeam": "#/components/schemas/WebhooksPullRequest5RequestedReviewersItemTeam"
-          }
-        }
-      },
-      "WebhookDeploymentCreatedDeploymentPayload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookDeploymentCreatedDeploymentPayloadBranch2"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookDeploymentCreatedDeploymentPayload_2": "#/components/schemas/WebhookDeploymentCreatedDeploymentPayloadBranch2"
-          }
-        }
-      },
-      "WebhookDeploymentStatusCreatedDeploymentPayload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayloadBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookDeploymentStatusCreatedDeploymentPayload_1": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayloadBranch1"
           }
         }
       },
@@ -114287,51 +114164,6 @@
         },
         "description": "The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself."
       },
-      "WebhookIssuesFieldAddedIssueFieldValueValue": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "integer"
-          }
-        ],
-        "description": "The value of the field. Present for text, date, and number field types."
-      },
-      "WebhookIssuesFieldAddedChangesIssueFieldValueFromValue": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "integer"
-          }
-        ],
-        "description": "The previous value. Present for text, date, and number field types."
-      },
-      "WebhookIssuesFieldRemovedIssueFieldValueValue": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          },
-          {
-            "type": "integer"
-          }
-        ],
-        "description": "The value of the field. Present for text, date, and number field types."
-      },
       "WebhookIssuesOpenedChangesOldRepositoryCreatedAt": {
         "type": "object",
         "oneOf": [
@@ -114377,43 +114209,6 @@
           {
             "type": "string",
             "format": "date-time"
-          }
-        ]
-      },
-      "WebhookPackagePublishedPackagePackageVersionBody": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionBodyBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookPackagePublishedPackagePackageVersionBody_1": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionBodyBranch1"
-          }
-        }
-      },
-      "WebhookPackagePublishedPackagePackageVersionNugetMetadataItemId": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
           }
         ]
       },
@@ -116237,192 +116032,6 @@
             "format": "date-time"
           }
         ]
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionBody": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionBodyBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionBody_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionBodyBranch1"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthor": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthorBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthor_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthorBranch1"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugs": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugsBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugs_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugsBranch1"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDist": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDistBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDist_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDistBranch1"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepository": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepositoryBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepository_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepositoryBranch1"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectories": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectoriesBranch1"
-          },
-          {
-            "type": "object"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectories_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectoriesBranch1"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemId": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch1"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch3"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemId_1": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch1",
-            "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemId_3": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch3"
-          }
-        }
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemValue": {
         "required": [
@@ -128262,6 +127871,16 @@
           }
         }
       },
+      "DeploymentPayload": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "WorkflowRunUsageBillable": {
         "type": "object",
         "properties": {
@@ -131947,6 +131566,16 @@
             "nullable": true
           }
         }
+      },
+      "NullableDeploymentPayload": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
       },
       "WebhooksAnswerReactions": {
         "title": "Reactions",
@@ -139477,7 +139106,18 @@
             "format": "int64"
           },
           "value": {
-            "$ref": "#/components/schemas/WebhookIssuesFieldAddedIssueFieldValueValue"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The value of the field. Present for text, date, and number field types."
           },
           "value_id": {
             "type": "integer",
@@ -139548,7 +139188,18 @@
             "format": "int64"
           },
           "value": {
-            "$ref": "#/components/schemas/WebhookIssuesFieldRemovedIssueFieldValueValue"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The value of the field. Present for text, date, and number field types."
           },
           "value_id": {
             "type": "integer",
@@ -164313,6 +163964,16 @@
         },
         "nullable": true
       },
+      "WebhookDeploymentCreatedDeploymentPayload": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "WebhookDeploymentCreatedDeploymentPerformedViaGithubApp": {
         "title": "App",
         "required": [
@@ -166654,6 +166315,16 @@
           }
         },
         "nullable": true
+      },
+      "WebhookDeploymentStatusCreatedDeploymentPayload": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
       },
       "WebhookDeploymentStatusCreatedDeploymentPerformedViaGithubApp": {
         "title": "App",
@@ -201850,7 +201521,18 @@
             "format": "int64"
           },
           "value": {
-            "$ref": "#/components/schemas/WebhookIssuesFieldAddedChangesIssueFieldValueFromValue"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The previous value. Present for text, date, and number field types."
           },
           "value_id": {
             "type": "integer",
@@ -205106,6 +204788,16 @@
         },
         "nullable": true
       },
+      "WebhookPackagePublishedPackagePackageVersionBody": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "WebhookPackagePublishedPackagePackageVersionContainerMetadata": {
         "type": "object",
         "properties": {
@@ -205276,7 +204968,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNugetMetadataItemId"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
           },
           "name": {
             "type": "string"
@@ -235115,6 +234814,16 @@
           }
         }
       },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionBody": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadata": {
         "type": "object",
         "properties": {
@@ -249701,6 +249410,26 @@
           }
         }
       },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthor": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugs": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDependencies": {
         "type": "object"
       },
@@ -249713,6 +249442,26 @@
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataOptionalDependencies": {
         "type": "object"
       },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDist": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepository": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataScripts": {
         "type": "object"
       },
@@ -249724,6 +249473,29 @@
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataMan": {
         "type": "object"
+      },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectories": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemId": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          }
+        ]
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionReleaseAuthor": {
         "type": "object",
@@ -255278,7 +255050,14 @@
           "selected_repository_ids": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DependabotCreateOrUpdateOrgSecretRequestSelectedRepositoryIdsItem"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             },
             "description": "An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the \u0060visibility\u0060 is set to \u0060selected\u0060. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret) endpoints."
           }
@@ -256180,7 +255959,14 @@
               "minItems": 2,
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/ProjectsCreateViewForOrgRequestSortByItemItem"
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               }
             },
             "description": "Sorting configuration for the view. Each element is a two-element array of \u0060[field_id, direction]\u0060 where \u0060direction\u0060 is \u0060\u0022asc\u0022\u0060 or \u0060\u0022desc\u0022\u0060. Supports multiple sort criteria applied in order."
@@ -259300,7 +259086,15 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/IssuesCreateRequestTitle"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The title of the issue."
           },
           "body": {
             "type": "string",
@@ -259388,7 +259182,15 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/IssuesUpdateRequestTitle"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The title of the issue."
           },
           "body": {
             "type": "string",
@@ -261687,7 +261489,14 @@
           "selected_repository_ids": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CodespacesCreateOrUpdateSecretForAuthenticatedUserRequestSelectedRepositoryIdsItem"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             },
             "description": "An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/rest/codespaces/secrets#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret) endpoints."
           }
@@ -262401,7 +262210,14 @@
               "minItems": 2,
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/ProjectsCreateViewForUserRequestSortByItemItem"
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               }
             },
             "description": "Sorting configuration for the view. Each element is a two-element array of \u0060[field_id, direction]\u0060 where \u0060direction\u0060 is \u0060\u0022asc\u0022\u0060 or \u0060\u0022desc\u0022\u0060. Supports multiple sort criteria applied in order."
@@ -262986,62 +262802,7 @@
           }
         }
       },
-      "DeploymentPayloadBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
       "NullableIssueLabelsItemBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "NullableDeploymentPayloadBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookDeploymentCreatedDeploymentPayloadBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookDeploymentStatusCreatedDeploymentPayloadBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookPackagePublishedPackagePackageVersionBodyBranch1": {
         "required": [
           "value"
         ],
@@ -263075,94 +262836,6 @@
         }
       },
       "WebhookPackagePublishedPackagePackageVersionNugetMetadataItemValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "integer"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionBodyBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthorBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugsBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDistBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepositoryBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectoriesBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNugetMetadataItemIdBranch3": {
         "required": [
           "value"
         ],
@@ -267791,17 +267464,6 @@
           }
         ]
       },
-      "DependabotCreateOrUpdateOrgSecretRequestSelectedRepositoryIdsItem": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
       "ProjectsAddFieldForOrgRequestOneOf1": {
         "required": [
           "issue_field_id"
@@ -267878,29 +267540,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ProjectsUpdateItemForOrgRequestFieldsItemValue": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          }
-        ],
-        "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
-      },
-      "ProjectsCreateViewForOrgRequestSortByItemItem": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
-          }
-        ]
       },
       "ReposAddStatusCheckContextsRequestOneOf1": {
         "required": [
@@ -268072,18 +267711,6 @@
           }
         ]
       },
-      "IssuesCreateRequestTitle": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          }
-        ],
-        "description": "The title of the issue."
-      },
       "IssuesCreateRequestMilestone": {
         "type": "object",
         "oneOf": [
@@ -268124,18 +267751,6 @@
           }
         ],
         "description": "The value to set for the field. For multi-select fields, provide an array of option names."
-      },
-      "IssuesUpdateRequestTitle": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          }
-        ],
-        "description": "The title of the issue."
       },
       "IssuesUpdateRequestMilestone": {
         "type": "object",
@@ -268329,7 +267944,14 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PullRequestStacksCreate422ResponseErrorsItemValueOneOf3Item"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             },
             "nullable": true
           }
@@ -268349,7 +267971,14 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             },
             "nullable": true
           }
@@ -268445,17 +268074,6 @@
           }
         }
       },
-      "CodespacesCreateOrUpdateSecretForAuthenticatedUserRequestSelectedRepositoryIdsItem": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
       "UsersAddEmailForAuthenticatedUserRequestOneOf1": {
         "required": [
           "emails"
@@ -268503,17 +268121,6 @@
             "mona@github.com"
           ]
         }
-      },
-      "ProjectsCreateViewForUserRequestSortByItemItem": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "string"
-          }
-        ]
       },
       "UsersDeleteAttestationsBulkRequestOneOf1": {
         "required": [
@@ -268611,18 +268218,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ProjectsUpdateItemForUserRequestFieldsItemValue": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          }
-        ],
-        "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
       },
       "AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1": {
         "type": "object",
@@ -268853,28 +268448,6 @@
         },
         "description": "Update the source for the repository. Must include the branch name and path."
       },
-      "PullRequestStacksCreate422ResponseErrorsItemValueOneOf3Item": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          }
-        ]
-      },
-      "PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "integer"
-          }
-        ]
-      },
       "IssuesAddLabelsRequestOneOf1LabelsItemOneOf2": {
         "required": [
           "name"
@@ -268954,14 +268527,34 @@
       "DependencyMetadata": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/MetadataAdditionalProperties"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
       "ManifestMetadata": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/MetadataAdditionalProperties"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -268975,7 +268568,17 @@
       "SnapshotMetadata": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/MetadataAdditionalProperties"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "description": "User-defined metadata to store domain-specific information limited to 8 keys with scalar values."
       },
@@ -271327,7 +270930,15 @@
             "format": "int64"
           },
           "value": {
-            "$ref": "#/components/schemas/ProjectsUpdateItemForOrgRequestFieldsItemValue"
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
           }
         }
       },
@@ -272958,7 +272569,15 @@
             "format": "int64"
           },
           "value": {
-            "$ref": "#/components/schemas/ProjectsUpdateItemForUserRequestFieldsItemValue"
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The new value for the field:\n- For text, number, and date fields, provide the new value directly.\n- For single select and iteration fields, provide the ID of the option or iteration.\n- To clear the field, set this to null."
           }
         }
       },
@@ -274263,49 +273882,6 @@
             }
           ]
         }
-      },
-      "CopilotSpaceCollaboratorAnyOf2ActorType": {
-        "enum": [
-          "Team"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The collaborator actor type."
-      },
-      "CopilotSpaceCollaboratorAnyOf2Role": {
-        "enum": [
-          "reader",
-          "writer",
-          "admin"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The role granted to the collaborator",
-        "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf2Role",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "reader",
-              "name": "Reader"
-            },
-            {
-              "value": "writer",
-              "name": "Writer"
-            },
-            {
-              "value": "admin",
-              "name": "Admin"
-            }
-          ]
-        }
-      },
-      "CopilotSpaceCollaboratorAnyOf2Type": {
-        "enum": [
-          "Team"
-        ],
-        "type": "string",
-        "additionalProperties": false
       },
       "AppPermissionsActions": {
         "enum": [
@@ -276452,15 +276028,15 @@
           ]
         }
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2ActorType": {
+      "CopilotSpaceCollaboratorAnyOf2ActorType": {
         "enum": [
-          "User"
+          "Team"
         ],
         "type": "string",
         "additionalProperties": false,
         "description": "The collaborator actor type."
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
+      "CopilotSpaceCollaboratorAnyOf2Role": {
         "enum": [
           "reader",
           "writer",
@@ -276470,7 +276046,7 @@
         "additionalProperties": false,
         "description": "The role granted to the collaborator",
         "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
+          "name": "CopilotSpaceCollaboratorAnyOf2Role",
           "modelAsString": false,
           "values": [
             {
@@ -276487,6 +276063,13 @@
             }
           ]
         }
+      },
+      "CopilotSpaceCollaboratorAnyOf2Type": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false
       },
       "DependabotAlertSecurityVulnerabilitySeverity": {
         "enum": [
@@ -276576,6 +276159,42 @@
             {
               "value": "malware",
               "name": "Malware"
+            }
+          ]
+        }
+      },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2ActorType": {
+        "enum": [
+          "User"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The collaborator actor type."
+      },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The role granted to the collaborator",
+        "x-ms-enum": {
+          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reader",
+              "name": "Reader"
+            },
+            {
+              "value": "writer",
+              "name": "Writer"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
             }
           ]
         }
@@ -281312,7 +280931,8 @@
           "timed_out",
           "action_required",
           "startup_failure",
-          "stale"
+          "stale",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -284801,7 +284421,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -284934,7 +284555,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -285466,7 +285088,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -285651,7 +285274,8 @@
       "WebhooksReviewCommentStartSide": {
         "enum": [
           "LEFT",
-          "RIGHT"
+          "RIGHT",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -290591,7 +290215,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -290701,7 +290326,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -290811,7 +290437,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -290921,7 +290548,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -291031,7 +290659,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -291141,7 +290770,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -291318,6 +290948,7 @@
         "enum": [
           "success",
           "failure",
+          null,
           "skipped",
           "cancelled",
           "action_required",
@@ -291399,6 +291030,7 @@
         "enum": [
           "success",
           "failure",
+          null,
           "cancelled",
           "neutral"
         ],
@@ -295092,6 +294724,7 @@
           "timed_out",
           "action_required",
           "stale",
+          null,
           "skipped",
           "startup_failure"
         ],
@@ -295148,6 +294781,7 @@
           "in_progress",
           "completed",
           "queued",
+          null,
           "pending"
         ],
         "type": "string",
@@ -295190,6 +294824,7 @@
           "timed_out",
           "action_required",
           "stale",
+          null,
           "skipped"
         ],
         "type": "string",
@@ -295240,7 +294875,8 @@
           "requested",
           "in_progress",
           "completed",
-          "queued"
+          "queued",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295277,7 +294913,8 @@
           "cancelled",
           "timed_out",
           "action_required",
-          "stale"
+          "stale",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295323,7 +294960,8 @@
           "requested",
           "in_progress",
           "completed",
-          "queued"
+          "queued",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295356,7 +294994,8 @@
         "enum": [
           "false positive",
           "won\u0027t fix",
-          "used in tests"
+          "used in tests",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295414,7 +295053,8 @@
         "enum": [
           "false positive",
           "won\u0027t fix",
-          "used in tests"
+          "used in tests",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295490,7 +295130,8 @@
         "enum": [
           "false positive",
           "won\u0027t fix",
-          "used in tests"
+          "used in tests",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295591,7 +295232,8 @@
         "enum": [
           "false positive",
           "won\u0027t fix",
-          "used in tests"
+          "used in tests",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295707,7 +295349,8 @@
           "cancelled",
           "timed_out",
           "action_required",
-          "stale"
+          "stale",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295797,7 +295440,8 @@
           "cancelled",
           "timed_out",
           "action_required",
-          "stale"
+          "stale",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295887,7 +295531,8 @@
           "cancelled",
           "timed_out",
           "action_required",
-          "stale"
+          "stale",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -295980,7 +295625,8 @@
           "cancelled",
           "timed_out",
           "action_required",
-          "stale"
+          "stale",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296071,7 +295717,8 @@
           "timed_out",
           "action_required",
           "stale",
-          "skipped"
+          "skipped",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296163,6 +295810,7 @@
           "timed_out",
           "action_required",
           "stale",
+          null,
           "startup_failure"
         ],
         "type": "string",
@@ -296331,7 +295979,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296441,7 +296090,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296551,7 +296201,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296737,7 +296388,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296847,7 +296499,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -296957,7 +296610,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -297067,7 +296721,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -297177,7 +296832,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -297287,7 +296943,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -297706,7 +297363,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -297816,7 +297474,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -297926,7 +297585,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298036,7 +297696,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298146,7 +297807,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298256,7 +297918,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298366,7 +298029,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298551,7 +298215,8 @@
       "WebhookPullRequestReviewCommentCreatedCommentStartSide": {
         "enum": [
           "LEFT",
-          "RIGHT"
+          "RIGHT",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298600,7 +298265,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298709,7 +298375,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298818,7 +298485,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -298927,7 +298595,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299117,7 +298786,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299226,7 +298896,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299335,7 +299006,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299444,7 +299116,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299553,7 +299226,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299663,7 +299337,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299773,7 +299448,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299883,7 +299559,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -299993,7 +299670,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -300585,6 +300263,7 @@
           "timed_out",
           "action_required",
           "stale",
+          null,
           "skipped",
           "startup_failure"
         ],
@@ -300704,7 +300383,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -300823,7 +300503,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -300960,7 +300641,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -301080,7 +300762,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -303628,7 +303311,8 @@
           "failure",
           "skipped",
           "success",
-          "cancelled"
+          "cancelled",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -303688,6 +303372,7 @@
           "failure",
           "skipped",
           "success",
+          null,
           "cancelled"
         ],
         "type": "string",
@@ -306877,7 +306562,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -306948,7 +306634,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -307019,7 +306706,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -307090,7 +306778,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -307152,7 +306841,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -307214,7 +306904,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -307285,7 +306976,8 @@
           "none",
           "note",
           "warning",
-          "error"
+          "error",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -310025,7 +309717,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -310786,7 +310479,8 @@
           "resolved",
           "off-topic",
           "too heated",
-          "spam"
+          "spam",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -313141,7 +312835,8 @@
       "WebhookPullRequestReviewThreadResolvedThreadCommentsItemStartSide": {
         "enum": [
           "LEFT",
-          "RIGHT"
+          "RIGHT",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -313370,7 +313065,8 @@
       "WebhookPullRequestReviewThreadUnresolvedThreadCommentsItemStartSide": {
         "enum": [
           "LEFT",
-          "RIGHT"
+          "RIGHT",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -314120,7 +313816,8 @@
           "failure",
           "skipped",
           "success",
-          "cancelled"
+          "cancelled",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -314185,7 +313882,8 @@
           "failure",
           "skipped",
           "success",
-          "cancelled"
+          "cancelled",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -357332,7 +357030,7 @@
         "description": "The ID of the workflow. You can also pass the workflow file name as a string.",
         "required": true,
         "schema": {
-          "oneOf": [
+          "anyOf": [
             {
               "type": "integer"
             },
@@ -357583,7 +357281,7 @@
         "description": "The ID of the Pages deployment. You can also give the commit SHA of the deployment.",
         "required": true,
         "schema": {
-          "oneOf": [
+          "anyOf": [
             {
               "type": "integer"
             },

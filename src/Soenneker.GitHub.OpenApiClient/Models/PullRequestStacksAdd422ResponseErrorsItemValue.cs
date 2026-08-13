@@ -8,20 +8,20 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="int"/>, <see cref="string"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item&gt;
+    /// Composed type wrapper for classes <see cref="int"/>, <see cref="string"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullRequestStacksAdd422ResponseErrorsItemValue : IComposedTypeWrapper, IParsable
     {
         /// <summary>Composed type representation for type <see cref="int"/></summary>
         public int? Integer { get; set; }
-        /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item&gt;</summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item>? PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1>? PullRequestStacksAdd422ResponseErrorsItemValueMember1 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item> PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1> PullRequestStacksAdd422ResponseErrorsItemValueMember1 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,9 +49,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item> pullRequestStacksAdd422ResponseErrorsItemValueOneOf3ItemValue)
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1> pullRequestStacksAdd422ResponseErrorsItemValueMember1Value)
             {
-                result.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item = pullRequestStacksAdd422ResponseErrorsItemValueOneOf3ItemValue;
+                result.PullRequestStacksAdd422ResponseErrorsItemValueMember1 = pullRequestStacksAdd422ResponseErrorsItemValueMember1Value;
             }
             return result;
         }
@@ -78,9 +78,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 writer.WriteStringValue(null, String);
             }
-            else if(PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item != null)
+            else if(PullRequestStacksAdd422ResponseErrorsItemValueMember1 != null)
             {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item>(null, PullRequestStacksAdd422ResponseErrorsItemValueOneOf3Item);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksAdd422ResponseErrorsItemValueMember1>(null, PullRequestStacksAdd422ResponseErrorsItemValueMember1);
             }
         }
     }
