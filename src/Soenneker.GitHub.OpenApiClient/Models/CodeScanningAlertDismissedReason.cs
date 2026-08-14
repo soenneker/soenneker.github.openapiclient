@@ -19,5 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         UsedInTests,
         #pragma warning restore CS1591
+        [EnumMember(Value = "mitigated")]
+        #pragma warning disable CS1591
+        Mitigated,
+        #pragma warning restore CS1591
     }
 }
