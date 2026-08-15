@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The collaborator actor type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2ActorType? ActorType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamActorType? ActorType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The description property</summary>
@@ -103,7 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Type? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamType? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,7 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2ActorType>(); } },
+                { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamActorType>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
@@ -151,7 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Role>(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -162,7 +162,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2ActorType>("actor_type", ActorType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamActorType>("actor_type", ActorType);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteLongValue("id", Id);
@@ -176,7 +176,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Role>("role", Role);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamType>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

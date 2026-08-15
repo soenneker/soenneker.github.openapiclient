@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters Parameters { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotCodeReviewType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReview"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCodeReviewType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotCodeReviewType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

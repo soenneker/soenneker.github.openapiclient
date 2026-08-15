@@ -120,7 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>The ownership type of the team</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamTypeEnum? Type { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -170,7 +170,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "privacy", n => { Privacy = n.GetStringValue(); } },
                 { "repositories_url", n => { RepositoriesUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamTypeEnum>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -197,7 +197,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("privacy", Privacy);
             writer.WriteStringValue("repositories_url", RepositoriesUrl);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamTypeEnum>("type", Type);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

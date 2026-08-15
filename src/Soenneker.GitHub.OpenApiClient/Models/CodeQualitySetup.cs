@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Runner type to be used.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? RunnerType { get; set; }
         /// <summary>The frequency of the periodic analysis.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupSchedule? Schedule { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? Schedule { get; set; }
         /// <summary>Code quality setup has been configured or not.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? State { get; set; }
         /// <summary>Timestamp of latest configuration update.</summary>
@@ -70,7 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>()?.AsList(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
                 { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>(); } },
-                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupSchedule>(); } },
+                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>("languages", Languages);
             writer.WriteStringValue("runner_label", RunnerLabel);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>("runner_type", RunnerType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupSchedule>("schedule", Schedule);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>("schedule", Schedule);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

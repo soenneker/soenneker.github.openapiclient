@@ -69,22 +69,21 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Variables.Item.Reposi
         /// Replaces all repositories for an organization variable that is availableto selected repositories. Organization variables that are available to selectedrepositories have their `visibility` field set to `selected`.Authenticated users must have collaborator access to a repository to create, update, or read variables.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
         /// API method documentation <see href="https://docs.github.com/rest/actions/variables#set-selected-repositories-for-an-organization-variable" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariable200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariable200Response?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariableRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariableRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariable200Response> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariableRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariableRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariable200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetSelectedReposForOrgVariable200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists all repositories that can access an organization variablethat is available to selected repositories.Authenticated users must have collaborator access to a repository to create, update, or read variables.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint. If the repository is private, the `repo` scope is also required.
@@ -123,7 +122,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Variables.Item.Reposi
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

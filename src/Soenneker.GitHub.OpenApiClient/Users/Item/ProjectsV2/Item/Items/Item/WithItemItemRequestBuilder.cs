@@ -37,18 +37,17 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item
         /// Delete a specific item from a user-owned project.
         /// API method documentation <see href="https://docs.github.com/rest/projects/items#delete-project-item-for-user" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -57,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item
                 { "401", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a specific item from a user-owned project.
@@ -192,7 +191,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Items.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithItemItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Limit results to specific fields, by their IDs. If not specified, the title field will be returned.Example: fields[]=123&amp;fields[]=456&amp;fields[]=789 or fields=123,456,789&quot;</summary>
+            /// <summary>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.Example: fields[]=123&amp;fields[]=456&amp;fields[]=789 or fields=123,456,789</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("fields")]

@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>&quot;SHA or branch to start listing commits from. Default: the repository’s default branch (usually `main`).&quot;</summary>
+            /// <summary>SHA or branch to start listing commits from. Default: the repository’s default branch (usually `main`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sha")]
@@ -157,10 +157,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits
             [QueryParameter("sha")]
             public string Sha { get; set; }
 #endif
-            /// <summary>&quot;Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Due to limitations of Git, timestamps must be between 1970-01-01 and 2099-12-31 (inclusive) or unexpected results may be returned.&quot;</summary>
+            /// <summary>Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Due to limitations of Git, timestamps must be between 1970-01-01 and 2099-12-31 (inclusive) or unexpected results may be returned.</summary>
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
-            /// <summary>&quot;Only commits before this date will be returned. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Due to limitations of Git, timestamps must be between 1970-01-01 and 2099-12-31 (inclusive) or unexpected results may be returned.&quot;</summary>
+            /// <summary>Only commits before this date will be returned. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Due to limitations of Git, timestamps must be between 1970-01-01 and 2099-12-31 (inclusive) or unexpected results may be returned.</summary>
             [QueryParameter("until")]
             public DateTimeOffset? Until { get; set; }
         }

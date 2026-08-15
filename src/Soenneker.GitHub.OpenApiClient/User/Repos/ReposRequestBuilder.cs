@@ -152,7 +152,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ReposRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Comma-separated list of values. Can include:   * `owner`: Repositories that are owned by the authenticated user.   * `collaborator`: Repositories that the user has been added to as a collaborator.   * `organization_member`: Repositories that the user has access to through being a member of an organization. This includes every repository on every team that the user is on.&quot;</summary>
+            /// <summary>Comma-separated list of values. Can include:   * `owner`: Repositories that are owned by the authenticated user.   * `collaborator`: Repositories that the user has been added to as a collaborator.   * `organization_member`: Repositories that the user has access to through being a member of an organization. This includes every repository on every team that the user is on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("affiliation")]
@@ -162,10 +162,10 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
             [QueryParameter("affiliation")]
             public string Affiliation { get; set; }
 #endif
-            /// <summary>&quot;Only show repositories updated before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>Only show repositories updated before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("before")]
             public DateTimeOffset? Before { get; set; }
-            /// <summary>&quot;The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.&quot;</summary>
+            /// <summary>The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForAuthenticatedUserDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
@@ -174,7 +174,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repos
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>&quot;Only show repositories updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>Only show repositories updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
             /// <summary>The property to sort the results by.</summary>

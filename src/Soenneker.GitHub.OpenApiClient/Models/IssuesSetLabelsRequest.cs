@@ -61,19 +61,27 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequest();
-            if("IssuesSetLabelsRequest_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("IssuesSetLabelsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesSetLabelsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2();
             }
-            else if("IssuesSetLabelsRequest_4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("IssuesSetLabelsRequestBranch4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesSetLabelsRequestBranch4 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4();
             }
-            else if("IssuesSetLabelsRequest_5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("IssuesSetLabelsRequestBranch5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesSetLabelsRequestBranch5 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5();
+            }
+            else if("IssuesSetLabelsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.IssuesSetLabelsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf1();
+            }
+            else if("IssuesSetLabelsRequestOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.IssuesSetLabelsRequestOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf3();
             }
             return result;
         }

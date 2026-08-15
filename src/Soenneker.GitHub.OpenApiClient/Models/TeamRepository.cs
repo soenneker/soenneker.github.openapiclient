@@ -527,7 +527,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Url { get; set; }
 #endif
-        /// <summary>&quot;The repository visibility: public, private, or internal.&quot;</summary>
+        /// <summary>The repository visibility: public, private, or internal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }

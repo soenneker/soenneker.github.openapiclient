@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>&quot;Set to `true` to include the directory structure and files from all branches in the template repository, and not just the default branch. Default: `false`.&quot;</summary>
+        /// <summary>Set to `true` to include the directory structure and files from all branches in the template repository, and not just the default branch. Default: `false`.</summary>
         public bool? IncludeAllBranches { get; set; }
         /// <summary>The name of the new repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

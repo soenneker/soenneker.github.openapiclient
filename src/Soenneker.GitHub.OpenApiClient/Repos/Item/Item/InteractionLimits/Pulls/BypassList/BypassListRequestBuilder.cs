@@ -37,7 +37,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         /// Removes users from the pull request creation cap bypass list for a repository.Removed users will be subject to any configured pull request creation cap.Only users with maintainer permissions can modify the bypass list.You can remove a maximum of 100 users per request.
         /// API method documentation <see href="https://docs.github.com/rest/interactions/repos#remove-users-from-the-pull-request-creation-cap-bypass-list-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">A list of user logins to add or remove from the pull request creation cap bypass list.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +45,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the users that are on the pull request creation cap bypass list for arepository. Users on this list can create pull requests regardless of anyconfigured pull request creation cap.Only users with maintainer permissions can view the bypass list.
@@ -94,7 +93,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         /// Adds users to the pull request creation cap bypass list for a repository.Users on this list can create pull requests regardless of any configuredpull request creation cap.Only users with maintainer permissions can modify the bypass list.You can add a maximum of 100 users per request.The bypass list can only hold a maximum of 100 users.
         /// API method documentation <see href="https://docs.github.com/rest/interactions/repos#add-users-to-the-pull-request-creation-cap-bypass-list-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">A list of user logins to add or remove from the pull request creation cap bypass list.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -103,11 +101,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimitPullRequestBypassList body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -118,7 +116,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes users from the pull request creation cap bypass list for a repository.Removed users will be subject to any configured pull request creation cap.Only users with maintainer permissions can modify the bypass list.You can remove a maximum of 100 users per request.

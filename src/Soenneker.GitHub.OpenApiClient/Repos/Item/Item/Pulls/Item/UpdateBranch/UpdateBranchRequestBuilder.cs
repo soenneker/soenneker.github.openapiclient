@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
         {
         }
         /// <summary>
-        /// &quot;Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.&quot;
+        /// Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.
         /// API method documentation <see href="https://docs.github.com/rest/pulls/pulls#update-a-pull-request-branch" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202Response"/></returns>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.UpdateBranch
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.PullsUpdateBranch202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.&quot;
+        /// Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.Note: If making a request on behalf of a GitHub App you must also have permissions to write the contents of the head repository.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

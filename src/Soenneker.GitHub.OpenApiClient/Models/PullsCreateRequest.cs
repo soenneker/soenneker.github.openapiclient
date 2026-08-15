@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Indicates whether the pull request is a draft. See &quot;[Draft Pull Requests](https://docs.github.com/articles/about-pull-requests#draft-pull-requests)&quot; in the GitHub Help documentation to learn more.</summary>
         public bool? Draft { get; set; }
-        /// <summary>&quot;The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.&quot;</summary>
+        /// <summary>The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Head { get; set; }

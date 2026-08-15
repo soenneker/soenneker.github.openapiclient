@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string CommitSha { get; set; }
 #endif
-        /// <summary>&quot;The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The deletable property</summary>
         public bool? Deletable { get; set; }

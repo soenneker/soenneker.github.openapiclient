@@ -37,11 +37,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposAddTeamAccessRestrictionsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposAddTeamAccessRestrictionsRequest();
-            if("ReposAddTeamAccessRestrictionsRequest_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ReposAddTeamAccessRestrictionsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReposAddTeamAccessRestrictionsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposAddTeamAccessRestrictionsRequestBranch2();
+            }
+            else if("ReposAddTeamAccessRestrictionsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReposAddTeamAccessRestrictionsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposAddTeamAccessRestrictionsRequestOneOf1();
             }
             return result;
         }

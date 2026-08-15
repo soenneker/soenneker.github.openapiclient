@@ -66,10 +66,9 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryA
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotRepositoryAccessDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they&apos;ve updated dependencies across organizations in the enterprise.The authenticated user must be an enterprise owner to use this endpoint.**Example request body:**```json{  \&quot;repository_ids_to_add\&quot;: [123, 456],  \&quot;repository_ids_to_remove\&quot;: [789]}```&quot;
+        /// Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they&apos;ve updated dependencies across organizations in the enterprise.The authenticated user must be an enterprise owner to use this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
         /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#updates-dependabots-repository-access-list-for-an-enterprise" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -77,11 +76,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryA
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotUpdateRepositoryAccessForEnterpriseRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -91,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryA
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.The authenticated user must be an enterprise owner to use this endpoint.
@@ -113,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.RepositoryA
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they&apos;ve updated dependencies across organizations in the enterprise.The authenticated user must be an enterprise owner to use this endpoint.**Example request body:**```json{  \&quot;repository_ids_to_add\&quot;: [123, 456],  \&quot;repository_ids_to_remove\&quot;: [789]}```&quot;
+        /// Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they&apos;ve updated dependencies across organizations in the enterprise.The authenticated user must be an enterprise owner to use this endpoint.**Example request body:**```json{  &quot;repository_ids_to_add&quot;: [123, 456],  &quot;repository_ids_to_remove&quot;: [789]}```
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

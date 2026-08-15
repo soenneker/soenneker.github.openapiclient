@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The event property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsDismissReviewRequestEvent? Event { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DismissEvent? Event { get; set; }
         /// <summary>The message for the pull request review dismissal</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "event", n => { Event = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsDismissReviewRequestEvent>(); } },
+                { "event", n => { Event = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DismissEvent>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsDismissReviewRequestEvent>("event", Event);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DismissEvent>("event", Event);
             writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }

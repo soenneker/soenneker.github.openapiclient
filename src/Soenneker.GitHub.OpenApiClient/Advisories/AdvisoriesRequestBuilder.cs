@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AdvisoriesRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;If specified, only return advisories that affect any of `package` or `package@version`. A maximum of 1000 packages can be specified.If the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.Example: `affects=package1,package2@1.0.0,package3@2.0.0` or `affects[]=package1&amp;affects[]=package2@1.0.0`&quot;</summary>
+            /// <summary>If specified, only return advisories that affect any of `package` or `package@version`. A maximum of 1000 packages can be specified.If the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.Example: `affects=package1,package2@1.0.0,package3@2.0.0` or `affects[]=package1&amp;affects[]=package2@1.0.0`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("affects")]
@@ -147,7 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
             [QueryParameter("cve_id")]
             public string CveId { get; set; }
 #endif
-            /// <summary>&quot;If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.Example: `cwes=79,284,22` or `cwes[]=79&amp;cwes[]=284&amp;cwes[]=22`&quot;</summary>
+            /// <summary>If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.Example: `cwes=79,284,22` or `cwes[]=79&amp;cwes[]=284&amp;cwes[]=22`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cwes")]

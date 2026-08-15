@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Gists
         {
         }
         /// <summary>
-        /// &quot;Lists public gists for the specified user:&quot;
+        /// Lists public gists for the specified user:
         /// API method documentation <see href="https://docs.github.com/rest/gists/gists#list-gists-for-a-user" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.BaseGist&gt;</returns>
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Gists
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Lists public gists for the specified user:&quot;
+        /// Lists public gists for the specified user:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Gists
             return new global::Soenneker.GitHub.OpenApiClient.Users.Item.Gists.GistsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists public gists for the specified user:&quot;
+        /// Lists public gists for the specified user:
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GistsRequestBuilderGetQueryParameters 
@@ -98,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Gists
             /// <summary>The number of results per page (max 100). For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>&quot;Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
         }

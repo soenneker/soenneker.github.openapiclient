@@ -36,7 +36,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Runner type to be used.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupRunnerType? RunnerType { get; set; }
         /// <summary>The frequency of the periodic analysis.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupSchedule? Schedule { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? Schedule { get; set; }
         /// <summary>Code scanning default setup has been configured or not.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupState? State { get; set; }
         /// <summary>Threat model to be used for code scanning analysis. Use `remote` to analyze only network sources and `remote_and_local` to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.</summary>
@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "query_suite", n => { QuerySuite = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupQuerySuite>(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
                 { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupRunnerType>(); } },
-                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupSchedule>(); } },
+                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupState>(); } },
                 { "threat_model", n => { ThreatModel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupThreatModel>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -89,7 +89,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupQuerySuite>("query_suite", QuerySuite);
             writer.WriteStringValue("runner_label", RunnerLabel);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupRunnerType>("runner_type", RunnerType);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupSchedule>("schedule", Schedule);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>("schedule", Schedule);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupState>("state", State);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningDefaultSetupThreatModel>("threat_model", ThreatModel);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

@@ -113,11 +113,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Migrations.Item
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("exclude")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsGetStatusForOrgExcludeParameterItem[]? Exclude { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem[]? Exclude { get; set; }
 #nullable restore
 #else
             [QueryParameter("exclude")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsGetStatusForOrgExcludeParameterItem[] Exclude { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem[] Exclude { get; set; }
 #endif
         }
     }

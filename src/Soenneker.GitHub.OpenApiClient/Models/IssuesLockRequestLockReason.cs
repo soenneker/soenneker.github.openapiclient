@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The reason for locking the issue or pull request conversation. Lock will fail if you don&apos;t use one of these reasons:   * `off-topic`   * `too heated`   * `resolved`   * `spam`&quot;</summary>
+    /// <summary>The reason for locking the issue or pull request conversation. Lock will fail if you don&apos;t use one of these reasons:   * `off-topic`   * `too heated`   * `resolved`   * `spam`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum IssuesLockRequestLockReason
     {

@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposDeleteFileRequestAuthor Author { get; set; }
 #endif
-        /// <summary>&quot;The branch name. Default: the repository’s default branch&quot;</summary>
+        /// <summary>The branch name. Default: the repository’s default branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Branch { get; set; }

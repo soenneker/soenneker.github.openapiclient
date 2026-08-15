@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status&apos;s deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true`&quot;</summary>
+        /// <summary>Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status&apos;s deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true`</summary>
         public bool? AutoInactive { get; set; }
         /// <summary>A short description of the status. The maximum description length is 140 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Environment { get; set; }
 #endif
-        /// <summary>&quot;Sets the URL for accessing your environment. Default: `\&quot;\&quot;`&quot;</summary>
+        /// <summary>Sets the URL for accessing your environment. Default: `&quot;&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EnvironmentUrl { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string EnvironmentUrl { get; set; }
 #endif
-        /// <summary>&quot;The full URL of the deployment&apos;s output. This parameter replaces `target_url`. We will continue to accept `target_url` to support legacy uses, but we recommend replacing `target_url` with `log_url`. Setting `log_url` will automatically set `target_url` to the same value. Default: `\&quot;\&quot;`&quot;</summary>
+        /// <summary>The full URL of the deployment&apos;s output. This parameter replaces `target_url`. We will continue to accept `target_url` to support legacy uses, but we recommend replacing `target_url` with `log_url`. Setting `log_url` will automatically set `target_url` to the same value. Default: `&quot;&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LogUrl { get; set; }

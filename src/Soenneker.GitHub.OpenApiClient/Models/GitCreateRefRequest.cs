@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The name of the fully qualified reference (ie: `refs/heads/master`). If it doesn&apos;t start with &apos;refs&apos; and have at least two slashes, it will be rejected.&quot;</summary>
+        /// <summary>The name of the fully qualified reference (ie: `refs/heads/master`). If it doesn&apos;t start with &apos;refs&apos; and have at least two slashes, it will be rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Ref { get; set; }

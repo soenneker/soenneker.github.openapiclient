@@ -39,6 +39,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.HashAlgorithm;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Installation;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Invitations;
@@ -263,6 +264,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases.ImmutableReleasesRequestBuilder ImmutableReleases
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.ImmutableReleases.ImmutableReleasesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The import property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import.ImportRequestBuilder Import
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Import.ImportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The installation property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Installation.InstallationRequestBuilder Installation
@@ -519,7 +525,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.FullRepository>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.FullRepository.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;**Note**: To edit a repository&apos;s topics, use the [Replace all repository topics](https://docs.github.com/rest/repos/repos#replace-all-repository-topics) endpoint.&quot;
+        /// **Note**: To edit a repository&apos;s topics, use the [Replace all repository topics](https://docs.github.com/rest/repos/repos#replace-all-repository-topics) endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/repos/repos#update-a-repository" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.FullRepository"/></returns>
@@ -587,7 +593,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;**Note**: To edit a repository&apos;s topics, use the [Replace all repository topics](https://docs.github.com/rest/repos/repos#replace-all-repository-topics) endpoint.&quot;
+        /// **Note**: To edit a repository&apos;s topics, use the [Replace all repository topics](https://docs.github.com/rest/repos/repos#replace-all-repository-topics) endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The base role that determines default permissions.- `no_access`: No default access- `reader`: Default read permissions- `writer`: Default write permissions (organization spaces only)- `admin`: Default admin permissions (organization spaces only)&quot;</summary>
+    /// <summary>The base role that determines default permissions.- `no_access`: No default access- `reader`: Default read permissions- `writer`: Default write permissions (organization spaces only)- `admin`: Default admin permissions (organization spaces only)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CopilotSpaceBaseRole
     {

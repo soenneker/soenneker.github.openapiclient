@@ -21,9 +21,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Assignees { get; private set; }
 #endif
-        /// <summary>&quot;The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? AutoDismissedAt { get; private set; }
-        /// <summary>&quot;The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Details for the vulnerable dependency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple DismissalRequest { get; set; }
 #endif
-        /// <summary>&quot;The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? DismissedAt { get; private set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The reason that the alert was dismissed.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDismissedReason? DismissedReason { get; set; }
-        /// <summary>&quot;The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? FixedAt { get; private set; }
         /// <summary>The GitHub URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The state of the Dependabot alert.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryState? State { get; private set; }
-        /// <summary>&quot;The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The REST API URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

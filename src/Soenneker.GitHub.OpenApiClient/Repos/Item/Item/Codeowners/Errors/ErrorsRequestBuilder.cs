@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Codeowners.Errors
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ErrorsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;A branch, tag or commit name used to determine which version of the CODEOWNERS file to use. Default: the repository&apos;s default branch (e.g. `main`)&quot;</summary>
+            /// <summary>A branch, tag or commit name used to determine which version of the CODEOWNERS file to use. Default: the repository&apos;s default branch (e.g. `main`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("ref")]

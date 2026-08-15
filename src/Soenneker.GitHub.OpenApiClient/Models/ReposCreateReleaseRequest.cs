@@ -54,7 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string TagName { get; set; }
 #endif
-        /// <summary>&quot;Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository&apos;s default branch.&quot;</summary>
+        /// <summary>Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository&apos;s default branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetCommitish { get; set; }

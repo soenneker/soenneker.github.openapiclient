@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gitignore.Templates.Item
         {
         }
         /// <summary>
-        /// &quot;Get the content of a gitignore template.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.&quot;
+        /// Get the content of a gitignore template.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.
         /// API method documentation <see href="https://docs.github.com/rest/gitignore/gitignore#get-a-gitignore-template" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GitignoreTemplate"/></returns>
@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gitignore.Templates.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.GitignoreTemplate>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GitignoreTemplate.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get the content of a gitignore template.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.&quot;
+        /// Get the content of a gitignore template.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw .gitignore contents.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

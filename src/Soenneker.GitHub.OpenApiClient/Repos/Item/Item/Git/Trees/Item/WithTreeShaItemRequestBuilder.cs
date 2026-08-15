@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Git.Trees.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithTreeShaItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `\&quot;true\&quot;`, and `\&quot;false\&quot;`. Omit this parameter to prevent recursively returning objects or subtrees.&quot;</summary>
+            /// <summary>Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `&quot;true&quot;`, and `&quot;false&quot;`. Omit this parameter to prevent recursively returning objects or subtrees.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("recursive")]

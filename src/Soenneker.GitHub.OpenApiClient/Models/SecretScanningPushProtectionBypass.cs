@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The time that the bypass will expire in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the bypass will expire in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? ExpireAt { get; set; }
         /// <summary>The reason for bypassing push protection.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? Reason { get; set; }

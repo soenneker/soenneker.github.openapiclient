@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string DeliveriesUrl { get; set; }
 #endif
-        /// <summary>&quot;Determines what events the hook is triggered for. Default: [&apos;push&apos;].&quot;</summary>
+        /// <summary>Determines what events the hook is triggered for. Default: [&apos;push&apos;].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Events { get; set; }

@@ -63,7 +63,6 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Cache.Storag
         /// Sets GitHub Actions cache storage limit for an organization. All organizations and repositories under thisorganization may not set a higher cache storage limit.OAuth tokens and personal access tokens (classic) need the `admin:organization` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/actions/cache#set-github-actions-cache-storage-limit-for-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">GitHub Actions cache storage policy for an organization.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -72,11 +71,11 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Cache.Storag
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheStorageLimitForOrganization body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheStorageLimitForOrganization body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheStorageLimitForOrganization body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheStorageLimitForOrganization body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -87,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Actions.Cache.Storag
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets GitHub Actions cache storage limit for an organization. All repositories under thisorganization may not set a higher cache storage limit.OAuth tokens and personal access tokens (classic) need the `admin:organization` scope to use this endpoint.

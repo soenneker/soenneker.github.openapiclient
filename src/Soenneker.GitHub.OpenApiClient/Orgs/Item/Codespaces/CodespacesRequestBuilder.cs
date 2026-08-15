@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Access;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Secrets;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodespacesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The access property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Access.AccessRequestBuilder Access
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Access.AccessRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The secrets property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Codespaces.Secrets.SecretsRequestBuilder Secrets
         {

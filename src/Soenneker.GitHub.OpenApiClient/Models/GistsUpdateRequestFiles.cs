@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;The gist files to be updated, renamed, or deleted. Each `key` must match the current filename(including extension) of the targeted gist file. For example: `hello.py`.To delete a file, set the whole file to null. For example: `hello.py : null`. The file will also bedeleted if the specified object does not contain at least one of `content` or `filename`.&quot;
+    /// The gist files to be updated, renamed, or deleted. Each `key` must match the current filename(including extension) of the targeted gist file. For example: `hello.py`.To delete a file, set the whole file to null. For example: `hello.py : null`. The file will also bedeleted if the specified object does not contain at least one of `content` or `filename`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GistsUpdateRequestFiles : IAdditionalDataHolder, IParsable

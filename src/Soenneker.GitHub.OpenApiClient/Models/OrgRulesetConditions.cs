@@ -11,34 +11,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// Conditions for an organization ruleset.The branch and tag rulesets conditions object should contain both `repository_name` and `ref_name` properties, or both `repository_id` and `ref_name` properties, or both `repository_property` and `ref_name` properties.The push rulesets conditions object does not require the `ref_name` property.For repository policy rulesets, the conditions object should only contain the `repository_name`, the `repository_id`, or the `repository_property`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class OrgRulesetConditions : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class OrgRulesetConditions : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName? OrgRulesetConditionsRepositoryIdAndRefName { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName OrgRulesetConditionsRepositoryIdAndRefName { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName? OrgRulesetConditionsRepositoryNameAndRefName { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName OrgRulesetConditionsRepositoryNameAndRefName { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName? OrgRulesetConditionsRepositoryPropertyAndRefName { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName OrgRulesetConditionsRepositoryPropertyAndRefName { get; set; }
-#endif
         /// <summary>The ref_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,14 +47,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty RepositoryProperty { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions"/> and sets the default values.
         /// </summary>
@@ -94,25 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions();
-            if("OrgRulesetConditionsRepositoryIdAndRefName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.OrgRulesetConditionsRepositoryIdAndRefName = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName();
-            }
-            else if("OrgRulesetConditionsRepositoryNameAndRefName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.OrgRulesetConditionsRepositoryNameAndRefName = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName();
-            }
-            else if("OrgRulesetConditionsRepositoryPropertyAndRefName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.OrgRulesetConditionsRepositoryPropertyAndRefName = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName();
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
-            }
-            return result;
+            return new global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,35 +70,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(OrgRulesetConditionsRepositoryIdAndRefName != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return OrgRulesetConditionsRepositoryIdAndRefName.GetFieldDeserializers();
-            }
-            else if(OrgRulesetConditionsRepositoryNameAndRefName != null)
-            {
-                return OrgRulesetConditionsRepositoryNameAndRefName.GetFieldDeserializers();
-            }
-            else if(OrgRulesetConditionsRepositoryPropertyAndRefName != null)
-            {
-                return OrgRulesetConditionsRepositoryPropertyAndRefName.GetFieldDeserializers();
-            }
-            else if(RefName != null)
-            {
-                return RefName.GetFieldDeserializers();
-            }
-            else if(RepositoryId != null)
-            {
-                return RepositoryId.GetFieldDeserializers();
-            }
-            else if(RepositoryName != null)
-            {
-                return RepositoryName.GetFieldDeserializers();
-            }
-            else if(RepositoryProperty != null)
-            {
-                return RepositoryProperty.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "ref_name", n => { RefName = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName.CreateFromDiscriminatorValue); } },
+                { "repository_id", n => { RepositoryId = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId.CreateFromDiscriminatorValue); } },
+                { "repository_name", n => { RepositoryName = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName.CreateFromDiscriminatorValue); } },
+                { "repository_property", n => { RepositoryProperty = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty.CreateFromDiscriminatorValue); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -157,38 +85,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(OrgRulesetConditionsRepositoryIdAndRefName != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryIdAndRefName>(null, OrgRulesetConditionsRepositoryIdAndRefName);
-            }
-            else if(OrgRulesetConditionsRepositoryNameAndRefName != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryNameAndRefName>(null, OrgRulesetConditionsRepositoryNameAndRefName);
-            }
-            else if(OrgRulesetConditionsRepositoryPropertyAndRefName != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgRulesetConditionsRepositoryPropertyAndRefName>(null, OrgRulesetConditionsRepositoryPropertyAndRefName);
-            }
-            else if(RefName != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName>(null, RefName);
-            }
-            else if(RepositoryId != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>(null, RepositoryId);
-            }
-            else if(RepositoryName != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>(null, RepositoryName);
-            }
-            else if(RepositoryProperty != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>(null, RepositoryProperty);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
-            }
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName>("ref_name", RefName);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>("repository_id", RepositoryId);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>("repository_name", RepositoryName);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>("repository_property", RepositoryProperty);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

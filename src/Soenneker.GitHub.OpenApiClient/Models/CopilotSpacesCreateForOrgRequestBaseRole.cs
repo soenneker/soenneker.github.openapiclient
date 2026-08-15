@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The base role that determines default permissions for organization members.- `no_access`: No default access (default)- `reader`: Organization members can read the space- `writer`: Organization members can read and edit the space- `admin`: Organization members have full admin access to the space&quot;</summary>
+    /// <summary>The base role that determines default permissions for organization members.- `no_access`: No default access (default)- `reader`: Organization members can read the space- `writer`: Organization members can read and edit the space- `admin`: Organization members have full admin access to the space</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CopilotSpacesCreateForOrgRequestBaseRole
     {

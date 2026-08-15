@@ -24,8 +24,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemData Data { get; set; }
 #endif
         /// <summary>Provider namespace</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemProvider? Provider { get; set; }
-        /// <summary>&quot;Type of artifact. Available Values: `pull`, `branch`.&quot;</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider? Provider { get; set; }
+        /// <summary>Type of artifact. Available Values: `pull`, `branch`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItem"/> and sets the default values.
@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemData>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemData.CreateFromDiscriminatorValue); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemProvider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemType>(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemData>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemProvider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider>("provider", Provider);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksCreateTaskInRepo201ResponseArtifactsItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

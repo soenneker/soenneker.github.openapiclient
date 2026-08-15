@@ -37,7 +37,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? RequireCodeOwnerReviews { get; set; }
         /// <summary>Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers.</summary>
         public int? RequiredApprovingReviewCount { get; set; }
-        /// <summary>&quot;Whether the most recent push must be approved by someone other than the person who pushed it. Default: `false`.&quot;</summary>
+        /// <summary>Whether the most recent push must be approved by someone other than the person who pushed it. Default: `false`.</summary>
         public bool? RequireLastPushApproval { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateBranchProtectionRequestRequiredPullRequestReviews"/> and sets the default values.

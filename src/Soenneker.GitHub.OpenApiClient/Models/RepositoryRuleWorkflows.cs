@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters Parameters { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowsType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflows"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowsType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsParameters>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflowsType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WorkflowsType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

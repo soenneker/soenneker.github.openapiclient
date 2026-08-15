@@ -26,14 +26,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Origin { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionsGetRestrictionsForAuthenticatedUser200Response"/> and sets the default values.
         /// </summary>
@@ -62,7 +54,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "limit", n => { Limit = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup>(); } },
                 { "origin", n => { Origin = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,7 +66,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup>("limit", Limit);
             writer.WriteStringValue("origin", Origin);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

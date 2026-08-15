@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<string> Events { get; set; }
 #endif
-        /// <summary>&quot;Use `web` to create a webhook. Default: `web`. This parameter only accepts the value `web`.&quot;</summary>
+        /// <summary>Use `web` to create a webhook. Default: `web`. This parameter only accepts the value `web`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

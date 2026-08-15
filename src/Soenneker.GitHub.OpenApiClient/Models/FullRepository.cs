@@ -441,7 +441,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The private property</summary>
         public bool? Private { get; set; }
-        /// <summary>&quot;The policy controlling who can create pull requests: all or collaborators_only.&quot;</summary>
+        /// <summary>The policy controlling who can create pull requests: all or collaborators_only.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPullRequestCreationPolicy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -595,7 +595,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The use_squash_pr_title_as_default property</summary>
         public bool? UseSquashPrTitleAsDefault { get; set; }
-        /// <summary>&quot;The repository visibility: public, private, or internal.&quot;</summary>
+        /// <summary>The repository visibility: public, private, or internal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Visibility { get; set; }

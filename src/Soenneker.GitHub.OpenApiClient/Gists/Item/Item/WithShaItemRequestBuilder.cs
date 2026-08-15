@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Item
         {
         }
         /// <summary>
-        /// &quot;Gets a specified gist revision.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Gets a specified gist revision.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// API method documentation <see href="https://docs.github.com/rest/gists/gists#get-a-gist-revision" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GistSimple"/></returns>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GistSimple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Gets a specified gist revision.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Gets a specified gist revision.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

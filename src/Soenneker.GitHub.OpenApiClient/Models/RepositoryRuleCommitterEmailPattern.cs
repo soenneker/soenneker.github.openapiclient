@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternParameters Parameters { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternType? Type { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CommitterEmailPatternType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPattern"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternParameters>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternParameters.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitterEmailPatternType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternParameters>("parameters", Parameters);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPatternType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CommitterEmailPatternType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

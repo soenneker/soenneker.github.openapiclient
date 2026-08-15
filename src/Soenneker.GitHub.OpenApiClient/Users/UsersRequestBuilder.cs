@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users
         {
         }
         /// <summary>
-        /// &quot;Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of users.&quot;
+        /// Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of users.
         /// API method documentation <see href="https://docs.github.com/rest/users/users#list-users" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser&gt;</returns>
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of users.&quot;
+        /// Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of users.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,7 +95,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users
             return new global::Soenneker.GitHub.OpenApiClient.Users.UsersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of users.&quot;
+        /// Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/rest/guides/using-pagination-in-the-rest-api#using-link-headers) to get the URL for the next page of users.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsersRequestBuilderGetQueryParameters 

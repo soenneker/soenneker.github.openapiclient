@@ -72,7 +72,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Reactions
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Create a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release). A response with a `Status: 200 OK` means that you already added the reaction type to this release.&quot;
+        /// Create a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release). A response with a `Status: 200 OK` means that you already added the reaction type to this release.
         /// API method documentation <see href="https://docs.github.com/rest/reactions/reactions#create-reaction-for-a-release" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Reaction"/></returns>
@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Reactions
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release). A response with a `Status: 200 OK` means that you already added the reaction type to this release.&quot;
+        /// Create a reaction to a [release](https://docs.github.com/rest/releases/releases#get-a-release). A response with a `Status: 200 OK` means that you already added the reaction type to this release.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

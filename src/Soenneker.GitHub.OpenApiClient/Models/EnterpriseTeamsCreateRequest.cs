@@ -38,11 +38,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;The notification setting the team is set to. The options are:* `notifications_enabled` - team members receive notifications when the team is @mentioned.* `notifications_disabled` - no one receives notifications.Default: `notifications_enabled`&quot;</summary>
+        /// <summary>The notification setting the team is set to. The options are:* `notifications_enabled` - team members receive notifications when the team is @mentioned.* `notifications_disabled` - no one receives notifications.Default: `notifications_enabled`</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequestNotificationSetting? NotificationSetting { get; set; }
-        /// <summary>&quot;Specifies which organizations in the enterprise should have access to this team. Can be one of `disabled`, `selected`, or `all`.`disabled`: The team is not assigned to any organizations. This is the default when you create a new team.`selected`: The team is assigned to specific organizations. You can then use the [add organization assignments API](https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments) endpoint.`all`: The team is assigned to all current and future organizations in the enterprise.&quot;</summary>
+        /// <summary>Specifies which organizations in the enterprise should have access to this team. Can be one of `disabled`, `selected`, or `all`.`disabled`: The team is not assigned to any organizations. This is the default when you create a new team.`selected`: The team is assigned to specific organizations. You can then use the [add organization assignments API](https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments) endpoint.`all`: The team is assigned to all current and future organizations in the enterprise.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequestOrganizationSelectionType? OrganizationSelectionType { get; set; }
-        /// <summary>&quot;Retired: this field is no longer supported.Whether the enterprise team should be reflected in each organization.This value cannot be set.&quot;</summary>
+        /// <summary>Retired: this field is no longer supported.Whether the enterprise team should be reflected in each organization.This value cannot be set.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequestSyncToOrganizations? SyncToOrganizations { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseTeamsCreateRequest"/> and sets the default values.

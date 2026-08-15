@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Action to apply to the fine-grained personal access token.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdatePatAccessesRequestAction? Action { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The IDs of the fine-grained personal access tokens.</summary>
@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdatePatAccessesRequestAction>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction>(); } },
                 { "pat_ids", n => { PatIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdatePatAccessesRequestAction>("action", Action);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction>("action", Action);
             writer.WriteCollectionOfPrimitiveValues<int?>("pat_ids", PatIds);
             writer.WriteAdditionalData(AdditionalData);
         }

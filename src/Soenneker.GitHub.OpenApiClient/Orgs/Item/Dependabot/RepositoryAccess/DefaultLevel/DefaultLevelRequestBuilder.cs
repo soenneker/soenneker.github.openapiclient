@@ -37,7 +37,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.D
         /// Sets the default level of repository access Dependabot will have while performing an update.  Available values are:- &apos;public&apos; - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.- &apos;internal&apos; - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.Unauthorized users will not see the existence of this endpoint.This operation supports both server-to-server and user-to-server access.
         /// API method documentation <see href="https://docs.github.com/rest/dependabot/repository-access#set-the-default-repository-access-level-for-dependabot" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +44,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.D
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.RepositoryAccess.D
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets the default level of repository access Dependabot will have while performing an update.  Available values are:- &apos;public&apos; - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.- &apos;internal&apos; - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.Unauthorized users will not see the existence of this endpoint.This operation supports both server-to-server and user-to-server access.

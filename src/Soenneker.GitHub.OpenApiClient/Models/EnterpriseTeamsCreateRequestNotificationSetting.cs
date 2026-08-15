@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The notification setting the team is set to. The options are:* `notifications_enabled` - team members receive notifications when the team is @mentioned.* `notifications_disabled` - no one receives notifications.Default: `notifications_enabled`&quot;</summary>
+    /// <summary>The notification setting the team is set to. The options are:* `notifications_enabled` - team members receive notifications when the team is @mentioned.* `notifications_disabled` - no one receives notifications.Default: `notifications_enabled`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EnterpriseTeamsCreateRequestNotificationSetting
     {

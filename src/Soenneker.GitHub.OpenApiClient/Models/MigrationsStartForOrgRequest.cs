@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Exclude related items from being returned in the response in order to improve performance of the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartForOrgRequestExcludeItem?>? Exclude { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem?>? Exclude { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartForOrgRequestExcludeItem?> Exclude { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem?> Exclude { get; set; }
 #endif
         /// <summary>Indicates whether attachments should be excluded from the migration (to reduce migration archive file size).</summary>
         public bool? ExcludeAttachments { get; set; }
@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "exclude", n => { Exclude = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartForOrgRequestExcludeItem>()?.AsList(); } },
+                { "exclude", n => { Exclude = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem>()?.AsList(); } },
                 { "exclude_attachments", n => { ExcludeAttachments = n.GetBoolValue(); } },
                 { "exclude_git_data", n => { ExcludeGitData = n.GetBoolValue(); } },
                 { "exclude_metadata", n => { ExcludeMetadata = n.GetBoolValue(); } },
@@ -94,7 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartForOrgRequestExcludeItem>("exclude", Exclude);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem>("exclude", Exclude);
             writer.WriteBoolValue("exclude_attachments", ExcludeAttachments);
             writer.WriteBoolValue("exclude_git_data", ExcludeGitData);
             writer.WriteBoolValue("exclude_metadata", ExcludeMetadata);

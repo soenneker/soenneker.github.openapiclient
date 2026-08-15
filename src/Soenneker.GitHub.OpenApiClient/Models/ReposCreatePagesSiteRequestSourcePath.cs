@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`. Default: `/`&quot;</summary>
+    /// <summary>The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`. Default: `/`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ReposCreatePagesSiteRequestSourcePath
     {

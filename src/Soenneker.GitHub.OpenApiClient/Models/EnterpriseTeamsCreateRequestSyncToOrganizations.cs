@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;Retired: this field is no longer supported.Whether the enterprise team should be reflected in each organization.This value cannot be set.&quot;</summary>
+    /// <summary>Retired: this field is no longer supported.Whether the enterprise team should be reflected in each organization.This value cannot be set.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EnterpriseTeamsCreateRequestSyncToOrganizations
     {

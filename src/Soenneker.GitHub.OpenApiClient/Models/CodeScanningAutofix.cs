@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>&quot;The start time of an autofix in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The start time of an autofix in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The status of an autofix.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAutofixStatus? Status { get; set; }

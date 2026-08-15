@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;The person that committed the file. Default: the authenticated user.&quot;
+    /// The person that committed the file. Default: the authenticated user.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposCreateOrUpdateFileContentsRequestCommitter : IAdditionalDataHolder, IParsable

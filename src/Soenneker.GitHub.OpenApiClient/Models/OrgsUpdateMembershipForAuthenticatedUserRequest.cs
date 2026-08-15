@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The state that the membership should be in. Only `&quot;active&quot;` will be accepted.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateMembershipForAuthenticatedUserRequestState? State { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActiveState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateMembershipForAuthenticatedUserRequest"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateMembershipForAuthenticatedUserRequestState>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActiveState>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsUpdateMembershipForAuthenticatedUserRequestState>("state", State);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActiveState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>The time that the scan was started. Empty if the scan is pending</summary>
         public DateTimeOffset? StartedAt { get; set; }
-        /// <summary>&quot;The state of the scan. Either \&quot;completed\&quot;, \&quot;running\&quot;, \&quot;pending\&quot;, \&quot;failed\&quot;, or \&quot;unknown\&quot;.\&quot;failed\&quot;: this scan type has hit its retry limit and has been marked permanently failed.This usually resolves on its own at the next scheduled scan attempt. If \&quot;failed\&quot; persists, contact Support.\&quot;unknown\&quot;: the scan is in an unrecognized or currently unhandled state.&quot;</summary>
+        /// <summary>The state of the scan. Either &quot;completed&quot;, &quot;running&quot;, &quot;pending&quot;, &quot;failed&quot;, or &quot;unknown&quot;.&quot;failed&quot;: this scan type has hit its retry limit and has been marked permanently failed.This usually resolves on its own at the next scheduled scan attempt. If &quot;failed&quot; persists, contact Support.&quot;unknown&quot;: the scan is in an unrecognized or currently unhandled state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

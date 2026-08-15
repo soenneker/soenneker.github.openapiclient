@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.&quot;</summary>
+        /// <summary>The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateFileContentsRequestAuthor? Author { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateFileContentsRequestAuthor Author { get; set; }
 #endif
-        /// <summary>&quot;The branch name. Default: the repository’s default branch.&quot;</summary>
+        /// <summary>The branch name. Default: the repository’s default branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Branch { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Branch { get; set; }
 #endif
-        /// <summary>&quot;The person that committed the file. Default: the authenticated user.&quot;</summary>
+        /// <summary>The person that committed the file. Default: the authenticated user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateOrUpdateFileContentsRequestCommitter? Committer { get; set; }

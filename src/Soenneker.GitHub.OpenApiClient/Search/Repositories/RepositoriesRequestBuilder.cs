@@ -112,7 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Repositories
             [QueryParameter("q")]
             public string Q { get; set; }
 #endif
-            /// <summary>&quot;Sorts the results of your query by number of `stars`, `forks`, or `help-wanted-issues` or how recently the items were `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)&quot;</summary>
+            /// <summary>Sorts the results of your query by number of `stars`, `forks`, or `help-wanted-issues` or how recently the items were `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.SearchReposSortParameter? Sort { get; set; }
         }

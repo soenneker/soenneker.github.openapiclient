@@ -150,7 +150,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning.Alerts
             /// <summary>A boolean value representing whether or not to hide literal secrets in the results.</summary>
             [QueryParameter("hide_secret")]
             public bool? HideSecret { get; set; }
-            /// <summary>&quot;A comma-separated list of metadata fields to filter alerts by. Only alerts that have all of thespecified metadata fields attached will be returned. Possible values are: `owner-email`, `owner-id`,`owner-name`, `secret-id`, `secret-name`, `secret-issued-date`, `secret-expiration-date`, `organization-name`,`organization-id`, `last-used-date`, and `has-organization-access`.&quot;</summary>
+            /// <summary>A comma-separated list of metadata fields to filter alerts by. Only alerts that have all of thespecified metadata fields attached will be returned. Possible values are: `owner-email`, `owner-id`,`owner-name`, `secret-id`, `secret-name`, `secret-issued-date`, `secret-expiration-date`, `organization-name`,`organization-id`, `last-used-date`, and `has-organization-access`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("included_metadata")]

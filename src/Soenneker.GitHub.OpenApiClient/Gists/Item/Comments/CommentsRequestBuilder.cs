@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Comments
         {
         }
         /// <summary>
-        /// &quot;Lists the comments on a gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Lists the comments on a gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// API method documentation <see href="https://docs.github.com/rest/gists/comments#list-gist-comments" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.GistComment&gt;</returns>
@@ -74,7 +74,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Comments
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Creates a comment on a gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Creates a comment on a gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// API method documentation <see href="https://docs.github.com/rest/gists/comments#create-a-gist-comment" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GistComment"/></returns>
@@ -102,7 +102,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Comments
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.GistComment>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GistComment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists the comments on a gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Lists the comments on a gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -121,7 +121,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Comments
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a comment on a gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Creates a comment on a gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -152,7 +152,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Comments
             return new global::Soenneker.GitHub.OpenApiClient.Gists.Item.Comments.CommentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists the comments on a gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Lists the comments on a gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CommentsRequestBuilderGetQueryParameters 

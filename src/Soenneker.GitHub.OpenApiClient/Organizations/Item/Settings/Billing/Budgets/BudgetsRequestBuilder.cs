@@ -172,7 +172,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
             /// <summary>The number of results per page (max 100).</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>&quot;Filter budgets by scope type.- `organization`: Budgets scoped to the organization.- `repository`: Budgets scoped to a repository.- `multi_user_customer`: Universal budgets that apply to all users in the organization.- `user`: Budgets scoped to an individual user.&quot;</summary>
+            /// <summary>Filter budgets by scope type.- `organization`: Budgets scoped to the organization.- `repository`: Budgets scoped to a repository.- `multi_user_customer`: Universal budgets that apply to all users in the organization.- `user`: Budgets scoped to an individual user.</summary>
             [QueryParameter("scope")]
             public global::Soenneker.GitHub.OpenApiClient.Models.BillingGetAllBudgetsOrgScopeParameter? Scope { get; set; }
             /// <summary>Filter consumed amount details for budgets by the specified user login.</summary>

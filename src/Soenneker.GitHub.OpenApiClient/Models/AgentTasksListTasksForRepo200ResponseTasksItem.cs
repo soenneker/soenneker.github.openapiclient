@@ -29,10 +29,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The entity who created this task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1? Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreator? Creator { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1 Creator { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreator Creator { get; set; }
 #endif
         /// <summary>Type of the task creator</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorType? CreatorType { get; set; }
@@ -135,7 +135,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "archived_at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
                 { "artifacts", n => { Artifacts = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItem>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1.CreateFromDiscriminatorValue); } },
+                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreator>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreator.CreateFromDiscriminatorValue); } },
                 { "creator_type", n => { CreatorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorType>(); } },
                 { "custom_agent", n => { CustomAgent = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCustomAgent>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCustomAgent.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("archived_at", ArchivedAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItem>("artifacts", Artifacts);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorOneOf1>("creator", Creator);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreator>("creator", Creator);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCreatorType>("creator_type", CreatorType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemCustomAgent>("custom_agent", CustomAgent);
             writer.WriteStringValue("html_url", HtmlUrl);

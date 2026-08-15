@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ClosureRequestReviewerComment { get; set; }
 #endif
-        /// <summary>&quot;The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? PubliclyLeaked { get; set; }
         /// <summary>Whether push protection was bypassed for the detected secret.</summary>
         public bool? PushProtectionBypassed { get; set; }
-        /// <summary>&quot;The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? PushProtectionBypassedAt { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -160,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ResolutionComment { get; set; }
 #endif
-        /// <summary>&quot;The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? ResolvedAt { get; set; }
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,7 +196,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? State { get; set; }
-        /// <summary>&quot;The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The REST API URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

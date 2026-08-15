@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Labels
             /// <summary>The id of the repository.</summary>
             [QueryParameter("repository_id")]
             public long? RepositoryId { get; set; }
-            /// <summary>&quot;Sorts the results of your query by when the label was `created` or `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)&quot;</summary>
+            /// <summary>Sorts the results of your query by when the label was `created` or `updated`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.SearchLabelsSortParameter? Sort { get; set; }
         }

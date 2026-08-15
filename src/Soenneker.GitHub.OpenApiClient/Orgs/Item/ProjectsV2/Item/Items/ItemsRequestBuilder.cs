@@ -177,7 +177,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Items
             [QueryParameter("before")]
             public string Before { get; set; }
 #endif
-            /// <summary>&quot;Limit results to specific fields, by their IDs. If not specified, the title field will be returned.Example: `fields[]=123&amp;fields[]=456&amp;fields[]=789` or `fields=123,456,789`&quot;</summary>
+            /// <summary>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.Example: `fields[]=123&amp;fields[]=456&amp;fields[]=789` or `fields=123,456,789`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("fields")]

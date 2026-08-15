@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The policy that controls who can create pull requests for this repository: `all` or `collaborators_only`.&quot;</summary>
+    /// <summary>The policy that controls who can create pull requests for this repository: `all` or `collaborators_only`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ReposUpdateRequestPullRequestCreationPolicy
     {

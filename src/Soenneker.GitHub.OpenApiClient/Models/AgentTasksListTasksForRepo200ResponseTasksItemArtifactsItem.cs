@@ -24,8 +24,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemData Data { get; set; }
 #endif
         /// <summary>Provider namespace</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemProvider? Provider { get; set; }
-        /// <summary>&quot;Type of artifact. Available Values: `pull`, `branch`.&quot;</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider? Provider { get; set; }
+        /// <summary>Type of artifact. Available Values: `pull`, `branch`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItem"/> and sets the default values.
@@ -53,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemData>(global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemData.CreateFromDiscriminatorValue); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemProvider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemType>(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemData>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemProvider>("provider", Provider);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GithubProvider>("provider", Provider);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepo200ResponseTasksItemArtifactsItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

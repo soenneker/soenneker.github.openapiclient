@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;The notification setting the team has chosen. Editing teams without specifying this parameter leaves `notification_setting` intact. The options are:  * `notifications_enabled` - team members receive notifications when the team is @mentioned.   * `notifications_disabled` - no one receives notifications.&quot;</summary>
+        /// <summary>The notification setting the team has chosen. Editing teams without specifying this parameter leaves `notification_setting` intact. The options are:  * `notifications_enabled` - team members receive notifications when the team is @mentioned.   * `notifications_disabled` - no one receives notifications.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsUpdateInOrgRequestNotificationSetting? NotificationSetting { get; set; }
         /// <summary>The ID of a team to set as the parent team.</summary>
         public int? ParentTeamId { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>**Closing down notice**. The permission that new repositories will be added to the team with when none is specified.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsUpdateInOrgRequestPermission? Permission { get; set; }
-        /// <summary>&quot;The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. When a team is nested, the `privacy` for parent teams cannot be `secret`. The options are:  **For a non-nested team:**   * `secret` - only visible to organization owners and members of this team.   * `closed` - visible to all members of this organization.  **For a parent or child team:**   * `closed` - visible to all members of this organization.&quot;</summary>
+        /// <summary>The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. When a team is nested, the `privacy` for parent teams cannot be `secret`. The options are:  **For a non-nested team:**   * `secret` - only visible to organization owners and members of this team.   * `closed` - visible to all members of this organization.  **For a parent or child team:**   * `closed` - visible to all members of this organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsUpdateInOrgRequestPrivacy? Privacy { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.TeamsUpdateInOrgRequest"/> and sets the default values.

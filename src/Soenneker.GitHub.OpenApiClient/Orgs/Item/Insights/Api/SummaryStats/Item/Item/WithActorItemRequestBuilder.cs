@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats.Ite
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithActorItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>The maximum timestamp to query for stats. Defaults to the time 30 days ago. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("max_timestamp")]
@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats.Ite
             [QueryParameter("max_timestamp")]
             public string MaxTimestamp { get; set; }
 #endif
-            /// <summary>&quot;The minimum timestamp to query for stats. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>The minimum timestamp to query for stats. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("min_timestamp")]

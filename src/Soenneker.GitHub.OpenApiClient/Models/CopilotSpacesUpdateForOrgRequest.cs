@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The base role that determines default permissions for organization members. Changing this field requires admin permissions.- `no_access`: No default access (default)- `reader`: Organization members can read the space- `writer`: Organization members can read and edit the space- `admin`: Organization members have full admin access to the space&quot;</summary>
+        /// <summary>The base role that determines default permissions for organization members. Changing this field requires admin permissions.- `no_access`: No default access (default)- `reader`: Organization members can read the space- `writer`: Organization members can read and edit the space- `admin`: Organization members have full admin access to the space</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesUpdateForOrgRequestBaseRole? BaseRole { get; set; }
         /// <summary>A description of the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

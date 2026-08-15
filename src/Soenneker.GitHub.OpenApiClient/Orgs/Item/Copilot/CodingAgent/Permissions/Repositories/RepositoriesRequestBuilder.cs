@@ -82,7 +82,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Replaces the list of selected repositories that are enabled for Copilot cloudagent in an organization. This method can only be called when the cloud agentrepository policy is set to `selected`.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot/copilot-coding-agent-management#set-selected-repositories-for-copilot-cloud-agent-in-an-organization" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,11 +93,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetCopilotCodingAgentSelectedRepositoriesForOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetCopilotCodingAgentSelectedRepositoriesForOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetCopilotCodingAgentSelectedRepositoriesForOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetCopilotCodingAgentSelectedRepositoriesForOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -112,7 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Copilot.CodingAgent.Permissio
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Lists the selected repositories that are enabled for Copilot cloud agent in an organization.Organization owners can use this endpoint when the coding agent repository policyis set to `selected` to see which repositories have been enabled.OAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.

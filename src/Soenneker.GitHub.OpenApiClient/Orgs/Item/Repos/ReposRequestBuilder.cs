@@ -137,7 +137,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ReposRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.&quot;</summary>
+            /// <summary>The order to sort by. Default: `asc` when using `full_name`, otherwise `desc`.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Models.ReposListForOrgDirectionParameter? Direction { get; set; }
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>

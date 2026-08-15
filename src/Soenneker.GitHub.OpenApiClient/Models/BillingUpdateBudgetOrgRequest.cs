@@ -40,9 +40,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string BudgetProductSku { get; set; }
 #endif
-        /// <summary>&quot;The scope of the budget for this organization.- `organization`: Apply the budget to the organization.- `repository`: Apply the budget to a specific repository in the organization.- `multi_user_customer`: Apply a universal budget to all users in the organization.- `user`: Apply the budget to a single user in the organization.&quot;</summary>
+        /// <summary>The scope of the budget for this organization.- `organization`: Apply the budget to the organization.- `repository`: Apply the budget to a specific repository in the organization.- `multi_user_customer`: Apply a universal budget to all users in the organization.- `user`: Apply the budget to a single user in the organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetScope? BudgetScope { get; set; }
-        /// <summary>&quot;The type of pricing model used by the budget. Determines how `budget_product_sku` is interpreted.- `BundlePricing`: Covers all AI credit SKUs. Set `budget_product_sku` to `ai_credits`.- `ProductPricing`: Covers all SKUs that belong to a product. Set `budget_product_sku` to a product such as `actions` or `packages`.- `SkuPricing`: Covers a single, specific SKU. Set `budget_product_sku` to a SKU such as `actions_linux`.&quot;</summary>
+        /// <summary>The type of pricing model used by the budget. Determines how `budget_product_sku` is interpreted.- `BundlePricing`: Covers all AI credit SKUs. Set `budget_product_sku` to `ai_credits`.- `ProductPricing`: Covers all SKUs that belong to a product. Set `budget_product_sku` to a product such as `actions` or `packages`.- `SkuPricing`: Covers a single, specific SKU. Set `budget_product_sku` to a SKU such as `actions_linux`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetType? BudgetType { get; set; }

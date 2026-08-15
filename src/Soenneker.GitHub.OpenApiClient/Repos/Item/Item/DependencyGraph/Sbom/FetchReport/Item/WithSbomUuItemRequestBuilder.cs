@@ -37,18 +37,17 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.Fe
         /// Fetches a previously generated software bill of materials (SBOM) for a repository.When the SBOM is ready, the response is a 302 redirect to a temporary download URL for the SBOM in SPDX JSON format.The generated SBOM report may be retained for up to one week from the original request.The temporary download URL returned by this endpoint expires separately, and its expiry is set when the fetch request is made.
         /// API method documentation <see href="https://docs.github.com/rest/dependency-graph/sboms#fetch-a-software-bill-of-materials-sbom-for-a-repository" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -57,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.DependencyGraph.Sbom.Fe
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetches a previously generated software bill of materials (SBOM) for a repository.When the SBOM is ready, the response is a 302 redirect to a temporary download URL for the SBOM in SPDX JSON format.The generated SBOM report may be retained for up to one week from the original request.The temporary download URL returned by this endpoint expires separately, and its expiry is set when the fetch request is made.

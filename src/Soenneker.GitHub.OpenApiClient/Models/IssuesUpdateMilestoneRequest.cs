@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>&quot;The milestone due date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The milestone due date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? DueOn { get; set; }
         /// <summary>The state of the milestone. Either `open` or `closed`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdateMilestoneRequestState? State { get; set; }

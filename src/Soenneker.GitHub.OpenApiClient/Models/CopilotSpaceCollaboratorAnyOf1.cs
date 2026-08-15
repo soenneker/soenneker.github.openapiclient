@@ -13,7 +13,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The collaborator actor type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1AllOf2ActorType? ActorType { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.UserActorType? ActorType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The avatar_url property</summary>
@@ -207,7 +207,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1AllOf2ActorType>(); } },
+                { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UserActorType>(); } },
                 { "avatar_url", n => { AvatarUrl = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "events_url", n => { EventsUrl = n.GetStringValue(); } },
@@ -240,7 +240,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1AllOf2ActorType>("actor_type", ActorType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UserActorType>("actor_type", ActorType);
             writer.WriteStringValue("avatar_url", AvatarUrl);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("events_url", EventsUrl);

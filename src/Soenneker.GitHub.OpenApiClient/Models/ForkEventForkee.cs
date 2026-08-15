@@ -374,7 +374,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public bool? Private { get; set; }
         /// <summary>The public property</summary>
         public bool? Public { get; set; }
-        /// <summary>&quot;The policy controlling who can create pull requests: all or collaborators_only.&quot;</summary>
+        /// <summary>The policy controlling who can create pull requests: all or collaborators_only.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ForkEventForkeePullRequestCreationPolicy? PullRequestCreationPolicy { get; set; }
         /// <summary>The pulls_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

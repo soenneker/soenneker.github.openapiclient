@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Branch { get; set; }
 #endif
-        /// <summary>&quot;The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`. Default: `/`&quot;</summary>
+        /// <summary>The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`. Default: `/`</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSourcePath? Path { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource"/> and sets the default values.

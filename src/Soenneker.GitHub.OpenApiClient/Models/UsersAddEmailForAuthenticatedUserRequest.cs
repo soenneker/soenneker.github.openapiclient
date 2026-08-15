@@ -45,15 +45,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.UsersAddEmailForAuthenticatedUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.UsersAddEmailForAuthenticatedUserRequest();
-            if("UsersAddEmailForAuthenticatedUserRequest_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("UsersAddEmailForAuthenticatedUserRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UsersAddEmailForAuthenticatedUserRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersAddEmailForAuthenticatedUserRequestBranch2();
             }
-            else if("UsersAddEmailForAuthenticatedUserRequest_3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("UsersAddEmailForAuthenticatedUserRequestBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UsersAddEmailForAuthenticatedUserRequestBranch3 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersAddEmailForAuthenticatedUserRequestBranch3();
+            }
+            else if("UsersAddEmailForAuthenticatedUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.UsersAddEmailForAuthenticatedUserRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersAddEmailForAuthenticatedUserRequestOneOf1();
             }
             return result;
         }

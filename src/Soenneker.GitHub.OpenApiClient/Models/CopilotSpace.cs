@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string ApiUrl { get; set; }
 #endif
-        /// <summary>&quot;The base role that determines default permissions.- `no_access`: No default access- `reader`: Default read permissions- `writer`: Default write permissions (organization spaces only)- `admin`: Default admin permissions (organization spaces only)&quot;</summary>
+        /// <summary>The base role that determines default permissions.- `no_access`: No default access- `reader`: Default read permissions- `writer`: Default write permissions (organization spaces only)- `admin`: Default admin permissions (organization spaces only)</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceBaseRole? BaseRole { get; set; }
         /// <summary>The date and time the space was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }

@@ -73,7 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesListResourcesForUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new resource in a specific Copilot Space owned by a user.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:user` scope to use this endpoint.&quot;
+        /// Creates a new resource in a specific Copilot Space owned by a user.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:user` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/copilot-spaces/resources#create-a-resource-for-a-copilot-space-for-a-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceResource"/></returns>
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a new resource in a specific Copilot Space owned by a user.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:user` scope to use this endpoint.&quot;
+        /// Creates a new resource in a specific Copilot Space owned by a user.The authenticated user must have write permissions on the space.The following resource types are supported: `repository`, `github_file`, `free_text`, `github_issue`, `github_pull_request`.The `uploaded_text_file` and `media_content` types are not supported via this endpoint.For `github_file` resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a `200` status.OAuth app tokens and personal access tokens (classic) need the `write:user` scope to use this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

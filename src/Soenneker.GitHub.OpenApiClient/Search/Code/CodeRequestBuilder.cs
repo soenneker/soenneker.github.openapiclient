@@ -115,10 +115,10 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Code
             [QueryParameter("q")]
             public string Q { get; set; }
 #endif
-            /// <summary>&quot;**This field is closing down.** Sorts the results of your query. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)&quot;</summary>
+            /// <summary>**This field is closing down.** Sorts the results of your query. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub search infrastructure. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [Obsolete("")]
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.SearchCodeSortParameter? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.IndexedSort? Sort { get; set; }
         }
     }
 }

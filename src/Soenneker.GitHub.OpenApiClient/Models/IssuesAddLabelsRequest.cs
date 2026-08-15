@@ -45,15 +45,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequest();
-            if("IssuesAddLabelsRequest_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("IssuesAddLabelsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesAddLabelsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2();
             }
-            else if("IssuesAddLabelsRequest_3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("IssuesAddLabelsRequestBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesAddLabelsRequestBranch3 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3();
+            }
+            else if("IssuesAddLabelsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.IssuesAddLabelsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1();
             }
             return result;
         }

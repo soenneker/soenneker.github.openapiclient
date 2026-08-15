@@ -15,7 +15,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The duration of the interaction restriction. Default: `one_day`.&quot;</summary>
+        /// <summary>The duration of the interaction restriction. Default: `one_day`.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? Expiry { get; set; }
         /// <summary>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? Limit { get; set; }

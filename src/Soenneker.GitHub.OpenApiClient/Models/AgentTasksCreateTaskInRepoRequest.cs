@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string HeadRef { get; set; }
 #endif
-        /// <summary>&quot;The model to use for this task. The allowed models may change over time and depend on the user&apos;s GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`&quot;</summary>
+        /// <summary>The model to use for this task. The allowed models may change over time and depend on the user&apos;s GitHub Copilot plan and organization policies. Currently supported values: `claude-sonnet-4.6`, `claude-opus-4.6`, `gpt-5.2-codex`, `gpt-5.3-codex`, `gpt-5.4`, `claude-sonnet-4.5`, `claude-opus-4.5`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }

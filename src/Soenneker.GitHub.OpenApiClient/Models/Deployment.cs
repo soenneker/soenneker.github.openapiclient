@@ -75,7 +75,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableIntegration PerformedViaGithubApp { get; set; }
 #endif
-        /// <summary>&quot;Specifies if the given environment is one that end-users directly interact with. Default: false.&quot;</summary>
+        /// <summary>Specifies if the given environment is one that end-users directly interact with. Default: false.</summary>
         public bool? ProductionEnvironment { get; set; }
         /// <summary>The ref to deploy. This can be a branch, tag, or sha.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Task { get; set; }
 #endif
-        /// <summary>&quot;Specifies if the given environment is will no longer exist at some point in the future. Default: false.&quot;</summary>
+        /// <summary>Specifies if the given environment is will no longer exist at some point in the future. Default: false.</summary>
         public bool? TransientEnvironment { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

@@ -96,7 +96,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Gets a specified gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Gets a specified gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// API method documentation <see href="https://docs.github.com/rest/gists/gists#get-a-gist" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GistSimple"/></returns>
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.GistSimple>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.GistSimple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Allows you to update a gist&apos;s description and to update, delete, or rename gist files. Filesfrom the previous version of the gist that aren&apos;t explicitly changed during an editare unchanged.At least one of `description` or `files` is required.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Allows you to update a gist&apos;s description and to update, delete, or rename gist files. Filesfrom the previous version of the gist that aren&apos;t explicitly changed during an editare unchanged.At least one of `description` or `files` is required.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// API method documentation <see href="https://docs.github.com/rest/gists/gists#update-a-gist" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GistSimple"/></returns>
@@ -166,7 +166,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Gets a specified gist.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Gets a specified gist.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -185,7 +185,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Allows you to update a gist&apos;s description and to update, delete, or rename gist files. Filesfrom the previous version of the gist that aren&apos;t explicitly changed during an editare unchanged.At least one of `description` or `files` is required.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.&quot;
+        /// Allows you to update a gist&apos;s description and to update, delete, or rename gist files. Filesfrom the previous version of the gist that aren&apos;t explicitly changed during an editare unchanged.At least one of `description` or `files` is required.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.raw+json`**: Returns the raw markdown. This is the default if you do not pass any specific media type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

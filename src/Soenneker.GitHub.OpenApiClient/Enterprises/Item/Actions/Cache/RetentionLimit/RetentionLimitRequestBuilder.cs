@@ -63,7 +63,6 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Cache.Retentio
         /// Sets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under thisenterprise may not set a higher cache retention limit.OAuth tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/actions/cache#set-github-actions-cache-retention-limit-for-an-enterprise" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">GitHub Actions cache retention policy for an enterprise.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -72,11 +71,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Cache.Retentio
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForEnterprise body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -87,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions.Cache.Retentio
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets GitHub Actions cache retention limit for an enterprise. All organizations and repositories under thisenterprise may not set a higher cache retention limit.OAuth tokens and personal access tokens (classic) need the `admin:enterprise` scope to use this endpoint.

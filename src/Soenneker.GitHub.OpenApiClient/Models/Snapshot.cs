@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The time at which the snapshot was scanned.</summary>
         public DateTimeOffset? Scanned { get; set; }
-        /// <summary>&quot;The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.&quot;</summary>
+        /// <summary>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Sha { get; set; }

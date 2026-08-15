@@ -154,11 +154,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Migrations
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("exclude")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsListForOrgExcludeParameterItem[]? Exclude { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem[]? Exclude { get; set; }
 #nullable restore
 #else
             [QueryParameter("exclude")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsListForOrgExcludeParameterItem[] Exclude { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.RepositoriesItem[] Exclude { get; set; }
 #endif
             /// <summary>The page number of the results to fetch. For more information, see &quot;[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).&quot;</summary>
             [QueryParameter("page")]

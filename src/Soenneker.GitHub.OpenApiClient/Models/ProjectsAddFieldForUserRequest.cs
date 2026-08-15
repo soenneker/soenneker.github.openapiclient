@@ -7,36 +7,46 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ProjectsAddFieldForUserRequest : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class ProjectsAddFieldForUserRequest : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The field&apos;s data type.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestDataType? DataType { get; set; }
+        /// <summary>The configuration for iteration fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1? ProjectsAddFieldForUserRequestOneOf1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration? IterationConfiguration { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1 ProjectsAddFieldForUserRequestOneOf1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration IterationConfiguration { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2"/></summary>
+        /// <summary>The name of the field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2? ProjectsAddFieldForUserRequestOneOf2 { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2 ProjectsAddFieldForUserRequestOneOf2 { get; set; }
+        public string Name { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3"/></summary>
+        /// <summary>The options available for single select fields. At least one option must be provided when creating a single select field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3? ProjectsAddFieldForUserRequestOneOf3 { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption>? SingleSelectOptions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3 ProjectsAddFieldForUserRequestOneOf3 { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption> SingleSelectOptions { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequest"/> and sets the default values.
+        /// </summary>
+        public ProjectsAddFieldForUserRequest()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,21 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequest();
-            if("ProjectsAddFieldForUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ProjectsAddFieldForUserRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1();
-            }
-            else if("ProjectsAddFieldForUserRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ProjectsAddFieldForUserRequestOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2();
-            }
-            else if("ProjectsAddFieldForUserRequestOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ProjectsAddFieldForUserRequestOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3();
-            }
-            return result;
+            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,19 +63,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ProjectsAddFieldForUserRequestOneOf1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ProjectsAddFieldForUserRequestOneOf1.GetFieldDeserializers();
-            }
-            else if(ProjectsAddFieldForUserRequestOneOf2 != null)
-            {
-                return ProjectsAddFieldForUserRequestOneOf2.GetFieldDeserializers();
-            }
-            else if(ProjectsAddFieldForUserRequestOneOf3 != null)
-            {
-                return ProjectsAddFieldForUserRequestOneOf3.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestDataType>(); } },
+                { "iteration_configuration", n => { IterationConfiguration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "single_select_options", n => { SingleSelectOptions = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption.CreateFromDiscriminatorValue)?.AsList(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -88,18 +78,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ProjectsAddFieldForUserRequestOneOf1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf1>(null, ProjectsAddFieldForUserRequestOneOf1);
-            }
-            else if(ProjectsAddFieldForUserRequestOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf2>(null, ProjectsAddFieldForUserRequestOneOf2);
-            }
-            else if(ProjectsAddFieldForUserRequestOneOf3 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestOneOf3>(null, ProjectsAddFieldForUserRequestOneOf3);
-            }
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForUserRequestDataType>("data_type", DataType);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration>("iteration_configuration", IterationConfiguration);
+            writer.WriteStringValue("name", Name);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption>("single_select_options", SingleSelectOptions);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

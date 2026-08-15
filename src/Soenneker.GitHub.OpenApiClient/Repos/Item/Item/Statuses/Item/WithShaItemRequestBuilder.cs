@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Statuses.Item
         {
         }
         /// <summary>
-        /// &quot;Users with push access in a repository can create commit statuses for a given SHA.Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.&quot;
+        /// Users with push access in a repository can create commit statuses for a given SHA.Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.
         /// API method documentation <see href="https://docs.github.com/rest/commits/statuses#create-a-commit-status" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.Status"/></returns>
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Statuses.Item
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.Status>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.Status.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Users with push access in a repository can create commit statuses for a given SHA.Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.&quot;
+        /// Users with push access in a repository can create commit statuses for a given SHA.Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

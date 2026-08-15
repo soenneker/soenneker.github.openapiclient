@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string CommitId { get; set; }
 #endif
-        /// <summary>&quot;The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls/reviews#submit-a-review-for-a-pull-request) when you are ready.&quot;</summary>
+        /// <summary>The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls/reviews#submit-a-review-for-a-pull-request) when you are ready.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequestEvent? Event { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullsCreateReviewRequest"/> and sets the default values.

@@ -8,27 +8,36 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf2"/>
+    /// The request body must include either `subject_digests` or `attestation_ids`, but not both.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UsersDeleteAttestationsBulkRequest : IComposedTypeWrapper, IParsable
+    public partial class UsersDeleteAttestationsBulkRequest : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf1"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>List of unique IDs associated with the artifact attestations to delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf1? UsersDeleteAttestationsBulkRequestOneOf1 { get; set; }
+        public List<int?>? AttestationIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf1 UsersDeleteAttestationsBulkRequestOneOf1 { get; set; }
+        public List<int?> AttestationIds { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf2"/></summary>
+        /// <summary>List of subject digests associated with the artifact attestations to delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf2? UsersDeleteAttestationsBulkRequestOneOf2 { get; set; }
+        public List<string>? SubjectDigests { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf2 UsersDeleteAttestationsBulkRequestOneOf2 { get; set; }
+        public List<string> SubjectDigests { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequest"/> and sets the default values.
+        /// </summary>
+        public UsersDeleteAttestationsBulkRequest()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequest();
-            if("UsersDeleteAttestationsBulkRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UsersDeleteAttestationsBulkRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf1();
-            }
-            else if("UsersDeleteAttestationsBulkRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UsersDeleteAttestationsBulkRequestOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf2();
-            }
-            return result;
+            return new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,15 +54,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(UsersDeleteAttestationsBulkRequestOneOf1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return UsersDeleteAttestationsBulkRequestOneOf1.GetFieldDeserializers();
-            }
-            else if(UsersDeleteAttestationsBulkRequestOneOf2 != null)
-            {
-                return UsersDeleteAttestationsBulkRequestOneOf2.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "attestation_ids", n => { AttestationIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "subject_digests", n => { SubjectDigests = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -72,14 +67,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(UsersDeleteAttestationsBulkRequestOneOf1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf1>(null, UsersDeleteAttestationsBulkRequestOneOf1);
-            }
-            else if(UsersDeleteAttestationsBulkRequestOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteAttestationsBulkRequestOneOf2>(null, UsersDeleteAttestationsBulkRequestOneOf2);
-            }
+            writer.WriteCollectionOfPrimitiveValues<int?>("attestation_ids", AttestationIds);
+            writer.WriteCollectionOfPrimitiveValues<string>("subject_digests", SubjectDigests);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

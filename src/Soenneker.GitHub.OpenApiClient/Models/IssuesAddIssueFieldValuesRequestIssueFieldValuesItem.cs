@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>The ID of the issue field to set</summary>
         public long? FieldId { get; set; }
-        /// <summary>&quot;The value to set for the field. The type depends on the field&apos;s data type:- For text fields: provide a string value- For single_select fields: provide the option name as a string (must match an existing option)- For number fields: provide a numeric value- For multi_select fields: provide an array of option names (must match existing options)- For date fields: provide an ISO 8601 date string&quot;</summary>
+        /// <summary>The value to set for the field. The type depends on the field&apos;s data type:- For text fields: provide a string value- For single_select fields: provide the option name as a string (must match an existing option)- For number fields: provide a numeric value- For multi_select fields: provide an array of option names (must match existing options)- For date fields: provide an ISO 8601 date string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddIssueFieldValuesRequestIssueFieldValuesItemValue? Value { get; set; }

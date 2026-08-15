@@ -28,6 +28,7 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueFields;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Issues;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Item;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Members;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Memberships;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Migrations;
@@ -44,6 +45,7 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Repos;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Rulesets;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecretScanning;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams;
 using System.Collections.Generic;
@@ -259,6 +261,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityAdvisories.SecurityAdvisoriesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The securityManagers property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.SecurityManagersRequestBuilder SecurityManagers
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.SecurityManagers.SecurityManagersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The settings property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Settings.SettingsRequestBuilder Settings
         {
@@ -268,6 +275,18 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.TeamsRequestBuilder Teams
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Item.WithSecurityProductItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Item.WithSecurityProductItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("securityProduct", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Item.WithSecurityProductItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.WithOrgItemRequestBuilder"/> and sets the default values.

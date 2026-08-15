@@ -143,7 +143,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Analyses
 #endif
             /// <summary>The property by which to sort the results.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningListRecentAnalysesSortParameter? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.CreatedSort? Sort { get; set; }
             /// <summary>The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

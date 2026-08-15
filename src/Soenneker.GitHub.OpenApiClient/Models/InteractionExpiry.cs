@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;The duration of the interaction restriction. Default: `one_day`.&quot;</summary>
+    /// <summary>The duration of the interaction restriction. Default: `one_day`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InteractionExpiry
     {

@@ -37,9 +37,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItem();
-            if("NullableIssueLabelsItem_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("NullableIssueLabelsItemBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NullableIssueLabelsItemBranch1 = new global::Soenneker.GitHub.OpenApiClient.Models.NullableIssueLabelsItemBranch1();
             }

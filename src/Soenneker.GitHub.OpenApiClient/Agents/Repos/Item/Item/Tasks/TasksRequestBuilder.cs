@@ -194,7 +194,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks
             /// <summary>The field to sort results by. Can be `updated_at` or `created_at`.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasksForRepoSortParameter? Sort { get; set; }
-            /// <summary>&quot;Comma-separated list of task states to filter by. Can be any combination of: `queued`, `in_progress`, `completed`, `failed`, `idle`, `waiting_for_user`, `timed_out`, `cancelled`.&quot;</summary>
+            /// <summary>Comma-separated list of task states to filter by. Can be any combination of: `queued`, `in_progress`, `completed`, `failed`, `idle`, `waiting_for_user`, `timed_out`, `cancelled`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("state")]

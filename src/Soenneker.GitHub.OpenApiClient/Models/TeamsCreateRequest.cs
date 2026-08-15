@@ -38,7 +38,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;The notification setting the team has chosen. The options are:   * `notifications_enabled` - team members receive notifications when the team is @mentioned.   * `notifications_disabled` - no one receives notifications.  Default: `notifications_enabled`&quot;</summary>
+        /// <summary>The notification setting the team has chosen. The options are:   * `notifications_enabled` - team members receive notifications when the team is @mentioned.   * `notifications_disabled` - no one receives notifications.  Default: `notifications_enabled`</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting? NotificationSetting { get; set; }
         /// <summary>The ID of a team to set as the parent team.</summary>
         public long? ParentTeamId { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>**Closing down notice**. The permission that new repositories will be added to the team with when none is specified.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission? Permission { get; set; }
-        /// <summary>&quot;The level of privacy this team should have. The options are:  **For a non-nested team:**   * `secret` - only visible to organization owners and members of this team.   * `closed` - visible to all members of this organization.  Default: `secret`  **For a parent or child team:**   * `closed` - visible to all members of this organization.  Default for child team: `closed`&quot;</summary>
+        /// <summary>The level of privacy this team should have. The options are:  **For a non-nested team:**   * `secret` - only visible to organization owners and members of this team.   * `closed` - visible to all members of this organization.  Default: `secret`  **For a parent or child team:**   * `closed` - visible to all members of this organization.  Default for child team: `closed`</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy? Privacy { get; set; }
         /// <summary>The full name (e.g., &quot;organization-name/repository-name&quot;) of repositories to add the team to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

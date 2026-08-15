@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The reason for locking the issue or pull request conversation. Lock will fail if you don&apos;t use one of these reasons:   * `off-topic`   * `too heated`   * `resolved`   * `spam`&quot;</summary>
+        /// <summary>The reason for locking the issue or pull request conversation. Lock will fail if you don&apos;t use one of these reasons:   * `off-topic`   * `too heated`   * `resolved`   * `spam`</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequestLockReason? LockReason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequest"/> and sets the default values.

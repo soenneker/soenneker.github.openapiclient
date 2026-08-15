@@ -44,7 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Sarif { get; set; }
 #endif
-        /// <summary>&quot;The time that the analysis run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the analysis run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The name of the tool used to generate the code scanning analysis. If this parameter is not used, the tool name defaults to &quot;API&quot;. If the uploaded SARIF contains a tool GUID, this will be available for filtering using the `tool_guid` parameter of operations such as `GET /repos/{owner}/{repo}/code-scanning/alerts`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

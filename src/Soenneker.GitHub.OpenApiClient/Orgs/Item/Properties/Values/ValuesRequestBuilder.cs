@@ -64,7 +64,6 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values
         /// Create new or update existing custom property values for repositories in a batch that belong to an organization.Each target repository will have its custom property values updated to match the values provided in the request.A maximum of 30 repositories can be updated in a single request.Using a value of `null` for a custom property will remove or &apos;unset&apos; the property value from the repository.To use this endpoint, the authenticated user must be one of:  - An administrator for the organization.  - A user, or a user on a team, with the fine-grained permission of `custom_properties_org_values_editor` in the organization.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/custom-properties#create-or-update-custom-property-values-for-organization-repositories" />
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -73,11 +72,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsCustomPropertiesForReposCreateOrUpdateOrganizationValuesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsCustomPropertiesForReposCreateOrUpdateOrganizationValuesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsCustomPropertiesForReposCreateOrUpdateOrganizationValuesRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(global::Soenneker.GitHub.OpenApiClient.Models.OrgsCustomPropertiesForReposCreateOrUpdateOrganizationValuesRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -88,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists organization repositories with all of their custom property values.Organization members can read these properties.

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;Specifies which organizations in the enterprise should have access to this team. Can be one of `disabled`, `selected`, or `all`.`disabled`: The team is not assigned to any organizations. This is the default when you create a new team.`selected`: The team is assigned to specific organizations. You can then use the [add organization assignments API](https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments) endpoint.`all`: The team is assigned to all current and future organizations in the enterprise.&quot;</summary>
+    /// <summary>Specifies which organizations in the enterprise should have access to this team. Can be one of `disabled`, `selected`, or `all`.`disabled`: The team is not assigned to any organizations. This is the default when you create a new team.`selected`: The team is assigned to specific organizations. You can then use the [add organization assignments API](https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments) endpoint.`all`: The team is assigned to all current and future organizations in the enterprise.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EnterpriseTeamsCreateRequestOrganizationSelectionType
     {

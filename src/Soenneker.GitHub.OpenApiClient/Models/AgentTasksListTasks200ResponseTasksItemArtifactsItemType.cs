@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>&quot;Type of artifact. Available Values: `pull`, `branch`.&quot;</summary>
+    /// <summary>Type of artifact. Available Values: `pull`, `branch`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AgentTasksListTasks200ResponseTasksItemArtifactsItemType
     {

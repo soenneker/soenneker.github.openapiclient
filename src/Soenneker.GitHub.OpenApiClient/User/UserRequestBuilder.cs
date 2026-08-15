@@ -223,7 +223,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.UsersGetAuthenticated200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.UsersGetAuthenticated200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;**Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.&quot;
+        /// **Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.
         /// API method documentation <see href="https://docs.github.com/rest/users/users#update-the-authenticated-user" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateUser"/></returns>
@@ -274,7 +274,7 @@ namespace Soenneker.GitHub.OpenApiClient.User
             return requestInfo;
         }
         /// <summary>
-        /// &quot;**Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.&quot;
+        /// **Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

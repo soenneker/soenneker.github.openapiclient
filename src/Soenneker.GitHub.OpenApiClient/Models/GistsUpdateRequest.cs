@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>&quot;The gist files to be updated, renamed, or deleted. Each `key` must match the current filename(including extension) of the targeted gist file. For example: `hello.py`.To delete a file, set the whole file to null. For example: `hello.py : null`. The file will also bedeleted if the specified object does not contain at least one of `content` or `filename`.&quot;</summary>
+        /// <summary>The gist files to be updated, renamed, or deleted. Each `key` must match the current filename(including extension) of the targeted gist file. For example: `hello.py`.To delete a file, set the whole file to null. For example: `hello.py : null`. The file will also bedeleted if the specified object does not contain at least one of `content` or `filename`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.GistsUpdateRequestFiles? Files { get; set; }

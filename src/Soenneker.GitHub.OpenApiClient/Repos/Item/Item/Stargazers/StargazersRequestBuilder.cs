@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers
         {
         }
         /// <summary>
-        /// &quot;Lists the people that have starred the repository.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.&quot;
+        /// Lists the people that have starred the repository.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.
         /// API method documentation <see href="https://docs.github.com/rest/activity/starring#list-stargazers" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActivityListStargazersForRepo200Response"/></returns>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.ActivityListStargazersForRepo200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.ActivityListStargazersForRepo200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists the people that have starred the repository.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.&quot;
+        /// Lists the people that have starred the repository.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,7 +86,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.StargazersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists the people that have starred the repository.This endpoint supports the following custom media types. For more information, see \&quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.&quot;
+        /// Lists the people that have starred the repository.This endpoint supports the following custom media types. For more information, see &quot;[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).&quot;- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class StargazersRequestBuilderGetQueryParameters 

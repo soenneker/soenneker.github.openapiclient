@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>&quot;Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `\&quot;repositories\&quot;`.&quot;</summary>
+        /// <summary>Exclude related items from being returned in the response in order to improve performance of the request. The array can include any of: `&quot;repositories&quot;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Exclude { get; set; }

@@ -168,10 +168,10 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
-            /// <summary>&quot;Only show fine-grained personal access tokens used after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>Only show fine-grained personal access tokens used after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("last_used_after")]
             public DateTimeOffset? LastUsedAfter { get; set; }
-            /// <summary>&quot;Only show fine-grained personal access tokens used before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+            /// <summary>Only show fine-grained personal access tokens used before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("last_used_before")]
             public DateTimeOffset? LastUsedBefore { get; set; }
             /// <summary>A list of owner usernames to use to filter the results.</summary>
@@ -212,7 +212,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.PersonalAccessTokenRequests
 #endif
             /// <summary>The property by which to sort the results.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.PersonalAccessTokenSort? Sort { get; set; }
+            public global::Soenneker.GitHub.OpenApiClient.Models.CreatedAtSort? Sort { get; set; }
             /// <summary>The ID of the token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -108,7 +108,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             [QueryParameter("after")]
             public string After { get; set; }
 #endif
-            /// <summary>&quot;A comma-separated list of Artifact Registry name strings. If specified, only alerts for repositories with storage records matching these registries will be returned.Can be: `jfrog-artifactory`&quot;</summary>
+            /// <summary>A comma-separated list of Artifact Registry name strings. If specified, only alerts for repositories with storage records matching these registries will be returned.Can be: `jfrog-artifactory`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("artifact_registry")]
@@ -148,7 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             [QueryParameter("before")]
             public string Before { get; set; }
 #endif
-            /// <summary>&quot;A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.Can be: `malware`, `general`&quot;</summary>
+            /// <summary>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.Can be: `malware`, `general`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("classification")]
@@ -161,7 +161,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             /// <summary>The direction to sort the results by.</summary>
             [QueryParameter("direction")]
             public global::Soenneker.GitHub.OpenApiClient.Models.Direction? Direction { get; set; }
-            /// <summary>&quot;A comma-separated list of ecosystems. If specified, only alerts for these ecosystems will be returned.Can be: `composer`, `go`, `maven`, `npm`, `nuget`, `pip`, `pub`, `rubygems`, `rust`&quot;</summary>
+            /// <summary>A comma-separated list of ecosystems. If specified, only alerts for these ecosystems will be returned.Can be: `composer`, `go`, `maven`, `npm`, `nuget`, `pip`, `pub`, `rubygems`, `rust`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("ecosystem")]
@@ -214,7 +214,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             [QueryParameter("relationship")]
             public string Relationship { get; set; }
 #endif
-            /// <summary>&quot;A comma-separated list of runtime risk strings. If specified, only alerts for repositories with deployment records matching these risks will be returned.Can be: `critical-resource`, `internet-exposed`, `sensitive-data`, `lateral-movement`&quot;</summary>
+            /// <summary>A comma-separated list of runtime risk strings. If specified, only alerts for repositories with deployment records matching these risks will be returned.Can be: `critical-resource`, `internet-exposed`, `sensitive-data`, `lateral-movement`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("runtime_risk")]
@@ -227,7 +227,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             /// <summary>The scope of the vulnerable dependency. If specified, only alerts with this scope will be returned.</summary>
             [QueryParameter("scope")]
             public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertScope? Scope { get; set; }
-            /// <summary>&quot;A comma-separated list of severities. If specified, only alerts with these severities will be returned.Can be: `low`, `medium`, `high`, `critical`&quot;</summary>
+            /// <summary>A comma-separated list of severities. If specified, only alerts with these severities will be returned.Can be: `low`, `medium`, `high`, `critical`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("severity")]
@@ -240,7 +240,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Dependabot.Alerts
             /// <summary>The property by which to sort the results.`created` means when the alert was created.`updated` means when the alert&apos;s state last changed.`epss_percentage` sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSort? Sort { get; set; }
-            /// <summary>&quot;A comma-separated list of states. If specified, only alerts with these states will be returned.Can be: `auto_dismissed`, `dismissed`, `fixed`, `open`&quot;</summary>
+            /// <summary>A comma-separated list of states. If specified, only alerts with these states will be returned.Can be: `auto_dismissed`, `dismissed`, `fixed`, `open`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("state")]

@@ -13,6 +13,8 @@ using Soenneker.GitHub.OpenApiClient.App;
 using Soenneker.GitHub.OpenApiClient.AppManifests;
 using Soenneker.GitHub.OpenApiClient.Applications;
 using Soenneker.GitHub.OpenApiClient.Apps;
+using Soenneker.GitHub.OpenApiClient.Assignments;
+using Soenneker.GitHub.OpenApiClient.Classrooms;
 using Soenneker.GitHub.OpenApiClient.Codes_of_conduct;
 using Soenneker.GitHub.OpenApiClient.Credentials;
 using Soenneker.GitHub.OpenApiClient.Emojis;
@@ -37,6 +39,7 @@ using Soenneker.GitHub.OpenApiClient.Rate_limit;
 using Soenneker.GitHub.OpenApiClient.Repos;
 using Soenneker.GitHub.OpenApiClient.Repositories;
 using Soenneker.GitHub.OpenApiClient.Search;
+using Soenneker.GitHub.OpenApiClient.Teams;
 using Soenneker.GitHub.OpenApiClient.User;
 using Soenneker.GitHub.OpenApiClient.Users;
 using Soenneker.GitHub.OpenApiClient.Versions;
@@ -83,6 +86,16 @@ namespace Soenneker.GitHub.OpenApiClient
         public global::Soenneker.GitHub.OpenApiClient.Apps.AppsRequestBuilder Apps
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Apps.AppsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The assignments property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Assignments.AssignmentsRequestBuilder Assignments
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Assignments.AssignmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The classrooms property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder Classrooms
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Classrooms.ClassroomsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The codes_of_conduct property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Codes_of_conduct.Codes_of_conductRequestBuilder Codes_of_conduct
@@ -198,6 +211,11 @@ namespace Soenneker.GitHub.OpenApiClient
         public global::Soenneker.GitHub.OpenApiClient.Search.SearchRequestBuilder Search
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The teams property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Teams.TeamsRequestBuilder Teams
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The user property</summary>
         public global::Soenneker.GitHub.OpenApiClient.User.UserRequestBuilder User

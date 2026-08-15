@@ -37,11 +37,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposSetStatusCheckContextsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposSetStatusCheckContextsRequest();
-            if("ReposSetStatusCheckContextsRequest_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ReposSetStatusCheckContextsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReposSetStatusCheckContextsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposSetStatusCheckContextsRequestBranch2();
+            }
+            else if("ReposSetStatusCheckContextsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReposSetStatusCheckContextsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposSetStatusCheckContextsRequestOneOf1();
             }
             return result;
         }

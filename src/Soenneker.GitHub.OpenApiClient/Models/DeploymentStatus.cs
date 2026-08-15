@@ -93,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The state of the status.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatusState? State { get; set; }
-        /// <summary>&quot;Closing down notice: the URL to associate with this status.&quot;</summary>
+        /// <summary>Closing down notice: the URL to associate with this status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetUrl { get; set; }

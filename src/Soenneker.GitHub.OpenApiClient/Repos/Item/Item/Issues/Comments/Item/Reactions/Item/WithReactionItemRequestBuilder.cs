@@ -66,7 +66,6 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Comments.Item.Re
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

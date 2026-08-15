@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string GroupId { get; set; }
 #endif
-        /// <summary>&quot;Retired: this field will not be returned with GHEC enterprise teams.&quot;</summary>
+        /// <summary>Retired: this field will not be returned with GHEC enterprise teams.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupName { get; set; }
@@ -85,7 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
-        /// <summary>&quot;Retired: this field will not be returned with GHEC enterprise teams.&quot;</summary>
+        /// <summary>Retired: this field will not be returned with GHEC enterprise teams.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SyncToOrganizations { get; set; }

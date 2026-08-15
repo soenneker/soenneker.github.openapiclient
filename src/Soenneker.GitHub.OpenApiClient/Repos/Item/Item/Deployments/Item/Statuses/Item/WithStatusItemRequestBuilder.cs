@@ -34,7 +34,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.Item.Status
         {
         }
         /// <summary>
-        /// &quot;Users with pull access can view a deployment status for a deployment:&quot;
+        /// Users with pull access can view a deployment status for a deployment:
         /// API method documentation <see href="https://docs.github.com/rest/deployments/statuses#get-a-deployment-status" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus"/></returns>
@@ -58,7 +58,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.Item.Status
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Users with pull access can view a deployment status for a deployment:&quot;
+        /// Users with pull access can view a deployment status for a deployment:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.Item.Status
         {
         }
         /// <summary>
-        /// &quot;Users with pull access can view deployment statuses for a deployment:&quot;
+        /// Users with pull access can view deployment statuses for a deployment:
         /// API method documentation <see href="https://docs.github.com/rest/deployments/statuses#list-deployment-statuses" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus&gt;</returns>
@@ -98,7 +98,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.Item.Status
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DeploymentStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Users with pull access can view deployment statuses for a deployment:&quot;
+        /// Users with pull access can view deployment statuses for a deployment:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -148,7 +148,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.Item.Status
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Deployments.Item.Statuses.StatusesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Users with pull access can view deployment statuses for a deployment:&quot;
+        /// Users with pull access can view deployment statuses for a deployment:
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class StatusesRequestBuilderGetQueryParameters 

@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The state of the status.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateCommitStatusRequestState? State { get; set; }
-        /// <summary>&quot;The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.  For example, if your continuous integration system is posting build status, you would want to provide the deep link for the build output for this specific SHA:  `http://ci.example.com/user/repo/build/sha`&quot;</summary>
+        /// <summary>The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.  For example, if your continuous integration system is posting build status, you would want to provide the deep link for the build output for this specific SHA:  `http://ci.example.com/user/repo/build/sha`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetUrl { get; set; }

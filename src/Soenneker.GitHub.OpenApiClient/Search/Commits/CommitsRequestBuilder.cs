@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Commits
             [QueryParameter("q")]
             public string Q { get; set; }
 #endif
-            /// <summary>&quot;Sorts the results of your query by `author-date` or `committer-date`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)&quot;</summary>
+            /// <summary>Sorts the results of your query by `author-date` or `committer-date`. Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.SearchCommitsSortParameter? Sort { get; set; }
         }

@@ -107,7 +107,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Hooks.Item.Deliveries
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DeliveriesRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors.&quot;</summary>
+            /// <summary>Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cursor")]

@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations
         {
         }
         /// <summary>
-        /// &quot;The return hash contains a `role` field which refers to the OrganizationInvitation role and will be one of the following values: `direct_member`, `admin`,`billing_manager`, or `hiring_manager`. If the invitee is not a GitHubmember, the `login` field in the return hash will be `null`.&quot;
+        /// The return hash contains a `role` field which refers to the OrganizationInvitation role and will be one of the following values: `direct_member`, `admin`,`billing_manager`, or `hiring_manager`. If the invitee is not a GitHubmember, the `login` field in the return hash will be `null`.
         /// API method documentation <see href="https://docs.github.com/rest/orgs/members#list-pending-organization-invitations" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.OrganizationInvitation&gt;</returns>
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.OrganizationInvitation>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.OrganizationInvitation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;The return hash contains a `role` field which refers to the OrganizationInvitation role and will be one of the following values: `direct_member`, `admin`,`billing_manager`, or `hiring_manager`. If the invitee is not a GitHubmember, the `login` field in the return hash will be `null`.&quot;
+        /// The return hash contains a `role` field which refers to the OrganizationInvitation role and will be one of the following values: `direct_member`, `admin`,`billing_manager`, or `hiring_manager`. If the invitee is not a GitHubmember, the `login` field in the return hash will be `null`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,7 +150,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations
             return new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Invitations.InvitationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;The return hash contains a `role` field which refers to the OrganizationInvitation role and will be one of the following values: `direct_member`, `admin`,`billing_manager`, or `hiring_manager`. If the invitee is not a GitHubmember, the `login` field in the return hash will be `null`.&quot;
+        /// The return hash contains a `role` field which refers to the OrganizationInvitation role and will be one of the following values: `direct_member`, `admin`,`billing_manager`, or `hiring_manager`. If the invitee is not a GitHubmember, the `login` field in the return hash will be `null`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvitationsRequestBuilderGetQueryParameters 

@@ -97,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class IssuesRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Set to `true` to use advanced search.Example: `http://api.github.com/search/issues?q={query}&amp;advanced_search=true`&quot;</summary>
+            /// <summary>Set to `true` to use advanced search.Example: `http://api.github.com/search/issues?q={query}&amp;advanced_search=true`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("advanced_search")]
@@ -129,7 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Search.Issues
             /// <summary>The type of search to perform on issues. When not specified, the default is lexical search.- `semantic` — performs a pure semantic (vector) search using embedding-based understanding.- `hybrid` — combines semantic search with lexical search for best results.Semantic and hybrid search require authentication and are rate limited to 10 requests per minute.Only applies to issue searches (`/search/issues`).</summary>
             [QueryParameter("search_type")]
             public global::Soenneker.GitHub.OpenApiClient.Models.SearchType? SearchType { get; set; }
-            /// <summary>&quot;Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`, Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)&quot;</summary>
+            /// <summary>Sorts the results of your query by the number of `comments`, `reactions`, `reactions-+1`, `reactions--1`, `reactions-smile`, `reactions-thinking_face`, `reactions-heart`, `reactions-tada`, or `interactions`. You can also sort results by how recently the items were `created` or `updated`, Default: [best match](https://docs.github.com/rest/search/search#ranking-search-results)</summary>
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequestsSortParameter? Sort { get; set; }
         }

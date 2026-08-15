@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The role to give the user in the organization. Can be one of:   * `admin` - The user will become an owner of the organization.   * `member` - The user will become a non-owner member of the organization.&quot;</summary>
+        /// <summary>The role to give the user in the organization. Can be one of:   * `admin` - The user will become an owner of the organization.   * `member` - The user will become a non-owner member of the organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetMembershipForUserRequestRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetMembershipForUserRequest"/> and sets the default values.

@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisoryIdentifiersItem> Identifiers { get; private set; }
 #endif
-        /// <summary>&quot;The time that the advisory was published in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the advisory was published in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? PublishedAt { get; private set; }
         /// <summary>Links to additional advisory information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Summary { get; private set; }
 #endif
-        /// <summary>&quot;The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>Vulnerable version range information for the advisory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability> Vulnerabilities { get; private set; }
 #endif
-        /// <summary>&quot;The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.&quot;</summary>
+        /// <summary>The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? WithdrawnAt { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
