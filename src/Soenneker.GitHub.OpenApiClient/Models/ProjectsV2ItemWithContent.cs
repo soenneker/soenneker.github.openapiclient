@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The content of the item, which varies by content type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent? Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent Content { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty Content { get; set; }
 #endif
         /// <summary>The type of content tracked in a project item</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType? ContentType { get; set; }
@@ -99,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived_at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty.CreateFromDiscriminatorValue); } },
                 { "content_type", n => { ContentType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
@@ -119,7 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("archived_at", ArchivedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty>("content", Content);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemContentType>("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>("creator", Creator);

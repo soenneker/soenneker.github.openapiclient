@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// The request headers sent with the webhook delivery.
+    /// The content of the item, which varies by content type.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class HookDeliveryRequestHeaders : IAdditionalDataHolder, IParsable
+    public partial class ProjectsV2ItemWithContentContentProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty"/> and sets the default values.
         /// </summary>
-        public HookDeliveryRequestHeaders()
+        public ProjectsV2ItemWithContentContentProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContentProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

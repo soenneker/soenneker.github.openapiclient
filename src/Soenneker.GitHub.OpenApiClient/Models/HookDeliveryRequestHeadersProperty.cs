@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// The webhook payload.
+    /// The request headers sent with the webhook delivery.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class HookDeliveryRequestPayload : IAdditionalDataHolder, IParsable
+    public partial class HookDeliveryRequestHeadersProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty"/> and sets the default values.
         /// </summary>
-        public HookDeliveryRequestPayload()
+        public HookDeliveryRequestHeadersProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

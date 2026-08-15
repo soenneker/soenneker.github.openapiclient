@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// The content of the item, which varies by content type.
+    /// The response headers received when the delivery was made.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ProjectsV2ItemWithContentContent : IAdditionalDataHolder, IParsable
+    public partial class HookDeliveryResponseHeadersProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeadersProperty"/> and sets the default values.
         /// </summary>
-        public ProjectsV2ItemWithContentContent()
+        public HookDeliveryResponseHeadersProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeadersProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeadersProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2ItemWithContentContent();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryResponseHeadersProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

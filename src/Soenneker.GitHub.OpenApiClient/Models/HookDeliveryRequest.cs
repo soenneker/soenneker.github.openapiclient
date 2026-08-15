@@ -17,18 +17,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The request headers sent with the webhook delivery.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders? Headers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders Headers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty Headers { get; set; }
 #endif
         /// <summary>The webhook payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload? Payload { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayloadProperty? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload Payload { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayloadProperty Payload { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequest"/> and sets the default values.
@@ -55,8 +55,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders.CreateFromDiscriminatorValue); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayloadProperty>(global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayloadProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeaders>("headers", Headers);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestHeadersProperty>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.HookDeliveryRequestPayloadProperty>("payload", Payload);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

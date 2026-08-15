@@ -77336,7 +77336,7 @@
             "$ref": "#/components/schemas/ProjectsV2ItemContentType"
           },
           "content": {
-            "$ref": "#/components/schemas/ProjectsV2ItemWithContentContent"
+            "$ref": "#/components/schemas/ProjectsV2ItemWithContentContentProperty"
           },
           "creator": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -109335,7 +109335,7 @@
             "type": "string"
           },
           "client_payload": {
-            "$ref": "#/components/schemas/WebhookRepositoryDispatchSampleClientPayload"
+            "$ref": "#/components/schemas/WebhookRepositoryDispatchSampleClientPayloadProperty"
           },
           "enterprise": {
             "$ref": "#/components/schemas/EnterpriseWebhooks"
@@ -111125,7 +111125,7 @@
             "$ref": "#/components/schemas/EnterpriseWebhooks"
           },
           "inputs": {
-            "$ref": "#/components/schemas/WebhookWorkflowDispatchInputs"
+            "$ref": "#/components/schemas/WebhookWorkflowDispatchInputsProperty"
           },
           "installation": {
             "$ref": "#/components/schemas/SimpleInstallation"
@@ -117580,7 +117580,7 @@
             "type": "string"
           },
           "license": {
-            "$ref": "#/components/schemas/WebhookForkForkeeAllOf2License"
+            "$ref": "#/components/schemas/WebhookForkForkeeAllOf2LicenseProperty"
           },
           "merges_url": {
             "type": "string"
@@ -117851,7 +117851,7 @@
           "assignees": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2AssigneesItem"
+              "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2AssigneesItemProperty"
             }
           },
           "author_association": {
@@ -117897,7 +117897,7 @@
             "type": "boolean"
           },
           "milestone": {
-            "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2Milestone"
+            "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2MilestoneProperty"
           },
           "node_id": {
             "type": "string"
@@ -117906,7 +117906,7 @@
             "type": "integer"
           },
           "performed_via_github_app": {
-            "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2PerformedViaGithubApp"
+            "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2PerformedViaGithubAppProperty"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhookIssueCommentCreatedIssueAllOf2Reactions"
@@ -118105,7 +118105,7 @@
           "assignees": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2AssigneesItem"
+              "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2AssigneesItemProperty"
             }
           },
           "author_association": {
@@ -118151,7 +118151,7 @@
             "type": "boolean"
           },
           "milestone": {
-            "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2Milestone"
+            "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2MilestoneProperty"
           },
           "node_id": {
             "type": "string"
@@ -118160,7 +118160,7 @@
             "type": "integer"
           },
           "performed_via_github_app": {
-            "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2PerformedViaGithubApp"
+            "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2PerformedViaGithubAppProperty"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhookIssueCommentDeletedIssueAllOf2Reactions"
@@ -118359,7 +118359,7 @@
           "assignees": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2AssigneesItem"
+              "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2AssigneesItemProperty"
             }
           },
           "author_association": {
@@ -118405,7 +118405,7 @@
             "type": "boolean"
           },
           "milestone": {
-            "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2Milestone"
+            "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2MilestoneProperty"
           },
           "node_id": {
             "type": "string"
@@ -118414,7 +118414,7 @@
             "type": "integer"
           },
           "performed_via_github_app": {
-            "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2PerformedViaGithubApp"
+            "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2PerformedViaGithubAppProperty"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhookIssueCommentEditedIssueAllOf2Reactions"
@@ -118613,7 +118613,7 @@
           "assignees": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2AssigneesItem"
+              "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2AssigneesItemProperty"
             }
           },
           "author_association": {
@@ -118659,7 +118659,7 @@
             "type": "boolean"
           },
           "milestone": {
-            "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2Milestone"
+            "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2MilestoneProperty"
           },
           "node_id": {
             "type": "string"
@@ -118668,7 +118668,7 @@
             "type": "integer"
           },
           "performed_via_github_app": {
-            "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2PerformedViaGithubApp"
+            "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2PerformedViaGithubAppProperty"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhookIssueCommentPinnedIssueAllOf2Reactions"
@@ -118867,7 +118867,7 @@
           "assignees": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2AssigneesItem"
+              "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2AssigneesItemProperty"
             }
           },
           "author_association": {
@@ -118913,7 +118913,7 @@
             "type": "boolean"
           },
           "milestone": {
-            "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2Milestone"
+            "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2MilestoneProperty"
           },
           "node_id": {
             "type": "string"
@@ -118922,7 +118922,7 @@
             "type": "integer"
           },
           "performed_via_github_app": {
-            "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2PerformedViaGithubApp"
+            "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2PerformedViaGithubAppProperty"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhookIssueCommentUnpinnedIssueAllOf2Reactions"
@@ -119123,12 +119123,12 @@
             "nullable": true
           },
           "assignee": {
-            "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2Assignee"
+            "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2AssigneeProperty"
           },
           "assignees": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2AssigneesItem"
+              "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2AssigneesItemProperty"
             }
           },
           "author_association": {
@@ -119164,7 +119164,7 @@
           "labels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2LabelsItem"
+              "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2LabelsItemProperty"
             }
           },
           "labels_url": {
@@ -119174,7 +119174,7 @@
             "type": "boolean"
           },
           "milestone": {
-            "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2Milestone"
+            "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2MilestoneProperty"
           },
           "node_id": {
             "type": "string"
@@ -119183,7 +119183,7 @@
             "type": "integer"
           },
           "performed_via_github_app": {
-            "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2PerformedViaGithubApp"
+            "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2PerformedViaGithubAppProperty"
           },
           "reactions": {
             "$ref": "#/components/schemas/WebhookIssuesClosedIssueAllOf2Reactions"
@@ -123153,7 +123153,7 @@
           "steps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WebhookWorkflowJobCompletedWorkflowJobAllOf2StepsItem"
+              "$ref": "#/components/schemas/WebhookWorkflowJobCompletedWorkflowJobAllOf2StepsItemProperty"
             }
           },
           "url": {
@@ -124351,10 +124351,10 @@
         "type": "object",
         "properties": {
           "headers": {
-            "$ref": "#/components/schemas/HookDeliveryRequestHeaders"
+            "$ref": "#/components/schemas/HookDeliveryRequestHeadersProperty"
           },
           "payload": {
-            "$ref": "#/components/schemas/HookDeliveryRequestPayload"
+            "$ref": "#/components/schemas/HookDeliveryRequestPayloadProperty"
           }
         }
       },
@@ -124366,7 +124366,7 @@
         "type": "object",
         "properties": {
           "headers": {
-            "$ref": "#/components/schemas/HookDeliveryResponseHeaders"
+            "$ref": "#/components/schemas/HookDeliveryResponseHeadersProperty"
           },
           "payload": {
             "type": "string",
@@ -136780,7 +136780,7 @@
             "nullable": true
           },
           "dismissed_by": {
-            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedAlertDismissedBy"
+            "$ref": "#/components/schemas/WebhookCodeScanningAlertReopenedAlertDismissedByProperty"
           },
           "dismissed_comment": {
             "$ref": "#/components/schemas/CodeScanningAlertDismissedComment"
@@ -137390,7 +137390,7 @@
             "type": "string"
           },
           "head_commit": {
-            "$ref": "#/components/schemas/WebhookDeploymentReviewApprovedWorkflowRunHeadCommit"
+            "$ref": "#/components/schemas/WebhookDeploymentReviewApprovedWorkflowRunHeadCommitProperty"
           },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentReviewApprovedWorkflowRunHeadRepository"
@@ -137572,7 +137572,7 @@
             "type": "string"
           },
           "head_commit": {
-            "$ref": "#/components/schemas/WebhookDeploymentReviewRejectedWorkflowRunHeadCommit"
+            "$ref": "#/components/schemas/WebhookDeploymentReviewRejectedWorkflowRunHeadCommitProperty"
           },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentReviewRejectedWorkflowRunHeadRepository"
@@ -137777,7 +137777,7 @@
             "type": "string"
           },
           "head_commit": {
-            "$ref": "#/components/schemas/WebhookDeploymentReviewRequestedWorkflowRunHeadCommit"
+            "$ref": "#/components/schemas/WebhookDeploymentReviewRequestedWorkflowRunHeadCommitProperty"
           },
           "head_repository": {
             "$ref": "#/components/schemas/WebhookDeploymentReviewRequestedWorkflowRunHeadRepository"
@@ -146314,7 +146314,7 @@
             "$ref": "#/components/schemas/WebhookRegistryPackageUpdatedRegistryPackagePackageVersion"
           },
           "registry": {
-            "$ref": "#/components/schemas/WebhookRegistryPackageUpdatedRegistryPackageRegistry"
+            "$ref": "#/components/schemas/WebhookRegistryPackageUpdatedRegistryPackageRegistryProperty"
           },
           "updated_at": {
             "type": "string"
@@ -204816,10 +204816,10 @@
         "type": "object",
         "properties": {
           "labels": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionContainerMetadataLabels"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionContainerMetadataLabelsProperty"
           },
           "manifest": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionContainerMetadataManifest"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionContainerMetadataManifestProperty"
           },
           "tag": {
             "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionContainerMetadataTag"
@@ -204854,10 +204854,10 @@
             "type": "string"
           },
           "author": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataAuthor"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataAuthorProperty"
           },
           "bugs": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataBugs"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataBugsProperty"
           },
           "dependencies": {
             "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataDependenciesProperty"
@@ -204875,7 +204875,7 @@
             "type": "string"
           },
           "dist": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataDist"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataDistProperty"
           },
           "git_head": {
             "type": "string"
@@ -204890,7 +204890,7 @@
             "type": "string"
           },
           "repository": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataRepository"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataRepositoryProperty"
           },
           "scripts": {
             "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataScriptsProperty"
@@ -204941,7 +204941,7 @@
             "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataManProperty"
           },
           "directories": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataDirectories"
+            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionNpmMetadataDirectoriesProperty"
           },
           "os": {
             "type": "array",
@@ -234842,10 +234842,10 @@
         "type": "object",
         "properties": {
           "labels": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataLabels"
+            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataLabelsProperty"
           },
           "manifest": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataManifest"
+            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataManifestProperty"
           },
           "tag": {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataTag"
@@ -268527,6 +268527,10 @@
         "type": "object",
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
       },
+      "ProjectsV2ItemWithContentContentProperty": {
+        "type": "object",
+        "description": "The content of the item, which varies by content type."
+      },
       "ProjectsV2ItemWithContentFieldsItemProperty": {
         "type": "object"
       },
@@ -268647,9 +268651,16 @@
           "type": "string"
         }
       },
+      "WebhookRepositoryDispatchSampleClientPayloadProperty": {
+        "type": "object",
+        "description": "The \u0060client_payload\u0060 that was specified in the \u0060POST /repos/{owner}/{repo}/dispatches\u0060 request body."
+      },
       "WebhookStarDeletedStarredAt": {
         "type": "object",
         "description": "\u0022The time the star was created. This is a timestamp in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060. Will be \u0060null\u0060 for the \u0060deleted\u0060 action.\u0022"
+      },
+      "WebhookWorkflowDispatchInputsProperty": {
+        "type": "object"
       },
       "RulesetVersionWithStateAllOf2StateProperty": {
         "type": "object",
@@ -268658,11 +268669,89 @@
       "WebhookForkForkeeAllOf2Language": {
         "type": "object"
       },
+      "WebhookForkForkeeAllOf2LicenseProperty": {
+        "type": "object"
+      },
       "WebhookForkForkeeAllOf2MirrorUrl": {
         "type": "object"
       },
       "WebhookForkForkeeAllOf2TopicsItem": {
         "type": "object"
+      },
+      "WebhookIssueCommentCreatedIssueAllOf2AssigneesItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentCreatedIssueAllOf2MilestoneProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentCreatedIssueAllOf2PerformedViaGithubAppProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentDeletedIssueAllOf2AssigneesItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentDeletedIssueAllOf2MilestoneProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentDeletedIssueAllOf2PerformedViaGithubAppProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentEditedIssueAllOf2AssigneesItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentEditedIssueAllOf2MilestoneProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentEditedIssueAllOf2PerformedViaGithubAppProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentPinnedIssueAllOf2AssigneesItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentPinnedIssueAllOf2MilestoneProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentPinnedIssueAllOf2PerformedViaGithubAppProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentUnpinnedIssueAllOf2AssigneesItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentUnpinnedIssueAllOf2MilestoneProperty": {
+        "type": "object"
+      },
+      "WebhookIssueCommentUnpinnedIssueAllOf2PerformedViaGithubAppProperty": {
+        "type": "object"
+      },
+      "WebhookIssuesClosedIssueAllOf2AssigneeProperty": {
+        "type": "object"
+      },
+      "WebhookIssuesClosedIssueAllOf2AssigneesItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssuesClosedIssueAllOf2LabelsItemProperty": {
+        "type": "object"
+      },
+      "WebhookIssuesClosedIssueAllOf2MilestoneProperty": {
+        "type": "object"
+      },
+      "WebhookIssuesClosedIssueAllOf2PerformedViaGithubAppProperty": {
+        "type": "object"
+      },
+      "WebhookWorkflowJobCompletedWorkflowJobAllOf2StepsItemProperty": {
+        "type": "object"
+      },
+      "HookDeliveryRequestHeadersProperty": {
+        "type": "object",
+        "description": "The request headers sent with the webhook delivery."
+      },
+      "HookDeliveryRequestPayloadProperty": {
+        "type": "object",
+        "description": "The webhook payload."
+      },
+      "HookDeliveryResponseHeadersProperty": {
+        "type": "object",
+        "description": "The response headers received when the delivery was made."
       },
       "GistSimpleForkOfFilesProperty": {
         "type": "object",
@@ -268799,6 +268888,9 @@
         "type": "object",
         "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
       },
+      "WebhookCodeScanningAlertReopenedAlertDismissedByProperty": {
+        "type": "object"
+      },
       "WebhookCodeScanningAlertReopenedAlertFixedAt": {
         "type": "object",
         "description": "\u0022The time that the alert was fixed in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.\u0022"
@@ -268834,7 +268926,16 @@
       "WebhookDeploymentReviewApprovedWorkflowJobRunsItemConclusion": {
         "type": "object"
       },
+      "WebhookDeploymentReviewApprovedWorkflowRunHeadCommitProperty": {
+        "type": "object"
+      },
+      "WebhookDeploymentReviewRejectedWorkflowRunHeadCommitProperty": {
+        "type": "object"
+      },
       "WebhookDeploymentReviewRequestedWorkflowJobRunConclusion": {
+        "type": "object"
+      },
+      "WebhookDeploymentReviewRequestedWorkflowRunHeadCommitProperty": {
         "type": "object"
       },
       "WebhookDeploymentStatusCreatedWorkflowRunHeadCommit": {
@@ -268857,6 +268958,9 @@
         "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values."
       },
       "WebhookRegistryPackageUpdatedRegistryPackageDescription": {
+        "type": "object"
+      },
+      "WebhookRegistryPackageUpdatedRegistryPackageRegistryProperty": {
         "type": "object"
       },
       "WebhookTeamAddedToRepositoryRepositoryCustomPropertiesProperty": {
@@ -268911,6 +269015,18 @@
       "WebhookRegistryPackageUpdatedRegistryPackagePackageVersionMetadataItemProperty": {
         "type": "object"
       },
+      "WebhookPackagePublishedPackagePackageVersionContainerMetadataLabelsProperty": {
+        "type": "object"
+      },
+      "WebhookPackagePublishedPackagePackageVersionContainerMetadataManifestProperty": {
+        "type": "object"
+      },
+      "WebhookPackagePublishedPackagePackageVersionNpmMetadataAuthorProperty": {
+        "type": "object"
+      },
+      "WebhookPackagePublishedPackagePackageVersionNpmMetadataBugsProperty": {
+        "type": "object"
+      },
       "WebhookPackagePublishedPackagePackageVersionNpmMetadataDependenciesProperty": {
         "type": "object"
       },
@@ -268921,6 +269037,12 @@
         "type": "object"
       },
       "WebhookPackagePublishedPackagePackageVersionNpmMetadataOptionalDependenciesProperty": {
+        "type": "object"
+      },
+      "WebhookPackagePublishedPackagePackageVersionNpmMetadataDistProperty": {
+        "type": "object"
+      },
+      "WebhookPackagePublishedPackagePackageVersionNpmMetadataRepositoryProperty": {
         "type": "object"
       },
       "WebhookPackagePublishedPackagePackageVersionNpmMetadataScriptsProperty": {
@@ -268939,6 +269061,15 @@
         "type": "object"
       },
       "WebhookPackagePublishedPackagePackageVersionNpmMetadataManProperty": {
+        "type": "object"
+      },
+      "WebhookPackagePublishedPackagePackageVersionNpmMetadataDirectoriesProperty": {
+        "type": "object"
+      },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataLabelsProperty": {
+        "type": "object"
+      },
+      "WebhookRegistryPackagePublishedRegistryPackagePackageVersionContainerMetadataManifestProperty": {
         "type": "object"
       },
       "WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDependenciesProperty": {
