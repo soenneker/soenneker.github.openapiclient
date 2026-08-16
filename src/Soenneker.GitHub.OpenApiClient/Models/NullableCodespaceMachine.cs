@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>How much memory is available to the codespace.</summary>
-        public int? MemoryInBytes { get; set; }
+        public long? MemoryInBytes { get; set; }
         /// <summary>The name of the machine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,7 +46,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether a prebuild is currently available when creating a codespace for this machine and repository. If a branch was not specified as a ref, the default branch will be assumed. Value will be &quot;null&quot; if prebuilds are not supported or prebuild availability could not be determined. Value will be &quot;none&quot; if no prebuild is available. Latest values &quot;ready&quot; and &quot;in_progress&quot; indicate the prebuild availability status.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability? PrebuildAvailability { get; set; }
         /// <summary>How much storage is available to the codespace.</summary>
-        public int? StorageInBytes { get; set; }
+        public long? StorageInBytes { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachine"/> and sets the default values.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "cpus", n => { Cpus = n.GetIntValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
-                { "memory_in_bytes", n => { MemoryInBytes = n.GetIntValue(); } },
+                { "memory_in_bytes", n => { MemoryInBytes = n.GetLongValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operating_system", n => { OperatingSystem = n.GetStringValue(); } },
                 { "prebuild_availability", n => { PrebuildAvailability = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability>(); } },
-                { "storage_in_bytes", n => { StorageInBytes = n.GetIntValue(); } },
+                { "storage_in_bytes", n => { StorageInBytes = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -90,11 +90,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("cpus", Cpus);
             writer.WriteStringValue("display_name", DisplayName);
-            writer.WriteIntValue("memory_in_bytes", MemoryInBytes);
+            writer.WriteLongValue("memory_in_bytes", MemoryInBytes);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("operating_system", OperatingSystem);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableCodespaceMachinePrebuildAvailability>("prebuild_availability", PrebuildAvailability);
-            writer.WriteIntValue("storage_in_bytes", StorageInBytes);
+            writer.WriteLongValue("storage_in_bytes", StorageInBytes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

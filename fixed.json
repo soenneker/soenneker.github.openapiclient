@@ -78202,11 +78202,13 @@
           "storage_in_bytes": {
             "type": "integer",
             "description": "How much storage is available to the codespace.",
+            "format": "int64",
             "example": 68719476736
           },
           "memory_in_bytes": {
             "type": "integer",
             "description": "How much memory is available to the codespace.",
+            "format": "int64",
             "example": 17179869184
           },
           "cpus": {
@@ -90593,11 +90595,13 @@
           "storage_in_bytes": {
             "type": "integer",
             "description": "How much storage is available to the codespace.",
+            "format": "int64",
             "example": 68719476736
           },
           "memory_in_bytes": {
             "type": "integer",
             "description": "How much memory is available to the codespace.",
+            "format": "int64",
             "example": 17179869184
           },
           "cpus": {
