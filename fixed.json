@@ -25574,6 +25574,12 @@
           },
           {
             "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
           }
         ],
         "responses": {
@@ -53866,6 +53872,12 @@
           },
           {
             "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-before"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-after"
           }
         ],
         "responses": {
@@ -55728,6 +55740,50 @@
           },
           "422": {
             "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/stargazers/count": {
+      "get": {
+        "tags": [
+          "activity"
+        ],
+        "summary": "Get stargazer count",
+        "description": "Gets the current number of users who have starred the repository. Users who previously starred the repository but later removed their star are not included.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/activity/starring#get-stargazer-count"
+        },
+        "operationId": "ActivityGetStargazerCountForRepo",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityGetStargazerCountForRepo200Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "count": 42
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         }
       }
@@ -92129,10 +92185,10 @@
             "$ref": "#/components/schemas/SnapshotJob"
           },
           "sha": {
-            "maxLength": 40,
+            "maxLength": 64,
             "minLength": 40,
             "type": "string",
-            "description": "The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.",
+            "description": "The commit SHA associated with this dependency snapshot. Maximum length: 64 characters.",
             "example": "ddc951f4b1293222421f2c8df679786153acf689"
           },
           "ref": {
@@ -268837,6 +268893,19 @@
             }
           }
         ]
+      },
+      "ActivityGetStargazerCountForRepo200Response": {
+        "required": [
+          "count"
+        ],
+        "type": "object",
+        "properties": {
+          "count": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 42
+          }
+        }
       },
       "ReposGetCodeFrequencyStats200Response": {
         "type": "array",
