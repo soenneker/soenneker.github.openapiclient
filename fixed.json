@@ -25570,12 +25570,6 @@
             "$ref": "#/components/parameters/direction"
           },
           {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          },
-          {
             "$ref": "#/components/parameters/pagination-before"
           },
           {
@@ -53866,12 +53860,6 @@
           },
           {
             "$ref": "#/components/parameters/direction"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
           },
           {
             "$ref": "#/components/parameters/pagination-before"
@@ -95949,6 +95937,140 @@
         },
         "description": "State Change Issue Event"
       },
+      "IssueReference": {
+        "title": "Issue Reference",
+        "required": [
+          "number",
+          "title",
+          "state",
+          "repository",
+          "issue_type"
+        ],
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "description": "The number of the referenced issue."
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the referenced issue."
+          },
+          "state": {
+            "type": "string",
+            "description": "The state of the referenced issue."
+          },
+          "state_reason": {
+            "type": "string",
+            "description": "The reason for the referenced issue\u0027s state.",
+            "nullable": true
+          },
+          "repository": {
+            "$ref": "#/components/schemas/SimpleRepository"
+          },
+          "issue_type": {
+            "$ref": "#/components/schemas/IssueReferenceIssueType"
+          }
+        },
+        "description": "A minimal reference to an issue linked from a timeline event (e.g. sub-issue, parent-issue, or dependency events).",
+        "nullable": true
+      },
+      "TimelineConnectedEvent": {
+        "title": "Timeline Connected Event",
+        "required": [
+          "id",
+          "node_id",
+          "url",
+          "actor",
+          "event",
+          "commit_id",
+          "commit_url",
+          "created_at",
+          "performed_via_github_app"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "event": {
+            "type": "string"
+          },
+          "commit_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "commit_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "performed_via_github_app": {
+            "$ref": "#/components/schemas/NullableIntegration"
+          }
+        },
+        "description": "Timeline Connected Event"
+      },
+      "TimelineDisconnectedEvent": {
+        "title": "Timeline Disconnected Event",
+        "required": [
+          "id",
+          "node_id",
+          "url",
+          "actor",
+          "event",
+          "commit_id",
+          "commit_url",
+          "created_at",
+          "performed_via_github_app"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "event": {
+            "type": "string"
+          },
+          "commit_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "commit_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "performed_via_github_app": {
+            "$ref": "#/components/schemas/NullableIntegration"
+          }
+        },
+        "description": "Timeline Disconnected Event"
+      },
       "TimelineIssueEvents": {
         "title": "Timeline Event",
         "type": "object",
@@ -96051,6 +96173,12 @@
           },
           {
             "$ref": "#/components/schemas/BlockingRemovedIssueEvent"
+          },
+          {
+            "$ref": "#/components/schemas/TimelineConnectedEvent"
+          },
+          {
+            "$ref": "#/components/schemas/TimelineDisconnectedEvent"
           }
         ],
         "properties": {
@@ -137541,6 +137669,37 @@
             "$ref": "#/components/schemas/PullRequestReviewCommentLinksPullRequest"
           }
         }
+      },
+      "IssueReferenceIssueType": {
+        "title": "Issue Type",
+        "required": [
+          "id",
+          "node_id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the issue type.",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string",
+            "description": "The node identifier of the issue type."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the issue type."
+          },
+          "color": {
+            "type": "string",
+            "description": "The color of the issue type.",
+            "nullable": true
+          }
+        },
+        "description": "The type of the referenced issue.",
+        "nullable": true
       },
       "LicenseContentLinks": {
         "required": [
