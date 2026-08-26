@@ -4008,6 +4008,65 @@
         }
       }
     },
+    "/enterprises/{enterprise}/members/{username}/teams": {
+      "get": {
+        "tags": [
+          "enterprise-team-memberships"
+        ],
+        "summary": "List enterprise teams for a user",
+        "description": "Lists all enterprise teams that a user is a member of. This endpoint is available only for\nenterprises using the new enterprise teams experience.\n\nThe authenticated user must be an enterprise owner or have the \u0060enterprise_teams:read\u0060 permission.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/enterprise-teams/enterprise-team-members#list-enterprise-teams-for-a-user"
+        },
+        "operationId": "EnterpriseTeamMembershipsListTeamsForUser",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/enterprise"
+          },
+          {
+            "$ref": "#/components/parameters/username"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseTeamMembershipsListTeamsForUser200ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/enterprise-teams-items"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
     "/enterprises/{enterprise}/teams": {
       "get": {
         "tags": [
@@ -4685,11 +4744,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EnterpriseTeam"
+                  "$ref": "#/components/schemas/EnterpriseTeamWithMemberCount"
                 },
                 "examples": {
                   "default": {
-                    "$ref": "#/components/examples/enterprise-teams-item"
+                    "$ref": "#/components/examples/enterprise-teams-item-with-member-count"
                   }
                 }
               }
@@ -40020,7 +40079,7 @@
           "dependency-graph"
         ],
         "summary": "Export a software bill of materials (SBOM) for a repository.",
-        "description": "Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.",
+        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will not be accessible after November 13, 2026. Please migrate to the asynchronous flow. Use \u0022[Request generation of a software bill of materials (SBOM) for a repository](https://docs.github.com/rest/dependency-graph/sboms#request-generation-of-a-software-bill-of-materials-sbom-for-a-repository)\u0022 to trigger the report, then \u0022[Fetch a software bill of materials (SBOM) for a repository](https://docs.github.com/rest/dependency-graph/sboms#fetch-a-software-bill-of-materials-sbom-for-a-repository)\u0022 to retrieve it. For more information, see the [changelog](https://github.blog/changelog/2026-05-12-synchronous-sbom-api-deprecated/).\n\nExports the software bill of materials (SBOM) for a repository in SPDX JSON format.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository"
@@ -40061,7 +40120,8 @@
           "403": {
             "$ref": "#/components/responses/forbidden"
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbomUuid}": {
@@ -63070,7 +63130,7 @@
           "users"
         ],
         "summary": "Get a user",
-        "description": "Provides publicly available information about someone with a GitHub account.\n\nIf you are requesting information about an [Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users), or a GitHub App bot that is installed in an organization that uses Enterprise Managed Users, your requests must be authenticated as a user or GitHub App that has access to the organization to view that account\u0027s information. If you are not authorized, the request will return a \u0060404 Not Found\u0060 status.\n\nThe \u0060email\u0060 key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for \u0060email\u0060, then it will have a value of \u0060null\u0060. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).",
+        "description": "Provides publicly available information about someone with a GitHub account.\n\nThe \u0060events_url\u0060 value is a URI template. Replace \u0060{/privacy}\u0060 with \u0060/public\u0060 to retrieve only public events. Omit it to retrieve public events and, when authenticated as the user, private events. For more information, see \u0022[List events for the authenticated user](https://docs.github.com/rest/activity/events#list-events-for-the-authenticated-user).\u0022\n\nIf you are requesting information about an [Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users), or a GitHub App bot that is installed in an organization that uses Enterprise Managed Users, your requests must be authenticated as a user or GitHub App that has access to the organization to view that account\u0027s information. If you are not authorized, the request will return a \u0060404 Not Found\u0060 status.\n\nThe \u0060email\u0060 key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for \u0060email\u0060, then it will have a value of \u0060null\u0060. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/users/users#get-a-user"
@@ -72131,6 +72191,86 @@
         },
         "description": "A GitHub organization."
       },
+      "EnterpriseTeamWithMemberCount": {
+        "title": "Enterprise Team",
+        "required": [
+          "id",
+          "url",
+          "members_url",
+          "members_count",
+          "name",
+          "html_url",
+          "slug",
+          "created_at",
+          "updated_at",
+          "group_id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "sync_to_organizations": {
+            "type": "string",
+            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
+            "example": "disabled"
+          },
+          "organization_selection_type": {
+            "type": "string",
+            "example": "selected"
+          },
+          "group_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "62ab9291-fae2-468e-974b-7e45096d5021"
+          },
+          "group_name": {
+            "type": "string",
+            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
+            "nullable": true,
+            "example": "Justice League"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/enterprises/dc/teams/justice-league"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "members_count": {
+            "type": "integer",
+            "description": "The number of members in the enterprise team.",
+            "example": 3
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "notification_setting": {
+            "$ref": "#/components/schemas/EnterpriseTeamWithMemberCountNotificationSetting"
+          }
+        },
+        "description": "Group of enterprise owners and/or members"
+      },
       "Actor": {
         "title": "Actor",
         "required": [
@@ -75442,20 +75582,24 @@
           },
           "company": {
             "type": "string",
+            "nullable": true,
             "example": "GitHub"
           },
           "blog": {
             "type": "string",
             "format": "uri",
+            "nullable": true,
             "example": "https://github.com/blog"
           },
           "location": {
             "type": "string",
+            "nullable": true,
             "example": "San Francisco"
           },
           "email": {
             "type": "string",
             "format": "email",
+            "nullable": true,
             "example": "octocat@github.com"
           },
           "twitter_username": {
@@ -85802,20 +85946,24 @@
           },
           "company": {
             "type": "string",
+            "nullable": true,
             "example": "GitHub"
           },
           "blog": {
             "type": "string",
             "format": "uri",
+            "nullable": true,
             "example": "https://github.com/blog"
           },
           "location": {
             "type": "string",
+            "nullable": true,
             "example": "San Francisco"
           },
           "email": {
             "type": "string",
             "format": "email",
+            "nullable": true,
             "example": "octocat@github.com"
           },
           "twitter_username": {
@@ -260334,6 +260482,12 @@
           }
         }
       },
+      "EnterpriseTeamMembershipsListTeamsForUser200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/EnterpriseTeam"
+        }
+      },
       "EnterpriseTeamsList200Response": {
         "type": "array",
         "items": {
@@ -271864,6 +272018,12 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/DependabotAlertWithRepository"
+        }
+      },
+      "EnterpriseTeamMembershipsListTeamsForUser200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/EnterpriseTeam"
         }
       },
       "EnterpriseTeamsList200ResponseSchema": {
@@ -284337,6 +284497,30 @@
         "example": "notifications_enabled",
         "x-ms-enum": {
           "name": "EnterpriseTeamNotificationSetting",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "notifications_enabled",
+              "name": "NotificationsEnabled"
+            },
+            {
+              "value": "notifications_disabled",
+              "name": "NotificationsDisabled"
+            }
+          ]
+        }
+      },
+      "EnterpriseTeamWithMemberCountNotificationSetting": {
+        "enum": [
+          "notifications_enabled",
+          "notifications_disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether team members will receive notifications when the team is mentioned.",
+        "example": "notifications_enabled",
+        "x-ms-enum": {
+          "name": "EnterpriseTeamWithMemberCountNotificationSetting",
           "modelAsString": false,
           "values": [
             {
@@ -361389,19 +361573,19 @@
           "$ref": "#/components/schemas/DependabotAlertSort"
         }
       },
-      "enterprise-team": {
-        "name": "enterprise-team",
+      "username": {
+        "name": "username",
         "in": "path",
-        "description": "The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.",
+        "description": "The handle for the GitHub user account.",
         "required": true,
         "schema": {
           "type": "string"
         }
       },
-      "username": {
-        "name": "username",
+      "enterprise-team": {
+        "name": "enterprise-team",
         "in": "path",
-        "description": "The handle for the GitHub user account.",
+        "description": "The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.",
         "required": true,
         "schema": {
           "type": "string"
@@ -366868,6 +367052,21 @@
             "description": "A great organization"
           }
         ]
+      },
+      "enterprise-teams-item-with-member-count": {
+        "value": {
+          "id": 1,
+          "name": "Justice League",
+          "description": "A great team.",
+          "slug": "justice-league",
+          "url": "https://api.github.com/enterprises/dc/teams/1",
+          "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+          "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+          "members_url": "https://api.github.com/enterprises/dc/teams/1/memberships{/member}",
+          "members_count": 3,
+          "created_at": "2019-01-26T19:01:12Z",
+          "updated_at": "2019-01-26T19:14:43Z"
+        }
       },
       "public-events-items": {
         "value": [

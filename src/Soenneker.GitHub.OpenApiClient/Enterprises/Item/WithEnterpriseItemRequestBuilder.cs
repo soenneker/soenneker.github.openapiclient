@@ -6,6 +6,7 @@ using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Actions;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot;
+using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Members;
 using Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams;
 using System.Collections.Generic;
 using System.IO;
@@ -38,6 +39,11 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.DependabotRequestBuilder Dependabot
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Dependabot.DependabotRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The members property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Members.MembersRequestBuilder Members
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The teams property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.Teams.TeamsRequestBuilder Teams
