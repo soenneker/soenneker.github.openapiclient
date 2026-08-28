@@ -62,6 +62,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone Milestone { get; set; }
 #endif
+        /// <summary>The id of the parent issue to add this issue to as a sub-issue. _NOTE: Only users with triage access to both the parent issue&apos;s repository and this repository can set the parent issue._</summary>
+        public long? ParentIssueId { get; set; }
         /// <summary>The title of the issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +111,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestIssueFieldValuesItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestIssueFieldValuesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone.CreateFromDiscriminatorValue); } },
+                { "parent_issue_id", n => { ParentIssueId = n.GetLongValue(); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -126,6 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestIssueFieldValuesItem>("issue_field_values", IssueFieldValues);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone>("milestone", Milestone);
+            writer.WriteLongValue("parent_issue_id", ParentIssueId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title>("title", Title);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

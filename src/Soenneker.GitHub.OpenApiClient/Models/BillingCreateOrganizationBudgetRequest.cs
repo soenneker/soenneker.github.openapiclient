@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -50,6 +51,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType BudgetType { get; set; }
 #endif
+        /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not provided, the budget will not expire.Only supported for budgets with `budget_scope` of `user`</summary>
+        public Date? ExpiresAt { get; set; }
         /// <summary>Whether to prevent additional spending once the budget is exceeded. For `user` and `multi_user_customer` scopes, this must be `true`.</summary>
         public bool? PreventFurtherUsage { get; set; }
         /// <summary>The username of the user for `user` scope budgets. This field is required when `budget_scope` is `user`.</summary>
@@ -91,6 +94,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetScope>(); } },
                 { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType.CreateFromDiscriminatorValue); } },
+                { "expires_at", n => { ExpiresAt = n.GetDateValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -108,6 +112,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetScope>("budget_scope", BudgetScope);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingCreateOrganizationBudgetRequestBudgetType>("budget_type", BudgetType);
+            writer.WriteDateValue("expires_at", ExpiresAt);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
