@@ -26958,7 +26958,7 @@
           "teams"
         ],
         "summary": "List team members",
-        "description": "Team members will include the members of child teams.\n\nEach member includes their \u0060role\u0060 on the team (\u0060member\u0060 or \u0060maintainer\u0060) and an \u0060inherited\u0060 flag indicating whether the membership is inherited from a child team (\u0060true\u0060) or is a direct membership (\u0060false\u0060). These fields let you read a member\u0027s role and direct/inherited status without additional requests.\n\nTo list members in a team, the team must be visible to the authenticated user.",
+        "description": "Team members will include the members of child teams.\n\nEach member includes their \u0060role\u0060 on the team (\u0060member\u0060 or \u0060maintainer\u0060) and an \u0060inherited\u0060 flag indicating whether the membership is inherited from a child team (\u0060true\u0060) or is a direct membership (\u0060false\u0060). These fields let you read a member\u0027s role and direct/inherited status without additional requests.\n\nTo list members in a team, the team must be visible to the authenticated user.\n\n\u003E [!NOTE]\n\u003E You can also specify a team by \u0060org_id\u0060 and \u0060team_id\u0060 using the route \u0060GET /organizations/{org_id}/team/{team_id}/members\u0060.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/teams/members#list-team-members"
@@ -83720,6 +83720,19 @@
           }
         },
         "description": "Specify people, teams, or apps allowed to dismiss pull request reviews."
+      },
+      "RepositoryRuleParamsProofOfPresence": {
+        "title": "ProofOfPresence",
+        "required": [
+          "required_authentication_level"
+        ],
+        "type": "object",
+        "properties": {
+          "required_authentication_level": {
+            "$ref": "#/components/schemas/RepositoryRuleParamsProofOfPresenceRequiredAuthenticationLevel"
+          }
+        },
+        "description": "Require a fresh authentication before a pull request can be merged."
       },
       "RepositoryRuleParamsReviewer": {
         "title": "Reviewer",
@@ -287740,6 +287753,29 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The type of the actor"
+      },
+      "RepositoryRuleParamsProofOfPresenceRequiredAuthenticationLevel": {
+        "enum": [
+          "reauth",
+          "mfa"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The level of authentication required before a pull request can be merged.",
+        "x-ms-enum": {
+          "name": "RepositoryRuleParamsProofOfPresenceRequiredAuthenticationLevel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reauth",
+              "name": "Reauth"
+            },
+            {
+              "value": "mfa",
+              "name": "Mfa"
+            }
+          ]
+        }
       },
       "PullRequestType": {
         "enum": [
