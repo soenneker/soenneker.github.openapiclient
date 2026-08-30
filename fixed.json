@@ -110,7 +110,6 @@
             "in": "query",
             "description": "If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.\n\nExample: \u0060cwes=79,284,22\u0060 or \u0060cwes[]=79\u0026cwes[]=284\u0026cwes[]=22\u0060",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -137,7 +136,6 @@
             "in": "query",
             "description": "If specified, only return advisories that affect any of \u0060package\u0060 or \u0060package@version\u0060. A maximum of 1000 packages can be specified.\nIf the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.\n\nExample: \u0060affects=package1,package2@1.0.0,package3@2.0.0\u0060 or \u0060affects[]=package1\u0026affects[]=package2@1.0.0\u0060",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -23645,7 +23643,6 @@
             "in": "query",
             "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.\n\nExample: \u0060fields[]=123\u0026fields[]=456\u0026fields[]=789\u0060 or \u0060fields=123,456,789\u0060",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -23842,7 +23839,6 @@
             "in": "query",
             "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.\n\nExample: fields[]=123\u0026fields[]=456\u0026fields[]=789 or fields=123,456,789",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -24208,7 +24204,6 @@
             "in": "query",
             "description": "Limit results to specific fields, by their IDs. If not specified, the\ntitle field will be returned.\n\nExample: \u0060fields[]=123\u0026fields[]=456\u0026fields[]=789\u0060 or \u0060fields=123,456,789\u0060",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -65935,7 +65930,6 @@
             "in": "query",
             "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.\n\nExample: \u0060fields[]=123\u0026fields[]=456\u0026fields[]=789\u0060 or \u0060fields=123,456,789\u0060",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -66123,7 +66117,6 @@
             "in": "query",
             "description": "Limit results to specific fields, by their IDs. If not specified, the title field will be returned.\n\nExample: fields[]=123\u0026fields[]=456\u0026fields[]=789 or fields=123,456,789",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -66365,7 +66358,6 @@
             "in": "query",
             "description": "Limit results to specific fields, by their IDs. If not specified, the\ntitle field will be returned.\n\nExample: \u0060fields[]=123\u0026fields[]=456\u0026fields[]=789\u0060 or \u0060fields=123,456,789\u0060",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
