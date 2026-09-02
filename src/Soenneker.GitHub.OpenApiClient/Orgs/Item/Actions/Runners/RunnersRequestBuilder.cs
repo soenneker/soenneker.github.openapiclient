@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Deprecations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Downloads;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.GenerateJitconfig;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item;
@@ -22,6 +23,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunnersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The deprecations property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Deprecations.DeprecationsRequestBuilder Deprecations
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Deprecations.DeprecationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The downloads property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Downloads.DownloadsRequestBuilder Downloads
         {

@@ -16696,6 +16696,85 @@
         }
       }
     },
+    "/orgs/{org}/actions/runners/deprecations/{version}": {
+      "get": {
+        "summary": "Get runner version end-of-life schedule for an organization",
+        "description": "Gets the end-of-life schedule for a specific runner version in an organization. Returns the runner version\nand the dates when registration and runtime support will end.\n\nAuthenticated users must have admin access to the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `admin:org` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-runner-version-deprecation-for-org",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/self-hosted-runners#get-runner-version-end-of-life-schedule-for-an-organization"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "version",
+            "description": "The runner version to look up.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2.300.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "runner_version"
+                  ],
+                  "properties": {
+                    "runner_version": {
+                      "type": "string",
+                      "description": "The runner version string.",
+                      "example": "2.300.0"
+                    },
+                    "registration_deprecates_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "description": "The date after which this runner version can no longer register. Null if no schedule is set.",
+                      "example": "2026-08-01T00:00:00Z"
+                    },
+                    "runtime_deprecates_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "description": "The date after which jobs will no longer be dispatched to runners on this version.",
+                      "example": "2026-09-01T00:00:00Z"
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "runner_version": "2.300.0",
+                      "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "self-hosted-runners"
+        }
+      }
+    },
     "/orgs/{org}/actions/runners/downloads": {
       "get": {
         "summary": "List runner applications for an organization",
@@ -42538,6 +42617,88 @@
             "headers": {
               "Link": {
                 "$ref": "#/components/headers/link"
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "self-hosted-runners"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/actions/runners/deprecations/{version}": {
+      "get": {
+        "summary": "Get runner version end-of-life schedule for a repository",
+        "description": "Gets the end-of-life schedule for a specific runner version in a repository. Returns the runner version\nand the dates when registration and runtime support will end.\n\nAuthenticated users must have admin access to the repository to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the `repo` scope to use this endpoint.",
+        "tags": [
+          "actions"
+        ],
+        "operationId": "actions/get-runner-version-deprecation-for-repo",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/self-hosted-runners#get-runner-version-end-of-life-schedule-for-a-repository"
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "version",
+            "description": "The runner version to look up.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2.300.0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "runner_version"
+                  ],
+                  "properties": {
+                    "runner_version": {
+                      "type": "string",
+                      "description": "The runner version string.",
+                      "example": "2.300.0"
+                    },
+                    "registration_deprecates_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "description": "The date after which this runner version can no longer register. Null if no schedule is set.",
+                      "example": "2026-08-01T00:00:00Z"
+                    },
+                    "runtime_deprecates_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "description": "The date after which jobs will no longer be dispatched to runners on this version.",
+                      "example": "2026-09-01T00:00:00Z"
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "runner_version": "2.300.0",
+                      "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+                    }
+                  }
+                }
               }
             }
           }
@@ -76205,7 +76366,14 @@
             "$ref": "#/components/responses/not_found"
           },
           "422": {
-            "$ref": "#/components/responses/validation_failed"
+            "description": "Validation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/repository-advisory-description-validation-error"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -76294,7 +76462,45 @@
             "$ref": "#/components/responses/not_found"
           },
           "422": {
-            "$ref": "#/components/responses/validation_failed"
+            "description": "Validation failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/repository-advisory-description-validation-error"
+                },
+                "examples": {
+                  "missing_section": {
+                    "value": {
+                      "message": "Advisory description does not satisfy this repository's report template.",
+                      "documentation_url": "https://docs.github.com/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability",
+                      "errors": [
+                        {
+                          "resource": "RepositoryAdvisory",
+                          "field": "description",
+                          "code": "missing_section",
+                          "section": "Impact"
+                        }
+                      ]
+                    }
+                  },
+                  "unchecked_required_option": {
+                    "value": {
+                      "message": "Advisory description does not satisfy this repository's report template.",
+                      "documentation_url": "https://docs.github.com/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability",
+                      "errors": [
+                        {
+                          "resource": "RepositoryAdvisory",
+                          "field": "description",
+                          "code": "unchecked_required_option",
+                          "section": "Terms",
+                          "option": "I have read the reporting guidelines"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -81208,7 +81414,7 @@
     "/user": {
       "get": {
         "summary": "Get the authenticated user",
-        "description": "OAuth app tokens and personal access tokens (classic) need the `user` scope in order for the response to include private profile information.",
+        "description": "OAuth app tokens and personal access tokens (classic) need the `read:user` scope, or the broader `user` scope, for this endpoint to return the private user response. The private user response includes additional fields such as `private_gists`, `total_private_repos`, `owned_private_repos`, `disk_usage`, `collaborators`, and `two_factor_authentication`. Tokens without these scopes receive the public user response.\n\nThe private and public user response types are unrelated to the [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles) setting. A token without scopes still authenticates as the token's owner, so values subject to private profile visibility, such as `followers` and `following`, may differ from an unauthenticated response.",
         "tags": [
           "users"
         ],
@@ -87744,7 +87950,7 @@
     "/users/{username}": {
       "get": {
         "summary": "Get a user",
-        "description": "Provides publicly available information about someone with a GitHub account.\n\nThe `events_url` value is a URI template. Replace `{/privacy}` with `/public` to retrieve only public events. Omit it to retrieve public events and, when authenticated as the user, private events. For more information, see \"[List events for the authenticated user](https://docs.github.com/rest/activity/events#list-events-for-the-authenticated-user).\"\n\nIf you are requesting information about an [Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users), or a GitHub App bot that is installed in an organization that uses Enterprise Managed Users, your requests must be authenticated as a user or GitHub App that has access to the organization to view that account's information. If you are not authorized, the request will return a `404 Not Found` status.\n\nThe `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).",
+        "description": "Provides publicly available information about someone with a GitHub account.\n\nIf the specified user has a [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles), the `followers` and `following` values are `0` unless the request is authenticated as that user. A request authenticated as the specified user returns the actual values even if the token has no OAuth scopes.\n\nThe `events_url` value is a URI template. Replace `{/privacy}` with `/public` to retrieve only public events. Omit it to retrieve public events and, when authenticated as the user, private events. For more information, see \"[List events for the authenticated user](https://docs.github.com/rest/activity/events#list-events-for-the-authenticated-user).\"\n\nIf you are requesting information about an [Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users), or a GitHub App bot that is installed in an organization that uses Enterprise Managed Users, your requests must be authenticated as a user or GitHub App that has access to the organization to view that account's information. If you are not authorized, the request will return a `404 Not Found` status.\n\nThe `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://docs.github.com/rest/guides/getting-started-with-the-rest-api#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see [Emails API](https://docs.github.com/rest/users/emails).",
         "tags": [
           "users"
         ],
@@ -90026,7 +90232,7 @@
     "/users/{username}/followers": {
       "get": {
         "summary": "List followers of a user",
-        "description": "Lists the people following the specified user.",
+        "description": "Lists the people following the specified user.\n\nIf the specified user has a [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles), this endpoint returns an empty list unless the request is authenticated as that user. A request authenticated as the specified user returns the list even if the token has no OAuth scopes.",
         "tags": [
           "users"
         ],
@@ -90082,7 +90288,7 @@
     "/users/{username}/following": {
       "get": {
         "summary": "List the people a user follows",
-        "description": "Lists the people who the specified user follows.",
+        "description": "Lists the people who the specified user follows.\n\nIf the specified user has a [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles), this endpoint returns an empty list unless the request is authenticated as that user. A request authenticated as the specified user returns the list even if the token has no OAuth scopes.",
         "tags": [
           "users"
         ],
@@ -92607,7 +92813,7 @@
     "/users/{username}/starred": {
       "get": {
         "summary": "List repositories starred by a user",
-        "description": "Lists repositories a user has starred.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.",
+        "description": "Lists repositories a user has starred.\n\nIf the specified user has a [private profile](https://docs.github.com/account-and-profile/concepts/personal-profile#private-profiles), this endpoint returns an empty list unless the request is authenticated as that user. A request authenticated as the specified user returns starred repositories visible to the token even if the token has no OAuth scopes.\n\nThis endpoint supports the following custom media types. For more information, see \"[Media types](https://docs.github.com/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types).\"\n\n- **`application/vnd.github.star+json`**: Includes a timestamp of when the star was created.",
         "tags": [
           "activity"
         ],
@@ -156317,6 +156523,77 @@
           "vulnerabilities"
         ],
         "additionalProperties": false
+      },
+      "repository-advisory-description-validation-error": {
+        "title": "Repository Advisory Description Validation Error",
+        "description": "The description does not answer the repository's report template.",
+        "type": "object",
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "resource": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "A machine-readable identifier for the problem. `missing_section`, `empty_section`, `unchecked_required_option`, and `sections_out_of_order` come from validating the description against the repository's report template; other codes are shared with other validation failures on this endpoint."
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "value": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    {
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                "section": {
+                  "type": "string",
+                  "description": "The report template section the violation concerns."
+                },
+                "option": {
+                  "type": "string",
+                  "description": "The checkbox option left unticked. Only present when `code` is `unchecked_required_option`."
+                }
+              }
+            }
+          }
+        }
       },
       "private-vulnerability-report-create": {
         "type": "object",
