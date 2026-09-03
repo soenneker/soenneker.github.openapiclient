@@ -2036,11 +2036,11 @@
         "tags": [
           "classroom"
         ],
-        "summary": "Closing down - Get an assignment",
-        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will be removed on August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).\n\nGets a GitHub Classroom assignment. Assignment will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.",
+        "summary": "Closed - Get an assignment",
+        "description": "\u003E [!WARNING]\n\u003E **Closed notice:** This operation is no longer available as of August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#closing-down---get-an-assignment"
+          "url": "https://docs.github.com/rest/classroom/classroom#closed---get-an-assignment"
         },
         "operationId": "ClassroomGetAnAssignment",
         "parameters": [
@@ -2049,24 +2049,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomAssignment"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom-assignment"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
           "410": {
             "$ref": "#/components/responses/gone"
           }
@@ -2079,40 +2061,19 @@
         "tags": [
           "classroom"
         ],
-        "summary": "Closing down - List accepted assignments for an assignment",
-        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will be removed on August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).\n\nLists any assignment repositories that have been created by students accepting a GitHub Classroom assignment. Accepted assignments will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.",
+        "summary": "Closed - List accepted assignments for an assignment",
+        "description": "\u003E [!WARNING]\n\u003E **Closed notice:** This operation is no longer available as of August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#closing-down---list-accepted-assignments-for-an-assignment"
+          "url": "https://docs.github.com/rest/classroom/classroom#closed---list-accepted-assignments-for-an-assignment"
         },
         "operationId": "ClassroomListAcceptedAssignmentsForAnAssignment",
         "parameters": [
           {
             "$ref": "#/components/parameters/assignment-id"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
           }
         ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomListAcceptedAssignmentsForAnAssignment200ResponseSchema"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom-accepted-assignment"
-                  }
-                }
-              }
-            }
-          },
           "410": {
             "$ref": "#/components/responses/gone"
           }
@@ -2125,11 +2086,11 @@
         "tags": [
           "classroom"
         ],
-        "summary": "Closing down - Get assignment grades",
-        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will be removed on August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).\n\nGets grades for a GitHub Classroom assignment. Grades will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.",
+        "summary": "Closed - Get assignment grades",
+        "description": "\u003E [!WARNING]\n\u003E **Closed notice:** This operation is no longer available as of August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#closing-down---get-assignment-grades"
+          "url": "https://docs.github.com/rest/classroom/classroom#closed---get-assignment-grades"
         },
         "operationId": "ClassroomGetAssignmentGrades",
         "parameters": [
@@ -2138,24 +2099,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomGetAssignmentGrades200ResponseSchema"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom-assignment-grades"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
           "410": {
             "$ref": "#/components/responses/gone"
           }
@@ -2168,37 +2111,14 @@
         "tags": [
           "classroom"
         ],
-        "summary": "Closing down - List classrooms",
-        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will be removed on August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).\n\nLists GitHub Classroom classrooms for the current user. Classrooms will only be returned if the current user is an administrator of one or more GitHub Classrooms.",
+        "summary": "Closed - List classrooms",
+        "description": "\u003E [!WARNING]\n\u003E **Closed notice:** This operation is no longer available as of August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#closing-down---list-classrooms"
+          "url": "https://docs.github.com/rest/classroom/classroom#closed---list-classrooms"
         },
         "operationId": "ClassroomListClassrooms",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
-          }
-        ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomListClassrooms200ResponseSchema"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/simple-classroom"
-                  }
-                }
-              }
-            }
-          },
           "410": {
             "$ref": "#/components/responses/gone"
           }
@@ -2211,11 +2131,11 @@
         "tags": [
           "classroom"
         ],
-        "summary": "Closing down - Get a classroom",
-        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will be removed on August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).\n\nGets a GitHub Classroom classroom for the current user. Classroom will only be returned if the current user is an administrator of the GitHub Classroom.",
+        "summary": "Closed - Get a classroom",
+        "description": "\u003E [!WARNING]\n\u003E **Closed notice:** This operation is no longer available as of August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#closing-down---get-a-classroom"
+          "url": "https://docs.github.com/rest/classroom/classroom#closed---get-a-classroom"
         },
         "operationId": "ClassroomGetAClassroom",
         "parameters": [
@@ -2224,24 +2144,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Classroom"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/classroom"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/not_found"
-          },
           "410": {
             "$ref": "#/components/responses/gone"
           }
@@ -2254,40 +2156,19 @@
         "tags": [
           "classroom"
         ],
-        "summary": "Closing down - List assignments for a classroom",
-        "description": "\u003E [!WARNING]\n\u003E **Closing down notice:** This operation is closing down and will be removed on August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).\n\nLists GitHub Classroom assignments for a classroom. Assignments will only be returned if the current user is an administrator of the GitHub Classroom.",
+        "summary": "Closed - List assignments for a classroom",
+        "description": "\u003E [!WARNING]\n\u003E **Closed notice:** This operation is no longer available as of August 28, 2026.\n\u003E For more information, see the [GitHub Classroom sunset notice](https://gh.io/classroom-sunset).",
         "externalDocs": {
           "description": "API method documentation",
-          "url": "https://docs.github.com/rest/classroom/classroom#closing-down---list-assignments-for-a-classroom"
+          "url": "https://docs.github.com/rest/classroom/classroom#closed---list-assignments-for-a-classroom"
         },
         "operationId": "ClassroomListAssignmentsForAClassroom",
         "parameters": [
           {
             "$ref": "#/components/parameters/classroom-id"
-          },
-          {
-            "$ref": "#/components/parameters/page"
-          },
-          {
-            "$ref": "#/components/parameters/per-page"
           }
         ],
         "responses": {
-          "200": {
-            "description": "Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassroomListAssignmentsForAClassroom200ResponseSchema"
-                },
-                "examples": {
-                  "default": {
-                    "$ref": "#/components/examples/simple-classroom-assignment"
-                  }
-                }
-              }
-            }
-          },
           "410": {
             "$ref": "#/components/responses/gone"
           }
@@ -70158,554 +70039,6 @@
         },
         "description": "The authorization for an OAuth app, GitHub App, or a Personal Access Token."
       },
-      "SimpleClassroomRepository": {
-        "title": "Simple Classroom Repository",
-        "required": [
-          "id",
-          "full_name",
-          "html_url",
-          "node_id",
-          "private",
-          "default_branch"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "A unique identifier of the repository.",
-            "format": "int64",
-            "example": 1296269
-          },
-          "full_name": {
-            "type": "string",
-            "description": "The full, globally unique name of the repository.",
-            "example": "octocat/Hello-World"
-          },
-          "html_url": {
-            "type": "string",
-            "description": "The URL to view the repository on GitHub.com.",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World"
-          },
-          "node_id": {
-            "type": "string",
-            "description": "The GraphQL identifier of the repository.",
-            "example": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
-          },
-          "private": {
-            "type": "boolean",
-            "description": "Whether the repository is private."
-          },
-          "default_branch": {
-            "type": "string",
-            "description": "The default branch for the repository.",
-            "example": "main"
-          }
-        },
-        "description": "A GitHub repository view for Classroom"
-      },
-      "SimpleClassroomOrganization": {
-        "title": "Organization Simple for Classroom",
-        "required": [
-          "id",
-          "login",
-          "node_id",
-          "html_url",
-          "name",
-          "avatar_url"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "login": {
-            "type": "string",
-            "example": "github"
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDEyOk9yZ2FuaXphdGlvbjE="
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/github"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "example": "Github - Code thigns happen here"
-          },
-          "avatar_url": {
-            "type": "string",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          }
-        },
-        "description": "A GitHub organization."
-      },
-      "Classroom": {
-        "title": "Classroom",
-        "required": [
-          "id",
-          "name",
-          "archived",
-          "organization",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the classroom.",
-            "format": "int64",
-            "example": 42
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the classroom.",
-            "example": "Programming Elixir"
-          },
-          "archived": {
-            "type": "boolean",
-            "description": "Whether classroom is archived.",
-            "example": false
-          },
-          "organization": {
-            "$ref": "#/components/schemas/SimpleClassroomOrganization"
-          },
-          "url": {
-            "type": "string",
-            "description": "The URL of the classroom on GitHub Classroom.",
-            "example": "https://classroom.github.com/classrooms/1-programming-elixir"
-          }
-        },
-        "description": "A GitHub Classroom classroom"
-      },
-      "ClassroomAssignment": {
-        "title": "Classroom Assignment",
-        "required": [
-          "id",
-          "public_repo",
-          "title",
-          "type",
-          "invite_link",
-          "invitations_enabled",
-          "slug",
-          "students_are_repo_admins",
-          "feedback_pull_requests_enabled",
-          "max_teams",
-          "max_members",
-          "editor",
-          "accepted",
-          "submitted",
-          "passing",
-          "language",
-          "deadline",
-          "starter_code_repository",
-          "classroom"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository.",
-            "format": "int64",
-            "example": 42
-          },
-          "public_repo": {
-            "type": "boolean",
-            "description": "Whether an accepted assignment creates a public repository.",
-            "example": true
-          },
-          "title": {
-            "type": "string",
-            "description": "Assignment title.",
-            "example": "Intro to Binaries"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ClassroomAssignmentType"
-          },
-          "invite_link": {
-            "type": "string",
-            "description": "The link that a student can use to accept the assignment.",
-            "example": "https://classroom.github.com/a/Lx7jiUgx"
-          },
-          "invitations_enabled": {
-            "type": "boolean",
-            "description": "Whether the invitation link is enabled. Visiting an enabled invitation link will accept the assignment.",
-            "example": true
-          },
-          "slug": {
-            "type": "string",
-            "description": "Sluggified name of the assignment.",
-            "example": "intro-to-binaries"
-          },
-          "students_are_repo_admins": {
-            "type": "boolean",
-            "description": "Whether students are admins on created repository when a student accepts the assignment.",
-            "example": true
-          },
-          "feedback_pull_requests_enabled": {
-            "type": "boolean",
-            "description": "Whether feedback pull request will be created when a student accepts the assignment.",
-            "example": true
-          },
-          "max_teams": {
-            "type": "integer",
-            "description": "The maximum allowable teams for the assignment.",
-            "nullable": true,
-            "example": 0
-          },
-          "max_members": {
-            "type": "integer",
-            "description": "The maximum allowable members per team.",
-            "nullable": true,
-            "example": 0
-          },
-          "editor": {
-            "type": "string",
-            "description": "The selected editor for the assignment.",
-            "example": "codespaces"
-          },
-          "accepted": {
-            "type": "integer",
-            "description": "The number of students that have accepted the assignment.",
-            "example": 25
-          },
-          "submitted": {
-            "type": "integer",
-            "description": "The number of students that have submitted the assignment.",
-            "example": 10
-          },
-          "passing": {
-            "type": "integer",
-            "description": "The number of students that have passed the assignment.",
-            "example": 10
-          },
-          "language": {
-            "type": "string",
-            "description": "The programming language used in the assignment.",
-            "example": "elixir"
-          },
-          "deadline": {
-            "type": "string",
-            "description": "The time at which the assignment is due.",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2011-01-26T19:06:43Z"
-          },
-          "starter_code_repository": {
-            "$ref": "#/components/schemas/SimpleClassroomRepository"
-          },
-          "classroom": {
-            "$ref": "#/components/schemas/Classroom"
-          }
-        },
-        "description": "A GitHub Classroom assignment"
-      },
-      "SimpleClassroomUser": {
-        "title": "Simple Classroom User",
-        "required": [
-          "id",
-          "login",
-          "avatar_url",
-          "html_url"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          }
-        },
-        "description": "A GitHub user simplified for Classroom."
-      },
-      "SimpleClassroom": {
-        "title": "Simple Classroom",
-        "required": [
-          "id",
-          "name",
-          "archived",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the classroom.",
-            "format": "int64",
-            "example": 42
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the classroom.",
-            "example": "Programming Elixir"
-          },
-          "archived": {
-            "type": "boolean",
-            "description": "Returns whether classroom is archived or not.",
-            "example": false
-          },
-          "url": {
-            "type": "string",
-            "description": "The url of the classroom on GitHub Classroom.",
-            "example": "https://classroom.github.com/classrooms/1-programming-elixir"
-          }
-        },
-        "description": "A GitHub Classroom classroom"
-      },
-      "SimpleClassroomAssignment": {
-        "title": "Simple Classroom Assignment",
-        "required": [
-          "id",
-          "public_repo",
-          "title",
-          "type",
-          "invite_link",
-          "invitations_enabled",
-          "slug",
-          "students_are_repo_admins",
-          "feedback_pull_requests_enabled",
-          "editor",
-          "accepted",
-          "submitted",
-          "passing",
-          "language",
-          "deadline",
-          "classroom"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository.",
-            "format": "int64",
-            "example": 42
-          },
-          "public_repo": {
-            "type": "boolean",
-            "description": "Whether an accepted assignment creates a public repository.",
-            "example": true
-          },
-          "title": {
-            "type": "string",
-            "description": "Assignment title.",
-            "example": "Intro to Binaries"
-          },
-          "type": {
-            "$ref": "#/components/schemas/SimpleClassroomAssignmentType"
-          },
-          "invite_link": {
-            "type": "string",
-            "description": "The link that a student can use to accept the assignment.",
-            "example": "https://classroom.github.com/a/Lx7jiUgx"
-          },
-          "invitations_enabled": {
-            "type": "boolean",
-            "description": "Whether the invitation link is enabled. Visiting an enabled invitation link will accept the assignment.",
-            "example": true
-          },
-          "slug": {
-            "type": "string",
-            "description": "Sluggified name of the assignment.",
-            "example": "intro-to-binaries"
-          },
-          "students_are_repo_admins": {
-            "type": "boolean",
-            "description": "Whether students are admins on created repository on accepted assignment.",
-            "example": true
-          },
-          "feedback_pull_requests_enabled": {
-            "type": "boolean",
-            "description": "Whether feedback pull request will be created on assignment acceptance.",
-            "example": true
-          },
-          "max_teams": {
-            "type": "integer",
-            "description": "The maximum allowable teams for the assignment.",
-            "nullable": true,
-            "example": 0
-          },
-          "max_members": {
-            "type": "integer",
-            "description": "The maximum allowable members per team.",
-            "nullable": true,
-            "example": 0
-          },
-          "editor": {
-            "type": "string",
-            "description": "The selected editor for the assignment.",
-            "example": "codespaces"
-          },
-          "accepted": {
-            "type": "integer",
-            "description": "The number of students that have accepted the assignment.",
-            "example": 25
-          },
-          "submitted": {
-            "type": "integer",
-            "description": "The number of students that have submitted the assignment.",
-            "example": 10
-          },
-          "passing": {
-            "type": "integer",
-            "description": "The number of students that have passed the assignment.",
-            "example": 10
-          },
-          "language": {
-            "type": "string",
-            "description": "The programming language used in the assignment.",
-            "example": "elixir"
-          },
-          "deadline": {
-            "type": "string",
-            "description": "The time at which the assignment is due.",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2011-01-26T19:06:43Z"
-          },
-          "classroom": {
-            "$ref": "#/components/schemas/SimpleClassroom"
-          }
-        },
-        "description": "A GitHub Classroom assignment"
-      },
-      "ClassroomAcceptedAssignment": {
-        "title": "Classroom Accepted Assignment",
-        "required": [
-          "id",
-          "submitted",
-          "passing",
-          "commit_count",
-          "grade",
-          "students",
-          "repository",
-          "assignment"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository.",
-            "format": "int64",
-            "example": 42
-          },
-          "submitted": {
-            "type": "boolean",
-            "description": "Whether an accepted assignment has been submitted.",
-            "example": true
-          },
-          "passing": {
-            "type": "boolean",
-            "description": "Whether a submission passed.",
-            "example": true
-          },
-          "commit_count": {
-            "type": "integer",
-            "description": "Count of student commits.",
-            "example": 5
-          },
-          "grade": {
-            "type": "string",
-            "description": "Most recent grade.",
-            "example": "10/10"
-          },
-          "students": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SimpleClassroomUser"
-            }
-          },
-          "repository": {
-            "$ref": "#/components/schemas/SimpleClassroomRepository"
-          },
-          "assignment": {
-            "$ref": "#/components/schemas/SimpleClassroomAssignment"
-          }
-        },
-        "description": "A GitHub Classroom accepted assignment"
-      },
-      "ClassroomAssignmentGrade": {
-        "title": "Classroom Assignment Grade",
-        "required": [
-          "assignment_name",
-          "assignment_url",
-          "starter_code_url",
-          "github_username",
-          "roster_identifier",
-          "student_repository_name",
-          "student_repository_url",
-          "submission_timestamp",
-          "points_awarded",
-          "points_available"
-        ],
-        "type": "object",
-        "properties": {
-          "assignment_name": {
-            "type": "string",
-            "description": "Name of the assignment"
-          },
-          "assignment_url": {
-            "type": "string",
-            "description": "URL of the assignment"
-          },
-          "starter_code_url": {
-            "type": "string",
-            "description": "URL of the starter code for the assignment"
-          },
-          "github_username": {
-            "type": "string",
-            "description": "GitHub username of the student"
-          },
-          "roster_identifier": {
-            "type": "string",
-            "description": "Roster identifier of the student"
-          },
-          "student_repository_name": {
-            "type": "string",
-            "description": "Name of the student\u0027s assignment repository"
-          },
-          "student_repository_url": {
-            "type": "string",
-            "description": "URL of the student\u0027s assignment repository"
-          },
-          "submission_timestamp": {
-            "type": "string",
-            "description": "Timestamp of the student\u0027s assignment submission"
-          },
-          "points_awarded": {
-            "type": "integer",
-            "description": "Number of points awarded to the student"
-          },
-          "points_available": {
-            "type": "integer",
-            "description": "Number of points available for the assignment"
-          },
-          "group_name": {
-            "type": "string",
-            "description": "If a group assignment, name of the group the student is in"
-          }
-        },
-        "description": "Grade for a student or groups GitHub Classroom assignment"
-      },
       "CodeOfConduct": {
         "title": "Code Of Conduct",
         "required": [
@@ -112185,7 +111518,8 @@
             "$ref": "#/components/schemas/SimpleInstallation"
           },
           "number": {
-            "type": "integer"
+            "type": "integer",
+            "description": "The pull request number."
           },
           "organization": {
             "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
@@ -112255,7 +111589,8 @@
             "$ref": "#/components/schemas/SimpleInstallation"
           },
           "number": {
-            "type": "integer"
+            "type": "integer",
+            "description": "The pull request number."
           },
           "organization": {
             "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
@@ -112386,7 +111721,8 @@
           "action",
           "number",
           "pull_request",
-          "repository"
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -112395,6 +111731,9 @@
           },
           "enterprise": {
             "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
           },
           "milestone": {
             "$ref": "#/components/schemas/Milestone"
@@ -112439,7 +111778,8 @@
             "$ref": "#/components/schemas/SimpleInstallation"
           },
           "number": {
-            "type": "integer"
+            "type": "integer",
+            "description": "The pull request number."
           },
           "organization": {
             "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
@@ -112481,7 +111821,8 @@
           "changes",
           "number",
           "pull_request",
-          "repository"
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -112536,7 +111877,8 @@
             "$ref": "#/components/schemas/SimpleInstallation"
           },
           "number": {
-            "type": "integer"
+            "type": "integer",
+            "description": "The pull request number."
           },
           "organization": {
             "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
@@ -112713,7 +112055,8 @@
           "action",
           "number",
           "pull_request",
-          "repository"
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -112722,6 +112065,9 @@
           },
           "enterprise": {
             "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
           },
           "milestone": {
             "$ref": "#/components/schemas/Milestone"
@@ -113697,7 +113043,8 @@
           "action",
           "number",
           "pull_request",
-          "repository"
+          "repository",
+          "sender"
         ],
         "type": "object",
         "properties": {
@@ -116857,7 +116204,8 @@
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           {
             "type": "array",
@@ -116872,7 +116220,8 @@
         "type": "object",
         "oneOf": [
           {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           {
             "type": "array",
@@ -260385,30 +259734,6 @@
           }
         }
       },
-      "ClassroomListAcceptedAssignmentsForAnAssignment200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAcceptedAssignment"
-        }
-      },
-      "ClassroomGetAssignmentGrades200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAssignmentGrade"
-        }
-      },
-      "ClassroomListClassrooms200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroom"
-        }
-      },
-      "ClassroomListAssignmentsForAClassroom200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroomAssignment"
-        }
-      },
       "CodesOfConductGetAllCodesOfConduct200Response": {
         "type": "array",
         "items": {
@@ -272260,30 +271585,6 @@
           "$ref": "#/components/schemas/Installation"
         }
       },
-      "ClassroomListAcceptedAssignmentsForAnAssignment200ResponseSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAcceptedAssignment"
-        }
-      },
-      "ClassroomGetAssignmentGrades200ResponseSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ClassroomAssignmentGrade"
-        }
-      },
-      "ClassroomListClassrooms200ResponseSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroom"
-        }
-      },
-      "ClassroomListAssignmentsForAClassroom200ResponseSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SimpleClassroomAssignment"
-        }
-      },
       "CodesOfConductGetAllCodesOfConduct200ResponseSchema": {
         "type": "array",
         "items": {
@@ -283826,54 +283127,6 @@
             {
               "value": "selected",
               "name": "Selected"
-            }
-          ]
-        }
-      },
-      "ClassroomAssignmentType": {
-        "enum": [
-          "individual",
-          "group"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Whether it\u0027s a group assignment or individual assignment.",
-        "example": "individual",
-        "x-ms-enum": {
-          "name": "ClassroomAssignmentType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "individual",
-              "name": "Individual"
-            },
-            {
-              "value": "group",
-              "name": "Group"
-            }
-          ]
-        }
-      },
-      "SimpleClassroomAssignmentType": {
-        "enum": [
-          "individual",
-          "group"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Whether it\u0027s a Group Assignment or Individual Assignment.",
-        "example": "individual",
-        "x-ms-enum": {
-          "name": "SimpleClassroomAssignmentType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "individual",
-              "name": "Individual"
-            },
-            {
-              "value": "group",
-              "name": "Group"
             }
           ]
         }
@@ -364417,171 +363670,6 @@
             },
             "has_multiple_single_files": false,
             "single_file_paths": []
-          }
-        }
-      },
-      "classroom-assignment": {
-        "value": {
-          "id": "12,",
-          "public_repo": "false,",
-          "title": "Intro to Binaries",
-          "type": "individual",
-          "invite_link": "https://classroom.github.com/a/Lx7jiUgx",
-          "invitations_enabled": "true,",
-          "slug": "intro-to-binaries",
-          "students_are_repo_admins": false,
-          "feedback_pull_requests_enabled": true,
-          "max_teams": 0,
-          "max_members": 0,
-          "editor": "codespaces",
-          "accepted": 100,
-          "submitted": 40,
-          "passing": 10,
-          "language": "ruby",
-          "deadline": "2011-01-26T19:06:43Z",
-          "stater_code_repository": {
-            "id": 1296269,
-            "full_name": "octocat/Hello-World",
-            "html_url": "https://github.com/octocat/Hello-World",
-            "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-            "private": false,
-            "default_branch": "main"
-          },
-          "classroom": {
-            "id": 1296269,
-            "name": "Programming Elixir",
-            "archived": "false,",
-            "url": "https://classroom.github.com/classrooms/1-programming-elixir"
-          }
-        }
-      },
-      "classroom-accepted-assignment": {
-        "value": {
-          "id": "12,",
-          "submitted": "false,",
-          "passing": "false,",
-          "commit_count": 5,
-          "grade": "5/10",
-          "students": [
-            {
-              "id": 1,
-              "login": "octocat",
-              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-              "html_url": "https://github.com/octocat"
-            }
-          ],
-          "repository": {
-            "id": 1296269,
-            "full_name": "octocat/Hello-World",
-            "html_url": "https://github.com/octocat/Hello-World",
-            "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-            "private": false,
-            "default_branch": "main"
-          },
-          "assignment": {
-            "id": "12,",
-            "public_repo": "false,",
-            "title": "Intro to Binaries",
-            "type": "individual",
-            "invite_link": "https://classroom.github.com/a/Lx7jiUgx",
-            "invitations_enabled": "true,",
-            "slug": "intro-to-binaries",
-            "students_are_repo_admins": false,
-            "feedback_pull_requests_enabled": true,
-            "max_teams": 0,
-            "max_members": 0,
-            "editor": "codespaces",
-            "accepted": 100,
-            "submitted": 40,
-            "passing": 10,
-            "language": "ruby",
-            "classroom": {
-              "id": 1296269,
-              "name": "Programming Elixir",
-              "archived": "false,",
-              "url": "https://classroom.github.com/classrooms/1-programming-elixir"
-            }
-          }
-        }
-      },
-      "classroom-assignment-grades": {
-        "value": [
-          {
-            "assignment_name": "Introduction to Strings",
-            "assignment_url": "https://classroom.github.com/classrooms/1337/assignments/1337",
-            "starter_code_url": "",
-            "github_username": "octocat",
-            "roster_identifier": "octocat@github.com",
-            "student_repository_name": "intro-to-strings-1337-octocat",
-            "student_repository_url": "https://github.com/timeforschool/intro-to-strings-1337-octocat",
-            "submission_timestamp": "2018-11-12 01:02",
-            "points_awarded": 10,
-            "points_available": 15,
-            "group_name": "octocat-and-friends"
-          },
-          {
-            "assignment_name": "Introduction to Strings",
-            "assignment_url": "https://classroom.github.com/classrooms/1337/assignments/1337",
-            "starter_code_url": "",
-            "github_username": "monalisa",
-            "roster_identifier": "monalisa@github.com",
-            "student_repository_name": "intro-to-strings-1337-monalisa",
-            "student_repository_url": "https://github.com/timeforschool/intro-to-strings-1337-monalisa",
-            "submission_timestamp": "2018-11-12 01:11",
-            "points_awarded": 15,
-            "points_available": 15,
-            "group_name": "monalisa-and-friends"
-          }
-        ]
-      },
-      "simple-classroom": {
-        "value": {
-          "id": 1296269,
-          "name": "Programming Elixir",
-          "archived": "false,",
-          "url": "https://classroom.github.com/classrooms/1-programming-elixir"
-        }
-      },
-      "classroom": {
-        "value": {
-          "id": 1296269,
-          "name": "Programming Elixir",
-          "archived": "false,",
-          "organization": {
-            "id": 1,
-            "login": "programming-elixir",
-            "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-            "html_url": "https://github.com/programming-elixir",
-            "name": "Learn how to build fault tolerant applications",
-            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4"
-          },
-          "url": "https://classroom.github.com/classrooms/1-programming-elixir"
-        }
-      },
-      "simple-classroom-assignment": {
-        "value": {
-          "id": "12,",
-          "public_repo": "false,",
-          "title": "Intro to Binaries",
-          "type": "individual",
-          "invite_link": "https://classroom.github.com/a/Lx7jiUgx",
-          "invitations_enabled": "true,",
-          "slug": "intro-to-binaries",
-          "students_are_repo_admins": false,
-          "feedback_pull_requests_enabled": true,
-          "max_teams": 0,
-          "max_members": 0,
-          "editor": "codespaces",
-          "accepted": 100,
-          "submitted": 40,
-          "passing": 10,
-          "language": "ruby",
-          "deadline": "2020-01-11T11:59:22Z",
-          "classroom": {
-            "id": 1296269,
-            "name": "Programming Elixir",
-            "archived": "false,",
-            "url": "https://classroom.github.com/classrooms/1-programming-elixir"
           }
         }
       },
