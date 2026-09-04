@@ -158,6 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             public static global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title();
                 if(parseNode.GetIntValue() is int integerValue)
                 {

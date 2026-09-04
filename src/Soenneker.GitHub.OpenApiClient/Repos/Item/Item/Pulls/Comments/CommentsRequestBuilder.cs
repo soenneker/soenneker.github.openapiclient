@@ -112,8 +112,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Comments
             /// <summary>Only show results that were last updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
             [QueryParameter("since")]
             public DateTimeOffset? Since { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("sort")]
             public global::Soenneker.GitHub.OpenApiClient.Models.PullsListReviewCommentsForRepoSortParameter? Sort { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.Count;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.History;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,6 +23,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.Count.CountRequestBuilder Count
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.Count.CountRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The history property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.History.HistoryRequestBuilder History
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Stargazers.StargazersRequestBuilder"/> and sets the default values.

@@ -55858,6 +55858,89 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/stargazers/history": {
+      "get": {
+        "tags": [
+          "activity"
+        ],
+        "summary": "Get repository star history",
+        "description": "Returns repository stars grouped by calendar weeks, most recent first. Pages move backward toward the repository\u0027s creation week, and weeks within a page are ordered newest to oldest, so concatenating pages produces one continuous series. Weeks without stars contain zero counts. Week and day boundaries are not guaranteed to align with UTC. The \u0060days\u0060 array contains the number of stars created on each day of the week, starting on Sunday.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/activity/starring#get-repository-star-history"
+        },
+        "operationId": "ActivityGetStargazerHistoryForRepo",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "The number of results per page (max 30). For more information, see \u0022[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\u0022",
+            "schema": {
+              "maximum": 30,
+              "minimum": 1,
+              "type": "integer",
+              "default": 30
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The page number of the results to fetch (max 100). For more information, see \u0022[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\u0022",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Repository star history",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityGetStargazerHistoryForRepo200ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "value": [
+                      {
+                        "week": 1754784000,
+                        "total": 19,
+                        "days": [
+                          0,
+                          12,
+                          7,
+                          0,
+                          0,
+                          0,
+                          0
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
     "/repos/{owner}/{repo}/stats/code_frequency": {
       "get": {
         "tags": [
@@ -97946,6 +98029,35 @@
           }
         },
         "description": "Stargazer"
+      },
+      "StargazerHistory": {
+        "title": "Stargazer History",
+        "required": [
+          "days",
+          "total",
+          "week"
+        ],
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The number of stars created on each day of the week, starting on Sunday."
+          },
+          "total": {
+            "type": "integer",
+            "description": "The number of stars created during the week.",
+            "example": 19
+          },
+          "week": {
+            "type": "integer",
+            "description": "The start of the week, given as a Unix timestamp.",
+            "example": 1754784000
+          }
+        },
+        "description": "Stargazer History"
       },
       "CodeFrequencyStat": {
         "title": "Code Frequency Stat",
@@ -265185,7 +265297,8 @@
       "ChecksCreateRequest": {
         "required": [
           "name",
-          "head_sha"
+          "head_sha",
+          "status"
         ],
         "type": "object",
         "oneOf": [
@@ -265717,6 +265830,9 @@
         "type": "string"
       },
       "ReposGetContent200Response": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -265780,6 +265896,9 @@
           "target": {
             "type": "string",
             "example": "actual/actual.md"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -268863,6 +268982,13 @@
           }
         }
       },
+      "ActivityGetStargazerHistoryForRepo200Response": {
+        "maxItems": 30,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/StargazerHistory"
+        }
+      },
       "ReposGetCodeFrequencyStats200Response": {
         "type": "array",
         "items": {
@@ -269114,6 +269240,9 @@
         }
       },
       "UsersGetAuthenticated200Response": {
+        "required": [
+          "user_view_type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -270071,6 +270200,9 @@
         }
       },
       "UsersGetById200Response": {
+        "required": [
+          "user_view_type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -270366,6 +270498,9 @@
         "additionalProperties": false
       },
       "UsersGetByUsername200Response": {
+        "required": [
+          "user_view_type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -274222,6 +274357,13 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/PullRequestStackMinimal"
+        }
+      },
+      "ActivityGetStargazerHistoryForRepo200ResponseSchema": {
+        "maxItems": 30,
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/StargazerHistory"
         }
       },
       "ReposGetCodeFrequencyStats200ResponseSchema": {

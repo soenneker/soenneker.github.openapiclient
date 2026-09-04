@@ -86,8 +86,10 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Commits.Item.CheckRuns
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CheckRunsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("app_id")]
             public long? AppId { get; set; }
+            #pragma warning restore CS1591
             /// <summary>Returns check runs with the specified `name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
