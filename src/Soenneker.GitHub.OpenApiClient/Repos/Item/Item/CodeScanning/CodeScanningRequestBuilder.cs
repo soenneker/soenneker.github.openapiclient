@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.AiScan;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Analyses;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Codeql;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CodeScanningRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The aiScan property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.AiScan.AiScanRequestBuilder AiScan
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.AiScan.AiScanRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The alerts property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeScanning.Alerts.AlertsRequestBuilder Alerts
         {

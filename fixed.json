@@ -14010,6 +14010,106 @@
         }
       }
     },
+    "/orgs/{org}/code-scanning/ai-scan": {
+      "get": {
+        "tags": [
+          "code-scanning"
+        ],
+        "summary": "Get the AI Scan setting for an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nGets the AI Scan setting stored on an organization.\n\nThe response reports the value stored on the organization. Organization respects enterprise policy.\n\nThe authenticated user must be an owner or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060, \u0060repo\u0060, or \u0060write:org\u0060 scope to use this endpoint. Organization owners can use \u0060admin:org\u0060 or \u0060repo\u0060; security managers need \u0060write:org\u0060.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/code-scanning/ai-scan#get-the-ai-scan-setting-for-an-organization"
+        },
+        "operationId": "CodeScanningGetAiScanEnablementForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningAiScanOrgSettings"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-scanning-ai-scan-org-settings"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "code-scanning"
+        ],
+        "summary": "Update the AI Scan setting for an organization",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nUpdates the AI Scan setting stored on an organization.\n\nThe organization respects the enterprise policy, so enabling is rejected when the enterprise disallows AI Scan.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060admin:org\u0060, \u0060repo\u0060, or \u0060write:org\u0060 scope to use this endpoint. Organization owners can use \u0060admin:org\u0060 or \u0060repo\u0060; security managers need \u0060write:org\u0060.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/code-scanning/ai-scan#update-the-ai-scan-setting-for-an-organization"
+        },
+        "operationId": "CodeScanningUpdateAiScanEnablementForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodeScanningAiScanOrgEnablementUpdate"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/code-scanning-ai-scan-org-enablement-update"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningAiScanOrgSettings"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-scanning-ai-scan-org-settings"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        }
+      }
+    },
     "/orgs/{org}/code-scanning/alerts": {
       "get": {
         "tags": [
@@ -35501,6 +35601,121 @@
           },
           "503": {
             "$ref": "#/components/responses/service_unavailable"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/code-scanning/ai-scan": {
+      "get": {
+        "tags": [
+          "code-scanning"
+        ],
+        "summary": "Get AI Scan enablement for a repository",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nGets whether AI Scan is enabled for a repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060security_events\u0060 scope to use this endpoint with private or public repositories, or the \u0060public_repo\u0060 scope to use this endpoint with only public repositories.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/code-scanning/code-scanning#get-ai-scan-enablement-for-a-repository"
+        },
+        "operationId": "CodeScanningGetAiScanEnablement",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningAiScanEnablement"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-scanning-ai-scan-enablement"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/code_scanning_forbidden_read"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "code-scanning"
+        ],
+        "summary": "Update AI Scan enablement for a repository",
+        "description": "\u003E [!NOTE]\n\u003E This endpoint is in public preview and is subject to change.\n\nUpdates whether AI Scan is enabled for a repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint with private or public repositories, or the \u0060public_repo\u0060 scope to use this endpoint with only public repositories.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/code-scanning/code-scanning#update-ai-scan-enablement-for-a-repository"
+        },
+        "operationId": "CodeScanningUpdateAiScanEnablement",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodeScanningAiScanEnablementUpdate"
+              },
+              "examples": {
+                "enabled": {
+                  "summary": "Enable AI Scan",
+                  "value": {
+                    "pr_scan": "enabled"
+                  }
+                },
+                "disabled": {
+                  "summary": "Disable AI Scan",
+                  "value": {
+                    "pr_scan": "disabled"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeScanningAiScanEnablement"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/code-scanning-ai-scan-enablement"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/code_scanning_forbidden_write"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
           }
         }
       }
@@ -76918,6 +77133,31 @@
         },
         "description": "The campaign metadata and alert stats."
       },
+      "CodeScanningAiScanOrgSettings": {
+        "title": "Code scanning AI Scan organization settings",
+        "required": [
+          "pr_scan"
+        ],
+        "type": "object",
+        "properties": {
+          "pr_scan": {
+            "$ref": "#/components/schemas/CodeScanningAiScanOrgSettingsPrScan"
+          }
+        },
+        "description": "The AI Scan organization setting"
+      },
+      "CodeScanningAiScanOrgEnablementUpdate": {
+        "title": "Code scanning AI Scan organization settings update",
+        "minProperties": 1,
+        "type": "object",
+        "properties": {
+          "pr_scan": {
+            "$ref": "#/components/schemas/CodeScanningAiScanOrgEnablementUpdatePrScan"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The AI Scan organization setting to apply"
+      },
       "IssueLabelsItem": {
         "type": "object",
         "oneOf": [
@@ -89047,6 +89287,29 @@
           }
         },
         "description": "You can use \u0060run_url\u0060 to track the status of the run. This includes a property status and conclusion.\nYou should not rely on this always being an actions workflow run object."
+      },
+      "CodeScanningAiScanEnablement": {
+        "required": [
+          "pr_scan"
+        ],
+        "type": "object",
+        "properties": {
+          "pr_scan": {
+            "$ref": "#/components/schemas/CodeScanningAiScanEnablementPrScan"
+          }
+        },
+        "description": "AI Scan enablement for a repository."
+      },
+      "CodeScanningAiScanEnablementUpdate": {
+        "minProperties": 1,
+        "type": "object",
+        "properties": {
+          "pr_scan": {
+            "$ref": "#/components/schemas/CodeScanningAiScanEnablementUpdatePrScan"
+          }
+        },
+        "additionalProperties": false,
+        "description": "AI Scan enablement update for a repository."
       },
       "CodeScanningAlertItems": {
         "required": [
@@ -285046,6 +285309,54 @@
           ]
         }
       },
+      "CodeScanningAiScanOrgSettingsPrScan": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether AI Scan on pull requests is enabled for the organization. The organization setting respects enterprise policy, and repositories inherit it: when disabled, repositories cannot enable AI Scan; when enabled, repositories can still opt out.",
+        "example": "enabled",
+        "x-ms-enum": {
+          "name": "CodeScanningAiScanOrgSettingsPrScan",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "CodeScanningAiScanOrgEnablementUpdatePrScan": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether AI Scan is enabled for the organization. Organization respects enterprise policy. Disabled organizations prevent repositories from enabling AI Scna. Enabled organizations enable AI Scan for their repositories, but individual repositories can opt out.",
+        "example": "enabled",
+        "x-ms-enum": {
+          "name": "CodeScanningAiScanOrgEnablementUpdatePrScan",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
       "CodeScanningAlertRuleSummarySeverity": {
         "enum": [
           "none",
@@ -289231,6 +289542,52 @@
             {
               "value": "on_push",
               "name": "OnPush"
+            }
+          ]
+        }
+      },
+      "CodeScanningAiScanEnablementPrScan": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether AI Scan is enabled for the repository.",
+        "x-ms-enum": {
+          "name": "CodeScanningAiScanEnablementPrScan",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "CodeScanningAiScanEnablementUpdatePrScan": {
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether to enable or disable AI Scan for the repository.",
+        "x-ms-enum": {
+          "name": "CodeScanningAiScanEnablementUpdatePrScan",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "enabled",
+              "name": "Enabled"
+            },
+            {
+              "value": "disabled",
+              "name": "Disabled"
             }
           ]
         }
@@ -369907,6 +370264,16 @@
           }
         }
       },
+      "code-scanning-ai-scan-org-settings": {
+        "value": {
+          "pr_scan": "enabled"
+        }
+      },
+      "code-scanning-ai-scan-org-enablement-update": {
+        "value": {
+          "pr_scan": "enabled"
+        }
+      },
       "code-scanning-organization-alert-items": {
         "value": [
           {
@@ -379907,6 +380274,11 @@
         "value": {
           "run_id": 42,
           "run_url": "https://api.github.com/repos/octocat/hello-world/actions/runs/42"
+        }
+      },
+      "code-scanning-ai-scan-enablement": {
+        "value": {
+          "pr_scan": "enabled"
         }
       },
       "code-scanning-alert-items": {
