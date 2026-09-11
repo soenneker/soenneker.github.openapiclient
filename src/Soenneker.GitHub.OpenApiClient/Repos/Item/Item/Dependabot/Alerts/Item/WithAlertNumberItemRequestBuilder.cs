@@ -42,6 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -56,6 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
             {
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -71,6 +73,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item
                 { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
+                { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationErrorSimple.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlert.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
