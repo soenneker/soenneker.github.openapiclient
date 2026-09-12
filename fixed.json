@@ -68296,7 +68296,7 @@
         "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
         "nullable": true
       },
-      "ProjectsV2ViewCreator": {
+      "PullRequestSimpleLabelsItemArchivedBy": {
         "required": [
           "avatar_url",
           "events_url",
@@ -68416,248 +68416,8 @@
             "type": "string",
             "example": "public"
           }
-        }
-      },
-      "ProjectsV2ItemSimpleContent": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Issue"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestSimple"
-          },
-          {
-            "$ref": "#/components/schemas/ProjectsV2DraftIssue"
-          }
-        ],
-        "properties": {
-          "node_id": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "description": "URL for the issue",
-            "format": "uri",
-            "example": "https://api.github.com/repositories/42/issues/1"
-          },
-          "repository_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "labels_url": {
-            "type": "string"
-          },
-          "comments_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "events_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "number": {
-            "type": "integer",
-            "description": "Number uniquely identifying the issue within its repository",
-            "example": 42
-          },
-          "state": {
-            "type": "string",
-            "description": "State of the issue; either \u0027open\u0027 or \u0027closed\u0027",
-            "example": "open"
-          },
-          "state_reason": {
-            "$ref": "#/components/schemas/IssueStateReason"
-          },
-          "title": {
-            "type": "string",
-            "description": "Title of the issue",
-            "example": "Widget creation fails in Safari on OS X 10.8"
-          },
-          "body": {
-            "type": "string",
-            "description": "Contents of the issue",
-            "nullable": true,
-            "example": "It looks like the new widget form is broken on Safari. When I try and create the widget, Safari crashes. This is reproducible on 10.8, but not 10.9. Maybe a browser bug?"
-          },
-          "user": {
-            "$ref": "#/components/schemas/NullableSimpleUser"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/IssueLabelsItem"
-            },
-            "description": "Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository"
-          },
-          "assignee": {
-            "$ref": "#/components/schemas/NullableSimpleUser"
-          },
-          "assignees": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SimpleUser"
-            }
-          },
-          "milestone": {
-            "$ref": "#/components/schemas/NullableMilestone"
-          },
-          "locked": {
-            "type": "boolean"
-          },
-          "active_lock_reason": {
-            "type": "string",
-            "nullable": true
-          },
-          "comments": {
-            "type": "integer"
-          },
-          "pull_request": {
-            "$ref": "#/components/schemas/IssuePullRequest"
-          },
-          "closed_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "draft": {
-            "type": "boolean"
-          },
-          "closed_by": {
-            "$ref": "#/components/schemas/NullableSimpleUser"
-          },
-          "body_html": {
-            "type": "string"
-          },
-          "body_text": {
-            "type": "string"
-          },
-          "timeline_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "type": {
-            "$ref": "#/components/schemas/IssueType"
-          },
-          "repository": {
-            "$ref": "#/components/schemas/Repository"
-          },
-          "performed_via_github_app": {
-            "$ref": "#/components/schemas/NullableIntegration"
-          },
-          "author_association": {
-            "$ref": "#/components/schemas/AuthorAssociation"
-          },
-          "reactions": {
-            "$ref": "#/components/schemas/ReactionRollup"
-          },
-          "sub_issues_summary": {
-            "$ref": "#/components/schemas/SubIssuesSummary"
-          },
-          "parent_issue_url": {
-            "type": "string",
-            "description": "URL to get the parent issue of this issue, if it is a sub-issue",
-            "format": "uri",
-            "nullable": true
-          },
-          "pinned_comment": {
-            "$ref": "#/components/schemas/NullableIssueComment"
-          },
-          "issue_dependencies_summary": {
-            "$ref": "#/components/schemas/IssueDependenciesSummary"
-          },
-          "issue_field_values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/IssueFieldValue"
-            }
-          },
-          "diff_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World/pull/1347.diff"
-          },
-          "patch_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat/Hello-World/pull/1347.patch"
-          },
-          "issue_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347"
-          },
-          "commits_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/commits"
-          },
-          "review_comments_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments"
-          },
-          "review_comment_url": {
-            "type": "string",
-            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"
-          },
-          "statuses_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"
-          },
-          "merged_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2011-01-26T19:01:12Z"
-          },
-          "merge_commit_sha": {
-            "type": "string",
-            "nullable": true,
-            "example": "e5bd3914e2e596debea16f433f57875b5b90bcd6"
-          },
-          "requested_reviewers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SimpleUser"
-            }
-          },
-          "requested_teams": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Team"
-            }
-          },
-          "head": {
-            "$ref": "#/components/schemas/PullRequestSimpleHead"
-          },
-          "base": {
-            "$ref": "#/components/schemas/PullRequestSimpleBase"
-          },
-          "_links": {
-            "$ref": "#/components/schemas/PullRequestSimpleLinks"
-          },
-          "auto_merge": {
-            "$ref": "#/components/schemas/AutoMerge"
-          },
-          "stack": {
-            "$ref": "#/components/schemas/PullRequestStack"
-          }
         },
-        "description": "The content represented by the item."
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
       },
       "CopilotSeatDetailsAssigningTeam": {
         "type": "object",
@@ -68759,6 +68519,74 @@
           }
         },
         "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable."
+      },
+      "CopilotSpaceCollaboratorAnyOf2": {
+        "required": [
+          "actor_type",
+          "role",
+          "id",
+          "node_id",
+          "name",
+          "slug",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "$ref": "#/components/schemas/TeamActorType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/TeamType"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "privacy": {
+            "type": "string"
+          },
+          "notification_setting": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organization_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
+          }
+        }
       },
       "WebhookConfigInsecureSsl": {
         "type": "object",
@@ -70933,71 +70761,18 @@
         },
         "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization."
       },
-      "CopilotSpaceCollaboratorAnyOf2": {
+      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
         "required": [
           "actor_type",
-          "role",
-          "id",
-          "node_id",
-          "name",
-          "slug",
-          "type"
+          "role"
         ],
         "type": "object",
         "properties": {
           "actor_type": {
-            "$ref": "#/components/schemas/TeamActorType"
+            "$ref": "#/components/schemas/UserActorType"
           },
           "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/TeamType"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "privacy": {
-            "type": "string"
-          },
-          "notification_setting": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "members_url": {
-            "type": "string"
-          },
-          "repositories_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "organization_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "parent": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
           }
         }
       },
@@ -71187,21 +70962,6 @@
           }
         ]
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
-        "required": [
-          "actor_type",
-          "role"
-        ],
-        "type": "object",
-        "properties": {
-          "actor_type": {
-            "$ref": "#/components/schemas/UserActorType"
-          },
-          "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
-          }
-        }
-      },
       "CopilotSpaceOwner": {
         "type": "object",
         "anyOf": [
@@ -71346,6 +71106,19 @@
           },
           {
             "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "ProductPricing"
+      },
+      "CreateBudgetBudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
           }
         ],
         "description": "The type of pricing for the budget",
@@ -72085,7 +71858,9 @@
           "name",
           "description",
           "color",
-          "default"
+          "default",
+          "archived_at",
+          "archived_by"
         ],
         "type": "object",
         "properties": {
@@ -72125,6 +71900,16 @@
             "type": "boolean",
             "description": "Whether this label comes by default in a new repository.",
             "example": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2023-01-01T12:00:00Z"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/LabelArchivedBy"
           }
         },
         "description": "Color-coded labels help you categorize and filter your issues (just like labels in Gmail)."
@@ -76061,19 +75846,6 @@
           ]
         }
       },
-      "CreateBudgetBudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "ProductPricing"
-      },
       "BudgetBudgetType": {
         "type": "object",
         "oneOf": [
@@ -76086,6 +75858,145 @@
         ],
         "description": "The type of pricing for the budget",
         "example": "SkuPricing"
+      },
+      "EventTypePayload": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DeleteEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DiscussionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssueCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ForkEvent"
+          },
+          {
+            "$ref": "#/components/schemas/GollumEvent"
+          },
+          {
+            "$ref": "#/components/schemas/MemberEvent"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/PushEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewEvent"
+          },
+          {
+            "$ref": "#/components/schemas/CommitCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ReleaseEvent"
+          },
+          {
+            "$ref": "#/components/schemas/WatchEvent"
+          }
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "ref_type": {
+            "type": "string"
+          },
+          "full_ref": {
+            "type": "string"
+          },
+          "master_branch": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "pusher_type": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "discussion": {
+            "$ref": "#/components/schemas/Discussion"
+          },
+          "issue": {
+            "$ref": "#/components/schemas/Issue"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleUser"
+            }
+          },
+          "label": {
+            "$ref": "#/components/schemas/Label"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
+          },
+          "forkee": {
+            "$ref": "#/components/schemas/ForkEventForkee"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GollumEventPagesItem"
+            }
+          },
+          "member": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "repository_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "push_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "head": {
+            "type": "string"
+          },
+          "before": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "pull_request": {
+            "$ref": "#/components/schemas/PullRequestMinimal"
+          },
+          "review": {
+            "$ref": "#/components/schemas/PullRequestReviewEventReview"
+          },
+          "release": {
+            "$ref": "#/components/schemas/ReleaseEventRelease"
+          }
+        }
       },
       "ActionsOrganizationPermissions": {
         "required": [
@@ -76262,142 +76173,47 @@
           ]
         }
       },
-      "EventTypePayload": {
+      "IssueLabelsItem": {
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/CreateEvent"
+            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
           },
           {
-            "$ref": "#/components/schemas/DeleteEvent"
-          },
-          {
-            "$ref": "#/components/schemas/DiscussionEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssuesEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssueCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ForkEvent"
-          },
-          {
-            "$ref": "#/components/schemas/GollumEvent"
-          },
-          {
-            "$ref": "#/components/schemas/MemberEvent"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/PushEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewEvent"
-          },
-          {
-            "$ref": "#/components/schemas/CommitCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ReleaseEvent"
-          },
-          {
-            "$ref": "#/components/schemas/WatchEvent"
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
           }
         ],
         "properties": {
-          "ref": {
+          "value": {
             "type": "string"
           },
-          "ref_type": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
             "type": "string"
           },
-          "full_ref": {
-            "type": "string"
+          "url": {
+            "type": "string",
+            "format": "uri"
           },
-          "master_branch": {
+          "name": {
             "type": "string"
           },
           "description": {
             "type": "string",
             "nullable": true
           },
-          "pusher_type": {
-            "type": "string"
+          "color": {
+            "type": "string",
+            "nullable": true
           },
-          "action": {
-            "type": "string"
+          "default": {
+            "type": "boolean"
           },
-          "discussion": {
-            "$ref": "#/components/schemas/Discussion"
-          },
-          "issue": {
-            "$ref": "#/components/schemas/Issue"
-          },
-          "assignee": {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          "assignees": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SimpleUser"
-            }
-          },
-          "label": {
-            "$ref": "#/components/schemas/Label"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            }
-          },
-          "forkee": {
-            "$ref": "#/components/schemas/ForkEventForkee"
-          },
-          "pages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GollumEventPagesItem"
-            }
-          },
-          "member": {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          "repository_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "push_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "head": {
-            "type": "string"
-          },
-          "before": {
-            "type": "string"
-          },
-          "number": {
-            "type": "integer"
-          },
-          "pull_request": {
-            "$ref": "#/components/schemas/PullRequestMinimal"
-          },
-          "review": {
-            "$ref": "#/components/schemas/PullRequestReviewEventReview"
-          },
-          "release": {
-            "$ref": "#/components/schemas/ReleaseEventRelease"
+          "archived_by": {
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2ArchivedBy"
           }
         }
       },
@@ -77158,133 +76974,6 @@
         "additionalProperties": false,
         "description": "The AI Scan organization setting to apply"
       },
-      "IssueLabelsItem": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
-          },
-          {
-            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
-          }
-        ],
-        "properties": {
-          "value": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "color": {
-            "type": "string",
-            "nullable": true
-          },
-          "default": {
-            "type": "boolean"
-          }
-        }
-      },
-      "CodeScanningAnalysisToolGuid": {
-        "type": "string",
-        "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.",
-        "nullable": true
-      },
-      "CodeScanningAlertStateQuery": {
-        "enum": [
-          "open",
-          "closed",
-          "dismissed",
-          "fixed"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "State of a code scanning alert.",
-        "x-ms-enum": {
-          "name": "CodeScanningAlertStateQuery",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "open",
-              "name": "Open"
-            },
-            {
-              "value": "closed",
-              "name": "Closed"
-            },
-            {
-              "value": "dismissed",
-              "name": "Dismissed"
-            },
-            {
-              "value": "fixed",
-              "name": "FixedValue"
-            }
-          ]
-        }
-      },
-      "CodeScanningAlertSeverity": {
-        "enum": [
-          "critical",
-          "high",
-          "medium",
-          "low",
-          "warning",
-          "note",
-          "error"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Severity of a code scanning alert.",
-        "x-ms-enum": {
-          "name": "CodeScanningAlertSeverity",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "critical",
-              "name": "Critical"
-            },
-            {
-              "value": "high",
-              "name": "High"
-            },
-            {
-              "value": "medium",
-              "name": "Medium"
-            },
-            {
-              "value": "low",
-              "name": "Low"
-            },
-            {
-              "value": "warning",
-              "name": "Warning"
-            },
-            {
-              "value": "note",
-              "name": "Note"
-            },
-            {
-              "value": "error",
-              "name": "Error"
-            }
-          ]
-        }
-      },
       "NullableIntegrationOwner": {
         "type": "object",
         "oneOf": [
@@ -77418,6 +77107,215 @@
             "example": "2019-01-26T19:14:43Z"
           }
         }
+      },
+      "CodeScanningAnalysisToolGuid": {
+        "type": "string",
+        "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.",
+        "nullable": true
+      },
+      "CodeScanningAlertStateQuery": {
+        "enum": [
+          "open",
+          "closed",
+          "dismissed",
+          "fixed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "State of a code scanning alert.",
+        "x-ms-enum": {
+          "name": "CodeScanningAlertStateQuery",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "open",
+              "name": "Open"
+            },
+            {
+              "value": "closed",
+              "name": "Closed"
+            },
+            {
+              "value": "dismissed",
+              "name": "Dismissed"
+            },
+            {
+              "value": "fixed",
+              "name": "FixedValue"
+            }
+          ]
+        }
+      },
+      "CodeScanningAlertSeverity": {
+        "enum": [
+          "critical",
+          "high",
+          "medium",
+          "low",
+          "warning",
+          "note",
+          "error"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Severity of a code scanning alert.",
+        "x-ms-enum": {
+          "name": "CodeScanningAlertSeverity",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "critical",
+              "name": "Critical"
+            },
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "medium",
+              "name": "Medium"
+            },
+            {
+              "value": "low",
+              "name": "Low"
+            },
+            {
+              "value": "warning",
+              "name": "Warning"
+            },
+            {
+              "value": "note",
+              "name": "Note"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "LabelArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
       },
       "CodeScanningAlertState": {
         "enum": [
@@ -98982,6 +98880,8 @@
           "color",
           "default",
           "description",
+          "archived_at",
+          "archived_by",
           "score"
         ],
         "type": "object",
@@ -99009,6 +98909,15 @@
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/LabelSearchResultItemArchivedBy"
           },
           "score": {
             "type": "number"
@@ -102300,7 +102209,9 @@
           "name",
           "color",
           "default",
-          "description"
+          "description",
+          "archived_at",
+          "archived_by"
         ],
         "type": "object",
         "properties": {
@@ -102314,6 +102225,15 @@
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhooksLabelArchivedBy"
           },
           "id": {
             "type": "integer",
@@ -102949,6 +102869,112 @@
           }
         },
         "nullable": true
+      },
+      "WebhooksLabelArchived": {
+        "title": "Archived label",
+        "required": [
+          "id",
+          "node_id",
+          "url",
+          "name",
+          "color",
+          "default",
+          "description",
+          "archived_at",
+          "archived_by"
+        ],
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "description": "6-character hex code, without the leading #, identifying the color"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhooksLabelArchivedBy"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the label."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the label",
+            "format": "uri"
+          }
+        }
+      },
+      "WebhooksLabelUnarchived": {
+        "title": "Unarchived label",
+        "required": [
+          "id",
+          "node_id",
+          "url",
+          "name",
+          "color",
+          "default",
+          "description",
+          "archived_at",
+          "archived_by"
+        ],
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "description": "6-character hex code, without the leading #, identifying the color"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhooksLabelArchivedBy"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the label."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the label",
+            "format": "uri"
+          }
+        }
       },
       "WebhooksMarketplacePurchase": {
         "title": "Marketplace Purchase",
@@ -109600,6 +109626,39 @@
           }
         }
       },
+      "WebhookLabelArchived": {
+        "title": "label archived event",
+        "required": [
+          "action",
+          "label",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/ArchivedAction"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
+          },
+          "label": {
+            "$ref": "#/components/schemas/WebhooksLabelArchived"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/RepositoryWebhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/SimpleUser"
+          }
+        }
+      },
       "WebhookLabelCreated": {
         "title": "label created event",
         "required": [
@@ -109689,6 +109748,39 @@
           },
           "label": {
             "$ref": "#/components/schemas/WebhooksLabel"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/RepositoryWebhooks"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/SimpleUser"
+          }
+        }
+      },
+      "WebhookLabelUnarchived": {
+        "title": "label unarchived event",
+        "required": [
+          "action",
+          "label",
+          "repository",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/UnarchivedAction"
+          },
+          "enterprise": {
+            "$ref": "#/components/schemas/EnterpriseWebhooks"
+          },
+          "installation": {
+            "$ref": "#/components/schemas/SimpleInstallation"
+          },
+          "label": {
+            "$ref": "#/components/schemas/WebhooksLabelUnarchived"
           },
           "organization": {
             "$ref": "#/components/schemas/OrganizationSimpleWebhooks"
@@ -116560,6 +116652,369 @@
           }
         }
       },
+      "ProjectsV2ItemSimpleContent": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Issue"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestSimple"
+          },
+          {
+            "$ref": "#/components/schemas/ProjectsV2DraftIssue"
+          }
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the issue",
+            "format": "uri",
+            "example": "https://api.github.com/repositories/42/issues/1"
+          },
+          "repository_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "labels_url": {
+            "type": "string"
+          },
+          "comments_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "number": {
+            "type": "integer",
+            "description": "Number uniquely identifying the issue within its repository",
+            "example": 42
+          },
+          "state": {
+            "type": "string",
+            "description": "State of the issue; either \u0027open\u0027 or \u0027closed\u0027",
+            "example": "open"
+          },
+          "state_reason": {
+            "$ref": "#/components/schemas/IssueStateReason"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the issue",
+            "example": "Widget creation fails in Safari on OS X 10.8"
+          },
+          "body": {
+            "type": "string",
+            "description": "Contents of the issue",
+            "nullable": true,
+            "example": "It looks like the new widget form is broken on Safari. When I try and create the widget, Safari crashes. This is reproducible on 10.8, but not 10.9. Maybe a browser bug?"
+          },
+          "user": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueLabelsItem"
+            },
+            "description": "Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleUser"
+            }
+          },
+          "milestone": {
+            "$ref": "#/components/schemas/NullableMilestone"
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "active_lock_reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "integer"
+          },
+          "pull_request": {
+            "$ref": "#/components/schemas/IssuePullRequest"
+          },
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "draft": {
+            "type": "boolean"
+          },
+          "closed_by": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "body_html": {
+            "type": "string"
+          },
+          "body_text": {
+            "type": "string"
+          },
+          "timeline_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/IssueType"
+          },
+          "repository": {
+            "$ref": "#/components/schemas/Repository"
+          },
+          "performed_via_github_app": {
+            "$ref": "#/components/schemas/NullableIntegration"
+          },
+          "author_association": {
+            "$ref": "#/components/schemas/AuthorAssociation"
+          },
+          "reactions": {
+            "$ref": "#/components/schemas/ReactionRollup"
+          },
+          "sub_issues_summary": {
+            "$ref": "#/components/schemas/SubIssuesSummary"
+          },
+          "parent_issue_url": {
+            "type": "string",
+            "description": "URL to get the parent issue of this issue, if it is a sub-issue",
+            "format": "uri",
+            "nullable": true
+          },
+          "pinned_comment": {
+            "$ref": "#/components/schemas/NullableIssueComment"
+          },
+          "issue_dependencies_summary": {
+            "$ref": "#/components/schemas/IssueDependenciesSummary"
+          },
+          "issue_field_values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueFieldValue"
+            }
+          },
+          "diff_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat/Hello-World/pull/1347.diff"
+          },
+          "patch_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat/Hello-World/pull/1347.patch"
+          },
+          "issue_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/issues/1347"
+          },
+          "commits_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/commits"
+          },
+          "review_comments_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/1347/comments"
+          },
+          "review_comment_url": {
+            "type": "string",
+            "example": "https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}"
+          },
+          "statuses_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e"
+          },
+          "merged_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2011-01-26T19:01:12Z"
+          },
+          "merge_commit_sha": {
+            "type": "string",
+            "nullable": true,
+            "example": "e5bd3914e2e596debea16f433f57875b5b90bcd6"
+          },
+          "requested_reviewers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleUser"
+            }
+          },
+          "requested_teams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Team"
+            }
+          },
+          "head": {
+            "$ref": "#/components/schemas/PullRequestSimpleHead"
+          },
+          "base": {
+            "$ref": "#/components/schemas/PullRequestSimpleBase"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/PullRequestSimpleLinks"
+          },
+          "auto_merge": {
+            "$ref": "#/components/schemas/AutoMerge"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/PullRequestStack"
+          }
+        },
+        "description": "The content represented by the item."
+      },
+      "ProjectsV2ViewCreator": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        }
+      },
       "CustomPropertyDefaultValue": {
         "type": "object",
         "oneOf": [
@@ -117640,6 +118095,9 @@
           },
           "default": {
             "type": "boolean"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/NullableIssueLabelsItemOneOf2ArchivedBy"
           }
         }
       },
@@ -117663,6 +118121,129 @@
           }
         ],
         "description": "The proposed value, when applicable. An array for multi-select field suggestions."
+      },
+      "PullRequestLabelsItemArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
       },
       "PullRequestMergeAsyncResultDetails": {
         "type": "object",
@@ -117949,6 +118530,410 @@
           },
           "user": {
             "$ref": "#/components/schemas/NullableSimpleUser"
+          }
+        }
+      },
+      "IssueSearchResultItemLabelsItemArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
+      "LabelSearchResultItemArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
+      "WebhooksLabelArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
+      "WebhooksLabelArchivedAllOf2": {
+        "required": [
+          "archived_at",
+          "archived_by"
+        ],
+        "type": "object",
+        "properties": {
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived.",
+            "format": "date-time"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhooksLabelArchivedAllOf2ArchivedBy"
+          }
+        }
+      },
+      "WebhooksLabelUnarchivedAllOf2": {
+        "required": [
+          "archived_at",
+          "archived_by"
+        ],
+        "type": "object",
+        "properties": {
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived. This is \u0060null\u0060 after the label is unarchived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhooksLabelUnarchivedAllOf2ArchivedBy"
           }
         }
       },
@@ -119519,6 +120504,129 @@
         },
         "description": "The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself."
       },
+      "WebhookIssuesLabeledIssueLabelsItemArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
       "WebhookIssuesOpenedChangesOldRepositoryCreatedAt": {
         "type": "object",
         "oneOf": [
@@ -120570,6 +121678,129 @@
             "format": "date-time"
           }
         ]
+      },
+      "WebhookPullRequestLabeledPullRequestLabelsItemArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
       },
       "WebhookPullRequestLabeledPullRequestRequestedReviewersItem": {
         "type": "object",
@@ -123831,6 +125062,9 @@
           },
           "default": {
             "type": "boolean"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2ArchivedBy"
           }
         }
       },
@@ -123946,6 +125180,9 @@
           },
           "default": {
             "type": "boolean"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/NullableIssueLabelsItemOneOf2ArchivedBy"
           }
         }
       },
@@ -124021,6 +125258,252 @@
             "description": "Level at which the custom pattern is defined, one of \u0022repository\u0022, \u0022organization\u0022, or \u0022enterprise\u0022"
           }
         }
+      },
+      "WebhooksLabelArchivedAllOf2ArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label."
+      },
+      "WebhooksLabelUnarchivedAllOf2ArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label. This is \u0060null\u0060 after the label is unarchived."
       },
       "WebhooksPullRequest5RequestedReviewersItemUser": {
         "title": "User",
@@ -130932,6 +132415,129 @@
           }
         }
       },
+      "IssueLabelsItemOneOf2ArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
       "EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer": {
         "type": "object",
         "anyOf": [
@@ -131077,6 +132683,129 @@
             "$ref": "#/components/schemas/NullableTeamSimple"
           }
         }
+      },
+      "NullableIssueLabelsItemOneOf2ArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
       },
       "WebhookForkForkeeRepositoryCreatedAt": {
         "type": "object",
@@ -134230,7 +135959,9 @@
           "name",
           "description",
           "color",
-          "default"
+          "default",
+          "archived_at",
+          "archived_by"
         ],
         "type": "object",
         "properties": {
@@ -134255,6 +135986,9 @@
           },
           "default": {
             "type": "boolean"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/PullRequestSimpleLabelsItemArchivedBy"
           }
         }
       },
@@ -138044,7 +139778,9 @@
           "name",
           "description",
           "color",
-          "default"
+          "default",
+          "archived_at",
+          "archived_by"
         ],
         "type": "object",
         "properties": {
@@ -138070,6 +139806,9 @@
           },
           "default": {
             "type": "boolean"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/PullRequestLabelsItemArchivedBy"
           }
         }
       },
@@ -138506,6 +140245,15 @@
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/IssueSearchResultItemLabelsItemArchivedBy"
           }
         }
       },
@@ -177009,7 +178757,9 @@
           "name",
           "color",
           "default",
-          "description"
+          "description",
+          "archived_at",
+          "archived_by"
         ],
         "type": "object",
         "properties": {
@@ -177023,6 +178773,15 @@
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhookIssuesLabeledIssueLabelsItemArchivedBy"
           },
           "id": {
             "type": "integer",
@@ -186382,7 +188141,9 @@
           "name",
           "color",
           "default",
-          "description"
+          "description",
+          "archived_at",
+          "archived_by"
         ],
         "type": "object",
         "properties": {
@@ -186396,6 +188157,15 @@
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "archived_at": {
+            "type": "string",
+            "description": "Timestamp indicating when the label was archived, or \u0060null\u0060 if it has not been archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/WebhookPullRequestLabeledPullRequestLabelsItemArchivedBy"
           },
           "id": {
             "type": "integer",
@@ -282077,6 +283847,49 @@
           ]
         }
       },
+      "TeamActorType": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The collaborator actor type."
+      },
+      "CopilotSpaceCollaboratorAnyOf2Role": {
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The role granted to the collaborator",
+        "x-ms-enum": {
+          "name": "CopilotSpaceCollaboratorAnyOf2Role",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reader",
+              "name": "Reader"
+            },
+            {
+              "value": "writer",
+              "name": "Writer"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
+      "TeamType": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
       "AppPermissionsActions": {
         "enum": [
           "read",
@@ -284174,15 +285987,15 @@
           ]
         }
       },
-      "TeamActorType": {
+      "UserActorType": {
         "enum": [
-          "Team"
+          "User"
         ],
         "type": "string",
         "additionalProperties": false,
         "description": "The collaborator actor type."
       },
-      "CopilotSpaceCollaboratorAnyOf2Role": {
+      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
         "enum": [
           "reader",
           "writer",
@@ -284192,7 +286005,7 @@
         "additionalProperties": false,
         "description": "The role granted to the collaborator",
         "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf2Role",
+          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
           "modelAsString": false,
           "values": [
             {
@@ -284209,13 +286022,6 @@
             }
           ]
         }
-      },
-      "TeamType": {
-        "enum": [
-          "Team"
-        ],
-        "type": "string",
-        "additionalProperties": false
       },
       "DependabotAlertSecurityVulnerabilitySeverity": {
         "enum": [
@@ -284305,42 +286111,6 @@
             {
               "value": "malware",
               "name": "Malware"
-            }
-          ]
-        }
-      },
-      "UserActorType": {
-        "enum": [
-          "User"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The collaborator actor type."
-      },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
-        "enum": [
-          "reader",
-          "writer",
-          "admin"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The role granted to the collaborator",
-        "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "reader",
-              "name": "Reader"
-            },
-            {
-              "value": "writer",
-              "name": "Writer"
-            },
-            {
-              "value": "admin",
-              "name": "Admin"
             }
           ]
         }
@@ -294762,6 +296532,40 @@
           ]
         }
       },
+      "ArchivedAction": {
+        "enum": [
+          "archived"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ArchivedAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "archived",
+              "name": "Archived"
+            }
+          ]
+        }
+      },
+      "UnarchivedAction": {
+        "enum": [
+          "unarchived"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "UnarchivedAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "unarchived",
+              "name": "Unarchived"
+            }
+          ]
+        }
+      },
       "CancelledAction": {
         "enum": [
           "cancelled"
@@ -295099,23 +296903,6 @@
             {
               "value": "moved",
               "name": "Moved"
-            }
-          ]
-        }
-      },
-      "ArchivedAction": {
-        "enum": [
-          "archived"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ArchivedAction",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "archived",
-              "name": "Archived"
             }
           ]
         }
@@ -295538,23 +297325,6 @@
             {
               "value": "publicized",
               "name": "Publicized"
-            }
-          ]
-        }
-      },
-      "UnarchivedAction": {
-        "enum": [
-          "unarchived"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "UnarchivedAction",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "unarchived",
-              "name": "Unarchived"
             }
           ]
         }
@@ -386821,7 +388591,9 @@
             "name": "bug",
             "description": "Something isn\u0027t working",
             "color": "f29513",
-            "default": true
+            "default": true,
+            "archived_at": null,
+            "archived_by": null
           },
           {
             "id": 208045947,
@@ -386830,7 +388602,28 @@
             "name": "enhancement",
             "description": "New feature or request",
             "color": "a2eeef",
-            "default": false
+            "default": false,
+            "archived_at": "2023-01-01T12:00:00Z",
+            "archived_by": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            }
           }
         ]
       },
@@ -386843,7 +388636,9 @@
             "name": "bug",
             "description": "Something isn\u0027t working",
             "color": "f29513",
-            "default": true
+            "default": true,
+            "archived_at": null,
+            "archived_by": null
           }
         ]
       },
@@ -387104,7 +388899,9 @@
           "name": "bug",
           "description": "Something isn\u0027t working",
           "color": "f29513",
-          "default": true
+          "default": true,
+          "archived_at": null,
+          "archived_by": null
         }
       },
       "label-2": {
@@ -387115,7 +388912,9 @@
           "name": "bug :bug:",
           "description": "Small bug fix required",
           "color": "b01f26",
-          "default": true
+          "default": true,
+          "archived_at": null,
+          "archived_by": null
         }
       },
       "language": {
@@ -392207,6 +394006,8 @@
               "color": "84b6eb",
               "default": true,
               "description": "New feature or request.",
+              "archived_at": null,
+              "archived_by": null,
               "score": 1
             },
             {
@@ -392217,6 +394018,27 @@
               "color": "ee0701",
               "default": true,
               "description": "Something isn\u0027t working.",
+              "archived_at": "2023-01-01T12:00:00Z",
+              "archived_by": {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              },
               "score": 1
             }
           ]
