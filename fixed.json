@@ -265930,11 +265930,12 @@
         "type": "object",
         "properties": {
           "patterns": {
+            "maxItems": 100,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SecretScanningCustomPatternToCreate"
             },
-            "description": "The list of custom patterns to create."
+            "description": "The list of custom patterns to create (maximum 100)."
           }
         }
       },
@@ -270654,11 +270655,12 @@
         "type": "object",
         "properties": {
           "patterns": {
+            "maxItems": 100,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SecretScanningCustomPatternToCreate"
             },
-            "description": "The list of custom patterns to create."
+            "description": "The list of custom patterns to create (maximum 100)."
           }
         }
       },
