@@ -11,6 +11,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Oidc;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.OrganizationSecrets;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.OrganizationVariables;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Policies;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runs;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Secrets;
@@ -72,6 +73,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.PermissionsRequestBuilder Permissions
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Permissions.PermissionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The policies property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Policies.PoliciesRequestBuilder Policies
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The runners property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Runners.RunnersRequestBuilder Runners

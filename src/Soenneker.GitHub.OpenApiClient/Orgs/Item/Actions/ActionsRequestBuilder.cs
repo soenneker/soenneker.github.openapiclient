@@ -6,6 +6,7 @@ using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Cache;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Oidc;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Policies;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Secrets;
@@ -41,6 +42,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.PermissionsRequestBuilder Permissions
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Permissions.PermissionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The policies property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Policies.PoliciesRequestBuilder Policies
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The runnerGroups property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.RunnerGroups.RunnerGroupsRequestBuilder RunnerGroups

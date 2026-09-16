@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleBranchNamePattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitMessagePattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReview"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCreation"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDeletion"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFileExtensionRestriction"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestriction"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleLicenseComplianceScanning"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFilePathLength"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSize"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueue"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleNonFastForward"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequest"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredLinearHistory"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredSignatures"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecks"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleTagNamePattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleUpdate"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflows"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleBranchNamePattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverage"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQuality"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitMessagePattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReview"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCreation"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDeletion"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFileExtensionRestriction"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestriction"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleLicenseComplianceScanning"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFilePathLength"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSize"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMergeQueue"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleNonFastForward"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequest"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredLinearHistory"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredSignatures"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecks"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleTagNamePattern"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleUpdate"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflows"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RepositoryRule : IComposedTypeWrapper, IParsable
@@ -20,6 +20,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleBranchNamePattern RepositoryRuleBranchNamePattern { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverage"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverage? RepositoryRuleCodeCoverage { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverage RepositoryRuleCodeCoverage { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQuality"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQuality? RepositoryRuleCodeQuality { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQuality RepositoryRuleCodeQuality { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -211,6 +227,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 result.RepositoryRuleBranchNamePattern = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleBranchNamePattern();
             }
+            else if("RepositoryRuleCodeCoverage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleCodeCoverage = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverage();
+            }
+            else if("RepositoryRuleCodeQuality".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RepositoryRuleCodeQuality = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQuality();
+            }
             else if("RepositoryRuleCodeScanning".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCodeScanning = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning();
@@ -310,6 +334,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(RepositoryRuleBranchNamePattern != null)
             {
                 return RepositoryRuleBranchNamePattern.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleCodeCoverage != null)
+            {
+                return RepositoryRuleCodeCoverage.GetFieldDeserializers();
+            }
+            else if(RepositoryRuleCodeQuality != null)
+            {
+                return RepositoryRuleCodeQuality.GetFieldDeserializers();
             }
             else if(RepositoryRuleCodeScanning != null)
             {
@@ -411,6 +443,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(RepositoryRuleBranchNamePattern != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleBranchNamePattern>(null, RepositoryRuleBranchNamePattern);
+            }
+            else if(RepositoryRuleCodeCoverage != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverage>(null, RepositoryRuleCodeCoverage);
+            }
+            else if(RepositoryRuleCodeQuality != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQuality>(null, RepositoryRuleCodeQuality);
             }
             else if(RepositoryRuleCodeScanning != null)
             {

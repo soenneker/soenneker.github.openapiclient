@@ -3,45 +3,41 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The attachment status of the code security configuration on the repository.</summary>
+    /// <summary>The type of the actor</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CodeSecurityConfigurationRepositoriesStatus
+    public enum ActionsRuleParamsActorType
     {
-        [EnumMember(Value = "attached")]
+        [EnumMember(Value = "User")]
         #pragma warning disable CS1591
-        Attached,
+        User,
         #pragma warning restore CS1591
-        [EnumMember(Value = "attaching")]
+        [EnumMember(Value = "Bot")]
         #pragma warning disable CS1591
-        Attaching,
+        Bot,
         #pragma warning restore CS1591
-        [EnumMember(Value = "detached")]
+        [EnumMember(Value = "Team")]
         #pragma warning disable CS1591
-        Detached,
+        Team,
         #pragma warning restore CS1591
-        [EnumMember(Value = "removed")]
+        [EnumMember(Value = "BusinessTeam")]
         #pragma warning disable CS1591
-        Removed,
+        BusinessTeam,
         #pragma warning restore CS1591
-        [EnumMember(Value = "enforced")]
+        [EnumMember(Value = "EnterpriseTeam")]
         #pragma warning disable CS1591
-        Enforced,
+        EnterpriseTeam,
         #pragma warning restore CS1591
-        [EnumMember(Value = "failed")]
+        [EnumMember(Value = "IntegrationInstallation")]
         #pragma warning disable CS1591
-        Failed,
+        IntegrationInstallation,
         #pragma warning restore CS1591
-        [EnumMember(Value = "updating")]
+        [EnumMember(Value = "App")]
         #pragma warning disable CS1591
-        Updating,
+        App,
         #pragma warning restore CS1591
-        [EnumMember(Value = "removed_by_enterprise")]
+        [EnumMember(Value = "RepositoryRole")]
         #pragma warning disable CS1591
-        RemovedByEnterprise,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "enterprise_enforced")]
-        #pragma warning disable CS1591
-        EnterpriseEnforced,
+        RepositoryRole,
         #pragma warning restore CS1591
     }
 }

@@ -3,21 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
-    /// <summary>The enforcement status for a security configuration</summary>
+    /// <summary>The type of the source of the policy</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CodeSecurityCreateConfigurationForEnterpriseRequestEnforcement
+    public enum ActionsPolicySourceType
     {
-        [EnumMember(Value = "enforced")]
+        [EnumMember(Value = "Repository")]
         #pragma warning disable CS1591
-        Enforced,
+        Repository,
         #pragma warning restore CS1591
-        [EnumMember(Value = "unenforced")]
+        [EnumMember(Value = "Organization")]
         #pragma warning disable CS1591
-        Unenforced,
+        Organization,
         #pragma warning restore CS1591
-        [EnumMember(Value = "enterprise_enforced")]
+        [EnumMember(Value = "Enterprise")]
         #pragma warning disable CS1591
-        EnterpriseEnforced,
+        Enterprise,
         #pragma warning restore CS1591
     }
 }

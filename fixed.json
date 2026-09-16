@@ -3138,7 +3138,7 @@
           {
             "name": "status",
             "in": "query",
-            "description": "A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.\n\nCan be: \u0060all\u0060, \u0060attached\u0060, \u0060attaching\u0060, \u0060removed\u0060, \u0060enforced\u0060, \u0060failed\u0060, \u0060updating\u0060, \u0060removed_by_enterprise\u0060",
+            "description": "A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.\n\nCan be: \u0060all\u0060, \u0060attached\u0060, \u0060attaching\u0060, \u0060removed\u0060, \u0060enforced\u0060, \u0060failed\u0060, \u0060updating\u0060, \u0060removed_by_enterprise\u0060, \u0060enterprise_enforced\u0060",
             "schema": {
               "type": "string",
               "default": "all"
@@ -9955,6 +9955,300 @@
         }
       }
     },
+    "/orgs/{org}/actions/policies": {
+      "get": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "List organization Actions policies",
+        "description": "List all Actions policies for an organization.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#list-organization-actions-policies"
+        },
+        "operationId": "ActionsGetOrgActionsPolicies",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "has_parents",
+            "in": "query",
+            "description": "Include policies configured at higher levels that apply to this organization",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsGetOrgActionsPolicies200Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policies-list"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Create an organization Actions policy",
+        "description": "Create an Actions policy for an organization.\nOmitting \u0060workflow_path\u0060 targets all workflows without storing an explicit condition.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#create-an-organization-actions-policy"
+        },
+        "operationId": "ActionsCreateOrgActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "description": "Request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActionsCreateOrgActionsPolicyRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Require approved actors",
+                    "enforcement": "active",
+                    "rules": [
+                      {
+                        "type": "restrict_actions_actors",
+                        "parameters": {
+                          "allowed_actors": [
+                            {
+                              "id": 1234,
+                              "type": "Team"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      }
+    },
+    "/orgs/{org}/actions/policies/{policyId}": {
+      "get": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Get an organization Actions policy",
+        "description": "Get a specific Actions policy for an organization.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#get-an-organization-actions-policy"
+        },
+        "operationId": "ActionsGetOrgActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Update an organization Actions policy",
+        "description": "Update an Actions policy for an organization.\nOmitting \u0060workflow_path\u0060 preserves the policy\u0027s existing workflow targeting.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#update-an-organization-actions-policy"
+        },
+        "operationId": "ActionsUpdateOrgActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActionsUpdateOrgActionsPolicyRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Updated policy name",
+                    "enforcement": "active"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Delete an organization Actions policy",
+        "description": "Delete an Actions policy for an organization.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#delete-an-organization-actions-policy"
+        },
+        "operationId": "ActionsDeleteOrgActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      }
+    },
     "/orgs/{org}/actions/runner-groups": {
       "get": {
         "tags": [
@@ -14383,7 +14677,7 @@
           "code-security"
         ],
         "summary": "Detach configurations from repositories",
-        "description": "Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nRepositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise\u0027s code security settings; the rest are detached. Inactive enterprise-enforced attachments, such as failed attachments, are detached. The request still returns \u0060204\u0060 if every repository is skipped.\n\nOAuth app tokens and classic PATs require the \u0060write:org\u0060 scope. Managing enterprise-enforced configurations also requires \u0060admin:enterprise\u0060 and is not supported by fine-grained PATs or GitHub App access tokens.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/code-security/configurations#detach-configurations-from-repositories"
@@ -14585,7 +14879,7 @@
           "code-security"
         ],
         "summary": "Attach a configuration to repositories",
-        "description": "Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.\n\nIf insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.\n\nIf insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nDirectly applying an enterprise-enforced configuration also requires permission to manage the enterprise\u0027s code security settings. Without it, the request returns \u0060403\u0060 and no repositories change.\n\nWhen applying a different configuration, repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise\u0027s code security settings; the remaining repositories are updated. The request still returns \u0060202\u0060 if every repository is skipped.\n\nOAuth app tokens and classic PATs require the \u0060write:org\u0060 scope. Directly applying an enterprise-enforced configuration also requires \u0060admin:enterprise\u0060 and is not supported by fine-grained PATs or GitHub App access tokens.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/code-security/configurations#attach-a-configuration-to-repositories"
@@ -14624,6 +14918,9 @@
         "responses": {
           "202": {
             "$ref": "#/components/responses/accepted"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
           }
         }
       }
@@ -14634,7 +14931,7 @@
           "code-security"
         ],
         "summary": "Set a code security configuration as a default for an organization",
-        "description": "Sets a code security configuration as a default to be applied to new repositories in your organization.\n\nThis configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
+        "description": "Sets a code security configuration as a default to be applied to new repositories in your organization.\n\nThis configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.\n\nThe authenticated user must be an administrator or security manager for the organization to use this endpoint. Setting an enterprise-enforced configuration as the default also requires permission to manage the enterprise\u0027s code security settings.\n\nA default set with this endpoint is an organization default, even if the configuration is owned or enforced by the enterprise. An enterprise-enforced configuration set as an enterprise-level default for the same repository visibility takes precedence.\n\nOAuth app tokens and classic PATs require the \u0060write:org\u0060 scope; setting an enterprise-enforced configuration as the default also requires \u0060admin:enterprise\u0060. Fine-grained PATs and GitHub App access tokens cannot perform that action.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/code-security/configurations#set-a-code-security-configuration-as-a-default-for-an-organization"
@@ -14733,7 +15030,7 @@
           {
             "name": "status",
             "in": "query",
-            "description": "A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.\n\nCan be: \u0060all\u0060, \u0060attached\u0060, \u0060attaching\u0060, \u0060detached\u0060, \u0060removed\u0060, \u0060enforced\u0060, \u0060failed\u0060, \u0060updating\u0060, \u0060removed_by_enterprise\u0060",
+            "description": "A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.\n\nCan be: \u0060all\u0060, \u0060attached\u0060, \u0060attaching\u0060, \u0060detached\u0060, \u0060removed\u0060, \u0060enforced\u0060, \u0060failed\u0060, \u0060updating\u0060, \u0060removed_by_enterprise\u0060, \u0060enterprise_enforced\u0060",
             "schema": {
               "type": "string",
               "default": "all"
@@ -29266,6 +29563,315 @@
           },
           "409": {
             "description": "Conflict response when changing a setting is prevented by the owning organization"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/actions/policies": {
+      "get": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "List repository Actions policies",
+        "description": "List all Actions policies for a repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#list-repository-actions-policies"
+        },
+        "operationId": "ActionsGetRepoActionsPolicies",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "name": "has_parents",
+            "in": "query",
+            "description": "Include policies configured at higher levels that apply to this repository",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsGetRepoActionsPolicies200Response"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policies-list"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Create a repository Actions policy",
+        "description": "Create an Actions policy for a repository.\nOmitting \u0060workflow_path\u0060 targets all workflows without storing an explicit condition.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#create-a-repository-actions-policy"
+        },
+        "operationId": "ActionsCreateRepoActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          }
+        ],
+        "requestBody": {
+          "description": "Request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActionsCreateRepoActionsPolicyRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Require approved actors",
+                    "enforcement": "active",
+                    "rules": [
+                      {
+                        "type": "restrict_actions_actors",
+                        "parameters": {
+                          "allowed_actors": [
+                            {
+                              "id": 1234,
+                              "type": "Team"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/actions/policies/{policyId}": {
+      "get": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Get a repository Actions policy",
+        "description": "Get a specific Actions policy for a repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#get-a-repository-actions-policy"
+        },
+        "operationId": "ActionsGetRepoActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Update a repository Actions policy",
+        "description": "Update an Actions policy for a repository.\nOmitting \u0060workflow_path\u0060 preserves the policy\u0027s existing workflow targeting.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#update-a-repository-actions-policy"
+        },
+        "operationId": "ActionsUpdateRepoActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActionsUpdateRepoActionsPolicyRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "name": "Updated policy name",
+                    "enforcement": "active"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsPolicy"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/actions-policy"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Delete a repository Actions policy",
+        "description": "Delete an Actions policy for a repository.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/policies#delete-a-repository-actions-policy"
+        },
+        "operationId": "ActionsDeleteRepoActionsPolicy",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_error"
           }
         }
       }
@@ -68296,129 +68902,6 @@
         "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
         "nullable": true
       },
-      "PullRequestSimpleLabelsItemArchivedBy": {
-        "required": [
-          "avatar_url",
-          "events_url",
-          "followers_url",
-          "following_url",
-          "gists_url",
-          "gravatar_id",
-          "html_url",
-          "id",
-          "node_id",
-          "login",
-          "organizations_url",
-          "received_events_url",
-          "repos_url",
-          "site_admin",
-          "starred_url",
-          "subscriptions_url",
-          "type",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          }
-        },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
-      },
       "CopilotSeatDetailsAssigningTeam": {
         "type": "object",
         "oneOf": [
@@ -68585,6 +69068,21 @@
           },
           "parent": {
             "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
+          }
+        }
+      },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
+        "required": [
+          "actor_type",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "$ref": "#/components/schemas/UserActorType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
           }
         }
       },
@@ -70761,20 +71259,128 @@
         },
         "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization."
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
-        "required": [
-          "actor_type",
-          "role"
-        ],
+      "CopilotSpaceOwner": {
         "type": "object",
-        "properties": {
-          "actor_type": {
-            "$ref": "#/components/schemas/UserActorType"
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
           },
-          "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
+          {
+            "$ref": "#/components/schemas/OrganizationSimple"
           }
-        }
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          },
+          "hooks_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/hooks"
+          },
+          "issues_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/issues"
+          },
+          "members_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/members{/member}"
+          },
+          "public_members_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/public_members{/member}"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "example": "A great organization"
+          }
+        },
+        "description": "The user or organization that owns this space."
       },
       "DependabotAlertPackage": {
         "required": [
@@ -70962,128 +71568,43 @@
           }
         ]
       },
-      "CopilotSpaceOwner": {
+      "ActionsPolicyConditions": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/SimpleUser"
+            "$ref": "#/components/schemas/ActionsPolicyRepoConditions"
           },
           {
-            "$ref": "#/components/schemas/OrganizationSimple"
+            "$ref": "#/components/schemas/ActionsPolicyOrgConditions"
+          },
+          {
+            "$ref": "#/components/schemas/ActionsPolicyEnterpriseConditions"
           }
         ],
         "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
+          "repository_name": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
           },
-          "email": {
-            "type": "string",
-            "nullable": true
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
           },
-          "login": {
-            "type": "string",
-            "example": "octocat"
+          "repository_id": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryIdTargetRepositoryId"
           },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
+          "repository_property": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
           },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
+          "organization_name": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName"
           },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
+          "organization_id": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId"
           },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          },
-          "hooks_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/hooks"
-          },
-          "issues_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/issues"
-          },
-          "members_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/members{/member}"
-          },
-          "public_members_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/public_members{/member}"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true,
-            "example": "A great organization"
+          "organization_property": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty"
           }
         },
-        "description": "The user or organization that owns this space."
+        "description": "When workflow path targeting is available, detailed responses represent an omitted stored\nworkflow condition as \u0060workflow_path\u0060 with \u0060include\u0060 set to \u0060[\u0022~ALL\u0022]\u0060 and \u0060exclude\u0060 set to \u0060[]\u0060.\nWhen workflow path targeting is unavailable, an omitted stored condition remains omitted."
       },
       "UpdateBudgetBudgetBudgetType": {
         "type": "object",
@@ -76244,6 +76765,357 @@
             "description": "Whether GitHub Actions can approve pull requests. Enabling this can be a security risk."
           }
         }
+      },
+      "RepositoryRuleEnforcement": {
+        "enum": [
+          "disabled",
+          "active",
+          "evaluate"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The enforcement level of the ruleset. \u0060evaluate\u0060 allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (\u0060evaluate\u0060 is only available with GitHub Enterprise).",
+        "x-ms-enum": {
+          "name": "RepositoryRuleEnforcement",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "disabled",
+              "name": "Disabled"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "evaluate",
+              "name": "Evaluate"
+            }
+          ]
+        }
+      },
+      "ActionsPolicyWorkflowPathCondition": {
+        "title": "Actions policy workflow path condition",
+        "type": "object",
+        "properties": {
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
+          }
+        },
+        "description": "Parameters for an Actions policy workflow path condition. Omitting \u0060workflow_path\u0060 when creating\na policy targets all workflows without storing an explicit condition. Omitting it when updating a\npolicy preserves the existing workflow targeting. For new or changed workflow conditions, the API\nrequires at least one included or excluded pattern. This is validated server-side rather than by\nthis schema, which can also describe existing stored conditions."
+      },
+      "ActionsPolicyRepoConditions": {
+        "title": "Repository Actions policy conditions",
+        "type": "object",
+        "oneOf": [
+          {
+            "maxProperties": 0,
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/ActionsPolicyRepoConditionsOneOf2"
+          }
+        ],
+        "properties": {
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
+          }
+        },
+        "description": "Conditions for a repository Actions policy. The object may be empty to preserve or use the\ndefault workflow targeting, or contain only \u0060workflow_path\u0060."
+      },
+      "RepositoryRulesetConditionsRepositoryNameTarget": {
+        "title": "Repository ruleset conditions for repository names",
+        "required": [
+          "repository_name"
+        ],
+        "type": "object",
+        "properties": {
+          "repository_name": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
+          }
+        },
+        "description": "Parameters for a repository name condition"
+      },
+      "RepositoryRulesetConditionsRepositoryIdTarget": {
+        "title": "Repository ruleset conditions for repository IDs",
+        "required": [
+          "repository_id"
+        ],
+        "type": "object",
+        "properties": {
+          "repository_id": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryIdTargetRepositoryId"
+          }
+        },
+        "description": "Parameters for a repository ID condition"
+      },
+      "RepositoryRulesetConditionsRepositoryPropertySpec": {
+        "title": "Repository ruleset property targeting definition",
+        "required": [
+          "name",
+          "property_values"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the repository property to target"
+          },
+          "property_values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The values to match for the repository property"
+          },
+          "source": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertySpecSource"
+          }
+        },
+        "description": "Parameters for a targeting a repository property"
+      },
+      "RepositoryRulesetConditionsRepositoryPropertyTarget": {
+        "title": "Repository ruleset conditions for repository properties",
+        "required": [
+          "repository_property"
+        ],
+        "type": "object",
+        "properties": {
+          "repository_property": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
+          }
+        },
+        "description": "Parameters for a repository property condition"
+      },
+      "ActionsPolicyOrgConditions": {
+        "title": "Organization Actions policy conditions",
+        "type": "object",
+        "properties": {
+          "repository_name": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
+          },
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
+          },
+          "repository_id": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryIdTargetRepositoryId"
+          },
+          "repository_property": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
+          }
+        },
+        "description": "Conditions for an organization Actions policy. The conditions object should contain one of\n\u0060repository_name\u0060, \u0060repository_id\u0060, or \u0060repository_property\u0060, and may also contain \u0060workflow_path\u0060."
+      },
+      "EnterpriseRulesetConditionsOrganizationNameTarget": {
+        "title": "Repository ruleset conditions for organization names",
+        "required": [
+          "organization_name"
+        ],
+        "type": "object",
+        "properties": {
+          "organization_name": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName"
+          }
+        },
+        "description": "Parameters for an organization name condition"
+      },
+      "EnterpriseRulesetConditionsOrganizationIdTarget": {
+        "title": "Repository ruleset conditions for organization IDs",
+        "required": [
+          "organization_id"
+        ],
+        "type": "object",
+        "properties": {
+          "organization_id": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId"
+          }
+        },
+        "description": "Parameters for an organization ID condition"
+      },
+      "EnterpriseRulesetConditionsOrganizationPropertySpec": {
+        "title": "Repository ruleset property targeting definition",
+        "required": [
+          "name",
+          "property_values"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the organization property to target"
+          },
+          "property_values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The values to match for the organization property"
+          }
+        },
+        "description": "Parameters for a targeting a organization property"
+      },
+      "EnterpriseRulesetConditionsOrganizationPropertyTarget": {
+        "title": "Repository ruleset conditions for organization properties",
+        "required": [
+          "organization_property"
+        ],
+        "type": "object",
+        "properties": {
+          "organization_property": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty"
+          }
+        },
+        "description": "Parameters for a organization property condition"
+      },
+      "ActionsPolicyEnterpriseConditions": {
+        "title": "Enterprise Actions policy conditions",
+        "type": "object",
+        "properties": {
+          "organization_name": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName"
+          },
+          "repository_name": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
+          },
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
+          },
+          "repository_property": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
+          },
+          "organization_id": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId"
+          },
+          "organization_property": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty"
+          }
+        },
+        "description": "Conditions for an enterprise Actions policy. The conditions object supports one organization\ntarget (\u0060organization_name\u0060, \u0060organization_id\u0060, or \u0060organization_property\u0060) combined with one\nrepository target (\u0060repository_name\u0060 or \u0060repository_property\u0060), and may also contain \u0060workflow_path\u0060."
+      },
+      "ActionsRuleParamsActor": {
+        "title": "Actor",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID of the actor authorized to trigger Actions workflows.",
+            "format": "int64"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ActionsRuleParamsActorType"
+          }
+        },
+        "description": "An actor authorized to trigger Actions workflows"
+      },
+      "ActionsRuleRestrictActionsActors": {
+        "title": "restrict_actions_actors",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/RestrictActionsActorsType"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/ActionsRuleRestrictActionsActorsParameters"
+          }
+        },
+        "description": "Choose specific actors that are authorized to trigger Actions workflows."
+      },
+      "ActionsRuleRestrictActionEvents": {
+        "title": "restrict_action_events",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/RestrictActionEventsType"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/ActionsRuleRestrictActionEventsParameters"
+          }
+        },
+        "description": "Choose specific GitHub events that will trigger Actions workflows."
+      },
+      "ActionsRule": {
+        "title": "Actions Rule",
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ActionsRuleRestrictActionsActors"
+          },
+          {
+            "$ref": "#/components/schemas/ActionsRuleRestrictActionEvents"
+          }
+        ],
+        "description": "An actions rule."
+      },
+      "ActionsPolicy": {
+        "title": "Actions Policy",
+        "required": [
+          "id",
+          "name",
+          "target",
+          "source_type",
+          "source",
+          "enforcement"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The ID of the policy",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the policy"
+          },
+          "target": {
+            "$ref": "#/components/schemas/ActionsTarget"
+          },
+          "source_type": {
+            "$ref": "#/components/schemas/ActionsPolicySourceType"
+          },
+          "source": {
+            "type": "string",
+            "description": "The name of the source"
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/RepositoryRuleEnforcement"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/ActionsPolicyConditions"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRule"
+            },
+            "description": "An array of rules within the policy"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ActionsPolicyLinks"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "An Actions policy defines rules for workflow execution protection."
       },
       "RunnerGroupsOrg": {
         "required": [
@@ -83131,34 +84003,6 @@
           }
         ]
       },
-      "RepositoryRuleEnforcement": {
-        "enum": [
-          "disabled",
-          "active",
-          "evaluate"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The enforcement level of the ruleset. \u0060evaluate\u0060 allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (\u0060evaluate\u0060 is only available with GitHub Enterprise).",
-        "x-ms-enum": {
-          "name": "RepositoryRuleEnforcement",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "disabled",
-              "name": "Disabled"
-            },
-            {
-              "value": "active",
-              "name": "Active"
-            },
-            {
-              "value": "evaluate",
-              "name": "Evaluate"
-            }
-          ]
-        }
-      },
       "RepositoryRulesetBypassActor": {
         "title": "Repository Ruleset Bypass Actor",
         "required": [
@@ -83189,70 +84033,6 @@
           }
         },
         "description": "Parameters for a repository ruleset ref name condition"
-      },
-      "RepositoryRulesetConditionsRepositoryNameTarget": {
-        "title": "Repository ruleset conditions for repository names",
-        "required": [
-          "repository_name"
-        ],
-        "type": "object",
-        "properties": {
-          "repository_name": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
-          }
-        },
-        "description": "Parameters for a repository name condition"
-      },
-      "RepositoryRulesetConditionsRepositoryIdTarget": {
-        "title": "Repository ruleset conditions for repository IDs",
-        "required": [
-          "repository_id"
-        ],
-        "type": "object",
-        "properties": {
-          "repository_id": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryIdTargetRepositoryId"
-          }
-        },
-        "description": "Parameters for a repository ID condition"
-      },
-      "RepositoryRulesetConditionsRepositoryPropertySpec": {
-        "title": "Repository ruleset property targeting definition",
-        "required": [
-          "name",
-          "property_values"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the repository property to target"
-          },
-          "property_values": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The values to match for the repository property"
-          },
-          "source": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertySpecSource"
-          }
-        },
-        "description": "Parameters for a targeting a repository property"
-      },
-      "RepositoryRulesetConditionsRepositoryPropertyTarget": {
-        "title": "Repository ruleset conditions for repository properties",
-        "required": [
-          "repository_property"
-        ],
-        "type": "object",
-        "properties": {
-          "repository_property": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
-          }
-        },
-        "description": "Parameters for a repository property condition"
       },
       "OrgRulesetConditions": {
         "title": "Organization ruleset conditions",
@@ -83715,6 +84495,38 @@
         },
         "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated."
       },
+      "RepositoryRuleCodeQuality": {
+        "title": "code_quality",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CodeQualityType"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/RepositoryRuleCodeQualityParameters"
+          }
+        },
+        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged."
+      },
+      "RepositoryRuleCodeCoverage": {
+        "title": "code_coverage",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CodeCoverageType"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/RepositoryRuleCodeCoverageParameters"
+          }
+        },
+        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged."
+      },
       "RepositoryRuleCopilotCodeReview": {
         "title": "copilot_code_review",
         "required": [
@@ -83862,6 +84674,12 @@
           },
           {
             "$ref": "#/components/schemas/RepositoryRuleCodeScanning"
+          },
+          {
+            "$ref": "#/components/schemas/RepositoryRuleCodeQuality"
+          },
+          {
+            "$ref": "#/components/schemas/RepositoryRuleCodeCoverage"
           },
           {
             "$ref": "#/components/schemas/RepositoryRuleCopilotCodeReview"
@@ -116652,6 +117470,129 @@
           }
         }
       },
+      "PullRequestSimpleLabelsItemArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
       "ProjectsV2ItemSimpleContent": {
         "type": "object",
         "oneOf": [
@@ -135530,6 +136471,174 @@
         },
         "description": "Provides details of static public IP limits for GitHub-hosted Hosted Runners"
       },
+      "ActionsPolicyWorkflowPathConditionWorkflowPath": {
+        "required": [
+          "include",
+          "exclude"
+        ],
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of workflow file paths or glob patterns to include. An empty array includes all\nworkflows not matched by an excluded pattern. Use \u0060~ALL\u0060 by itself to include all workflows.\n\u0060~ALL\u0060 cannot be combined with other included patterns."
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of workflow file paths or glob patterns to exclude. The condition will not pass\nif any of these patterns match. \u0060~ALL\u0060 is not allowed in this array."
+          }
+        }
+      },
+      "RepositoryRulesetConditionsRepositoryNameTargetRepositoryName": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts \u0060~ALL\u0060 to include all repositories."
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match."
+          },
+          "protected": {
+            "type": "boolean",
+            "description": "Whether renaming of target repositories is prevented."
+          }
+        }
+      },
+      "RepositoryRulesetConditionsRepositoryIdTargetRepositoryId": {
+        "type": "object",
+        "properties": {
+          "repository_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass."
+          }
+        }
+      },
+      "RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertySpec"
+            },
+            "description": "The repository properties and values to include. All of these properties must match for the condition to pass."
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertySpec"
+            },
+            "description": "The repository properties and values to exclude. The condition will not pass if any of these properties match."
+          }
+        }
+      },
+      "EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of organization names or patterns to include. One of these patterns must match for the condition to pass. Also accepts \u0060~ALL\u0060 to include all organizations and ~EMUS to target all enterprise managed user accounts."
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of organization names or patterns to exclude. The condition will not pass if any of these patterns match."
+          }
+        }
+      },
+      "EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId": {
+        "type": "object",
+        "properties": {
+          "organization_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The organization IDs that the ruleset applies to. One of these IDs must match for the condition to pass."
+          }
+        }
+      },
+      "EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertySpec"
+            },
+            "description": "The organization properties and values to include. All of these properties must match for the condition to pass."
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertySpec"
+            },
+            "description": "The organization properties and values to exclude. The condition will not pass if any of these properties match."
+          }
+        }
+      },
+      "ActionsRuleRestrictActionsActorsParameters": {
+        "required": [
+          "allowed_actors"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRuleParamsActor"
+            },
+            "description": "Select the actors who can run Actions workflows."
+          }
+        }
+      },
+      "ActionsRuleRestrictActionEventsParameters": {
+        "required": [
+          "allowed_events"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRuleRestrictActionEventsParametersAllowedEventsItem"
+            },
+            "description": "Select the events that can trigger Actions workflows."
+          }
+        }
+      },
+      "ActionsPolicyLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "$ref": "#/components/schemas/ActionsPolicyLinksSelf"
+          },
+          "html": {
+            "$ref": "#/components/schemas/ActionsPolicyLinksHtml"
+          }
+        }
+      },
       "AuthenticationTokenPermissions": {
         "type": "object",
         "example": {
@@ -136270,60 +137379,6 @@
           }
         }
       },
-      "RepositoryRulesetConditionsRepositoryNameTargetRepositoryName": {
-        "type": "object",
-        "properties": {
-          "include": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Array of repository names or patterns to include. One of these patterns must match for the condition to pass. Also accepts \u0060~ALL\u0060 to include all repositories."
-          },
-          "exclude": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match."
-          },
-          "protected": {
-            "type": "boolean",
-            "description": "Whether renaming of target repositories is prevented."
-          }
-        }
-      },
-      "RepositoryRulesetConditionsRepositoryIdTargetRepositoryId": {
-        "type": "object",
-        "properties": {
-          "repository_ids": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
-            "description": "The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass."
-          }
-        }
-      },
-      "RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty": {
-        "type": "object",
-        "properties": {
-          "include": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertySpec"
-            },
-            "description": "The repository properties and values to include. All of these properties must match for the condition to pass."
-          },
-          "exclude": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertySpec"
-            },
-            "description": "The repository properties and values to exclude. The condition will not pass if any of these properties match."
-          }
-        }
-      },
       "RepositoryRuleUpdateParameters": {
         "required": [
           "update_allows_fetch_and_merge"
@@ -136627,6 +137682,36 @@
               "$ref": "#/components/schemas/RepositoryRuleParamsCodeScanningTool"
             },
             "description": "Tools that must provide code scanning results for this rule to pass."
+          }
+        }
+      },
+      "RepositoryRuleCodeQualityParameters": {
+        "required": [
+          "severity"
+        ],
+        "type": "object",
+        "properties": {
+          "severity": {
+            "$ref": "#/components/schemas/RepositoryRuleCodeQualityParametersSeverity"
+          }
+        }
+      },
+      "RepositoryRuleCodeCoverageParameters": {
+        "type": "object",
+        "properties": {
+          "max_coverage_drop": {
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+            "format": "float"
+          },
+          "minimum_coverage": {
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+            "format": "float"
           }
         }
       },
@@ -167945,6 +169030,24 @@
               "type": "string"
             },
             "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
+          }
+        }
+      },
+      "ActionsPolicyLinksSelf": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The URL of the policy"
+          }
+        }
+      },
+      "ActionsPolicyLinksHtml": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The html URL of the policy"
           }
         }
       },
@@ -263033,6 +264136,54 @@
           }
         }
       },
+      "ActionsCreateOrgActionsPolicyRequest": {
+        "required": [
+          "name",
+          "enforcement"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the policy."
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/RepositoryRuleEnforcement"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/ActionsPolicyOrgConditions"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRule"
+            },
+            "description": "An array of rules within the policy."
+          }
+        }
+      },
+      "ActionsUpdateOrgActionsPolicyRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the policy."
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/RepositoryRuleEnforcement"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/ActionsPolicyOrgConditions"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRule"
+            },
+            "description": "An array of rules within the policy."
+          }
+        }
+      },
       "ActionsCreateSelfHostedRunnerGroupForOrgRequest": {
         "required": [
           "name"
@@ -266444,6 +267595,54 @@
           "sha_pinning_required": {
             "type": "boolean",
             "description": "Whether actions must be pinned to a full-length commit SHA."
+          }
+        }
+      },
+      "ActionsCreateRepoActionsPolicyRequest": {
+        "required": [
+          "name",
+          "enforcement"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the policy."
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/RepositoryRuleEnforcement"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/ActionsPolicyRepoConditions"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRule"
+            },
+            "description": "An array of rules within the policy."
+          }
+        }
+      },
+      "ActionsUpdateRepoActionsPolicyRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the policy."
+          },
+          "enforcement": {
+            "$ref": "#/components/schemas/RepositoryRuleEnforcement"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/ActionsPolicyRepoConditions"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsRule"
+            },
+            "description": "An array of rules within the policy."
           }
         }
       },
@@ -274139,6 +275338,26 @@
           }
         }
       },
+      "ActionsGetOrgActionsPolicies200Response": {
+        "required": [
+          "total_count",
+          "policies"
+        ],
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "description": "The total number of Actions policies."
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsPolicy"
+            },
+            "description": "An array of Actions policies."
+          }
+        }
+      },
       "ActionsListSelfHostedRunnerGroupsForOrg200Response": {
         "required": [
           "total_count",
@@ -275211,6 +276430,26 @@
             "items": {
               "$ref": "#/components/schemas/ActionsVariable"
             }
+          }
+        }
+      },
+      "ActionsGetRepoActionsPolicies200Response": {
+        "required": [
+          "total_count",
+          "policies"
+        ],
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "description": "The total number of Actions policies."
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActionsPolicy"
+            },
+            "description": "An array of Actions policies."
           }
         }
       },
@@ -277120,6 +278359,18 @@
       },
       "AcceptedResponseContent": {
         "type": "object"
+      },
+      "ActionsPolicyRepoConditionsOneOf2": {
+        "maxProperties": 1,
+        "required": [
+          "workflow_path"
+        ],
+        "type": "object",
+        "properties": {
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
+          }
+        }
       },
       "CopilotSpaceCollaboratorAnyOf1": {
         "required": [
@@ -283892,6 +285143,42 @@
         "type": "string",
         "additionalProperties": false
       },
+      "UserActorType": {
+        "enum": [
+          "User"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The collaborator actor type."
+      },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The role granted to the collaborator",
+        "x-ms-enum": {
+          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reader",
+              "name": "Reader"
+            },
+            {
+              "value": "writer",
+              "name": "Writer"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
       "AppPermissionsActions": {
         "enum": [
           "read",
@@ -285888,7 +287175,8 @@
       "CodeSecurityConfigurationEnforcement": {
         "enum": [
           "enforced",
-          "unenforced"
+          "unenforced",
+          "enterprise_enforced"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -285904,6 +287192,10 @@
             {
               "value": "unenforced",
               "name": "Unenforced"
+            },
+            {
+              "value": "enterprise_enforced",
+              "name": "EnterpriseEnforced"
             }
           ]
         }
@@ -285945,7 +287237,8 @@
           "enforced",
           "failed",
           "updating",
-          "removed_by_enterprise"
+          "removed_by_enterprise",
+          "enterprise_enforced"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -285985,42 +287278,10 @@
             {
               "value": "removed_by_enterprise",
               "name": "RemovedByEnterprise"
-            }
-          ]
-        }
-      },
-      "UserActorType": {
-        "enum": [
-          "User"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The collaborator actor type."
-      },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
-        "enum": [
-          "reader",
-          "writer",
-          "admin"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The role granted to the collaborator",
-        "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "reader",
-              "name": "Reader"
             },
             {
-              "value": "writer",
-              "name": "Writer"
-            },
-            {
-              "value": "admin",
-              "name": "Admin"
+              "value": "enterprise_enforced",
+              "name": "EnterpriseEnforced"
             }
           ]
         }
@@ -286871,6 +288132,106 @@
             }
           ]
         }
+      },
+      "RepositoryRulesetConditionsRepositoryPropertySpecSource": {
+        "enum": [
+          "custom",
+          "system"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The source of the repository property. Defaults to \u0027custom\u0027 if not specified.",
+        "x-ms-enum": {
+          "name": "RepositoryRulesetConditionsRepositoryPropertySpecSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "custom",
+              "name": "Custom"
+            },
+            {
+              "value": "system",
+              "name": "System"
+            }
+          ]
+        }
+      },
+      "ActionsRuleParamsActorType": {
+        "enum": [
+          "User",
+          "Bot",
+          "Team",
+          "BusinessTeam",
+          "EnterpriseTeam",
+          "IntegrationInstallation",
+          "App",
+          "RepositoryRole"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the actor"
+      },
+      "RestrictActionsActorsType": {
+        "enum": [
+          "restrict_actions_actors"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "RestrictActionsActorsType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "restrict_actions_actors",
+              "name": "RestrictActionsActors"
+            }
+          ]
+        }
+      },
+      "RestrictActionEventsType": {
+        "enum": [
+          "restrict_action_events"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "RestrictActionEventsType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "restrict_action_events",
+              "name": "RestrictActionEvents"
+            }
+          ]
+        }
+      },
+      "ActionsTarget": {
+        "enum": [
+          "actions"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The target of the policy",
+        "x-ms-enum": {
+          "name": "ActionsTarget",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "actions",
+              "name": "Actions"
+            }
+          ]
+        }
+      },
+      "ActionsPolicySourceType": {
+        "enum": [
+          "Repository",
+          "Organization",
+          "Enterprise"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the source of the policy"
       },
       "RunnerLabelType": {
         "enum": [
@@ -289239,29 +290600,6 @@
           ]
         }
       },
-      "RepositoryRulesetConditionsRepositoryPropertySpecSource": {
-        "enum": [
-          "custom",
-          "system"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The source of the repository property. Defaults to \u0027custom\u0027 if not specified.",
-        "x-ms-enum": {
-          "name": "RepositoryRulesetConditionsRepositoryPropertySpecSource",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "custom",
-              "name": "Custom"
-            },
-            {
-              "value": "system",
-              "name": "System"
-            }
-          ]
-        }
-      },
       "RepositoryRuleCreationType": {
         "enum": [
           "creation",
@@ -289762,6 +291100,40 @@
             {
               "value": "code_scanning",
               "name": "CodeScanning"
+            }
+          ]
+        }
+      },
+      "CodeQualityType": {
+        "enum": [
+          "code_quality"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CodeQualityType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "code_quality",
+              "name": "CodeQuality"
+            }
+          ]
+        }
+      },
+      "CodeCoverageType": {
+        "enum": [
+          "code_coverage"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CodeCoverageType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "code_coverage",
+              "name": "CodeCoverage"
             }
           ]
         }
@@ -291895,7 +293267,8 @@
           "enforced",
           "failed",
           "updating",
-          "removed_by_enterprise"
+          "removed_by_enterprise",
+          "enterprise_enforced"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -291935,6 +293308,10 @@
             {
               "value": "removed_by_enterprise",
               "name": "RemovedByEnterprise"
+            },
+            {
+              "value": "enterprise_enforced",
+              "name": "EnterpriseEnforced"
             }
           ]
         }
@@ -300346,6 +301723,198 @@
           ]
         }
       },
+      "ActionsRuleRestrictActionEventsParametersAllowedEventsItem": {
+        "enum": [
+          "branch_protection_rule",
+          "check_run",
+          "check_suite",
+          "create",
+          "delete",
+          "deployment",
+          "deployment_status",
+          "discussion",
+          "discussion_comment",
+          "fork",
+          "gollum",
+          "image_version",
+          "issue_comment",
+          "issues",
+          "label",
+          "merge_group",
+          "milestone",
+          "page_build",
+          "project",
+          "project_card",
+          "project_column",
+          "public",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "pull_request_target",
+          "push",
+          "registry_package",
+          "release",
+          "repository_dispatch",
+          "schedule",
+          "status",
+          "watch",
+          "workflow_call",
+          "workflow_dispatch",
+          "workflow_run"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ActionsRuleRestrictActionEventsParametersAllowedEventsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "branch_protection_rule",
+              "name": "BranchProtectionRule"
+            },
+            {
+              "value": "check_run",
+              "name": "CheckRun"
+            },
+            {
+              "value": "check_suite",
+              "name": "CheckSuite"
+            },
+            {
+              "value": "create",
+              "name": "Create"
+            },
+            {
+              "value": "delete",
+              "name": "Delete"
+            },
+            {
+              "value": "deployment",
+              "name": "Deployment"
+            },
+            {
+              "value": "deployment_status",
+              "name": "DeploymentStatus"
+            },
+            {
+              "value": "discussion",
+              "name": "Discussion"
+            },
+            {
+              "value": "discussion_comment",
+              "name": "DiscussionComment"
+            },
+            {
+              "value": "fork",
+              "name": "Fork"
+            },
+            {
+              "value": "gollum",
+              "name": "Gollum"
+            },
+            {
+              "value": "image_version",
+              "name": "ImageVersion"
+            },
+            {
+              "value": "issue_comment",
+              "name": "IssueComment"
+            },
+            {
+              "value": "issues",
+              "name": "Issues"
+            },
+            {
+              "value": "label",
+              "name": "Label"
+            },
+            {
+              "value": "merge_group",
+              "name": "MergeGroup"
+            },
+            {
+              "value": "milestone",
+              "name": "Milestone"
+            },
+            {
+              "value": "page_build",
+              "name": "PageBuild"
+            },
+            {
+              "value": "project",
+              "name": "Project"
+            },
+            {
+              "value": "project_card",
+              "name": "ProjectCard"
+            },
+            {
+              "value": "project_column",
+              "name": "ProjectColumn"
+            },
+            {
+              "value": "public",
+              "name": "PublicValue"
+            },
+            {
+              "value": "pull_request",
+              "name": "PullRequest"
+            },
+            {
+              "value": "pull_request_review",
+              "name": "PullRequestReview"
+            },
+            {
+              "value": "pull_request_review_comment",
+              "name": "PullRequestReviewComment"
+            },
+            {
+              "value": "pull_request_target",
+              "name": "PullRequestTarget"
+            },
+            {
+              "value": "push",
+              "name": "Push"
+            },
+            {
+              "value": "registry_package",
+              "name": "RegistryPackage"
+            },
+            {
+              "value": "release",
+              "name": "Release"
+            },
+            {
+              "value": "repository_dispatch",
+              "name": "RepositoryDispatch"
+            },
+            {
+              "value": "schedule",
+              "name": "Schedule"
+            },
+            {
+              "value": "status",
+              "name": "Status"
+            },
+            {
+              "value": "watch",
+              "name": "Watch"
+            },
+            {
+              "value": "workflow_call",
+              "name": "WorkflowCall"
+            },
+            {
+              "value": "workflow_dispatch",
+              "name": "WorkflowDispatch"
+            },
+            {
+              "value": "workflow_run",
+              "name": "WorkflowRun"
+            }
+          ]
+        }
+      },
       "CopilotSpaceResourcesAttributesItemResourceType": {
         "enum": [
           "repository",
@@ -300836,6 +302405,39 @@
             {
               "value": "regex",
               "name": "Regex"
+            }
+          ]
+        }
+      },
+      "RepositoryRuleCodeQualityParametersSeverity": {
+        "enum": [
+          "errors",
+          "warnings",
+          "notes",
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+        "x-ms-enum": {
+          "name": "RepositoryRuleCodeQualityParametersSeverity",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "errors",
+              "name": "Errors"
+            },
+            {
+              "value": "warnings",
+              "name": "Warnings"
+            },
+            {
+              "value": "notes",
+              "name": "Notes"
+            },
+            {
+              "value": "all",
+              "name": "All"
             }
           ]
         }
@@ -350275,7 +351877,8 @@
       "CodeSecurityCreateConfigurationForEnterpriseRequestEnforcement": {
         "enum": [
           "enforced",
-          "unenforced"
+          "unenforced",
+          "enterprise_enforced"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -350291,6 +351894,10 @@
             {
               "value": "unenforced",
               "name": "Unenforced"
+            },
+            {
+              "value": "enterprise_enforced",
+              "name": "EnterpriseEnforced"
             }
           ]
         }
@@ -350779,7 +352386,8 @@
       "CodeSecurityUpdateEnterpriseConfigurationRequestEnforcement": {
         "enum": [
           "enforced",
-          "unenforced"
+          "unenforced",
+          "enterprise_enforced"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -350795,6 +352403,10 @@
             {
               "value": "unenforced",
               "name": "Unenforced"
+            },
+            {
+              "value": "enterprise_enforced",
+              "name": "EnterpriseEnforced"
             }
           ]
         }
@@ -371012,6 +372624,95 @@
         "value": {
           "default_workflow_permissions": "read",
           "can_approve_pull_request_reviews": true
+        }
+      },
+      "actions-policies-list": {
+        "value": {
+          "total_count": 2,
+          "policies": [
+            {
+              "id": 1,
+              "name": "Restrict workflow modifications",
+              "target": "actions",
+              "source_type": "Enterprise",
+              "source": "enterprise",
+              "enforcement": "active",
+              "node_id": "RUL_lA",
+              "_links": {
+                "self": {
+                  "href": "https://api.github.com/enterprises/enterprise/actions/policies/1"
+                },
+                "html": {
+                  "href": "https://github.com/enterprises/enterprise/settings/policies/actions/1"
+                }
+              },
+              "created_at": "2024-01-15T10:30:00Z",
+              "updated_at": "2024-01-15T10:30:00Z"
+            },
+            {
+              "id": 2,
+              "name": "Restrict workflow events",
+              "target": "actions",
+              "source_type": "Enterprise",
+              "source": "enterprise",
+              "enforcement": "evaluate",
+              "node_id": "RUL_lB",
+              "_links": {
+                "self": {
+                  "href": "https://api.github.com/enterprises/enterprise/actions/policies/2"
+                },
+                "html": {
+                  "href": "https://github.com/enterprises/enterprise/settings/policies/actions/2"
+                }
+              },
+              "created_at": "2024-01-15T11:00:00Z",
+              "updated_at": "2024-01-15T11:00:00Z"
+            }
+          ]
+        }
+      },
+      "actions-policy": {
+        "value": {
+          "id": 1,
+          "name": "Restrict workflow modifications",
+          "target": "actions",
+          "source_type": "Enterprise",
+          "source": "enterprise",
+          "enforcement": "active",
+          "conditions": {
+            "organization_name": {
+              "include": [
+                "octo-org"
+              ],
+              "exclude": []
+            },
+            "repository_name": {
+              "include": [
+                "octo-repo"
+              ],
+              "exclude": []
+            }
+          },
+          "rules": [
+            {
+              "type": "restrict_actions_actors",
+              "parameters": {
+                "allowed_actors": [
+                  {
+                    "id": 5,
+                    "type": "User"
+                  },
+                  {
+                    "id": 1234,
+                    "type": "Team"
+                  }
+                ]
+              }
+            }
+          ],
+          "node_id": "RUL_lA",
+          "created_at": "2024-01-15T10:30:00Z",
+          "updated_at": "2024-01-15T10:30:00Z"
         }
       },
       "runner-groups-org": {

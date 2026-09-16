@@ -39,5 +39,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         RemovedByEnterprise,
         #pragma warning restore CS1591
+        [EnumMember(Value = "enterprise_enforced")]
+        #pragma warning disable CS1591
+        EnterpriseEnforced,
+        #pragma warning restore CS1591
     }
 }
