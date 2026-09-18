@@ -20922,7 +20922,8 @@
                   "summary": "Example request body",
                   "value": {
                     "enabled": true,
-                    "max_open_pull_requests": 1
+                    "max_open_pull_requests": 1,
+                    "include_drafts": true
                   }
                 }
               }
@@ -47335,7 +47336,8 @@
                   "summary": "Example request body",
                   "value": {
                     "enabled": true,
-                    "max_open_pull_requests": 1
+                    "max_open_pull_requests": 1,
+                    "include_drafts": true
                   }
                 }
               }
@@ -269071,6 +269073,10 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum number of open pull requests a user can have at one time"
+          },
+          "include_drafts": {
+            "type": "boolean",
+            "description": "Whether draft pull requests count toward the pull request creation cap"
           }
         }
       },
@@ -269089,6 +269095,10 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum number of open pull requests a user can have at one time"
+          },
+          "include_drafts": {
+            "type": "boolean",
+            "description": "Whether draft pull requests count toward the pull request creation cap"
           }
         }
       },
@@ -269108,6 +269118,10 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum number of open pull requests a user can have at one time"
+          },
+          "include_drafts": {
+            "type": "boolean",
+            "description": "Whether draft pull requests count toward the pull request creation cap"
           }
         }
       },
@@ -273071,6 +273085,10 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum number of open pull requests a user can have at one time"
+          },
+          "include_drafts": {
+            "type": "boolean",
+            "description": "Whether draft pull requests count toward the pull request creation cap"
           }
         }
       },
@@ -273089,6 +273107,10 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum number of open pull requests a user can have at one time"
+          },
+          "include_drafts": {
+            "type": "boolean",
+            "description": "Whether draft pull requests count toward the pull request creation cap"
           }
         }
       },
@@ -273108,6 +273130,10 @@
             "minimum": 1,
             "type": "integer",
             "description": "The maximum number of open pull requests a user can have at one time"
+          },
+          "include_drafts": {
+            "type": "boolean",
+            "description": "Whether draft pull requests count toward the pull request creation cap"
           }
         }
       },
