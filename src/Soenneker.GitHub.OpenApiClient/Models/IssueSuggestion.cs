@@ -26,7 +26,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The unique identifier of the suggestion.</summary>
         public long? Id { get; set; }
         /// <summary>The identifier of the timeline event created when the suggestion was approved, when applicable.</summary>
-        public int? IssueEventId { get; set; }
+        public long? IssueEventId { get; set; }
         /// <summary>The unique identifier of the issue the suggestion applies to.</summary>
         public long? IssueId { get; set; }
         /// <summary>The rationale the actor provided for the suggestion.</summary>
@@ -83,7 +83,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionConfidence>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
-                { "issue_event_id", n => { IssueEventId = n.GetIntValue(); } },
+                { "issue_event_id", n => { IssueEventId = n.GetLongValue(); } },
                 { "issue_id", n => { IssueId = n.GetLongValue(); } },
                 { "rationale", n => { Rationale = n.GetStringValue(); } },
                 { "resolved_by", n => { ResolvedBy = n.GetIntValue(); } },
@@ -105,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueSuggestionConfidence>("confidence", Confidence);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
-            writer.WriteIntValue("issue_event_id", IssueEventId);
+            writer.WriteLongValue("issue_event_id", IssueEventId);
             writer.WriteLongValue("issue_id", IssueId);
             writer.WriteStringValue("rationale", Rationale);
             writer.WriteIntValue("resolved_by", ResolvedBy);
