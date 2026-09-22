@@ -21072,7 +21072,7 @@
           "dependabot"
         ],
         "summary": "Updates Dependabot\u0027s repository access list for an organization",
-        "description": "Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they\u0027ve updated dependencies.\n\n\u003E [!NOTE]\n\u003E    This operation supports both server-to-server and user-to-server access.\nUnauthorized users will not see the existence of this endpoint.\n\n**Example request body:**\n\u0060\u0060\u0060json\n{\n  \u0022repository_ids_to_add\u0022: [123, 456],\n  \u0022repository_ids_to_remove\u0022: [789]\n}\n\u0060\u0060\u0060",
+        "description": "Updates repositories according to the list of repositories that organization admins have given Dependabot access to when they\u0027ve updated dependencies.\n\n\u003E [!NOTE]\n\u003E    This operation supports both server-to-server and user-to-server access.\nUnauthorized users will not see the existence of this endpoint.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.\n\n**Example request body:**\n\u0060\u0060\u0060json\n{\n  \u0022repository_ids_to_add\u0022: [123, 456],\n  \u0022repository_ids_to_remove\u0022: [789]\n}\n\u0060\u0060\u0060",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/dependabot/repository-access#updates-dependabots-repository-access-list-for-an-organization"
@@ -21140,7 +21140,7 @@
           "dependabot"
         ],
         "summary": "Set the default repository access level for Dependabot",
-        "description": "Sets the default level of repository access Dependabot will have while performing an update.  Available values are:\n- \u0027public\u0027 - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.\n- \u0027internal\u0027 - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.\n\nUnauthorized users will not see the existence of this endpoint.\n\nThis operation supports both server-to-server and user-to-server access.",
+        "description": "Sets the default level of repository access Dependabot will have while performing an update.  Available values are:\n- \u0027public\u0027 - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.\n- \u0027internal\u0027 - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.\n\nUnauthorized users will not see the existence of this endpoint.\n\nThis operation supports both server-to-server and user-to-server access.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060write:org\u0060 scope to use this endpoint.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/dependabot/repository-access#set-the-default-repository-access-level-for-dependabot"
@@ -42916,7 +42916,8 @@
             "in": "query",
             "description": "The Git reference for the analyses you want to list. The \u0060ref\u0060 for a branch can be formatted either as \u0060refs/heads/\u003Cbranch name\u003E\u0060 or simply \u0060\u003Cbranch name\u003E\u0060. To reference a pull request use \u0060refs/pull/\u003Cnumber\u003E/merge\u0060.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "description": "The Git reference, formatted as \u0060refs/pull/\u003Cnumber\u003E/merge\u0060, \u0060refs/pull/\u003Cnumber\u003E/head\u0060,\n\u0060refs/heads/\u003Cbranch name\u003E\u0060 or simply \u0060\u003Cbranch name\u003E\u0060."
             }
           },
           {
@@ -42924,7 +42925,8 @@
             "in": "query",
             "description": "Filter analyses belonging to the same SARIF upload.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "description": "An identifier for the upload."
             }
           },
           {
@@ -79915,189 +79917,21 @@
         "description": "GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.",
         "nullable": true
       },
-      "CopilotSeatDetailsAssigningTeam": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Team"
-          },
-          {
-            "$ref": "#/components/schemas/EnterpriseTeam"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "privacy": {
-            "type": "string"
-          },
-          "permission": {
-            "type": "string"
-          },
-          "permissions": {
-            "$ref": "#/components/schemas/TeamPermissions"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/orgs/rails/teams/core"
-          },
-          "members_url": {
-            "type": "string"
-          },
-          "repositories_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "type": {
-            "$ref": "#/components/schemas/TeamTypeEnum"
-          },
-          "access_source": {
-            "$ref": "#/components/schemas/TeamAccessSource"
-          },
-          "organization_id": {
-            "type": "integer",
-            "description": "Unique identifier of the organization to which this team belongs",
-            "format": "int64",
-            "example": 37
-          },
-          "enterprise_id": {
-            "type": "integer",
-            "description": "Unique identifier of the enterprise to which this team belongs",
-            "format": "int64",
-            "example": 42
-          },
-          "parent": {
-            "$ref": "#/components/schemas/NullableTeamSimple"
-          },
-          "sync_to_organizations": {
-            "type": "string",
-            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-            "example": "disabled | all"
-          },
-          "organization_selection_type": {
-            "type": "string",
-            "example": "disabled | selected | all"
-          },
-          "group_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "62ab9291-fae2-468e-974b-7e45096d5021"
-          },
-          "group_name": {
-            "type": "string",
-            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-            "nullable": true,
-            "example": "Justice League"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable."
+      "WebhookConfigUrl": {
+        "type": "string",
+        "description": "The URL to which the payloads will be delivered.",
+        "format": "uri",
+        "example": "https://example.com/webhook"
       },
-      "CopilotSpaceCollaboratorAnyOf2": {
-        "required": [
-          "actor_type",
-          "role",
-          "id",
-          "node_id",
-          "name",
-          "slug",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "actor_type": {
-            "$ref": "#/components/schemas/TeamActorType"
-          },
-          "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/TeamType"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "privacy": {
-            "type": "string"
-          },
-          "notification_setting": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "members_url": {
-            "type": "string"
-          },
-          "repositories_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "organization_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "parent": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
-          }
-        }
+      "WebhookConfigContentType": {
+        "type": "string",
+        "description": "The media type used to serialize the payloads. Supported values include \u0060json\u0060 and \u0060form\u0060. The default is \u0060form\u0060.",
+        "example": "json"
       },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
-        "required": [
-          "actor_type",
-          "role"
-        ],
-        "type": "object",
-        "properties": {
-          "actor_type": {
-            "$ref": "#/components/schemas/UserActorType"
-          },
-          "role": {
-            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
-          }
-        }
+      "WebhookConfigSecret": {
+        "type": "string",
+        "description": "If provided, the \u0060secret\u0060 will be used as the \u0060key\u0060 to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).",
+        "example": "********"
       },
       "WebhookConfigInsecureSsl": {
         "type": "object",
@@ -82272,128 +82106,10 @@
         },
         "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization."
       },
-      "CopilotSpaceOwner": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/OrganizationSimple"
-          }
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          },
-          "hooks_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/hooks"
-          },
-          "issues_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/issues"
-          },
-          "members_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/members{/member}"
-          },
-          "public_members_url": {
-            "type": "string",
-            "example": "https://api.github.com/orgs/github/public_members{/member}"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true,
-            "example": "A great organization"
-          }
-        },
-        "description": "The user or organization that owns this space."
+      "AlertNumber": {
+        "type": "integer",
+        "description": "The security alert number.",
+        "readOnly": true
       },
       "DependabotAlertPackage": {
         "required": [
@@ -82581,82 +82297,29 @@
           }
         ]
       },
-      "ActionsPolicyConditions": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ActionsPolicyRepoConditions"
-          },
-          {
-            "$ref": "#/components/schemas/ActionsPolicyOrgConditions"
-          },
-          {
-            "$ref": "#/components/schemas/ActionsPolicyEnterpriseConditions"
-          }
-        ],
-        "properties": {
-          "repository_name": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
-          },
-          "workflow_path": {
-            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
-          },
-          "repository_id": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryIdTargetRepositoryId"
-          },
-          "repository_property": {
-            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
-          },
-          "organization_name": {
-            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName"
-          },
-          "organization_id": {
-            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId"
-          },
-          "organization_property": {
-            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty"
-          }
-        },
-        "description": "When workflow path targeting is available, detailed responses represent an omitted stored\nworkflow condition as \u0060workflow_path\u0060 with \u0060include\u0060 set to \u0060[\u0022~ALL\u0022]\u0060 and \u0060exclude\u0060 set to \u0060[]\u0060.\nWhen workflow path targeting is unavailable, an omitted stored condition remains omitted."
+      "AlertUrl": {
+        "type": "string",
+        "description": "The REST API URL of the alert resource.",
+        "format": "uri",
+        "readOnly": true
       },
-      "UpdateBudgetBudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/UpdateBudgetBudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/UpdateBudgetBudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "ProductPricing"
+      "AlertHtmlUrl": {
+        "type": "string",
+        "description": "The GitHub URL of the alert resource.",
+        "format": "uri",
+        "readOnly": true
       },
-      "GetBudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "ProductPricing"
+      "AlertCreatedAt": {
+        "type": "string",
+        "description": "The time that the alert was created in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+        "format": "date-time",
+        "readOnly": true
       },
-      "CreateBudgetBudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "ProductPricing"
+      "AlertUpdatedAt": {
+        "type": "string",
+        "description": "The time that the alert was last updated in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+        "format": "date-time",
+        "readOnly": true
       },
       "AlertDismissedAt": {
         "type": "string",
@@ -87380,157 +87043,13 @@
           ]
         }
       },
-      "BudgetBudgetType": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/BudgetBudgetTypeWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/BudgetBudgetTypeWrapper2"
-          }
-        ],
-        "description": "The type of pricing for the budget",
-        "example": "SkuPricing"
+      "SelectedActionsUrl": {
+        "type": "string",
+        "description": "The API URL to use to get or set the actions and reusable workflows that are allowed to run, when \u0060allowed_actions\u0060 is set to \u0060selected\u0060."
       },
-      "EventTypePayload": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateEvent"
-          },
-          {
-            "$ref": "#/components/schemas/DeleteEvent"
-          },
-          {
-            "$ref": "#/components/schemas/DiscussionEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssuesEvent"
-          },
-          {
-            "$ref": "#/components/schemas/IssueCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ForkEvent"
-          },
-          {
-            "$ref": "#/components/schemas/GollumEvent"
-          },
-          {
-            "$ref": "#/components/schemas/MemberEvent"
-          },
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/PushEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/PullRequestReviewEvent"
-          },
-          {
-            "$ref": "#/components/schemas/CommitCommentEvent"
-          },
-          {
-            "$ref": "#/components/schemas/ReleaseEvent"
-          },
-          {
-            "$ref": "#/components/schemas/WatchEvent"
-          }
-        ],
-        "properties": {
-          "ref": {
-            "type": "string"
-          },
-          "ref_type": {
-            "type": "string"
-          },
-          "full_ref": {
-            "type": "string"
-          },
-          "master_branch": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "pusher_type": {
-            "type": "string"
-          },
-          "action": {
-            "type": "string"
-          },
-          "discussion": {
-            "$ref": "#/components/schemas/Discussion"
-          },
-          "issue": {
-            "$ref": "#/components/schemas/Issue"
-          },
-          "assignee": {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          "assignees": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SimpleUser"
-            }
-          },
-          "label": {
-            "$ref": "#/components/schemas/Label"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Label"
-            }
-          },
-          "forkee": {
-            "$ref": "#/components/schemas/ForkEventForkee"
-          },
-          "pages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GollumEventPagesItem"
-            }
-          },
-          "member": {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          "repository_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "push_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "head": {
-            "type": "string"
-          },
-          "before": {
-            "type": "string"
-          },
-          "number": {
-            "type": "integer"
-          },
-          "pull_request": {
-            "$ref": "#/components/schemas/PullRequestMinimal"
-          },
-          "review": {
-            "$ref": "#/components/schemas/PullRequestReviewEventReview"
-          },
-          "release": {
-            "$ref": "#/components/schemas/ReleaseEventRelease"
-          }
-        }
+      "ShaPinningRequired": {
+        "type": "boolean",
+        "description": "Whether actions must be pinned to a full-length commit SHA."
       },
       "ActionsOrganizationPermissions": {
         "required": [
@@ -87707,49 +87226,9 @@
           ]
         }
       },
-      "IssueLabelsItem": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
-          },
-          {
-            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
-          }
-        ],
-        "properties": {
-          "value": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "color": {
-            "type": "string",
-            "nullable": true
-          },
-          "default": {
-            "type": "boolean"
-          },
-          "archived_by": {
-            "$ref": "#/components/schemas/IssueLabelsItemOneOf2ArchivedBy"
-          }
-        }
+      "ActionsCanApprovePullRequestReviews": {
+        "type": "boolean",
+        "description": "Whether GitHub Actions can approve pull requests. Enabling this can be a security risk."
       },
       "ActionsGetDefaultWorkflowPermissions": {
         "required": [
@@ -88730,7 +88209,7 @@
             "format": "uri"
           },
           "type": {
-            "$ref": "#/components/schemas/TeamTypeEnum"
+            "$ref": "#/components/schemas/TeamType"
           },
           "access_source": {
             "$ref": "#/components/schemas/TeamAccessSource"
@@ -88859,139 +88338,9 @@
         "additionalProperties": false,
         "description": "The AI Scan organization setting to apply"
       },
-      "NullableIntegrationOwner": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/Enterprise"
-          }
-        ],
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          },
-          "description": {
-            "type": "string",
-            "description": "A short description of the enterprise.",
-            "nullable": true
-          },
-          "website_url": {
-            "type": "string",
-            "description": "The enterprise\u0027s website URL.",
-            "format": "uri",
-            "nullable": true
-          },
-          "slug": {
-            "type": "string",
-            "description": "The slug url identifier for the enterprise.",
-            "example": "octo-business"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:01:12Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:14:43Z"
-          }
-        }
+      "CodeScanningAnalysisToolName": {
+        "type": "string",
+        "description": "The name of the tool used to generate the code scanning analysis."
       },
       "CodeScanningAnalysisToolGuid": {
         "type": "string",
@@ -89079,128 +88428,11 @@
           ]
         }
       },
-      "LabelArchivedBy": {
-        "required": [
-          "avatar_url",
-          "events_url",
-          "followers_url",
-          "following_url",
-          "gists_url",
-          "gravatar_id",
-          "html_url",
-          "id",
-          "node_id",
-          "login",
-          "organizations_url",
-          "received_events_url",
-          "repos_url",
-          "site_admin",
-          "starred_url",
-          "subscriptions_url",
-          "type",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          }
-        },
-        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      "AlertInstancesUrl": {
+        "type": "string",
+        "description": "The REST API URL for fetching the list of instances for an alert.",
+        "format": "uri",
+        "readOnly": true
       },
       "CodeScanningAlertState": {
         "enum": [
@@ -89337,427 +88569,21 @@
           }
         }
       },
-      "InstallationAccount": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/Enterprise"
-          }
-        ],
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          },
-          "description": {
-            "type": "string",
-            "description": "A short description of the enterprise.",
-            "nullable": true
-          },
-          "website_url": {
-            "type": "string",
-            "description": "The enterprise\u0027s website URL.",
-            "format": "uri",
-            "nullable": true
-          },
-          "slug": {
-            "type": "string",
-            "description": "The slug url identifier for the enterprise.",
-            "example": "octo-business"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:01:12Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:14:43Z"
-          }
-        }
+      "CodeScanningRef": {
+        "type": "string",
+        "description": "The Git reference, formatted as \u0060refs/pull/\u003Cnumber\u003E/merge\u0060, \u0060refs/pull/\u003Cnumber\u003E/head\u0060,\n\u0060refs/heads/\u003Cbranch name\u003E\u0060 or simply \u0060\u003Cbranch name\u003E\u0060."
       },
-      "IntegrationInstallationRequestAccount": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/Enterprise"
-          }
-        ],
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          },
-          "description": {
-            "type": "string",
-            "description": "A short description of the enterprise.",
-            "nullable": true
-          },
-          "website_url": {
-            "type": "string",
-            "description": "The enterprise\u0027s website URL.",
-            "format": "uri",
-            "nullable": true
-          },
-          "slug": {
-            "type": "string",
-            "description": "The slug url identifier for the enterprise.",
-            "example": "octo-business"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:01:12Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:14:43Z"
-          }
-        }
+      "CodeScanningAnalysisAnalysisKey": {
+        "type": "string",
+        "description": "Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name."
       },
-      "ValidationErrorErrorsItemValue": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string",
-            "nullable": true
-          },
-          {
-            "type": "integer",
-            "nullable": true
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        ]
+      "CodeScanningAlertEnvironment": {
+        "type": "string",
+        "description": "Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed."
       },
-      "IntegrationOwner": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/SimpleUser"
-          },
-          {
-            "$ref": "#/components/schemas/Enterprise"
-          }
-        ],
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "login": {
-            "type": "string",
-            "example": "octocat"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "node_id": {
-            "type": "string",
-            "example": "MDQ6VXNlcjE="
-          },
-          "avatar_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/images/error/octocat_happy.gif"
-          },
-          "gravatar_id": {
-            "type": "string",
-            "nullable": true,
-            "example": "41d064eb2195891e12d0413f63227ea7"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://github.com/octocat"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/followers"
-          },
-          "following_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/following{/other_user}"
-          },
-          "gists_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
-          },
-          "starred_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/subscriptions"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/orgs"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/repos"
-          },
-          "events_url": {
-            "type": "string",
-            "example": "https://api.github.com/users/octocat/events{/privacy}"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.github.com/users/octocat/received_events"
-          },
-          "type": {
-            "type": "string",
-            "example": "User"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_at": {
-            "type": "string",
-            "example": "2020-07-09T00:17:55Z"
-          },
-          "user_view_type": {
-            "type": "string",
-            "example": "public"
-          },
-          "description": {
-            "type": "string",
-            "description": "A short description of the enterprise.",
-            "nullable": true
-          },
-          "website_url": {
-            "type": "string",
-            "description": "The enterprise\u0027s website URL.",
-            "format": "uri",
-            "nullable": true
-          },
-          "slug": {
-            "type": "string",
-            "description": "The slug url identifier for the enterprise.",
-            "example": "octo-business"
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:01:12Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-26T19:14:43Z"
-          }
-        }
+      "CodeScanningAnalysisCategory": {
+        "type": "string",
+        "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
       },
       "CodeScanningAlertLocation": {
         "type": "object",
@@ -95233,7 +94059,7 @@
             "format": "int64"
           },
           "type": {
-            "$ref": "#/components/schemas/TeamType"
+            "$ref": "#/components/schemas/RepositoryRuleParamsReviewerType"
           }
         },
         "description": "A required reviewing team"
@@ -97650,23 +96476,10 @@
         },
         "description": "Team Organization"
       },
-      "ActionsRunnerLabelsReadonlyResponse": {
-        "required": [
-          "total_count",
-          "labels"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RunnerLabel"
-            }
-          }
-        }
+      "LdapDn": {
+        "type": "string",
+        "description": "The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.",
+        "example": "cn=Enterprise Ops,ou=teams,dc=github,dc=com"
       },
       "TeamFull": {
         "title": "Full Team",
@@ -98984,23 +97797,9 @@
           }
         }
       },
-      "ActionsRunnerLabelsResponse": {
-        "required": [
-          "total_count",
-          "labels"
-        ],
-        "type": "object",
-        "properties": {
-          "total_count": {
-            "type": "integer"
-          },
-          "labels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RunnerLabel"
-            }
-          }
-        }
+      "ActionsEnabled": {
+        "type": "boolean",
+        "description": "Whether GitHub Actions is enabled on the repository."
       },
       "ActionsRepositoryPermissions": {
         "required": [
@@ -99635,21 +98434,11 @@
         },
         "description": "A GitHub Actions workflow"
       },
-      "ActionsRunnerJitconfigResponse": {
-        "required": [
-          "runner",
-          "encoded_jit_config"
-        ],
-        "type": "object",
-        "properties": {
-          "runner": {
-            "$ref": "#/components/schemas/Runner"
-          },
-          "encoded_jit_config": {
-            "type": "string",
-            "description": "The base64 encoded runner configuration."
-          }
-        }
+      "WorkflowRunId": {
+        "title": "Workflow Run ID",
+        "type": "integer",
+        "description": "The ID of the workflow run.",
+        "format": "int64"
       },
       "WorkflowDispatchResponse": {
         "title": "Workflow Dispatch Response",
@@ -101284,19 +100073,9 @@
           ]
         }
       },
-      "ForbiddenGistResponse": {
-        "type": "object",
-        "properties": {
-          "block": {
-            "$ref": "#/components/schemas/ForbiddenGistResponseBlock"
-          },
-          "message": {
-            "type": "string"
-          },
-          "documentation_url": {
-            "type": "string"
-          }
-        }
+      "CodeScanningAlertCreateRequest": {
+        "type": "boolean",
+        "description": "If \u0060true\u0060, attempt to create an alert dismissal request."
       },
       "CodeScanningAlertAssignees": {
         "type": "array",
@@ -101343,19 +100122,11 @@
         "description": "The description of an autofix.",
         "nullable": true
       },
-      "ServiceUnavailableResponse": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          },
-          "documentation_url": {
-            "type": "string"
-          }
-        }
+      "CodeScanningAutofixStartedAt": {
+        "type": "string",
+        "description": "The start time of an autofix in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+        "format": "date-time",
+        "readOnly": true
       },
       "CodeScanningAutofix": {
         "required": [
@@ -101473,105 +100244,33 @@
           }
         }
       },
-      "AcceptedResponse": {
-        "type": "object"
+      "CodeScanningAnalysisSarifId": {
+        "type": "string",
+        "description": "An identifier for the upload.",
+        "example": "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
       },
-      "WebhooksRepositoriesAddedItem": {
-        "required": [
-          "id",
-          "node_id",
-          "name",
-          "full_name",
-          "private"
-        ],
-        "type": "object",
-        "properties": {
-          "full_name": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the repository."
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "private": {
-            "type": "boolean",
-            "description": "Whether the repository is private or public."
-          }
-        }
+      "CodeScanningAnalysisCommitSha": {
+        "maxLength": 64,
+        "minLength": 40,
+        "pattern": "^([0-9a-fA-F]{40}(?:[0-9a-fA-F]{24})?)$",
+        "type": "string",
+        "description": "The SHA of the commit to which the analysis you are uploading relates."
       },
-      "WebhooksRepositoriesItem": {
-        "required": [
-          "id",
-          "node_id",
-          "name",
-          "full_name",
-          "private"
-        ],
-        "type": "object",
-        "properties": {
-          "full_name": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier of the repository",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the repository."
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "private": {
-            "type": "boolean",
-            "description": "Whether the repository is private or public."
-          }
-        }
+      "CodeScanningAnalysisEnvironment": {
+        "type": "string",
+        "description": "Identifies the variable values associated with the environment in which this analysis was performed."
       },
-      "WebhooksReviewersItem": {
-        "type": "object",
-        "properties": {
-          "reviewer": {
-            "$ref": "#/components/schemas/WebhooksReviewersItemReviewer"
-          },
-          "type": {
-            "$ref": "#/components/schemas/UserType"
-          }
-        }
+      "CodeScanningAnalysisCreatedAt": {
+        "type": "string",
+        "description": "The time that the analysis was created in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060.",
+        "format": "date-time",
+        "readOnly": true
       },
-      "SearchResultTextMatchesItem": {
-        "type": "object",
-        "properties": {
-          "object_url": {
-            "type": "string"
-          },
-          "object_type": {
-            "type": "string",
-            "nullable": true
-          },
-          "property": {
-            "type": "string"
-          },
-          "fragment": {
-            "type": "string"
-          },
-          "matches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchResultTextMatchesItemMatchesItem"
-            }
-          }
-        }
+      "CodeScanningAnalysisUrl": {
+        "type": "string",
+        "description": "The REST API URL of the analysis resource.",
+        "format": "uri",
+        "readOnly": true
       },
       "CodeScanningAnalysis": {
         "required": [
@@ -102138,82 +100837,15 @@
         },
         "description": "You can use \u0060run_url\u0060 to track the status of the run. This includes a property status and conclusion.\nYou should not rely on this always being an actions workflow run object."
       },
-      "SecretScanningAlertMetadataItem": {
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "description": "The metadata key."
-          },
-          "value": {
-            "type": "string",
-            "description": "The metadata value."
-          }
-        }
+      "CodeScanningRefFull": {
+        "pattern": "^refs/(heads|tags|pull)/.*$",
+        "type": "string",
+        "description": "The full Git reference, formatted as \u0060refs/heads/\u003Cbranch name\u003E\u0060,\n\u0060refs/tags/\u003Ctag\u003E\u0060, \u0060refs/pull/\u003Cnumber\u003E/merge\u0060, or \u0060refs/pull/\u003Cnumber\u003E/head\u0060.",
+        "example": "refs/heads/main"
       },
-      "DependencyGraphDiffItem": {
-        "required": [
-          "change_type",
-          "manifest",
-          "ecosystem",
-          "name",
-          "version",
-          "package_url",
-          "license",
-          "source_repository_url",
-          "vulnerabilities",
-          "scope"
-        ],
-        "type": "object",
-        "properties": {
-          "change_type": {
-            "$ref": "#/components/schemas/DependencyGraphDiffItemChangeType"
-          },
-          "manifest": {
-            "type": "string",
-            "example": "path/to/package-lock.json"
-          },
-          "ecosystem": {
-            "type": "string",
-            "example": "npm"
-          },
-          "name": {
-            "type": "string",
-            "example": "@actions/core"
-          },
-          "version": {
-            "type": "string",
-            "example": "1.0.0"
-          },
-          "package_url": {
-            "type": "string",
-            "nullable": true,
-            "example": "pkg:/npm/%40actions/core@1.1.0"
-          },
-          "license": {
-            "type": "string",
-            "nullable": true,
-            "example": "MIT"
-          },
-          "source_repository_url": {
-            "type": "string",
-            "nullable": true,
-            "example": "https://github.com/github/actions"
-          },
-          "vulnerabilities": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DependencyGraphDiffItemVulnerabilitiesItem"
-            }
-          },
-          "scope": {
-            "$ref": "#/components/schemas/DependencyGraphDiffItemScope"
-          }
-        }
+      "CodeScanningAnalysisSarifFile": {
+        "type": "string",
+        "description": "A Base64 string representing the SARIF file to upload. You must first compress your SARIF file using [\u0060gzip\u0060](http://www.gnu.org/software/gzip/manual/gzip.html) and then translate the contents of the file into a Base64 encoding string. For more information, see \u0022[SARIF support for code scanning](https://docs.github.com/code-security/secure-coding/sarif-support-for-code-scanning).\u0022"
       },
       "CodeScanningSarifsReceipt": {
         "type": "object",
@@ -103454,62 +102086,9 @@
         },
         "description": "File Commit"
       },
-      "ContentDirectoryItem": {
-        "required": [
-          "_links",
-          "git_url",
-          "html_url",
-          "download_url",
-          "name",
-          "path",
-          "sha",
-          "size",
-          "type",
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ContentDirectoryItemType"
-          },
-          "size": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "path": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "sha": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "git_url": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "download_url": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "_links": {
-            "$ref": "#/components/schemas/ContentDirectoryItemLinks"
-          }
-        }
+      "SecretScanningPushProtectionBypassPlaceholderId": {
+        "type": "string",
+        "description": "The ID of the push protection bypass placeholder. This value is returned on any push protected routes."
       },
       "RepositoryRuleViolationError": {
         "type": "object",
@@ -103967,56 +102546,10 @@
         },
         "description": "The status of a deployment."
       },
-      "RuleSuitesItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "The unique identifier of the rule insight.",
-            "format": "int64"
-          },
-          "actor_id": {
-            "type": "integer",
-            "description": "The number that identifies the user.",
-            "format": "int64"
-          },
-          "actor_name": {
-            "type": "string",
-            "description": "The handle for the GitHub user account."
-          },
-          "before_sha": {
-            "type": "string",
-            "description": "The first commit sha before the push evaluation."
-          },
-          "after_sha": {
-            "type": "string",
-            "description": "The last commit sha in the push evaluation."
-          },
-          "ref": {
-            "type": "string",
-            "description": "The ref name that the evaluation ran on."
-          },
-          "repository_id": {
-            "type": "integer",
-            "description": "The ID of the repository associated with the rule evaluation.",
-            "format": "int64"
-          },
-          "repository_name": {
-            "type": "string",
-            "description": "The name of the repository without the \u0060.git\u0060 extension."
-          },
-          "pushed_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2011-01-26T19:06:43Z"
-          },
-          "result": {
-            "$ref": "#/components/schemas/RuleSuitesItemResult"
-          },
-          "evaluation_result": {
-            "$ref": "#/components/schemas/RuleSuitesItemEvaluationResult"
-          }
-        }
+      "WaitTimer": {
+        "type": "integer",
+        "description": "The amount of time to delay a job after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).",
+        "example": 30
       },
       "DeploymentBranchPolicySettings": {
         "required": [
@@ -104098,43 +102631,10 @@
         },
         "description": "Details of a deployment environment"
       },
-      "ApiInsightsUserStatsItem": {
-        "type": "object",
-        "properties": {
-          "actor_type": {
-            "type": "string"
-          },
-          "actor_name": {
-            "type": "string"
-          },
-          "actor_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "integration_id": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
-          "oauth_application_id": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
-          "total_request_count": {
-            "type": "integer"
-          },
-          "rate_limited_request_count": {
-            "type": "integer"
-          },
-          "last_rate_limited_timestamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "last_request_timestamp": {
-            "type": "string"
-          }
-        }
+      "PreventSelfReview": {
+        "type": "boolean",
+        "description": "Whether or not a user who created the job is prevented from approving their own job.",
+        "example": false
       },
       "DeploymentBranchPolicy": {
         "title": "Deployment branch policy",
@@ -113371,90 +111871,21 @@
         },
         "description": "A check performed on the code of a given code change"
       },
-      "ApiInsightsTimeStatsItem": {
-        "type": "object",
-        "properties": {
-          "timestamp": {
-            "type": "string"
-          },
-          "total_request_count": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "rate_limited_request_count": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
+      "WebhooksCodeScanningCommitOid": {
+        "type": "string",
+        "description": "The commit SHA of the code scanning alert. When the action is \u0060reopened_by_user\u0060 or \u0060closed_by_user\u0060, the event was triggered by the \u0060sender\u0060 and this value will be empty."
       },
-      "ApiInsightsSubjectStatsItem": {
-        "type": "object",
-        "properties": {
-          "subject_type": {
-            "type": "string"
-          },
-          "subject_name": {
-            "type": "string"
-          },
-          "subject_id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "total_request_count": {
-            "type": "integer"
-          },
-          "rate_limited_request_count": {
-            "type": "integer"
-          },
-          "last_rate_limited_timestamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "last_request_timestamp": {
-            "type": "string"
-          }
-        }
+      "WebhooksCodeScanningRef": {
+        "type": "string",
+        "description": "The Git reference of the code scanning alert. When the action is \u0060reopened_by_user\u0060 or \u0060closed_by_user\u0060, the event was triggered by the \u0060sender\u0060 and this value will be empty."
       },
-      "ApiInsightsRouteStatsItem": {
-        "type": "object",
-        "properties": {
-          "http_method": {
-            "type": "string",
-            "description": "The HTTP method"
-          },
-          "api_route": {
-            "type": "string",
-            "description": "The API path\u0027s route template"
-          },
-          "total_request_count": {
-            "type": "integer",
-            "description": "The total number of requests within the queried time period",
-            "format": "int64"
-          },
-          "rate_limited_request_count": {
-            "type": "integer",
-            "description": "The total number of requests that were rate limited within the queried time period",
-            "format": "int64"
-          },
-          "last_rate_limited_timestamp": {
-            "type": "string",
-            "nullable": true
-          },
-          "last_request_timestamp": {
-            "type": "string"
-          }
-        }
+      "WebhooksDeployPusherType": {
+        "type": "string",
+        "description": "The pusher type for the event. Can be either \u0060user\u0060 or a deploy key."
       },
-      "CodeSecurityDefaultConfigurationsItem": {
-        "type": "object",
-        "properties": {
-          "default_for_new_repos": {
-            "$ref": "#/components/schemas/CodeSecurityDefaultConfigurationsItemDefaultForNewRepos"
-          },
-          "configuration": {
-            "$ref": "#/components/schemas/CodeSecurityConfiguration"
-          }
-        }
+      "WebhooksRef0": {
+        "type": "string",
+        "description": "The [\u0060git ref\u0060](https://docs.github.com/rest/git/refs#get-a-reference) resource."
       },
       "WebhooksDeployKey": {
         "required": [
@@ -116110,8 +114541,9 @@
         },
         "description": "An status update belonging to a project"
       },
-      "MarkdownRenderRawXMarkdownRequest": {
-        "type": "string"
+      "WebhooksNumber": {
+        "type": "integer",
+        "description": "The pull request number."
       },
       "PullRequestWebhook": {
         "required": [
@@ -117532,8 +115964,9 @@
           }
         }
       },
-      "MarkdownRenderRawPlainRequest": {
-        "type": "string"
+      "WebhooksEffectiveDate": {
+        "type": "string",
+        "description": "The \u0060pending_cancellation\u0060 and \u0060pending_tier_change\u0060 event types will include the date the cancellation or tier change will take effect."
       },
       "WebhooksChanges8": {
         "required": [
@@ -128441,6 +126874,1759 @@
             "type": "string"
           }
         }
+      },
+      "MarkdownRenderRawPlainRequest": {
+        "type": "string"
+      },
+      "MarkdownRenderRawXMarkdownRequest": {
+        "type": "string"
+      },
+      "CodeSecurityDefaultConfigurationsItem": {
+        "type": "object",
+        "properties": {
+          "default_for_new_repos": {
+            "$ref": "#/components/schemas/CodeSecurityDefaultConfigurationsItemDefaultForNewRepos"
+          },
+          "configuration": {
+            "$ref": "#/components/schemas/CodeSecurityConfiguration"
+          }
+        }
+      },
+      "ApiInsightsRouteStatsItem": {
+        "type": "object",
+        "properties": {
+          "http_method": {
+            "type": "string",
+            "description": "The HTTP method"
+          },
+          "api_route": {
+            "type": "string",
+            "description": "The API path\u0027s route template"
+          },
+          "total_request_count": {
+            "type": "integer",
+            "description": "The total number of requests within the queried time period",
+            "format": "int64"
+          },
+          "rate_limited_request_count": {
+            "type": "integer",
+            "description": "The total number of requests that were rate limited within the queried time period",
+            "format": "int64"
+          },
+          "last_rate_limited_timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_request_timestamp": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiInsightsSubjectStatsItem": {
+        "type": "object",
+        "properties": {
+          "subject_type": {
+            "type": "string"
+          },
+          "subject_name": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total_request_count": {
+            "type": "integer"
+          },
+          "rate_limited_request_count": {
+            "type": "integer"
+          },
+          "last_rate_limited_timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_request_timestamp": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiInsightsTimeStatsItem": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string"
+          },
+          "total_request_count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rate_limited_request_count": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ApiInsightsUserStatsItem": {
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "type": "string"
+          },
+          "actor_name": {
+            "type": "string"
+          },
+          "actor_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "integration_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "oauth_application_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "total_request_count": {
+            "type": "integer"
+          },
+          "rate_limited_request_count": {
+            "type": "integer"
+          },
+          "last_rate_limited_timestamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_request_timestamp": {
+            "type": "string"
+          }
+        }
+      },
+      "RuleSuitesItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the rule insight.",
+            "format": "int64"
+          },
+          "actor_id": {
+            "type": "integer",
+            "description": "The number that identifies the user.",
+            "format": "int64"
+          },
+          "actor_name": {
+            "type": "string",
+            "description": "The handle for the GitHub user account."
+          },
+          "before_sha": {
+            "type": "string",
+            "description": "The first commit sha before the push evaluation."
+          },
+          "after_sha": {
+            "type": "string",
+            "description": "The last commit sha in the push evaluation."
+          },
+          "ref": {
+            "type": "string",
+            "description": "The ref name that the evaluation ran on."
+          },
+          "repository_id": {
+            "type": "integer",
+            "description": "The ID of the repository associated with the rule evaluation.",
+            "format": "int64"
+          },
+          "repository_name": {
+            "type": "string",
+            "description": "The name of the repository without the \u0060.git\u0060 extension."
+          },
+          "pushed_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-01-26T19:06:43Z"
+          },
+          "result": {
+            "$ref": "#/components/schemas/RuleSuitesItemResult"
+          },
+          "evaluation_result": {
+            "$ref": "#/components/schemas/RuleSuitesItemEvaluationResult"
+          }
+        }
+      },
+      "ContentDirectoryItem": {
+        "required": [
+          "_links",
+          "git_url",
+          "html_url",
+          "download_url",
+          "name",
+          "path",
+          "sha",
+          "size",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ContentDirectoryItemType"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "sha": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "git_url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "download_url": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "_links": {
+            "$ref": "#/components/schemas/ContentDirectoryItemLinks"
+          }
+        }
+      },
+      "DependencyGraphDiffItem": {
+        "required": [
+          "change_type",
+          "manifest",
+          "ecosystem",
+          "name",
+          "version",
+          "package_url",
+          "license",
+          "source_repository_url",
+          "vulnerabilities",
+          "scope"
+        ],
+        "type": "object",
+        "properties": {
+          "change_type": {
+            "$ref": "#/components/schemas/DependencyGraphDiffItemChangeType"
+          },
+          "manifest": {
+            "type": "string",
+            "example": "path/to/package-lock.json"
+          },
+          "ecosystem": {
+            "type": "string",
+            "example": "npm"
+          },
+          "name": {
+            "type": "string",
+            "example": "@actions/core"
+          },
+          "version": {
+            "type": "string",
+            "example": "1.0.0"
+          },
+          "package_url": {
+            "type": "string",
+            "nullable": true,
+            "example": "pkg:/npm/%40actions/core@1.1.0"
+          },
+          "license": {
+            "type": "string",
+            "nullable": true,
+            "example": "MIT"
+          },
+          "source_repository_url": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://github.com/github/actions"
+          },
+          "vulnerabilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DependencyGraphDiffItemVulnerabilitiesItem"
+            }
+          },
+          "scope": {
+            "$ref": "#/components/schemas/DependencyGraphDiffItemScope"
+          }
+        }
+      },
+      "SecretScanningAlertMetadataItem": {
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The metadata key."
+          },
+          "value": {
+            "type": "string",
+            "description": "The metadata value."
+          }
+        }
+      },
+      "SearchResultTextMatchesItem": {
+        "type": "object",
+        "properties": {
+          "object_url": {
+            "type": "string"
+          },
+          "object_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "property": {
+            "type": "string"
+          },
+          "fragment": {
+            "type": "string"
+          },
+          "matches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResultTextMatchesItemMatchesItem"
+            }
+          }
+        }
+      },
+      "WebhooksReviewersItem": {
+        "type": "object",
+        "properties": {
+          "reviewer": {
+            "$ref": "#/components/schemas/WebhooksReviewersItemReviewer"
+          },
+          "type": {
+            "$ref": "#/components/schemas/UserType"
+          }
+        }
+      },
+      "WebhooksRepositoriesItem": {
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the repository",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the repository."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean",
+            "description": "Whether the repository is private or public."
+          }
+        }
+      },
+      "WebhooksRepositoriesAddedItem": {
+        "required": [
+          "id",
+          "node_id",
+          "name",
+          "full_name",
+          "private"
+        ],
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the repository",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the repository."
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "private": {
+            "type": "boolean",
+            "description": "Whether the repository is private or public."
+          }
+        }
+      },
+      "AcceptedResponse": {
+        "type": "object"
+      },
+      "ServiceUnavailableResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          }
+        }
+      },
+      "ForbiddenGistResponse": {
+        "type": "object",
+        "properties": {
+          "block": {
+            "$ref": "#/components/schemas/ForbiddenGistResponseBlock"
+          },
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          }
+        }
+      },
+      "ActionsRunnerJitconfigResponse": {
+        "required": [
+          "runner",
+          "encoded_jit_config"
+        ],
+        "type": "object",
+        "properties": {
+          "runner": {
+            "$ref": "#/components/schemas/Runner"
+          },
+          "encoded_jit_config": {
+            "type": "string",
+            "description": "The base64 encoded runner configuration."
+          }
+        }
+      },
+      "ActionsRunnerLabelsResponse": {
+        "required": [
+          "total_count",
+          "labels"
+        ],
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RunnerLabel"
+            }
+          }
+        }
+      },
+      "ActionsRunnerLabelsReadonlyResponse": {
+        "required": [
+          "total_count",
+          "labels"
+        ],
+        "type": "object",
+        "properties": {
+          "total_count": {
+            "type": "integer"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RunnerLabel"
+            }
+          }
+        }
+      },
+      "IntegrationOwner": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          {
+            "$ref": "#/components/schemas/Enterprise"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description of the enterprise.",
+            "nullable": true
+          },
+          "website_url": {
+            "type": "string",
+            "description": "The enterprise\u0027s website URL.",
+            "format": "uri",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "description": "The slug url identifier for the enterprise.",
+            "example": "octo-business"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:01:12Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:14:43Z"
+          }
+        }
+      },
+      "ValidationErrorErrorsItemValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "type": "integer",
+            "nullable": true
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        ]
+      },
+      "IntegrationInstallationRequestAccount": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          {
+            "$ref": "#/components/schemas/Enterprise"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description of the enterprise.",
+            "nullable": true
+          },
+          "website_url": {
+            "type": "string",
+            "description": "The enterprise\u0027s website URL.",
+            "format": "uri",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "description": "The slug url identifier for the enterprise.",
+            "example": "octo-business"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:01:12Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:14:43Z"
+          }
+        }
+      },
+      "InstallationAccount": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          {
+            "$ref": "#/components/schemas/Enterprise"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description of the enterprise.",
+            "nullable": true
+          },
+          "website_url": {
+            "type": "string",
+            "description": "The enterprise\u0027s website URL.",
+            "format": "uri",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "description": "The slug url identifier for the enterprise.",
+            "example": "octo-business"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:01:12Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:14:43Z"
+          }
+        }
+      },
+      "LabelArchivedBy": {
+        "required": [
+          "avatar_url",
+          "events_url",
+          "followers_url",
+          "following_url",
+          "gists_url",
+          "gravatar_id",
+          "html_url",
+          "id",
+          "node_id",
+          "login",
+          "organizations_url",
+          "received_events_url",
+          "repos_url",
+          "site_admin",
+          "starred_url",
+          "subscriptions_url",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          }
+        },
+        "description": "The user who archived the label, or \u0060null\u0060 if it has not been archived."
+      },
+      "NullableIntegrationOwner": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          {
+            "$ref": "#/components/schemas/Enterprise"
+          }
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/images/error/octocat_happy.gif"
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "events_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/events{/privacy}"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          },
+          "description": {
+            "type": "string",
+            "description": "A short description of the enterprise.",
+            "nullable": true
+          },
+          "website_url": {
+            "type": "string",
+            "description": "The enterprise\u0027s website URL.",
+            "format": "uri",
+            "nullable": true
+          },
+          "slug": {
+            "type": "string",
+            "description": "The slug url identifier for the enterprise.",
+            "example": "octo-business"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:01:12Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-26T19:14:43Z"
+          }
+        }
+      },
+      "IssueLabelsItem": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IssueLabelsItemBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "archived_by": {
+            "$ref": "#/components/schemas/IssueLabelsItemOneOf2ArchivedBy"
+          }
+        }
+      },
+      "EventTypePayload": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DeleteEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DiscussionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssuesEvent"
+          },
+          {
+            "$ref": "#/components/schemas/IssueCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ForkEvent"
+          },
+          {
+            "$ref": "#/components/schemas/GollumEvent"
+          },
+          {
+            "$ref": "#/components/schemas/MemberEvent"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/PushEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PullRequestReviewEvent"
+          },
+          {
+            "$ref": "#/components/schemas/CommitCommentEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ReleaseEvent"
+          },
+          {
+            "$ref": "#/components/schemas/WatchEvent"
+          }
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "ref_type": {
+            "type": "string"
+          },
+          "full_ref": {
+            "type": "string"
+          },
+          "master_branch": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "pusher_type": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "discussion": {
+            "$ref": "#/components/schemas/Discussion"
+          },
+          "issue": {
+            "$ref": "#/components/schemas/Issue"
+          },
+          "assignee": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleUser"
+            }
+          },
+          "label": {
+            "$ref": "#/components/schemas/Label"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            }
+          },
+          "forkee": {
+            "$ref": "#/components/schemas/ForkEventForkee"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GollumEventPagesItem"
+            }
+          },
+          "member": {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          "repository_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "push_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "head": {
+            "type": "string"
+          },
+          "before": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer"
+          },
+          "pull_request": {
+            "$ref": "#/components/schemas/PullRequestMinimal"
+          },
+          "review": {
+            "$ref": "#/components/schemas/PullRequestReviewEventReview"
+          },
+          "release": {
+            "$ref": "#/components/schemas/ReleaseEventRelease"
+          }
+        }
+      },
+      "BudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/BudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "SkuPricing"
+      },
+      "CreateBudgetBudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/CreateBudgetBudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "ProductPricing"
+      },
+      "GetBudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/GetBudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "ProductPricing"
+      },
+      "UpdateBudgetBudgetBudgetType": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UpdateBudgetBudgetBudgetTypeWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/UpdateBudgetBudgetBudgetTypeWrapper2"
+          }
+        ],
+        "description": "The type of pricing for the budget",
+        "example": "ProductPricing"
+      },
+      "ActionsPolicyConditions": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ActionsPolicyRepoConditions"
+          },
+          {
+            "$ref": "#/components/schemas/ActionsPolicyOrgConditions"
+          },
+          {
+            "$ref": "#/components/schemas/ActionsPolicyEnterpriseConditions"
+          }
+        ],
+        "properties": {
+          "workflow_path": {
+            "$ref": "#/components/schemas/ActionsPolicyWorkflowPathConditionWorkflowPath"
+          },
+          "repository_name": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryNameTargetRepositoryName"
+          },
+          "repository_id": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryIdTargetRepositoryId"
+          },
+          "repository_property": {
+            "$ref": "#/components/schemas/RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty"
+          },
+          "organization_name": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationNameTargetOrganizationName"
+          },
+          "organization_id": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationIdTargetOrganizationId"
+          },
+          "organization_property": {
+            "$ref": "#/components/schemas/EnterpriseRulesetConditionsOrganizationPropertyTargetOrganizationProperty"
+          }
+        },
+        "description": "When workflow path targeting is available, detailed responses represent an omitted stored\nworkflow condition as \u0060workflow_path\u0060 with \u0060include\u0060 set to \u0060[\u0022~ALL\u0022]\u0060 and \u0060exclude\u0060 set to \u0060[]\u0060.\nWhen workflow path targeting is unavailable, an omitted stored condition remains omitted."
+      },
+      "CopilotSpaceOwner": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/SimpleUser"
+          },
+          {
+            "$ref": "#/components/schemas/OrganizationSimple"
+          }
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "login": {
+            "type": "string",
+            "example": "octocat"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "node_id": {
+            "type": "string",
+            "example": "MDQ6VXNlcjE="
+          },
+          "gravatar_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "41d064eb2195891e12d0413f63227ea7"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/octocat"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/followers"
+          },
+          "following_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/following{/other_user}"
+          },
+          "gists_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/gists{/gist_id}"
+          },
+          "starred_url": {
+            "type": "string",
+            "example": "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/subscriptions"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/orgs"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/repos"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.github.com/users/octocat/received_events"
+          },
+          "type": {
+            "type": "string",
+            "example": "User"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_at": {
+            "type": "string",
+            "example": "2020-07-09T00:17:55Z"
+          },
+          "user_view_type": {
+            "type": "string",
+            "example": "public"
+          },
+          "hooks_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/hooks"
+          },
+          "issues_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/issues"
+          },
+          "members_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/members{/member}"
+          },
+          "public_members_url": {
+            "type": "string",
+            "example": "https://api.github.com/orgs/github/public_members{/member}"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "example": "A great organization"
+          }
+        },
+        "description": "The user or organization that owns this space."
+      },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2": {
+        "required": [
+          "actor_type",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "$ref": "#/components/schemas/UserActorType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf1AllOf2Role"
+          }
+        }
+      },
+      "CopilotSpaceCollaboratorAnyOf2": {
+        "required": [
+          "actor_type",
+          "role",
+          "id",
+          "node_id",
+          "name",
+          "slug",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "actor_type": {
+            "$ref": "#/components/schemas/TeamActorType"
+          },
+          "role": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Role"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Type"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "privacy": {
+            "type": "string"
+          },
+          "notification_setting": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "organization_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/CopilotSpaceCollaboratorAnyOf2Parent"
+          }
+        }
+      },
+      "CopilotSeatDetailsAssigningTeam": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Team"
+          },
+          {
+            "$ref": "#/components/schemas/EnterpriseTeam"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "privacy": {
+            "type": "string"
+          },
+          "permission": {
+            "type": "string"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/TeamPermissions"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/orgs/rails/teams/core"
+          },
+          "members_url": {
+            "type": "string"
+          },
+          "repositories_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/TeamType"
+          },
+          "access_source": {
+            "$ref": "#/components/schemas/TeamAccessSource"
+          },
+          "organization_id": {
+            "type": "integer",
+            "description": "Unique identifier of the organization to which this team belongs",
+            "format": "int64",
+            "example": 37
+          },
+          "enterprise_id": {
+            "type": "integer",
+            "description": "Unique identifier of the enterprise to which this team belongs",
+            "format": "int64",
+            "example": 42
+          },
+          "parent": {
+            "$ref": "#/components/schemas/NullableTeamSimple"
+          },
+          "sync_to_organizations": {
+            "type": "string",
+            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
+            "example": "disabled | all"
+          },
+          "organization_selection_type": {
+            "type": "string",
+            "example": "disabled | selected | all"
+          },
+          "group_id": {
+            "type": "string",
+            "nullable": true,
+            "example": "62ab9291-fae2-468e-974b-7e45096d5021"
+          },
+          "group_name": {
+            "type": "string",
+            "description": "Retired: this field will not be returned with GHEC enterprise teams.",
+            "nullable": true,
+            "example": "Justice League"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable."
       },
       "PullRequestSimpleLabelsItemArchivedBy": {
         "required": [
@@ -150068,128 +150254,11 @@
           }
         }
       },
-      "ForbiddenGistResponseBlock": {
-        "type": "object",
-        "properties": {
-          "reason": {
-            "type": "string"
-          },
-          "created_at": {
-            "type": "string"
-          },
-          "html_url": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
       "CodeScanningAlertInstanceListMessage": {
         "type": "object",
         "properties": {
           "text": {
             "type": "string"
-          }
-        }
-      },
-      "WebhooksReviewersItemReviewer": {
-        "title": "User",
-        "required": [
-          "login",
-          "id"
-        ],
-        "type": "object",
-        "properties": {
-          "avatar_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "deleted": {
-            "type": "boolean"
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "events_url": {
-            "type": "string",
-            "format": "uri-template"
-          },
-          "followers_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "following_url": {
-            "type": "string",
-            "format": "uri-template"
-          },
-          "gists_url": {
-            "type": "string",
-            "format": "uri-template"
-          },
-          "gravatar_id": {
-            "type": "string"
-          },
-          "html_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "login": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "node_id": {
-            "type": "string"
-          },
-          "organizations_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "received_events_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "repos_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "site_admin": {
-            "type": "boolean"
-          },
-          "starred_url": {
-            "type": "string",
-            "format": "uri-template"
-          },
-          "subscriptions_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "type": {
-            "$ref": "#/components/schemas/WebhooksReviewersItemReviewerType"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "nullable": true
-      },
-      "SearchResultTextMatchesItemMatchesItem": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string"
-          },
-          "indices": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            }
           }
         }
       },
@@ -150243,33 +150312,6 @@
           }
         },
         "description": "Information about repositories that were skipped from processing. This information is only available to the user that initiated the variant analysis."
-      },
-      "DependencyGraphDiffItemVulnerabilitiesItem": {
-        "required": [
-          "severity",
-          "advisory_ghsa_id",
-          "advisory_summary",
-          "advisory_url"
-        ],
-        "type": "object",
-        "properties": {
-          "severity": {
-            "type": "string",
-            "example": "critical"
-          },
-          "advisory_ghsa_id": {
-            "type": "string",
-            "example": "GHSA-rf4j-j272-fj86"
-          },
-          "advisory_summary": {
-            "type": "string",
-            "example": "A summary of the advisory."
-          },
-          "advisory_url": {
-            "type": "string",
-            "example": "https://github.com/advisories/GHSA-rf4j-j272-fj86"
-          }
-        }
       },
       "CodeownersErrorsErrorsItem": {
         "required": [
@@ -150640,30 +150682,6 @@
           },
           "verification": {
             "$ref": "#/components/schemas/FileCommitCommitVerification"
-          }
-        }
-      },
-      "ContentDirectoryItemLinks": {
-        "required": [
-          "git",
-          "html",
-          "self"
-        ],
-        "type": "object",
-        "properties": {
-          "git": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "html": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "self": {
-            "type": "string",
-            "format": "uri"
           }
         }
       },
@@ -171830,6 +171848,174 @@
           },
           "reactions": {
             "$ref": "#/components/schemas/ReactionRollup"
+          }
+        }
+      },
+      "ContentDirectoryItemLinks": {
+        "required": [
+          "git",
+          "html",
+          "self"
+        ],
+        "type": "object",
+        "properties": {
+          "git": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "html": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "self": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "DependencyGraphDiffItemVulnerabilitiesItem": {
+        "required": [
+          "severity",
+          "advisory_ghsa_id",
+          "advisory_summary",
+          "advisory_url"
+        ],
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "example": "critical"
+          },
+          "advisory_ghsa_id": {
+            "type": "string",
+            "example": "GHSA-rf4j-j272-fj86"
+          },
+          "advisory_summary": {
+            "type": "string",
+            "example": "A summary of the advisory."
+          },
+          "advisory_url": {
+            "type": "string",
+            "example": "https://github.com/advisories/GHSA-rf4j-j272-fj86"
+          }
+        }
+      },
+      "SearchResultTextMatchesItemMatchesItem": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "indices": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "WebhooksReviewersItemReviewer": {
+        "title": "User",
+        "required": [
+          "login",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "events_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "followers_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "following_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gists_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "received_events_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "repos_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "site_admin": {
+            "type": "boolean"
+          },
+          "starred_url": {
+            "type": "string",
+            "format": "uri-template"
+          },
+          "subscriptions_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WebhooksReviewersItemReviewerType"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "nullable": true
+      },
+      "ForbiddenGistResponseBlock": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -285370,7 +285556,18 @@
       "MetaGetZen200PlainResponse": {
         "type": "string"
       },
-      "UpdateBudgetBudgetBudgetTypeWrapper": {
+      "BudgetBudgetTypeWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SkuPricingValue"
+          }
+        }
+      },
+      "BudgetBudgetTypeWrapper2": {
         "required": [
           "value"
         ],
@@ -285381,7 +285578,18 @@
           }
         }
       },
-      "UpdateBudgetBudgetBudgetTypeWrapper2": {
+      "CreateBudgetBudgetBudgetTypeWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/ProductPricingValue"
+          }
+        }
+      },
+      "CreateBudgetBudgetBudgetTypeWrapper2": {
         "required": [
           "value"
         ],
@@ -285414,7 +285622,7 @@
           }
         }
       },
-      "CreateBudgetBudgetBudgetTypeWrapper": {
+      "UpdateBudgetBudgetBudgetTypeWrapper": {
         "required": [
           "value"
         ],
@@ -285425,7 +285633,7 @@
           }
         }
       },
-      "CreateBudgetBudgetBudgetTypeWrapper2": {
+      "UpdateBudgetBudgetBudgetTypeWrapper2": {
         "required": [
           "value"
         ],
@@ -285433,28 +285641,6 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/SkuPricingValue"
-          }
-        }
-      },
-      "BudgetBudgetTypeWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/SkuPricingValue"
-          }
-        }
-      },
-      "BudgetBudgetTypeWrapper2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ProductPricingValue"
           }
         }
       },
@@ -290553,9 +290739,6 @@
           }
         }
       },
-      "CopilotSpaceCollaboratorAnyOf2Parent": {
-        "type": "object"
-      },
       "BaseGistFilesProperty": {
         "type": "object",
         "additionalProperties": {
@@ -290728,6 +290911,9 @@
         "description": "The time the star was created. This is a timestamp in ISO 8601 format: \u0060YYYY-MM-DDTHH:MM:SSZ\u0060. Will be \u0060null\u0060 for the \u0060deleted\u0060 action."
       },
       "WebhookWorkflowDispatchInputsProperty": {
+        "type": "object"
+      },
+      "CopilotSpaceCollaboratorAnyOf2Parent": {
         "type": "object"
       },
       "RulesetVersionWithStateAllOf2StateProperty": {
@@ -296096,85 +296282,6 @@
           ]
         }
       },
-      "TeamActorType": {
-        "enum": [
-          "Team"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The collaborator actor type."
-      },
-      "CopilotSpaceCollaboratorAnyOf2Role": {
-        "enum": [
-          "reader",
-          "writer",
-          "admin"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The role granted to the collaborator",
-        "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf2Role",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "reader",
-              "name": "Reader"
-            },
-            {
-              "value": "writer",
-              "name": "Writer"
-            },
-            {
-              "value": "admin",
-              "name": "Admin"
-            }
-          ]
-        }
-      },
-      "TeamType": {
-        "enum": [
-          "Team"
-        ],
-        "type": "string",
-        "additionalProperties": false
-      },
-      "UserActorType": {
-        "enum": [
-          "User"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The collaborator actor type."
-      },
-      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
-        "enum": [
-          "reader",
-          "writer",
-          "admin"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The role granted to the collaborator",
-        "x-ms-enum": {
-          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "reader",
-              "name": "Reader"
-            },
-            {
-              "value": "writer",
-              "name": "Writer"
-            },
-            {
-              "value": "admin",
-              "name": "Admin"
-            }
-          ]
-        }
-      },
       "AppPermissionsActions": {
         "enum": [
           "read",
@@ -299386,7 +299493,7 @@
           ]
         }
       },
-      "TeamTypeEnum": {
+      "TeamType": {
         "enum": [
           "enterprise",
           "organization"
@@ -299395,7 +299502,7 @@
         "additionalProperties": false,
         "description": "The ownership type of the team",
         "x-ms-enum": {
-          "name": "TeamTypeEnum",
+          "name": "TeamType",
           "modelAsString": false,
           "values": [
             {
@@ -301859,6 +301966,14 @@
           ]
         }
       },
+      "RepositoryRuleParamsReviewerType": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of the reviewer"
+      },
       "PullRequestType": {
         "enum": [
           "pull_request"
@@ -303800,13 +303915,6 @@
           ]
         }
       },
-      "UserType": {
-        "enum": [
-          "User"
-        ],
-        "type": "string",
-        "additionalProperties": false
-      },
       "CodeScanningVariantAnalysisStatusEnum": {
         "enum": [
           "in_progress",
@@ -304176,56 +304284,6 @@
           ]
         }
       },
-      "DependencyGraphDiffItemChangeType": {
-        "enum": [
-          "added",
-          "removed"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "DependencyGraphDiffItemChangeType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "added",
-              "name": "Added"
-            },
-            {
-              "value": "removed",
-              "name": "Removed"
-            }
-          ]
-        }
-      },
-      "DependencyGraphDiffItemScope": {
-        "enum": [
-          "unknown",
-          "runtime",
-          "development"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Where the dependency is utilized. \u0060development\u0060 means that the dependency is only utilized in the development environment. \u0060runtime\u0060 means that the dependency is utilized at runtime and in the development environment.",
-        "x-ms-enum": {
-          "name": "DependencyGraphDiffItemScope",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "unknown",
-              "name": "Unknown"
-            },
-            {
-              "value": "runtime",
-              "name": "Runtime"
-            },
-            {
-              "value": "development",
-              "name": "Development"
-            }
-          ]
-        }
-      },
       "CodeScanningSarifsStatusProcessingStatus": {
         "enum": [
           "pending",
@@ -304524,38 +304582,6 @@
           ]
         }
       },
-      "ContentDirectoryItemType": {
-        "enum": [
-          "dir",
-          "file",
-          "submodule",
-          "symlink"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ContentDirectoryItemType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "dir",
-              "name": "Dir"
-            },
-            {
-              "value": "file",
-              "name": "File"
-            },
-            {
-              "value": "submodule",
-              "name": "Submodule"
-            },
-            {
-              "value": "symlink",
-              "name": "Symlink"
-            }
-          ]
-        }
-      },
       "DependabotAlertState": {
         "enum": [
           "auto_dismissed",
@@ -304722,62 +304748,6 @@
             {
               "value": "in_progress",
               "name": "InProgress"
-            }
-          ]
-        }
-      },
-      "RuleSuitesItemResult": {
-        "enum": [
-          "pass",
-          "fail",
-          "bypass"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The result of the rule evaluations for rules with the \u0060active\u0060 enforcement status.",
-        "x-ms-enum": {
-          "name": "RuleSuitesItemResult",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "pass",
-              "name": "Pass"
-            },
-            {
-              "value": "fail",
-              "name": "Fail"
-            },
-            {
-              "value": "bypass",
-              "name": "Bypass"
-            }
-          ]
-        }
-      },
-      "RuleSuitesItemEvaluationResult": {
-        "enum": [
-          "pass",
-          "fail",
-          "bypass"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The result of the rule evaluations for rules with the \u0060active\u0060 and \u0060evaluate\u0060 enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were \u0060active\u0060.",
-        "x-ms-enum": {
-          "name": "RuleSuitesItemEvaluationResult",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "pass",
-              "name": "Pass"
-            },
-            {
-              "value": "fail",
-              "name": "Fail"
-            },
-            {
-              "value": "bypass",
-              "name": "Bypass"
             }
           ]
         }
@@ -306623,34 +306593,6 @@
             {
               "value": "pending",
               "name": "Pending"
-            }
-          ]
-        }
-      },
-      "CodeSecurityDefaultConfigurationsItemDefaultForNewRepos": {
-        "enum": [
-          "public",
-          "private_and_internal",
-          "all"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The visibility of newly created repositories for which the code security configuration will be applied to by default",
-        "x-ms-enum": {
-          "name": "CodeSecurityDefaultConfigurationsItemDefaultForNewRepos",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "public",
-              "name": "PublicValue"
-            },
-            {
-              "value": "private_and_internal",
-              "name": "PrivateAndInternal"
-            },
-            {
-              "value": "all",
-              "name": "All"
             }
           ]
         }
@@ -310211,6 +310153,258 @@
           ]
         }
       },
+      "CodeSecurityDefaultConfigurationsItemDefaultForNewRepos": {
+        "enum": [
+          "public",
+          "private_and_internal",
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The visibility of newly created repositories for which the code security configuration will be applied to by default",
+        "x-ms-enum": {
+          "name": "CodeSecurityDefaultConfigurationsItemDefaultForNewRepos",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "public",
+              "name": "PublicValue"
+            },
+            {
+              "value": "private_and_internal",
+              "name": "PrivateAndInternal"
+            },
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "RuleSuitesItemResult": {
+        "enum": [
+          "pass",
+          "fail",
+          "bypass"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The result of the rule evaluations for rules with the \u0060active\u0060 enforcement status.",
+        "x-ms-enum": {
+          "name": "RuleSuitesItemResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pass",
+              "name": "Pass"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
+            },
+            {
+              "value": "bypass",
+              "name": "Bypass"
+            }
+          ]
+        }
+      },
+      "RuleSuitesItemEvaluationResult": {
+        "enum": [
+          "pass",
+          "fail",
+          "bypass"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The result of the rule evaluations for rules with the \u0060active\u0060 and \u0060evaluate\u0060 enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were \u0060active\u0060.",
+        "x-ms-enum": {
+          "name": "RuleSuitesItemEvaluationResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pass",
+              "name": "Pass"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
+            },
+            {
+              "value": "bypass",
+              "name": "Bypass"
+            }
+          ]
+        }
+      },
+      "ContentDirectoryItemType": {
+        "enum": [
+          "dir",
+          "file",
+          "submodule",
+          "symlink"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ContentDirectoryItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "dir",
+              "name": "Dir"
+            },
+            {
+              "value": "file",
+              "name": "File"
+            },
+            {
+              "value": "submodule",
+              "name": "Submodule"
+            },
+            {
+              "value": "symlink",
+              "name": "Symlink"
+            }
+          ]
+        }
+      },
+      "DependencyGraphDiffItemChangeType": {
+        "enum": [
+          "added",
+          "removed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DependencyGraphDiffItemChangeType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "added",
+              "name": "Added"
+            },
+            {
+              "value": "removed",
+              "name": "Removed"
+            }
+          ]
+        }
+      },
+      "DependencyGraphDiffItemScope": {
+        "enum": [
+          "unknown",
+          "runtime",
+          "development"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Where the dependency is utilized. \u0060development\u0060 means that the dependency is only utilized in the development environment. \u0060runtime\u0060 means that the dependency is utilized at runtime and in the development environment.",
+        "x-ms-enum": {
+          "name": "DependencyGraphDiffItemScope",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "unknown",
+              "name": "Unknown"
+            },
+            {
+              "value": "runtime",
+              "name": "Runtime"
+            },
+            {
+              "value": "development",
+              "name": "Development"
+            }
+          ]
+        }
+      },
+      "UserType": {
+        "enum": [
+          "User"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
+      "UserActorType": {
+        "enum": [
+          "User"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The collaborator actor type."
+      },
+      "CopilotSpaceCollaboratorAnyOf1AllOf2Role": {
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The role granted to the collaborator",
+        "x-ms-enum": {
+          "name": "CopilotSpaceCollaboratorAnyOf1AllOf2Role",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reader",
+              "name": "Reader"
+            },
+            {
+              "value": "writer",
+              "name": "Writer"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
+      "TeamActorType": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The collaborator actor type."
+      },
+      "CopilotSpaceCollaboratorAnyOf2Role": {
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The role granted to the collaborator",
+        "x-ms-enum": {
+          "name": "CopilotSpaceCollaboratorAnyOf2Role",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "reader",
+              "name": "Reader"
+            },
+            {
+              "value": "writer",
+              "name": "Writer"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
+      "CopilotSpaceCollaboratorAnyOf2Type": {
+        "enum": [
+          "Team"
+        ],
+        "type": "string",
+        "additionalProperties": false
+      },
       "WebhookForkForkeeVisibility": {
         "enum": [
           "public",
@@ -313567,15 +313761,6 @@
             }
           ]
         }
-      },
-      "WebhooksReviewersItemReviewerType": {
-        "enum": [
-          "Bot",
-          "User",
-          "Organization"
-        ],
-        "type": "string",
-        "additionalProperties": false
       },
       "DependabotAlertDependencyScope": {
         "enum": [
@@ -320627,6 +320812,15 @@
             }
           ]
         }
+      },
+      "WebhooksReviewersItemReviewerType": {
+        "enum": [
+          "Bot",
+          "User",
+          "Organization"
+        ],
+        "type": "string",
+        "additionalProperties": false
       },
       "WebhookPullRequestReviewRequestRemovedOneOf1PullRequestActiveLockReason": {
         "enum": [
@@ -368829,16 +369023,16 @@
         "additionalProperties": false,
         "description": "The type of item to add to the project. Must be either Issue or PullRequest."
       },
-      "ProductPricingValue": {
+      "SkuPricingValue": {
         "enum": [
-          "ProductPricing"
+          "SkuPricing"
         ],
         "type": "string",
         "additionalProperties": false
       },
-      "SkuPricingValue": {
+      "ProductPricingValue": {
         "enum": [
-          "SkuPricing"
+          "ProductPricing"
         ],
         "type": "string",
         "additionalProperties": false
@@ -372289,7 +372483,7 @@
           ]
         }
       },
-      "TeamTypeEnum2": {
+      "TeamTypeEnum": {
         "enum": [
           "all",
           "enterprise",
@@ -372298,7 +372492,7 @@
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "TeamTypeEnum2",
+          "name": "TeamTypeEnum",
           "modelAsString": false,
           "values": [
             {
@@ -376452,7 +376646,8 @@
         "in": "query",
         "description": "The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either \u0060tool_name\u0060 or \u0060tool_guid\u0060, but not both.",
         "schema": {
-          "type": "string"
+          "type": "string",
+          "description": "The name of the tool used to generate the code scanning analysis."
         }
       },
       "tool-guid": {
@@ -377114,7 +377309,7 @@
         "in": "query",
         "description": "Filter team results by their type. For more information, see \u0022[What kind of team should I use?](https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use)\u0022",
         "schema": {
-          "$ref": "#/components/schemas/TeamTypeEnum2"
+          "$ref": "#/components/schemas/TeamTypeEnum"
         }
       },
       "security-product": {
@@ -377387,7 +377582,8 @@
         "in": "query",
         "description": "The Git reference for the results you want to list. The \u0060ref\u0060 for a branch can be formatted either as \u0060refs/heads/\u003Cbranch name\u003E\u0060 or simply \u0060\u003Cbranch name\u003E\u0060. To reference a pull request use \u0060refs/pull/\u003Cnumber\u003E/merge\u0060.",
         "schema": {
-          "type": "string"
+          "type": "string",
+          "description": "The Git reference, formatted as \u0060refs/pull/\u003Cnumber\u003E/merge\u0060, \u0060refs/pull/\u003Cnumber\u003E/head\u0060,\n\u0060refs/heads/\u003Cbranch name\u003E\u0060 or simply \u0060\u003Cbranch name\u003E\u0060."
         }
       },
       "pr-alias": {
@@ -377404,7 +377600,8 @@
         "description": "The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the \u0060number\u0060 field in the response from the \u0060GET /repos/{owner}/{repo}/code-scanning/alerts\u0060 operation.",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "integer",
+          "description": "The security alert number."
         }
       },
       "reaction-id": {
@@ -377451,7 +377648,8 @@
         "description": "The number that identifies a Dependabot alert in its repository.\nYou can find this at the end of the URL for a Dependabot alert within GitHub,\nor in \u0060number\u0060 fields in the response from the\n\u0060GET /repos/{owner}/{repo}/dependabot/alerts\u0060 operation.",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "integer",
+          "description": "The security alert number."
         }
       },
       "manifest-path": {
