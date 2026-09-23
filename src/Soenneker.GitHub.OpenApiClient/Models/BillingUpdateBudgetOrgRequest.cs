@@ -24,33 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</summary>
         public int? BudgetAmount { get; set; }
-        /// <summary>The name of the entity to apply the budget to</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BudgetEntityName { get; set; }
-#nullable restore
-#else
-        public string BudgetEntityName { get; set; }
-#endif
-        /// <summary>A single product or SKU that will be covered in the budget</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BudgetProductSku { get; set; }
-#nullable restore
-#else
-        public string BudgetProductSku { get; set; }
-#endif
-        /// <summary>The scope of the budget for this organization.- `organization`: Apply the budget to the organization.- `repository`: Apply the budget to a specific repository in the organization.- `multi_user_customer`: Apply a universal budget to all users in the organization.- `user`: Apply the budget to a single user in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetScope? BudgetScope { get; set; }
-        /// <summary>The type of pricing model used by the budget. Determines how `budget_product_sku` is interpreted.- `BundlePricing`: Covers all AI credit SKUs. Set `budget_product_sku` to `ai_credits`.- `ProductPricing`: Covers all SKUs that belong to a product. Set `budget_product_sku` to a product such as `actions` or `packages`.- `SkuPricing`: Covers a single, specific SKU. Set `budget_product_sku` to a SKU such as `actions_linux`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetType? BudgetType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetType BudgetType { get; set; }
-#endif
-        /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not set, the budget will not expire. Setting to `null` or `0` will remove the expiration date from a budget if set.Only supported for budgets with `budget_scope` of `user`</summary>
+        /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not set, the budget will not expire. Setting to `null` or `0` will remove the expiration date from a budget if set.Only supported for existing user-scoped budgets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestExpiresAtOneOf2? ExpiresAt { get; set; }
@@ -60,14 +34,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>Whether to prevent additional spending once the budget is exceeded. For budgets with `user` or `multi_user_customer` scope, this must remain `true`.</summary>
         public bool? PreventFurtherUsage { get; set; }
-        /// <summary>The username of the user for `user` scope budgets.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? User { get; set; }
-#nullable restore
-#else
-        public string User { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequest"/> and sets the default values.
         /// </summary>
@@ -95,13 +61,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "budget_alerting", n => { BudgetAlerting = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetAlerting>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetAlerting.CreateFromDiscriminatorValue); } },
                 { "budget_amount", n => { BudgetAmount = n.GetIntValue(); } },
-                { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
-                { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
-                { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetScope>(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetType.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestExpiresAtOneOf2>(global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestExpiresAtOneOf2.CreateFromDiscriminatorValue); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
-                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -113,13 +74,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetAlerting>("budget_alerting", BudgetAlerting);
             writer.WriteIntValue("budget_amount", BudgetAmount);
-            writer.WriteStringValue("budget_entity_name", BudgetEntityName);
-            writer.WriteStringValue("budget_product_sku", BudgetProductSku);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetScope>("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestBudgetType>("budget_type", BudgetType);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.BillingUpdateBudgetOrgRequestExpiresAtOneOf2>("expires_at", ExpiresAt);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
-            writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
