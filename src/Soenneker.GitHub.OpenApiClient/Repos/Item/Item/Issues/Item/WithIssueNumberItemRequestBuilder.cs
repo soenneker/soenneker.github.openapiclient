@@ -13,6 +13,7 @@ using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Labels;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Lock;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Parent;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Reactions;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Relates_to;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issues;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Suggestions;
@@ -74,6 +75,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Reactions.ReactionsRequestBuilder Reactions
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Reactions.ReactionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The relates_to property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Relates_to.Relates_toRequestBuilder Relates_to
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Relates_to.Relates_toRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sub_issue property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Sub_issue.Sub_issueRequestBuilder Sub_issue

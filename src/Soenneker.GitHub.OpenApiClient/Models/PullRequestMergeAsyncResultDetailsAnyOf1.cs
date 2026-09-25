@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// When an asynchronous merge request was created or already existed
+    /// When the asynchronous merge request is pending
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PullRequestMergeAsyncResultDetailsOneOf1 : IParsable
+    public partial class PullRequestMergeAsyncResultDetailsAnyOf1 : IParsable
     {
         /// <summary>SHA that the pull request head must match for the enqueued merge to proceed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,9 +22,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string ExpectedHeadSha { get; set; }
 #endif
         /// <summary>The merge_action property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1MergeAction? MergeAction { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction? MergeAction { get; set; }
         /// <summary>The merge_method property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1MergeMethod? MergeMethod { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod? MergeMethod { get; set; }
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,12 +44,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1();
+            return new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,8 +60,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "expected_head_sha", n => { ExpectedHeadSha = n.GetStringValue(); } },
-                { "merge_action", n => { MergeAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1MergeAction>(); } },
-                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1MergeMethod>(); } },
+                { "merge_action", n => { MergeAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction>(); } },
+                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "uuid", n => { Uuid = n.GetStringValue(); } },
             };
@@ -74,8 +74,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("expected_head_sha", ExpectedHeadSha);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1MergeAction>("merge_action", MergeAction);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1MergeMethod>("merge_method", MergeMethod);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeAction>("merge_action", MergeAction);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1MergeMethod>("merge_method", MergeMethod);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("uuid", Uuid);
         }

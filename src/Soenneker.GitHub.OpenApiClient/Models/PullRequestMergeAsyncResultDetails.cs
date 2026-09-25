@@ -8,34 +8,42 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullRequestMergeAsyncResultDetails : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1? PullRequestMergeAsyncResultDetailsOneOf1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1? PullRequestMergeAsyncResultDetailsAnyOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1 PullRequestMergeAsyncResultDetailsOneOf1 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1 PullRequestMergeAsyncResultDetailsAnyOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf2? PullRequestMergeAsyncResultDetailsOneOf2 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2? PullRequestMergeAsyncResultDetailsAnyOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf2 PullRequestMergeAsyncResultDetailsOneOf2 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2 PullRequestMergeAsyncResultDetailsAnyOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf3? PullRequestMergeAsyncResultDetailsOneOf3 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3? PullRequestMergeAsyncResultDetailsAnyOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf3 PullRequestMergeAsyncResultDetailsOneOf3 { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3 PullRequestMergeAsyncResultDetailsAnyOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4? PullRequestMergeAsyncResultDetailsAnyOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4 PullRequestMergeAsyncResultDetailsAnyOf4 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,20 +53,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetails();
-            if("PullRequestMergeAsyncResultDetailsOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PullRequestMergeAsyncResultDetailsOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1();
-            }
-            else if("PullRequestMergeAsyncResultDetailsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PullRequestMergeAsyncResultDetailsOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf2();
-            }
-            else if("PullRequestMergeAsyncResultDetailsOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PullRequestMergeAsyncResultDetailsOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf3();
-            }
+            result.PullRequestMergeAsyncResultDetailsAnyOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1();
+            result.PullRequestMergeAsyncResultDetailsAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf2();
+            result.PullRequestMergeAsyncResultDetailsAnyOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf3();
+            result.PullRequestMergeAsyncResultDetailsAnyOf4 = new global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf4();
             return result;
         }
         /// <summary>
@@ -67,17 +66,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PullRequestMergeAsyncResultDetailsOneOf1 != null)
+            if(PullRequestMergeAsyncResultDetailsAnyOf1 != null || PullRequestMergeAsyncResultDetailsAnyOf2 != null || PullRequestMergeAsyncResultDetailsAnyOf3 != null || PullRequestMergeAsyncResultDetailsAnyOf4 != null)
             {
-                return PullRequestMergeAsyncResultDetailsOneOf1.GetFieldDeserializers();
-            }
-            else if(PullRequestMergeAsyncResultDetailsOneOf2 != null)
-            {
-                return PullRequestMergeAsyncResultDetailsOneOf2.GetFieldDeserializers();
-            }
-            else if(PullRequestMergeAsyncResultDetailsOneOf3 != null)
-            {
-                return PullRequestMergeAsyncResultDetailsOneOf3.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PullRequestMergeAsyncResultDetailsAnyOf1, PullRequestMergeAsyncResultDetailsAnyOf2, PullRequestMergeAsyncResultDetailsAnyOf3, PullRequestMergeAsyncResultDetailsAnyOf4);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -88,18 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PullRequestMergeAsyncResultDetailsOneOf1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf1>(null, PullRequestMergeAsyncResultDetailsOneOf1);
-            }
-            else if(PullRequestMergeAsyncResultDetailsOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf2>(null, PullRequestMergeAsyncResultDetailsOneOf2);
-            }
-            else if(PullRequestMergeAsyncResultDetailsOneOf3 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsOneOf3>(null, PullRequestMergeAsyncResultDetailsOneOf3);
-            }
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestMergeAsyncResultDetailsAnyOf1>(null, PullRequestMergeAsyncResultDetailsAnyOf1, PullRequestMergeAsyncResultDetailsAnyOf2, PullRequestMergeAsyncResultDetailsAnyOf3, PullRequestMergeAsyncResultDetailsAnyOf4);
         }
     }
 }

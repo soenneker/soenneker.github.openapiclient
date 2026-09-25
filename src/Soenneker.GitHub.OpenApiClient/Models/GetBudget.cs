@@ -50,6 +50,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType BudgetType { get; set; }
 #endif
+        /// <summary>The current usage amount counted toward the budget. How usage is calculated may vary by budget type.</summary>
+        public double? ConsumedAmount { get; set; }
         /// <summary>ID of the budget.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +101,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope>(); } },
                 { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType.CreateFromDiscriminatorValue); } },
+                { "consumed_amount", n => { ConsumedAmount = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
@@ -117,6 +120,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetScope>("budget_scope", BudgetScope);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetType>("budget_type", BudgetType);
+            writer.WriteDoubleValue("consumed_amount", ConsumedAmount);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);
             writer.WriteStringValue("user", User);
