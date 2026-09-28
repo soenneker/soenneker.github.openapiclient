@@ -77,6 +77,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomRoles? OrganizationCustomRoles { get; set; }
         /// <summary>The level of permission to grant the access token to view events triggered by an activity in an organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.ReadOrganizationEvents? OrganizationEvents { get; set; }
+        /// <summary>The level of permission to grant the access token for managing external custom properties for repositories in an organization.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationExternalPropertiesForRepos? OrganizationExternalPropertiesForRepos { get; set; }
         /// <summary>The level of permission to grant the access token to manage the post-receive hooks for an organization.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationHooks? OrganizationHooks { get; set; }
         /// <summary>The level of permission to grant the access token for organization packages published to GitHub Packages.</summary>
@@ -181,6 +183,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "organization_custom_properties", n => { OrganizationCustomProperties = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomProperties>(); } },
                 { "organization_custom_roles", n => { OrganizationCustomRoles = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomRoles>(); } },
                 { "organization_events", n => { OrganizationEvents = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReadOrganizationEvents>(); } },
+                { "organization_external_properties_for_repos", n => { OrganizationExternalPropertiesForRepos = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationExternalPropertiesForRepos>(); } },
                 { "organization_hooks", n => { OrganizationHooks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationHooks>(); } },
                 { "organization_packages", n => { OrganizationPackages = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPackages>(); } },
                 { "organization_personal_access_token_requests", n => { OrganizationPersonalAccessTokenRequests = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokenRequests>(); } },
@@ -245,6 +248,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomProperties>("organization_custom_properties", OrganizationCustomProperties);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationCustomRoles>("organization_custom_roles", OrganizationCustomRoles);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReadOrganizationEvents>("organization_events", OrganizationEvents);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationExternalPropertiesForRepos>("organization_external_properties_for_repos", OrganizationExternalPropertiesForRepos);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationHooks>("organization_hooks", OrganizationHooks);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPackages>("organization_packages", OrganizationPackages);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AppPermissionsOrganizationPersonalAccessTokenRequests>("organization_personal_access_token_requests", OrganizationPersonalAccessTokenRequests);

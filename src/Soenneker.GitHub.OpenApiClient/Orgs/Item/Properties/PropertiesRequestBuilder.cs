@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Installations;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Schema;
 using Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Values;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PropertiesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The installations property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Installations.InstallationsRequestBuilder Installations
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Installations.InstallationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The schema property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Schema.SchemaRequestBuilder Schema
         {

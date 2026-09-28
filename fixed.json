@@ -27629,6 +27629,340 @@
         }
       }
     },
+    "/orgs/{org}/properties/installations": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Get registered app installations for external custom properties",
+        "description": "Gets the registered GitHub App installations used to read and write external custom properties for an organization.\n\nA GitHub App installation token will only be able to see its own registration info, whereas an authenticated user will be able to see all registrations for the organization.\n\nTo use this endpoint, the authenticated caller must have the \u0060organization_external_properties_for_repos:admin\u0060 permission.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/custom-properties#get-registered-app-installations-for-external-custom-properties"
+        },
+        "operationId": "OrgsExternalPropertiesForReposGetOrganizationAppInstallations",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsExternalPropertiesForReposGetOrganizationAppInstallations200ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "value": [
+                      {
+                        "$ref": "#/components/examples/organization-external-property-installation"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "custom-properties"
+        }
+      },
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Register an app installation for external custom properties",
+        "description": "Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.\n\nAn app installation can only be registered once, and its display name can\u0027t be changed afterward. Calling with an app installation that has already been registered returns a \u0060422\u0060 response with an \u0060already_exists\u0060 error code.\n\nUninstalling the GitHub App unregisters it, and removes the external custom properties it created.\n\nTo use this endpoint, the authenticated caller must have the \u0060organization_external_properties_for_repos:admin\u0060 permission.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/custom-properties#register-an-app-installation-for-external-custom-properties"
+        },
+        "operationId": "OrgsExternalPropertiesForReposRegisterOrganizationAppInstallation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgsExternalPropertiesForReposRegisterOrganizationAppInstallationRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "installation_id": 67890,
+                    "display_name": "Acme"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationExternalPropertyInstallation"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/organization-external-property-installation"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "custom-properties"
+        }
+      }
+    },
+    "/orgs/{org}/properties/installations/schema": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Get all external custom properties for a GitHub App installation in an organization",
+        "description": "Gets all external custom properties defined for the authenticated GitHub App installation on an organization.\n\nTo use this endpoint, the authenticated GitHub App must have the \u0060organization_external_properties_for_repos:read\u0060 permission.",
+        "externalDocs": {
+          "description": "REST API endpoint documentation",
+          "url": "https://docs.github.com/rest/orgs/custom-properties#get-all-external-custom-properties-for-a-github-app-installation-in-an-organization"
+        },
+        "operationId": "OrgsExternalPropertiesForReposGetOrganizationDefinitions",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgsExternalPropertiesForReposGetOrganizationDefinitions200ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/external-properties"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "custom-properties"
+        }
+      }
+    },
+    "/orgs/{org}/properties/installations/values": {
+      "patch": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Create or update external custom property values for organization repositories",
+        "description": "Create new or update existing external custom property values for repositories in a batch that belong to an organization.\nEach target repository will have its external custom property values updated to match the values provided in the request.\n\nA maximum of 30 repositories can be updated in a single request.\n\nUsing a value of \u0060null\u0060 for an external custom property will remove or \u0027unset\u0027 the property value from the repository.\n\nTo use this endpoint, the authenticated GitHub App must have the \u0060organization_external_properties_for_repos:write\u0060 permission.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/custom-properties#create-or-update-external-custom-property-values-for-organization-repositories"
+        },
+        "operationId": "OrgsExternalPropertiesForReposCreateOrUpdateOrganizationValues",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgsExternalPropertiesForReposCreateOrUpdateOrganizationValuesRequest"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/org-repo-update-custom-property-values"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content when external custom property values are successfully created or updated"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "custom-properties"
+        }
+      }
+    },
+    "/orgs/{org}/properties/installations/values/{propertyName}": {
+      "patch": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Create or update external custom property values for a property across organization repositories",
+        "description": "Create new or update existing external custom property values for a single named property across repositories that belong to an organization.\n\nUp to 100 repository values can be updated in a single request. Repositories not included in the request are left unchanged.\n\nUsing a value of \u0060null\u0060 for a repository will remove or \u0027unset\u0027 the property value for that repository. A request that only contains \u0060null\u0060 values for a property that does not yet exist is a no-op.\n\nTo use this endpoint, the authenticated GitHub App must have the \u0060organization_external_properties_for_repos:write\u0060 permission.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/custom-properties#create-or-update-external-custom-property-values-for-a-property-across-organization-repositories"
+        },
+        "operationId": "OrgsExternalPropertiesForReposCreateOrUpdateValuesForOrganizationProperty",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "propertyName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgsExternalPropertiesForReposCreateOrUpdateValuesForOrganizationPropertyRequest"
+              },
+              "examples": {
+                "default": {
+                  "$ref": "#/components/examples/org-repo-update-external-property-values"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "custom-properties"
+        }
+      },
+      "delete": {
+        "tags": [
+          "orgs"
+        ],
+        "summary": "Remove all external custom property values for a property across all organization repositories",
+        "description": "Removes all external custom property values for a specified property name across all repositories that belong to an organization.\n\nTo use this endpoint, the authenticated GitHub App must have the \u0060organization_external_properties_for_repos:write\u0060 permission.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/orgs/custom-properties#remove-all-external-custom-property-values-for-a-property-across-all-organization-repositories"
+        },
+        "operationId": "OrgsExternalPropertiesForReposDeleteOrganizationValues",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/org"
+          },
+          {
+            "name": "propertyName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/no_content"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "orgs",
+          "subcategory": "custom-properties"
+        }
+      }
+    },
     "/orgs/{org}/properties/schema": {
       "get": {
         "tags": [
@@ -32500,6 +32834,63 @@
           "enabledForGitHubApps": true,
           "category": "actions",
           "subcategory": "workflow-runs"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/actions/jobs/{jobId}/steps/{stepNumber}/logs": {
+      "get": {
+        "tags": [
+          "actions"
+        ],
+        "summary": "Download step logs for a workflow run job",
+        "description": "Gets a redirect URL to download a plain text file of logs for a specific step of a workflow job. This link expires after\n1 minute. Look for \u0060Location:\u0060 in the response header to find the URL for the download.\n\nThis endpoint is intended for selective retrieval of one step. To download complete job logs, use the\n[job logs endpoint](https://docs.github.com/rest/actions/workflow-jobs#download-job-logs-for-a-workflow-run).\n\nAnyone with read access to the repository can use this endpoint.\n\nIf the repository is private, OAuth tokens and personal access tokens (classic) need the \u0060repo\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/actions/workflow-jobs#download-step-logs-for-a-workflow-run-job"
+        },
+        "operationId": "ActionsDownloadStepLogsForWorkflowRunJob",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stepNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Response",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "https://pipelines.actions.githubusercontent.com/ab1f3cCFPB34Nd6imvFxpGZH5hNlDp2wijMwl2gDoO0bcrrlJj/_apis/pipelines/1/jobs/19/steps/1/signedlogcontent?urlExpires=2020-01-22T22%3A44%3A54.1389777Z\u0026urlSigningMethod=HMACV1\u0026urlSignature=2TUDfIg4fm36OJmfPy6km5QD5DLCOkBVzvhWZM8B%2BUY%3D"
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "actions",
+          "subcategory": "workflow-jobs"
         }
       }
     },
@@ -79600,6 +79991,9 @@
           "organization_copilot_agent_settings": {
             "$ref": "#/components/schemas/AppPermissionsOrganizationCopilotAgentSettings"
           },
+          "organization_external_properties_for_repos": {
+            "$ref": "#/components/schemas/AppPermissionsOrganizationExternalPropertiesForRepos"
+          },
           "organization_announcement_banners": {
             "$ref": "#/components/schemas/AppPermissionsOrganizationAnnouncementBanners"
           },
@@ -91672,6 +92066,76 @@
         },
         "description": "A view inside a projects v2 project"
       },
+      "OrganizationExternalPropertyInstallation": {
+        "title": "Organization External Custom Property Installation",
+        "required": [
+          "display_name",
+          "installation"
+        ],
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "description": "The display name assigned to the app installation\u0027s external custom properties in the organization."
+          },
+          "installation": {
+            "$ref": "#/components/schemas/OrganizationExternalPropertyInstallationInstallation"
+          }
+        },
+        "description": "A GitHub App installation that has been registered to read and write an organization\u0027s external custom properties, together with the display name assigned to it."
+      },
+      "ExternalProperty": {
+        "title": "External Property",
+        "required": [
+          "property_name"
+        ],
+        "type": "object",
+        "properties": {
+          "property_name": {
+            "type": "string",
+            "description": "The name of the external property"
+          }
+        },
+        "description": "External custom property defined for a GitHub App installation"
+      },
+      "CustomPropertyValue": {
+        "title": "Custom Property Value",
+        "required": [
+          "property_name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "property_name": {
+            "type": "string",
+            "description": "The name of the property"
+          },
+          "value": {
+            "$ref": "#/components/schemas/CustomPropertyValueValue"
+          }
+        },
+        "description": "Custom property name and associated value"
+      },
+      "RepositoryExternalPropertyPayload": {
+        "title": "Repository External Custom Property Value Payload",
+        "required": [
+          "repository_name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "repository_name": {
+            "type": "string",
+            "description": "The name of the repository"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value assigned to the repository. Set to \u0060null\u0060 to unset the value for this repository.",
+            "nullable": true
+          }
+        },
+        "description": "Repository name and associated external custom property value"
+      },
       "CustomProperty": {
         "title": "Organization Custom Property",
         "required": [
@@ -91764,24 +92228,6 @@
           }
         },
         "description": "Custom property set payload"
-      },
-      "CustomPropertyValue": {
-        "title": "Custom Property Value",
-        "required": [
-          "property_name",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "property_name": {
-            "type": "string",
-            "description": "The name of the property"
-          },
-          "value": {
-            "$ref": "#/components/schemas/CustomPropertyValueValue"
-          }
-        },
-        "description": "Custom property name and associated value"
       },
       "OrgRepoCustomPropertyValues": {
         "title": "Organization Repository Custom Property Values",
@@ -128362,6 +128808,22 @@
           }
         }
       },
+      "CustomPropertyValueValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "The value assigned to the property"
+      },
       "CustomPropertyDefaultValue": {
         "type": "object",
         "oneOf": [
@@ -128392,22 +128854,6 @@
           }
         ],
         "description": "Default value of the property"
-      },
-      "CustomPropertyValueValue": {
-        "type": "object",
-        "oneOf": [
-          {
-            "type": "string",
-            "nullable": true
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "The value assigned to the property"
       },
       "RepositoryRulesetConditionsComposed": {
         "type": "object",
@@ -147715,6 +148161,20 @@
       },
       "ProjectsV2ItemWithContentFieldsItem": {
         "type": "object"
+      },
+      "OrganizationExternalPropertyInstallationInstallation": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the GitHub App installation.",
+            "format": "int64"
+          }
+        },
+        "description": "The GitHub App installation that was registered."
       },
       "NullableRepositoryPermissions": {
         "required": [
@@ -277042,6 +277502,80 @@
           "$ref": "#/components/schemas/ProjectsV2ItemWithContent"
         }
       },
+      "OrgsExternalPropertiesForReposGetOrganizationAppInstallations200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/OrganizationExternalPropertyInstallation"
+        }
+      },
+      "OrgsExternalPropertiesForReposRegisterOrganizationAppInstallationRequest": {
+        "required": [
+          "display_name"
+        ],
+        "type": "object",
+        "properties": {
+          "installation_id": {
+            "type": "integer",
+            "description": "The unique identifier of the GitHub App installation to register for managing external custom properties. When authenticating as a GitHub App installation, this defaults to the authenticated installation and can be omitted. It is required for all other callers (users and fine-grained personal access tokens).",
+            "format": "int64"
+          },
+          "display_name": {
+            "maxLength": 15,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9]\u002B$",
+            "type": "string",
+            "description": "The display name for this app installation\u0027s external custom properties in the organization. This can\u0027t be changed after the app installation is registered."
+          }
+        }
+      },
+      "OrgsExternalPropertiesForReposGetOrganizationDefinitions200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ExternalProperty"
+        }
+      },
+      "OrgsExternalPropertiesForReposCreateOrUpdateOrganizationValuesRequest": {
+        "required": [
+          "repository_names",
+          "properties"
+        ],
+        "type": "object",
+        "properties": {
+          "repository_names": {
+            "maxItems": 30,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The names of repositories that the external custom property values will be applied to."
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomPropertyValue"
+            },
+            "description": "List of external custom property names and associated values to apply to the repositories."
+          }
+        }
+      },
+      "OrgsExternalPropertiesForReposCreateOrUpdateValuesForOrganizationPropertyRequest": {
+        "required": [
+          "repository_values"
+        ],
+        "type": "object",
+        "properties": {
+          "repository_values": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepositoryExternalPropertyPayload"
+            },
+            "description": "The names of repositories and the values that the named external custom property will be set to."
+          }
+        }
+      },
       "OrgsCustomPropertiesForReposGetOrganizationDefinitions200Response": {
         "type": "array",
         "items": {
@@ -286457,6 +286991,18 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/ProjectsV2ItemWithContent"
+        }
+      },
+      "OrgsExternalPropertiesForReposGetOrganizationAppInstallations200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/OrganizationExternalPropertyInstallation"
+        }
+      },
+      "OrgsExternalPropertiesForReposGetOrganizationDefinitions200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ExternalProperty"
         }
       },
       "OrgsCustomPropertiesForReposGetOrganizationDefinitions200ResponseSchema": {
@@ -296159,6 +296705,34 @@
             {
               "value": "write",
               "name": "Write"
+            }
+          ]
+        }
+      },
+      "AppPermissionsOrganizationExternalPropertiesForRepos": {
+        "enum": [
+          "read",
+          "write",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+        "x-ms-enum": {
+          "name": "AppPermissionsOrganizationExternalPropertiesForRepos",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "read",
+              "name": "Read"
+            },
+            {
+              "value": "write",
+              "name": "Write"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
             }
           ]
         }
@@ -375869,6 +376443,15 @@
           "type": "integer"
         }
       },
+      "external-property-name": {
+        "name": "property_name",
+        "in": "path",
+        "description": "The name of the external custom property",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
       "custom-property-name": {
         "name": "custom_property_name",
         "in": "path",
@@ -376245,6 +376828,16 @@
         "schema": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "step-number": {
+        "name": "step_number",
+        "in": "path",
+        "description": "The zero-based position number of the step in the job.",
+        "required": true,
+        "schema": {
+          "minimum": 0,
+          "type": "integer"
         }
       },
       "actor": {
@@ -388001,6 +388594,60 @@
           ]
         }
       },
+      "organization-external-property-installation": {
+        "value": {
+          "display_name": "Acme",
+          "installation": {
+            "id": 1
+          }
+        }
+      },
+      "external-properties": {
+        "value": [
+          {
+            "property_name": "environment"
+          },
+          {
+            "property_name": "business_unit"
+          }
+        ]
+      },
+      "org-repo-update-custom-property-values": {
+        "value": {
+          "repository_names": [
+            "Hello-World",
+            "octo-repo"
+          ],
+          "properties": [
+            {
+              "property_name": "environment",
+              "value": "production"
+            },
+            {
+              "property_name": "service",
+              "value": "web"
+            },
+            {
+              "property_name": "team",
+              "value": "octocat"
+            }
+          ]
+        }
+      },
+      "org-repo-update-external-property-values": {
+        "value": {
+          "repository_values": [
+            {
+              "repository_name": "Hello-World",
+              "value": "production"
+            },
+            {
+              "repository_name": "octo-repo",
+              "value": null
+            }
+          ]
+        }
+      },
       "custom-properties": {
         "value": [
           {
@@ -388070,28 +388717,6 @@
             ]
           }
         ]
-      },
-      "org-repo-update-custom-property-values": {
-        "value": {
-          "repository_names": [
-            "Hello-World",
-            "octo-repo"
-          ],
-          "properties": [
-            {
-              "property_name": "environment",
-              "value": "production"
-            },
-            {
-              "property_name": "service",
-              "value": "web"
-            },
-            {
-              "property_name": "team",
-              "value": "octocat"
-            }
-          ]
-        }
       },
       "full-repository": {
         "value": {

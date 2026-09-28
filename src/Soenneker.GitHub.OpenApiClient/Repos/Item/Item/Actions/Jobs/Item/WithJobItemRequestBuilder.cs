@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Logs;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Rerun;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -28,6 +29,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Rerun.RerunRequestBuilder Rerun
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Rerun.RerunRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The steps property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.StepsRequestBuilder Steps
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.StepsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.WithJobItemRequestBuilder"/> and sets the default values.
