@@ -14,7 +14,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The display name for this app installation&apos;s external custom properties in the organization. This can&apos;t be changed after the app installation is registered.</summary>
+        /// <summary>The display name for this app installation&apos;s external custom properties in the organization. Must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered. This can&apos;t be changed after the app installation is registered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }

@@ -27688,7 +27688,7 @@
           "orgs"
         ],
         "summary": "Register an app installation for external custom properties",
-        "description": "Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.\n\nAn app installation can only be registered once, and its display name can\u0027t be changed afterward. Calling with an app installation that has already been registered returns a \u0060422\u0060 response with an \u0060already_exists\u0060 error code.\n\nUninstalling the GitHub App unregisters it, and removes the external custom properties it created.\n\nTo use this endpoint, the authenticated caller must have the \u0060organization_external_properties_for_repos:admin\u0060 permission.",
+        "description": "Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.\n\nThe display name must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered.\n\nAn app installation can only be registered once, and its display name can\u0027t be changed afterward. Calling with an app installation that has already been registered returns a \u0060422\u0060 response with an \u0060already_exists\u0060 error code for \u0060installation_id\u0060. If the display name is already in use by another app installation in the organization, the response is \u0060422\u0060 with an \u0060already_exists\u0060 error code for \u0060display_name\u0060. An invalid display name also returns \u0060422\u0060.\n\nThe app installation being registered must have write or admin permission for organization external custom properties for repositories. If it doesn\u0027t, the response is \u0060422\u0060. This is the permission of the installation being registered, which isn\u0027t necessarily the caller.\n\nUninstalling the GitHub App unregisters it, and removes the external custom properties it created.\n\nTo use this endpoint, the authenticated caller must have the \u0060organization_external_properties_for_repos:admin\u0060 permission.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/orgs/custom-properties#register-an-app-installation-for-external-custom-properties"
@@ -60083,7 +60083,8 @@
                         "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
                         "merge_method": "merge",
                         "merge_action": "default",
-                        "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                        "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                        "bypass_rules": false
                       }
                     }
                   },
@@ -70739,7 +70740,7 @@
           "apps"
         ],
         "summary": "Add a repository to an app installation",
-        "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.\n\nThis endpoint only works for PATs (classic) with the \u0060repo\u0060 scope.",
+        "description": "Add a single repository to an installation. The authenticated user must have admin access to the repository.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/apps/installations#add-a-repository-to-an-app-installation"
@@ -70779,7 +70780,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
+          "enabledForGitHubApps": true,
           "category": "apps",
           "subcategory": "installations"
         }
@@ -70789,7 +70790,7 @@
           "apps"
         ],
         "summary": "Remove a repository from an app installation",
-        "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the \u0060repository_selection\u0060 of \u0060selected\u0060.\n\nThis endpoint only works for PATs (classic) with the \u0060repo\u0060 scope.",
+        "description": "Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the \u0060repository_selection\u0060 of \u0060selected\u0060.\n\nTo use a PAT (classic) with this endpoint, the \u0060repo\u0060 scope is required",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/apps/installations#remove-a-repository-from-an-app-installation"
@@ -70832,7 +70833,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
+          "enabledForGitHubApps": true,
           "category": "apps",
           "subcategory": "installations"
         }
@@ -72820,7 +72821,7 @@
         },
         "x-github": {
           "githubCloudOnly": false,
-          "enabledForGitHubApps": false,
+          "enabledForGitHubApps": true,
           "category": "repos",
           "subcategory": "repos"
         },
@@ -130071,6 +130072,11 @@
             "type": "string",
             "description": "SHA that the pull request head must match for the enqueued merge to proceed."
           },
+          "bypass_rules": {
+            "type": "boolean",
+            "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass.",
+            "default": false
+          },
           "sha": {
             "type": "string"
           }
@@ -137007,6 +137013,11 @@
           "expected_head_sha": {
             "type": "string",
             "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+          },
+          "bypass_rules": {
+            "type": "boolean",
+            "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass.",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -277524,7 +277535,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9]\u002B$",
             "type": "string",
-            "description": "The display name for this app installation\u0027s external custom properties in the organization. This can\u0027t be changed after the app installation is registered."
+            "description": "The display name for this app installation\u0027s external custom properties in the organization. Must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered. This can\u0027t be changed after the app installation is registered."
           }
         }
       },
@@ -282203,6 +282214,11 @@
           },
           "merge_action": {
             "$ref": "#/components/schemas/PullsMergeAsyncRequestMergeAction"
+          },
+          "bypass_rules": {
+            "type": "boolean",
+            "description": "Whether to bypass repository rules that the authenticated actor is permitted to bypass.",
+            "default": false
           }
         },
         "nullable": true

@@ -14,6 +14,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether to bypass repository rules that the authenticated actor is permitted to bypass.</summary>
+        public bool? BypassRules { get; set; }
         /// <summary>Extra detail to append to automatic commit message. Only supported for direct merges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +50,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public PullsMergeAsyncRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            BypassRules = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -67,6 +70,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "bypass_rules", n => { BypassRules = n.GetBoolValue(); } },
                 { "commit_message", n => { CommitMessage = n.GetStringValue(); } },
                 { "commit_title", n => { CommitTitle = n.GetStringValue(); } },
                 { "merge_action", n => { MergeAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction>(); } },
@@ -81,6 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("bypass_rules", BypassRules);
             writer.WriteStringValue("commit_message", CommitMessage);
             writer.WriteStringValue("commit_title", CommitTitle);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction>("merge_action", MergeAction);
