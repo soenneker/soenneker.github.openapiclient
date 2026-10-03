@@ -60359,6 +60359,89 @@
         }
       }
     },
+    "/repos/{owner}/{repo}/pulls/{pullNumber}/requested_reviewers/rerequest": {
+      "post": {
+        "tags": [
+          "pulls"
+        ],
+        "summary": "Rerequest reviewers for a pull request",
+        "description": "Rerequests reviews for a pull request from a given set of users and/or teams.\nThis endpoint triggers [notifications](https://docs.github.com/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \u0022[Rate limits for the API](https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits)\u0022 and \u0022[Best practices for using the REST API](https://docs.github.com/rest/guides/best-practices-for-using-the-rest-api).\u0022",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/review-requests#rerequest-reviewers-for-a-pull-request"
+        },
+        "operationId": "PullsRerequestReviewers",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/owner"
+          },
+          {
+            "$ref": "#/components/parameters/repo"
+          },
+          {
+            "name": "pullNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PullsRerequestReviewersRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "reviewers": [
+                      "octocat",
+                      "hubot",
+                      "other_user"
+                    ],
+                    "team_reviewers": [
+                      "justice-league"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PullRequestSimple"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/pull-request-review-request"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity if user is not a collaborator"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          }
+        },
+        "x-github": {
+          "triggersNotification": true,
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "review-requests"
+        }
+      }
+    },
     "/repos/{owner}/{repo}/pulls/{pullNumber}/reviews": {
       "get": {
         "tags": [
@@ -282278,6 +282361,39 @@
               "type": "string"
             },
             "description": "An array of team \u0060slug\u0060s that will be removed."
+          }
+        }
+      },
+      "PullsRerequestReviewersRequest": {
+        "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "reviewers"
+            ],
+            "type": "object"
+          },
+          {
+            "required": [
+              "team_reviewers"
+            ],
+            "type": "object"
+          }
+        ],
+        "properties": {
+          "reviewers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of user \u0060login\u0060s whose reviews will be rerequested."
+          },
+          "team_reviewers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "An array of team \u0060slug\u0060s whose reviews will be rerequested."
           }
         }
       },

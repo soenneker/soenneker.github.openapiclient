@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Requested_reviewers.Rerequest;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Requested_re
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Requested_reviewersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The rerequest property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Requested_reviewers.Rerequest.RerequestRequestBuilder Rerequest
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Requested_reviewers.Rerequest.RerequestRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Pulls.Item.Requested_reviewers.Requested_reviewersRequestBuilder"/> and sets the default values.
         /// </summary>
