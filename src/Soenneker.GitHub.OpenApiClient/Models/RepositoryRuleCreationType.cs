@@ -76,6 +76,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         CodeScanning,
         #pragma warning restore CS1591
+        [EnumMember(Value = "code_quality")]
+        #pragma warning disable CS1591
+        CodeQuality,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "code_coverage")]
+        #pragma warning disable CS1591
+        CodeCoverage,
+        #pragma warning restore CS1591
         [EnumMember(Value = "copilot_code_review")]
         #pragma warning disable CS1591
         CopilotCodeReview,
