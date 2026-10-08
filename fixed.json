@@ -31668,7 +31668,7 @@
           "rate-limit"
         ],
         "summary": "Get rate limit status for the authenticated user",
-        "description": "\u003E [!NOTE]\n\u003E Accessing this endpoint does not count against your REST API rate limit.\n\nSome categories of endpoints have custom rate limits that are separate from the rate limit governing the other REST API endpoints. For this reason, the API response categorizes your rate limit. Under \u0060resources\u0060, you\u0027ll see objects relating to different categories:\n* The \u0060core\u0060 object provides your rate limit status for all non-search-related resources in the REST API.\n* The \u0060search\u0060 object provides your rate limit status for the REST API for searching (excluding code searches). For more information, see \u0022[Search](https://docs.github.com/rest/search/search).\u0022\n* The \u0060code_search\u0060 object provides your rate limit status for the REST API for searching code. For more information, see \u0022[Search code](https://docs.github.com/rest/search/search#search-code).\u0022\n* The \u0060graphql\u0060 object provides your rate limit status for the GraphQL API. For more information, see \u0022[Resource limitations](https://docs.github.com/graphql/overview/resource-limitations#rate-limit).\u0022\n* The \u0060integration_manifest\u0060 object provides your rate limit status for the \u0060POST /app-manifests/{code}/conversions\u0060 operation. For more information, see \u0022[Creating a GitHub App from a manifest](https://docs.github.com/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).\u0022\n* The \u0060dependency_snapshots\u0060 object provides your rate limit status for submitting snapshots to the dependency graph. For more information, see \u0022[Dependency graph](https://docs.github.com/rest/dependency-graph).\u0022\n* The \u0060dependency_sbom\u0060 object provides your rate limit status for requesting SBOMs from the dependency graph. For more information, see \u0022[Dependency graph](https://docs.github.com/rest/dependency-graph).\u0022\n* The \u0060actions_runner_registration\u0060 object provides your rate limit status for registering self-hosted runners in GitHub Actions. For more information, see \u0022[Self-hosted runners](https://docs.github.com/rest/actions/self-hosted-runners).\u0022\n* The \u0060source_import\u0060 object is no longer in use for any API endpoints, and it will be removed in the next API version. For more information about API versions, see \u0022[API Versions](https://docs.github.com/rest/about-the-rest-api/api-versions).\u0022\n\n\u003E [!NOTE]\n\u003E The \u0060rate\u0060 object is closing down. If you\u0027re writing new API client code or updating existing code, you should use the \u0060core\u0060 object instead of the \u0060rate\u0060 object. The \u0060core\u0060 object contains the same information that is present in the \u0060rate\u0060 object.",
+        "description": "\u003E [!NOTE]\n\u003E Accessing this endpoint does not count against your REST API rate limit.\n\nRate limit status reflects the applicable limits for the requester and resource category, not the hostname used for the request. Requests authenticated as a user share the user\u0027s rate limit across credentials. Requests without authentication use the requesting IP address. API requests routed through either an API hostname or a web hostname can count against the same applicable limit.\n\nSome categories of endpoints have custom rate limits that are separate from the rate limit governing the other REST API endpoints. For this reason, the API response categorizes your rate limit. Under \u0060resources\u0060, you\u0027ll see objects relating to different categories:\n* The \u0060core\u0060 object provides your rate limit status for all non-search-related resources in the REST API.\n* The \u0060search\u0060 object provides your rate limit status for the REST API for searching (excluding code searches). For more information, see \u0022[Search](https://docs.github.com/rest/search/search).\u0022\n* The \u0060code_search\u0060 object provides your rate limit status for the REST API for searching code. For more information, see \u0022[Search code](https://docs.github.com/rest/search/search#search-code).\u0022\n* The \u0060graphql\u0060 object provides your rate limit status for the GraphQL API. For more information, see \u0022[Resource limitations](https://docs.github.com/graphql/overview/resource-limitations#rate-limit).\u0022\n* The \u0060integration_manifest\u0060 object provides your rate limit status for the \u0060POST /app-manifests/{code}/conversions\u0060 operation. For more information, see \u0022[Creating a GitHub App from a manifest](https://docs.github.com/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).\u0022\n* The \u0060dependency_snapshots\u0060 object provides your rate limit status for submitting snapshots to the dependency graph. For more information, see \u0022[Dependency graph](https://docs.github.com/rest/dependency-graph).\u0022\n* The \u0060dependency_sbom\u0060 object provides your rate limit status for requesting SBOMs from the dependency graph. For more information, see \u0022[Dependency graph](https://docs.github.com/rest/dependency-graph).\u0022\n* The \u0060actions_runner_registration\u0060 object provides your rate limit status for registering self-hosted runners in GitHub Actions. For more information, see \u0022[Self-hosted runners](https://docs.github.com/rest/actions/self-hosted-runners).\u0022\n* The \u0060source_import\u0060 object is no longer in use for any API endpoints, and it will be removed in the next API version. For more information about API versions, see \u0022[API Versions](https://docs.github.com/rest/about-the-rest-api/api-versions).\u0022\n\n\u003E [!NOTE]\n\u003E The \u0060rate\u0060 object is closing down. If you\u0027re writing new API client code or updating existing code, you should use the \u0060core\u0060 object instead of the \u0060rate\u0060 object. The \u0060core\u0060 object contains the same information that is present in the \u0060rate\u0060 object.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/rate-limit/rate-limit#get-rate-limit-status-for-the-authenticated-user"
@@ -97067,7 +97067,7 @@
             "$ref": "#/components/schemas/RateLimit"
           }
         },
-        "description": "Rate Limit Overview",
+        "description": "Rate limit status for the applicable requester and resource category. Requests\nauthenticated as a user share the user\u0027s rate limit across credentials. Requests\nwithout authentication use the requesting IP address. API requests routed through\neither an API hostname or a web hostname can count against the same applicable limit.",
         "x-github-breaking-changes": [
           {
             "changeset": "remove_rate_limit_rate",
@@ -148797,6 +148797,9 @@
               "$ref": "#/components/schemas/RuleSuitePullRequestPullRequestReviewsItem"
             },
             "description": "The reviews associated with the pull request."
+          },
+          "proof_of_presence": {
+            "$ref": "#/components/schemas/RuleSuitePullRequestPullRequestProofOfPresence"
           }
         },
         "description": "The pull request associated with the rule evaluation."
@@ -180198,6 +180201,44 @@
             "description": "The state of the review."
           }
         }
+      },
+      "RuleSuitePullRequestPullRequestProofOfPresence": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "The state of the proof of presence evaluation."
+          },
+          "code": {
+            "type": "string",
+            "description": "A code describing the reason for the proof of presence state."
+          },
+          "base_sha": {
+            "type": "string",
+            "description": "The base commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+          },
+          "head_sha": {
+            "type": "string",
+            "description": "The head commit SHA the proof of presence evaluation applies to. Empty if unavailable."
+          },
+          "required_level": {
+            "type": "string",
+            "description": "The authentication level required by the rule. Empty if unavailable."
+          },
+          "verified_level": {
+            "type": "string",
+            "description": "The authentication level that was verified. Empty if proof of presence has not been completed."
+          },
+          "verified_at": {
+            "type": "string",
+            "description": "The time proof of presence was verified, in ISO 8601 format. Empty if proof of presence has not been completed."
+          },
+          "verifier": {
+            "$ref": "#/components/schemas/RuleSuitePullRequestPullRequestProofOfPresenceVerifier"
+          }
+        },
+        "description": "The proof of presence evaluation for the pull request. Null if proof of presence was not evaluated.",
+        "nullable": true
       },
       "RuleSuiteRequiredStatusChecksChecksItemApp": {
         "type": "object",
@@ -219334,6 +219375,26 @@
           }
         },
         "description": "The user who submitted the review."
+      },
+      "RuleSuitePullRequestPullRequestProofOfPresenceVerifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the user.",
+            "format": "int64"
+          },
+          "login": {
+            "type": "string",
+            "description": "The handle for the GitHub user account."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the user."
+          }
+        },
+        "description": "The user who provided proof of presence. Null if no proof of presence was recorded.",
+        "nullable": true
       },
       "WorkflowRunUsageBillableUbuntuJobRunsItem": {
         "required": [
