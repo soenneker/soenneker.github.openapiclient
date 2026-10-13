@@ -35,5 +35,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         OidcGcp,
         #pragma warning restore CS1591
+        [EnumMember(Value = "anonymous")]
+        #pragma warning disable CS1591
+        Anonymous,
+        #pragma warning restore CS1591
     }
 }

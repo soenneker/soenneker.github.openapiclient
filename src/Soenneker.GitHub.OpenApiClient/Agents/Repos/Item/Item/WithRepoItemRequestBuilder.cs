@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations;
 using Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithRepoItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The automations property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations.AutomationsRequestBuilder Automations
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations.AutomationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The tasks property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder Tasks
         {
