@@ -4595,13 +4595,35 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses/bad_request"
+            "description": "Bad Request because security product settings conflict, are unsupported by your plan, or required products are not enabled in the configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              },
+              "application/scim\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScimError"
+                }
+              }
+            }
           },
           "403": {
             "$ref": "#/components/responses/forbidden"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed because of unavailable security products, invalid feature dependencies, or an invalid configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -4775,6 +4797,16 @@
           "304": {
             "$ref": "#/components/responses/not_modified"
           },
+          "400": {
+            "description": "Bad Request because of a global configuration, incompatible parameters, or invalid enforcement changes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
           "403": {
             "$ref": "#/components/responses/forbidden"
           },
@@ -4782,7 +4814,24 @@
             "$ref": "#/components/responses/not_found"
           },
           "409": {
-            "$ref": "#/components/responses/conflict"
+            "description": "Conflict because security configuration work is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed because the configuration is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -4895,7 +4944,24 @@
             "$ref": "#/components/responses/not_found"
           },
           "409": {
-            "$ref": "#/components/responses/conflict"
+            "description": "Conflict because security configuration work is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed because the request does not match the request schema.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -4975,6 +5041,16 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed because a public default is not supported in the current environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -5054,6 +5130,16 @@
                       }
                     ]
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request because of unsupported attachment statuses.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
                 }
               }
             }
@@ -17447,6 +17533,32 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request because security product settings conflict, are unsupported by your plan, or required products are not enabled in the configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed because of unavailable security products, invalid feature dependencies, or an invalid configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -17691,6 +17803,42 @@
           },
           "204": {
             "description": "Response when no new updates are made"
+          },
+          "400": {
+            "description": "Bad Request because of a global configuration, incompatible parameters, or an attempt to update attributes of an enterprise-owned configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "409": {
+            "description": "Conflict because security configuration work is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed because of invalid enforcement values, unavailable security products, an attempt to change enterprise-enforced enforcement, or an invalid configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -17907,6 +18055,16 @@
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed because a public default is not supported in the current environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -17990,11 +18148,31 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request because of unsupported attachment statuses.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasicError"
+                }
+              }
+            }
+          },
           "403": {
             "$ref": "#/components/responses/forbidden"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed because \u0060removed\u0060 and \u0060detached\u0060 are requested together.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorSimple"
+                }
+              }
+            }
           }
         },
         "x-github": {
@@ -81529,6 +81707,9 @@
           },
           "organization_copilot_agent_settings": {
             "$ref": "#/components/schemas/AppPermissionsOrganizationCopilotAgentSettings"
+          },
+          "organization_copilot_requests": {
+            "$ref": "#/components/schemas/ReadOrganizationCopilotRequests"
           },
           "organization_external_properties_for_repos": {
             "$ref": "#/components/schemas/AppPermissionsOrganizationExternalPropertiesForRepos"
@@ -305644,6 +305825,24 @@
           ]
         }
       },
+      "ReadOrganizationCopilotRequests": {
+        "enum": [
+          "read"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The level of permission to grant the access token to make Copilot requests billed to the organization where the app is installed. This property is in public preview and is subject to change.",
+        "x-ms-enum": {
+          "name": "ReadOrganizationCopilotRequests",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "read",
+              "name": "Read"
+            }
+          ]
+        }
+      },
       "AppPermissionsOrganizationExternalPropertiesForRepos": {
         "enum": [
           "read",
@@ -390677,6 +390876,9 @@
           }
         }
       },
+      "no_content": {
+        "description": "A header with no content is returned."
+      },
       "conflict": {
         "description": "Conflict",
         "content": {
@@ -390686,9 +390888,6 @@
             }
           }
         }
-      },
-      "no_content": {
-        "description": "A header with no content is returned."
       },
       "service_unavailable": {
         "description": "Service unavailable",
