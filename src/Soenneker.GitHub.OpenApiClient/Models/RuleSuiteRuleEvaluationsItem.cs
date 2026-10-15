@@ -24,6 +24,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The enforcement level of this rule source.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement? Enforcement { get; set; }
+        /// <summary>Additional metadata about the rule evaluation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata? Metadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata Metadata { get; set; }
+#endif
         /// <summary>The result of the evaluation of the individual rule.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult? Result { get; set; }
         /// <summary>The rule_source property</summary>
@@ -69,6 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "details", n => { Details = n.GetStringValue(); } },
                 { "enforcement", n => { Enforcement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata.CreateFromDiscriminatorValue); } },
                 { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult>(); } },
                 { "rule_source", n => { RuleSource = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource.CreateFromDiscriminatorValue); } },
                 { "rule_type", n => { RuleType = n.GetStringValue(); } },
@@ -83,6 +92,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("details", Details);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement>("enforcement", Enforcement);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult>("result", Result);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource>("rule_source", RuleSource);
             writer.WriteStringValue("rule_type", RuleType);

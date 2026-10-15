@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Ite
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRuleSuiteItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/rulesets/rule-suites/{ruleSuiteId}", pathParameters)
+        public WithRuleSuiteItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/rulesets/rule-suites/{ruleSuiteId}{?include_metadata*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Ite
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRuleSuiteItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/rulesets/rule-suites/{ruleSuiteId}", rawUrl)
+        public WithRuleSuiteItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/rulesets/rule-suites/{ruleSuiteId}{?include_metadata*}", rawUrl)
         {
         }
         /// <summary>
@@ -44,11 +44,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Ite
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite?> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder.WithRuleSuiteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuite> GetAsync(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder.WithRuleSuiteItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -66,11 +66,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Ite
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder.WithRuleSuiteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder.WithRuleSuiteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -86,6 +86,16 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Ite
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Rulesets.RuleSuites.Item.WithRuleSuiteItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Gets information about a suite of rule evaluations from within a repository.For more information, see &quot;[Managing rulesets for a repository](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets).&quot;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithRuleSuiteItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>When set to `true`, the response will include additional metadata for pull request and required status check rule evaluation.Results are capped at 50 entries.</summary>
+            [QueryParameter("include_metadata")]
+            public bool? IncludeMetadata { get; set; }
         }
     }
 }

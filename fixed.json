@@ -30594,6 +30594,9 @@
             "$ref": "#/components/parameters/org"
           },
           {
+            "$ref": "#/components/parameters/include-metadata"
+          },
+          {
             "name": "ruleSuiteId",
             "in": "path",
             "required": true,
@@ -64229,6 +64232,9 @@
           },
           {
             "$ref": "#/components/parameters/repo"
+          },
+          {
+            "$ref": "#/components/parameters/include-metadata"
           },
           {
             "name": "ruleSuiteId",
@@ -130697,6 +130703,46 @@
           }
         }
       },
+      "RuleSuiteRuleEvaluationsItemMetadata": {
+        "required": [
+          "rule_type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RuleSuitePullRequest"
+          },
+          {
+            "$ref": "#/components/schemas/RuleSuiteRequiredStatusChecks"
+          }
+        ],
+        "properties": {
+          "pull_request": {
+            "$ref": "#/components/schemas/RuleSuitePullRequestPullRequest"
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RuleSuiteRequiredStatusChecksChecksItem"
+            },
+            "description": "The status checks associated with the rule evaluation."
+          },
+          "rule_type": {
+            "type": "string"
+          }
+        },
+        "description": "Additional metadata about the rule evaluation.",
+        "nullable": true,
+        "discriminator": {
+          "propertyName": "rule_type",
+          "mapping": {
+            "pull_request": "#/components/schemas/RuleSuitePullRequest",
+            "required_status_checks": "#/components/schemas/RuleSuiteRequiredStatusChecks",
+            "RuleSuitePullRequest": "#/components/schemas/RuleSuitePullRequest",
+            "RuleSuiteRequiredStatusChecks": "#/components/schemas/RuleSuiteRequiredStatusChecks"
+          }
+        }
+      },
       "RulesetVersionWithStateAllOf2": {
         "required": [
           "state"
@@ -150574,6 +150620,9 @@
           "rule_type": {
             "type": "string",
             "description": "The type of rule."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RuleSuiteRuleEvaluationsItemMetadata"
           },
           "details": {
             "type": "string",
@@ -392424,6 +392473,15 @@
         "schema": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "include-metadata": {
+        "name": "include_metadata",
+        "in": "query",
+        "description": "When set to \u0060true\u0060, the response will include additional metadata for pull request and required status check rule evaluation.\nResults are capped at 50 entries.",
+        "schema": {
+          "type": "boolean",
+          "default": false
         }
       },
       "secret-scanning-alert-state": {
