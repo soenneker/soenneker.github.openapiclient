@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\{account-id}\projectsV2\{projectNumber}
+    /// Builds and executes requests for operations under \user\{accountId}\projectsV2\{projectNumber}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithProjectNumberItemRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithProjectNumberItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account%2Did}/projectsV2/{projectNumber}", pathParameters)
+        public WithProjectNumberItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{accountId}/projectsV2/{projectNumber}", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithProjectNumberItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account%2Did}/projectsV2/{projectNumber}", rawUrl)
+        public WithProjectNumberItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{accountId}/projectsV2/{projectNumber}", rawUrl)
         {
         }
     }

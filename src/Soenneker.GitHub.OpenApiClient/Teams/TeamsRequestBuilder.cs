@@ -16,10 +16,10 @@ namespace Soenneker.GitHub.OpenApiClient.Teams
     public partial class TeamsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.teams.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the team.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder"/></returns>
         [Obsolete("")]
-        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Teams.Item.WithTeamItemRequestBuilder this[long position]
         {
             get
             {

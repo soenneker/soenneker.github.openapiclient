@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Networks
     public partial class NetworksRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.networks.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The account owner of the repository. The name is not case sensitive.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Networks.Item.WithOwnerItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Networks.Item.WithOwnerItemRequestBuilder this[string position]
         {

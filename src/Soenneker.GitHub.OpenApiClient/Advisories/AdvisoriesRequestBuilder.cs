@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Advisories
     public partial class AdvisoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.advisories.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The GHSA (GitHub Security Advisory) identifier of the advisory.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsaItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Advisories.Item.WithGhsaItemRequestBuilder this[string position]
         {

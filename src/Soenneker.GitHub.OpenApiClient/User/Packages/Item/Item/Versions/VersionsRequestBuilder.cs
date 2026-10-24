@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions
     public partial class VersionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.packages.item.item.versions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the package version.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.User.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder this[long position]
         {
             get
             {

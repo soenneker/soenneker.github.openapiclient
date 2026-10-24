@@ -37,13 +37,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRule();
-            if("ActionsRuleRestrictActionEvents".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("restrict_action_events".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ActionsRuleRestrictActionEvents = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEvents();
             }
-            else if("ActionsRuleRestrictActionsActors".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("restrict_actions_actors".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ActionsRuleRestrictActionsActors = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionsActors();
             }

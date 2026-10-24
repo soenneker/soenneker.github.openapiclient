@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats
     public partial class RouteStatsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.insights.api.routeStats.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The type of the actor</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.WithActorTypeItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.RouteStats.Item.WithActorTypeItemRequestBuilder this[string position]
         {

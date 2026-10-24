@@ -10,15 +10,15 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\actions\jobs\{jobId}\steps
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\actions\jobs\{jobId}\steps
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StepsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.jobs.item.steps.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The zero-based position number of the step in the job.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.Item.WithStepNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.Item.WithStepNumberItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.Item.WithStepNumberItemRequestBuilder this[int position]
         {
             get
             {
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StepsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/actions/jobs/{jobId}/steps", pathParameters)
+        public StepsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/actions/jobs/{jobId}/steps", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StepsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/actions/jobs/{jobId}/steps", rawUrl)
+        public StepsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/actions/jobs/{jobId}/steps", rawUrl)
         {
         }
     }

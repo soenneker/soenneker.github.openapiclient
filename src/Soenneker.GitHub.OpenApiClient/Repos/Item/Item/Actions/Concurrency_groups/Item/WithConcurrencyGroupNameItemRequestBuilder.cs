@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_groups.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\actions\concurrency_groups\{concurrencyGroupName}
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\actions\concurrency_groups\{concurrencyGroupName}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithConcurrencyGroupNameItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_gro
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithConcurrencyGroupNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/actions/concurrency_groups/{concurrencyGroupName}{?ahead_of_job*,ahead_of_run*}", pathParameters)
+        public WithConcurrencyGroupNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/actions/concurrency_groups/{concurrencyGroupName}{?ahead_of_job*,ahead_of_run*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Concurrency_gro
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithConcurrencyGroupNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/actions/concurrency_groups/{concurrencyGroupName}{?ahead_of_job*,ahead_of_run*}", rawUrl)
+        public WithConcurrencyGroupNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/actions/concurrency_groups/{concurrencyGroupName}{?ahead_of_job*,ahead_of_run*}", rawUrl)
         {
         }
         /// <summary>

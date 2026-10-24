@@ -44,13 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The type of scope for the budget</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetScope? BudgetScope { get; set; }
         /// <summary>The type of pricing for the budget</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType? BudgetType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType BudgetType { get; set; }
-#endif
         /// <summary>The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets.</summary>
         public double? ConsumedAmount { get; set; }
         /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not provided, the budget will not expire.Only supported for budgets with `budget_scope` of `user`</summary>
@@ -103,7 +97,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetScope>(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType.CreateFromDiscriminatorValue); } },
+                { "budget_type", n => { BudgetType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType>(); } },
                 { "consumed_amount", n => { ConsumedAmount = n.GetDoubleValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -123,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("budget_entity_name", BudgetEntityName);
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetScope>("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType>("budget_type", BudgetType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.UpdateBudgetBudgetBudgetType>("budget_type", BudgetType);
             writer.WriteDoubleValue("consumed_amount", ConsumedAmount);
             writer.WriteDateValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);

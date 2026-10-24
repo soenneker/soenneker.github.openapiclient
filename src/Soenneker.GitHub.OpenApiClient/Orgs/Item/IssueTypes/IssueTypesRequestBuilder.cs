@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes
     public partial class IssueTypesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.issueTypes.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the issue type.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssueTypeItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssueTypeItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.IssueTypes.Item.WithIssueTypeItemRequestBuilder this[long position]
         {
             get
             {

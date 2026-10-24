@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\dependabot\alerts
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\dependabot\alerts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AlertsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.dependabot.alerts.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The number that identifies a Dependabot alert in its repository.You can find this at the end of the URL for a Dependabot alert within GitHub,or in `number` fields in the response from the`GET /repos/{owner}/{repo}/dependabot/alerts` operation.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlertNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlertNumberItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts.Item.WithAlertNumberItemRequestBuilder this[int position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,assignee*,before*,classification*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,relationship*,scope*,severity*,sort*,state*}", pathParameters)
+        public AlertsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/dependabot/alerts{?after*,assignee*,before*,classification*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,relationship*,scope*,severity*,sort*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Dependabot.Alerts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/dependabot/alerts{?after*,assignee*,before*,classification*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,relationship*,scope*,severity*,sort*,state*}", rawUrl)
+        public AlertsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/dependabot/alerts{?after*,assignee*,before*,classification*,direction*,ecosystem*,epss_percentage*,has*,manifest*,package*,per_page*,relationship*,scope*,severity*,sort*,state*}", rawUrl)
         {
         }
         /// <summary>

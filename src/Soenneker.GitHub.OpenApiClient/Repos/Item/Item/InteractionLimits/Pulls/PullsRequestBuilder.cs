@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\interaction-limits\pulls
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\interaction-limits\pulls
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PullsRequestBuilder : BaseRequestBuilder
@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PullsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/interaction-limits/pulls", pathParameters)
+        public PullsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/interaction-limits/pulls", pathParameters)
         {
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.InteractionLimits.Pulls
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PullsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/interaction-limits/pulls", rawUrl)
+        public PullsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/interaction-limits/pulls", rawUrl)
         {
         }
     }

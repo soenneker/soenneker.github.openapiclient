@@ -8,50 +8,35 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// A restricted JSON Schema fragment describing the field value accepted by Automation create and update requests.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema : IAdditionalDataHolder, IParsable
+    public partial class AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allowed string values.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Enum { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1? AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 { get; set; }
 #nullable restore
 #else
-        public List<string> Enum { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 { get; set; }
 #endif
-        /// <summary>The items property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaItems? Items { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2? AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaItems Items { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 { get; set; }
 #endif
-        /// <summary>The maximum accepted integer value.</summary>
-        public int? Maximum { get; set; }
-        /// <summary>The maximum accepted number of array items.</summary>
-        public int? MaxItems { get; set; }
-        /// <summary>The minimum accepted integer value.</summary>
-        public int? Minimum { get; set; }
-        /// <summary>The minimum accepted number of array items.</summary>
-        public int? MinItems { get; set; }
-        /// <summary>The minimum accepted string length.</summary>
-        public int? MinLength { get; set; }
-        /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaType? Type { get; set; }
-        /// <summary>Whether duplicate array items are rejected.</summary>
-        public bool? UniqueItems { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema"/> and sets the default values.
-        /// </summary>
-        public AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3? AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3 AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -60,7 +45,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchema();
+            if("string".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1();
+            }
+            else if("array".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2();
+            }
+            else if("integer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,18 +67,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 != null)
             {
-                { "enum", n => { Enum = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "items", n => { Items = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaItems>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaItems.CreateFromDiscriminatorValue); } },
-                { "maxItems", n => { MaxItems = n.GetIntValue(); } },
-                { "maximum", n => { Maximum = n.GetIntValue(); } },
-                { "minItems", n => { MinItems = n.GetIntValue(); } },
-                { "minLength", n => { MinLength = n.GetIntValue(); } },
-                { "minimum", n => { Minimum = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaType>(); } },
-                { "uniqueItems", n => { UniqueItems = n.GetBoolValue(); } },
-            };
+                return AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1.GetFieldDeserializers();
+            }
+            else if(AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 != null)
+            {
+                return AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2.GetFieldDeserializers();
+            }
+            else if(AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3 != null)
+            {
+                return AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -88,16 +88,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("enum", Enum);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaItems>("items", Items);
-            writer.WriteIntValue("maximum", Maximum);
-            writer.WriteIntValue("maxItems", MaxItems);
-            writer.WriteIntValue("minimum", Minimum);
-            writer.WriteIntValue("minItems", MinItems);
-            writer.WriteIntValue("minLength", MinLength);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaType>("type", Type);
-            writer.WriteBoolValue("uniqueItems", UniqueItems);
-            writer.WriteAdditionalData(AdditionalData);
+            if(AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1>(null, AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf1);
+            }
+            else if(AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2>(null, AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf2);
+            }
+            else if(AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3>(null, AgentAutomationsListAvailableAutomationTriggers200ResponseItemFieldsItemSchemaOneOf3);
+            }
         }
     }
 }

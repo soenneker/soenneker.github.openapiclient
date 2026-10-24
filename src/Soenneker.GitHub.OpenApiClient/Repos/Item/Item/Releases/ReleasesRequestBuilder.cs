@@ -17,7 +17,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\releases
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\releases
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReleasesRequestBuilder : BaseRequestBuilder
@@ -43,9 +43,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.releases.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the release.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.WithReleaseItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.WithReleaseItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.WithReleaseItemRequestBuilder this[long position]
         {
             get
             {
@@ -59,7 +59,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReleasesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/releases{?page*,per_page*}", pathParameters)
+        public ReleasesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/releases{?page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReleasesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/releases{?page*,per_page*}", rawUrl)
+        public ReleasesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/releases{?page*,per_page*}", rawUrl)
         {
         }
         /// <summary>

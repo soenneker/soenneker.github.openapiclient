@@ -17,14 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item collection</summary>
         /// <param name="position">The account owner of the repository. The name is not case sensitive.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.OwnerItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.OwnerItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.WithOwnerItemRequestBuilder"/></returns>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.WithOwnerItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("owner%2Did", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.OwnerItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("owner", position);
+                return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.WithOwnerItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

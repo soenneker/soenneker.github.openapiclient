@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields
     public partial class FieldsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.projectsV2.item.fields.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the field.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.Item.WithFieldItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.Item.WithFieldItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Fields.Item.WithFieldItemRequestBuilder this[long position]
         {
             get
             {

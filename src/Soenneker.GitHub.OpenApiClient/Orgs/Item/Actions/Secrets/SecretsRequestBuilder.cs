@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Secrets
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Secrets.PublicKey.PublicKeyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.secrets.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the secret.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Secrets.Item.WithSecretNameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Secrets.Item.WithSecretNameItemRequestBuilder this[string position]
         {

@@ -79,10 +79,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The subkeys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItemSubkeysItem>? Subkeys { get; set; }
+        public UntypedNode? Subkeys { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItemSubkeysItem> Subkeys { get; set; }
+        public UntypedNode Subkeys { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItem"/> and sets the default values.
@@ -122,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "public_key", n => { PublicKey = n.GetStringValue(); } },
                 { "raw_key", n => { RawKey = n.GetStringValue(); } },
                 { "revoked", n => { Revoked = n.GetBoolValue(); } },
-                { "subkeys", n => { Subkeys = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItemSubkeysItem>(global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItemSubkeysItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subkeys", n => { Subkeys = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -145,7 +145,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("public_key", PublicKey);
             writer.WriteStringValue("raw_key", RawKey);
             writer.WriteBoolValue("revoked", Revoked);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GpgKeySubkeysItemSubkeysItem>("subkeys", Subkeys);
+            writer.WriteObjectValue<UntypedNode>("subkeys", Subkeys);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans
     public partial class PlansRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.marketplace_listing.stubbed.plans.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the plan.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.WithPlanItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.WithPlanItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Marketplace_listing.Stubbed.Plans.Item.WithPlanItemRequestBuilder this[long position]
         {
             get
             {

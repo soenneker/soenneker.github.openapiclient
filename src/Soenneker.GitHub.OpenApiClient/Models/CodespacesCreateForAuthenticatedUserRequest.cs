@@ -7,94 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CodespacesCreateForAuthenticatedUserRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CodespacesCreateForAuthenticatedUserRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>IP for location auto-detection when proxying a request</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientIp { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1? CodespacesCreateForAuthenticatedUserRequestOneOf1 { get; set; }
 #nullable restore
 #else
-        public string ClientIp { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1 CodespacesCreateForAuthenticatedUserRequestOneOf1 { get; set; }
 #endif
-        /// <summary>Path to devcontainer.json config to use for this codespace</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevcontainerPath { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2? CodespacesCreateForAuthenticatedUserRequestOneOf2 { get; set; }
 #nullable restore
 #else
-        public string DevcontainerPath { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2 CodespacesCreateForAuthenticatedUserRequestOneOf2 { get; set; }
 #endif
-        /// <summary>Display name for this codespace</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DisplayName { get; set; }
-#nullable restore
-#else
-        public string DisplayName { get; set; }
-#endif
-        /// <summary>The geographic area for this codespace. If not specified, the value is assigned by IP. This property replaces `location`, which is closing down.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestGeo? Geo { get; set; }
-        /// <summary>Time in minutes before codespace stops from inactivity</summary>
-        public int? IdleTimeoutMinutes { get; set; }
-        /// <summary>The requested location for a new codespace. Best efforts are made to respect this upon creation. Assigned by IP if not provided.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Location { get; set; }
-#nullable restore
-#else
-        public string Location { get; set; }
-#endif
-        /// <summary>Machine type to use for this codespace</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Machine { get; set; }
-#nullable restore
-#else
-        public string Machine { get; set; }
-#endif
-        /// <summary>Whether to authorize requested permissions from devcontainer.json</summary>
-        public bool? MultiRepoPermissionsOptOut { get; set; }
-        /// <summary>Pull request number for this codespace</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestPullRequest? PullRequest { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestPullRequest PullRequest { get; set; }
-#endif
-        /// <summary>Git ref (typically a branch name) for this codespace</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Ref { get; set; }
-#nullable restore
-#else
-        public string Ref { get; set; }
-#endif
-        /// <summary>Repository id for this codespace</summary>
-        public long? RepositoryId { get; set; }
-        /// <summary>Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).</summary>
-        public int? RetentionPeriodMinutes { get; set; }
-        /// <summary>Working directory for this codespace</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? WorkingDirectory { get; set; }
-#nullable restore
-#else
-        public string WorkingDirectory { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequest"/> and sets the default values.
-        /// </summary>
-        public CodespacesCreateForAuthenticatedUserRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -103,7 +37,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequest();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequest();
+            if("CodespacesCreateForAuthenticatedUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CodespacesCreateForAuthenticatedUserRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1();
+            }
+            else if("CodespacesCreateForAuthenticatedUserRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CodespacesCreateForAuthenticatedUserRequestOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,22 +55,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CodespacesCreateForAuthenticatedUserRequestOneOf1 != null)
             {
-                { "client_ip", n => { ClientIp = n.GetStringValue(); } },
-                { "devcontainer_path", n => { DevcontainerPath = n.GetStringValue(); } },
-                { "display_name", n => { DisplayName = n.GetStringValue(); } },
-                { "geo", n => { Geo = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestGeo>(); } },
-                { "idle_timeout_minutes", n => { IdleTimeoutMinutes = n.GetIntValue(); } },
-                { "location", n => { Location = n.GetStringValue(); } },
-                { "machine", n => { Machine = n.GetStringValue(); } },
-                { "multi_repo_permissions_opt_out", n => { MultiRepoPermissionsOptOut = n.GetBoolValue(); } },
-                { "pull_request", n => { PullRequest = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestPullRequest>(global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestPullRequest.CreateFromDiscriminatorValue); } },
-                { "ref", n => { Ref = n.GetStringValue(); } },
-                { "repository_id", n => { RepositoryId = n.GetLongValue(); } },
-                { "retention_period_minutes", n => { RetentionPeriodMinutes = n.GetIntValue(); } },
-                { "working_directory", n => { WorkingDirectory = n.GetStringValue(); } },
-            };
+                return CodespacesCreateForAuthenticatedUserRequestOneOf1.GetFieldDeserializers();
+            }
+            else if(CodespacesCreateForAuthenticatedUserRequestOneOf2 != null)
+            {
+                return CodespacesCreateForAuthenticatedUserRequestOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -135,20 +72,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("client_ip", ClientIp);
-            writer.WriteStringValue("devcontainer_path", DevcontainerPath);
-            writer.WriteStringValue("display_name", DisplayName);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestGeo>("geo", Geo);
-            writer.WriteIntValue("idle_timeout_minutes", IdleTimeoutMinutes);
-            writer.WriteStringValue("location", Location);
-            writer.WriteStringValue("machine", Machine);
-            writer.WriteBoolValue("multi_repo_permissions_opt_out", MultiRepoPermissionsOptOut);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestPullRequest>("pull_request", PullRequest);
-            writer.WriteStringValue("ref", Ref);
-            writer.WriteLongValue("repository_id", RepositoryId);
-            writer.WriteIntValue("retention_period_minutes", RetentionPeriodMinutes);
-            writer.WriteStringValue("working_directory", WorkingDirectory);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CodespacesCreateForAuthenticatedUserRequestOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1>(null, CodespacesCreateForAuthenticatedUserRequestOneOf1);
+            }
+            else if(CodespacesCreateForAuthenticatedUserRequestOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf2>(null, CodespacesCreateForAuthenticatedUserRequestOneOf2);
+            }
         }
     }
 }

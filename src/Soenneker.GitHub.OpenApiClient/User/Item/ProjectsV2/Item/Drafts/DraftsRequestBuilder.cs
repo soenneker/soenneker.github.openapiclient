@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.Item.Drafts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \user\{account-id}\projectsV2\{projectNumber}\drafts
+    /// Builds and executes requests for operations under \user\{accountId}\projectsV2\{projectNumber}\drafts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DraftsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.Item.Drafts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DraftsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account%2Did}/projectsV2/{projectNumber}/drafts", pathParameters)
+        public DraftsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{accountId}/projectsV2/{projectNumber}/drafts", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Item.ProjectsV2.Item.Drafts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DraftsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{account%2Did}/projectsV2/{projectNumber}/drafts", rawUrl)
+        public DraftsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user/{accountId}/projectsV2/{projectNumber}/drafts", rawUrl)
         {
         }
         /// <summary>

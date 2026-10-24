@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The labels to add to the issue&apos;s existing labels. You can also pass an `array` of labels directly, but GitHub recommends passing an object with the `labels` key. To replace all of the labels for an issue, use &quot;[Set labels for an issue](https://docs.github.com/rest/issues/labels#set-labels-for-an-issue).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1LabelsItem>? Labels { get; set; }
+        public List<string>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1LabelsItem> Labels { get; set; }
+        public List<string> Labels { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1LabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1LabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1LabelsItem>("labels", Labels);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.User.Keys
     public partial class KeysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.keys.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the key.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Keys.Item.WithKeyItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Keys.Item.WithKeyItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.User.Keys.Item.WithKeyItemRequestBuilder this[long position]
         {
             get
             {

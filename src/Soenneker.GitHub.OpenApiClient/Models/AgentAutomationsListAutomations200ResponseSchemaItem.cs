@@ -20,10 +20,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemCreatedBy? CreatedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemCreatedBy? CreatedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemCreatedBy CreatedBy { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemCreatedBy CreatedBy { get; set; }
 #endif
         /// <summary>Whether the automation is currently enabled.</summary>
         public bool? Enabled { get; set; }
@@ -64,20 +64,20 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Repository identity for an automation in cross-repository list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemRepository? Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemRepository? Repository { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemRepository Repository { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemRepository Repository { get; set; }
 #endif
         /// <summary>When true, event-triggered runs require the event actor to have repo write permission, even when the org&apos;s allow_read_access_triggers policy is enabled. Does not apply to interval-scheduled runs, which always run as the automation owner.</summary>
         public bool? RequireActorWritePermission { get; set; }
         /// <summary>Public trigger configuration keyed by stable public trigger identifier. Each trigger has a closed, trigger-specific configuration schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggers? Triggers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemTriggers? Triggers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggers Triggers { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemTriggers Triggers { get; set; }
 #endif
         /// <summary>When the automation was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -110,16 +110,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "created_by", n => { CreatedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemCreatedBy>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemCreatedBy.CreateFromDiscriminatorValue); } },
+                { "created_by", n => { CreatedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemCreatedBy>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemCreatedBy.CreateFromDiscriminatorValue); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemOwnerType>(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetStringValue(); } },
-                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemRepository>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemRepository.CreateFromDiscriminatorValue); } },
+                { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemRepository>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemRepository.CreateFromDiscriminatorValue); } },
                 { "require_actor_write_permission", n => { RequireActorWritePermission = n.GetBoolValue(); } },
-                { "triggers", n => { Triggers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggers>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggers.CreateFromDiscriminatorValue); } },
+                { "triggers", n => { Triggers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemTriggers>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemTriggers.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "write_scope", n => { WriteScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemWriteScope>(); } },
             };
@@ -132,15 +132,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemCreatedBy>("created_by", CreatedBy);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemCreatedBy>("created_by", CreatedBy);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("reasoning_effort", ReasoningEffort);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemRepository>("repository", Repository);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemRepository>("repository", Repository);
             writer.WriteBoolValue("require_actor_write_permission", RequireActorWritePermission);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggers>("triggers", Triggers);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItemTriggers>("triggers", Triggers);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemWriteScope>("write_scope", WriteScope);
             writer.WriteAdditionalData(AdditionalData);

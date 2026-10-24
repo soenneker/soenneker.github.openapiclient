@@ -43,9 +43,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Platforms.PlatformsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.hostedRunners.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the GitHub-hosted runner.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHostedRunnerItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHostedRunnerItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Item.WithHostedRunnerItemRequestBuilder this[long position]
         {
             get
             {

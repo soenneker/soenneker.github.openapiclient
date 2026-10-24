@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.User.Repository_invitations
     public partial class Repository_invitationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.repository_invitations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the invitation.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Item.WithInvitationItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Item.WithInvitationItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.User.Repository_invitations.Item.WithInvitationItemRequestBuilder this[long position]
         {
             get
             {

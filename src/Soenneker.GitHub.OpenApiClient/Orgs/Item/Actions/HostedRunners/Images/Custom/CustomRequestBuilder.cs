@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.
     public partial class CustomRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.hostedRunners.images.custom.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Image definition ID of custom image</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImageDefinitionItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImageDefinitionItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.HostedRunners.Images.Custom.Item.WithImageDefinitionItemRequestBuilder this[long position]
         {
             get
             {

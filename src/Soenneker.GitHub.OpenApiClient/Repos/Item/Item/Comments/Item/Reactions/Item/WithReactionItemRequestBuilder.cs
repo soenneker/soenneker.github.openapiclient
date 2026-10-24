@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.Reactions.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\comments\{commentId}\reactions\{reactionId}
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\comments\{commentId}\reactions\{reactionId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithReactionItemRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.Reactions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithReactionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/comments/{commentId}/reactions/{reactionId}", pathParameters)
+        public WithReactionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/comments/{commentId}/reactions/{reactionId}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Comments.Item.Reactions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithReactionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/comments/{commentId}/reactions/{reactionId}", rawUrl)
+        public WithReactionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/comments/{commentId}/reactions/{reactionId}", rawUrl)
         {
         }
         /// <summary>

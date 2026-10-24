@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Networks.Item
     public partial class WithOwnerItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.networks.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the repository without the `.git` extension. The name is not case sensitive.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Networks.Item.Item.WithRepoItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Networks.Item.Item.WithRepoItemRequestBuilder this[string position]
         {

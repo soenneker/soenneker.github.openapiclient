@@ -56,10 +56,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The forks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfForksItem>? Forks { get; set; }
+        public UntypedNode? Forks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfForksItem> Forks { get; set; }
+        public UntypedNode Forks { get; set; }
 #endif
         /// <summary>The forks_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,10 +88,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The history property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfHistoryItem>? History { get; set; }
+        public UntypedNode? History { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfHistoryItem> History { get; set; }
+        public UntypedNode History { get; set; }
 #endif
         /// <summary>The html_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -179,11 +179,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "files", n => { Files = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfFilesProperty>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfFilesProperty.CreateFromDiscriminatorValue); } },
-                { "forks", n => { Forks = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfForksItem>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfForksItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "forks", n => { Forks = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "forks_url", n => { ForksUrl = n.GetStringValue(); } },
                 { "git_pull_url", n => { GitPullUrl = n.GetStringValue(); } },
                 { "git_push_url", n => { GitPushUrl = n.GetStringValue(); } },
-                { "history", n => { History = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfHistoryItem>(global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfHistoryItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "history", n => { History = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "node_id", n => { NodeId = n.GetStringValue(); } },
@@ -209,11 +209,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfFilesProperty>("files", Files);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfForksItem>("forks", Forks);
+            writer.WriteObjectValue<UntypedNode>("forks", Forks);
             writer.WriteStringValue("forks_url", ForksUrl);
             writer.WriteStringValue("git_pull_url", GitPullUrl);
             writer.WriteStringValue("git_push_url", GitPushUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.GistSimpleForkOfHistoryItem>("history", History);
+            writer.WriteObjectValue<UntypedNode>("history", History);
             writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("node_id", NodeId);

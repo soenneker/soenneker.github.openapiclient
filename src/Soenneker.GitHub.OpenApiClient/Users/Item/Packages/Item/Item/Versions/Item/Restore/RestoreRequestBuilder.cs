@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.Item.Restore
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{user-id}\packages\{packageType}\{packageName}\versions\{packageVersionId}\restore
+    /// Builds and executes requests for operations under \users\{userId}\packages\{packageType}\{packageName}\versions\{packageVersionId}\restore
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RestoreRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RestoreRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages/{packageType}/{packageName}/versions/{packageVersionId}/restore", pathParameters)
+        public RestoreRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages/{packageType}/{packageName}/versions/{packageVersionId}/restore", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RestoreRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages/{packageType}/{packageName}/versions/{packageVersionId}/restore", rawUrl)
+        public RestoreRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages/{packageType}/{packageName}/versions/{packageVersionId}/restore", rawUrl)
         {
         }
         /// <summary>

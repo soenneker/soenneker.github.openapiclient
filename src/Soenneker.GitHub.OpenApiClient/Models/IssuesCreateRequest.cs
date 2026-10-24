@@ -49,10 +49,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem>? Labels { get; set; }
+        public List<string>? Labels { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem> Labels { get; set; }
+        public List<string> Labels { get; set; }
 #endif
         /// <summary>The milestone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "assignees", n => { Assignees = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "issue_field_values", n => { IssueFieldValues = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestIssueFieldValuesItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestIssueFieldValuesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "milestone", n => { Milestone = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone.CreateFromDiscriminatorValue); } },
                 { "parent_issue_id", n => { ParentIssueId = n.GetLongValue(); } },
                 { "title", n => { Title = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title.CreateFromDiscriminatorValue); } },
@@ -127,7 +127,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("assignees", Assignees);
             writer.WriteStringValue("body", Body);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestIssueFieldValuesItem>("issue_field_values", IssueFieldValues);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestLabelsItem>("labels", Labels);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequestMilestone>("milestone", Milestone);
             writer.WriteLongValue("parent_issue_id", ParentIssueId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesCreateRequest.IssuesCreateRequest_title>("title", Title);

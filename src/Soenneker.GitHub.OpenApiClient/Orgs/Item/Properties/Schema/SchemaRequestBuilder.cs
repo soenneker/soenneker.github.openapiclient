@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Schema
     public partial class SchemaRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.properties.schema.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The custom property name</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Schema.Item.WithCustomPropertyNameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Properties.Schema.Item.WithCustomPropertyNameItemRequestBuilder this[string position]
         {

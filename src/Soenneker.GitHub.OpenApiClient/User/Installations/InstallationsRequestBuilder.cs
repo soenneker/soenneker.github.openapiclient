@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.User.Installations
     public partial class InstallationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.installations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the installation.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.WithInstallationItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.WithInstallationItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.User.Installations.Item.WithInstallationItemRequestBuilder this[long position]
         {
             get
             {

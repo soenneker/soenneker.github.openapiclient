@@ -277,7 +277,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The security feature to enable or disable.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Item.WithSecurityProductItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Item.WithSecurityProductItemRequestBuilder this[string position]
         {

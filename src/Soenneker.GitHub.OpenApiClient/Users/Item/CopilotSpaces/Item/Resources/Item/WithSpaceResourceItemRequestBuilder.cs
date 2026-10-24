@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{user-id}\copilot-spaces\{spaceNumber}\resources\{spaceResourceId}
+    /// Builds and executes requests for operations under \users\{userId}\copilot-spaces\{spaceNumber}\resources\{spaceResourceId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSpaceResourceItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSpaceResourceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/copilot-spaces/{spaceNumber}/resources/{spaceResourceId}", pathParameters)
+        public WithSpaceResourceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/copilot-spaces/{spaceNumber}/resources/{spaceResourceId}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.CopilotSpaces.Item.Resources
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSpaceResourceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/copilot-spaces/{spaceNumber}/resources/{spaceResourceId}", rawUrl)
+        public WithSpaceResourceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/copilot-spaces/{spaceNumber}/resources/{spaceResourceId}", rawUrl)
         {
         }
         /// <summary>

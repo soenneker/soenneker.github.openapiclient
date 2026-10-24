@@ -24,7 +24,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? AutoDismissedAt { get; private set; }
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>Details for the vulnerable dependency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,13 +66,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The GitHub URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get; private set; }
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get; private set; }
 #endif
         /// <summary>The security alert number.</summary>
-        public int? Number { get; set; }
+        public int? Number { get; private set; }
         /// <summary>A GitHub repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,14 +100,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The state of the Dependabot alert.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryState? State { get; private set; }
         /// <summary>The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The REST API URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get; private set; }
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get; private set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -154,16 +154,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertDismissalRequestSimple>("dismissal_request", DismissalRequest);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("dismissed_by", DismissedBy);
             writer.WriteStringValue("dismissed_comment", DismissedComment);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryDismissedReason>("dismissed_reason", DismissedReason);
-            writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteIntValue("number", Number);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>("repository", Repository);
-            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteStringValue("url", Url);
         }
     }
 }

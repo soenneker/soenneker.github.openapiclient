@@ -14,7 +14,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\check-suites
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\check-suites
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckSuitesRequestBuilder : BaseRequestBuilder
@@ -25,9 +25,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Preferences.PreferencesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.checkSuites.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the check suite.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.WithCheckSuiteItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.WithCheckSuiteItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites.Item.WithCheckSuiteItemRequestBuilder this[long position]
         {
             get
             {
@@ -41,7 +41,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckSuitesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/check-suites", pathParameters)
+        public CheckSuitesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/check-suites", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CheckSuites
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckSuitesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/check-suites", rawUrl)
+        public CheckSuitesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/check-suites", rawUrl)
         {
         }
         /// <summary>

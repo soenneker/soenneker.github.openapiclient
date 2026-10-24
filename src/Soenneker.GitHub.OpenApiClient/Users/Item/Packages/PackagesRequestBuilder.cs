@@ -13,13 +13,13 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{user-id}\packages
+    /// Builds and executes requests for operations under \users\{userId}\packages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PackagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.packages.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The type of supported package. Packages in GitHub&apos;s Gradle registry have the type `maven`. Docker images pushed to GitHub&apos;s Container registry (`ghcr.io`) have the type `container`. You can use the type `docker` to find images that were pushed to GitHub&apos;s Docker registry (`docker.pkg.github.com`), even if these have now been migrated to the Container registry.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackageTypeItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.WithPackageTypeItemRequestBuilder this[string position]
         {
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PackagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", pathParameters)
+        public PackagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages?package_type={package_type}{&page*,per_page*,visibility*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PackagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages?package_type={package_type}{&page*,per_page*,visibility*}", rawUrl)
+        public PackagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages?package_type={package_type}{&page*,per_page*,visibility*}", rawUrl)
         {
         }
         /// <summary>

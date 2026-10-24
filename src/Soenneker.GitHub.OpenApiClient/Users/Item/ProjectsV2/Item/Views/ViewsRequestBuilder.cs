@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{user-id}\projectsV2\{projectNumber}\views
+    /// Builds and executes requests for operations under \users\{userId}\projectsV2\{projectNumber}\views
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ViewsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.projectsV2.item.views.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The number that identifies the project view.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.Item.WithViewNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.Item.WithViewNumberItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views.Item.WithViewNumberItemRequestBuilder this[int position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ViewsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/projectsV2/{projectNumber}/views", pathParameters)
+        public ViewsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/projectsV2/{projectNumber}/views", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.ProjectsV2.Item.Views
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ViewsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/projectsV2/{projectNumber}/views", rawUrl)
+        public ViewsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/projectsV2/{projectNumber}/views", rawUrl)
         {
         }
         /// <summary>

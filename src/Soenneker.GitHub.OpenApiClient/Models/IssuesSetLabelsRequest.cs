@@ -8,35 +8,11 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf3"/>, <see cref="string"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item&gt;, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssuesSetLabelsRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2? IssuesSetLabelsRequestBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2 IssuesSetLabelsRequestBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4? IssuesSetLabelsRequestBranch4 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4 IssuesSetLabelsRequestBranch4 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5? IssuesSetLabelsRequestBranch5 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5 IssuesSetLabelsRequestBranch5 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,6 +29,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf3 IssuesSetLabelsRequestOneOf3 { get; set; }
 #endif
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item>? IssuesSetLabelsRequestOneOf4Item { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item> IssuesSetLabelsRequestOneOf4Item { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuesSetLabelsRequestString { get; set; }
+#nullable restore
+#else
+        public string IssuesSetLabelsRequestString { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? String { get; set; }
+#nullable restore
+#else
+        public List<string> String { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,25 +63,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequest();
-            if("IssuesSetLabelsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.IssuesSetLabelsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2();
-            }
-            else if("IssuesSetLabelsRequestBranch4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.IssuesSetLabelsRequestBranch4 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4();
-            }
-            else if("IssuesSetLabelsRequestBranch5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.IssuesSetLabelsRequestBranch5 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5();
-            }
-            else if("IssuesSetLabelsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("IssuesSetLabelsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesSetLabelsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf1();
             }
             else if("IssuesSetLabelsRequestOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesSetLabelsRequestOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf3();
+            }
+            else if(parseNode.GetStringValue() is string issuesSetLabelsRequestStringValue)
+            {
+                result.IssuesSetLabelsRequestString = issuesSetLabelsRequestStringValue;
+            }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item> issuesSetLabelsRequestOneOf4ItemValue)
+            {
+                result.IssuesSetLabelsRequestOneOf4Item = issuesSetLabelsRequestOneOf4ItemValue;
+            }
+            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            {
+                result.String = stringValue;
             }
             return result;
         }
@@ -91,19 +91,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(IssuesSetLabelsRequestBranch2 != null)
-            {
-                return IssuesSetLabelsRequestBranch2.GetFieldDeserializers();
-            }
-            else if(IssuesSetLabelsRequestBranch4 != null)
-            {
-                return IssuesSetLabelsRequestBranch4.GetFieldDeserializers();
-            }
-            else if(IssuesSetLabelsRequestBranch5 != null)
-            {
-                return IssuesSetLabelsRequestBranch5.GetFieldDeserializers();
-            }
-            else if(IssuesSetLabelsRequestOneOf1 != null)
+            if(IssuesSetLabelsRequestOneOf1 != null)
             {
                 return IssuesSetLabelsRequestOneOf1.GetFieldDeserializers();
             }
@@ -120,25 +108,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(IssuesSetLabelsRequestBranch2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch2>(null, IssuesSetLabelsRequestBranch2);
-            }
-            else if(IssuesSetLabelsRequestBranch4 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch4>(null, IssuesSetLabelsRequestBranch4);
-            }
-            else if(IssuesSetLabelsRequestBranch5 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestBranch5>(null, IssuesSetLabelsRequestBranch5);
-            }
-            else if(IssuesSetLabelsRequestOneOf1 != null)
+            if(IssuesSetLabelsRequestOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf1>(null, IssuesSetLabelsRequestOneOf1);
             }
             else if(IssuesSetLabelsRequestOneOf3 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf3>(null, IssuesSetLabelsRequestOneOf3);
+            }
+            else if(IssuesSetLabelsRequestString != null)
+            {
+                writer.WriteStringValue(null, IssuesSetLabelsRequestString);
+            }
+            else if(IssuesSetLabelsRequestOneOf4Item != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesSetLabelsRequestOneOf4Item>(null, IssuesSetLabelsRequestOneOf4Item);
+            }
+            else if(String != null)
+            {
+                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
             }
         }
     }

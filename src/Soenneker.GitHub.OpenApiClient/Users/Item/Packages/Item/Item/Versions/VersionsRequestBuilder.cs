@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{user-id}\packages\{packageType}\{packageName}\versions
+    /// Builds and executes requests for operations under \users\{userId}\packages\{packageType}\{packageName}\versions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VersionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.packages.item.item.versions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the package version.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions.Item.WithPackageVersionItemRequestBuilder this[long position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VersionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages/{packageType}/{packageName}/versions", pathParameters)
+        public VersionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages/{packageType}/{packageName}/versions", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Versions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VersionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages/{packageType}/{packageName}/versions", rawUrl)
+        public VersionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages/{packageType}/{packageName}/versions", rawUrl)
         {
         }
         /// <summary>

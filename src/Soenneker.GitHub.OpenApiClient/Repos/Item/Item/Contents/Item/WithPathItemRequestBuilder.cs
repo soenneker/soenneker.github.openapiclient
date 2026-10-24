@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\contents\{path}
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\contents\{path}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPathItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/contents/{path}{?ref*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/contents/{path}{?ref*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/contents/{path}{?ref*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/contents/{path}{?ref*}", rawUrl)
         {
         }
         /// <summary>
@@ -77,11 +77,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200Response?> GetAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathGetRequestBody body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200Response?> GetAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200Response> GetAsync(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathGetRequestBody body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200Response> GetAsync(UntypedNode body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -151,11 +151,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathGetRequestBody body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(UntypedNode body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathGetRequestBody body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(UntypedNode body, Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Contents.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -15,7 +15,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\issues
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\issues
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssuesRequestBuilder : BaseRequestBuilder
@@ -31,9 +31,9 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
             get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.issues.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The number that identifies the issue.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssueNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssueNumberItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.WithIssueNumberItemRequestBuilder this[int position]
         {
             get
             {
@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues{?assignee*,creator*,direction*,issue_field_values*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", pathParameters)
+        public IssuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/issues{?assignee*,creator*,direction*,issue_field_values*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/issues{?assignee*,creator*,direction*,issue_field_values*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", rawUrl)
+        public IssuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/issues{?assignee*,creator*,direction*,issue_field_values*,labels*,mentioned*,milestone*,page*,per_page*,since*,sort*,state*,type*}", rawUrl)
         {
         }
         /// <summary>

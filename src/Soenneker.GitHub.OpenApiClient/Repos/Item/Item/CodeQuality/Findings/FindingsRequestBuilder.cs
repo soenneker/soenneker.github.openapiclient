@@ -13,15 +13,15 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings
 {
     /// <summary>
-    /// Builds and executes requests for operations under \repos\{owner-id}\{repo-id}\code-quality\findings
+    /// Builds and executes requests for operations under \repos\{owner}\{repo}\code-quality\findings
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FindingsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.codeQuality.findings.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The number that identifies a finding.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings.Item.WithFindingNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings.Item.WithFindingNumberItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings.Item.WithFindingNumberItemRequestBuilder this[int position]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FindingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/code-quality/findings{?after*,before*,direction*,per_page*,state*}", pathParameters)
+        public FindingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/code-quality/findings{?after*,before*,direction*,per_page*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.CodeQuality.Findings
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FindingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner%2Did}/{repo%2Did}/code-quality/findings{?after*,before*,direction*,per_page*,state*}", rawUrl)
+        public FindingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/repos/{owner}/{repo}/code-quality/findings{?after*,before*,direction*,per_page*,state*}", rawUrl)
         {
         }
         /// <summary>

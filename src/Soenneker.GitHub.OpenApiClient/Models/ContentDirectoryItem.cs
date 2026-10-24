@@ -7,89 +7,14 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
+    /// <summary>
+    /// A list of directory items
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ContentDirectoryItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The content property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Content { get; set; }
-#nullable restore
-#else
-        public string Content { get; set; }
-#endif
-        /// <summary>The download_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DownloadUrl { get; set; }
-#nullable restore
-#else
-        public string DownloadUrl { get; set; }
-#endif
-        /// <summary>The git_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? GitUrl { get; set; }
-#nullable restore
-#else
-        public string GitUrl { get; set; }
-#endif
-        /// <summary>The html_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? HtmlUrl { get; set; }
-#nullable restore
-#else
-        public string HtmlUrl { get; set; }
-#endif
-        /// <summary>The links property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemLinks? Links { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemLinks Links { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
-        /// <summary>The path property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Path { get; set; }
-#nullable restore
-#else
-        public string Path { get; set; }
-#endif
-        /// <summary>The sha property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Sha { get; set; }
-#nullable restore
-#else
-        public string Sha { get; set; }
-#endif
-        /// <summary>The size property</summary>
-        public int? Size { get; set; }
-        /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemType? Type { get; set; }
-        /// <summary>The url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get; set; }
-#nullable restore
-#else
-        public string Url { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem"/> and sets the default values.
         /// </summary>
@@ -115,17 +40,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetStringValue(); } },
-                { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
-                { "git_url", n => { GitUrl = n.GetStringValue(); } },
-                { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
-                { "_links", n => { Links = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemLinks>(global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemLinks.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "path", n => { Path = n.GetStringValue(); } },
-                { "sha", n => { Sha = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemType>(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -135,17 +49,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("content", Content);
-            writer.WriteStringValue("download_url", DownloadUrl);
-            writer.WriteStringValue("git_url", GitUrl);
-            writer.WriteStringValue("html_url", HtmlUrl);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemLinks>("_links", Links);
-            writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("path", Path);
-            writer.WriteStringValue("sha", Sha);
-            writer.WriteIntValue("size", Size);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItemType>("type", Type);
-            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

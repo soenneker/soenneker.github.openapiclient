@@ -23,7 +23,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The start time of an autofix in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get; private set; }
         /// <summary>The status of an autofix.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAutofixStatus? Status { get; set; }
         /// <summary>
@@ -64,7 +64,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAutofixStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

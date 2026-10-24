@@ -25,9 +25,9 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configura
             get => new global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Defaults.DefaultsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.enterprises.item.codeSecurity.configurations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the code security configuration.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Enterprises.Item.CodeSecurity.Configurations.Item.WithConfigurationItemRequestBuilder this[long position]
         {
             get
             {

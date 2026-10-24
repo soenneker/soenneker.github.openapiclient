@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos
     public partial class ReposRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.teams.item.repos.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The account owner of the repository. The name is not case sensitive.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.Item.WithOwnerItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Teams.Item.Repos.Item.WithOwnerItemRequestBuilder this[string position]
         {

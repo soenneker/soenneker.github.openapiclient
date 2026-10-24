@@ -44,13 +44,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The type of scope for the budget</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetScope? BudgetScope { get; set; }
         /// <summary>The type of pricing for the budget</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType? BudgetType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType BudgetType { get; set; }
-#endif
         /// <summary>The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.If not provided, the budget will not expire.Only supported for budgets with `budget_scope` of `user`</summary>
         public Date? ExpiresAt { get; set; }
         /// <summary>ID of the budget.</summary>
@@ -93,7 +87,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "budget_entity_name", n => { BudgetEntityName = n.GetStringValue(); } },
                 { "budget_product_sku", n => { BudgetProductSku = n.GetStringValue(); } },
                 { "budget_scope", n => { BudgetScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetScope>(); } },
-                { "budget_type", n => { BudgetType = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType>(global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType.CreateFromDiscriminatorValue); } },
+                { "budget_type", n => { BudgetType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType>(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "prevent_further_usage", n => { PreventFurtherUsage = n.GetBoolValue(); } },
@@ -111,7 +105,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("budget_entity_name", BudgetEntityName);
             writer.WriteStringValue("budget_product_sku", BudgetProductSku);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetScope>("budget_scope", BudgetScope);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType>("budget_type", BudgetType);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CreateBudgetBudgetBudgetType>("budget_type", BudgetType);
             writer.WriteDateValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("prevent_further_usage", PreventFurtherUsage);

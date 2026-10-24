@@ -21,7 +21,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.hooks.item.deliveries.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDeliveryItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDeliveryItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Hooks.Item.Deliveries.Item.WithDeliveryItemRequestBuilder this[long position]
         {
             get
             {

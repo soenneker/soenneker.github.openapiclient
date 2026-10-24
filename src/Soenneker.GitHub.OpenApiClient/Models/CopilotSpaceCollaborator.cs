@@ -37,9 +37,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("actor_type")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaborator();
-            result.CopilotSpaceCollaboratorAnyOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1();
-            result.CopilotSpaceCollaboratorAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2();
+            if("User".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CopilotSpaceCollaboratorAnyOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1();
+            }
+            else if("Team".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CopilotSpaceCollaboratorAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +55,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CopilotSpaceCollaboratorAnyOf1 != null || CopilotSpaceCollaboratorAnyOf2 != null)
+            if(CopilotSpaceCollaboratorAnyOf1 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CopilotSpaceCollaboratorAnyOf1, CopilotSpaceCollaboratorAnyOf2);
+                return CopilotSpaceCollaboratorAnyOf1.GetFieldDeserializers();
+            }
+            else if(CopilotSpaceCollaboratorAnyOf2 != null)
+            {
+                return CopilotSpaceCollaboratorAnyOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +72,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1>(null, CopilotSpaceCollaboratorAnyOf1, CopilotSpaceCollaboratorAnyOf2);
+            if(CopilotSpaceCollaboratorAnyOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf1>(null, CopilotSpaceCollaboratorAnyOf1);
+            }
+            else if(CopilotSpaceCollaboratorAnyOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpaceCollaboratorAnyOf2>(null, CopilotSpaceCollaboratorAnyOf2);
+            }
         }
     }
 }

@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceBranch1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposUpdateInformationAboutPagesSiteRequestSource : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1"/></summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1? ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +22,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceBranch1? ReposUpdateInformationAboutPagesSiteRequestSourceBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceBranch1 ReposUpdateInformationAboutPagesSiteRequestSourceBranch1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +32,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSource();
-            result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2();
-            result.ReposUpdateInformationAboutPagesSiteRequestSourceBranch1 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceBranch1();
+            if(parseNode.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1>() is global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 reposUpdateInformationAboutPagesSiteRequestSourceAnyOf1Value)
+            {
+                result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 = reposUpdateInformationAboutPagesSiteRequestSourceAnyOf1Value;
+            }
+            else {
+                result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +47,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 != null || ReposUpdateInformationAboutPagesSiteRequestSourceBranch1 != null)
+            if(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2, ReposUpdateInformationAboutPagesSiteRequestSourceBranch1);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +60,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2>(null, ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2, ReposUpdateInformationAboutPagesSiteRequestSourceBranch1);
+            if(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1>(null, ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2>(null, ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2);
+            }
         }
     }
 }

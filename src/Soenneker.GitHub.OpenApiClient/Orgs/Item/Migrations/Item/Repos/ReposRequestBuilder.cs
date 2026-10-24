@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Migrations.Item.Repos
     public partial class ReposRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.migrations.item.repos.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">repo_name parameter</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Migrations.Item.Repos.Item.WithRepoNameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Migrations.Item.Repos.Item.WithRepoNameItemRequestBuilder this[string position]
         {

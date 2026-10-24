@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string ClosureRequestReviewerComment { get; set; }
 #endif
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>Details on the location where the token was initially detected. This can be a commit, wiki commit, issue, discussion, pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,10 +61,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The GitHub URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get; set; }
+        public string? HtmlUrl { get; private set; }
 #nullable restore
 #else
-        public string HtmlUrl { get; set; }
+        public string HtmlUrl { get; private set; }
 #endif
         /// <summary>A boolean value representing whether or not alert is base64 encoded</summary>
         public bool? IsBase64Encoded { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Whether the detected secret was found in multiple repositories under the same organization or enterprise.</summary>
         public bool? MultiRepo { get; set; }
         /// <summary>The security alert number.</summary>
-        public int? Number { get; set; }
+        public int? Number { get; private set; }
         /// <summary>The provider of the secret that was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,10 +193,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The REST API URL of the alert resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get; private set; }
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get; private set; }
 #endif
         /// <summary>The token status as of the latest validity check.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity? Validity { get; set; }
@@ -271,14 +271,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("closure_request_comment", ClosureRequestComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>("closure_request_reviewer", ClosureRequestReviewer);
             writer.WriteStringValue("closure_request_reviewer_comment", ClosureRequestReviewerComment);
-            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSecretScanningFirstDetectedLocation>("first_location_detected", FirstLocationDetected);
             writer.WriteBoolValue("has_more_locations", HasMoreLocations);
-            writer.WriteStringValue("html_url", HtmlUrl);
             writer.WriteBoolValue("is_base64_encoded", IsBase64Encoded);
             writer.WriteStringValue("locations_url", LocationsUrl);
             writer.WriteBoolValue("multi_repo", MultiRepo);
-            writer.WriteIntValue("number", Number);
             writer.WriteStringValue("provider", Provider);
             writer.WriteStringValue("provider_slug", ProviderSlug);
             writer.WriteBoolValue("publicly_leaked", PubliclyLeaked);
@@ -297,7 +294,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("secret_type", SecretType);
             writer.WriteStringValue("secret_type_display_name", SecretTypeDisplayName);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>("state", State);
-            writer.WriteStringValue("url", Url);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertValidity>("validity", Validity);
             writer.WriteAdditionalData(AdditionalData);
         }

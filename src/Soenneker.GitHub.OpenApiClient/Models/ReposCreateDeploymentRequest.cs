@@ -35,10 +35,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentRequestPayload? Payload { get; set; }
+        public string? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentRequestPayload Payload { get; set; }
+        public string Payload { get; set; }
 #endif
         /// <summary>Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.</summary>
         public bool? ProductionEnvironment { get; set; }
@@ -100,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "auto_merge", n => { AutoMerge = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "environment", n => { Environment = n.GetStringValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentRequestPayload>(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentRequestPayload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetStringValue(); } },
                 { "production_environment", n => { ProductionEnvironment = n.GetBoolValue(); } },
                 { "ref", n => { Ref = n.GetStringValue(); } },
                 { "required_contexts", n => { RequiredContexts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("auto_merge", AutoMerge);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("environment", Environment);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateDeploymentRequestPayload>("payload", Payload);
+            writer.WriteStringValue("payload", Payload);
             writer.WriteBoolValue("production_environment", ProductionEnvironment);
             writer.WriteStringValue("ref", Ref);
             writer.WriteCollectionOfPrimitiveValues<string>("required_contexts", RequiredContexts);

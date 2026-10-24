@@ -8,26 +8,18 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch3"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1"/>, <see cref="string"/>, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UsersDeleteEmailForAuthenticatedUserRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch2"/></summary>
+        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch2? UsersDeleteEmailForAuthenticatedUserRequestBranch2 { get; set; }
+        public List<string>? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch2 UsersDeleteEmailForAuthenticatedUserRequestBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch3? UsersDeleteEmailForAuthenticatedUserRequestBranch3 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch3 UsersDeleteEmailForAuthenticatedUserRequestBranch3 { get; set; }
+        public List<string> String { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,6 +28,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 UsersDeleteEmailForAuthenticatedUserRequestOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UsersDeleteEmailForAuthenticatedUserRequestString { get; set; }
+#nullable restore
+#else
+        public string UsersDeleteEmailForAuthenticatedUserRequestString { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,17 +47,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequest();
-            if("UsersDeleteEmailForAuthenticatedUserRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UsersDeleteEmailForAuthenticatedUserRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch2();
-            }
-            else if("UsersDeleteEmailForAuthenticatedUserRequestBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UsersDeleteEmailForAuthenticatedUserRequestBranch3 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch3();
-            }
-            else if("UsersDeleteEmailForAuthenticatedUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("UsersDeleteEmailForAuthenticatedUserRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.UsersDeleteEmailForAuthenticatedUserRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1();
+            }
+            else if(parseNode.GetStringValue() is string usersDeleteEmailForAuthenticatedUserRequestStringValue)
+            {
+                result.UsersDeleteEmailForAuthenticatedUserRequestString = usersDeleteEmailForAuthenticatedUserRequestStringValue;
+            }
+            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            {
+                result.String = stringValue;
             }
             return result;
         }
@@ -67,15 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(UsersDeleteEmailForAuthenticatedUserRequestBranch2 != null)
-            {
-                return UsersDeleteEmailForAuthenticatedUserRequestBranch2.GetFieldDeserializers();
-            }
-            else if(UsersDeleteEmailForAuthenticatedUserRequestBranch3 != null)
-            {
-                return UsersDeleteEmailForAuthenticatedUserRequestBranch3.GetFieldDeserializers();
-            }
-            else if(UsersDeleteEmailForAuthenticatedUserRequestOneOf1 != null)
+            if(UsersDeleteEmailForAuthenticatedUserRequestOneOf1 != null)
             {
                 return UsersDeleteEmailForAuthenticatedUserRequestOneOf1.GetFieldDeserializers();
             }
@@ -88,17 +80,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(UsersDeleteEmailForAuthenticatedUserRequestBranch2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch2>(null, UsersDeleteEmailForAuthenticatedUserRequestBranch2);
-            }
-            else if(UsersDeleteEmailForAuthenticatedUserRequestBranch3 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestBranch3>(null, UsersDeleteEmailForAuthenticatedUserRequestBranch3);
-            }
-            else if(UsersDeleteEmailForAuthenticatedUserRequestOneOf1 != null)
+            if(UsersDeleteEmailForAuthenticatedUserRequestOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.UsersDeleteEmailForAuthenticatedUserRequestOneOf1>(null, UsersDeleteEmailForAuthenticatedUserRequestOneOf1);
+            }
+            else if(UsersDeleteEmailForAuthenticatedUserRequestString != null)
+            {
+                writer.WriteStringValue(null, UsersDeleteEmailForAuthenticatedUserRequestString);
+            }
+            else if(String != null)
+            {
+                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
             }
         }
     }

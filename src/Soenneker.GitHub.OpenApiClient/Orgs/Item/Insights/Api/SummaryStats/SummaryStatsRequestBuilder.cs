@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.insights.api.summaryStats.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The type of the actor</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats.Item.WithActorTypeItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Insights.Api.SummaryStats.Item.WithActorTypeItemRequestBuilder this[string position]
         {

@@ -11,8 +11,32 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     /// Conditions for an organization Actions policy. The conditions object should contain one of`repository_name`, `repository_id`, or `repository_property`, and may also contain `workflow_path`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ActionsPolicyOrgConditions : IAdditionalDataHolder, IParsable
+    public partial class ActionsPolicyOrgConditions : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1? ActionsPolicyOrgConditionsOneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1 ActionsPolicyOrgConditionsOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2? ActionsPolicyOrgConditionsOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2 ActionsPolicyOrgConditionsOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3? ActionsPolicyOrgConditionsOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3 ActionsPolicyOrgConditionsOneOf3 { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The repository_id property</summary>
@@ -62,7 +86,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditions();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditions();
+            if("ActionsPolicyOrgConditionsOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ActionsPolicyOrgConditionsOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1();
+            }
+            else if("ActionsPolicyOrgConditionsOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ActionsPolicyOrgConditionsOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2();
+            }
+            else if("ActionsPolicyOrgConditionsOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ActionsPolicyOrgConditionsOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,13 +108,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ActionsPolicyOrgConditionsOneOf1 != null)
             {
-                { "repository_id", n => { RepositoryId = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId.CreateFromDiscriminatorValue); } },
-                { "repository_name", n => { RepositoryName = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName.CreateFromDiscriminatorValue); } },
-                { "repository_property", n => { RepositoryProperty = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>(global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty.CreateFromDiscriminatorValue); } },
-                { "workflow_path", n => { WorkflowPath = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath.CreateFromDiscriminatorValue); } },
-            };
+                return ActionsPolicyOrgConditionsOneOf1.GetFieldDeserializers();
+            }
+            else if(ActionsPolicyOrgConditionsOneOf2 != null)
+            {
+                return ActionsPolicyOrgConditionsOneOf2.GetFieldDeserializers();
+            }
+            else if(ActionsPolicyOrgConditionsOneOf3 != null)
+            {
+                return ActionsPolicyOrgConditionsOneOf3.GetFieldDeserializers();
+            }
+            else if(RepositoryId != null)
+            {
+                return RepositoryId.GetFieldDeserializers();
+            }
+            else if(RepositoryName != null)
+            {
+                return RepositoryName.GetFieldDeserializers();
+            }
+            else if(RepositoryProperty != null)
+            {
+                return RepositoryProperty.GetFieldDeserializers();
+            }
+            else if(WorkflowPath != null)
+            {
+                return WorkflowPath.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -85,10 +145,34 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>("repository_id", RepositoryId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>("repository_name", RepositoryName);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>("repository_property", RepositoryProperty);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath>("workflow_path", WorkflowPath);
+            if(ActionsPolicyOrgConditionsOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf1>(null, ActionsPolicyOrgConditionsOneOf1);
+            }
+            else if(ActionsPolicyOrgConditionsOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf2>(null, ActionsPolicyOrgConditionsOneOf2);
+            }
+            else if(ActionsPolicyOrgConditionsOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyOrgConditionsOneOf3>(null, ActionsPolicyOrgConditionsOneOf3);
+            }
+            else if(RepositoryId != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId>(null, RepositoryId);
+            }
+            else if(RepositoryName != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryNameTargetRepositoryName>(null, RepositoryName);
+            }
+            else if(RepositoryProperty != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty>(null, RepositoryProperty);
+            }
+            else if(WorkflowPath != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath>(null, WorkflowPath);
+            }
             writer.WriteAdditionalData(AdditionalData);
         }
     }

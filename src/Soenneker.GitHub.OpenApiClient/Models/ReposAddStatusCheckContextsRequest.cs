@@ -8,19 +8,11 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestBranch2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestOneOf1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestOneOf1"/>, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposAddStatusCheckContextsRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestBranch2? ReposAddStatusCheckContextsRequestBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestBranch2 ReposAddStatusCheckContextsRequestBranch2 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +20,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestOneOf1 ReposAddStatusCheckContextsRequestOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? String { get; set; }
+#nullable restore
+#else
+        public List<string> String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequest();
-            if("ReposAddStatusCheckContextsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ReposAddStatusCheckContextsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestBranch2();
-            }
-            else if("ReposAddStatusCheckContextsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ReposAddStatusCheckContextsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReposAddStatusCheckContextsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestOneOf1();
+            }
+            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            {
+                result.String = stringValue;
             }
             return result;
         }
@@ -55,11 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ReposAddStatusCheckContextsRequestBranch2 != null)
-            {
-                return ReposAddStatusCheckContextsRequestBranch2.GetFieldDeserializers();
-            }
-            else if(ReposAddStatusCheckContextsRequestOneOf1 != null)
+            if(ReposAddStatusCheckContextsRequestOneOf1 != null)
             {
                 return ReposAddStatusCheckContextsRequestOneOf1.GetFieldDeserializers();
             }
@@ -72,13 +68,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ReposAddStatusCheckContextsRequestBranch2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestBranch2>(null, ReposAddStatusCheckContextsRequestBranch2);
-            }
-            else if(ReposAddStatusCheckContextsRequestOneOf1 != null)
+            if(ReposAddStatusCheckContextsRequestOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposAddStatusCheckContextsRequestOneOf1>(null, ReposAddStatusCheckContextsRequestOneOf1);
+            }
+            else if(String != null)
+            {
+                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
             }
         }
     }

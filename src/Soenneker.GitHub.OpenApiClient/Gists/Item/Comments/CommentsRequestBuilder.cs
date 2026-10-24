@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Gists.Item.Comments
     public partial class CommentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.gists.item.comments.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the comment.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Gists.Item.Comments.Item.WithCommentItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Gists.Item.Comments.Item.WithCommentItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Gists.Item.Comments.Item.WithCommentItemRequestBuilder this[long position]
         {
             get
             {

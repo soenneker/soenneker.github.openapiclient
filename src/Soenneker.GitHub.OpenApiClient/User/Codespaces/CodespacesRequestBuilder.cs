@@ -25,7 +25,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces
             get => new global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Secrets.SecretsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.codespaces.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the codespace.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.WithCodespaceNameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.WithCodespaceNameItemRequestBuilder this[string position]
         {

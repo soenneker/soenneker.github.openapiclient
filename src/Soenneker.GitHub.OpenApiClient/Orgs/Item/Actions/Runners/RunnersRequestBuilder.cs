@@ -49,9 +49,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners
             get => new global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.RemoveToken.RemoveTokenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.actions.runners.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Unique identifier of the self-hosted runner.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.WithRunnerItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.WithRunnerItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.Actions.Runners.Item.WithRunnerItemRequestBuilder this[long position]
         {
             get
             {

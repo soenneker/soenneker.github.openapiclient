@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports
     public partial class ExportsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.codespaces.item.exports.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the export operation, or `latest`. Currently only `latest` is currently supported.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExportItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.User.Codespaces.Item.Exports.Item.WithExportItemRequestBuilder this[string position]
         {

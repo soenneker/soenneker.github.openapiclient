@@ -18,9 +18,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item
     public partial class WithUsernameItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.organizationRoles.users.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the role.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.Item.WithRoleItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.Item.WithRoleItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.OrganizationRoles.Users.Item.Item.WithRoleItemRequestBuilder this[long position]
         {
             get
             {

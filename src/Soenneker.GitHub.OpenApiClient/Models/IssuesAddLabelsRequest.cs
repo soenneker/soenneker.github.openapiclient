@@ -8,27 +8,11 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item&gt;, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssuesAddLabelsRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2? IssuesAddLabelsRequestBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2 IssuesAddLabelsRequestBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3? IssuesAddLabelsRequestBranch3 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3 IssuesAddLabelsRequestBranch3 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +20,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1 IssuesAddLabelsRequestOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>? IssuesAddLabelsRequestOneOf3Item { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item> IssuesAddLabelsRequestOneOf3Item { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? String { get; set; }
+#nullable restore
+#else
+        public List<string> String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,17 +47,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequest();
-            if("IssuesAddLabelsRequestBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.IssuesAddLabelsRequestBranch2 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2();
-            }
-            else if("IssuesAddLabelsRequestBranch3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.IssuesAddLabelsRequestBranch3 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3();
-            }
-            else if("IssuesAddLabelsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("IssuesAddLabelsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IssuesAddLabelsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1();
+            }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item> issuesAddLabelsRequestOneOf3ItemValue)
+            {
+                result.IssuesAddLabelsRequestOneOf3Item = issuesAddLabelsRequestOneOf3ItemValue;
+            }
+            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            {
+                result.String = stringValue;
             }
             return result;
         }
@@ -67,15 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(IssuesAddLabelsRequestBranch2 != null)
-            {
-                return IssuesAddLabelsRequestBranch2.GetFieldDeserializers();
-            }
-            else if(IssuesAddLabelsRequestBranch3 != null)
-            {
-                return IssuesAddLabelsRequestBranch3.GetFieldDeserializers();
-            }
-            else if(IssuesAddLabelsRequestOneOf1 != null)
+            if(IssuesAddLabelsRequestOneOf1 != null)
             {
                 return IssuesAddLabelsRequestOneOf1.GetFieldDeserializers();
             }
@@ -88,17 +80,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(IssuesAddLabelsRequestBranch2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch2>(null, IssuesAddLabelsRequestBranch2);
-            }
-            else if(IssuesAddLabelsRequestBranch3 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestBranch3>(null, IssuesAddLabelsRequestBranch3);
-            }
-            else if(IssuesAddLabelsRequestOneOf1 != null)
+            if(IssuesAddLabelsRequestOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1>(null, IssuesAddLabelsRequestOneOf1);
+            }
+            else if(IssuesAddLabelsRequestOneOf3Item != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>(null, IssuesAddLabelsRequestOneOf3Item);
+            }
+            else if(String != null)
+            {
+                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
             }
         }
     }

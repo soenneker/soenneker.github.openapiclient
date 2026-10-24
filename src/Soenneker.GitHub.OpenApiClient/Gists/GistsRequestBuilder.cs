@@ -31,7 +31,7 @@ namespace Soenneker.GitHub.OpenApiClient.Gists
             get => new global::Soenneker.GitHub.OpenApiClient.Gists.Starred.StarredRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.gists.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The unique identifier of the gist.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGistItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Gists.Item.WithGistItemRequestBuilder this[string position]
         {

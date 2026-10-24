@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryWrapper"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentFile"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmodule"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentSymlink"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentFile"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentSubmodule"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentSymlink"/>, List&lt;global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReposGetContent200Response : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryWrapper"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryWrapper? ContentDirectoryWrapper { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem>? ContentDirectoryItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryWrapper ContentDirectoryWrapper { get; set; }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem> ContentDirectoryItem { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ContentFile"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,13 +53,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposGetContent200Response();
-            if("array".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ContentDirectoryWrapper = new global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryWrapper();
-            }
-            else if("ContentFile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ContentFile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ContentFile = new global::Soenneker.GitHub.OpenApiClient.Models.ContentFile();
             }
@@ -71,6 +67,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 result.ContentSymlink = new global::Soenneker.GitHub.OpenApiClient.Models.ContentSymlink();
             }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem>(global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem> contentDirectoryItemValue)
+            {
+                result.ContentDirectoryItem = contentDirectoryItemValue;
+            }
             return result;
         }
         /// <summary>
@@ -79,11 +79,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ContentDirectoryWrapper != null)
-            {
-                return ContentDirectoryWrapper.GetFieldDeserializers();
-            }
-            else if(ContentFile != null)
+            if(ContentFile != null)
             {
                 return ContentFile.GetFieldDeserializers();
             }
@@ -104,11 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ContentDirectoryWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryWrapper>(null, ContentDirectoryWrapper);
-            }
-            else if(ContentFile != null)
+            if(ContentFile != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentFile>(null, ContentFile);
             }
@@ -119,6 +111,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             else if(ContentSymlink != null)
             {
                 writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ContentSymlink>(null, ContentSymlink);
+            }
+            else if(ContentDirectoryItem != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ContentDirectoryItem>(null, ContentDirectoryItem);
             }
         }
     }

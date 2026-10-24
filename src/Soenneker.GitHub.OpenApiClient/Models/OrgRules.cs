@@ -189,89 +189,89 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.OrgRules CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.OrgRules();
-            if("RepositoryRuleBranchNamePattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("branch_name_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleBranchNamePattern = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleBranchNamePattern();
             }
-            else if("RepositoryRuleCodeScanning".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("code_scanning".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCodeScanning = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeScanning();
             }
-            else if("RepositoryRuleCommitAuthorEmailPattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("commit_author_email_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCommitAuthorEmailPattern = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitAuthorEmailPattern();
             }
-            else if("RepositoryRuleCommitMessagePattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("commit_message_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCommitMessagePattern = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitMessagePattern();
             }
-            else if("RepositoryRuleCommitterEmailPattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("committer_email_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCommitterEmailPattern = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCommitterEmailPattern();
             }
-            else if("RepositoryRuleCopilotCodeReview".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("copilot_code_review".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCopilotCodeReview = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReview();
             }
-            else if("RepositoryRuleCreation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("creation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleCreation = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCreation();
             }
-            else if("RepositoryRuleDeletion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("deletion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleDeletion = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDeletion();
             }
-            else if("RepositoryRuleFileExtensionRestriction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("file_extension_restriction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleFileExtensionRestriction = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFileExtensionRestriction();
             }
-            else if("RepositoryRuleFilePathRestriction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("file_path_restriction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleFilePathRestriction = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleFilePathRestriction();
             }
-            else if("RepositoryRuleMaxFilePathLength".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("max_file_path_length".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleMaxFilePathLength = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFilePathLength();
             }
-            else if("RepositoryRuleMaxFileSize".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("max_file_size".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleMaxFileSize = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSize();
             }
-            else if("RepositoryRuleNonFastForward".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("non_fast_forward".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleNonFastForward = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleNonFastForward();
             }
-            else if("RepositoryRulePullRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("pull_request".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRulePullRequest = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulePullRequest();
             }
-            else if("RepositoryRuleRequiredDeployments".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("required_deployments".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleRequiredDeployments = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredDeployments();
             }
-            else if("RepositoryRuleRequiredLinearHistory".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("required_linear_history".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleRequiredLinearHistory = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredLinearHistory();
             }
-            else if("RepositoryRuleRequiredSignatures".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("required_signatures".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleRequiredSignatures = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredSignatures();
             }
-            else if("RepositoryRuleRequiredStatusChecks".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("required_status_checks".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleRequiredStatusChecks = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRequiredStatusChecks();
             }
-            else if("RepositoryRuleTagNamePattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("tag_name_pattern".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleTagNamePattern = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleTagNamePattern();
             }
-            else if("RepositoryRuleUpdate".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("update".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleUpdate = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleUpdate();
             }
-            else if("RepositoryRuleWorkflows".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("workflows".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RepositoryRuleWorkflows = new global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleWorkflows();
             }

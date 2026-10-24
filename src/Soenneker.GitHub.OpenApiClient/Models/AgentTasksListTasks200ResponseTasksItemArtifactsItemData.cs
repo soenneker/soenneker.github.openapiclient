@@ -8,46 +8,27 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Resource data (shape depends on type)
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AgentTasksListTasks200ResponseTasksItemArtifactsItemData : IAdditionalDataHolder, IParsable
+    public partial class AgentTasksListTasks200ResponseTasksItemArtifactsItemData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Base branch name</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseRef { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1? AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1 { get; set; }
 #nullable restore
 #else
-        public string BaseRef { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1 AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1 { get; set; }
 #endif
-        /// <summary>GraphQL global ID</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GlobalId { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2? AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public string GlobalId { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2 AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2 { get; set; }
 #endif
-        /// <summary>Head branch name</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? HeadRef { get; set; }
-#nullable restore
-#else
-        public string HeadRef { get; set; }
-#endif
-        /// <summary>GitHub resource ID</summary>
-        public long? Id { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData"/> and sets the default values.
-        /// </summary>
-        public AgentTasksListTasks200ResponseTasksItemArtifactsItemData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -56,7 +37,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemData();
+            if("AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1();
+            }
+            else if("AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,13 +55,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1 != null)
             {
-                { "base_ref", n => { BaseRef = n.GetStringValue(); } },
-                { "global_id", n => { GlobalId = n.GetStringValue(); } },
-                { "head_ref", n => { HeadRef = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetLongValue(); } },
-            };
+                return AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1.GetFieldDeserializers();
+            }
+            else if(AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2 != null)
+            {
+                return AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -79,11 +72,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("base_ref", BaseRef);
-            writer.WriteStringValue("global_id", GlobalId);
-            writer.WriteStringValue("head_ref", HeadRef);
-            writer.WriteLongValue("id", Id);
-            writer.WriteAdditionalData(AdditionalData);
+            if(AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1>(null, AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf1);
+            }
+            else if(AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2>(null, AgentTasksListTasks200ResponseTasksItemArtifactsItemDataOneOf2);
+            }
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Views
     public partial class ViewsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.orgs.item.projectsV2.item.views.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The number that identifies the project view.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Views.Item.WithViewNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Views.Item.WithViewNumberItemRequestBuilder this[string position]
+        public global::Soenneker.GitHub.OpenApiClient.Orgs.Item.ProjectsV2.Item.Views.Item.WithViewNumberItemRequestBuilder this[int position]
         {
             get
             {

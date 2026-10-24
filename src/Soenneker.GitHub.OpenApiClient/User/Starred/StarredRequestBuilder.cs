@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.User.Starred
     public partial class StarredRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.user.starred.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The account owner of the repository. The name is not case sensitive.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.User.Starred.Item.WithOwnerItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.User.Starred.Item.WithOwnerItemRequestBuilder this[string position]
         {

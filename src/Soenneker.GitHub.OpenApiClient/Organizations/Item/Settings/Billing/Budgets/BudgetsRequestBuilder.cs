@@ -19,7 +19,7 @@ namespace Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Bud
     public partial class BudgetsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.organizations.item.settings.billing.budgets.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID corresponding to the budget.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudgetItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Organizations.Item.Settings.Billing.Budgets.Item.WithBudgetItemRequestBuilder this[string position]
         {

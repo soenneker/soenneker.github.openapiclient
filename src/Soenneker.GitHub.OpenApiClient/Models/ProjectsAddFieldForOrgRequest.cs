@@ -7,48 +7,44 @@ using System.IO;
 using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf2"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf3"/>, <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf4"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ProjectsAddFieldForOrgRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class ProjectsAddFieldForOrgRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The field&apos;s data type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestDataType? DataType { get; set; }
-        /// <summary>The ID of the IssueField to create the field for.</summary>
-        public long? IssueFieldId { get; set; }
-        /// <summary>The configuration for iteration fields.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration? IterationConfiguration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1? ProjectsAddFieldForOrgRequestOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration IterationConfiguration { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1 ProjectsAddFieldForOrgRequestOneOf1 { get; set; }
 #endif
-        /// <summary>The name of the field.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf2? ProjectsAddFieldForOrgRequestOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf2 ProjectsAddFieldForOrgRequestOneOf2 { get; set; }
 #endif
-        /// <summary>The options available for single select fields. At least one option must be provided when creating a single select field.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption>? SingleSelectOptions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf3? ProjectsAddFieldForOrgRequestOneOf3 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption> SingleSelectOptions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf3 ProjectsAddFieldForOrgRequestOneOf3 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequest"/> and sets the default values.
-        /// </summary>
-        public ProjectsAddFieldForOrgRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf4? ProjectsAddFieldForOrgRequestOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf4 ProjectsAddFieldForOrgRequestOneOf4 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,7 +53,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequest();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequest();
+            if("ProjectsAddFieldForOrgRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProjectsAddFieldForOrgRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1();
+            }
+            else if("ProjectsAddFieldForOrgRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProjectsAddFieldForOrgRequestOneOf2 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf2();
+            }
+            else if("ProjectsAddFieldForOrgRequestOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProjectsAddFieldForOrgRequestOneOf3 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf3();
+            }
+            else if("ProjectsAddFieldForOrgRequestOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProjectsAddFieldForOrgRequestOneOf4 = new global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf4();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,14 +79,23 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ProjectsAddFieldForOrgRequestOneOf1 != null)
             {
-                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestDataType>(); } },
-                { "issue_field_id", n => { IssueFieldId = n.GetLongValue(); } },
-                { "iteration_configuration", n => { IterationConfiguration = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "single_select_options", n => { SingleSelectOptions = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption>(global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption.CreateFromDiscriminatorValue)?.AsList(); } },
-            };
+                return ProjectsAddFieldForOrgRequestOneOf1.GetFieldDeserializers();
+            }
+            else if(ProjectsAddFieldForOrgRequestOneOf2 != null)
+            {
+                return ProjectsAddFieldForOrgRequestOneOf2.GetFieldDeserializers();
+            }
+            else if(ProjectsAddFieldForOrgRequestOneOf3 != null)
+            {
+                return ProjectsAddFieldForOrgRequestOneOf3.GetFieldDeserializers();
+            }
+            else if(ProjectsAddFieldForOrgRequestOneOf4 != null)
+            {
+                return ProjectsAddFieldForOrgRequestOneOf4.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -81,12 +104,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestDataType>("data_type", DataType);
-            writer.WriteLongValue("issue_field_id", IssueFieldId);
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldIterationConfiguration>("iteration_configuration", IterationConfiguration);
-            writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsV2FieldSingleSelectOption>("single_select_options", SingleSelectOptions);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ProjectsAddFieldForOrgRequestOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf1>(null, ProjectsAddFieldForOrgRequestOneOf1);
+            }
+            else if(ProjectsAddFieldForOrgRequestOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf2>(null, ProjectsAddFieldForOrgRequestOneOf2);
+            }
+            else if(ProjectsAddFieldForOrgRequestOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf3>(null, ProjectsAddFieldForOrgRequestOneOf3);
+            }
+            else if(ProjectsAddFieldForOrgRequestOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ProjectsAddFieldForOrgRequestOneOf4>(null, ProjectsAddFieldForOrgRequestOneOf4);
+            }
         }
     }
 }

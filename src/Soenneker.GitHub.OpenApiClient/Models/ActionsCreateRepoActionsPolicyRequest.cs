@@ -17,10 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Conditions for a repository Actions policy. The object may be empty to preserve or use thedefault workflow targeting, or contain only `workflow_path`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditions? Conditions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditionsOneOf2? Conditions { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditions Conditions { get; set; }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditionsOneOf2 Conditions { get; set; }
 #endif
         /// <summary>The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise).</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement? Enforcement { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditions>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditions.CreateFromDiscriminatorValue); } },
+                { "conditions", n => { Conditions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditionsOneOf2>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditionsOneOf2.CreateFromDiscriminatorValue); } },
                 { "enforcement", n => { Enforcement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRule>(global::Soenneker.GitHub.OpenApiClient.Models.ActionsRule.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -78,7 +78,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditions>("conditions", Conditions);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyRepoConditionsOneOf2>("conditions", Conditions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleEnforcement>("enforcement", Enforcement);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRule>("rules", Rules);

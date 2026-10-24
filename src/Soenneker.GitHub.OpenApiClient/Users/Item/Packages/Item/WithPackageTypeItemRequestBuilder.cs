@@ -10,13 +10,13 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \users\{user-id}\packages\{packageType}
+    /// Builds and executes requests for operations under \users\{userId}\packages\{packageType}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPackageTypeItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.users.item.packages.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The name of the package.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.WithPackageNameItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.WithPackageNameItemRequestBuilder this[string position]
         {
@@ -32,7 +32,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackageTypeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages/{packageType}", pathParameters)
+        public WithPackageTypeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages/{packageType}", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPackageTypeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{user%2Did}/packages/{packageType}", rawUrl)
+        public WithPackageTypeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/users/{userId}/packages/{packageType}", rawUrl)
         {
         }
     }

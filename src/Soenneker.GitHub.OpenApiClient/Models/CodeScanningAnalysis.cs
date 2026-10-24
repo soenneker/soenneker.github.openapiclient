@@ -39,7 +39,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public string CommitSha { get; set; }
 #endif
         /// <summary>The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The deletable property</summary>
         public bool? Deletable { get; set; }
         /// <summary>Identifies the variable values associated with the environment in which this analysis was performed.</summary>
@@ -91,10 +91,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The REST API URL of the analysis resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get; private set; }
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get; private set; }
 #endif
         /// <summary>Warning generated when processing the analysis</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +156,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteStringValue("analysis_key", AnalysisKey);
             writer.WriteStringValue("category", Category);
             writer.WriteStringValue("commit_sha", CommitSha);
-            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteBoolValue("deletable", Deletable);
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("error", Error);
@@ -166,7 +165,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteIntValue("rules_count", RulesCount);
             writer.WriteStringValue("sarif_id", SarifId);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool>("tool", Tool);
-            writer.WriteStringValue("url", Url);
             writer.WriteStringValue("warning", Warning);
             writer.WriteAdditionalData(AdditionalData);
         }
