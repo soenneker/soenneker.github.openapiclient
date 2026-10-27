@@ -3,9 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.GitHub.OpenApiClient.Agents.Automations.AvailableTools;
-using Soenneker.GitHub.OpenApiClient.Agents.Automations.AvailableTriggers;
-using Soenneker.GitHub.OpenApiClient.Agents.Automations.Item;
 using Soenneker.GitHub.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -20,34 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Automations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AutomationsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The availableTools property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Agents.Automations.AvailableTools.AvailableToolsRequestBuilder AvailableTools
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Agents.Automations.AvailableTools.AvailableToolsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The availableTriggers property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Agents.Automations.AvailableTriggers.AvailableTriggersRequestBuilder AvailableTriggers
-        {
-            get => new global::Soenneker.GitHub.OpenApiClient.Agents.Automations.AvailableTriggers.AvailableTriggersRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.agents.automations.item collection</summary>
-        /// <param name="position">The unique identifier of the automation.</param>
-        /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Automations.Item.WithAutomationItemRequestBuilder"/></returns>
-        public global::Soenneker.GitHub.OpenApiClient.Agents.Automations.Item.WithAutomationItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("automationId", position);
-                return new global::Soenneker.GitHub.OpenApiClient.Agents.Automations.Item.WithAutomationItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Agents.Automations.AutomationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AutomationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/automations{?owner_type*,page*,per_page*}", pathParameters)
+        public AutomationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/automations{?page*,per_page*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,11 +30,11 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Automations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AutomationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/automations{?owner_type*,page*,per_page*}", rawUrl)
+        public AutomationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agents/automations{?page*,per_page*,type*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns automations whose `created_by` user is the authenticated caller, acrossrepositories the caller can read. This includes both user-owned and repository-ownedautomations created by the caller but excludes repository-owned automations created bysomeone else even if the caller has write access to the repository.Use the repository-scoped list operation for those automations. The `owner_type` filteronly narrows this creator-scoped collection.**Fine-grained access tokens for &quot;List automations for user&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have one of the following permission sets for eachrepository accessed by this request:* &quot;Agent tasks&quot; repository permissions (read)* &quot;Contents&quot; repository permissions (read)The required permission set depends on each repository&apos;s Automation permissionconfiguration.GitHub App installation access tokens are not supported for this endpoint.
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Lists automations created by the authenticated user across repositories they can read.This includes both personal and shared automations created by the caller, but excludesshared automations created by another user.Use the repository-scoped list operation for those automations. The `type` filteronly narrows this creator-scoped collection.To call this endpoint, OAuth app tokens and personal access tokens (classic) need:* the `repo` scope for private or internal repositories* the `repo` scope or `public_repo` scope for public repositories**Fine-grained access tokens for &quot;List automations for user&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have the following permission set:* &quot;Agent tasks&quot; repository permissions (read)GitHub App installation access tokens are not supported for this endpoint.
         /// API method documentation <see href="https://docs.github.com/rest/agent-automations/agent-automations#list-automations-for-user" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseSchemaItem&gt;</returns>
@@ -86,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Automations
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Returns automations whose `created_by` user is the authenticated caller, acrossrepositories the caller can read. This includes both user-owned and repository-ownedautomations created by the caller but excludes repository-owned automations created bysomeone else even if the caller has write access to the repository.Use the repository-scoped list operation for those automations. The `owner_type` filteronly narrows this creator-scoped collection.**Fine-grained access tokens for &quot;List automations for user&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have one of the following permission sets for eachrepository accessed by this request:* &quot;Agent tasks&quot; repository permissions (read)* &quot;Contents&quot; repository permissions (read)The required permission set depends on each repository&apos;s Automation permissionconfiguration.GitHub App installation access tokens are not supported for this endpoint.
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Lists automations created by the authenticated user across repositories they can read.This includes both personal and shared automations created by the caller, but excludesshared automations created by another user.Use the repository-scoped list operation for those automations. The `type` filteronly narrows this creator-scoped collection.To call this endpoint, OAuth app tokens and personal access tokens (classic) need:* the `repo` scope for private or internal repositories* the `repo` scope or `public_repo` scope for public repositories**Fine-grained access tokens for &quot;List automations for user&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have the following permission set:* &quot;Agent tasks&quot; repository permissions (read)GitHub App installation access tokens are not supported for this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,20 +89,20 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Automations
             return new global::Soenneker.GitHub.OpenApiClient.Agents.Automations.AutomationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns automations whose `created_by` user is the authenticated caller, acrossrepositories the caller can read. This includes both user-owned and repository-ownedautomations created by the caller but excludes repository-owned automations created bysomeone else even if the caller has write access to the repository.Use the repository-scoped list operation for those automations. The `owner_type` filteronly narrows this creator-scoped collection.**Fine-grained access tokens for &quot;List automations for user&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have one of the following permission sets for eachrepository accessed by this request:* &quot;Agent tasks&quot; repository permissions (read)* &quot;Contents&quot; repository permissions (read)The required permission set depends on each repository&apos;s Automation permissionconfiguration.GitHub App installation access tokens are not supported for this endpoint.
+        /// &gt; [!NOTE]&gt; This endpoint is in public preview and is subject to change.Lists automations created by the authenticated user across repositories they can read.This includes both personal and shared automations created by the caller, but excludesshared automations created by another user.Use the repository-scoped list operation for those automations. The `type` filteronly narrows this creator-scoped collection.To call this endpoint, OAuth app tokens and personal access tokens (classic) need:* the `repo` scope for private or internal repositories* the `repo` scope or `public_repo` scope for public repositories**Fine-grained access tokens for &quot;List automations for user&quot;**This endpoint works with the following fine-grained token types:* [GitHub App user access tokens](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)* [Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)The fine-grained token must have the following permission set:* &quot;Agent tasks&quot; repository permissions (read)GitHub App installation access tokens are not supported for this endpoint.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AutomationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter automations by owner type. `user` returns automations owned by their creator, `repository` returns automations owned by the repository. Omit to return both.</summary>
-            [QueryParameter("owner_type")]
-            public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomationsOwnerTypeParameter? OwnerType { get; set; }
             /// <summary>The page number of the results to fetch.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
             /// <summary>The number of results per page (max 100).</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>Filter automations by type. `personal` returns automations owned by their creator, `shared` returns automations owned by the repository. Omit to return both.</summary>
+            [QueryParameter("type")]
+            public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomationsTypeParameter? Type { get; set; }
         }
     }
 }

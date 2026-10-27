@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.GitHub.OpenApiClient.Models
 {
     /// <summary>
-    /// Public trigger configuration keyed by stable public trigger identifier. Each trigger has a closed, trigger-specific configuration schema.
+    /// Trigger configuration for the automation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentAutomationsListAutomations200ResponseSchemaItemTriggers : IParsable
@@ -20,6 +20,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompleted AutomationCompleted { get; set; }
+#endif
+        /// <summary>The automation_failed property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationFailed? AutomationFailed { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationFailed AutomationFailed { get; set; }
+#endif
+        /// <summary>Runs on the default branch when a security alert of this kind is created in the repository. These are system events without an issue, pull request, or human actor, and cannot be run manually.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersCodeScanningAlert? CodeScanningAlert { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersCodeScanningAlert CodeScanningAlert { get; set; }
+#endif
+        /// <summary>Runs on the default branch when a security alert of this kind is created in the repository. These are system events without an issue, pull request, or human actor, and cannot be run manually.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDependabotAlert? DependabotAlert { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDependabotAlert DependabotAlert { get; set; }
 #endif
         /// <summary>The discussion_comment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +85,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueAssigned IssueAssigned { get; set; }
 #endif
+        /// <summary>The issue_closed property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueClosed? IssueClosed { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueClosed IssueClosed { get; set; }
+#endif
         /// <summary>The issue_comment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +117,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueOpened IssueOpened { get; set; }
 #endif
+        /// <summary>The issue_reopened property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueReopened? IssueReopened { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueReopened IssueReopened { get; set; }
+#endif
         /// <summary>The pull_request_assigned property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +133,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestAssigned PullRequestAssigned { get; set; }
 #endif
+        /// <summary>The pull_request_closed property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestClosed? PullRequestClosed { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestClosed PullRequestClosed { get; set; }
+#endif
         /// <summary>The pull_request_comment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +148,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestComment PullRequestComment { get; set; }
+#endif
+        /// <summary>The pull_request_converted_to_draft property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestConvertedToDraft? PullRequestConvertedToDraft { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestConvertedToDraft PullRequestConvertedToDraft { get; set; }
 #endif
         /// <summary>The pull_request_labeled property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,6 +197,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReadyForReview PullRequestReadyForReview { get; set; }
 #endif
+        /// <summary>The pull_request_reopened property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReopened? PullRequestReopened { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReopened PullRequestReopened { get; set; }
+#endif
+        /// <summary>The pull_request_review_dismissed property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewDismissed? PullRequestReviewDismissed { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewDismissed PullRequestReviewDismissed { get; set; }
+#endif
         /// <summary>The pull_request_review_requested property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,6 +229,22 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewSubmitted PullRequestReviewSubmitted { get; set; }
 #endif
+        /// <summary>The pull_request_review_thread_resolved property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadResolved? PullRequestReviewThreadResolved { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadResolved PullRequestReviewThreadResolved { get; set; }
+#endif
+        /// <summary>The pull_request_review_thread_unresolved property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadUnresolved? PullRequestReviewThreadUnresolved { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadUnresolved PullRequestReviewThreadUnresolved { get; set; }
+#endif
         /// <summary>The pull_request_synchronize property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -164,6 +252,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestSynchronize PullRequestSynchronize { get; set; }
+#endif
+        /// <summary>Runs on the default branch when a security alert of this kind is created in the repository. These are system events without an issue, pull request, or human actor, and cannot be run manually.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSecretScanningAlert? SecretScanningAlert { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSecretScanningAlert SecretScanningAlert { get; set; }
 #endif
         /// <summary>The sub_issue_added property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -200,24 +296,36 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "automation_completed", n => { AutomationCompleted = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompleted>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompleted.CreateFromDiscriminatorValue); } },
+                { "automation_failed", n => { AutomationFailed = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationFailed>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationFailed.CreateFromDiscriminatorValue); } },
+                { "code_scanning_alert", n => { CodeScanningAlert = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersCodeScanningAlert>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersCodeScanningAlert.CreateFromDiscriminatorValue); } },
+                { "dependabot_alert", n => { DependabotAlert = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDependabotAlert>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDependabotAlert.CreateFromDiscriminatorValue); } },
                 { "discussion_comment", n => { DiscussionComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionComment>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionComment.CreateFromDiscriminatorValue); } },
                 { "discussion_opened", n => { DiscussionOpened = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionOpened>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionOpened.CreateFromDiscriminatorValue); } },
                 { "discussion_updated", n => { DiscussionUpdated = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionUpdated>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionUpdated.CreateFromDiscriminatorValue); } },
                 { "interval", n => { Interval = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval.CreateFromDiscriminatorValue); } },
                 { "issue_assigned", n => { IssueAssigned = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueAssigned>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueAssigned.CreateFromDiscriminatorValue); } },
+                { "issue_closed", n => { IssueClosed = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueClosed>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueClosed.CreateFromDiscriminatorValue); } },
                 { "issue_comment", n => { IssueComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueComment>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueComment.CreateFromDiscriminatorValue); } },
                 { "issue_labeled", n => { IssueLabeled = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueLabeled>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueLabeled.CreateFromDiscriminatorValue); } },
                 { "issue_opened", n => { IssueOpened = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueOpened>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueOpened.CreateFromDiscriminatorValue); } },
+                { "issue_reopened", n => { IssueReopened = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueReopened>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueReopened.CreateFromDiscriminatorValue); } },
                 { "pull_request_assigned", n => { PullRequestAssigned = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestAssigned>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestAssigned.CreateFromDiscriminatorValue); } },
+                { "pull_request_closed", n => { PullRequestClosed = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestClosed>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestClosed.CreateFromDiscriminatorValue); } },
                 { "pull_request_comment", n => { PullRequestComment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestComment>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestComment.CreateFromDiscriminatorValue); } },
+                { "pull_request_converted_to_draft", n => { PullRequestConvertedToDraft = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestConvertedToDraft>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestConvertedToDraft.CreateFromDiscriminatorValue); } },
                 { "pull_request_labeled", n => { PullRequestLabeled = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestLabeled>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestLabeled.CreateFromDiscriminatorValue); } },
                 { "pull_request_merge_conflict", n => { PullRequestMergeConflict = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestMergeConflict>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestMergeConflict.CreateFromDiscriminatorValue); } },
                 { "pull_request_merged", n => { PullRequestMerged = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestMerged>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestMerged.CreateFromDiscriminatorValue); } },
                 { "pull_request_opened", n => { PullRequestOpened = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestOpened>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestOpened.CreateFromDiscriminatorValue); } },
                 { "pull_request_ready_for_review", n => { PullRequestReadyForReview = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReadyForReview>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReadyForReview.CreateFromDiscriminatorValue); } },
+                { "pull_request_reopened", n => { PullRequestReopened = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReopened>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReopened.CreateFromDiscriminatorValue); } },
+                { "pull_request_review_dismissed", n => { PullRequestReviewDismissed = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewDismissed>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewDismissed.CreateFromDiscriminatorValue); } },
                 { "pull_request_review_requested", n => { PullRequestReviewRequested = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewRequested>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewRequested.CreateFromDiscriminatorValue); } },
                 { "pull_request_review_submitted", n => { PullRequestReviewSubmitted = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewSubmitted>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewSubmitted.CreateFromDiscriminatorValue); } },
+                { "pull_request_review_thread_resolved", n => { PullRequestReviewThreadResolved = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadResolved>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadResolved.CreateFromDiscriminatorValue); } },
+                { "pull_request_review_thread_unresolved", n => { PullRequestReviewThreadUnresolved = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadUnresolved>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadUnresolved.CreateFromDiscriminatorValue); } },
                 { "pull_request_synchronize", n => { PullRequestSynchronize = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestSynchronize>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestSynchronize.CreateFromDiscriminatorValue); } },
+                { "secret_scanning_alert", n => { SecretScanningAlert = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSecretScanningAlert>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSecretScanningAlert.CreateFromDiscriminatorValue); } },
                 { "sub_issue_added", n => { SubIssueAdded = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSubIssueAdded>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSubIssueAdded.CreateFromDiscriminatorValue); } },
                 { "workflow_run", n => { WorkflowRun = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersWorkflowRun>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersWorkflowRun.CreateFromDiscriminatorValue); } },
             };
@@ -230,24 +338,36 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompleted>("automation_completed", AutomationCompleted);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationFailed>("automation_failed", AutomationFailed);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersCodeScanningAlert>("code_scanning_alert", CodeScanningAlert);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDependabotAlert>("dependabot_alert", DependabotAlert);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionComment>("discussion_comment", DiscussionComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionOpened>("discussion_opened", DiscussionOpened);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersDiscussionUpdated>("discussion_updated", DiscussionUpdated);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersInterval>("interval", Interval);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueAssigned>("issue_assigned", IssueAssigned);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueClosed>("issue_closed", IssueClosed);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueComment>("issue_comment", IssueComment);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueLabeled>("issue_labeled", IssueLabeled);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueOpened>("issue_opened", IssueOpened);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersIssueReopened>("issue_reopened", IssueReopened);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestAssigned>("pull_request_assigned", PullRequestAssigned);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestClosed>("pull_request_closed", PullRequestClosed);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestComment>("pull_request_comment", PullRequestComment);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestConvertedToDraft>("pull_request_converted_to_draft", PullRequestConvertedToDraft);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestLabeled>("pull_request_labeled", PullRequestLabeled);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestMergeConflict>("pull_request_merge_conflict", PullRequestMergeConflict);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestMerged>("pull_request_merged", PullRequestMerged);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestOpened>("pull_request_opened", PullRequestOpened);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReadyForReview>("pull_request_ready_for_review", PullRequestReadyForReview);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReopened>("pull_request_reopened", PullRequestReopened);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewDismissed>("pull_request_review_dismissed", PullRequestReviewDismissed);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewRequested>("pull_request_review_requested", PullRequestReviewRequested);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewSubmitted>("pull_request_review_submitted", PullRequestReviewSubmitted);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadResolved>("pull_request_review_thread_resolved", PullRequestReviewThreadResolved);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestReviewThreadUnresolved>("pull_request_review_thread_unresolved", PullRequestReviewThreadUnresolved);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersPullRequestSynchronize>("pull_request_synchronize", PullRequestSynchronize);
+            writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSecretScanningAlert>("secret_scanning_alert", SecretScanningAlert);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersSubIssueAdded>("sub_issue_added", SubIssueAdded);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersWorkflowRun>("workflow_run", WorkflowRun);
         }

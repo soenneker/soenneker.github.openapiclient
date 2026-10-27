@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Assignees;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Comments;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Dependencies;
@@ -31,6 +32,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithIssueNumberItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The artifacts property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.ArtifactsRequestBuilder Artifacts
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.ArtifactsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The assignees property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Assignees.AssigneesRequestBuilder Assignees
         {

@@ -73,6 +73,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>The security alert number.</summary>
         public int? Number { get; private set; }
+        /// <summary>The reachability result for the vulnerability that triggered the alert, indicating whether avulnerable function is reachable from the repository&apos;s own code.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryReachability? Reachability { get; private set; }
+#nullable restore
+#else
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryReachability Reachability { get; private set; }
+#endif
         /// <summary>A GitHub repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,6 +147,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "fixed_at", n => { FixedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetIntValue(); } },
+                { "reachability", n => { Reachability = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryReachability>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertWithRepositoryReachability.CreateFromDiscriminatorValue); } },
                 { "repository", n => { Repository = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleRepository.CreateFromDiscriminatorValue); } },
                 { "security_advisory", n => { SecurityAdvisory = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityAdvisory.CreateFromDiscriminatorValue); } },
                 { "security_vulnerability", n => { SecurityVulnerability = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability>(global::Soenneker.GitHub.OpenApiClient.Models.DependabotAlertSecurityVulnerability.CreateFromDiscriminatorValue); } },

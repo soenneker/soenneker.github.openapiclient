@@ -38,6 +38,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestCodeSecurity? CodeSecurity { get; set; }
         /// <summary>The enablement status of Dependabot alerts</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotAlerts? DependabotAlerts { get; set; }
+        /// <summary>The enablement status of reachability analysis for Dependabot. Only available for enterprises with access to reachability analysis.Requires Dependabot alerts to be enabled when set to `enabled`. Must be `disabled` when Dependabot alerts is `disabled`.`not_set` leaves existing repository settings unchanged. Omit this field to preserve the configuration&apos;s current value.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotReachability? DependabotReachability { get; set; }
         /// <summary>The enablement status of Dependabot security updates</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotSecurityUpdates? DependabotSecurityUpdates { get; set; }
         /// <summary>The enablement status of Dependency Graph</summary>
@@ -82,6 +84,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningExtendedMetadata? SecretScanningExtendedMetadata { get; set; }
         /// <summary>The enablement status of Copilot secret scanning</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningGenericSecrets? SecretScanningGenericSecrets { get; set; }
+        /// <summary>The enablement status of generic secrets push protection</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningGenericSecretsPushProtection? SecretScanningGenericSecretsPushProtection { get; set; }
         /// <summary>The enablement status of secret scanning non-provider patterns</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningNonProviderPatterns? SecretScanningNonProviderPatterns { get; set; }
         /// <summary>The enablement status of secret scanning push protection</summary>
@@ -113,6 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "code_scanning_options", n => { CodeScanningOptions = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions.CreateFromDiscriminatorValue); } },
                 { "code_security", n => { CodeSecurity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestCodeSecurity>(); } },
                 { "dependabot_alerts", n => { DependabotAlerts = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotAlerts>(); } },
+                { "dependabot_reachability", n => { DependabotReachability = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotReachability>(); } },
                 { "dependabot_security_updates", n => { DependabotSecurityUpdates = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotSecurityUpdates>(); } },
                 { "dependency_graph", n => { DependencyGraph = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependencyGraph>(); } },
                 { "dependency_graph_autosubmit_action", n => { DependencyGraphAutosubmitAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependencyGraphAutosubmitAction>(); } },
@@ -126,6 +131,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "secret_scanning_delegated_alert_dismissal", n => { SecretScanningDelegatedAlertDismissal = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningDelegatedAlertDismissal>(); } },
                 { "secret_scanning_extended_metadata", n => { SecretScanningExtendedMetadata = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningExtendedMetadata>(); } },
                 { "secret_scanning_generic_secrets", n => { SecretScanningGenericSecrets = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningGenericSecrets>(); } },
+                { "secret_scanning_generic_secrets_push_protection", n => { SecretScanningGenericSecretsPushProtection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningGenericSecretsPushProtection>(); } },
                 { "secret_scanning_non_provider_patterns", n => { SecretScanningNonProviderPatterns = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningNonProviderPatterns>(); } },
                 { "secret_scanning_push_protection", n => { SecretScanningPushProtection = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningPushProtection>(); } },
                 { "secret_scanning_validity_checks", n => { SecretScanningValidityChecks = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningValidityChecks>(); } },
@@ -145,6 +151,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions>("code_scanning_options", CodeScanningOptions);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestCodeSecurity>("code_security", CodeSecurity);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotAlerts>("dependabot_alerts", DependabotAlerts);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotReachability>("dependabot_reachability", DependabotReachability);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependabotSecurityUpdates>("dependabot_security_updates", DependabotSecurityUpdates);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependencyGraph>("dependency_graph", DependencyGraph);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestDependencyGraphAutosubmitAction>("dependency_graph_autosubmit_action", DependencyGraphAutosubmitAction);
@@ -158,6 +165,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningDelegatedAlertDismissal>("secret_scanning_delegated_alert_dismissal", SecretScanningDelegatedAlertDismissal);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningExtendedMetadata>("secret_scanning_extended_metadata", SecretScanningExtendedMetadata);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningGenericSecrets>("secret_scanning_generic_secrets", SecretScanningGenericSecrets);
+            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningGenericSecretsPushProtection>("secret_scanning_generic_secrets_push_protection", SecretScanningGenericSecretsPushProtection);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningNonProviderPatterns>("secret_scanning_non_provider_patterns", SecretScanningNonProviderPatterns);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningPushProtection>("secret_scanning_push_protection", SecretScanningPushProtection);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityUpdateEnterpriseConfigurationRequestSecretScanningValidityChecks>("secret_scanning_validity_checks", SecretScanningValidityChecks);

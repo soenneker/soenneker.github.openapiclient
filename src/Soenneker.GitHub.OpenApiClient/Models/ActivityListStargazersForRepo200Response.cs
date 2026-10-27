@@ -38,11 +38,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ActivityListStargazersForRepo200Response();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> simpleUserValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> simpleUserValue)
             {
                 result.SimpleUser = simpleUserValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Stargazer>(global::Soenneker.GitHub.OpenApiClient.Models.Stargazer.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.Stargazer> stargazerValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Stargazer>(global::Soenneker.GitHub.OpenApiClient.Models.Stargazer.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.Stargazer> stargazerValue)
             {
                 result.Stargazer = stargazerValue;
             }

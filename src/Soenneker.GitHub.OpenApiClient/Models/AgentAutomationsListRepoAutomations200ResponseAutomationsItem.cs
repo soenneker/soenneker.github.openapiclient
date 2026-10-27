@@ -35,7 +35,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The model to use for sessions triggered by this automation. Omit to use the platform default.</summary>
+        /// <summary>The model override for sessions triggered by this automation. Absent when the platform selects the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -51,9 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Who owns the automation. `user` keeps it private to its creator and its runs act as that user. `repository` makes it belong to the repository, visible to anyone with read access to the repository, and its runs act as the Copilot app rather than as a person.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemOwnerType? OwnerType { get; private set; }
-        /// <summary>The reasoning effort to use for sessions triggered by this automation. Omit or leave empty for no override. Currently supported values: `none`, `low`, `medium`, `high`, `xhigh`, `max`</summary>
+        /// <summary>The reasoning effort override for sessions triggered by this automation. Absent when the model&apos;s default is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReasoningEffort { get; set; }
@@ -63,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #endif
         /// <summary>When true, event-triggered runs require the event actor to have repo write permission, even when the org&apos;s allow_read_access_triggers policy is enabled. Does not apply to interval-scheduled runs, which always run as the automation owner.</summary>
         public bool? RequireActorWritePermission { get; set; }
-        /// <summary>Public trigger configuration keyed by stable public trigger identifier. Each trigger has a closed, trigger-specific configuration schema.</summary>
+        /// <summary>Trigger configuration for the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers? Triggers { get; set; }
@@ -71,10 +69,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers Triggers { get; set; }
 #endif
+        /// <summary>The type of automation. `personal` keeps it private to its creator and its runs act as that user. `shared` makes it belong to the repository, visible to anyone with read access to the repository, and its runs act as the Copilot app rather than as a person.</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemType? Type { get; private set; }
         /// <summary>When the automation was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Controls which repository resources a run may modify. `trigger` limits writes to the resource that started the run, when one exists, and resources created during the run; `repository` allows writes to any resource in the repository. Supported values: `trigger`, `repository`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemWriteScope? WriteScope { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItem"/> and sets the default values.
         /// </summary>
@@ -107,12 +105,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemOwnerType>(); } },
                 { "reasoning_effort", n => { ReasoningEffort = n.GetStringValue(); } },
                 { "require_actor_write_permission", n => { RequireActorWritePermission = n.GetBoolValue(); } },
                 { "triggers", n => { Triggers = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers>(global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "write_scope", n => { WriteScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemWriteScope>(); } },
             };
         }
         /// <summary>
@@ -132,7 +129,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteBoolValue("require_actor_write_permission", RequireActorWritePermission);
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemTriggers>("triggers", Triggers);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomations200ResponseAutomationsItemWriteScope>("write_scope", WriteScope);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

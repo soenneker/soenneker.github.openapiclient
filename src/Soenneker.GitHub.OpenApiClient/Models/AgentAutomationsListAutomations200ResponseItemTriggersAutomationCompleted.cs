@@ -12,6 +12,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
     public partial class AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompleted : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>When true, events Copilot creates, including from other automations and Copilot sessions, can start this automation through this trigger. Defaults to false. The Copilot coding agent app cannot turn it on: creating a trigger with true, or changing it from false to true, returns 422.</summary>
+        public bool? AllowCopilotTriggers { get; set; }
         /// <summary>Upstream Automation IDs in the same repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,7 +22,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 #else
         public List<string> AutomationIds { get; set; }
 #endif
-        /// <summary>Override the Automation `write_scope` for runs started by this trigger. If omitted, the automation&apos;s `write_scope` is used. Organization or repository policy may restrict the effective scope to `trigger`.</summary>
+        /// <summary>Override the Automation `write_scope` for runs started by this trigger. If omitted, the automation&apos;s `write_scope` is used. Organization or repository policy may restrict the effective scope to `trigger`. Explicitly setting `repository` on create or edit returns 422 when policy validation is enabled and that policy applies.</summary>
         public global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompletedWriteScope? WriteScope { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -40,6 +42,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "allow_copilot_triggers", n => { AllowCopilotTriggers = n.GetBoolValue(); } },
                 { "automation_ids", n => { AutomationIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "write_scope", n => { WriteScope = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompletedWriteScope>(); } },
             };
@@ -51,6 +54,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("allow_copilot_triggers", AllowCopilotTriggers);
             writer.WriteCollectionOfPrimitiveValues<string>("automation_ids", AutomationIds);
             writer.WriteEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListAutomations200ResponseItemTriggersAutomationCompletedWriteScope>("write_scope", WriteScope);
         }

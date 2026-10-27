@@ -37,15 +37,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public static global::Soenneker.GitHub.OpenApiClient.Models.ReposRemoveTeamAccessRestrictionsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ReposRemoveTeamAccessRestrictionsRequest();
-            if("ReposRemoveTeamAccessRestrictionsRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ReposRemoveTeamAccessRestrictionsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposRemoveTeamAccessRestrictionsRequestOneOf1();
-            }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
                 result.String = stringValue;
+            }
+            else {
+                result.ReposRemoveTeamAccessRestrictionsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.ReposRemoveTeamAccessRestrictionsRequestOneOf1();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReposRemoveTeamAccessRestrictionsRequestOneOf1 != null)
             {
-                return ReposRemoveTeamAccessRestrictionsRequestOneOf1.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReposRemoveTeamAccessRestrictionsRequestOneOf1);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ReposRemoveTeamAccessRestrictionsRequestOneOf1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposRemoveTeamAccessRestrictionsRequestOneOf1>(null, ReposRemoveTeamAccessRestrictionsRequestOneOf1);
-            }
-            else if(String != null)
+            if(String != null)
             {
                 writer.WriteCollectionOfPrimitiveValues<string>(null, String);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposRemoveTeamAccessRestrictionsRequestOneOf1>(null, ReposRemoveTeamAccessRestrictionsRequestOneOf1);
             }
         }
     }

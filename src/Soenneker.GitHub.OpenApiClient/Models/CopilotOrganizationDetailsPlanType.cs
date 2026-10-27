@@ -15,5 +15,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         #pragma warning disable CS1591
         Enterprise,
         #pragma warning restore CS1591
+        [EnumMember(Value = "access")]
+        #pragma warning disable CS1591
+        Access,
+        #pragma warning restore CS1591
     }
 }

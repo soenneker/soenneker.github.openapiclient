@@ -38,11 +38,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.GitHub.OpenApiClient.Models.ActivityListReposStarredByUser200Response();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> repositoryValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.Repository>(global::Soenneker.GitHub.OpenApiClient.Models.Repository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.Repository> repositoryValue)
             {
                 result.Repository = repositoryValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository>(global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository> starredRepositoryValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository>(global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.StarredRepository> starredRepositoryValue)
             {
                 result.StarredRepository = starredRepositoryValue;
             }

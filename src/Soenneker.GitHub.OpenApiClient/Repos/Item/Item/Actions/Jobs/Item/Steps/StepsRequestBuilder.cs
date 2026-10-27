@@ -16,7 +16,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps
     public partial class StepsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.GitHub.OpenApiClient.repos.item.item.actions.jobs.item.steps.item collection</summary>
-        /// <param name="position">The zero-based position number of the step in the job.</param>
+        /// <param name="position">The number assigned to the step, as shown in the `number` field of the workflow job&apos;s `steps` array.</param>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.Item.WithStepNumberItemRequestBuilder"/></returns>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Actions.Jobs.Item.Steps.Item.WithStepNumberItemRequestBuilder this[int position]
         {

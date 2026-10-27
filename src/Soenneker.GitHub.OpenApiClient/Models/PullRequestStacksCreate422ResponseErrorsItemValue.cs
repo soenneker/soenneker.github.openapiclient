@@ -49,7 +49,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 result.String = stringValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksCreate422ResponseErrorsItemValueMember1>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksCreate422ResponseErrorsItemValueMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksCreate422ResponseErrorsItemValueMember1> pullRequestStacksCreate422ResponseErrorsItemValueMember1Value)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksCreate422ResponseErrorsItemValueMember1>(global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksCreate422ResponseErrorsItemValueMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.PullRequestStacksCreate422ResponseErrorsItemValueMember1> pullRequestStacksCreate422ResponseErrorsItemValueMember1Value)
             {
                 result.PullRequestStacksCreate422ResponseErrorsItemValueMember1 = pullRequestStacksCreate422ResponseErrorsItemValueMember1Value;
             }

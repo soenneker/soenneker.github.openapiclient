@@ -51,11 +51,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 result.IssuesAddLabelsRequestOneOf1 = new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1();
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item> issuesAddLabelsRequestOneOf3ItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item> issuesAddLabelsRequestOneOf3ItemValue)
             {
                 result.IssuesAddLabelsRequestOneOf3Item = issuesAddLabelsRequestOneOf3ItemValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
                 result.String = stringValue;
             }
