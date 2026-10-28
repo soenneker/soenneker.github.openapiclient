@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Models;
+using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.Comments;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.Cve;
 using Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.Forks;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithGhsaItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The comments property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.Comments.CommentsRequestBuilder Comments
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The cve property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.SecurityAdvisories.Item.Cve.CveRequestBuilder Cve
         {

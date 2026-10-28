@@ -34,11 +34,12 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
         {
         }
         /// <summary>
-        /// Permanently deletes an artifact attached to an issue.Deleting an artifact requires permission to update the issue.
+        /// Permanently deletes an artifact attached to an issue.Deleting an artifact requires permission to update the issue.The request can return `403` if the repository is read-only or locked, or aGitHub App installation has only `issues: read` permission.
         /// API method documentation <see href="https://docs.github.com/rest/issues/artifacts#delete-an-issue-artifact" />
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 429 status code</exception>
@@ -55,6 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
@@ -91,13 +93,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200Response>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the name, body, or both for an artifact attached to an issue.Updating an artifact requires permission to update the issue.
+        /// Updates the name, body, or both for an artifact attached to an issue.Updating an artifact requires permission to update the issue.The request can return `403` if the repository is read-only or locked, or aGitHub App installation has only `issues: read` permission.
         /// API method documentation <see href="https://docs.github.com/rest/issues/artifacts#update-an-issue-artifact" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
@@ -116,6 +119,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
@@ -125,7 +129,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Permanently deletes an artifact attached to an issue.Deleting an artifact requires permission to update the issue.
+        /// Permanently deletes an artifact attached to an issue.Deleting an artifact requires permission to update the issue.The request can return `403` if the repository is read-only or locked, or aGitHub App installation has only `issues: read` permission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -163,7 +167,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.I
             return requestInfo;
         }
         /// <summary>
-        /// Updates the name, body, or both for an artifact attached to an issue.Updating an artifact requires permission to update the issue.
+        /// Updates the name, body, or both for an artifact attached to an issue.Updating an artifact requires permission to update the issue.The request can return `403` if the repository is read-only or locked, or aGitHub App installation has only `issues: read` permission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -47,7 +47,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
         {
         }
         /// <summary>
-        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.
+        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
         /// API method documentation <see href="https://docs.github.com/rest/issues/artifacts#list-issue-artifacts" />
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact&gt;</returns>
@@ -76,13 +76,14 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Creates an artifact attached to an issue.The artifact type defaults to `generic` when omitted. Creating an artifactrequires permission to update the issue.To create an HTML artifact, set `type` to `embedded_html` and provide the HTML sourcein `body`. Open the returned `html_url` to inspect the source, then select**Preview** to view the rendered artifact. Select **Show source** to returnto the HTML source.
+        /// Creates an artifact attached to an issue.The artifact type defaults to `generic` when omitted. Creating an artifactrequires permission to update the issue.The request can return `403` if the repository is read-only or locked, or aGitHub App installation has only `issues: read` permission.To create an HTML artifact, set `type` to `embedded_html` and provide the HTML sourcein `body`. Open the returned `html_url` to inspect the source, then select**Preview** to view the rendered artifact. Select **Show source** to returnto the HTML source.
         /// API method documentation <see href="https://docs.github.com/rest/issues/artifacts#create-an-issue-artifact" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.BasicError">When receiving a 410 status code</exception>
         /// <exception cref="global::Soenneker.GitHub.OpenApiClient.Models.ValidationError">When receiving a 422 status code</exception>
@@ -102,6 +103,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "403", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "410", global::Soenneker.GitHub.OpenApiClient.Models.BasicError.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.GitHub.OpenApiClient.Models.ValidationError.CreateFromDiscriminatorValue },
@@ -112,7 +114,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             return await RequestAdapter.SendAsync<global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact>(requestInfo, global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.
+        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -131,7 +133,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             return requestInfo;
         }
         /// <summary>
-        /// Creates an artifact attached to an issue.The artifact type defaults to `generic` when omitted. Creating an artifactrequires permission to update the issue.To create an HTML artifact, set `type` to `embedded_html` and provide the HTML sourcein `body`. Open the returned `html_url` to inspect the source, then select**Preview** to view the rendered artifact. Select **Show source** to returnto the HTML source.
+        /// Creates an artifact attached to an issue.The artifact type defaults to `generic` when omitted. Creating an artifactrequires permission to update the issue.The request can return `403` if the repository is read-only or locked, or aGitHub App installation has only `issues: read` permission.To create an HTML artifact, set `type` to `embedded_html` and provide the HTML sourcein `body`. Open the returned `html_url` to inspect the source, then select**Preview** to view the rendered artifact. Select **Show source** to returnto the HTML source.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -162,7 +164,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts
             return new global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Issues.Item.Artifacts.ArtifactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.
+        /// Lists artifacts attached to an issue. Results are ordered by artifact number.The `type` parameter filters the response to artifacts of one type.Results can be requested by page. The page defaults to `1`; the page sizedefaults to `30` and can be set from `1` to `100`.The response is a bare array and does not include pagination metadata such asa `Link` header, a total count, or the service&apos;s `has_next_page` signal.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ArtifactsRequestBuilderGetQueryParameters 

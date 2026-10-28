@@ -1672,6 +1672,545 @@
         }
       }
     },
+    "/agents/repos/{owner}/{repo}/pulls/{pullNumber}/agent-merge": {
+      "get": {
+        "tags": [
+          "agent-merge"
+        ],
+        "summary": "Get Agent Merge configuration for a pull request",
+        "description": "Gets the Agent Merge configuration for a pull request.\n\nYou must have write access to the repository.\n\nOAuth app tokens and personal access tokens (classic) need the repo scope for private or internal repositories, or the public_repo scope for public repositories.\n",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/agent-merge#get-agent-merge-configuration-for-a-pull-request"
+        },
+        "operationId": "AgentMergeGetAgentMergeEnrollment",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pullNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request.",
+            "required": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "example": 42
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stored configuration retrieved successfully",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment200Response"
+                },
+                "examples": {
+                  "enabled": {
+                    "summary": "Agent Merge configuration for an enrolled pull request",
+                    "value": {
+                      "allowed_actions": [
+                        "fix_ci",
+                        "resolve_merge_conflicts"
+                      ],
+                      "created_at": "2026-09-09T12:00:00Z",
+                      "updated_at": "2026-09-09T12:00:00Z",
+                      "user": {
+                        "id": 9876
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment401Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller is not permitted to read this enrollment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment403Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource or enrollment is absent, enrollment is disabled, or access is masked as not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment404Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Not Found",
+                      "documentation_url": "https://docs.github.com/rest/agent-merge/agent-merge"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment422Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment429Response"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Enrollment storage or an authorization dependency is unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment503Response"
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "agent-merge"
+        }
+      },
+      "put": {
+        "tags": [
+          "agent-merge"
+        ],
+        "summary": "Update Agent Merge configuration for a pull request",
+        "description": "Updates the Agent Merge configuration for a pull request, enabling Agent Merge\nor changing the allowed actions that Copilot is allowed to take on the pull\nrequest.\n\nIf Agent Merge is currently enabled for the pull request, only the user\nwho most recently enabled it may change its allowed actions.\n\nIf enrollment eligibility cannot be determined, the operation returns \u0060503\u0060.\n\nThis endpoint is only available to users with a Copilot subscription,\nexcluding Copilot Free users. You must have write access to the repository,\nthe pull request must not be from a fork or part of a stack, and the repository\nmust have the \u0022Allow automations\u0022 setting enabled.\n\nOAuth app tokens and personal access tokens (classic) need the repo scope for private or internal repositories, or the public_repo scope for public repositories.\n",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/agent-merge#update-agent-merge-configuration-for-a-pull-request"
+        },
+        "operationId": "AgentMergePutAgentMergeEnrollment",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pullNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request.",
+            "required": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "example": 42
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Agent Merge enrollment configuration",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollmentRequest"
+              },
+              "examples": {
+                "fix_ci": {
+                  "summary": "Only ask Copilot to fix failing Actions workflows",
+                  "value": {
+                    "allowed_actions": [
+                      "fix_ci"
+                    ]
+                  }
+                },
+                "multiple_actions": {
+                  "summary": "Ask Copilot to fix failing Actions workflows and resolve merge conflicts",
+                  "value": {
+                    "allowed_actions": [
+                      "fix_ci",
+                      "resolve_merge_conflicts"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Existing Agent Merge enrollment updated",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment200Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "allowed_actions": [
+                        "fix_ci"
+                      ],
+                      "created_at": "2026-09-09T12:00:00Z",
+                      "updated_at": "2026-09-09T13:00:00Z",
+                      "user": {
+                        "id": 9876
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Pull request enrolled for Agent Merge",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-store"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment201Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "allowed_actions": [
+                        "fix_ci"
+                      ],
+                      "created_at": "2026-09-09T12:00:00Z",
+                      "updated_at": "2026-09-09T12:00:00Z",
+                      "user": {
+                        "id": 9876
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed JSON request body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment400Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Bad Request",
+                      "documentation_url": "https://docs.github.com/rest/agent-merge/agent-merge"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment401Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller lacks the permissions or eligibility to enroll the pull request for Agent Merge",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment403Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource is absent or masked as not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Enrollment changed during the write; no replacement was committed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment409Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Enrollment changed during the request. Retry the operation.",
+                      "documentation_url": "https://docs.github.com/rest/agent-merge/agent-merge"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Ineligible pull request, invalid action selection, or unknown body properties",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment422Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment429Response"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Enrollment storage or an authorization dependency is unavailable, or eligibility is unknown",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment503Response"
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "agent-merge"
+        }
+      },
+      "delete": {
+        "tags": [
+          "agent-merge"
+        ],
+        "summary": "Disable Agent Merge for a pull request",
+        "description": "Disables Agent Merge for a pull request.\n\nYou must have write access to the repository. Disabling does not require\nenrollment eligibility: your Copilot subscription, coding-agent and Automations\npolicies, the Agent Merge execution flag, pull request state, stack membership,\nand repository archive state do not prevent cleanup. Authentication, token\nrepository selection, and \u0022Agent tasks\u0022 write permission remain required.\n\nOAuth app tokens and personal access tokens (classic) need the repo scope for private or internal repositories, or the public_repo scope for public repositories.\n",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/pulls/agent-merge#disable-agent-merge-for-a-pull-request"
+        },
+        "operationId": "AgentMergeDeleteAgentMergeEnrollment",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pullNumber",
+            "in": "path",
+            "description": "The number that identifies the pull request.",
+            "required": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "format": "int64",
+              "example": 42
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Agent Merge successfully disabled for the pull request",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-store"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment401Response"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller lacks write permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment403Response"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource or enrollment is absent or masked as not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Enrollment changed during the write; no replacement was committed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment409Response"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "Enrollment changed during the request. Retry the operation.",
+                      "documentation_url": "https://docs.github.com/rest/agent-merge/agent-merge"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment422Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment429Response"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Enrollment storage, authorization, or required publication is unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment503Response"
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "pulls",
+          "subcategory": "agent-merge"
+        }
+      }
+    },
     "/agents/repos/{owner}/{repo}/tasks": {
       "get": {
         "tags": [
@@ -63157,7 +63696,7 @@
           "issues"
         ],
         "summary": "List issue artifacts",
-        "description": "Lists artifacts attached to an issue. Results are ordered by artifact number.\n\nThe \u0060type\u0060 parameter filters the response to artifacts of one type.",
+        "description": "Lists artifacts attached to an issue. Results are ordered by artifact number.\n\nThe \u0060type\u0060 parameter filters the response to artifacts of one type.\nResults can be requested by page. The page defaults to \u00601\u0060; the page size\ndefaults to \u006030\u0060 and can be set from \u00601\u0060 to \u0060100\u0060.\n\nThe response is a bare array and does not include pagination metadata such as\na \u0060Link\u0060 header, a total count, or the service\u0027s \u0060has_next_page\u0060 signal.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/artifacts#list-issue-artifacts"
@@ -63283,7 +63822,7 @@
           "issues"
         ],
         "summary": "Create an issue artifact",
-        "description": "Creates an artifact attached to an issue.\n\nThe artifact type defaults to \u0060generic\u0060 when omitted. Creating an artifact\nrequires permission to update the issue.\n\nTo create an HTML artifact, set \u0060type\u0060 to \u0060embedded_html\u0060 and provide the HTML source\nin \u0060body\u0060. Open the returned \u0060html_url\u0060 to inspect the source, then select\n**Preview** to view the rendered artifact. Select **Show source** to return\nto the HTML source.",
+        "description": "Creates an artifact attached to an issue.\n\nThe artifact type defaults to \u0060generic\u0060 when omitted. Creating an artifact\nrequires permission to update the issue.\n\nThe request can return \u0060403\u0060 if the repository is read-only or locked, or a\nGitHub App installation has only \u0060issues: read\u0060 permission.\n\nTo create an HTML artifact, set \u0060type\u0060 to \u0060embedded_html\u0060 and provide the HTML source\nin \u0060body\u0060. Open the returned \u0060html_url\u0060 to inspect the source, then select\n**Preview** to view the rendered artifact. Select **Show source** to return\nto the HTML source.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/artifacts#create-an-issue-artifact"
@@ -63357,11 +63896,13 @@
                   "default": {
                     "value": {
                       "id": 42,
+                      "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
                       "number": 1,
                       "type": "generic",
                       "name": "Research notes",
                       "body": "## Findings\n\nThe API supports issue artifacts.",
                       "body_html": "\u003Ch2\u003EFindings\u003C/h2\u003E\n\u003Cp\u003EThe API supports issue artifacts.\u003C/p\u003E",
+                      "description": "The API supports issue artifacts.",
                       "creator": {
                         "login": "octocat",
                         "id": 1
@@ -63377,6 +63918,9 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -63556,7 +64100,7 @@
           "issues"
         ],
         "summary": "Update an issue artifact",
-        "description": "Updates the name, body, or both for an artifact attached to an issue.\n\nUpdating an artifact requires permission to update the issue.",
+        "description": "Updates the name, body, or both for an artifact attached to an issue.\n\nUpdating an artifact requires permission to update the issue.\n\nThe request can return \u0060403\u0060 if the repository is read-only or locked, or a\nGitHub App installation has only \u0060issues: read\u0060 permission.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/artifacts#update-an-issue-artifact"
@@ -63630,11 +64174,13 @@
                   "default": {
                     "value": {
                       "id": 42,
+                      "html_url": "https://github.com/octocat/Hello-World/issues/1347/artifacts/1",
                       "number": 1,
                       "type": "plan",
                       "name": "Revised implementation plan",
                       "body": "## Plan\n\nBuild and validate the feature.",
                       "body_html": "\u003Ch2\u003EPlan\u003C/h2\u003E\n\u003Cp\u003EBuild and validate the feature.\u003C/p\u003E",
+                      "description": "Build and validate the feature.",
                       "creator": {
                         "login": "octocat",
                         "id": 1
@@ -63650,6 +64196,9 @@
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -63695,7 +64244,7 @@
           "issues"
         ],
         "summary": "Delete an issue artifact",
-        "description": "Permanently deletes an artifact attached to an issue.\n\nDeleting an artifact requires permission to update the issue.",
+        "description": "Permanently deletes an artifact attached to an issue.\n\nDeleting an artifact requires permission to update the issue.\n\nThe request can return \u0060403\u0060 if the repository is read-only or locked, or a\nGitHub App installation has only \u0060issues: read\u0060 permission.",
         "externalDocs": {
           "description": "API method documentation",
           "url": "https://docs.github.com/rest/issues/artifacts#delete-an-issue-artifact"
@@ -63742,6 +64291,9 @@
         "responses": {
           "204": {
             "description": "The artifact was deleted successfully. No content is returned."
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
           },
           "404": {
             "$ref": "#/components/responses/not_found"
@@ -76574,6 +77126,401 @@
                       "message": "Cannot update severity value when CVSS is set."
                     }
                   }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "security-advisories",
+          "subcategory": "repository-advisories"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/security-advisories/{ghsaId}/comments": {
+      "get": {
+        "tags": [
+          "security-advisories"
+        ],
+        "summary": "List repository security advisory comments",
+        "description": "Lists comments on a repository security advisory.\n\nAccessing internal comments requires write access to the advisory.\n\nCallers with read-only access to the advisory receive only eligible post-publication comments. For unpublished advisories, these callers receive an empty list.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/security-advisories/repository-advisories#list-repository-security-advisory-comments"
+        },
+        "operationId": "SecurityAdvisoriesListRepositoryAdvisoryComments",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ghsaId",
+            "in": "path",
+            "description": "The GHSA (GitHub Security Advisory) identifier of the advisory.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/since"
+          },
+          {
+            "$ref": "#/components/parameters/per-page"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "headers": {
+              "Link": {
+                "$ref": "#/components/headers/link"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityAdvisoriesListRepositoryAdvisoryComments200ResponseSchema"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/repository-advisory-comment-items"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "security-advisories",
+          "subcategory": "repository-advisories"
+        }
+      },
+      "post": {
+        "tags": [
+          "security-advisories"
+        ],
+        "summary": "Create a repository advisory comment",
+        "description": "Creates a comment on a repository security advisory.\n\nIn order to create a comment, the authenticated user must be an advisory collaborator, security manager, or repository administrator.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/security-advisories/repository-advisories#create-a-repository-advisory-comment"
+        },
+        "operationId": "SecurityAdvisoriesCreateRepositoryAdvisoryComment",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ghsaId",
+            "in": "path",
+            "description": "The GHSA (GitHub Security Advisory) identifier of the advisory.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityAdvisoriesCreateRepositoryAdvisoryCommentRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "body": "Thanks for the report. We are working on a fix."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryAdvisoryComment"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": 1,
+                      "node_id": "MDEzOlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+                      "body": "Thanks for the report. We are working on a fix.",
+                      "user": {
+                        "login": "octocat",
+                        "id": 1,
+                        "node_id": "MDQ6VXNlcjE=",
+                        "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                        "gravatar_id": "",
+                        "url": "https://api.github.com/users/octocat",
+                        "html_url": "https://github.com/octocat",
+                        "followers_url": "https://api.github.com/users/octocat/followers",
+                        "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                        "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                        "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                        "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                        "organizations_url": "https://api.github.com/users/octocat/orgs",
+                        "repos_url": "https://api.github.com/users/octocat/repos",
+                        "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                        "received_events_url": "https://api.github.com/users/octocat/received_events",
+                        "type": "User",
+                        "site_admin": false
+                      },
+                      "author_association": "OWNER",
+                      "created_at": "2022-01-01T00:00:00Z",
+                      "updated_at": "2022-01-01T00:00:00Z",
+                      "url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-efgh/comments/1",
+                      "html_url": "https://github.com/octocat/Hello-World/security/advisories/GHSA-abcd-1234-efgh#advisory-comment-1",
+                      "advisory_url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-efgh"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "$ref": "#/components/responses/validation_failed"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "security-advisories",
+          "subcategory": "repository-advisories"
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/security-advisories/{ghsaId}/comments/{commentId}": {
+      "get": {
+        "tags": [
+          "security-advisories"
+        ],
+        "summary": "Get a repository advisory comment",
+        "description": "Get a comment on a repository security advisory using the comment\u0027s ID.\n\nAdvisory collaborators can view all non-confidential comments on advisories they have access to.\nOther users can only view comments that are not considered internal.\n\nGitHub Apps and fine-grained personal access tokens with the \u0060repository_advisories: read\u0060 permission can view all non-confidential comments, including internal comments.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060repository_advisories:read\u0060 scope to get a comment on a security advisory in a private repository, or any unpublished security advisory that the authenticated user has access to.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/security-advisories/repository-advisories#get-a-repository-advisory-comment"
+        },
+        "operationId": "SecurityAdvisoriesGetRepositoryAdvisoryComment",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ghsaId",
+            "in": "path",
+            "description": "The GHSA (GitHub Security Advisory) identifier of the advisory.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "description": "The unique identifier of the comment.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryAdvisoryComment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/repository-advisory-comment"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "category": "security-advisories",
+          "subcategory": "repository-advisories"
+        }
+      },
+      "patch": {
+        "tags": [
+          "security-advisories"
+        ],
+        "summary": "Update a repository advisory comment",
+        "description": "Update the body of a comment on a repository security advisory using the comment\u0027s ID.\n\nIn order to update a comment, the authenticated user must be the author of the comment, or a security manager or administrator of the repository.\n\nOAuth app tokens and personal access tokens (classic) need the \u0060repo\u0060 or \u0060repository_advisories:write\u0060 scope to use this endpoint.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest/security-advisories/repository-advisories#update-a-repository-advisory-comment"
+        },
+        "operationId": "SecurityAdvisoriesUpdateRepositoryAdvisoryComment",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "description": "The account owner of the repository. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "description": "The name of the repository without the \u0060.git\u0060 extension. The name is not case sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ghsaId",
+            "in": "path",
+            "description": "The GHSA (GitHub Security Advisory) identifier of the advisory.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "description": "The unique identifier of the comment.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityAdvisoriesUpdateRepositoryAdvisoryCommentRequest"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                    "body": "Updated comment body."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepositoryAdvisoryComment"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/repository-advisory-comment"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          },
+          "422": {
+            "description": "Validation failed, or the endpoint has been spammed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
                 }
               }
             }
@@ -116961,7 +117908,8 @@
           "creator",
           "updated_by_actor",
           "created_at",
-          "updated_at"
+          "updated_at",
+          "description"
         ],
         "type": "object",
         "properties": {
@@ -121404,6 +122352,70 @@
           }
         },
         "additionalProperties": false
+      },
+      "RepositoryAdvisoryComment": {
+        "title": "Repository Advisory Comment",
+        "required": [
+          "id",
+          "node_id",
+          "url",
+          "html_url",
+          "body",
+          "user",
+          "created_at",
+          "updated_at",
+          "advisory_url",
+          "author_association"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the advisory comment.",
+            "format": "int64",
+            "example": 42
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "API URL for the advisory comment.",
+            "format": "uri",
+            "example": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-abcd-1234-5679/comments/1"
+          },
+          "html_url": {
+            "type": "string",
+            "description": "Web URL for the advisory comment.",
+            "format": "uri"
+          },
+          "body": {
+            "type": "string",
+            "description": "Contents of the advisory comment."
+          },
+          "user": {
+            "$ref": "#/components/schemas/NullableSimpleUser"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-04-14T16:00:49Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2011-04-14T16:00:49Z"
+          },
+          "advisory_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "author_association": {
+            "$ref": "#/components/schemas/AuthorAssociation"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A comment on a repository security advisory."
       },
       "PullRequestStackMinimal": {
         "title": "Pull Request Stack Minimal",
@@ -283270,6 +284282,882 @@
         },
         "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
       },
+      "AgentMergeGetAgentMergeEnrollment200Response": {
+        "required": [
+          "allowed_actions",
+          "created_at",
+          "updated_at",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_actions": {
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem"
+            },
+            "description": "The set of actions which Copilot may perform on the pull request.",
+            "example": [
+              "fix_ci",
+              "resolve_merge_conflicts"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the pull request was enrolled for Agent Merge.",
+            "format": "date-time",
+            "example": "2026-09-09T12:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the Agent Merge enrollment was last updated.",
+            "format": "date-time",
+            "example": "2026-09-09T12:00:00Z"
+          },
+          "user": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment200ResponseUser"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Agent Merge configuration for an enrolled pull request.\n",
+        "example": {
+          "allowed_actions": [
+            "fix_ci",
+            "resolve_merge_conflicts"
+          ],
+          "created_at": "2026-09-09T12:00:00Z",
+          "updated_at": "2026-09-09T12:00:00Z",
+          "user": {
+            "id": 9876
+          }
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment401Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment401ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeGetAgentMergeEnrollment403Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment403ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeGetAgentMergeEnrollment404Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment404ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeGetAgentMergeEnrollment422Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment422ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeGetAgentMergeEnrollment429Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment429ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeGetAgentMergeEnrollment503Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment503ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollmentRequest": {
+        "required": [
+          "allowed_actions"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_actions": {
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollmentRequestAllowedActionsItem"
+            },
+            "description": "The set of actions that Copilot may perform on the pull request.",
+            "example": [
+              "fix_ci"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Agent Merge enrollment configuration",
+        "example": {
+          "allowed_actions": [
+            "fix_ci"
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment200Response": {
+        "required": [
+          "allowed_actions",
+          "created_at",
+          "updated_at",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_actions": {
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment200ResponseAllowedActionsItem"
+            },
+            "description": "The set of actions which Copilot may perform on the pull request.",
+            "example": [
+              "fix_ci",
+              "resolve_merge_conflicts"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the pull request was enrolled for Agent Merge.",
+            "format": "date-time",
+            "example": "2026-09-09T12:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the Agent Merge enrollment was last updated.",
+            "format": "date-time",
+            "example": "2026-09-09T12:00:00Z"
+          },
+          "user": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment200ResponseUser"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Agent Merge configuration for an enrolled pull request.\n",
+        "example": {
+          "allowed_actions": [
+            "fix_ci",
+            "resolve_merge_conflicts"
+          ],
+          "created_at": "2026-09-09T12:00:00Z",
+          "updated_at": "2026-09-09T12:00:00Z",
+          "user": {
+            "id": 9876
+          }
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment201Response": {
+        "required": [
+          "allowed_actions",
+          "created_at",
+          "updated_at",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_actions": {
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment201ResponseAllowedActionsItem"
+            },
+            "description": "The set of actions which Copilot may perform on the pull request.",
+            "example": [
+              "fix_ci",
+              "resolve_merge_conflicts"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the pull request was enrolled for Agent Merge.",
+            "format": "date-time",
+            "example": "2026-09-09T12:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the Agent Merge enrollment was last updated.",
+            "format": "date-time",
+            "example": "2026-09-09T12:00:00Z"
+          },
+          "user": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment201ResponseUser"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Agent Merge configuration for an enrolled pull request.\n",
+        "example": {
+          "allowed_actions": [
+            "fix_ci",
+            "resolve_merge_conflicts"
+          ],
+          "created_at": "2026-09-09T12:00:00Z",
+          "updated_at": "2026-09-09T12:00:00Z",
+          "user": {
+            "id": 9876
+          }
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment400Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment400ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment401Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment401ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment403Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment403ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment404Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment404ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment409Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment409ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment422Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment422ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment429Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment429ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergePutAgentMergeEnrollment503Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment503ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment401Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment401ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment403Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment403ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment404Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment404ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment409Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment409ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment422Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment422ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment429Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment429ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
+      "AgentMergeDeleteAgentMergeEnrollment503Response": {
+        "required": [
+          "message",
+          "documentation_url"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Summary message (e.g. \u0022Validation Failed\u0022, \u0022Not Found\u0022)"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment503ResponseErrorsItem"
+            },
+            "description": "List of validation errors (present only for 422 responses)"
+          },
+          "documentation_url": {
+            "type": "string",
+            "description": "URL to relevant API documentation"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Stable machine-readable code identifying the specific known failure. Omitted for failures without a classified cause."
+          },
+          "limited_resource": {
+            "type": "string",
+            "description": "Which resource was rate limited, present when \u0060error_code\u0060 is \u0060rate_limit_exceeded\u0060 and the resource is known. One of \u0060api\u0060, \u0060sandbox\u0060, or \u0060token_mint\u0060. Clients should tolerate new values."
+          }
+        },
+        "description": "Structured error response following GitHub REST API conventions.\nFor 422 Unprocessable Entity the errors array contains validation\ndetails; for other error status codes only message and\ndocumentation_url are returned."
+      },
       "AgentTasksListTasksForRepo200Response": {
         "required": [
           "tasks"
@@ -293175,6 +295063,36 @@
           "$ref": "#/components/schemas/RepositoryAdvisory"
         }
       },
+      "SecurityAdvisoriesListRepositoryAdvisoryComments200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RepositoryAdvisoryComment"
+        }
+      },
+      "SecurityAdvisoriesCreateRepositoryAdvisoryCommentRequest": {
+        "required": [
+          "body"
+        ],
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "The contents of the comment."
+          }
+        }
+      },
+      "SecurityAdvisoriesUpdateRepositoryAdvisoryCommentRequest": {
+        "required": [
+          "body"
+        ],
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "The contents of the comment."
+          }
+        }
+      },
       "PullRequestStacksList200Response": {
         "type": "array",
         "items": {
@@ -297585,6 +299503,12 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/RepositoryAdvisory"
+        }
+      },
+      "SecurityAdvisoriesListRepositoryAdvisoryComments200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RepositoryAdvisoryComment"
         }
       },
       "PullRequestStacksList200ResponseSchema": {
@@ -305603,6 +307527,402 @@
         "properties": {
           "code": {
             "$ref": "#/components/schemas/AgentAutomationsCreateRepoAutomationTask503ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeGetAgentMergeEnrollment200ResponseUser": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The unique identifier of the user",
+            "format": "int64",
+            "example": 9876
+          }
+        },
+        "additionalProperties": false,
+        "description": "The user who most recently enabled Agent Merge for the pull request",
+        "example": {
+          "id": 9876
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment401ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment401ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeGetAgentMergeEnrollment403ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment403ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeGetAgentMergeEnrollment404ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment404ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeGetAgentMergeEnrollment422ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment422ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeGetAgentMergeEnrollment429ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment429ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeGetAgentMergeEnrollment503ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeGetAgentMergeEnrollment503ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment200ResponseUser": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The unique identifier of the user",
+            "format": "int64",
+            "example": 9876
+          }
+        },
+        "additionalProperties": false,
+        "description": "The user who most recently enabled Agent Merge for the pull request",
+        "example": {
+          "id": 9876
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment201ResponseUser": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The unique identifier of the user",
+            "format": "int64",
+            "example": 9876
+          }
+        },
+        "additionalProperties": false,
+        "description": "The user who most recently enabled Agent Merge for the pull request",
+        "example": {
+          "id": 9876
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment400ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment400ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment401ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment401ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment403ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment403ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment404ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment404ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment409ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment409ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment422ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment422ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment429ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment429ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergePutAgentMergeEnrollment503ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergePutAgentMergeEnrollment503ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment401ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment401ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment403ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment403ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment404ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment404ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment409ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment409ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment422ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment422ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment429ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment429ResponseErrorsItemCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable message (populated when code is \u0022custom\u0022)"
+          }
+        },
+        "description": "A single validation error"
+      },
+      "AgentMergeDeleteAgentMergeEnrollment503ResponseErrorsItem": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/AgentMergeDeleteAgentMergeEnrollment503ResponseErrorsItemCode"
           },
           "message": {
             "type": "string",
@@ -382004,6 +384324,98 @@
           ]
         }
       },
+      "AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem": {
+        "enum": [
+          "fix_ci",
+          "resolve_merge_conflicts"
+        ],
+        "type": "string",
+        "description": "An action that Agent Merge is explicitly allowed to perform.",
+        "example": "fix_ci",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment200ResponseAllowedActionsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "fix_ci",
+              "name": "FixCi"
+            },
+            {
+              "value": "resolve_merge_conflicts",
+              "name": "ResolveMergeConflicts"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollmentRequestAllowedActionsItem": {
+        "enum": [
+          "fix_ci",
+          "resolve_merge_conflicts"
+        ],
+        "type": "string",
+        "description": "An action that Agent Merge is explicitly allowed to perform.",
+        "example": "fix_ci",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollmentRequestAllowedActionsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "fix_ci",
+              "name": "FixCi"
+            },
+            {
+              "value": "resolve_merge_conflicts",
+              "name": "ResolveMergeConflicts"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment200ResponseAllowedActionsItem": {
+        "enum": [
+          "fix_ci",
+          "resolve_merge_conflicts"
+        ],
+        "type": "string",
+        "description": "An action that Agent Merge is explicitly allowed to perform.",
+        "example": "fix_ci",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment200ResponseAllowedActionsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "fix_ci",
+              "name": "FixCi"
+            },
+            {
+              "value": "resolve_merge_conflicts",
+              "name": "ResolveMergeConflicts"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment201ResponseAllowedActionsItem": {
+        "enum": [
+          "fix_ci",
+          "resolve_merge_conflicts"
+        ],
+        "type": "string",
+        "description": "An action that Agent Merge is explicitly allowed to perform.",
+        "example": "fix_ci",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment201ResponseAllowedActionsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "fix_ci",
+              "name": "FixCi"
+            },
+            {
+              "value": "resolve_merge_conflicts",
+              "name": "ResolveMergeConflicts"
+            }
+          ]
+        }
+      },
       "AgentTasksCreateTaskInRepo201ResponseCreatorType": {
         "enum": [
           "user",
@@ -390614,6 +393026,888 @@
         "description": "Machine-readable error code",
         "x-ms-enum": {
           "name": "AgentAutomationsCreateRepoAutomationTask503ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment401ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment401ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment403ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment403ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment404ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment404ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment422ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment422ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment429ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment429ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeGetAgentMergeEnrollment503ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeGetAgentMergeEnrollment503ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment400ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment400ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment401ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment401ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment403ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment403ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment404ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment404ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment409ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment409ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment422ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment422ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment429ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment429ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergePutAgentMergeEnrollment503ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergePutAgentMergeEnrollment503ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment401ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment401ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment403ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment403ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment404ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment404ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment409ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment409ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment422ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment422ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment429ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment429ResponseErrorsItemCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "missing",
+              "name": "Missing"
+            },
+            {
+              "value": "missing_field",
+              "name": "MissingField"
+            },
+            {
+              "value": "invalid",
+              "name": "Invalid"
+            },
+            {
+              "value": "already_exists",
+              "name": "AlreadyExists"
+            },
+            {
+              "value": "unprocessable",
+              "name": "Unprocessable"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AgentMergeDeleteAgentMergeEnrollment503ResponseErrorsItemCode": {
+        "enum": [
+          "missing",
+          "missing_field",
+          "invalid",
+          "already_exists",
+          "unprocessable",
+          "custom"
+        ],
+        "type": "string",
+        "description": "Machine-readable error code",
+        "x-ms-enum": {
+          "name": "AgentMergeDeleteAgentMergeEnrollment503ResponseErrorsItemCode",
           "modelAsString": false,
           "values": [
             {
@@ -433804,6 +437098,74 @@
           }
         ]
       },
+      "repository-advisory-comment-items": {
+        "value": [
+          {
+            "id": 1,
+            "node_id": "MDI1OlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+            "url": "https://api.github.com/repos/exampleUser/exampleRepo/security-advisories/GHSA-1234-5678-1234/comments/1",
+            "html_url": "https://github.com/exampleUser/exampleRepo/security/advisories/GHSA-1234-5678-1234#advisory-comment-1",
+            "body": "Body of the attachment",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "created_at": "2011-04-18T23:23:56Z",
+            "updated_at": "2011-04-18T23:23:56Z",
+            "advisory_url": "https://api.github.com/repos/exampleUser/exampleRepo/security-advisories/GHSA-1234-5678-1234",
+            "author_association": "CONTRIBUTOR"
+          }
+        ]
+      },
+      "repository-advisory-comment": {
+        "value": {
+          "id": 1,
+          "node_id": "MDI1OlJlcG9zaXRvcnlBZHZpc29yeUNvbW1lbnQx",
+          "url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-1234-5678-1234/comments/1",
+          "html_url": "https://github.com/octocat/Hello-World/security/advisories/GHSA-1234-5678-1234#advisory-comment-1",
+          "body": "Me too",
+          "user": {
+            "login": "octocat",
+            "id": 1,
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "site_admin": false
+          },
+          "created_at": "2011-04-14T16:00:49Z",
+          "updated_at": "2011-04-14T16:00:49Z",
+          "advisory_url": "https://api.github.com/repos/octocat/Hello-World/security-advisories/GHSA-1234-5678-1234",
+          "author_association": "COLLABORATOR"
+        }
+      },
       "simple-user-items-default-response": {
         "summary": "Default response",
         "value": [
@@ -439782,7 +443144,7 @@
             ],
             "config": {
               "content_type": "json",
-              "url": "https://smee.io/****************",
+              "url": "https://example.com/",
               "insecure_ssl": "0"
             },
             "updated_at": "2019-05-15T15:20:49Z",
@@ -440299,6 +443661,10 @@
     {
       "name": "agent-automations",
       "description": "Endpoints to manage and interact with agent automations."
+    },
+    {
+      "name": "agent-merge",
+      "description": "Endpoints to manage Agent Merge enrollment for pull requests."
     },
     {
       "name": "agent-tasks",

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations;
+using Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls;
 using Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item
         public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations.AutomationsRequestBuilder Automations
         {
             get => new global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Automations.AutomationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pulls property</summary>
+        public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.PullsRequestBuilder Pulls
+        {
+            get => new global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Pulls.PullsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The tasks property</summary>
         public global::Soenneker.GitHub.OpenApiClient.Agents.Repos.Item.Item.Tasks.TasksRequestBuilder Tasks
