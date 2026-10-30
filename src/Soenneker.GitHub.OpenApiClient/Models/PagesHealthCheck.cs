@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("alt_domain") is { } nullNodeAltDomain && nullNodeAltDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AltDomain = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("alt_domain") is null) { _explicitNullValueAltDomain = default!; _explicitNullProperties?.Remove("alt_domain"); }
+            else if (parseNode.GetChildNode("alt_domain") is { } nullNodeAltDomain && nullNodeAltDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AltDomain = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The alt_domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain? AltDomain { get => _explicitNullValueAltDomain; set { _explicitNullValueAltDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alt_domain"); else _explicitNullProperties?.Remove("alt_domain"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain? AltDomain { get => _explicitNullValueAltDomain; set { _explicitNullValueAltDomain = value; AdditionalData?.Remove("alt_domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alt_domain"); else _explicitNullProperties?.Remove("alt_domain"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain? _explicitNullValueAltDomain = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain AltDomain { get => _explicitNullValueAltDomain; set { _explicitNullValueAltDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alt_domain"); else _explicitNullProperties?.Remove("alt_domain"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain AltDomain { get => _explicitNullValueAltDomain; set { _explicitNullValueAltDomain = value; AdditionalData?.Remove("alt_domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alt_domain"); else _explicitNullProperties?.Remove("alt_domain"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckAltDomain _explicitNullValueAltDomain = default!;
 #endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesHealthCheckDomain _explicitNullValueDomain = default!;
 #endif
         /// <summary>

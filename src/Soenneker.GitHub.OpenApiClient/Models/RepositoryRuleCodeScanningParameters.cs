@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("code_scanning_tools") is { } nullNodeCodeScanningTools && nullNodeCodeScanningTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeScanningTools = null;
+            if (parseNode.GetChildNode("code_scanning_tools") is null) { _explicitNullValueCodeScanningTools = default!; _explicitNullProperties?.Remove("code_scanning_tools"); }
+            else if (parseNode.GetChildNode("code_scanning_tools") is { } nullNodeCodeScanningTools && nullNodeCodeScanningTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeScanningTools = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Tools that must provide code scanning results for this rule to pass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool>? CodeScanningTools { get => _explicitNullValueCodeScanningTools; set { _explicitNullValueCodeScanningTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_tools"); else _explicitNullProperties?.Remove("code_scanning_tools"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool>? CodeScanningTools { get => _explicitNullValueCodeScanningTools; set { _explicitNullValueCodeScanningTools = value; AdditionalData?.Remove("code_scanning_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_tools"); else _explicitNullProperties?.Remove("code_scanning_tools"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool>? _explicitNullValueCodeScanningTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool> CodeScanningTools { get => _explicitNullValueCodeScanningTools; set { _explicitNullValueCodeScanningTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_tools"); else _explicitNullProperties?.Remove("code_scanning_tools"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool> CodeScanningTools { get => _explicitNullValueCodeScanningTools; set { _explicitNullValueCodeScanningTools = value; AdditionalData?.Remove("code_scanning_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_scanning_tools"); else _explicitNullProperties?.Remove("code_scanning_tools"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningTool> _explicitNullValueCodeScanningTools = default!;
 #endif
         /// <summary>

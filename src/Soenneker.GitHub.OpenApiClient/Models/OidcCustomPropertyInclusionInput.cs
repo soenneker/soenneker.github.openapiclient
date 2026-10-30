@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_property_name") is { } nullNodeCustomPropertyName && nullNodeCustomPropertyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPropertyName = null;
+            if (parseNode.GetChildNode("custom_property_name") is null) { _explicitNullValueCustomPropertyName = default!; _explicitNullProperties?.Remove("custom_property_name"); }
+            else if (parseNode.GetChildNode("custom_property_name") is { } nullNodeCustomPropertyName && nullNodeCustomPropertyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPropertyName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The name of the custom property to include in the OIDC token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
+        public string? CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; AdditionalData?.Remove("custom_property_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
         private string? _explicitNullValueCustomPropertyName = default!;
 #nullable restore
 #else
-        public string CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
+        public string CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; AdditionalData?.Remove("custom_property_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
         private string _explicitNullValueCustomPropertyName = default!;
 #endif
         /// <summary>

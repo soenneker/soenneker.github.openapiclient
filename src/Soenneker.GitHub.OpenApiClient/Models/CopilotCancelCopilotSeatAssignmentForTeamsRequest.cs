@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("selected_teams") is { } nullNodeSelectedTeams && nullNodeSelectedTeams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeams = null;
+            if (parseNode.GetChildNode("selected_teams") is null) { _explicitNullValueSelectedTeams = default!; _explicitNullProperties?.Remove("selected_teams"); }
+            else if (parseNode.GetChildNode("selected_teams") is { } nullNodeSelectedTeams && nullNodeSelectedTeams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedTeams = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The names of teams from which to revoke access to GitHub Copilot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SelectedTeams { get => _explicitNullValueSelectedTeams; set { _explicitNullValueSelectedTeams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_teams"); else _explicitNullProperties?.Remove("selected_teams"); } }
+        public List<string>? SelectedTeams { get => _explicitNullValueSelectedTeams; set { _explicitNullValueSelectedTeams = value; AdditionalData?.Remove("selected_teams"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_teams"); else _explicitNullProperties?.Remove("selected_teams"); } }
         private List<string>? _explicitNullValueSelectedTeams = default!;
 #nullable restore
 #else
-        public List<string> SelectedTeams { get => _explicitNullValueSelectedTeams; set { _explicitNullValueSelectedTeams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_teams"); else _explicitNullProperties?.Remove("selected_teams"); } }
+        public List<string> SelectedTeams { get => _explicitNullValueSelectedTeams; set { _explicitNullValueSelectedTeams = value; AdditionalData?.Remove("selected_teams"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_teams"); else _explicitNullProperties?.Remove("selected_teams"); } }
         private List<string> _explicitNullValueSelectedTeams = default!;
 #endif
         /// <summary>

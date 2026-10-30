@@ -17,43 +17,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("incomplete_results") is { } nullNodeIncompleteResults && nullNodeIncompleteResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncompleteResults = null;
-            if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
-            if (parseNode.GetChildNode("lexical_fallback_reason") is { } nullNodeLexicalFallbackReason && nullNodeLexicalFallbackReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalFallbackReason = null;
-            if (parseNode.GetChildNode("search_type") is { } nullNodeSearchType && nullNodeSearchType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchType = null;
-            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("incomplete_results") is null) { _explicitNullValueIncompleteResults = default!; _explicitNullProperties?.Remove("incomplete_results"); }
+            else if (parseNode.GetChildNode("incomplete_results") is { } nullNodeIncompleteResults && nullNodeIncompleteResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncompleteResults = null;
+            if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
+            else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("lexical_fallback_reason") is null) { _explicitNullValueLexicalFallbackReason = default!; _explicitNullProperties?.Remove("lexical_fallback_reason"); }
+            else if (parseNode.GetChildNode("lexical_fallback_reason") is { } nullNodeLexicalFallbackReason && nullNodeLexicalFallbackReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalFallbackReason = null;
+            if (parseNode.GetChildNode("search_type") is null) { _explicitNullValueSearchType = default!; _explicitNullProperties?.Remove("search_type"); }
+            else if (parseNode.GetChildNode("search_type") is { } nullNodeSearchType && nullNodeSearchType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchType = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The incomplete_results property</summary>
-        public bool? IncompleteResults { get => _explicitNullValueIncompleteResults; set { _explicitNullValueIncompleteResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incomplete_results"); else _explicitNullProperties?.Remove("incomplete_results"); } }
+        public bool? IncompleteResults { get => _explicitNullValueIncompleteResults; set { _explicitNullValueIncompleteResults = value; AdditionalData?.Remove("incomplete_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incomplete_results"); else _explicitNullProperties?.Remove("incomplete_results"); } }
         private bool? _explicitNullValueIncompleteResults = default!;
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; AdditionalData?.Remove("items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem> _explicitNullValueItems = default!;
 #endif
         /// <summary>When a semantic or hybrid search falls back to lexical search, this field contains the reasons for the fallback. Only present when a fallback occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem?>? LexicalFallbackReason { get => _explicitNullValueLexicalFallbackReason; set { _explicitNullValueLexicalFallbackReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_fallback_reason"); else _explicitNullProperties?.Remove("lexical_fallback_reason"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem?>? LexicalFallbackReason { get => _explicitNullValueLexicalFallbackReason; set { _explicitNullValueLexicalFallbackReason = value; AdditionalData?.Remove("lexical_fallback_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_fallback_reason"); else _explicitNullProperties?.Remove("lexical_fallback_reason"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem?>? _explicitNullValueLexicalFallbackReason = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem?> LexicalFallbackReason { get => _explicitNullValueLexicalFallbackReason; set { _explicitNullValueLexicalFallbackReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_fallback_reason"); else _explicitNullProperties?.Remove("lexical_fallback_reason"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem?> LexicalFallbackReason { get => _explicitNullValueLexicalFallbackReason; set { _explicitNullValueLexicalFallbackReason = value; AdditionalData?.Remove("lexical_fallback_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_fallback_reason"); else _explicitNullProperties?.Remove("lexical_fallback_reason"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem?> _explicitNullValueLexicalFallbackReason = default!;
 #endif
         /// <summary>The type of search that was performed. Possible values are `lexical`, `semantic`, or `hybrid`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseSearchType? SearchType { get => _explicitNullValueSearchType; set { _explicitNullValueSearchType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_type"); else _explicitNullProperties?.Remove("search_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseSearchType? SearchType { get => _explicitNullValueSearchType; set { _explicitNullValueSearchType = value; AdditionalData?.Remove("search_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_type"); else _explicitNullProperties?.Remove("search_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseSearchType? _explicitNullValueSearchType = default!;
         /// <summary>The total_count property</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200Response"/> and sets the default values.
@@ -83,7 +88,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "incomplete_results", n => { IncompleteResults = n.GetBoolValue(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssueSearchResultItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "lexical_fallback_reason", n => { LexicalFallbackReason = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseLexicalFallbackReasonItem>()?.AsList(); } },
-                { "search_type", n => { SearchType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseSearchType>(); } },
+                { "search_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SearchIssuesAndPullRequests200ResponseSearchType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSearchType = default; _explicitNullProperties?.Remove("search_type"); AdditionalData["search_type"] = unknown; } else { SearchType = parsed; AdditionalData.Remove("search_type"); } } },
                 { "total_count", n => { TotalCount = n.GetIntValue(); } },
             };
         }

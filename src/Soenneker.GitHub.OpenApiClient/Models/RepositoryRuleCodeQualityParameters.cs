@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
+            if (parseNode.GetChildNode("severity") is null) { _explicitNullValueSeverity = default!; _explicitNullProperties?.Remove("severity"); }
+            else if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQualityParametersSeverity? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQualityParametersSeverity? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; AdditionalData?.Remove("severity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQualityParametersSeverity? _explicitNullValueSeverity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQualityParameters"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "severity", n => { Severity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQualityParametersSeverity>(); } },
+                { "severity", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeQualityParametersSeverity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSeverity = default; _explicitNullProperties?.Remove("severity"); AdditionalData["severity"] = unknown; } else { Severity = parsed; AdditionalData.Remove("severity"); } } },
             };
         }
         /// <summary>

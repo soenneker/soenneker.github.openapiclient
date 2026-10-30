@@ -18,43 +18,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_user_can_approve") is { } nullNodeCurrentUserCanApprove && nullNodeCurrentUserCanApprove.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserCanApprove = null;
-            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
-            if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
-            if (parseNode.GetChildNode("wait_timer") is { } nullNodeWaitTimer && nullNodeWaitTimer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitTimer = null;
-            if (parseNode.GetChildNode("wait_timer_started_at") is { } nullNodeWaitTimerStartedAt && nullNodeWaitTimerStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitTimerStartedAt = null;
+            if (parseNode.GetChildNode("current_user_can_approve") is null) { _explicitNullValueCurrentUserCanApprove = default!; _explicitNullProperties?.Remove("current_user_can_approve"); }
+            else if (parseNode.GetChildNode("current_user_can_approve") is { } nullNodeCurrentUserCanApprove && nullNodeCurrentUserCanApprove.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserCanApprove = null;
+            if (parseNode.GetChildNode("environment") is null) { _explicitNullValueEnvironment = default!; _explicitNullProperties?.Remove("environment"); }
+            else if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("reviewers") is null) { _explicitNullValueReviewers = default!; _explicitNullProperties?.Remove("reviewers"); }
+            else if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
+            if (parseNode.GetChildNode("wait_timer") is null) { _explicitNullValueWaitTimer = default!; _explicitNullProperties?.Remove("wait_timer"); }
+            else if (parseNode.GetChildNode("wait_timer") is { } nullNodeWaitTimer && nullNodeWaitTimer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitTimer = null;
+            if (parseNode.GetChildNode("wait_timer_started_at") is null) { _explicitNullValueWaitTimerStartedAt = default!; _explicitNullProperties?.Remove("wait_timer_started_at"); }
+            else if (parseNode.GetChildNode("wait_timer_started_at") is { } nullNodeWaitTimerStartedAt && nullNodeWaitTimerStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WaitTimerStartedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the currently authenticated user can approve the deployment</summary>
-        public bool? CurrentUserCanApprove { get => _explicitNullValueCurrentUserCanApprove; set { _explicitNullValueCurrentUserCanApprove = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_can_approve"); else _explicitNullProperties?.Remove("current_user_can_approve"); } }
+        public bool? CurrentUserCanApprove { get => _explicitNullValueCurrentUserCanApprove; set { _explicitNullValueCurrentUserCanApprove = value; AdditionalData?.Remove("current_user_can_approve"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_can_approve"); else _explicitNullProperties?.Remove("current_user_can_approve"); } }
         private bool? _explicitNullValueCurrentUserCanApprove = default!;
         /// <summary>The environment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; AdditionalData?.Remove("environment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentEnvironment _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; AdditionalData?.Remove("reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem>? _explicitNullValueReviewers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; AdditionalData?.Remove("reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.PendingDeploymentReviewersItem> _explicitNullValueReviewers = default!;
 #endif
         /// <summary>The set duration of the wait timer</summary>
-        public int? WaitTimer { get => _explicitNullValueWaitTimer; set { _explicitNullValueWaitTimer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_timer"); else _explicitNullProperties?.Remove("wait_timer"); } }
+        public int? WaitTimer { get => _explicitNullValueWaitTimer; set { _explicitNullValueWaitTimer = value; AdditionalData?.Remove("wait_timer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_timer"); else _explicitNullProperties?.Remove("wait_timer"); } }
         private int? _explicitNullValueWaitTimer = default!;
         /// <summary>The time that the wait timer began.</summary>
-        public DateTimeOffset? WaitTimerStartedAt { get => _explicitNullValueWaitTimerStartedAt; set { _explicitNullValueWaitTimerStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_timer_started_at"); else _explicitNullProperties?.Remove("wait_timer_started_at"); } }
+        public DateTimeOffset? WaitTimerStartedAt { get => _explicitNullValueWaitTimerStartedAt; set { _explicitNullValueWaitTimerStartedAt = value; AdditionalData?.Remove("wait_timer_started_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wait_timer_started_at"); else _explicitNullProperties?.Remove("wait_timer_started_at"); } }
         private DateTimeOffset? _explicitNullValueWaitTimerStartedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PendingDeployment"/> and sets the default values.

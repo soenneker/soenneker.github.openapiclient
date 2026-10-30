@@ -18,23 +18,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ecosystem") is { } nullNodeEcosystem && nullNodeEcosystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ecosystem = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("ecosystem") is null) { _explicitNullValueEcosystem = default!; _explicitNullProperties?.Remove("ecosystem"); }
+            else if (parseNode.GetChildNode("ecosystem") is { } nullNodeEcosystem && nullNodeEcosystem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ecosystem = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The package&apos;s language or package management ecosystem.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems? Ecosystem { get => _explicitNullValueEcosystem; set { _explicitNullValueEcosystem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ecosystem"); else _explicitNullProperties?.Remove("ecosystem"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems? Ecosystem { get => _explicitNullValueEcosystem; set { _explicitNullValueEcosystem = value; AdditionalData?.Remove("ecosystem"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ecosystem"); else _explicitNullProperties?.Remove("ecosystem"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems? _explicitNullValueEcosystem = default!;
         /// <summary>The unique package name within its ecosystem.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ecosystem", n => { Ecosystem = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems>(); } },
+                { "ecosystem", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecurityAdvisoryEcosystems>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEcosystem = default; _explicitNullProperties?.Remove("ecosystem"); AdditionalData["ecosystem"] = unknown; } else { Ecosystem = parsed; AdditionalData.Remove("ecosystem"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }

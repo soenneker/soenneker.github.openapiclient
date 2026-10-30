@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("patterns") is { } nullNodePatterns && nullNodePatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patterns = null;
-            if (parseNode.GetChildNode("post_delete_action") is { } nullNodePostDeleteAction && nullNodePostDeleteAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostDeleteAction = null;
+            if (parseNode.GetChildNode("patterns") is null) { _explicitNullValuePatterns = default!; _explicitNullProperties?.Remove("patterns"); }
+            else if (parseNode.GetChildNode("patterns") is { } nullNodePatterns && nullNodePatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patterns = null;
+            if (parseNode.GetChildNode("post_delete_action") is null) { _explicitNullValuePostDeleteAction = default!; _explicitNullProperties?.Remove("post_delete_action"); }
+            else if (parseNode.GetChildNode("post_delete_action") is { } nullNodePostDeleteAction && nullNodePostDeleteAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostDeleteAction = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The list of custom patterns to delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete>? Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete>? Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; AdditionalData?.Remove("patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete>? _explicitNullValuePatterns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete> Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete> Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; AdditionalData?.Remove("patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete> _explicitNullValuePatterns = default!;
 #endif
         /// <summary>What to do with alerts associated with the deleted patterns.`delete_alerts` permanently removes the alerts.`resolve_alerts` resolves the alerts as &quot;pattern deleted&quot;.Defaults to `delete_alerts` when not specified.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction? PostDeleteAction { get => _explicitNullValuePostDeleteAction; set { _explicitNullValuePostDeleteAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_delete_action"); else _explicitNullProperties?.Remove("post_delete_action"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction? PostDeleteAction { get => _explicitNullValuePostDeleteAction; set { _explicitNullValuePostDeleteAction = value; AdditionalData?.Remove("post_delete_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post_delete_action"); else _explicitNullProperties?.Remove("post_delete_action"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction? _explicitNullValuePostDeleteAction = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkDeleteOrgCustomPatternsRequest"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "patterns", n => { Patterns = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete>(global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "post_delete_action", n => { PostDeleteAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction>(); } },
+                { "post_delete_action", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningBulkDeleteOrgCustomPatternsRequestPostDeleteAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePostDeleteAction = default; _explicitNullProperties?.Remove("post_delete_action"); AdditionalData["post_delete_action"] = unknown; } else { PostDeleteAction = parsed; AdditionalData.Remove("post_delete_action"); } } },
             };
         }
         /// <summary>

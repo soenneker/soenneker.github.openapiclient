@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("configurations") is { } nullNodeConfigurations && nullNodeConfigurations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Configurations = null;
-            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("configurations") is null) { _explicitNullValueConfigurations = default!; _explicitNullProperties?.Remove("configurations"); }
+            else if (parseNode.GetChildNode("configurations") is { } nullNodeConfigurations && nullNodeConfigurations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Configurations = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The configurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration>? Configurations { get => _explicitNullValueConfigurations; set { _explicitNullValueConfigurations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configurations"); else _explicitNullProperties?.Remove("configurations"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration>? Configurations { get => _explicitNullValueConfigurations; set { _explicitNullValueConfigurations = value; AdditionalData?.Remove("configurations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configurations"); else _explicitNullProperties?.Remove("configurations"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration>? _explicitNullValueConfigurations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration> Configurations { get => _explicitNullValueConfigurations; set { _explicitNullValueConfigurations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configurations"); else _explicitNullProperties?.Remove("configurations"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration> Configurations { get => _explicitNullValueConfigurations; set { _explicitNullValueConfigurations = value; AdditionalData?.Remove("configurations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configurations"); else _explicitNullProperties?.Remove("configurations"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgPrivateRegistryConfiguration> _explicitNullValueConfigurations = default!;
 #endif
         /// <summary>The total_count property</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesListOrgPrivateRegistries200Response"/> and sets the default values.

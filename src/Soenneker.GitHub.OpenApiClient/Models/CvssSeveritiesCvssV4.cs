@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("vector_string") is { } nullNodeVectorString && nullNodeVectorString.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorString = null;
+            if (parseNode.GetChildNode("vector_string") is null) { _explicitNullValueVectorString = default!; _explicitNullProperties?.Remove("vector_string"); }
+            else if (parseNode.GetChildNode("vector_string") is { } nullNodeVectorString && nullNodeVectorString.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VectorString = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,11 +28,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The CVSS 4 vector string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VectorString { get => _explicitNullValueVectorString; set { _explicitNullValueVectorString = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_string"); else _explicitNullProperties?.Remove("vector_string"); } }
+        public string? VectorString { get => _explicitNullValueVectorString; set { _explicitNullValueVectorString = value; AdditionalData?.Remove("vector_string"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_string"); else _explicitNullProperties?.Remove("vector_string"); } }
         private string? _explicitNullValueVectorString = default!;
 #nullable restore
 #else
-        public string VectorString { get => _explicitNullValueVectorString; set { _explicitNullValueVectorString = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_string"); else _explicitNullProperties?.Remove("vector_string"); } }
+        public string VectorString { get => _explicitNullValueVectorString; set { _explicitNullValueVectorString = value; AdditionalData?.Remove("vector_string"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vector_string"); else _explicitNullProperties?.Remove("vector_string"); } }
         private string _explicitNullValueVectorString = default!;
 #endif
         /// <summary>

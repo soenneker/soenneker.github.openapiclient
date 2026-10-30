@@ -18,23 +18,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("build_type") is { } nullNodeBuildType && nullNodeBuildType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildType = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("build_type") is null) { _explicitNullValueBuildType = default!; _explicitNullProperties?.Remove("build_type"); }
+            else if (parseNode.GetChildNode("build_type") is { } nullNodeBuildType && nullNodeBuildType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildType = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The process in which the Page will be built. Possible values are `&quot;legacy&quot;` and `&quot;workflow&quot;`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestBuildType? BuildType { get => _explicitNullValueBuildType; set { _explicitNullValueBuildType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_type"); else _explicitNullProperties?.Remove("build_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestBuildType? BuildType { get => _explicitNullValueBuildType; set { _explicitNullValueBuildType = value; AdditionalData?.Remove("build_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_type"); else _explicitNullProperties?.Remove("build_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestBuildType? _explicitNullValueBuildType = default!;
         /// <summary>The source branch and directory used to publish your Pages site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource _explicitNullValueSource = default!;
 #endif
         /// <summary>
@@ -64,7 +66,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "build_type", n => { BuildType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestBuildType>(); } },
+                { "build_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestBuildType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBuildType = default; _explicitNullProperties?.Remove("build_type"); AdditionalData["build_type"] = unknown; } else { BuildType = parsed; AdditionalData.Remove("build_type"); } } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource>(global::Soenneker.GitHub.OpenApiClient.Models.ReposCreatePagesSiteRequestSource.CreateFromDiscriminatorValue); } },
             };
         }

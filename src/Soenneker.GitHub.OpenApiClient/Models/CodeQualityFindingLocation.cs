@@ -18,36 +18,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("end_column") is { } nullNodeEndColumn && nullNodeEndColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndColumn = null;
-            if (parseNode.GetChildNode("end_line") is { } nullNodeEndLine && nullNodeEndLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndLine = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
-            if (parseNode.GetChildNode("start_column") is { } nullNodeStartColumn && nullNodeStartColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartColumn = null;
-            if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
+            if (parseNode.GetChildNode("end_column") is null) { _explicitNullValueEndColumn = default!; _explicitNullProperties?.Remove("end_column"); }
+            else if (parseNode.GetChildNode("end_column") is { } nullNodeEndColumn && nullNodeEndColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndColumn = null;
+            if (parseNode.GetChildNode("end_line") is null) { _explicitNullValueEndLine = default!; _explicitNullProperties?.Remove("end_line"); }
+            else if (parseNode.GetChildNode("end_line") is { } nullNodeEndLine && nullNodeEndLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndLine = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("start_column") is null) { _explicitNullValueStartColumn = default!; _explicitNullProperties?.Remove("start_column"); }
+            else if (parseNode.GetChildNode("start_column") is { } nullNodeStartColumn && nullNodeStartColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartColumn = null;
+            if (parseNode.GetChildNode("start_line") is null) { _explicitNullValueStartLine = default!; _explicitNullProperties?.Remove("start_line"); }
+            else if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The column number where the finding ends.</summary>
-        public int? EndColumn { get => _explicitNullValueEndColumn; set { _explicitNullValueEndColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_column"); else _explicitNullProperties?.Remove("end_column"); } }
+        public int? EndColumn { get => _explicitNullValueEndColumn; set { _explicitNullValueEndColumn = value; AdditionalData?.Remove("end_column"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_column"); else _explicitNullProperties?.Remove("end_column"); } }
         private int? _explicitNullValueEndColumn = default!;
         /// <summary>The line number where the finding ends.</summary>
-        public int? EndLine { get => _explicitNullValueEndLine; set { _explicitNullValueEndLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_line"); else _explicitNullProperties?.Remove("end_line"); } }
+        public int? EndLine { get => _explicitNullValueEndLine; set { _explicitNullValueEndLine = value; AdditionalData?.Remove("end_line"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_line"); else _explicitNullProperties?.Remove("end_line"); } }
         private int? _explicitNullValueEndLine = default!;
         /// <summary>The file path where the finding was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The column number where the finding starts.</summary>
-        public int? StartColumn { get => _explicitNullValueStartColumn; set { _explicitNullValueStartColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_column"); else _explicitNullProperties?.Remove("start_column"); } }
+        public int? StartColumn { get => _explicitNullValueStartColumn; set { _explicitNullValueStartColumn = value; AdditionalData?.Remove("start_column"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_column"); else _explicitNullProperties?.Remove("start_column"); } }
         private int? _explicitNullValueStartColumn = default!;
         /// <summary>The line number where the finding starts.</summary>
-        public int? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
+        public int? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; AdditionalData?.Remove("start_line"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
         private int? _explicitNullValueStartLine = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeQualityFindingLocation"/> and sets the default values.

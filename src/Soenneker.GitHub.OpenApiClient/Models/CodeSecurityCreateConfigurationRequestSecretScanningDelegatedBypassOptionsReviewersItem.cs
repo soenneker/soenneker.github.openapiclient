@@ -17,21 +17,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
-            if (parseNode.GetChildNode("reviewer_id") is { } nullNodeReviewerId && nullNodeReviewerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewerId = null;
-            if (parseNode.GetChildNode("reviewer_type") is { } nullNodeReviewerType && nullNodeReviewerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewerType = null;
+            if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
+            else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("reviewer_id") is null) { _explicitNullValueReviewerId = default!; _explicitNullProperties?.Remove("reviewer_id"); }
+            else if (parseNode.GetChildNode("reviewer_id") is { } nullNodeReviewerId && nullNodeReviewerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewerId = null;
+            if (parseNode.GetChildNode("reviewer_type") is null) { _explicitNullValueReviewerType = default!; _explicitNullProperties?.Remove("reviewer_type"); }
+            else if (parseNode.GetChildNode("reviewer_type") is { } nullNodeReviewerType && nullNodeReviewerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewerType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The bypass mode for the reviewer</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemMode? _explicitNullValueMode = default!;
         /// <summary>The ID of the team or role selected as a bypass reviewer</summary>
-        public long? ReviewerId { get => _explicitNullValueReviewerId; set { _explicitNullValueReviewerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer_id"); else _explicitNullProperties?.Remove("reviewer_id"); } }
+        public long? ReviewerId { get => _explicitNullValueReviewerId; set { _explicitNullValueReviewerId = value; AdditionalData?.Remove("reviewer_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer_id"); else _explicitNullProperties?.Remove("reviewer_id"); } }
         private long? _explicitNullValueReviewerId = default!;
         /// <summary>The type of the bypass reviewer</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemReviewerType? ReviewerType { get => _explicitNullValueReviewerType; set { _explicitNullValueReviewerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer_type"); else _explicitNullProperties?.Remove("reviewer_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemReviewerType? ReviewerType { get => _explicitNullValueReviewerType; set { _explicitNullValueReviewerType = value; AdditionalData?.Remove("reviewer_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer_type"); else _explicitNullProperties?.Remove("reviewer_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemReviewerType? _explicitNullValueReviewerType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItem"/> and sets the default values.
@@ -58,9 +61,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemMode>(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "reviewer_id", n => { ReviewerId = n.GetLongValue(); } },
-                { "reviewer_type", n => { ReviewerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemReviewerType>(); } },
+                { "reviewer_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityCreateConfigurationRequestSecretScanningDelegatedBypassOptionsReviewersItemReviewerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReviewerType = default; _explicitNullProperties?.Remove("reviewer_type"); AdditionalData["reviewer_type"] = unknown; } else { ReviewerType = parsed; AdditionalData.Remove("reviewer_type"); } } },
             };
         }
         /// <summary>

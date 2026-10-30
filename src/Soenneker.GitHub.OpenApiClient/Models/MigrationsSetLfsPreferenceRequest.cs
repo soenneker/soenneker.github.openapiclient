@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("use_lfs") is { } nullNodeUseLfs && nullNodeUseLfs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseLfs = null;
+            if (parseNode.GetChildNode("use_lfs") is null) { _explicitNullValueUseLfs = default!; _explicitNullProperties?.Remove("use_lfs"); }
+            else if (parseNode.GetChildNode("use_lfs") is { } nullNodeUseLfs && nullNodeUseLfs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseLfs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to store large files during the import. `opt_in` means large files will be stored using Git LFS. `opt_out` means large files will be removed during the import.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsSetLfsPreferenceRequestUseLfs? UseLfs { get => _explicitNullValueUseLfs; set { _explicitNullValueUseLfs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_lfs"); else _explicitNullProperties?.Remove("use_lfs"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsSetLfsPreferenceRequestUseLfs? UseLfs { get => _explicitNullValueUseLfs; set { _explicitNullValueUseLfs = value; AdditionalData?.Remove("use_lfs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_lfs"); else _explicitNullProperties?.Remove("use_lfs"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.MigrationsSetLfsPreferenceRequestUseLfs? _explicitNullValueUseLfs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.MigrationsSetLfsPreferenceRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "use_lfs", n => { UseLfs = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsSetLfsPreferenceRequestUseLfs>(); } },
+                { "use_lfs", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsSetLfsPreferenceRequestUseLfs>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueUseLfs = default; _explicitNullProperties?.Remove("use_lfs"); AdditionalData["use_lfs"] = unknown; } else { UseLfs = parsed; AdditionalData.Remove("use_lfs"); } } },
             };
         }
         /// <summary>

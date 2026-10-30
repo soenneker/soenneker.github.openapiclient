@@ -17,36 +17,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("filled_seats") is { } nullNodeFilledSeats && nullNodeFilledSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilledSeats = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("private_repos") is { } nullNodePrivateRepos && nullNodePrivateRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateRepos = null;
-            if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
-            if (parseNode.GetChildNode("space") is { } nullNodeSpace && nullNodeSpace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Space = null;
+            if (parseNode.GetChildNode("filled_seats") is null) { _explicitNullValueFilledSeats = default!; _explicitNullProperties?.Remove("filled_seats"); }
+            else if (parseNode.GetChildNode("filled_seats") is { } nullNodeFilledSeats && nullNodeFilledSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilledSeats = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("private_repos") is null) { _explicitNullValuePrivateRepos = default!; _explicitNullProperties?.Remove("private_repos"); }
+            else if (parseNode.GetChildNode("private_repos") is { } nullNodePrivateRepos && nullNodePrivateRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrivateRepos = null;
+            if (parseNode.GetChildNode("seats") is null) { _explicitNullValueSeats = default!; _explicitNullProperties?.Remove("seats"); }
+            else if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
+            if (parseNode.GetChildNode("space") is null) { _explicitNullValueSpace = default!; _explicitNullProperties?.Remove("space"); }
+            else if (parseNode.GetChildNode("space") is { } nullNodeSpace && nullNodeSpace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Space = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The filled_seats property</summary>
-        public int? FilledSeats { get => _explicitNullValueFilledSeats; set { _explicitNullValueFilledSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filled_seats"); else _explicitNullProperties?.Remove("filled_seats"); } }
+        public int? FilledSeats { get => _explicitNullValueFilledSeats; set { _explicitNullValueFilledSeats = value; AdditionalData?.Remove("filled_seats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filled_seats"); else _explicitNullProperties?.Remove("filled_seats"); } }
         private int? _explicitNullValueFilledSeats = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The private_repos property</summary>
-        public int? PrivateRepos { get => _explicitNullValuePrivateRepos; set { _explicitNullValuePrivateRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_repos"); else _explicitNullProperties?.Remove("private_repos"); } }
+        public int? PrivateRepos { get => _explicitNullValuePrivateRepos; set { _explicitNullValuePrivateRepos = value; AdditionalData?.Remove("private_repos"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("private_repos"); else _explicitNullProperties?.Remove("private_repos"); } }
         private int? _explicitNullValuePrivateRepos = default!;
         /// <summary>The seats property</summary>
-        public int? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
+        public int? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; AdditionalData?.Remove("seats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
         private int? _explicitNullValueSeats = default!;
         /// <summary>The space property</summary>
-        public int? Space { get => _explicitNullValueSpace; set { _explicitNullValueSpace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("space"); else _explicitNullProperties?.Remove("space"); } }
+        public int? Space { get => _explicitNullValueSpace; set { _explicitNullValueSpace = value; AdditionalData?.Remove("space"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("space"); else _explicitNullProperties?.Remove("space"); } }
         private int? _explicitNullValueSpace = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.TeamOrganizationPlan"/> and sets the default values.

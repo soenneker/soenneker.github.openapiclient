@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("last_read_at") is { } nullNodeLastReadAt && nullNodeLastReadAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastReadAt = null;
+            if (parseNode.GetChildNode("last_read_at") is null) { _explicitNullValueLastReadAt = default!; _explicitNullProperties?.Remove("last_read_at"); }
+            else if (parseNode.GetChildNode("last_read_at") is { } nullNodeLastReadAt && nullNodeLastReadAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastReadAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Describes the last point that notifications were checked. Anything updated since this time will not be marked as read. If you omit this parameter, all notifications are marked as read. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. Default: The current timestamp.</summary>
-        public DateTimeOffset? LastReadAt { get => _explicitNullValueLastReadAt; set { _explicitNullValueLastReadAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_read_at"); else _explicitNullProperties?.Remove("last_read_at"); } }
+        public DateTimeOffset? LastReadAt { get => _explicitNullValueLastReadAt; set { _explicitNullValueLastReadAt = value; AdditionalData?.Remove("last_read_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_read_at"); else _explicitNullProperties?.Remove("last_read_at"); } }
         private DateTimeOffset? _explicitNullValueLastReadAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActivityMarkRepoNotificationsAsReadRequest"/> and sets the default values.

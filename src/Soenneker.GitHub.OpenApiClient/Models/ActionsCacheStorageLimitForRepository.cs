@@ -18,13 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_cache_size_gb") is { } nullNodeMaxCacheSizeGb && nullNodeMaxCacheSizeGb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCacheSizeGb = null;
+            if (parseNode.GetChildNode("max_cache_size_gb") is null) { _explicitNullValueMaxCacheSizeGb = default!; _explicitNullProperties?.Remove("max_cache_size_gb"); }
+            else if (parseNode.GetChildNode("max_cache_size_gb") is { } nullNodeMaxCacheSizeGb && nullNodeMaxCacheSizeGb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCacheSizeGb = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum total cache size for this repository, in gigabytes.</summary>
-        public int? MaxCacheSizeGb { get => _explicitNullValueMaxCacheSizeGb; set { _explicitNullValueMaxCacheSizeGb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_cache_size_gb"); else _explicitNullProperties?.Remove("max_cache_size_gb"); } }
+        public int? MaxCacheSizeGb { get => _explicitNullValueMaxCacheSizeGb; set { _explicitNullValueMaxCacheSizeGb = value; AdditionalData?.Remove("max_cache_size_gb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_cache_size_gb"); else _explicitNullProperties?.Remove("max_cache_size_gb"); } }
         private int? _explicitNullValueMaxCacheSizeGb = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheStorageLimitForRepository"/> and sets the default values.

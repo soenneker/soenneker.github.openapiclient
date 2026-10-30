@@ -17,17 +17,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_html_url") is { } nullNodeJobHtmlUrl && nullNodeJobHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobHtmlUrl = null;
-            if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
-            if (parseNode.GetChildNode("job_name") is { } nullNodeJobName && nullNodeJobName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobName = null;
-            if (parseNode.GetChildNode("job_url") is { } nullNodeJobUrl && nullNodeJobUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobUrl = null;
-            if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
-            if (parseNode.GetChildNode("position_url") is { } nullNodePositionUrl && nullNodePositionUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PositionUrl = null;
-            if (parseNode.GetChildNode("run_html_url") is { } nullNodeRunHtmlUrl && nullNodeRunHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunHtmlUrl = null;
-            if (parseNode.GetChildNode("run_id") is { } nullNodeRunId && nullNodeRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunId = null;
-            if (parseNode.GetChildNode("run_name") is { } nullNodeRunName && nullNodeRunName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunName = null;
-            if (parseNode.GetChildNode("run_url") is { } nullNodeRunUrl && nullNodeRunUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunUrl = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("job_html_url") is null) { _explicitNullValueJobHtmlUrl = default!; _explicitNullProperties?.Remove("job_html_url"); }
+            else if (parseNode.GetChildNode("job_html_url") is { } nullNodeJobHtmlUrl && nullNodeJobHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobHtmlUrl = null;
+            if (parseNode.GetChildNode("job_id") is null) { _explicitNullValueJobId = default!; _explicitNullProperties?.Remove("job_id"); }
+            else if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
+            if (parseNode.GetChildNode("job_name") is null) { _explicitNullValueJobName = default!; _explicitNullProperties?.Remove("job_name"); }
+            else if (parseNode.GetChildNode("job_name") is { } nullNodeJobName && nullNodeJobName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobName = null;
+            if (parseNode.GetChildNode("job_url") is null) { _explicitNullValueJobUrl = default!; _explicitNullProperties?.Remove("job_url"); }
+            else if (parseNode.GetChildNode("job_url") is { } nullNodeJobUrl && nullNodeJobUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobUrl = null;
+            if (parseNode.GetChildNode("position") is null) { _explicitNullValuePosition = default!; _explicitNullProperties?.Remove("position"); }
+            else if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
+            if (parseNode.GetChildNode("position_url") is null) { _explicitNullValuePositionUrl = default!; _explicitNullProperties?.Remove("position_url"); }
+            else if (parseNode.GetChildNode("position_url") is { } nullNodePositionUrl && nullNodePositionUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PositionUrl = null;
+            if (parseNode.GetChildNode("run_html_url") is null) { _explicitNullValueRunHtmlUrl = default!; _explicitNullProperties?.Remove("run_html_url"); }
+            else if (parseNode.GetChildNode("run_html_url") is { } nullNodeRunHtmlUrl && nullNodeRunHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunHtmlUrl = null;
+            if (parseNode.GetChildNode("run_id") is null) { _explicitNullValueRunId = default!; _explicitNullProperties?.Remove("run_id"); }
+            else if (parseNode.GetChildNode("run_id") is { } nullNodeRunId && nullNodeRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunId = null;
+            if (parseNode.GetChildNode("run_name") is null) { _explicitNullValueRunName = default!; _explicitNullProperties?.Remove("run_name"); }
+            else if (parseNode.GetChildNode("run_name") is { } nullNodeRunName && nullNodeRunName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunName = null;
+            if (parseNode.GetChildNode("run_url") is null) { _explicitNullValueRunUrl = default!; _explicitNullProperties?.Remove("run_url"); }
+            else if (parseNode.GetChildNode("run_url") is { } nullNodeRunUrl && nullNodeRunUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunUrl = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -35,84 +46,84 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Web URL for the job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobHtmlUrl { get => _explicitNullValueJobHtmlUrl; set { _explicitNullValueJobHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_html_url"); else _explicitNullProperties?.Remove("job_html_url"); } }
+        public string? JobHtmlUrl { get => _explicitNullValueJobHtmlUrl; set { _explicitNullValueJobHtmlUrl = value; AdditionalData?.Remove("job_html_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_html_url"); else _explicitNullProperties?.Remove("job_html_url"); } }
         private string? _explicitNullValueJobHtmlUrl = default!;
 #nullable restore
 #else
-        public string JobHtmlUrl { get => _explicitNullValueJobHtmlUrl; set { _explicitNullValueJobHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_html_url"); else _explicitNullProperties?.Remove("job_html_url"); } }
+        public string JobHtmlUrl { get => _explicitNullValueJobHtmlUrl; set { _explicitNullValueJobHtmlUrl = value; AdditionalData?.Remove("job_html_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_html_url"); else _explicitNullProperties?.Remove("job_html_url"); } }
         private string _explicitNullValueJobHtmlUrl = default!;
 #endif
         /// <summary>The ID of the job, when the item represents a job-level or reusable-workflow-level lease.</summary>
-        public int? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
+        public int? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private int? _explicitNullValueJobId = default!;
         /// <summary>The display name of the job, when the item represents a job-level or reusable-workflow-level lease.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobName { get => _explicitNullValueJobName; set { _explicitNullValueJobName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_name"); else _explicitNullProperties?.Remove("job_name"); } }
+        public string? JobName { get => _explicitNullValueJobName; set { _explicitNullValueJobName = value; AdditionalData?.Remove("job_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_name"); else _explicitNullProperties?.Remove("job_name"); } }
         private string? _explicitNullValueJobName = default!;
 #nullable restore
 #else
-        public string JobName { get => _explicitNullValueJobName; set { _explicitNullValueJobName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_name"); else _explicitNullProperties?.Remove("job_name"); } }
+        public string JobName { get => _explicitNullValueJobName; set { _explicitNullValueJobName = value; AdditionalData?.Remove("job_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_name"); else _explicitNullProperties?.Remove("job_name"); } }
         private string _explicitNullValueJobName = default!;
 #endif
         /// <summary>API URL for the job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobUrl { get => _explicitNullValueJobUrl; set { _explicitNullValueJobUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_url"); else _explicitNullProperties?.Remove("job_url"); } }
+        public string? JobUrl { get => _explicitNullValueJobUrl; set { _explicitNullValueJobUrl = value; AdditionalData?.Remove("job_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_url"); else _explicitNullProperties?.Remove("job_url"); } }
         private string? _explicitNullValueJobUrl = default!;
 #nullable restore
 #else
-        public string JobUrl { get => _explicitNullValueJobUrl; set { _explicitNullValueJobUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_url"); else _explicitNullProperties?.Remove("job_url"); } }
+        public string JobUrl { get => _explicitNullValueJobUrl; set { _explicitNullValueJobUrl = value; AdditionalData?.Remove("job_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_url"); else _explicitNullProperties?.Remove("job_url"); } }
         private string _explicitNullValueJobUrl = default!;
 #endif
         /// <summary>Queue position. 0 means the item holds the concurrency lease (in_progress), 1 or higher means queued (pending).</summary>
-        public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
+        public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; AdditionalData?.Remove("position"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
         private int? _explicitNullValuePosition = default!;
         /// <summary>API URL to get items ahead of this item in the concurrency group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PositionUrl { get => _explicitNullValuePositionUrl; set { _explicitNullValuePositionUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position_url"); else _explicitNullProperties?.Remove("position_url"); } }
+        public string? PositionUrl { get => _explicitNullValuePositionUrl; set { _explicitNullValuePositionUrl = value; AdditionalData?.Remove("position_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position_url"); else _explicitNullProperties?.Remove("position_url"); } }
         private string? _explicitNullValuePositionUrl = default!;
 #nullable restore
 #else
-        public string PositionUrl { get => _explicitNullValuePositionUrl; set { _explicitNullValuePositionUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position_url"); else _explicitNullProperties?.Remove("position_url"); } }
+        public string PositionUrl { get => _explicitNullValuePositionUrl; set { _explicitNullValuePositionUrl = value; AdditionalData?.Remove("position_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position_url"); else _explicitNullProperties?.Remove("position_url"); } }
         private string _explicitNullValuePositionUrl = default!;
 #endif
         /// <summary>Web URL for the workflow run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunHtmlUrl { get => _explicitNullValueRunHtmlUrl; set { _explicitNullValueRunHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_html_url"); else _explicitNullProperties?.Remove("run_html_url"); } }
+        public string? RunHtmlUrl { get => _explicitNullValueRunHtmlUrl; set { _explicitNullValueRunHtmlUrl = value; AdditionalData?.Remove("run_html_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_html_url"); else _explicitNullProperties?.Remove("run_html_url"); } }
         private string? _explicitNullValueRunHtmlUrl = default!;
 #nullable restore
 #else
-        public string RunHtmlUrl { get => _explicitNullValueRunHtmlUrl; set { _explicitNullValueRunHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_html_url"); else _explicitNullProperties?.Remove("run_html_url"); } }
+        public string RunHtmlUrl { get => _explicitNullValueRunHtmlUrl; set { _explicitNullValueRunHtmlUrl = value; AdditionalData?.Remove("run_html_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_html_url"); else _explicitNullProperties?.Remove("run_html_url"); } }
         private string _explicitNullValueRunHtmlUrl = default!;
 #endif
         /// <summary>The ID of the workflow run.</summary>
-        public long? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
+        public long? RunId { get => _explicitNullValueRunId; set { _explicitNullValueRunId = value; AdditionalData?.Remove("run_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_id"); else _explicitNullProperties?.Remove("run_id"); } }
         private long? _explicitNullValueRunId = default!;
         /// <summary>The name of the workflow run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
+        public string? RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; AdditionalData?.Remove("run_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
         private string? _explicitNullValueRunName = default!;
 #nullable restore
 #else
-        public string RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
+        public string RunName { get => _explicitNullValueRunName; set { _explicitNullValueRunName = value; AdditionalData?.Remove("run_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_name"); else _explicitNullProperties?.Remove("run_name"); } }
         private string _explicitNullValueRunName = default!;
 #endif
         /// <summary>API URL for the workflow run.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
+        public string? RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; AdditionalData?.Remove("run_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
         private string? _explicitNullValueRunUrl = default!;
 #nullable restore
 #else
-        public string RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
+        public string RunUrl { get => _explicitNullValueRunUrl; set { _explicitNullValueRunUrl = value; AdditionalData?.Remove("run_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_url"); else _explicitNullProperties?.Remove("run_url"); } }
         private string _explicitNullValueRunUrl = default!;
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItemStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem"/> and sets the default values.
@@ -149,7 +160,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "run_id", n => { RunId = n.GetLongValue(); } },
                 { "run_name", n => { RunName = n.GetStringValue(); } },
                 { "run_url", n => { RunUrl = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItemStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItemStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auto_trigger_checks") is { } nullNodeAutoTriggerChecks && nullNodeAutoTriggerChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoTriggerChecks = null;
+            if (parseNode.GetChildNode("auto_trigger_checks") is null) { _explicitNullValueAutoTriggerChecks = default!; _explicitNullProperties?.Remove("auto_trigger_checks"); }
+            else if (parseNode.GetChildNode("auto_trigger_checks") is { } nullNodeAutoTriggerChecks && nullNodeAutoTriggerChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoTriggerChecks = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The auto_trigger_checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem>? AutoTriggerChecks { get => _explicitNullValueAutoTriggerChecks; set { _explicitNullValueAutoTriggerChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_trigger_checks"); else _explicitNullProperties?.Remove("auto_trigger_checks"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem>? AutoTriggerChecks { get => _explicitNullValueAutoTriggerChecks; set { _explicitNullValueAutoTriggerChecks = value; AdditionalData?.Remove("auto_trigger_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_trigger_checks"); else _explicitNullProperties?.Remove("auto_trigger_checks"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem>? _explicitNullValueAutoTriggerChecks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem> AutoTriggerChecks { get => _explicitNullValueAutoTriggerChecks; set { _explicitNullValueAutoTriggerChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_trigger_checks"); else _explicitNullProperties?.Remove("auto_trigger_checks"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem> AutoTriggerChecks { get => _explicitNullValueAutoTriggerChecks; set { _explicitNullValueAutoTriggerChecks = value; AdditionalData?.Remove("auto_trigger_checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_trigger_checks"); else _explicitNullProperties?.Remove("auto_trigger_checks"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CheckSuitePreferencePreferencesAutoTriggerChecksItem> _explicitNullValueAutoTriggerChecks = default!;
 #endif
         /// <summary>

@@ -17,10 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("encrypted_value") is { } nullNodeEncryptedValue && nullNodeEncryptedValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedValue = null;
-            if (parseNode.GetChildNode("key_id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
-            if (parseNode.GetChildNode("selected_repository_ids") is { } nullNodeSelectedRepositoryIds && nullNodeSelectedRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoryIds = null;
-            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+            if (parseNode.GetChildNode("encrypted_value") is null) { _explicitNullValueEncryptedValue = default!; _explicitNullProperties?.Remove("encrypted_value"); }
+            else if (parseNode.GetChildNode("encrypted_value") is { } nullNodeEncryptedValue && nullNodeEncryptedValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedValue = null;
+            if (parseNode.GetChildNode("key_id") is null) { _explicitNullValueKeyId = default!; _explicitNullProperties?.Remove("key_id"); }
+            else if (parseNode.GetChildNode("key_id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
+            if (parseNode.GetChildNode("selected_repository_ids") is null) { _explicitNullValueSelectedRepositoryIds = default!; _explicitNullProperties?.Remove("selected_repository_ids"); }
+            else if (parseNode.GetChildNode("selected_repository_ids") is { } nullNodeSelectedRepositoryIds && nullNodeSelectedRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoryIds = null;
+            if (parseNode.GetChildNode("visibility") is null) { _explicitNullValueVisibility = default!; _explicitNullProperties?.Remove("visibility"); }
+            else if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get an organization public key](https://docs.github.com/rest/agents/secrets#get-an-organization-public-key) endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
+        public string? EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; AdditionalData?.Remove("encrypted_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
         private string? _explicitNullValueEncryptedValue = default!;
 #nullable restore
 #else
-        public string EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
+        public string EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; AdditionalData?.Remove("encrypted_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
         private string _explicitNullValueEncryptedValue = default!;
 #endif
         /// <summary>ID of the key you used to encrypt the secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
+        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; AdditionalData?.Remove("key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
         private string? _explicitNullValueKeyId = default!;
 #nullable restore
 #else
-        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
+        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; AdditionalData?.Remove("key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
         private string _explicitNullValueKeyId = default!;
 #endif
         /// <summary>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/rest/agents/secrets#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/rest/agents/secrets#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/rest/agents/secrets#remove-selected-repository-from-an-organization-secret) endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        public List<int?>? SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; AdditionalData?.Remove("selected_repository_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
         private List<int?>? _explicitNullValueSelectedRepositoryIds = default!;
 #nullable restore
 #else
-        public List<int?> SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        public List<int?> SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; AdditionalData?.Remove("selected_repository_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
         private List<int?> _explicitNullValueSelectedRepositoryIds = default!;
 #endif
         /// <summary>Which type of organization repositories have access to the organization secret. `selected` means only the repositories specified by `selected_repository_ids` can access the secret.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AgentsCreateOrUpdateOrgSecretRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AgentsCreateOrUpdateOrgSecretRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; AdditionalData?.Remove("visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.AgentsCreateOrUpdateOrgSecretRequestVisibility? _explicitNullValueVisibility = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AgentsCreateOrUpdateOrgSecretRequest"/> and sets the default values.
@@ -86,7 +90,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "encrypted_value", n => { EncryptedValue = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentsCreateOrUpdateOrgSecretRequestVisibility>(); } },
+                { "visibility", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AgentsCreateOrUpdateOrgSecretRequestVisibility>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVisibility = default; _explicitNullProperties?.Remove("visibility"); AdditionalData["visibility"] = unknown; } else { Visibility = parsed; AdditionalData.Remove("visibility"); } } },
             };
         }
         /// <summary>

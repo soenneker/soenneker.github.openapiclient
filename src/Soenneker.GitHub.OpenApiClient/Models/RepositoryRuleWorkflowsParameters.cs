@@ -17,23 +17,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("do_not_enforce_on_create") is { } nullNodeDoNotEnforceOnCreate && nullNodeDoNotEnforceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoNotEnforceOnCreate = null;
-            if (parseNode.GetChildNode("workflows") is { } nullNodeWorkflows && nullNodeWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflows = null;
+            if (parseNode.GetChildNode("do_not_enforce_on_create") is null) { _explicitNullValueDoNotEnforceOnCreate = default!; _explicitNullProperties?.Remove("do_not_enforce_on_create"); }
+            else if (parseNode.GetChildNode("do_not_enforce_on_create") is { } nullNodeDoNotEnforceOnCreate && nullNodeDoNotEnforceOnCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DoNotEnforceOnCreate = null;
+            if (parseNode.GetChildNode("workflows") is null) { _explicitNullValueWorkflows = default!; _explicitNullProperties?.Remove("workflows"); }
+            else if (parseNode.GetChildNode("workflows") is { } nullNodeWorkflows && nullNodeWorkflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflows = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Allow repositories and branches to be created if a check would otherwise prohibit it.</summary>
-        public bool? DoNotEnforceOnCreate { get => _explicitNullValueDoNotEnforceOnCreate; set { _explicitNullValueDoNotEnforceOnCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_not_enforce_on_create"); else _explicitNullProperties?.Remove("do_not_enforce_on_create"); } }
+        public bool? DoNotEnforceOnCreate { get => _explicitNullValueDoNotEnforceOnCreate; set { _explicitNullValueDoNotEnforceOnCreate = value; AdditionalData?.Remove("do_not_enforce_on_create"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("do_not_enforce_on_create"); else _explicitNullProperties?.Remove("do_not_enforce_on_create"); } }
         private bool? _explicitNullValueDoNotEnforceOnCreate = default!;
         /// <summary>Workflows that must pass for this rule to pass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>? Workflows { get => _explicitNullValueWorkflows; set { _explicitNullValueWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflows"); else _explicitNullProperties?.Remove("workflows"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>? Workflows { get => _explicitNullValueWorkflows; set { _explicitNullValueWorkflows = value; AdditionalData?.Remove("workflows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflows"); else _explicitNullProperties?.Remove("workflows"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference>? _explicitNullValueWorkflows = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference> Workflows { get => _explicitNullValueWorkflows; set { _explicitNullValueWorkflows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflows"); else _explicitNullProperties?.Remove("workflows"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference> Workflows { get => _explicitNullValueWorkflows; set { _explicitNullValueWorkflows = value; AdditionalData?.Remove("workflows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflows"); else _explicitNullProperties?.Remove("workflows"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsWorkflowFileReference> _explicitNullValueWorkflows = default!;
 #endif
         /// <summary>

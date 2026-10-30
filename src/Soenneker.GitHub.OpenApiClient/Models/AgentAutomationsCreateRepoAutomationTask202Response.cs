@@ -18,9 +18,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("automation_id") is { } nullNodeAutomationId && nullNodeAutomationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomationId = null;
-            if (parseNode.GetChildNode("event") is { } nullNodeEvent && nullNodeEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Event = null;
-            if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
+            if (parseNode.GetChildNode("automation_id") is null) { _explicitNullValueAutomationId = default!; _explicitNullProperties?.Remove("automation_id"); }
+            else if (parseNode.GetChildNode("automation_id") is { } nullNodeAutomationId && nullNodeAutomationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutomationId = null;
+            if (parseNode.GetChildNode("event") is null) { _explicitNullValueEvent = default!; _explicitNullProperties?.Remove("event"); }
+            else if (parseNode.GetChildNode("event") is { } nullNodeEvent && nullNodeEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Event = null;
+            if (parseNode.GetChildNode("task_id") is null) { _explicitNullValueTaskId = default!; _explicitNullProperties?.Remove("task_id"); }
+            else if (parseNode.GetChildNode("task_id") is { } nullNodeTaskId && nullNodeTaskId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaskId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ID of the automation that was triggered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutomationId { get => _explicitNullValueAutomationId; set { _explicitNullValueAutomationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_id"); else _explicitNullProperties?.Remove("automation_id"); } }
+        public string? AutomationId { get => _explicitNullValueAutomationId; set { _explicitNullValueAutomationId = value; AdditionalData?.Remove("automation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_id"); else _explicitNullProperties?.Remove("automation_id"); } }
         private string? _explicitNullValueAutomationId = default!;
 #nullable restore
 #else
-        public string AutomationId { get => _explicitNullValueAutomationId; set { _explicitNullValueAutomationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_id"); else _explicitNullProperties?.Remove("automation_id"); } }
+        public string AutomationId { get => _explicitNullValueAutomationId; set { _explicitNullValueAutomationId = value; AdditionalData?.Remove("automation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("automation_id"); else _explicitNullProperties?.Remove("automation_id"); } }
         private string _explicitNullValueAutomationId = default!;
 #endif
         /// <summary>The event to trigger. Only `manual` is supported.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; AdditionalData?.Remove("event"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent? _explicitNullValueEvent = default!;
         /// <summary>The preallocated ID of the accepted run. The task may not yet be readable, and downstream skips or failures can prevent its creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        public string? TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
         private string? _explicitNullValueTaskId = default!;
 #nullable restore
 #else
-        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
+        public string TaskId { get => _explicitNullValueTaskId; set { _explicitNullValueTaskId = value; AdditionalData?.Remove("task_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("task_id"); else _explicitNullProperties?.Remove("task_id"); } }
         private string _explicitNullValueTaskId = default!;
 #endif
         /// <summary>
@@ -74,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "automation_id", n => { AutomationId = n.GetStringValue(); } },
-                { "event", n => { Event = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent>(); } },
+                { "event", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ManualEvent>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEvent = default; _explicitNullProperties?.Remove("event"); AdditionalData["event"] = unknown; } else { Event = parsed; AdditionalData.Remove("event"); } } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
             };
         }

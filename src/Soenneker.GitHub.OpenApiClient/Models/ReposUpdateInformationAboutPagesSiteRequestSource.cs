@@ -46,9 +46,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("branch") != null && parseNode.GetChildNode("path") != null && (parseNode.GetChildNode("path")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("/".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "/docs".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
-            if (result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 == null && result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 == null && matchesUnionBranch0) result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2(), parseNode);
-            if (result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 == null && result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("branch") && shapeMembers1.ContainsKey("path") && (!shapeMembers1.ContainsKey("branch") || (((shapeMembers1["branch"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("path") || (((shapeMembers1["path"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["path"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal4 && "/".Equals(literal4.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["path"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal5 && "/docs".Equals(literal5.GetValue(), global::System.StringComparison.Ordinal))))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 == null && result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2(), parseNode);
             if (result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 == null && result.ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -58,6 +60,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2);
@@ -72,7 +76,10 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 == null && ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 != null && ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 == null) { if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2); return; }
+            int selectedUnionBranches = 0;
+            if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 != null) selectedUnionBranches++;
+            if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 != null) selectedUnionBranches++;
+            if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 != null && selectedUnionBranches == 1) { if (ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf2); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ReposUpdateInformationAboutPagesSiteRequestSourceAnyOf1 != null)

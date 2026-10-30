@@ -17,28 +17,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("actor_identifier") is { } nullNodeActorIdentifier && nullNodeActorIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorIdentifier = null;
-            if (parseNode.GetChildNode("actor_type") is { } nullNodeActorType && nullNodeActorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorType = null;
-            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("actor_identifier") is null) { _explicitNullValueActorIdentifier = default!; _explicitNullProperties?.Remove("actor_identifier"); }
+            else if (parseNode.GetChildNode("actor_identifier") is { } nullNodeActorIdentifier && nullNodeActorIdentifier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorIdentifier = null;
+            if (parseNode.GetChildNode("actor_type") is null) { _explicitNullValueActorType = default!; _explicitNullProperties?.Remove("actor_type"); }
+            else if (parseNode.GetChildNode("actor_type") is { } nullNodeActorType && nullNodeActorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActorType = null;
+            if (parseNode.GetChildNode("role") is null) { _explicitNullValueRole = default!; _explicitNullProperties?.Remove("role"); }
+            else if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
         }
 
         /// <summary>The username of the collaborator. The numeric user ID is also accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActorIdentifier { get => _explicitNullValueActorIdentifier; set { _explicitNullValueActorIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_identifier"); else _explicitNullProperties?.Remove("actor_identifier"); } }
+        public string? ActorIdentifier { get => _explicitNullValueActorIdentifier; set { _explicitNullValueActorIdentifier = value; AdditionalData?.Remove("actor_identifier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_identifier"); else _explicitNullProperties?.Remove("actor_identifier"); } }
         private string? _explicitNullValueActorIdentifier = default!;
 #nullable restore
 #else
-        public string ActorIdentifier { get => _explicitNullValueActorIdentifier; set { _explicitNullValueActorIdentifier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_identifier"); else _explicitNullProperties?.Remove("actor_identifier"); } }
+        public string ActorIdentifier { get => _explicitNullValueActorIdentifier; set { _explicitNullValueActorIdentifier = value; AdditionalData?.Remove("actor_identifier"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_identifier"); else _explicitNullProperties?.Remove("actor_identifier"); } }
         private string _explicitNullValueActorIdentifier = default!;
 #endif
         /// <summary>The type of actor (must be `User` for user-owned spaces; `Team` will be rejected).</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestActorType? ActorType { get => _explicitNullValueActorType; set { _explicitNullValueActorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_type"); else _explicitNullProperties?.Remove("actor_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestActorType? ActorType { get => _explicitNullValueActorType; set { _explicitNullValueActorType = value; AdditionalData?.Remove("actor_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actor_type"); else _explicitNullProperties?.Remove("actor_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestActorType? _explicitNullValueActorType = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The role to grant to the collaborator.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestRole? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; AdditionalData?.Remove("role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestRole? _explicitNullValueRole = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequest"/> and sets the default values.
@@ -66,8 +69,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actor_identifier", n => { ActorIdentifier = n.GetStringValue(); } },
-                { "actor_type", n => { ActorType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestActorType>(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestRole>(); } },
+                { "actor_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestActorType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueActorType = default; _explicitNullProperties?.Remove("actor_type"); AdditionalData["actor_type"] = unknown; } else { ActorType = parsed; AdditionalData.Remove("actor_type"); } } },
+                { "role", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesAddCollaboratorForUserRequestRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRole = default; _explicitNullProperties?.Remove("role"); AdditionalData["role"] = unknown; } else { Role = parsed; AdditionalData.Remove("role"); } } },
             };
         }
         /// <summary>

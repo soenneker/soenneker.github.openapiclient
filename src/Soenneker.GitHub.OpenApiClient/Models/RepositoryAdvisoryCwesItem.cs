@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cwe_id") is { } nullNodeCweId && nullNodeCweId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CweId = null;
+            if (parseNode.GetChildNode("cwe_id") is null) { _explicitNullValueCweId = default!; _explicitNullProperties?.Remove("cwe_id"); }
+            else if (parseNode.GetChildNode("cwe_id") is { } nullNodeCweId && nullNodeCweId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CweId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The Common Weakness Enumeration (CWE) identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CweId { get => _explicitNullValueCweId; set { _explicitNullValueCweId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwe_id"); else _explicitNullProperties?.Remove("cwe_id"); } }
+        public string? CweId { get => _explicitNullValueCweId; set { _explicitNullValueCweId = value; AdditionalData?.Remove("cwe_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwe_id"); else _explicitNullProperties?.Remove("cwe_id"); } }
         private string? _explicitNullValueCweId = default!;
 #nullable restore
 #else
-        public string CweId { get => _explicitNullValueCweId; set { _explicitNullValueCweId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwe_id"); else _explicitNullProperties?.Remove("cwe_id"); } }
+        public string CweId { get => _explicitNullValueCweId; set { _explicitNullValueCweId = value; AdditionalData?.Remove("cwe_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cwe_id"); else _explicitNullProperties?.Remove("cwe_id"); } }
         private string _explicitNullValueCweId = default!;
 #endif
         /// <summary>The name of the CWE.</summary>

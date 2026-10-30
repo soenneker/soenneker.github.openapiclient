@@ -17,23 +17,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
-            if (parseNode.GetChildNode("pat_ids") is { } nullNodePatIds && nullNodePatIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatIds = null;
+            if (parseNode.GetChildNode("action") is null) { _explicitNullValueAction = default!; _explicitNullProperties?.Remove("action"); }
+            else if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("pat_ids") is null) { _explicitNullValuePatIds = default!; _explicitNullProperties?.Remove("pat_ids"); }
+            else if (parseNode.GetChildNode("pat_ids") is { } nullNodePatIds && nullNodePatIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatIds = null;
         }
 
         /// <summary>Action to apply to the fine-grained personal access token.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; AdditionalData?.Remove("action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction? _explicitNullValueAction = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The IDs of the fine-grained personal access tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? PatIds { get => _explicitNullValuePatIds; set { _explicitNullValuePatIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pat_ids"); else _explicitNullProperties?.Remove("pat_ids"); } }
+        public List<int?>? PatIds { get => _explicitNullValuePatIds; set { _explicitNullValuePatIds = value; AdditionalData?.Remove("pat_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pat_ids"); else _explicitNullProperties?.Remove("pat_ids"); } }
         private List<int?>? _explicitNullValuePatIds = default!;
 #nullable restore
 #else
-        public List<int?> PatIds { get => _explicitNullValuePatIds; set { _explicitNullValuePatIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pat_ids"); else _explicitNullProperties?.Remove("pat_ids"); } }
+        public List<int?> PatIds { get => _explicitNullValuePatIds; set { _explicitNullValuePatIds = value; AdditionalData?.Remove("pat_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pat_ids"); else _explicitNullProperties?.Remove("pat_ids"); } }
         private List<int?> _explicitNullValuePatIds = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction>(); } },
+                { "action", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RevokeAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAction = default; _explicitNullProperties?.Remove("action"); AdditionalData["action"] = unknown; } else { Action = parsed; AdditionalData.Remove("action"); } } },
                 { "pat_ids", n => { PatIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
             };
         }

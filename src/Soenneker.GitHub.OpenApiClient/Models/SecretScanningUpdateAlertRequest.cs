@@ -17,11 +17,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("assignee") is { } nullNodeAssignee && nullNodeAssignee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignee = null;
-            if (parseNode.GetChildNode("resolution") is { } nullNodeResolution && nullNodeResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resolution = null;
-            if (parseNode.GetChildNode("resolution_comment") is { } nullNodeResolutionComment && nullNodeResolutionComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolutionComment = null;
-            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
-            if (parseNode.GetChildNode("validity") is { } nullNodeValidity && nullNodeValidity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Validity = null;
+            if (parseNode.GetChildNode("assignee") is null) { _explicitNullValueAssignee = default!; _explicitNullProperties?.Remove("assignee"); }
+            else if (parseNode.GetChildNode("assignee") is { } nullNodeAssignee && nullNodeAssignee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignee = null;
+            if (parseNode.GetChildNode("resolution") is null) { _explicitNullValueResolution = default!; _explicitNullProperties?.Remove("resolution"); }
+            else if (parseNode.GetChildNode("resolution") is { } nullNodeResolution && nullNodeResolution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resolution = null;
+            if (parseNode.GetChildNode("resolution_comment") is null) { _explicitNullValueResolutionComment = default!; _explicitNullProperties?.Remove("resolution_comment"); }
+            else if (parseNode.GetChildNode("resolution_comment") is { } nullNodeResolutionComment && nullNodeResolutionComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResolutionComment = null;
+            if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
+            else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("validity") is null) { _explicitNullValueValidity = default!; _explicitNullProperties?.Remove("validity"); }
+            else if (parseNode.GetChildNode("validity") is { } nullNodeValidity && nullNodeValidity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Validity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,31 +34,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The username of the user to assign to the alert. Set to `null` to unassign the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
+        public string? Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; AdditionalData?.Remove("assignee"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
         private string? _explicitNullValueAssignee = default!;
 #nullable restore
 #else
-        public string Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
+        public string Assignee { get => _explicitNullValueAssignee; set { _explicitNullValueAssignee = value; AdditionalData?.Remove("assignee"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignee"); else _explicitNullProperties?.Remove("assignee"); } }
         private string _explicitNullValueAssignee = default!;
 #endif
         /// <summary>**Required when the `state` is `resolved`.** The reason for resolving the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? Resolution { get => _explicitNullValueResolution; set { _explicitNullValueResolution = value; AdditionalData?.Remove("resolution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution"); else _explicitNullProperties?.Remove("resolution"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution? _explicitNullValueResolution = default!;
         /// <summary>An optional comment when closing or reopening an alert. Cannot be updated or deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResolutionComment { get => _explicitNullValueResolutionComment; set { _explicitNullValueResolutionComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_comment"); else _explicitNullProperties?.Remove("resolution_comment"); } }
+        public string? ResolutionComment { get => _explicitNullValueResolutionComment; set { _explicitNullValueResolutionComment = value; AdditionalData?.Remove("resolution_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_comment"); else _explicitNullProperties?.Remove("resolution_comment"); } }
         private string? _explicitNullValueResolutionComment = default!;
 #nullable restore
 #else
-        public string ResolutionComment { get => _explicitNullValueResolutionComment; set { _explicitNullValueResolutionComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_comment"); else _explicitNullProperties?.Remove("resolution_comment"); } }
+        public string ResolutionComment { get => _explicitNullValueResolutionComment; set { _explicitNullValueResolutionComment = value; AdditionalData?.Remove("resolution_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resolution_comment"); else _explicitNullProperties?.Remove("resolution_comment"); } }
         private string _explicitNullValueResolutionComment = default!;
 #endif
         /// <summary>Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState? _explicitNullValueState = default!;
         /// <summary>Sets the validity of the secret scanning alert. Can be `active`, `inactive`, or `null` to clear the override.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlertRequestValidity? Validity { get => _explicitNullValueValidity; set { _explicitNullValueValidity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validity"); else _explicitNullProperties?.Remove("validity"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlertRequestValidity? Validity { get => _explicitNullValueValidity; set { _explicitNullValueValidity = value; AdditionalData?.Remove("validity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validity"); else _explicitNullProperties?.Remove("validity"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlertRequestValidity? _explicitNullValueValidity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlertRequest"/> and sets the default values.
@@ -81,10 +86,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assignee", n => { Assignee = n.GetStringValue(); } },
-                { "resolution", n => { Resolution = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution>(); } },
+                { "resolution", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertResolution>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResolution = default; _explicitNullProperties?.Remove("resolution"); AdditionalData["resolution"] = unknown; } else { Resolution = parsed; AdditionalData.Remove("resolution"); } } },
                 { "resolution_comment", n => { ResolutionComment = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>(); } },
-                { "validity", n => { Validity = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlertRequestValidity>(); } },
+                { "state", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningAlertState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueState = default; _explicitNullProperties?.Remove("state"); AdditionalData["state"] = unknown; } else { State = parsed; AdditionalData.Remove("state"); } } },
+                { "validity", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateAlertRequestValidity>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueValidity = default; _explicitNullProperties?.Remove("validity"); AdditionalData["validity"] = unknown; } else { Validity = parsed; AdditionalData.Remove("validity"); } } },
             };
         }
         /// <summary>

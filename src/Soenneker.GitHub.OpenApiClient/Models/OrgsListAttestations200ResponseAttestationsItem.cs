@@ -17,10 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
-            if (parseNode.GetChildNode("bundle_url") is { } nullNodeBundleUrl && nullNodeBundleUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BundleUrl = null;
-            if (parseNode.GetChildNode("initiator") is { } nullNodeInitiator && nullNodeInitiator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Initiator = null;
-            if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
+            if (parseNode.GetChildNode("bundle") is null) { _explicitNullValueBundle = default!; _explicitNullProperties?.Remove("bundle"); }
+            else if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
+            if (parseNode.GetChildNode("bundle_url") is null) { _explicitNullValueBundleUrl = default!; _explicitNullProperties?.Remove("bundle_url"); }
+            else if (parseNode.GetChildNode("bundle_url") is { } nullNodeBundleUrl && nullNodeBundleUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BundleUrl = null;
+            if (parseNode.GetChildNode("initiator") is null) { _explicitNullValueInitiator = default!; _explicitNullProperties?.Remove("initiator"); }
+            else if (parseNode.GetChildNode("initiator") is { } nullNodeInitiator && nullNodeInitiator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Initiator = null;
+            if (parseNode.GetChildNode("repository_id") is null) { _explicitNullValueRepositoryId = default!; _explicitNullProperties?.Remove("repository_id"); }
+            else if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The attestation&apos;s Sigstore Bundle.Refer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItemBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItemBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; AdditionalData?.Remove("bundle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItemBundle? _explicitNullValueBundle = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItemBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItemBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; AdditionalData?.Remove("bundle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItemBundle _explicitNullValueBundle = default!;
 #endif
         /// <summary>The bundle_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BundleUrl { get => _explicitNullValueBundleUrl; set { _explicitNullValueBundleUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle_url"); else _explicitNullProperties?.Remove("bundle_url"); } }
+        public string? BundleUrl { get => _explicitNullValueBundleUrl; set { _explicitNullValueBundleUrl = value; AdditionalData?.Remove("bundle_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle_url"); else _explicitNullProperties?.Remove("bundle_url"); } }
         private string? _explicitNullValueBundleUrl = default!;
 #nullable restore
 #else
-        public string BundleUrl { get => _explicitNullValueBundleUrl; set { _explicitNullValueBundleUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle_url"); else _explicitNullProperties?.Remove("bundle_url"); } }
+        public string BundleUrl { get => _explicitNullValueBundleUrl; set { _explicitNullValueBundleUrl = value; AdditionalData?.Remove("bundle_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle_url"); else _explicitNullProperties?.Remove("bundle_url"); } }
         private string _explicitNullValueBundleUrl = default!;
 #endif
         /// <summary>The initiator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Initiator { get => _explicitNullValueInitiator; set { _explicitNullValueInitiator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initiator"); else _explicitNullProperties?.Remove("initiator"); } }
+        public string? Initiator { get => _explicitNullValueInitiator; set { _explicitNullValueInitiator = value; AdditionalData?.Remove("initiator"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initiator"); else _explicitNullProperties?.Remove("initiator"); } }
         private string? _explicitNullValueInitiator = default!;
 #nullable restore
 #else
-        public string Initiator { get => _explicitNullValueInitiator; set { _explicitNullValueInitiator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initiator"); else _explicitNullProperties?.Remove("initiator"); } }
+        public string Initiator { get => _explicitNullValueInitiator; set { _explicitNullValueInitiator = value; AdditionalData?.Remove("initiator"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initiator"); else _explicitNullProperties?.Remove("initiator"); } }
         private string _explicitNullValueInitiator = default!;
 #endif
         /// <summary>The repository_id property</summary>
-        public long? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
+        public long? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; AdditionalData?.Remove("repository_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
         private long? _explicitNullValueRepositoryId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem"/> and sets the default values.

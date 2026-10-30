@@ -17,61 +17,69 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
-            if (parseNode.GetChildNode("duplicate_issue_id") is { } nullNodeDuplicateIssueId && nullNodeDuplicateIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DuplicateIssueId = null;
-            if (parseNode.GetChildNode("ignored") is { } nullNodeIgnored && nullNodeIgnored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ignored = null;
-            if (parseNode.GetChildNode("ignored_reason") is { } nullNodeIgnoredReason && nullNodeIgnoredReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredReason = null;
-            if (parseNode.GetChildNode("rationale") is { } nullNodeRationale && nullNodeRationale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rationale = null;
-            if (parseNode.GetChildNode("state_reason") is { } nullNodeStateReason && nullNodeStateReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StateReason = null;
-            if (parseNode.GetChildNode("suggest") is { } nullNodeSuggest && nullNodeSuggest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggest = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("confidence") is null) { _explicitNullValueConfidence = default!; _explicitNullProperties?.Remove("confidence"); }
+            else if (parseNode.GetChildNode("confidence") is { } nullNodeConfidence && nullNodeConfidence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Confidence = null;
+            if (parseNode.GetChildNode("duplicate_issue_id") is null) { _explicitNullValueDuplicateIssueId = default!; _explicitNullProperties?.Remove("duplicate_issue_id"); }
+            else if (parseNode.GetChildNode("duplicate_issue_id") is { } nullNodeDuplicateIssueId && nullNodeDuplicateIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DuplicateIssueId = null;
+            if (parseNode.GetChildNode("ignored") is null) { _explicitNullValueIgnored = default!; _explicitNullProperties?.Remove("ignored"); }
+            else if (parseNode.GetChildNode("ignored") is { } nullNodeIgnored && nullNodeIgnored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ignored = null;
+            if (parseNode.GetChildNode("ignored_reason") is null) { _explicitNullValueIgnoredReason = default!; _explicitNullProperties?.Remove("ignored_reason"); }
+            else if (parseNode.GetChildNode("ignored_reason") is { } nullNodeIgnoredReason && nullNodeIgnoredReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredReason = null;
+            if (parseNode.GetChildNode("rationale") is null) { _explicitNullValueRationale = default!; _explicitNullProperties?.Remove("rationale"); }
+            else if (parseNode.GetChildNode("rationale") is { } nullNodeRationale && nullNodeRationale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rationale = null;
+            if (parseNode.GetChildNode("state_reason") is null) { _explicitNullValueStateReason = default!; _explicitNullProperties?.Remove("state_reason"); }
+            else if (parseNode.GetChildNode("state_reason") is { } nullNodeStateReason && nullNodeStateReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StateReason = null;
+            if (parseNode.GetChildNode("suggest") is null) { _explicitNullValueSuggest = default!; _explicitNullProperties?.Remove("suggest"); }
+            else if (parseNode.GetChildNode("suggest") is { } nullNodeSuggest && nullNodeSuggest.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suggest = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The confidence property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence? Confidence { get => _explicitNullValueConfidence; set { _explicitNullValueConfidence = value; AdditionalData?.Remove("confidence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("confidence"); else _explicitNullProperties?.Remove("confidence"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence? _explicitNullValueConfidence = default!;
         /// <summary>The duplicate_issue_id property</summary>
-        public long? DuplicateIssueId { get => _explicitNullValueDuplicateIssueId; set { _explicitNullValueDuplicateIssueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duplicate_issue_id"); else _explicitNullProperties?.Remove("duplicate_issue_id"); } }
+        public long? DuplicateIssueId { get => _explicitNullValueDuplicateIssueId; set { _explicitNullValueDuplicateIssueId = value; AdditionalData?.Remove("duplicate_issue_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duplicate_issue_id"); else _explicitNullProperties?.Remove("duplicate_issue_id"); } }
         private long? _explicitNullValueDuplicateIssueId = default!;
         /// <summary>The ignored property</summary>
-        public bool? Ignored { get => _explicitNullValueIgnored; set { _explicitNullValueIgnored = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored"); else _explicitNullProperties?.Remove("ignored"); } }
+        public bool? Ignored { get => _explicitNullValueIgnored; set { _explicitNullValueIgnored = value; AdditionalData?.Remove("ignored"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored"); else _explicitNullProperties?.Remove("ignored"); } }
         private bool? _explicitNullValueIgnored = default!;
         /// <summary>The ignored_reason property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason? IgnoredReason { get => _explicitNullValueIgnoredReason; set { _explicitNullValueIgnoredReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_reason"); else _explicitNullProperties?.Remove("ignored_reason"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason? IgnoredReason { get => _explicitNullValueIgnoredReason; set { _explicitNullValueIgnoredReason = value; AdditionalData?.Remove("ignored_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_reason"); else _explicitNullProperties?.Remove("ignored_reason"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason? _explicitNullValueIgnoredReason = default!;
         /// <summary>The rationale property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        public string? Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; AdditionalData?.Remove("rationale"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
         private string? _explicitNullValueRationale = default!;
 #nullable restore
 #else
-        public string Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
+        public string Rationale { get => _explicitNullValueRationale; set { _explicitNullValueRationale = value; AdditionalData?.Remove("rationale"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rationale"); else _explicitNullProperties?.Remove("rationale"); } }
         private string _explicitNullValueRationale = default!;
 #endif
         /// <summary>The state_reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
+        public string? StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; AdditionalData?.Remove("state_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
         private string? _explicitNullValueStateReason = default!;
 #nullable restore
 #else
-        public string StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
+        public string StateReason { get => _explicitNullValueStateReason; set { _explicitNullValueStateReason = value; AdditionalData?.Remove("state_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_reason"); else _explicitNullProperties?.Remove("state_reason"); } }
         private string _explicitNullValueStateReason = default!;
 #endif
         /// <summary>The suggest property</summary>
-        public bool? Suggest { get => _explicitNullValueSuggest; set { _explicitNullValueSuggest = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggest"); else _explicitNullProperties?.Remove("suggest"); } }
+        public bool? Suggest { get => _explicitNullValueSuggest; set { _explicitNullValueSuggest = value; AdditionalData?.Remove("suggest"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggest"); else _explicitNullProperties?.Remove("suggest"); } }
         private bool? _explicitNullValueSuggest = default!;
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private string? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private string _explicitNullValueValue = default!;
 #endif
         /// <summary>
@@ -99,10 +107,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "confidence", n => { Confidence = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence>(); } },
+                { "confidence", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemConfidence>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueConfidence = default; _explicitNullProperties?.Remove("confidence"); AdditionalData["confidence"] = unknown; } else { Confidence = parsed; AdditionalData.Remove("confidence"); } } },
                 { "duplicate_issue_id", n => { DuplicateIssueId = n.GetLongValue(); } },
                 { "ignored", n => { Ignored = n.GetBoolValue(); } },
-                { "ignored_reason", n => { IgnoredReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason>(); } },
+                { "ignored_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesUpdate200ResponseSuggestionsStateItemIgnoredReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIgnoredReason = default; _explicitNullProperties?.Remove("ignored_reason"); AdditionalData["ignored_reason"] = unknown; } else { IgnoredReason = parsed; AdditionalData.Remove("ignored_reason"); } } },
                 { "rationale", n => { Rationale = n.GetStringValue(); } },
                 { "state_reason", n => { StateReason = n.GetStringValue(); } },
                 { "suggest", n => { Suggest = n.GetBoolValue(); } },

@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
-            if (parseNode.GetChildNode("repository_count") is { } nullNodeRepositoryCount && nullNodeRepositoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryCount = null;
+            if (parseNode.GetChildNode("repositories") is null) { _explicitNullValueRepositories = default!; _explicitNullProperties?.Remove("repositories"); }
+            else if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repository_count") is null) { _explicitNullValueRepositoryCount = default!; _explicitNullProperties?.Remove("repository_count"); }
+            else if (parseNode.GetChildNode("repository_count") is { } nullNodeRepositoryCount && nullNodeRepositoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A list of repositories that were skipped. This list may not include all repositories that were skipped. This is only available when the repository was found and the user has access to it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; AdditionalData?.Remove("repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; AdditionalData?.Remove("repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisRepository> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>The total number of repositories that were skipped for this reason.</summary>
-        public int? RepositoryCount { get => _explicitNullValueRepositoryCount; set { _explicitNullValueRepositoryCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_count"); else _explicitNullProperties?.Remove("repository_count"); } }
+        public int? RepositoryCount { get => _explicitNullValueRepositoryCount; set { _explicitNullValueRepositoryCount = value; AdditionalData?.Remove("repository_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_count"); else _explicitNullProperties?.Remove("repository_count"); } }
         private int? _explicitNullValueRepositoryCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningVariantAnalysisSkippedRepoGroup"/> and sets the default values.

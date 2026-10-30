@@ -17,12 +17,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("details") is { } nullNodeDetails && nullNodeDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Details = null;
-            if (parseNode.GetChildNode("enforcement") is { } nullNodeEnforcement && nullNodeEnforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enforcement = null;
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
-            if (parseNode.GetChildNode("rule_source") is { } nullNodeRuleSource && nullNodeRuleSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleSource = null;
-            if (parseNode.GetChildNode("rule_type") is { } nullNodeRuleType && nullNodeRuleType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleType = null;
+            if (parseNode.GetChildNode("details") is null) { _explicitNullValueDetails = default!; _explicitNullProperties?.Remove("details"); }
+            else if (parseNode.GetChildNode("details") is { } nullNodeDetails && nullNodeDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Details = null;
+            if (parseNode.GetChildNode("enforcement") is null) { _explicitNullValueEnforcement = default!; _explicitNullProperties?.Remove("enforcement"); }
+            else if (parseNode.GetChildNode("enforcement") is { } nullNodeEnforcement && nullNodeEnforcement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enforcement = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("rule_source") is null) { _explicitNullValueRuleSource = default!; _explicitNullProperties?.Remove("rule_source"); }
+            else if (parseNode.GetChildNode("rule_source") is { } nullNodeRuleSource && nullNodeRuleSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleSource = null;
+            if (parseNode.GetChildNode("rule_type") is null) { _explicitNullValueRuleType = default!; _explicitNullProperties?.Remove("rule_type"); }
+            else if (parseNode.GetChildNode("rule_type") is { } nullNodeRuleType && nullNodeRuleType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,47 +36,47 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The detailed failure message for the rule. Null if the rule passed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        public string? Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; AdditionalData?.Remove("details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
         private string? _explicitNullValueDetails = default!;
 #nullable restore
 #else
-        public string Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        public string Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; AdditionalData?.Remove("details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
         private string _explicitNullValueDetails = default!;
 #endif
         /// <summary>The enforcement level of this rule source.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement? Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement? Enforcement { get => _explicitNullValueEnforcement; set { _explicitNullValueEnforcement = value; AdditionalData?.Remove("enforcement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforcement"); else _explicitNullProperties?.Remove("enforcement"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement? _explicitNullValueEnforcement = default!;
         /// <summary>Additional metadata about the rule evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The result of the evaluation of the individual rule.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult? _explicitNullValueResult = default!;
         /// <summary>The rule_source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource? RuleSource { get => _explicitNullValueRuleSource; set { _explicitNullValueRuleSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_source"); else _explicitNullProperties?.Remove("rule_source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource? RuleSource { get => _explicitNullValueRuleSource; set { _explicitNullValueRuleSource = value; AdditionalData?.Remove("rule_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_source"); else _explicitNullProperties?.Remove("rule_source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource? _explicitNullValueRuleSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource RuleSource { get => _explicitNullValueRuleSource; set { _explicitNullValueRuleSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_source"); else _explicitNullProperties?.Remove("rule_source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource RuleSource { get => _explicitNullValueRuleSource; set { _explicitNullValueRuleSource = value; AdditionalData?.Remove("rule_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_source"); else _explicitNullProperties?.Remove("rule_source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource _explicitNullValueRuleSource = default!;
 #endif
         /// <summary>The type of rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RuleType { get => _explicitNullValueRuleType; set { _explicitNullValueRuleType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_type"); else _explicitNullProperties?.Remove("rule_type"); } }
+        public string? RuleType { get => _explicitNullValueRuleType; set { _explicitNullValueRuleType = value; AdditionalData?.Remove("rule_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_type"); else _explicitNullProperties?.Remove("rule_type"); } }
         private string? _explicitNullValueRuleType = default!;
 #nullable restore
 #else
-        public string RuleType { get => _explicitNullValueRuleType; set { _explicitNullValueRuleType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_type"); else _explicitNullProperties?.Remove("rule_type"); } }
+        public string RuleType { get => _explicitNullValueRuleType; set { _explicitNullValueRuleType = value; AdditionalData?.Remove("rule_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule_type"); else _explicitNullProperties?.Remove("rule_type"); } }
         private string _explicitNullValueRuleType = default!;
 #endif
         /// <summary>
@@ -99,9 +105,9 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "details", n => { Details = n.GetStringValue(); } },
-                { "enforcement", n => { Enforcement = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement>(); } },
+                { "enforcement", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemEnforcement>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEnforcement = default; _explicitNullProperties?.Remove("enforcement"); AdditionalData["enforcement"] = unknown; } else { Enforcement = parsed; AdditionalData.Remove("enforcement"); } } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemMetadata.CreateFromDiscriminatorValue); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult>(); } },
+                { "result", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemResult>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueResult = default; _explicitNullProperties?.Remove("result"); AdditionalData["result"] = unknown; } else { Result = parsed; AdditionalData.Remove("result"); } } },
                 { "rule_source", n => { RuleSource = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource>(global::Soenneker.GitHub.OpenApiClient.Models.RuleSuiteRuleEvaluationsItemRuleSource.CreateFromDiscriminatorValue); } },
                 { "rule_type", n => { RuleType = n.GetStringValue(); } },
             };

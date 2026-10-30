@@ -17,23 +17,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled_repositories") is { } nullNodeEnabledRepositories && nullNodeEnabledRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledRepositories = null;
-            if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
+            if (parseNode.GetChildNode("enabled_repositories") is null) { _explicitNullValueEnabledRepositories = default!; _explicitNullProperties?.Remove("enabled_repositories"); }
+            else if (parseNode.GetChildNode("enabled_repositories") is { } nullNodeEnabledRepositories && nullNodeEnabledRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledRepositories = null;
+            if (parseNode.GetChildNode("selected_repositories_url") is null) { _explicitNullValueSelectedRepositoriesUrl = default!; _explicitNullProperties?.Remove("selected_repositories_url"); }
+            else if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls whether self-hosted runners can be used by repositories in the organization</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? EnabledRepositories { get => _explicitNullValueEnabledRepositories; set { _explicitNullValueEnabledRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_repositories"); else _explicitNullProperties?.Remove("enabled_repositories"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? EnabledRepositories { get => _explicitNullValueEnabledRepositories; set { _explicitNullValueEnabledRepositories = value; AdditionalData?.Remove("enabled_repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_repositories"); else _explicitNullProperties?.Remove("enabled_repositories"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories? _explicitNullValueEnabledRepositories = default!;
         /// <summary>The URL to the endpoint for managing selected repositories for self-hosted runners in the organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; AdditionalData?.Remove("selected_repositories_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
         private string? _explicitNullValueSelectedRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; AdditionalData?.Remove("selected_repositories_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
         private string _explicitNullValueSelectedRepositoriesUrl = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "enabled_repositories", n => { EnabledRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories>(); } },
+                { "enabled_repositories", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SelfHostedRunnersSettingsEnabledRepositories>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEnabledRepositories = default; _explicitNullProperties?.Remove("enabled_repositories"); AdditionalData["enabled_repositories"] = unknown; } else { EnabledRepositories = parsed; AdditionalData.Remove("enabled_repositories"); } } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
             };
         }

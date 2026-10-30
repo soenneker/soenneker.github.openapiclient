@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exclude") is { } nullNodeExclude && nullNodeExclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exclude = null;
-            if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
+            if (parseNode.GetChildNode("exclude") is null) { _explicitNullValueExclude = default!; _explicitNullProperties?.Remove("exclude"); }
+            else if (parseNode.GetChildNode("exclude") is { } nullNodeExclude && nullNodeExclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exclude = null;
+            if (parseNode.GetChildNode("include") is null) { _explicitNullValueInclude = default!; _explicitNullProperties?.Remove("include"); }
+            else if (parseNode.GetChildNode("include") is { } nullNodeInclude && nullNodeInclude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Include = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The organization properties and values to exclude. The condition will not pass if any of these properties match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec>? Exclude { get => _explicitNullValueExclude; set { _explicitNullValueExclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude"); else _explicitNullProperties?.Remove("exclude"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec>? Exclude { get => _explicitNullValueExclude; set { _explicitNullValueExclude = value; AdditionalData?.Remove("exclude"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude"); else _explicitNullProperties?.Remove("exclude"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec>? _explicitNullValueExclude = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec> Exclude { get => _explicitNullValueExclude; set { _explicitNullValueExclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude"); else _explicitNullProperties?.Remove("exclude"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec> Exclude { get => _explicitNullValueExclude; set { _explicitNullValueExclude = value; AdditionalData?.Remove("exclude"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude"); else _explicitNullProperties?.Remove("exclude"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec> _explicitNullValueExclude = default!;
 #endif
         /// <summary>The organization properties and values to include. All of these properties must match for the condition to pass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec>? Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec>? Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; AdditionalData?.Remove("include"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec>? _explicitNullValueInclude = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec> Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec> Include { get => _explicitNullValueInclude; set { _explicitNullValueInclude = value; AdditionalData?.Remove("include"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include"); else _explicitNullProperties?.Remove("include"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.EnterpriseRulesetConditionsOrganizationPropertySpec> _explicitNullValueInclude = default!;
 #endif
         /// <summary>

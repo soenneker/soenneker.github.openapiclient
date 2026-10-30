@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("secret_scanning") is { } nullNodeSecretScanning && nullNodeSecretScanning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanning = null;
+            if (parseNode.GetChildNode("secret_scanning") is null) { _explicitNullValueSecretScanning = default!; _explicitNullProperties?.Remove("secret_scanning"); }
+            else if (parseNode.GetChildNode("secret_scanning") is { } nullNodeSecretScanning && nullNodeSecretScanning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecretScanning = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The secret_scanning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanning? SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanning? SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; AdditionalData?.Remove("secret_scanning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanning? _explicitNullValueSecretScanning = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanning SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanning SecretScanning { get => _explicitNullValueSecretScanning; set { _explicitNullValueSecretScanning = value; AdditionalData?.Remove("secret_scanning"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret_scanning"); else _explicitNullProperties?.Remove("secret_scanning"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanning _explicitNullValueSecretScanning = default!;
 #endif
         /// <summary>

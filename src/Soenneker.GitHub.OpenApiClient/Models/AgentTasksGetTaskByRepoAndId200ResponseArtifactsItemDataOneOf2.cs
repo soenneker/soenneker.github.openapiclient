@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_ref") is { } nullNodeBaseRef && nullNodeBaseRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseRef = null;
-            if (parseNode.GetChildNode("head_ref") is { } nullNodeHeadRef && nullNodeHeadRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadRef = null;
+            if (parseNode.GetChildNode("base_ref") is null) { _explicitNullValueBaseRef = default!; _explicitNullProperties?.Remove("base_ref"); }
+            else if (parseNode.GetChildNode("base_ref") is { } nullNodeBaseRef && nullNodeBaseRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseRef = null;
+            if (parseNode.GetChildNode("head_ref") is null) { _explicitNullValueHeadRef = default!; _explicitNullProperties?.Remove("head_ref"); }
+            else if (parseNode.GetChildNode("head_ref") is { } nullNodeHeadRef && nullNodeHeadRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeadRef = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Base branch name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseRef { get => _explicitNullValueBaseRef; set { _explicitNullValueBaseRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_ref"); else _explicitNullProperties?.Remove("base_ref"); } }
+        public string? BaseRef { get => _explicitNullValueBaseRef; set { _explicitNullValueBaseRef = value; AdditionalData?.Remove("base_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_ref"); else _explicitNullProperties?.Remove("base_ref"); } }
         private string? _explicitNullValueBaseRef = default!;
 #nullable restore
 #else
-        public string BaseRef { get => _explicitNullValueBaseRef; set { _explicitNullValueBaseRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_ref"); else _explicitNullProperties?.Remove("base_ref"); } }
+        public string BaseRef { get => _explicitNullValueBaseRef; set { _explicitNullValueBaseRef = value; AdditionalData?.Remove("base_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_ref"); else _explicitNullProperties?.Remove("base_ref"); } }
         private string _explicitNullValueBaseRef = default!;
 #endif
         /// <summary>Head branch name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeadRef { get => _explicitNullValueHeadRef; set { _explicitNullValueHeadRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_ref"); else _explicitNullProperties?.Remove("head_ref"); } }
+        public string? HeadRef { get => _explicitNullValueHeadRef; set { _explicitNullValueHeadRef = value; AdditionalData?.Remove("head_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_ref"); else _explicitNullProperties?.Remove("head_ref"); } }
         private string? _explicitNullValueHeadRef = default!;
 #nullable restore
 #else
-        public string HeadRef { get => _explicitNullValueHeadRef; set { _explicitNullValueHeadRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_ref"); else _explicitNullProperties?.Remove("head_ref"); } }
+        public string HeadRef { get => _explicitNullValueHeadRef; set { _explicitNullValueHeadRef = value; AdditionalData?.Remove("head_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head_ref"); else _explicitNullProperties?.Remove("head_ref"); } }
         private string _explicitNullValueHeadRef = default!;
 #endif
         /// <summary>

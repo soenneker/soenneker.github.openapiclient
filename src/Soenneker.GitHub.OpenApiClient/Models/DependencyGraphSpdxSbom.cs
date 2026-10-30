@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sbom") is { } nullNodeSbom && nullNodeSbom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sbom = null;
+            if (parseNode.GetChildNode("sbom") is null) { _explicitNullValueSbom = default!; _explicitNullProperties?.Remove("sbom"); }
+            else if (parseNode.GetChildNode("sbom") is { } nullNodeSbom && nullNodeSbom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sbom = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The sbom property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom? Sbom { get => _explicitNullValueSbom; set { _explicitNullValueSbom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom"); else _explicitNullProperties?.Remove("sbom"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom? Sbom { get => _explicitNullValueSbom; set { _explicitNullValueSbom = value; AdditionalData?.Remove("sbom"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom"); else _explicitNullProperties?.Remove("sbom"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom? _explicitNullValueSbom = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom Sbom { get => _explicitNullValueSbom; set { _explicitNullValueSbom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom"); else _explicitNullProperties?.Remove("sbom"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom Sbom { get => _explicitNullValueSbom; set { _explicitNullValueSbom = value; AdditionalData?.Remove("sbom"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom"); else _explicitNullProperties?.Remove("sbom"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.DependencyGraphSpdxSbomSbom _explicitNullValueSbom = default!;
 #endif
         /// <summary>

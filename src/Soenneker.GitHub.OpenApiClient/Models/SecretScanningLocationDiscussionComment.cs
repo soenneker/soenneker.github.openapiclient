@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("discussion_comment_url") is { } nullNodeDiscussionCommentUrl && nullNodeDiscussionCommentUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionCommentUrl = null;
+            if (parseNode.GetChildNode("discussion_comment_url") is null) { _explicitNullValueDiscussionCommentUrl = default!; _explicitNullProperties?.Remove("discussion_comment_url"); }
+            else if (parseNode.GetChildNode("discussion_comment_url") is { } nullNodeDiscussionCommentUrl && nullNodeDiscussionCommentUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionCommentUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The API URL to get the discussion comment where the secret was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiscussionCommentUrl { get => _explicitNullValueDiscussionCommentUrl; set { _explicitNullValueDiscussionCommentUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_comment_url"); else _explicitNullProperties?.Remove("discussion_comment_url"); } }
+        public string? DiscussionCommentUrl { get => _explicitNullValueDiscussionCommentUrl; set { _explicitNullValueDiscussionCommentUrl = value; AdditionalData?.Remove("discussion_comment_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_comment_url"); else _explicitNullProperties?.Remove("discussion_comment_url"); } }
         private string? _explicitNullValueDiscussionCommentUrl = default!;
 #nullable restore
 #else
-        public string DiscussionCommentUrl { get => _explicitNullValueDiscussionCommentUrl; set { _explicitNullValueDiscussionCommentUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_comment_url"); else _explicitNullProperties?.Remove("discussion_comment_url"); } }
+        public string DiscussionCommentUrl { get => _explicitNullValueDiscussionCommentUrl; set { _explicitNullValueDiscussionCommentUrl = value; AdditionalData?.Remove("discussion_comment_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_comment_url"); else _explicitNullProperties?.Remove("discussion_comment_url"); } }
         private string _explicitNullValueDiscussionCommentUrl = default!;
 #endif
         /// <summary>

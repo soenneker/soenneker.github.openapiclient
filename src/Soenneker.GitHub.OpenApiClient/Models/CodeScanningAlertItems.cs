@@ -17,15 +17,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
-            if (parseNode.GetChildNode("dismissal_approved_by") is { } nullNodeDismissalApprovedBy && nullNodeDismissalApprovedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalApprovedBy = null;
-            if (parseNode.GetChildNode("dismissed_by") is { } nullNodeDismissedBy && nullNodeDismissedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedBy = null;
-            if (parseNode.GetChildNode("dismissed_comment") is { } nullNodeDismissedComment && nullNodeDismissedComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedComment = null;
-            if (parseNode.GetChildNode("dismissed_reason") is { } nullNodeDismissedReason && nullNodeDismissedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedReason = null;
-            if (parseNode.GetChildNode("most_recent_instance") is { } nullNodeMostRecentInstance && nullNodeMostRecentInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentInstance = null;
-            if (parseNode.GetChildNode("rule") is { } nullNodeRule && nullNodeRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rule = null;
-            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
-            if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
+            if (parseNode.GetChildNode("assignees") is null) { _explicitNullValueAssignees = default!; _explicitNullProperties?.Remove("assignees"); }
+            else if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
+            if (parseNode.GetChildNode("dismissal_approved_by") is null) { _explicitNullValueDismissalApprovedBy = default!; _explicitNullProperties?.Remove("dismissal_approved_by"); }
+            else if (parseNode.GetChildNode("dismissal_approved_by") is { } nullNodeDismissalApprovedBy && nullNodeDismissalApprovedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalApprovedBy = null;
+            if (parseNode.GetChildNode("dismissed_by") is null) { _explicitNullValueDismissedBy = default!; _explicitNullProperties?.Remove("dismissed_by"); }
+            else if (parseNode.GetChildNode("dismissed_by") is { } nullNodeDismissedBy && nullNodeDismissedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedBy = null;
+            if (parseNode.GetChildNode("dismissed_comment") is null) { _explicitNullValueDismissedComment = default!; _explicitNullProperties?.Remove("dismissed_comment"); }
+            else if (parseNode.GetChildNode("dismissed_comment") is { } nullNodeDismissedComment && nullNodeDismissedComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedComment = null;
+            if (parseNode.GetChildNode("dismissed_reason") is null) { _explicitNullValueDismissedReason = default!; _explicitNullProperties?.Remove("dismissed_reason"); }
+            else if (parseNode.GetChildNode("dismissed_reason") is { } nullNodeDismissedReason && nullNodeDismissedReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissedReason = null;
+            if (parseNode.GetChildNode("most_recent_instance") is null) { _explicitNullValueMostRecentInstance = default!; _explicitNullProperties?.Remove("most_recent_instance"); }
+            else if (parseNode.GetChildNode("most_recent_instance") is { } nullNodeMostRecentInstance && nullNodeMostRecentInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentInstance = null;
+            if (parseNode.GetChildNode("rule") is null) { _explicitNullValueRule = default!; _explicitNullProperties?.Remove("rule"); }
+            else if (parseNode.GetChildNode("rule") is { } nullNodeRule && nullNodeRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rule = null;
+            if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
+            else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("tool") is null) { _explicitNullValueTool = default!; _explicitNullProperties?.Remove("tool"); }
+            else if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,11 +42,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The assignees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; AdditionalData?.Remove("assignees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>? _explicitNullValueAssignees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; AdditionalData?.Remove("assignees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser> _explicitNullValueAssignees = default!;
 #endif
         /// <summary>The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
@@ -45,11 +54,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? DismissalApprovedBy { get => _explicitNullValueDismissalApprovedBy; set { _explicitNullValueDismissalApprovedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_approved_by"); else _explicitNullProperties?.Remove("dismissal_approved_by"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? DismissalApprovedBy { get => _explicitNullValueDismissalApprovedBy; set { _explicitNullValueDismissalApprovedBy = value; AdditionalData?.Remove("dismissal_approved_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_approved_by"); else _explicitNullProperties?.Remove("dismissal_approved_by"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueDismissalApprovedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser DismissalApprovedBy { get => _explicitNullValueDismissalApprovedBy; set { _explicitNullValueDismissalApprovedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_approved_by"); else _explicitNullProperties?.Remove("dismissal_approved_by"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser DismissalApprovedBy { get => _explicitNullValueDismissalApprovedBy; set { _explicitNullValueDismissalApprovedBy = value; AdditionalData?.Remove("dismissal_approved_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_approved_by"); else _explicitNullProperties?.Remove("dismissal_approved_by"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueDismissalApprovedBy = default!;
 #endif
         /// <summary>The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
@@ -57,25 +66,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? DismissedBy { get => _explicitNullValueDismissedBy; set { _explicitNullValueDismissedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_by"); else _explicitNullProperties?.Remove("dismissed_by"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? DismissedBy { get => _explicitNullValueDismissedBy; set { _explicitNullValueDismissedBy = value; AdditionalData?.Remove("dismissed_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_by"); else _explicitNullProperties?.Remove("dismissed_by"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser? _explicitNullValueDismissedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser DismissedBy { get => _explicitNullValueDismissedBy; set { _explicitNullValueDismissedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_by"); else _explicitNullProperties?.Remove("dismissed_by"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser DismissedBy { get => _explicitNullValueDismissedBy; set { _explicitNullValueDismissedBy = value; AdditionalData?.Remove("dismissed_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_by"); else _explicitNullProperties?.Remove("dismissed_by"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser _explicitNullValueDismissedBy = default!;
 #endif
         /// <summary>The dismissal comment associated with the dismissal of the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        public string? DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; AdditionalData?.Remove("dismissed_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
         private string? _explicitNullValueDismissedComment = default!;
 #nullable restore
 #else
-        public string DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
+        public string DismissedComment { get => _explicitNullValueDismissedComment; set { _explicitNullValueDismissedComment = value; AdditionalData?.Remove("dismissed_comment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_comment"); else _explicitNullProperties?.Remove("dismissed_comment"); } }
         private string _explicitNullValueDismissedComment = default!;
 #endif
         /// <summary>**Required when the state is dismissed.** The reason for dismissing or closing the alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason? DismissedReason { get => _explicitNullValueDismissedReason; set { _explicitNullValueDismissedReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_reason"); else _explicitNullProperties?.Remove("dismissed_reason"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason? DismissedReason { get => _explicitNullValueDismissedReason; set { _explicitNullValueDismissedReason = value; AdditionalData?.Remove("dismissed_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissed_reason"); else _explicitNullProperties?.Remove("dismissed_reason"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason? _explicitNullValueDismissedReason = default!;
         /// <summary>The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
         public DateTimeOffset? FixedAt { get; private set; }
@@ -98,11 +107,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The most_recent_instance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance? MostRecentInstance { get => _explicitNullValueMostRecentInstance; set { _explicitNullValueMostRecentInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most_recent_instance"); else _explicitNullProperties?.Remove("most_recent_instance"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance? MostRecentInstance { get => _explicitNullValueMostRecentInstance; set { _explicitNullValueMostRecentInstance = value; AdditionalData?.Remove("most_recent_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most_recent_instance"); else _explicitNullProperties?.Remove("most_recent_instance"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance? _explicitNullValueMostRecentInstance = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance MostRecentInstance { get => _explicitNullValueMostRecentInstance; set { _explicitNullValueMostRecentInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most_recent_instance"); else _explicitNullProperties?.Remove("most_recent_instance"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance MostRecentInstance { get => _explicitNullValueMostRecentInstance; set { _explicitNullValueMostRecentInstance = value; AdditionalData?.Remove("most_recent_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most_recent_instance"); else _explicitNullProperties?.Remove("most_recent_instance"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance _explicitNullValueMostRecentInstance = default!;
 #endif
         /// <summary>The security alert number.</summary>
@@ -110,24 +119,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The rule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary? Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary? Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; AdditionalData?.Remove("rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary? _explicitNullValueRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; AdditionalData?.Remove("rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary _explicitNullValueRule = default!;
 #endif
         /// <summary>State of a code scanning alert.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState? _explicitNullValueState = default!;
         /// <summary>The tool property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; AdditionalData?.Remove("tool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool? _explicitNullValueTool = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; AdditionalData?.Remove("tool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool _explicitNullValueTool = default!;
 #endif
         /// <summary>The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.</summary>
@@ -171,14 +180,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "dismissed_at", n => { DismissedAt = n.GetDateTimeOffsetValue(); } },
                 { "dismissed_by", n => { DismissedBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.NullableSimpleUser.CreateFromDiscriminatorValue); } },
                 { "dismissed_comment", n => { DismissedComment = n.GetStringValue(); } },
-                { "dismissed_reason", n => { DismissedReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>(); } },
+                { "dismissed_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertDismissedReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDismissedReason = default; _explicitNullProperties?.Remove("dismissed_reason"); AdditionalData["dismissed_reason"] = unknown; } else { DismissedReason = parsed; AdditionalData.Remove("dismissed_reason"); } } },
                 { "fixed_at", n => { FixedAt = n.GetDateTimeOffsetValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "instances_url", n => { InstancesUrl = n.GetStringValue(); } },
                 { "most_recent_instance", n => { MostRecentInstance = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertInstance.CreateFromDiscriminatorValue); } },
                 { "number", n => { Number = n.GetIntValue(); } },
                 { "rule", n => { Rule = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertRuleSummary.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState>(); } },
+                { "state", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAlertState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueState = default; _explicitNullProperties?.Remove("state"); AdditionalData["state"] = unknown; } else { State = parsed; AdditionalData.Remove("state"); } } },
                 { "tool", n => { Tool = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool>(global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAnalysisTool.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },

@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_actions") is { } nullNodeAllowedActions && nullNodeAllowedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActions = null;
+            if (parseNode.GetChildNode("allowed_actions") is null) { _explicitNullValueAllowedActions = default!; _explicitNullProperties?.Remove("allowed_actions"); }
+            else if (parseNode.GetChildNode("allowed_actions") is { } nullNodeAllowedActions && nullNodeAllowedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActions = null;
         }
 
         /// <summary>The set of actions that Copilot may perform on the pull request.</summary>

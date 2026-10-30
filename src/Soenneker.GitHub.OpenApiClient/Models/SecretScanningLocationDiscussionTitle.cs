@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("discussion_title_url") is { } nullNodeDiscussionTitleUrl && nullNodeDiscussionTitleUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionTitleUrl = null;
+            if (parseNode.GetChildNode("discussion_title_url") is null) { _explicitNullValueDiscussionTitleUrl = default!; _explicitNullProperties?.Remove("discussion_title_url"); }
+            else if (parseNode.GetChildNode("discussion_title_url") is { } nullNodeDiscussionTitleUrl && nullNodeDiscussionTitleUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionTitleUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The URL to the discussion where the secret was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiscussionTitleUrl { get => _explicitNullValueDiscussionTitleUrl; set { _explicitNullValueDiscussionTitleUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_title_url"); else _explicitNullProperties?.Remove("discussion_title_url"); } }
+        public string? DiscussionTitleUrl { get => _explicitNullValueDiscussionTitleUrl; set { _explicitNullValueDiscussionTitleUrl = value; AdditionalData?.Remove("discussion_title_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_title_url"); else _explicitNullProperties?.Remove("discussion_title_url"); } }
         private string? _explicitNullValueDiscussionTitleUrl = default!;
 #nullable restore
 #else
-        public string DiscussionTitleUrl { get => _explicitNullValueDiscussionTitleUrl; set { _explicitNullValueDiscussionTitleUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_title_url"); else _explicitNullProperties?.Remove("discussion_title_url"); } }
+        public string DiscussionTitleUrl { get => _explicitNullValueDiscussionTitleUrl; set { _explicitNullValueDiscussionTitleUrl = value; AdditionalData?.Remove("discussion_title_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_title_url"); else _explicitNullProperties?.Remove("discussion_title_url"); } }
         private string _explicitNullValueDiscussionTitleUrl = default!;
 #endif
         /// <summary>

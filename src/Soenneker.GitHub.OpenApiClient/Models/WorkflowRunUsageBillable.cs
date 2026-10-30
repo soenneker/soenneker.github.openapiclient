@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("MACOS") is { } nullNodeMACOS && nullNodeMACOS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MACOS = null;
-            if (parseNode.GetChildNode("UBUNTU") is { } nullNodeUBUNTU && nullNodeUBUNTU.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UBUNTU = null;
-            if (parseNode.GetChildNode("WINDOWS") is { } nullNodeWINDOWS && nullNodeWINDOWS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WINDOWS = null;
+            if (parseNode.GetChildNode("MACOS") is null) { _explicitNullValueMACOS = default!; _explicitNullProperties?.Remove("MACOS"); }
+            else if (parseNode.GetChildNode("MACOS") is { } nullNodeMACOS && nullNodeMACOS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MACOS = null;
+            if (parseNode.GetChildNode("UBUNTU") is null) { _explicitNullValueUBUNTU = default!; _explicitNullProperties?.Remove("UBUNTU"); }
+            else if (parseNode.GetChildNode("UBUNTU") is { } nullNodeUBUNTU && nullNodeUBUNTU.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UBUNTU = null;
+            if (parseNode.GetChildNode("WINDOWS") is null) { _explicitNullValueWINDOWS = default!; _explicitNullProperties?.Remove("WINDOWS"); }
+            else if (parseNode.GetChildNode("WINDOWS") is { } nullNodeWINDOWS && nullNodeWINDOWS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WINDOWS = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The MACOS property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos? MACOS { get => _explicitNullValueMACOS; set { _explicitNullValueMACOS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MACOS"); else _explicitNullProperties?.Remove("MACOS"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos? MACOS { get => _explicitNullValueMACOS; set { _explicitNullValueMACOS = value; AdditionalData?.Remove("MACOS"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MACOS"); else _explicitNullProperties?.Remove("MACOS"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos? _explicitNullValueMACOS = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos MACOS { get => _explicitNullValueMACOS; set { _explicitNullValueMACOS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MACOS"); else _explicitNullProperties?.Remove("MACOS"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos MACOS { get => _explicitNullValueMACOS; set { _explicitNullValueMACOS = value; AdditionalData?.Remove("MACOS"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("MACOS"); else _explicitNullProperties?.Remove("MACOS"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableMacos _explicitNullValueMACOS = default!;
 #endif
         /// <summary>The UBUNTU property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu? UBUNTU { get => _explicitNullValueUBUNTU; set { _explicitNullValueUBUNTU = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("UBUNTU"); else _explicitNullProperties?.Remove("UBUNTU"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu? UBUNTU { get => _explicitNullValueUBUNTU; set { _explicitNullValueUBUNTU = value; AdditionalData?.Remove("UBUNTU"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("UBUNTU"); else _explicitNullProperties?.Remove("UBUNTU"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu? _explicitNullValueUBUNTU = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu UBUNTU { get => _explicitNullValueUBUNTU; set { _explicitNullValueUBUNTU = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("UBUNTU"); else _explicitNullProperties?.Remove("UBUNTU"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu UBUNTU { get => _explicitNullValueUBUNTU; set { _explicitNullValueUBUNTU = value; AdditionalData?.Remove("UBUNTU"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("UBUNTU"); else _explicitNullProperties?.Remove("UBUNTU"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableUbuntu _explicitNullValueUBUNTU = default!;
 #endif
         /// <summary>The WINDOWS property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows? WINDOWS { get => _explicitNullValueWINDOWS; set { _explicitNullValueWINDOWS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WINDOWS"); else _explicitNullProperties?.Remove("WINDOWS"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows? WINDOWS { get => _explicitNullValueWINDOWS; set { _explicitNullValueWINDOWS = value; AdditionalData?.Remove("WINDOWS"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WINDOWS"); else _explicitNullProperties?.Remove("WINDOWS"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows? _explicitNullValueWINDOWS = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows WINDOWS { get => _explicitNullValueWINDOWS; set { _explicitNullValueWINDOWS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WINDOWS"); else _explicitNullProperties?.Remove("WINDOWS"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows WINDOWS { get => _explicitNullValueWINDOWS; set { _explicitNullValueWINDOWS = value; AdditionalData?.Remove("WINDOWS"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("WINDOWS"); else _explicitNullProperties?.Remove("WINDOWS"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowRunUsageBillableWindows _explicitNullValueWINDOWS = default!;
 #endif
         /// <summary>

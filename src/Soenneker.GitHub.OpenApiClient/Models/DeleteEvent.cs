@@ -17,10 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("full_ref") is { } nullNodeFullRef && nullNodeFullRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullRef = null;
-            if (parseNode.GetChildNode("pusher_type") is { } nullNodePusherType && nullNodePusherType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherType = null;
-            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
-            if (parseNode.GetChildNode("ref_type") is { } nullNodeRefType && nullNodeRefType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefType = null;
+            if (parseNode.GetChildNode("full_ref") is null) { _explicitNullValueFullRef = default!; _explicitNullProperties?.Remove("full_ref"); }
+            else if (parseNode.GetChildNode("full_ref") is { } nullNodeFullRef && nullNodeFullRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullRef = null;
+            if (parseNode.GetChildNode("pusher_type") is null) { _explicitNullValuePusherType = default!; _explicitNullProperties?.Remove("pusher_type"); }
+            else if (parseNode.GetChildNode("pusher_type") is { } nullNodePusherType && nullNodePusherType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherType = null;
+            if (parseNode.GetChildNode("ref") is null) { _explicitNullValueRef = default!; _explicitNullProperties?.Remove("ref"); }
+            else if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("ref_type") is null) { _explicitNullValueRefType = default!; _explicitNullProperties?.Remove("ref_type"); }
+            else if (parseNode.GetChildNode("ref_type") is { } nullNodeRefType && nullNodeRefType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The full_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullRef { get => _explicitNullValueFullRef; set { _explicitNullValueFullRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_ref"); else _explicitNullProperties?.Remove("full_ref"); } }
+        public string? FullRef { get => _explicitNullValueFullRef; set { _explicitNullValueFullRef = value; AdditionalData?.Remove("full_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_ref"); else _explicitNullProperties?.Remove("full_ref"); } }
         private string? _explicitNullValueFullRef = default!;
 #nullable restore
 #else
-        public string FullRef { get => _explicitNullValueFullRef; set { _explicitNullValueFullRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_ref"); else _explicitNullProperties?.Remove("full_ref"); } }
+        public string FullRef { get => _explicitNullValueFullRef; set { _explicitNullValueFullRef = value; AdditionalData?.Remove("full_ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_ref"); else _explicitNullProperties?.Remove("full_ref"); } }
         private string _explicitNullValueFullRef = default!;
 #endif
         /// <summary>The pusher_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PusherType { get => _explicitNullValuePusherType; set { _explicitNullValuePusherType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_type"); else _explicitNullProperties?.Remove("pusher_type"); } }
+        public string? PusherType { get => _explicitNullValuePusherType; set { _explicitNullValuePusherType = value; AdditionalData?.Remove("pusher_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_type"); else _explicitNullProperties?.Remove("pusher_type"); } }
         private string? _explicitNullValuePusherType = default!;
 #nullable restore
 #else
-        public string PusherType { get => _explicitNullValuePusherType; set { _explicitNullValuePusherType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_type"); else _explicitNullProperties?.Remove("pusher_type"); } }
+        public string PusherType { get => _explicitNullValuePusherType; set { _explicitNullValuePusherType = value; AdditionalData?.Remove("pusher_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_type"); else _explicitNullProperties?.Remove("pusher_type"); } }
         private string _explicitNullValuePusherType = default!;
 #endif
         /// <summary>The ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; AdditionalData?.Remove("ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
         private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; AdditionalData?.Remove("ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
         private string _explicitNullValueRef = default!;
 #endif
         /// <summary>The ref_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_type"); else _explicitNullProperties?.Remove("ref_type"); } }
+        public string? RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; AdditionalData?.Remove("ref_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_type"); else _explicitNullProperties?.Remove("ref_type"); } }
         private string? _explicitNullValueRefType = default!;
 #nullable restore
 #else
-        public string RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_type"); else _explicitNullProperties?.Remove("ref_type"); } }
+        public string RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; AdditionalData?.Remove("ref_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_type"); else _explicitNullProperties?.Remove("ref_type"); } }
         private string _explicitNullValueRefType = default!;
 #endif
         /// <summary>

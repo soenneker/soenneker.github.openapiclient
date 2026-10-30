@@ -18,17 +18,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expiry") is { } nullNodeExpiry && nullNodeExpiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expiry = null;
-            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("expiry") is null) { _explicitNullValueExpiry = default!; _explicitNullProperties?.Remove("expiry"); }
+            else if (parseNode.GetChildNode("expiry") is { } nullNodeExpiry && nullNodeExpiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expiry = null;
+            if (parseNode.GetChildNode("limit") is null) { _explicitNullValueLimit = default!; _explicitNullProperties?.Remove("limit"); }
+            else if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The duration of the interaction restriction. Default: `one_day`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? Expiry { get => _explicitNullValueExpiry; set { _explicitNullValueExpiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiry"); else _explicitNullProperties?.Remove("expiry"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? Expiry { get => _explicitNullValueExpiry; set { _explicitNullValueExpiry = value; AdditionalData?.Remove("expiry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiry"); else _explicitNullProperties?.Remove("expiry"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry? _explicitNullValueExpiry = default!;
         /// <summary>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? Limit { get => _explicitNullValueLimit; set { _explicitNullValueLimit = value; AdditionalData?.Remove("limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limit"); else _explicitNullProperties?.Remove("limit"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup? _explicitNullValueLimit = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionLimit"/> and sets the default values.
@@ -55,8 +57,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expiry", n => { Expiry = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry>(); } },
-                { "limit", n => { Limit = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup>(); } },
+                { "expiry", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionExpiry>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExpiry = default; _explicitNullProperties?.Remove("expiry"); AdditionalData["expiry"] = unknown; } else { Expiry = parsed; AdditionalData.Remove("expiry"); } } },
+                { "limit", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.InteractionGroup>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLimit = default; _explicitNullProperties?.Remove("limit"); AdditionalData["limit"] = unknown; } else { Limit = parsed; AdditionalData.Remove("limit"); } } },
             };
         }
         /// <summary>

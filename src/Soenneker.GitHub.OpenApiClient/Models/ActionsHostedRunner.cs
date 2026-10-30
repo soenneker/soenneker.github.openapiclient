@@ -18,92 +18,104 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("image_details") is { } nullNodeImageDetails && nullNodeImageDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageDetails = null;
-            if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
-            if (parseNode.GetChildNode("last_active_on") is { } nullNodeLastActiveOn && nullNodeLastActiveOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastActiveOn = null;
-            if (parseNode.GetChildNode("machine_size_details") is { } nullNodeMachineSizeDetails && nullNodeMachineSizeDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineSizeDetails = null;
-            if (parseNode.GetChildNode("maximum_runners") is { } nullNodeMaximumRunners && nullNodeMaximumRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumRunners = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("platform") is { } nullNodePlatform && nullNodePlatform.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Platform = null;
-            if (parseNode.GetChildNode("public_ip_enabled") is { } nullNodePublicIpEnabled && nullNodePublicIpEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicIpEnabled = null;
-            if (parseNode.GetChildNode("public_ips") is { } nullNodePublicIps && nullNodePublicIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicIps = null;
-            if (parseNode.GetChildNode("runner_group_id") is { } nullNodeRunnerGroupId && nullNodeRunnerGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupId = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("image_details") is null) { _explicitNullValueImageDetails = default!; _explicitNullProperties?.Remove("image_details"); }
+            else if (parseNode.GetChildNode("image_details") is { } nullNodeImageDetails && nullNodeImageDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageDetails = null;
+            if (parseNode.GetChildNode("image_gen") is null) { _explicitNullValueImageGen = default!; _explicitNullProperties?.Remove("image_gen"); }
+            else if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
+            if (parseNode.GetChildNode("last_active_on") is null) { _explicitNullValueLastActiveOn = default!; _explicitNullProperties?.Remove("last_active_on"); }
+            else if (parseNode.GetChildNode("last_active_on") is { } nullNodeLastActiveOn && nullNodeLastActiveOn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastActiveOn = null;
+            if (parseNode.GetChildNode("machine_size_details") is null) { _explicitNullValueMachineSizeDetails = default!; _explicitNullProperties?.Remove("machine_size_details"); }
+            else if (parseNode.GetChildNode("machine_size_details") is { } nullNodeMachineSizeDetails && nullNodeMachineSizeDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MachineSizeDetails = null;
+            if (parseNode.GetChildNode("maximum_runners") is null) { _explicitNullValueMaximumRunners = default!; _explicitNullProperties?.Remove("maximum_runners"); }
+            else if (parseNode.GetChildNode("maximum_runners") is { } nullNodeMaximumRunners && nullNodeMaximumRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumRunners = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("platform") is null) { _explicitNullValuePlatform = default!; _explicitNullProperties?.Remove("platform"); }
+            else if (parseNode.GetChildNode("platform") is { } nullNodePlatform && nullNodePlatform.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Platform = null;
+            if (parseNode.GetChildNode("public_ip_enabled") is null) { _explicitNullValuePublicIpEnabled = default!; _explicitNullProperties?.Remove("public_ip_enabled"); }
+            else if (parseNode.GetChildNode("public_ip_enabled") is { } nullNodePublicIpEnabled && nullNodePublicIpEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicIpEnabled = null;
+            if (parseNode.GetChildNode("public_ips") is null) { _explicitNullValuePublicIps = default!; _explicitNullProperties?.Remove("public_ips"); }
+            else if (parseNode.GetChildNode("public_ips") is { } nullNodePublicIps && nullNodePublicIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicIps = null;
+            if (parseNode.GetChildNode("runner_group_id") is null) { _explicitNullValueRunnerGroupId = default!; _explicitNullProperties?.Remove("runner_group_id"); }
+            else if (parseNode.GetChildNode("runner_group_id") is { } nullNodeRunnerGroupId && nullNodeRunnerGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupId = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the hosted runner.</summary>
-        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private long? _explicitNullValueId = default!;
         /// <summary>Provides details of a hosted runner image</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage? ImageDetails { get => _explicitNullValueImageDetails; set { _explicitNullValueImageDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_details"); else _explicitNullProperties?.Remove("image_details"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage? ImageDetails { get => _explicitNullValueImageDetails; set { _explicitNullValueImageDetails = value; AdditionalData?.Remove("image_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_details"); else _explicitNullProperties?.Remove("image_details"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage? _explicitNullValueImageDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage ImageDetails { get => _explicitNullValueImageDetails; set { _explicitNullValueImageDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_details"); else _explicitNullProperties?.Remove("image_details"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage ImageDetails { get => _explicitNullValueImageDetails; set { _explicitNullValueImageDetails = value; AdditionalData?.Remove("image_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_details"); else _explicitNullProperties?.Remove("image_details"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.NullableActionsHostedRunnerPoolImage _explicitNullValueImageDetails = default!;
 #endif
         /// <summary>Whether custom image generation is enabled for the hosted runners.</summary>
-        public bool? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
+        public bool? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; AdditionalData?.Remove("image_gen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
         private bool? _explicitNullValueImageGen = default!;
         /// <summary>The time at which the runner was last used, in ISO 8601 format.</summary>
-        public DateTimeOffset? LastActiveOn { get => _explicitNullValueLastActiveOn; set { _explicitNullValueLastActiveOn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_active_on"); else _explicitNullProperties?.Remove("last_active_on"); } }
+        public DateTimeOffset? LastActiveOn { get => _explicitNullValueLastActiveOn; set { _explicitNullValueLastActiveOn = value; AdditionalData?.Remove("last_active_on"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_active_on"); else _explicitNullProperties?.Remove("last_active_on"); } }
         private DateTimeOffset? _explicitNullValueLastActiveOn = default!;
         /// <summary>Provides details of a particular machine spec.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec? MachineSizeDetails { get => _explicitNullValueMachineSizeDetails; set { _explicitNullValueMachineSizeDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine_size_details"); else _explicitNullProperties?.Remove("machine_size_details"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec? MachineSizeDetails { get => _explicitNullValueMachineSizeDetails; set { _explicitNullValueMachineSizeDetails = value; AdditionalData?.Remove("machine_size_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine_size_details"); else _explicitNullProperties?.Remove("machine_size_details"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec? _explicitNullValueMachineSizeDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec MachineSizeDetails { get => _explicitNullValueMachineSizeDetails; set { _explicitNullValueMachineSizeDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine_size_details"); else _explicitNullProperties?.Remove("machine_size_details"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec MachineSizeDetails { get => _explicitNullValueMachineSizeDetails; set { _explicitNullValueMachineSizeDetails = value; AdditionalData?.Remove("machine_size_details"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine_size_details"); else _explicitNullProperties?.Remove("machine_size_details"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec _explicitNullValueMachineSizeDetails = default!;
 #endif
         /// <summary>The maximum amount of hosted runners. Runners will not scale automatically above this number. Use this setting to limit your cost.</summary>
-        public int? MaximumRunners { get => _explicitNullValueMaximumRunners; set { _explicitNullValueMaximumRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_runners"); else _explicitNullProperties?.Remove("maximum_runners"); } }
+        public int? MaximumRunners { get => _explicitNullValueMaximumRunners; set { _explicitNullValueMaximumRunners = value; AdditionalData?.Remove("maximum_runners"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_runners"); else _explicitNullProperties?.Remove("maximum_runners"); } }
         private int? _explicitNullValueMaximumRunners = default!;
         /// <summary>The name of the hosted runner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The operating system of the image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Platform { get => _explicitNullValuePlatform; set { _explicitNullValuePlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform"); else _explicitNullProperties?.Remove("platform"); } }
+        public string? Platform { get => _explicitNullValuePlatform; set { _explicitNullValuePlatform = value; AdditionalData?.Remove("platform"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform"); else _explicitNullProperties?.Remove("platform"); } }
         private string? _explicitNullValuePlatform = default!;
 #nullable restore
 #else
-        public string Platform { get => _explicitNullValuePlatform; set { _explicitNullValuePlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform"); else _explicitNullProperties?.Remove("platform"); } }
+        public string Platform { get => _explicitNullValuePlatform; set { _explicitNullValuePlatform = value; AdditionalData?.Remove("platform"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform"); else _explicitNullProperties?.Remove("platform"); } }
         private string _explicitNullValuePlatform = default!;
 #endif
         /// <summary>Whether public IP is enabled for the hosted runners.</summary>
-        public bool? PublicIpEnabled { get => _explicitNullValuePublicIpEnabled; set { _explicitNullValuePublicIpEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ip_enabled"); else _explicitNullProperties?.Remove("public_ip_enabled"); } }
+        public bool? PublicIpEnabled { get => _explicitNullValuePublicIpEnabled; set { _explicitNullValuePublicIpEnabled = value; AdditionalData?.Remove("public_ip_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ip_enabled"); else _explicitNullProperties?.Remove("public_ip_enabled"); } }
         private bool? _explicitNullValuePublicIpEnabled = default!;
         /// <summary>The public IP ranges when public IP is enabled for the hosted runners.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp>? PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp>? PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; AdditionalData?.Remove("public_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp>? _explicitNullValuePublicIps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp> PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp> PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; AdditionalData?.Remove("public_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp> _explicitNullValuePublicIps = default!;
 #endif
         /// <summary>The unique identifier of the group that the hosted runner belongs to.</summary>
-        public long? RunnerGroupId { get => _explicitNullValueRunnerGroupId; set { _explicitNullValueRunnerGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_id"); else _explicitNullProperties?.Remove("runner_group_id"); } }
+        public long? RunnerGroupId { get => _explicitNullValueRunnerGroupId; set { _explicitNullValueRunnerGroupId = value; AdditionalData?.Remove("runner_group_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_id"); else _explicitNullProperties?.Remove("runner_group_id"); } }
         private long? _explicitNullValueRunnerGroupId = default!;
         /// <summary>The status of the runner.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunner"/> and sets the default values.
@@ -142,7 +154,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "public_ip_enabled", n => { PublicIpEnabled = n.GetBoolValue(); } },
                 { "public_ips", n => { PublicIps = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.PublicIp>(global::Soenneker.GitHub.OpenApiClient.Models.PublicIp.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "runner_group_id", n => { RunnerGroupId = n.GetLongValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>

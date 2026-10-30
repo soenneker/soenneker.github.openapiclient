@@ -65,6 +65,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(ActionsPolicyEnterpriseConditions != null || ActionsPolicyOrgConditions != null || ActionsPolicyRepoConditions != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ActionsPolicyEnterpriseConditions, ActionsPolicyOrgConditions, ActionsPolicyRepoConditions);
@@ -79,9 +81,13 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (ActionsPolicyEnterpriseConditions == null && ActionsPolicyOrgConditions == null && ActionsPolicyRepoConditions == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (ActionsPolicyEnterpriseConditions != null && ActionsPolicyOrgConditions == null && ActionsPolicyRepoConditions == null) { if (ActionsPolicyEnterpriseConditions is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyEnterpriseConditions); return; }
-            if (ActionsPolicyOrgConditions != null && ActionsPolicyEnterpriseConditions == null && ActionsPolicyRepoConditions == null) { if (ActionsPolicyOrgConditions is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyOrgConditions); return; }
-            if (ActionsPolicyRepoConditions != null && ActionsPolicyEnterpriseConditions == null && ActionsPolicyOrgConditions == null) { if (ActionsPolicyRepoConditions is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyRepoConditions); return; }
+            int selectedUnionBranches = 0;
+            if (ActionsPolicyEnterpriseConditions != null) selectedUnionBranches++;
+            if (ActionsPolicyOrgConditions != null) selectedUnionBranches++;
+            if (ActionsPolicyRepoConditions != null) selectedUnionBranches++;
+            if (ActionsPolicyEnterpriseConditions != null && selectedUnionBranches == 1) { if (ActionsPolicyEnterpriseConditions is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyEnterpriseConditions); return; }
+            if (ActionsPolicyOrgConditions != null && selectedUnionBranches == 1) { if (ActionsPolicyOrgConditions is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyOrgConditions); return; }
+            if (ActionsPolicyRepoConditions != null && selectedUnionBranches == 1) { if (ActionsPolicyRepoConditions is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ActionsPolicyRepoConditions); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyEnterpriseConditions>(null, ActionsPolicyEnterpriseConditions, ActionsPolicyOrgConditions, ActionsPolicyRepoConditions);

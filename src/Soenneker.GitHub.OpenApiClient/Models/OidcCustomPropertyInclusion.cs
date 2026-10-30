@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_property_name") is { } nullNodeCustomPropertyName && nullNodeCustomPropertyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPropertyName = null;
-            if (parseNode.GetChildNode("inclusion_source") is { } nullNodeInclusionSource && nullNodeInclusionSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InclusionSource = null;
+            if (parseNode.GetChildNode("custom_property_name") is null) { _explicitNullValueCustomPropertyName = default!; _explicitNullProperties?.Remove("custom_property_name"); }
+            else if (parseNode.GetChildNode("custom_property_name") is { } nullNodeCustomPropertyName && nullNodeCustomPropertyName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPropertyName = null;
+            if (parseNode.GetChildNode("inclusion_source") is null) { _explicitNullValueInclusionSource = default!; _explicitNullProperties?.Remove("inclusion_source"); }
+            else if (parseNode.GetChildNode("inclusion_source") is { } nullNodeInclusionSource && nullNodeInclusionSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InclusionSource = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The name of the custom property that is included in the OIDC token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
+        public string? CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; AdditionalData?.Remove("custom_property_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
         private string? _explicitNullValueCustomPropertyName = default!;
 #nullable restore
 #else
-        public string CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
+        public string CustomPropertyName { get => _explicitNullValueCustomPropertyName; set { _explicitNullValueCustomPropertyName = value; AdditionalData?.Remove("custom_property_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_property_name"); else _explicitNullProperties?.Remove("custom_property_name"); } }
         private string _explicitNullValueCustomPropertyName = default!;
 #endif
         /// <summary>Whether the inclusion was defined at the organization or enterprise level</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource? InclusionSource { get => _explicitNullValueInclusionSource; set { _explicitNullValueInclusionSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inclusion_source"); else _explicitNullProperties?.Remove("inclusion_source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource? InclusionSource { get => _explicitNullValueInclusionSource; set { _explicitNullValueInclusionSource = value; AdditionalData?.Remove("inclusion_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inclusion_source"); else _explicitNullProperties?.Remove("inclusion_source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource? _explicitNullValueInclusionSource = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusion"/> and sets the default values.
@@ -63,7 +65,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom_property_name", n => { CustomPropertyName = n.GetStringValue(); } },
-                { "inclusion_source", n => { InclusionSource = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource>(); } },
+                { "inclusion_source", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OidcCustomPropertyInclusionInclusionSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInclusionSource = default; _explicitNullProperties?.Remove("inclusion_source"); AdditionalData["inclusion_source"] = unknown; } else { InclusionSource = parsed; AdditionalData.Remove("inclusion_source"); } } },
             };
         }
         /// <summary>

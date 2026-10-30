@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("patterns") is { } nullNodePatterns && nullNodePatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patterns = null;
+            if (parseNode.GetChildNode("patterns") is null) { _explicitNullValuePatterns = default!; _explicitNullProperties?.Remove("patterns"); }
+            else if (parseNode.GetChildNode("patterns") is { } nullNodePatterns && nullNodePatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patterns = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The list of custom patterns to create (maximum 100).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate>? Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate>? Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; AdditionalData?.Remove("patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate>? _explicitNullValuePatterns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate> Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate> Patterns { get => _explicitNullValuePatterns; set { _explicitNullValuePatterns = value; AdditionalData?.Remove("patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns"); else _explicitNullProperties?.Remove("patterns"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToCreate> _explicitNullValuePatterns = default!;
 #endif
         /// <summary>

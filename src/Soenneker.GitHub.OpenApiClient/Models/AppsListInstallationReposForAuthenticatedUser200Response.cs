@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
-            if (parseNode.GetChildNode("repository_selection") is { } nullNodeRepositorySelection && nullNodeRepositorySelection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositorySelection = null;
-            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("repositories") is null) { _explicitNullValueRepositories = default!; _explicitNullProperties?.Remove("repositories"); }
+            else if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repository_selection") is null) { _explicitNullValueRepositorySelection = default!; _explicitNullProperties?.Remove("repository_selection"); }
+            else if (parseNode.GetChildNode("repository_selection") is { } nullNodeRepositorySelection && nullNodeRepositorySelection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositorySelection = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; AdditionalData?.Remove("repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; AdditionalData?.Remove("repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200ResponseRepositoriesItem> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>The repository_selection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
+        public string? RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; AdditionalData?.Remove("repository_selection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
         private string? _explicitNullValueRepositorySelection = default!;
 #nullable restore
 #else
-        public string RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
+        public string RepositorySelection { get => _explicitNullValueRepositorySelection; set { _explicitNullValueRepositorySelection = value; AdditionalData?.Remove("repository_selection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_selection"); else _explicitNullProperties?.Remove("repository_selection"); } }
         private string _explicitNullValueRepositorySelection = default!;
 #endif
         /// <summary>The total_count property</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AppsListInstallationReposForAuthenticatedUser200Response"/> and sets the default values.

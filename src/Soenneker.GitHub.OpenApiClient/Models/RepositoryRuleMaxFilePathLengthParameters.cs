@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_file_path_length") is { } nullNodeMaxFilePathLength && nullNodeMaxFilePathLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFilePathLength = null;
+            if (parseNode.GetChildNode("max_file_path_length") is null) { _explicitNullValueMaxFilePathLength = default!; _explicitNullProperties?.Remove("max_file_path_length"); }
+            else if (parseNode.GetChildNode("max_file_path_length") is { } nullNodeMaxFilePathLength && nullNodeMaxFilePathLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFilePathLength = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum amount of characters allowed in file paths.</summary>
-        public int? MaxFilePathLength { get => _explicitNullValueMaxFilePathLength; set { _explicitNullValueMaxFilePathLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_file_path_length"); else _explicitNullProperties?.Remove("max_file_path_length"); } }
+        public int? MaxFilePathLength { get => _explicitNullValueMaxFilePathLength; set { _explicitNullValueMaxFilePathLength = value; AdditionalData?.Remove("max_file_path_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_file_path_length"); else _explicitNullProperties?.Remove("max_file_path_length"); } }
         private int? _explicitNullValueMaxFilePathLength = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFilePathLengthParameters"/> and sets the default values.

@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
+            if (parseNode.GetChildNode("reviewers") is null) { _explicitNullValueReviewers = default!; _explicitNullProperties?.Remove("reviewers"); }
+            else if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The bypass reviewers for secret scanning delegated bypass</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; AdditionalData?.Remove("reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem>? _explicitNullValueReviewers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; AdditionalData?.Remove("reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationSecretScanningDelegatedBypassOptionsReviewersItem> _explicitNullValueReviewers = default!;
 #endif
         /// <summary>

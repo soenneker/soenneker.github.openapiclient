@@ -17,12 +17,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_route") is { } nullNodeApiRoute && nullNodeApiRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiRoute = null;
-            if (parseNode.GetChildNode("http_method") is { } nullNodeHttpMethod && nullNodeHttpMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMethod = null;
-            if (parseNode.GetChildNode("last_rate_limited_timestamp") is { } nullNodeLastRateLimitedTimestamp && nullNodeLastRateLimitedTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRateLimitedTimestamp = null;
-            if (parseNode.GetChildNode("last_request_timestamp") is { } nullNodeLastRequestTimestamp && nullNodeLastRequestTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRequestTimestamp = null;
-            if (parseNode.GetChildNode("rate_limited_request_count") is { } nullNodeRateLimitedRequestCount && nullNodeRateLimitedRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitedRequestCount = null;
-            if (parseNode.GetChildNode("total_request_count") is { } nullNodeTotalRequestCount && nullNodeTotalRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequestCount = null;
+            if (parseNode.GetChildNode("api_route") is null) { _explicitNullValueApiRoute = default!; _explicitNullProperties?.Remove("api_route"); }
+            else if (parseNode.GetChildNode("api_route") is { } nullNodeApiRoute && nullNodeApiRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiRoute = null;
+            if (parseNode.GetChildNode("http_method") is null) { _explicitNullValueHttpMethod = default!; _explicitNullProperties?.Remove("http_method"); }
+            else if (parseNode.GetChildNode("http_method") is { } nullNodeHttpMethod && nullNodeHttpMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMethod = null;
+            if (parseNode.GetChildNode("last_rate_limited_timestamp") is null) { _explicitNullValueLastRateLimitedTimestamp = default!; _explicitNullProperties?.Remove("last_rate_limited_timestamp"); }
+            else if (parseNode.GetChildNode("last_rate_limited_timestamp") is { } nullNodeLastRateLimitedTimestamp && nullNodeLastRateLimitedTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRateLimitedTimestamp = null;
+            if (parseNode.GetChildNode("last_request_timestamp") is null) { _explicitNullValueLastRequestTimestamp = default!; _explicitNullProperties?.Remove("last_request_timestamp"); }
+            else if (parseNode.GetChildNode("last_request_timestamp") is { } nullNodeLastRequestTimestamp && nullNodeLastRequestTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRequestTimestamp = null;
+            if (parseNode.GetChildNode("rate_limited_request_count") is null) { _explicitNullValueRateLimitedRequestCount = default!; _explicitNullProperties?.Remove("rate_limited_request_count"); }
+            else if (parseNode.GetChildNode("rate_limited_request_count") is { } nullNodeRateLimitedRequestCount && nullNodeRateLimitedRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitedRequestCount = null;
+            if (parseNode.GetChildNode("total_request_count") is null) { _explicitNullValueTotalRequestCount = default!; _explicitNullProperties?.Remove("total_request_count"); }
+            else if (parseNode.GetChildNode("total_request_count") is { } nullNodeTotalRequestCount && nullNodeTotalRequestCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRequestCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,48 +36,48 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The API path&apos;s route template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiRoute { get => _explicitNullValueApiRoute; set { _explicitNullValueApiRoute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_route"); else _explicitNullProperties?.Remove("api_route"); } }
+        public string? ApiRoute { get => _explicitNullValueApiRoute; set { _explicitNullValueApiRoute = value; AdditionalData?.Remove("api_route"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_route"); else _explicitNullProperties?.Remove("api_route"); } }
         private string? _explicitNullValueApiRoute = default!;
 #nullable restore
 #else
-        public string ApiRoute { get => _explicitNullValueApiRoute; set { _explicitNullValueApiRoute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_route"); else _explicitNullProperties?.Remove("api_route"); } }
+        public string ApiRoute { get => _explicitNullValueApiRoute; set { _explicitNullValueApiRoute = value; AdditionalData?.Remove("api_route"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_route"); else _explicitNullProperties?.Remove("api_route"); } }
         private string _explicitNullValueApiRoute = default!;
 #endif
         /// <summary>The HTTP method</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
+        public string? HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; AdditionalData?.Remove("http_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
         private string? _explicitNullValueHttpMethod = default!;
 #nullable restore
 #else
-        public string HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
+        public string HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; AdditionalData?.Remove("http_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
         private string _explicitNullValueHttpMethod = default!;
 #endif
         /// <summary>The last_rate_limited_timestamp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
+        public string? LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; AdditionalData?.Remove("last_rate_limited_timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
         private string? _explicitNullValueLastRateLimitedTimestamp = default!;
 #nullable restore
 #else
-        public string LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
+        public string LastRateLimitedTimestamp { get => _explicitNullValueLastRateLimitedTimestamp; set { _explicitNullValueLastRateLimitedTimestamp = value; AdditionalData?.Remove("last_rate_limited_timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_rate_limited_timestamp"); else _explicitNullProperties?.Remove("last_rate_limited_timestamp"); } }
         private string _explicitNullValueLastRateLimitedTimestamp = default!;
 #endif
         /// <summary>The last_request_timestamp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
+        public string? LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; AdditionalData?.Remove("last_request_timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
         private string? _explicitNullValueLastRequestTimestamp = default!;
 #nullable restore
 #else
-        public string LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
+        public string LastRequestTimestamp { get => _explicitNullValueLastRequestTimestamp; set { _explicitNullValueLastRequestTimestamp = value; AdditionalData?.Remove("last_request_timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_request_timestamp"); else _explicitNullProperties?.Remove("last_request_timestamp"); } }
         private string _explicitNullValueLastRequestTimestamp = default!;
 #endif
         /// <summary>The total number of requests that were rate limited within the queried time period</summary>
-        public long? RateLimitedRequestCount { get => _explicitNullValueRateLimitedRequestCount; set { _explicitNullValueRateLimitedRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limited_request_count"); else _explicitNullProperties?.Remove("rate_limited_request_count"); } }
+        public long? RateLimitedRequestCount { get => _explicitNullValueRateLimitedRequestCount; set { _explicitNullValueRateLimitedRequestCount = value; AdditionalData?.Remove("rate_limited_request_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate_limited_request_count"); else _explicitNullProperties?.Remove("rate_limited_request_count"); } }
         private long? _explicitNullValueRateLimitedRequestCount = default!;
         /// <summary>The total number of requests within the queried time period</summary>
-        public long? TotalRequestCount { get => _explicitNullValueTotalRequestCount; set { _explicitNullValueTotalRequestCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_request_count"); else _explicitNullProperties?.Remove("total_request_count"); } }
+        public long? TotalRequestCount { get => _explicitNullValueTotalRequestCount; set { _explicitNullValueTotalRequestCount = value; AdditionalData?.Remove("total_request_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_request_count"); else _explicitNullProperties?.Remove("total_request_count"); } }
         private long? _explicitNullValueTotalRequestCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ApiInsightsRouteStatsItem"/> and sets the default values.

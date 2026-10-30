@@ -18,15 +18,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blob_sha") is { } nullNodeBlobSha && nullNodeBlobSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlobSha = null;
-            if (parseNode.GetChildNode("commit_sha") is { } nullNodeCommitSha && nullNodeCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitSha = null;
-            if (parseNode.GetChildNode("commit_url") is { } nullNodeCommitUrl && nullNodeCommitUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitUrl = null;
-            if (parseNode.GetChildNode("end_column") is { } nullNodeEndColumn && nullNodeEndColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndColumn = null;
-            if (parseNode.GetChildNode("end_line") is { } nullNodeEndLine && nullNodeEndLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndLine = null;
-            if (parseNode.GetChildNode("page_url") is { } nullNodePageUrl && nullNodePageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageUrl = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
-            if (parseNode.GetChildNode("start_column") is { } nullNodeStartColumn && nullNodeStartColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartColumn = null;
-            if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
+            if (parseNode.GetChildNode("blob_sha") is null) { _explicitNullValueBlobSha = default!; _explicitNullProperties?.Remove("blob_sha"); }
+            else if (parseNode.GetChildNode("blob_sha") is { } nullNodeBlobSha && nullNodeBlobSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlobSha = null;
+            if (parseNode.GetChildNode("commit_sha") is null) { _explicitNullValueCommitSha = default!; _explicitNullProperties?.Remove("commit_sha"); }
+            else if (parseNode.GetChildNode("commit_sha") is { } nullNodeCommitSha && nullNodeCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitSha = null;
+            if (parseNode.GetChildNode("commit_url") is null) { _explicitNullValueCommitUrl = default!; _explicitNullProperties?.Remove("commit_url"); }
+            else if (parseNode.GetChildNode("commit_url") is { } nullNodeCommitUrl && nullNodeCommitUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitUrl = null;
+            if (parseNode.GetChildNode("end_column") is null) { _explicitNullValueEndColumn = default!; _explicitNullProperties?.Remove("end_column"); }
+            else if (parseNode.GetChildNode("end_column") is { } nullNodeEndColumn && nullNodeEndColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndColumn = null;
+            if (parseNode.GetChildNode("end_line") is null) { _explicitNullValueEndLine = default!; _explicitNullProperties?.Remove("end_line"); }
+            else if (parseNode.GetChildNode("end_line") is { } nullNodeEndLine && nullNodeEndLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndLine = null;
+            if (parseNode.GetChildNode("page_url") is null) { _explicitNullValuePageUrl = default!; _explicitNullProperties?.Remove("page_url"); }
+            else if (parseNode.GetChildNode("page_url") is { } nullNodePageUrl && nullNodePageUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageUrl = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("start_column") is null) { _explicitNullValueStartColumn = default!; _explicitNullProperties?.Remove("start_column"); }
+            else if (parseNode.GetChildNode("start_column") is { } nullNodeStartColumn && nullNodeStartColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartColumn = null;
+            if (parseNode.GetChildNode("start_line") is null) { _explicitNullValueStartLine = default!; _explicitNullProperties?.Remove("start_line"); }
+            else if (parseNode.GetChildNode("start_line") is { } nullNodeStartLine && nullNodeStartLine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartLine = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,64 +43,64 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>SHA-1 hash ID of the associated blob</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlobSha { get => _explicitNullValueBlobSha; set { _explicitNullValueBlobSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_sha"); else _explicitNullProperties?.Remove("blob_sha"); } }
+        public string? BlobSha { get => _explicitNullValueBlobSha; set { _explicitNullValueBlobSha = value; AdditionalData?.Remove("blob_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_sha"); else _explicitNullProperties?.Remove("blob_sha"); } }
         private string? _explicitNullValueBlobSha = default!;
 #nullable restore
 #else
-        public string BlobSha { get => _explicitNullValueBlobSha; set { _explicitNullValueBlobSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_sha"); else _explicitNullProperties?.Remove("blob_sha"); } }
+        public string BlobSha { get => _explicitNullValueBlobSha; set { _explicitNullValueBlobSha = value; AdditionalData?.Remove("blob_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blob_sha"); else _explicitNullProperties?.Remove("blob_sha"); } }
         private string _explicitNullValueBlobSha = default!;
 #endif
         /// <summary>SHA-1 hash ID of the associated commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        public string? CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; AdditionalData?.Remove("commit_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
         private string? _explicitNullValueCommitSha = default!;
 #nullable restore
 #else
-        public string CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
+        public string CommitSha { get => _explicitNullValueCommitSha; set { _explicitNullValueCommitSha = value; AdditionalData?.Remove("commit_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_sha"); else _explicitNullProperties?.Remove("commit_sha"); } }
         private string _explicitNullValueCommitSha = default!;
 #endif
         /// <summary>The GitHub URL to get the associated wiki commit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitUrl { get => _explicitNullValueCommitUrl; set { _explicitNullValueCommitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_url"); else _explicitNullProperties?.Remove("commit_url"); } }
+        public string? CommitUrl { get => _explicitNullValueCommitUrl; set { _explicitNullValueCommitUrl = value; AdditionalData?.Remove("commit_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_url"); else _explicitNullProperties?.Remove("commit_url"); } }
         private string? _explicitNullValueCommitUrl = default!;
 #nullable restore
 #else
-        public string CommitUrl { get => _explicitNullValueCommitUrl; set { _explicitNullValueCommitUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_url"); else _explicitNullProperties?.Remove("commit_url"); } }
+        public string CommitUrl { get => _explicitNullValueCommitUrl; set { _explicitNullValueCommitUrl = value; AdditionalData?.Remove("commit_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_url"); else _explicitNullProperties?.Remove("commit_url"); } }
         private string _explicitNullValueCommitUrl = default!;
 #endif
         /// <summary>The column at which the secret ends within the end line when the file is interpreted as 8-bit ASCII.</summary>
-        public double? EndColumn { get => _explicitNullValueEndColumn; set { _explicitNullValueEndColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_column"); else _explicitNullProperties?.Remove("end_column"); } }
+        public double? EndColumn { get => _explicitNullValueEndColumn; set { _explicitNullValueEndColumn = value; AdditionalData?.Remove("end_column"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_column"); else _explicitNullProperties?.Remove("end_column"); } }
         private double? _explicitNullValueEndColumn = default!;
         /// <summary>Line number at which the secret ends in the file</summary>
-        public double? EndLine { get => _explicitNullValueEndLine; set { _explicitNullValueEndLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_line"); else _explicitNullProperties?.Remove("end_line"); } }
+        public double? EndLine { get => _explicitNullValueEndLine; set { _explicitNullValueEndLine = value; AdditionalData?.Remove("end_line"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_line"); else _explicitNullProperties?.Remove("end_line"); } }
         private double? _explicitNullValueEndLine = default!;
         /// <summary>The GitHub URL to get the associated wiki page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
+        public string? PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; AdditionalData?.Remove("page_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
         private string? _explicitNullValuePageUrl = default!;
 #nullable restore
 #else
-        public string PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
+        public string PageUrl { get => _explicitNullValuePageUrl; set { _explicitNullValuePageUrl = value; AdditionalData?.Remove("page_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_url"); else _explicitNullProperties?.Remove("page_url"); } }
         private string _explicitNullValuePageUrl = default!;
 #endif
         /// <summary>The file path of the wiki page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The column at which the secret starts within the start line when the file is interpreted as 8-bit ASCII.</summary>
-        public double? StartColumn { get => _explicitNullValueStartColumn; set { _explicitNullValueStartColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_column"); else _explicitNullProperties?.Remove("start_column"); } }
+        public double? StartColumn { get => _explicitNullValueStartColumn; set { _explicitNullValueStartColumn = value; AdditionalData?.Remove("start_column"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_column"); else _explicitNullProperties?.Remove("start_column"); } }
         private double? _explicitNullValueStartColumn = default!;
         /// <summary>Line number at which the secret starts in the file</summary>
-        public double? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
+        public double? StartLine { get => _explicitNullValueStartLine; set { _explicitNullValueStartLine = value; AdditionalData?.Remove("start_line"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_line"); else _explicitNullProperties?.Remove("start_line"); } }
         private double? _explicitNullValueStartLine = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningLocationWikiCommit"/> and sets the default values.

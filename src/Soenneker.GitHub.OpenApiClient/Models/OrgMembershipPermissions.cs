@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("can_create_repository") is { } nullNodeCanCreateRepository && nullNodeCanCreateRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanCreateRepository = null;
+            if (parseNode.GetChildNode("can_create_repository") is null) { _explicitNullValueCanCreateRepository = default!; _explicitNullProperties?.Remove("can_create_repository"); }
+            else if (parseNode.GetChildNode("can_create_repository") is { } nullNodeCanCreateRepository && nullNodeCanCreateRepository.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanCreateRepository = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The can_create_repository property</summary>
-        public bool? CanCreateRepository { get => _explicitNullValueCanCreateRepository; set { _explicitNullValueCanCreateRepository = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_create_repository"); else _explicitNullProperties?.Remove("can_create_repository"); } }
+        public bool? CanCreateRepository { get => _explicitNullValueCanCreateRepository; set { _explicitNullValueCanCreateRepository = value; AdditionalData?.Remove("can_create_repository"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_create_repository"); else _explicitNullProperties?.Remove("can_create_repository"); } }
         private bool? _explicitNullValueCanCreateRepository = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgMembershipPermissions"/> and sets the default values.

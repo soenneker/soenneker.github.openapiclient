@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_properties") is { } nullNodeCustomProperties && nullNodeCustomProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomProperties = null;
-            if (parseNode.GetChildNode("organizations") is { } nullNodeOrganizations && nullNodeOrganizations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organizations = null;
+            if (parseNode.GetChildNode("custom_properties") is null) { _explicitNullValueCustomProperties = default!; _explicitNullProperties?.Remove("custom_properties"); }
+            else if (parseNode.GetChildNode("custom_properties") is { } nullNodeCustomProperties && nullNodeCustomProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomProperties = null;
+            if (parseNode.GetChildNode("organizations") is null) { _explicitNullValueOrganizations = default!; _explicitNullProperties?.Remove("organizations"); }
+            else if (parseNode.GetChildNode("organizations") is { } nullNodeOrganizations && nullNodeOrganizations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organizations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>List of custom property filters to match organizations. Organizations matching any of the specified property name/value pairs will be included. This is a one-time operation, setting the property on an organization in the future will not automatically update its coding agent policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicyRequestCustomPropertiesItem>? CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicyRequestCustomPropertiesItem>? CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; AdditionalData?.Remove("custom_properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicyRequestCustomPropertiesItem>? _explicitNullValueCustomProperties = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicyRequestCustomPropertiesItem> CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicyRequestCustomPropertiesItem> CustomProperties { get => _explicitNullValueCustomProperties; set { _explicitNullValueCustomProperties = value; AdditionalData?.Remove("custom_properties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_properties"); else _explicitNullProperties?.Remove("custom_properties"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotRemoveOrganizationsFromEnterpriseCodingAgentPolicyRequestCustomPropertiesItem> _explicitNullValueCustomProperties = default!;
 #endif
         /// <summary>List of organization logins within the enterprise to disable Copilot cloud agent for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Organizations { get => _explicitNullValueOrganizations; set { _explicitNullValueOrganizations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations"); else _explicitNullProperties?.Remove("organizations"); } }
+        public List<string>? Organizations { get => _explicitNullValueOrganizations; set { _explicitNullValueOrganizations = value; AdditionalData?.Remove("organizations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations"); else _explicitNullProperties?.Remove("organizations"); } }
         private List<string>? _explicitNullValueOrganizations = default!;
 #nullable restore
 #else
-        public List<string> Organizations { get => _explicitNullValueOrganizations; set { _explicitNullValueOrganizations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations"); else _explicitNullProperties?.Remove("organizations"); } }
+        public List<string> Organizations { get => _explicitNullValueOrganizations; set { _explicitNullValueOrganizations = value; AdditionalData?.Remove("organizations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organizations"); else _explicitNullProperties?.Remove("organizations"); } }
         private List<string> _explicitNullValueOrganizations = default!;
 #endif
         /// <summary>

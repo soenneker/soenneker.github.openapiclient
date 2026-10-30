@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("approval_policy") is { } nullNodeApprovalPolicy && nullNodeApprovalPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalPolicy = null;
+            if (parseNode.GetChildNode("approval_policy") is null) { _explicitNullValueApprovalPolicy = default!; _explicitNullProperties?.Remove("approval_policy"); }
+            else if (parseNode.GetChildNode("approval_policy") is { } nullNodeApprovalPolicy && nullNodeApprovalPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalPolicy = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls when fork PR workflows require approval from a maintainer.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? ApprovalPolicy { get => _explicitNullValueApprovalPolicy; set { _explicitNullValueApprovalPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval_policy"); else _explicitNullProperties?.Remove("approval_policy"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? ApprovalPolicy { get => _explicitNullValueApprovalPolicy; set { _explicitNullValueApprovalPolicy = value; AdditionalData?.Remove("approval_policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval_policy"); else _explicitNullProperties?.Remove("approval_policy"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy? _explicitNullValueApprovalPolicy = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApproval"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "approval_policy", n => { ApprovalPolicy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy>(); } },
+                { "approval_policy", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsForkPrContributorApprovalApprovalPolicy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueApprovalPolicy = default; _explicitNullProperties?.Remove("approval_policy"); AdditionalData["approval_policy"] = unknown; } else { ApprovalPolicy = parsed; AdditionalData.Remove("approval_policy"); } } },
             };
         }
         /// <summary>

@@ -17,40 +17,64 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("account_id") is { } nullNodeAccountId && nullNodeAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountId = null;
-            if (parseNode.GetChildNode("api_host") is { } nullNodeApiHost && nullNodeApiHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiHost = null;
-            if (parseNode.GetChildNode("audience") is { } nullNodeAudience && nullNodeAudience.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audience = null;
-            if (parseNode.GetChildNode("auth_type") is { } nullNodeAuthType && nullNodeAuthType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthType = null;
-            if (parseNode.GetChildNode("aws_region") is { } nullNodeAwsRegion && nullNodeAwsRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRegion = null;
-            if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
-            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
-            if (parseNode.GetChildNode("domain_owner") is { } nullNodeDomainOwner && nullNodeDomainOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainOwner = null;
-            if (parseNode.GetChildNode("encrypted_value") is { } nullNodeEncryptedValue && nullNodeEncryptedValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedValue = null;
-            if (parseNode.GetChildNode("identity_mapping_name") is { } nullNodeIdentityMappingName && nullNodeIdentityMappingName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityMappingName = null;
-            if (parseNode.GetChildNode("jfrog_oidc_provider_name") is { } nullNodeJfrogOidcProviderName && nullNodeJfrogOidcProviderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JfrogOidcProviderName = null;
-            if (parseNode.GetChildNode("key_id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
-            if (parseNode.GetChildNode("namespace") is { } nullNodeNamespace && nullNodeNamespace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Namespace = null;
-            if (parseNode.GetChildNode("registry_type") is { } nullNodeRegistryType && nullNodeRegistryType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryType = null;
-            if (parseNode.GetChildNode("replaces_base") is { } nullNodeReplacesBase && nullNodeReplacesBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplacesBase = null;
-            if (parseNode.GetChildNode("role_name") is { } nullNodeRoleName && nullNodeRoleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleName = null;
-            if (parseNode.GetChildNode("selected_repository_ids") is { } nullNodeSelectedRepositoryIds && nullNodeSelectedRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoryIds = null;
-            if (parseNode.GetChildNode("service_account") is { } nullNodeServiceAccount && nullNodeServiceAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccount = null;
-            if (parseNode.GetChildNode("service_slug") is { } nullNodeServiceSlug && nullNodeServiceSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceSlug = null;
-            if (parseNode.GetChildNode("tenant_id") is { } nullNodeTenantId && nullNodeTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TenantId = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
-            if (parseNode.GetChildNode("username") is { } nullNodeUsername && nullNodeUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Username = null;
-            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
-            if (parseNode.GetChildNode("workload_identity_provider") is { } nullNodeWorkloadIdentityProvider && nullNodeWorkloadIdentityProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProvider = null;
+            if (parseNode.GetChildNode("account_id") is null) { _explicitNullValueAccountId = default!; _explicitNullProperties?.Remove("account_id"); }
+            else if (parseNode.GetChildNode("account_id") is { } nullNodeAccountId && nullNodeAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountId = null;
+            if (parseNode.GetChildNode("api_host") is null) { _explicitNullValueApiHost = default!; _explicitNullProperties?.Remove("api_host"); }
+            else if (parseNode.GetChildNode("api_host") is { } nullNodeApiHost && nullNodeApiHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiHost = null;
+            if (parseNode.GetChildNode("audience") is null) { _explicitNullValueAudience = default!; _explicitNullProperties?.Remove("audience"); }
+            else if (parseNode.GetChildNode("audience") is { } nullNodeAudience && nullNodeAudience.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Audience = null;
+            if (parseNode.GetChildNode("auth_type") is null) { _explicitNullValueAuthType = default!; _explicitNullProperties?.Remove("auth_type"); }
+            else if (parseNode.GetChildNode("auth_type") is { } nullNodeAuthType && nullNodeAuthType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthType = null;
+            if (parseNode.GetChildNode("aws_region") is null) { _explicitNullValueAwsRegion = default!; _explicitNullProperties?.Remove("aws_region"); }
+            else if (parseNode.GetChildNode("aws_region") is { } nullNodeAwsRegion && nullNodeAwsRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRegion = null;
+            if (parseNode.GetChildNode("client_id") is null) { _explicitNullValueClientId = default!; _explicitNullProperties?.Remove("client_id"); }
+            else if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
+            if (parseNode.GetChildNode("domain") is null) { _explicitNullValueDomain = default!; _explicitNullProperties?.Remove("domain"); }
+            else if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("domain_owner") is null) { _explicitNullValueDomainOwner = default!; _explicitNullProperties?.Remove("domain_owner"); }
+            else if (parseNode.GetChildNode("domain_owner") is { } nullNodeDomainOwner && nullNodeDomainOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DomainOwner = null;
+            if (parseNode.GetChildNode("encrypted_value") is null) { _explicitNullValueEncryptedValue = default!; _explicitNullProperties?.Remove("encrypted_value"); }
+            else if (parseNode.GetChildNode("encrypted_value") is { } nullNodeEncryptedValue && nullNodeEncryptedValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedValue = null;
+            if (parseNode.GetChildNode("identity_mapping_name") is null) { _explicitNullValueIdentityMappingName = default!; _explicitNullProperties?.Remove("identity_mapping_name"); }
+            else if (parseNode.GetChildNode("identity_mapping_name") is { } nullNodeIdentityMappingName && nullNodeIdentityMappingName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentityMappingName = null;
+            if (parseNode.GetChildNode("jfrog_oidc_provider_name") is null) { _explicitNullValueJfrogOidcProviderName = default!; _explicitNullProperties?.Remove("jfrog_oidc_provider_name"); }
+            else if (parseNode.GetChildNode("jfrog_oidc_provider_name") is { } nullNodeJfrogOidcProviderName && nullNodeJfrogOidcProviderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JfrogOidcProviderName = null;
+            if (parseNode.GetChildNode("key_id") is null) { _explicitNullValueKeyId = default!; _explicitNullProperties?.Remove("key_id"); }
+            else if (parseNode.GetChildNode("key_id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
+            if (parseNode.GetChildNode("namespace") is null) { _explicitNullValueNamespace = default!; _explicitNullProperties?.Remove("namespace"); }
+            else if (parseNode.GetChildNode("namespace") is { } nullNodeNamespace && nullNodeNamespace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Namespace = null;
+            if (parseNode.GetChildNode("registry_type") is null) { _explicitNullValueRegistryType = default!; _explicitNullProperties?.Remove("registry_type"); }
+            else if (parseNode.GetChildNode("registry_type") is { } nullNodeRegistryType && nullNodeRegistryType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryType = null;
+            if (parseNode.GetChildNode("replaces_base") is null) { _explicitNullValueReplacesBase = default!; _explicitNullProperties?.Remove("replaces_base"); }
+            else if (parseNode.GetChildNode("replaces_base") is { } nullNodeReplacesBase && nullNodeReplacesBase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplacesBase = null;
+            if (parseNode.GetChildNode("role_name") is null) { _explicitNullValueRoleName = default!; _explicitNullProperties?.Remove("role_name"); }
+            else if (parseNode.GetChildNode("role_name") is { } nullNodeRoleName && nullNodeRoleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoleName = null;
+            if (parseNode.GetChildNode("selected_repository_ids") is null) { _explicitNullValueSelectedRepositoryIds = default!; _explicitNullProperties?.Remove("selected_repository_ids"); }
+            else if (parseNode.GetChildNode("selected_repository_ids") is { } nullNodeSelectedRepositoryIds && nullNodeSelectedRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoryIds = null;
+            if (parseNode.GetChildNode("service_account") is null) { _explicitNullValueServiceAccount = default!; _explicitNullProperties?.Remove("service_account"); }
+            else if (parseNode.GetChildNode("service_account") is { } nullNodeServiceAccount && nullNodeServiceAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccount = null;
+            if (parseNode.GetChildNode("service_slug") is null) { _explicitNullValueServiceSlug = default!; _explicitNullProperties?.Remove("service_slug"); }
+            else if (parseNode.GetChildNode("service_slug") is { } nullNodeServiceSlug && nullNodeServiceSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceSlug = null;
+            if (parseNode.GetChildNode("tenant_id") is null) { _explicitNullValueTenantId = default!; _explicitNullProperties?.Remove("tenant_id"); }
+            else if (parseNode.GetChildNode("tenant_id") is { } nullNodeTenantId && nullNodeTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TenantId = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("username") is null) { _explicitNullValueUsername = default!; _explicitNullProperties?.Remove("username"); }
+            else if (parseNode.GetChildNode("username") is { } nullNodeUsername && nullNodeUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Username = null;
+            if (parseNode.GetChildNode("visibility") is null) { _explicitNullValueVisibility = default!; _explicitNullProperties?.Remove("visibility"); }
+            else if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+            if (parseNode.GetChildNode("workload_identity_provider") is null) { _explicitNullValueWorkloadIdentityProvider = default!; _explicitNullProperties?.Remove("workload_identity_provider"); }
+            else if (parseNode.GetChildNode("workload_identity_provider") is { } nullNodeWorkloadIdentityProvider && nullNodeWorkloadIdentityProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkloadIdentityProvider = null;
         }
 
         /// <summary>The AWS account ID. Required when `auth_type` is `oidc_aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountId { get => _explicitNullValueAccountId; set { _explicitNullValueAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_id"); else _explicitNullProperties?.Remove("account_id"); } }
+        public string? AccountId { get => _explicitNullValueAccountId; set { _explicitNullValueAccountId = value; AdditionalData?.Remove("account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_id"); else _explicitNullProperties?.Remove("account_id"); } }
         private string? _explicitNullValueAccountId = default!;
 #nullable restore
 #else
-        public string AccountId { get => _explicitNullValueAccountId; set { _explicitNullValueAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_id"); else _explicitNullProperties?.Remove("account_id"); } }
+        public string AccountId { get => _explicitNullValueAccountId; set { _explicitNullValueAccountId = value; AdditionalData?.Remove("account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_id"); else _explicitNullProperties?.Remove("account_id"); } }
         private string _explicitNullValueAccountId = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,203 +82,203 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The Cloudsmith API host. Optional for `oidc_cloudsmith` auth type. If omitted, `api.cloudsmith.io` is used by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiHost { get => _explicitNullValueApiHost; set { _explicitNullValueApiHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_host"); else _explicitNullProperties?.Remove("api_host"); } }
+        public string? ApiHost { get => _explicitNullValueApiHost; set { _explicitNullValueApiHost = value; AdditionalData?.Remove("api_host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_host"); else _explicitNullProperties?.Remove("api_host"); } }
         private string? _explicitNullValueApiHost = default!;
 #nullable restore
 #else
-        public string ApiHost { get => _explicitNullValueApiHost; set { _explicitNullValueApiHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_host"); else _explicitNullProperties?.Remove("api_host"); } }
+        public string ApiHost { get => _explicitNullValueApiHost; set { _explicitNullValueApiHost = value; AdditionalData?.Remove("api_host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_host"); else _explicitNullProperties?.Remove("api_host"); } }
         private string _explicitNullValueApiHost = default!;
 #endif
         /// <summary>The OIDC audience. Optional for `oidc_aws`, `oidc_jfrog`, and `oidc_gcp`, and required for `oidc_cloudsmith` auth types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
+        public string? Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; AdditionalData?.Remove("audience"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
         private string? _explicitNullValueAudience = default!;
 #nullable restore
 #else
-        public string Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
+        public string Audience { get => _explicitNullValueAudience; set { _explicitNullValueAudience = value; AdditionalData?.Remove("audience"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audience"); else _explicitNullProperties?.Remove("audience"); } }
         private string _explicitNullValueAudience = default!;
 #endif
         /// <summary>The authentication type for the private registry. This field cannot be changed after creation. If provided, it must match the existing `auth_type` of the configuration. To change the authentication type, delete and recreate the configuration.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestAuthType? AuthType { get => _explicitNullValueAuthType; set { _explicitNullValueAuthType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_type"); else _explicitNullProperties?.Remove("auth_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestAuthType? AuthType { get => _explicitNullValueAuthType; set { _explicitNullValueAuthType = value; AdditionalData?.Remove("auth_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_type"); else _explicitNullProperties?.Remove("auth_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestAuthType? _explicitNullValueAuthType = default!;
         /// <summary>The AWS region. Required when `auth_type` is `oidc_aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
+        public string? AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; AdditionalData?.Remove("aws_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
         private string? _explicitNullValueAwsRegion = default!;
 #nullable restore
 #else
-        public string AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
+        public string AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; AdditionalData?.Remove("aws_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
         private string _explicitNullValueAwsRegion = default!;
 #endif
         /// <summary>The client ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
         private string? _explicitNullValueClientId = default!;
 #nullable restore
 #else
-        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
         private string _explicitNullValueClientId = default!;
 #endif
         /// <summary>The CodeArtifact domain. Required when `auth_type` is `oidc_aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; AdditionalData?.Remove("domain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
         private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>The CodeArtifact domain owner (AWS account ID). Required when `auth_type` is `oidc_aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DomainOwner { get => _explicitNullValueDomainOwner; set { _explicitNullValueDomainOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_owner"); else _explicitNullProperties?.Remove("domain_owner"); } }
+        public string? DomainOwner { get => _explicitNullValueDomainOwner; set { _explicitNullValueDomainOwner = value; AdditionalData?.Remove("domain_owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_owner"); else _explicitNullProperties?.Remove("domain_owner"); } }
         private string? _explicitNullValueDomainOwner = default!;
 #nullable restore
 #else
-        public string DomainOwner { get => _explicitNullValueDomainOwner; set { _explicitNullValueDomainOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_owner"); else _explicitNullProperties?.Remove("domain_owner"); } }
+        public string DomainOwner { get => _explicitNullValueDomainOwner; set { _explicitNullValueDomainOwner = value; AdditionalData?.Remove("domain_owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain_owner"); else _explicitNullProperties?.Remove("domain_owner"); } }
         private string _explicitNullValueDomainOwner = default!;
 #endif
         /// <summary>The value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get private registries public key for an organization](https://docs.github.com/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization) endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
+        public string? EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; AdditionalData?.Remove("encrypted_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
         private string? _explicitNullValueEncryptedValue = default!;
 #nullable restore
 #else
-        public string EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
+        public string EncryptedValue { get => _explicitNullValueEncryptedValue; set { _explicitNullValueEncryptedValue = value; AdditionalData?.Remove("encrypted_value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encrypted_value"); else _explicitNullProperties?.Remove("encrypted_value"); } }
         private string _explicitNullValueEncryptedValue = default!;
 #endif
         /// <summary>The JFrog identity mapping name. Optional for `oidc_jfrog` auth type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdentityMappingName { get => _explicitNullValueIdentityMappingName; set { _explicitNullValueIdentityMappingName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_mapping_name"); else _explicitNullProperties?.Remove("identity_mapping_name"); } }
+        public string? IdentityMappingName { get => _explicitNullValueIdentityMappingName; set { _explicitNullValueIdentityMappingName = value; AdditionalData?.Remove("identity_mapping_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_mapping_name"); else _explicitNullProperties?.Remove("identity_mapping_name"); } }
         private string? _explicitNullValueIdentityMappingName = default!;
 #nullable restore
 #else
-        public string IdentityMappingName { get => _explicitNullValueIdentityMappingName; set { _explicitNullValueIdentityMappingName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_mapping_name"); else _explicitNullProperties?.Remove("identity_mapping_name"); } }
+        public string IdentityMappingName { get => _explicitNullValueIdentityMappingName; set { _explicitNullValueIdentityMappingName = value; AdditionalData?.Remove("identity_mapping_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identity_mapping_name"); else _explicitNullProperties?.Remove("identity_mapping_name"); } }
         private string _explicitNullValueIdentityMappingName = default!;
 #endif
         /// <summary>The JFrog OIDC provider name. Required when `auth_type` is `oidc_jfrog`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JfrogOidcProviderName { get => _explicitNullValueJfrogOidcProviderName; set { _explicitNullValueJfrogOidcProviderName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jfrog_oidc_provider_name"); else _explicitNullProperties?.Remove("jfrog_oidc_provider_name"); } }
+        public string? JfrogOidcProviderName { get => _explicitNullValueJfrogOidcProviderName; set { _explicitNullValueJfrogOidcProviderName = value; AdditionalData?.Remove("jfrog_oidc_provider_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jfrog_oidc_provider_name"); else _explicitNullProperties?.Remove("jfrog_oidc_provider_name"); } }
         private string? _explicitNullValueJfrogOidcProviderName = default!;
 #nullable restore
 #else
-        public string JfrogOidcProviderName { get => _explicitNullValueJfrogOidcProviderName; set { _explicitNullValueJfrogOidcProviderName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jfrog_oidc_provider_name"); else _explicitNullProperties?.Remove("jfrog_oidc_provider_name"); } }
+        public string JfrogOidcProviderName { get => _explicitNullValueJfrogOidcProviderName; set { _explicitNullValueJfrogOidcProviderName = value; AdditionalData?.Remove("jfrog_oidc_provider_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jfrog_oidc_provider_name"); else _explicitNullProperties?.Remove("jfrog_oidc_provider_name"); } }
         private string _explicitNullValueJfrogOidcProviderName = default!;
 #endif
         /// <summary>The ID of the key you used to encrypt the secret.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
+        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; AdditionalData?.Remove("key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
         private string? _explicitNullValueKeyId = default!;
 #nullable restore
 #else
-        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
+        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; AdditionalData?.Remove("key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_id"); else _explicitNullProperties?.Remove("key_id"); } }
         private string _explicitNullValueKeyId = default!;
 #endif
         /// <summary>The Cloudsmith organization namespace. Required when `auth_type` is `oidc_cloudsmith`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Namespace { get => _explicitNullValueNamespace; set { _explicitNullValueNamespace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("namespace"); else _explicitNullProperties?.Remove("namespace"); } }
+        public string? Namespace { get => _explicitNullValueNamespace; set { _explicitNullValueNamespace = value; AdditionalData?.Remove("namespace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("namespace"); else _explicitNullProperties?.Remove("namespace"); } }
         private string? _explicitNullValueNamespace = default!;
 #nullable restore
 #else
-        public string Namespace { get => _explicitNullValueNamespace; set { _explicitNullValueNamespace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("namespace"); else _explicitNullProperties?.Remove("namespace"); } }
+        public string Namespace { get => _explicitNullValueNamespace; set { _explicitNullValueNamespace = value; AdditionalData?.Remove("namespace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("namespace"); else _explicitNullProperties?.Remove("namespace"); } }
         private string _explicitNullValueNamespace = default!;
 #endif
         /// <summary>The registry type.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestRegistryType? RegistryType { get => _explicitNullValueRegistryType; set { _explicitNullValueRegistryType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_type"); else _explicitNullProperties?.Remove("registry_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestRegistryType? RegistryType { get => _explicitNullValueRegistryType; set { _explicitNullValueRegistryType = value; AdditionalData?.Remove("registry_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_type"); else _explicitNullProperties?.Remove("registry_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestRegistryType? _explicitNullValueRegistryType = default!;
         /// <summary>Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to `true`, Dependabot will only use this registry and will not fall back to the public registry. When set to `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</summary>
-        public bool? ReplacesBase { get => _explicitNullValueReplacesBase; set { _explicitNullValueReplacesBase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replaces_base"); else _explicitNullProperties?.Remove("replaces_base"); } }
+        public bool? ReplacesBase { get => _explicitNullValueReplacesBase; set { _explicitNullValueReplacesBase = value; AdditionalData?.Remove("replaces_base"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replaces_base"); else _explicitNullProperties?.Remove("replaces_base"); } }
         private bool? _explicitNullValueReplacesBase = default!;
         /// <summary>The AWS IAM role name. Required when `auth_type` is `oidc_aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
+        public string? RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; AdditionalData?.Remove("role_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
         private string? _explicitNullValueRoleName = default!;
 #nullable restore
 #else
-        public string RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
+        public string RoleName { get => _explicitNullValueRoleName; set { _explicitNullValueRoleName = value; AdditionalData?.Remove("role_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role_name"); else _explicitNullProperties?.Remove("role_name"); } }
         private string _explicitNullValueRoleName = default!;
 #endif
         /// <summary>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when `visibility` is set to `selected`. This field should be omitted if `visibility` is set to `all` or `private`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        public List<int?>? SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; AdditionalData?.Remove("selected_repository_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
         private List<int?>? _explicitNullValueSelectedRepositoryIds = default!;
 #nullable restore
 #else
-        public List<int?> SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
+        public List<int?> SelectedRepositoryIds { get => _explicitNullValueSelectedRepositoryIds; set { _explicitNullValueSelectedRepositoryIds = value; AdditionalData?.Remove("selected_repository_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repository_ids"); else _explicitNullProperties?.Remove("selected_repository_ids"); } }
         private List<int?> _explicitNullValueSelectedRepositoryIds = default!;
 #endif
         /// <summary>The GCP service account email to impersonate. Optional for `oidc_gcp` auth type. If omitted, the federated token is used directly (direct WIF).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
+        public string? ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; AdditionalData?.Remove("service_account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
         private string? _explicitNullValueServiceAccount = default!;
 #nullable restore
 #else
-        public string ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
+        public string ServiceAccount { get => _explicitNullValueServiceAccount; set { _explicitNullValueServiceAccount = value; AdditionalData?.Remove("service_account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_account"); else _explicitNullProperties?.Remove("service_account"); } }
         private string _explicitNullValueServiceAccount = default!;
 #endif
         /// <summary>The Cloudsmith service account slug. Required when `auth_type` is `oidc_cloudsmith`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceSlug { get => _explicitNullValueServiceSlug; set { _explicitNullValueServiceSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_slug"); else _explicitNullProperties?.Remove("service_slug"); } }
+        public string? ServiceSlug { get => _explicitNullValueServiceSlug; set { _explicitNullValueServiceSlug = value; AdditionalData?.Remove("service_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_slug"); else _explicitNullProperties?.Remove("service_slug"); } }
         private string? _explicitNullValueServiceSlug = default!;
 #nullable restore
 #else
-        public string ServiceSlug { get => _explicitNullValueServiceSlug; set { _explicitNullValueServiceSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_slug"); else _explicitNullProperties?.Remove("service_slug"); } }
+        public string ServiceSlug { get => _explicitNullValueServiceSlug; set { _explicitNullValueServiceSlug = value; AdditionalData?.Remove("service_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_slug"); else _explicitNullProperties?.Remove("service_slug"); } }
         private string _explicitNullValueServiceSlug = default!;
 #endif
         /// <summary>The tenant ID of the Azure AD application. Required when `auth_type` is `oidc_azure`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
+        public string? TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; AdditionalData?.Remove("tenant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
         private string? _explicitNullValueTenantId = default!;
 #nullable restore
 #else
-        public string TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
+        public string TenantId { get => _explicitNullValueTenantId; set { _explicitNullValueTenantId = value; AdditionalData?.Remove("tenant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tenant_id"); else _explicitNullProperties?.Remove("tenant_id"); } }
         private string _explicitNullValueTenantId = default!;
 #endif
         /// <summary>The URL of the private registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
+        public string? Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; AdditionalData?.Remove("username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
         private string? _explicitNullValueUsername = default!;
 #nullable restore
 #else
-        public string Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
+        public string Username { get => _explicitNullValueUsername; set { _explicitNullValueUsername = value; AdditionalData?.Remove("username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("username"); else _explicitNullProperties?.Remove("username"); } }
         private string _explicitNullValueUsername = default!;
 #endif
         /// <summary>Which type of organization repositories have access to the private registry. `selected` means only the repositories specified by `selected_repository_ids` can access the private registry.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; AdditionalData?.Remove("visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestVisibility? _explicitNullValueVisibility = default!;
         /// <summary>The full resource name of the GCP Workload Identity Provider (e.g. `projects/&lt;NUM&gt;/locations/global/workloadIdentityPools/&lt;POOL&gt;/providers/&lt;PROVIDER&gt;`). Required when `auth_type` is `oidc_gcp`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkloadIdentityProvider { get => _explicitNullValueWorkloadIdentityProvider; set { _explicitNullValueWorkloadIdentityProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider"); else _explicitNullProperties?.Remove("workload_identity_provider"); } }
+        public string? WorkloadIdentityProvider { get => _explicitNullValueWorkloadIdentityProvider; set { _explicitNullValueWorkloadIdentityProvider = value; AdditionalData?.Remove("workload_identity_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider"); else _explicitNullProperties?.Remove("workload_identity_provider"); } }
         private string? _explicitNullValueWorkloadIdentityProvider = default!;
 #nullable restore
 #else
-        public string WorkloadIdentityProvider { get => _explicitNullValueWorkloadIdentityProvider; set { _explicitNullValueWorkloadIdentityProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider"); else _explicitNullProperties?.Remove("workload_identity_provider"); } }
+        public string WorkloadIdentityProvider { get => _explicitNullValueWorkloadIdentityProvider; set { _explicitNullValueWorkloadIdentityProvider = value; AdditionalData?.Remove("workload_identity_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workload_identity_provider"); else _explicitNullProperties?.Remove("workload_identity_provider"); } }
         private string _explicitNullValueWorkloadIdentityProvider = default!;
 #endif
         /// <summary>
@@ -286,7 +310,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "api_host", n => { ApiHost = n.GetStringValue(); } },
                 { "audience", n => { Audience = n.GetStringValue(); } },
-                { "auth_type", n => { AuthType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestAuthType>(); } },
+                { "auth_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestAuthType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthType = default; _explicitNullProperties?.Remove("auth_type"); AdditionalData["auth_type"] = unknown; } else { AuthType = parsed; AdditionalData.Remove("auth_type"); } } },
                 { "aws_region", n => { AwsRegion = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
@@ -296,7 +320,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "jfrog_oidc_provider_name", n => { JfrogOidcProviderName = n.GetStringValue(); } },
                 { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
-                { "registry_type", n => { RegistryType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestRegistryType>(); } },
+                { "registry_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestRegistryType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRegistryType = default; _explicitNullProperties?.Remove("registry_type"); AdditionalData["registry_type"] = unknown; } else { RegistryType = parsed; AdditionalData.Remove("registry_type"); } } },
                 { "replaces_base", n => { ReplacesBase = n.GetBoolValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
                 { "selected_repository_ids", n => { SelectedRepositoryIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
@@ -305,7 +329,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "tenant_id", n => { TenantId = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestVisibility>(); } },
+                { "visibility", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PrivateRegistriesUpdateOrgPrivateRegistryRequestVisibility>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVisibility = default; _explicitNullProperties?.Remove("visibility"); AdditionalData["visibility"] = unknown; } else { Visibility = parsed; AdditionalData.Remove("visibility"); } } },
                 { "workload_identity_provider", n => { WorkloadIdentityProvider = n.GetStringValue(); } },
             };
         }

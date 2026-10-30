@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("human_name") is { } nullNodeHumanName && nullNodeHumanName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HumanName = null;
-            if (parseNode.GetChildNode("tfvc_project") is { } nullNodeTfvcProject && nullNodeTfvcProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TfvcProject = null;
-            if (parseNode.GetChildNode("vcs") is { } nullNodeVcs && nullNodeVcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcs = null;
+            if (parseNode.GetChildNode("human_name") is null) { _explicitNullValueHumanName = default!; _explicitNullProperties?.Remove("human_name"); }
+            else if (parseNode.GetChildNode("human_name") is { } nullNodeHumanName && nullNodeHumanName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HumanName = null;
+            if (parseNode.GetChildNode("tfvc_project") is null) { _explicitNullValueTfvcProject = default!; _explicitNullProperties?.Remove("tfvc_project"); }
+            else if (parseNode.GetChildNode("tfvc_project") is { } nullNodeTfvcProject && nullNodeTfvcProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TfvcProject = null;
+            if (parseNode.GetChildNode("vcs") is null) { _explicitNullValueVcs = default!; _explicitNullProperties?.Remove("vcs"); }
+            else if (parseNode.GetChildNode("vcs") is { } nullNodeVcs && nullNodeVcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The human_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HumanName { get => _explicitNullValueHumanName; set { _explicitNullValueHumanName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_name"); else _explicitNullProperties?.Remove("human_name"); } }
+        public string? HumanName { get => _explicitNullValueHumanName; set { _explicitNullValueHumanName = value; AdditionalData?.Remove("human_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_name"); else _explicitNullProperties?.Remove("human_name"); } }
         private string? _explicitNullValueHumanName = default!;
 #nullable restore
 #else
-        public string HumanName { get => _explicitNullValueHumanName; set { _explicitNullValueHumanName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_name"); else _explicitNullProperties?.Remove("human_name"); } }
+        public string HumanName { get => _explicitNullValueHumanName; set { _explicitNullValueHumanName = value; AdditionalData?.Remove("human_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("human_name"); else _explicitNullProperties?.Remove("human_name"); } }
         private string _explicitNullValueHumanName = default!;
 #endif
         /// <summary>The tfvc_project property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        public string? TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; AdditionalData?.Remove("tfvc_project"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
         private string? _explicitNullValueTfvcProject = default!;
 #nullable restore
 #else
-        public string TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        public string TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; AdditionalData?.Remove("tfvc_project"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
         private string _explicitNullValueTfvcProject = default!;
 #endif
         /// <summary>The vcs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
+        public string? Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; AdditionalData?.Remove("vcs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
         private string? _explicitNullValueVcs = default!;
 #nullable restore
 #else
-        public string Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
+        public string Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; AdditionalData?.Remove("vcs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
         private string _explicitNullValueVcs = default!;
 #endif
         /// <summary>

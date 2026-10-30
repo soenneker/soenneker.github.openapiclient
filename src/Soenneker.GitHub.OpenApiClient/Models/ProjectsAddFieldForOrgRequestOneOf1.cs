@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("issue_field_id") is { } nullNodeIssueFieldId && nullNodeIssueFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldId = null;
+            if (parseNode.GetChildNode("issue_field_id") is null) { _explicitNullValueIssueFieldId = default!; _explicitNullProperties?.Remove("issue_field_id"); }
+            else if (parseNode.GetChildNode("issue_field_id") is { } nullNodeIssueFieldId && nullNodeIssueFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldId = null;
         }
 
         /// <summary>The ID of the IssueField to create the field for.</summary>

@@ -10672,7 +10672,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OrgsUpdate422Response"
+                  "$ref": "#/components/schemas/OrgsUpdate422ResponseError"
                 }
               }
             }
@@ -26319,7 +26319,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InteractionsGetRestrictionsForOrg200Response"
+                  "$ref": "#/components/schemas/InteractionsGetRestrictionsForAuthenticatedUser200Response"
                 },
                 "examples": {
                   "default": {
@@ -31402,8 +31402,11 @@
                   "$ref": "#/components/schemas/ProjectsV2ItemSimple"
                 },
                 "examples": {
-                  "draft_issue": {
-                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  "title": {
+                    "$ref": "#/components/examples/projects-v2-item-simple-org"
+                  },
+                  "body": {
+                    "$ref": "#/components/examples/projects-v2-item-simple-org"
                   }
                 }
               }
@@ -31898,28 +31901,16 @@
                 },
                 "examples": {
                   "issue_with_id": {
-                    "summary": "Response for adding an issue using its unique ID",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-issue-org"
                   },
                   "pull_request_with_id": {
-                    "summary": "Response for adding a pull request using its unique ID",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-pull-request-org"
                   },
                   "issue_with_nwo": {
-                    "summary": "Response for adding an issue using repository owner, name, and issue number",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-issue-org"
                   },
                   "pull_request_with_nwo": {
-                    "summary": "Response for adding a pull request using repository owner, name, and PR number",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-pull-request-org"
                   }
                 }
               }
@@ -61637,7 +61628,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InteractionsGetRestrictionsForRepo200Response"
+                  "$ref": "#/components/schemas/InteractionsGetRestrictionsForAuthenticatedUser200Response"
                 },
                 "examples": {
                   "default": {
@@ -87897,7 +87888,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersGetById200Response"
+                  "$ref": "#/components/schemas/UsersGetAuthenticated200Response"
                 },
                 "examples": {
                   "default-response": {
@@ -87989,7 +87980,10 @@
                   "$ref": "#/components/schemas/ProjectsV2ItemSimple"
                 },
                 "examples": {
-                  "draft_issue": {
+                  "title": {
+                    "$ref": "#/components/examples/projects-v2-item-simple"
+                  },
+                  "body": {
                     "$ref": "#/components/examples/projects-v2-item-simple"
                   }
                 }
@@ -88241,7 +88235,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersGetByUsername200Response"
+                  "$ref": "#/components/schemas/UsersGetAuthenticated200Response"
                 },
                 "examples": {
                   "default-response": {
@@ -91928,28 +91922,16 @@
                 },
                 "examples": {
                   "issue_with_id": {
-                    "summary": "Response for adding an issue using its unique ID",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-issue"
                   },
                   "pull_request_with_id": {
-                    "summary": "Response for adding a pull request using its unique ID",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-pull-request"
                   },
                   "issue_with_nwo": {
-                    "summary": "Response for adding an issue using repository owner, name, and issue number",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-issue"
                   },
                   "pull_request_with_nwo": {
-                    "summary": "Response for adding a pull request using repository owner, name, and PR number",
-                    "value": {
-                      "$ref": "#/components/examples/projects-v2-item-simple"
-                    }
+                    "$ref": "#/components/examples/projects-v2-item-pull-request"
                   }
                 }
               }
@@ -94418,7 +94400,7 @@
             "example": "MDExOkludGVncmF0aW9uMQ=="
           },
           "account": {
-            "$ref": "#/components/schemas/IntegrationInstallationRequestAccount"
+            "$ref": "#/components/schemas/InstallationAccount"
           },
           "requester": {
             "$ref": "#/components/schemas/SimpleUser"
@@ -97393,7 +97375,7 @@
             "example": "\u0022Iv1.25b5d1e65ffc4022\u0022"
           },
           "owner": {
-            "$ref": "#/components/schemas/NullableIntegrationOwner"
+            "$ref": "#/components/schemas/IntegrationOwner"
           },
           "name": {
             "type": "string",
@@ -97742,9 +97724,6 @@
           },
           "value": {
             "anyOf": [
-              {
-                "type": "integer"
-              },
               {
                 "type": "number"
               },
@@ -113106,7 +113085,7 @@
             "$ref": "#/components/schemas/CommitAuthor"
           },
           "committer": {
-            "$ref": "#/components/schemas/CommitCommitter"
+            "$ref": "#/components/schemas/CommitAuthor"
           },
           "parents": {
             "type": "array",
@@ -126375,7 +126354,7 @@
             "example": "deploy"
           },
           "payload": {
-            "$ref": "#/components/schemas/NullableDeploymentPayload"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "original_environment": {
             "type": "string",
@@ -148502,7 +148481,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -155641,7 +155620,7 @@
             "type": "integer"
           },
           "value": {
-            "$ref": "#/components/schemas/ValidationErrorErrorsItemValue"
+            "$ref": "#/components/schemas/RepositoryAdvisoryDescriptionValidationErrorErrorsItemValue"
           }
         }
       },
@@ -159409,7 +159388,7 @@
             "$ref": "#/components/schemas/DeploymentReviewerType"
           },
           "reviewer": {
-            "$ref": "#/components/schemas/PendingDeploymentReviewersItemReviewer"
+            "$ref": "#/components/schemas/EnvironmentProtectionRulesItemAnyOf2ReviewersItemReviewer"
           }
         }
       },
@@ -168573,7 +168552,7 @@
             "type": "string"
           },
           "payload": {
-            "$ref": "#/components/schemas/WebhookDeploymentCreatedDeploymentPayload"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "performed_via_github_app": {
             "$ref": "#/components/schemas/WebhookDeploymentCreatedDeploymentPerformedViaGithubApp"
@@ -169439,7 +169418,7 @@
             "type": "string"
           },
           "payload": {
-            "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPayload"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "performed_via_github_app": {
             "$ref": "#/components/schemas/WebhookDeploymentStatusCreatedDeploymentPerformedViaGithubApp"
@@ -170574,9 +170553,6 @@
           "value": {
             "anyOf": [
               {
-                "type": "integer"
-              },
-              {
                 "type": "number"
               },
               {
@@ -170655,9 +170631,6 @@
           },
           "value": {
             "anyOf": [
-              {
-                "type": "integer"
-              },
               {
                 "type": "number"
               },
@@ -177361,7 +177334,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPushRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookPushRepositoryCustomPropertiesProperty"
@@ -177568,7 +177541,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPushRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -178432,7 +178405,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookTeamAddedToRepositoryRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookTeamAddedToRepositoryRepositoryCustomPropertiesProperty"
@@ -178626,7 +178599,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookTeamAddedToRepositoryRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -178863,7 +178836,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookTeamCreatedRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookTeamCreatedRepositoryCustomPropertiesProperty"
@@ -179057,7 +179030,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookTeamCreatedRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -179294,7 +179267,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookTeamDeletedRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookTeamDeletedRepositoryCustomPropertiesProperty"
@@ -179488,7 +179461,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookTeamDeletedRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -179746,7 +179719,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookTeamEditedRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookTeamEditedRepositoryCustomPropertiesProperty"
@@ -179940,7 +179913,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookTeamEditedRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -180177,7 +180150,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookTeamRemovedFromRepositoryRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookTeamRemovedFromRepositoryRepositoryCustomPropertiesProperty"
@@ -180371,7 +180344,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookTeamRemovedFromRepositoryRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -188121,7 +188094,7 @@
             "$ref": "#/components/schemas/WebhookProjectsV2ItemEditedChangesOneOf1FieldValueFrom"
           },
           "to": {
-            "$ref": "#/components/schemas/WebhookProjectsV2ItemEditedChangesOneOf1FieldValueTo"
+            "$ref": "#/components/schemas/WebhookProjectsV2ItemEditedChangesOneOf1FieldValueFrom"
           }
         }
       },
@@ -192250,7 +192223,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhooksPullRequest5BaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -192460,7 +192433,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhooksPullRequest5BaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -192804,7 +192777,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhooksPullRequest5HeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -193014,7 +192987,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhooksPullRequest5HeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -202572,7 +202545,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookIssuesOpenedChangesOldRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookIssuesOpenedChangesOldRepositoryCustomPropertiesProperty"
@@ -202778,7 +202751,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookIssuesOpenedChangesOldRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -204281,7 +204254,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookIssuesTransferredChangesNewRepositoryCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "custom_properties": {
             "$ref": "#/components/schemas/WebhookIssuesTransferredChangesNewRepositoryCustomPropertiesProperty"
@@ -204488,7 +204461,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookIssuesTransferredChangesNewRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -205704,7 +205677,7 @@
             "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionAuthor"
           },
           "body": {
-            "$ref": "#/components/schemas/WebhookPackagePublishedPackagePackageVersionBody"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "body_html": {
             "type": "string"
@@ -220227,7 +220200,7 @@
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionAuthor"
           },
           "body": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionBody"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "body_html": {
             "type": "string"
@@ -233168,9 +233141,6 @@
           "value": {
             "anyOf": [
               {
-                "type": "integer"
-              },
-              {
                 "type": "number"
               },
               {
@@ -237309,7 +237279,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAssignedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -237519,7 +237489,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAssignedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -237863,7 +237833,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAssignedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -238073,7 +238043,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAssignedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -238767,7 +238737,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeDisabledPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -238977,7 +238947,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeDisabledPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -239321,7 +239291,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeDisabledPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -239531,7 +239501,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeDisabledPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -240224,7 +240194,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeEnabledPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -240434,7 +240404,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeEnabledPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -240778,7 +240748,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeEnabledPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -240988,7 +240958,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestAutoMergeEnabledPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -241681,7 +241651,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestDequeuedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -241891,7 +241861,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestDequeuedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -242235,7 +242205,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestDequeuedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -242445,7 +242415,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestDequeuedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -243160,7 +243130,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestEnqueuedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -243370,7 +243340,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestEnqueuedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -243714,7 +243684,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestEnqueuedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -243924,7 +243894,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestEnqueuedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -244617,7 +244587,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLabeledPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -244827,7 +244797,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLabeledPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -245171,7 +245141,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLabeledPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -245381,7 +245351,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLabeledPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -246075,7 +246045,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLockedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -246285,7 +246255,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLockedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -246629,7 +246599,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLockedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -246839,7 +246809,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestLockedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -247572,7 +247542,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentCreatedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -247782,7 +247752,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentCreatedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -248125,7 +248095,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentCreatedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -248335,7 +248305,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentCreatedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -249029,7 +248999,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentDeletedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -249239,7 +249209,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentDeletedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -249583,7 +249553,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentDeletedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -249793,7 +249763,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentDeletedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -250487,7 +250457,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentEditedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -250697,7 +250667,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentEditedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -251041,7 +251011,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentEditedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -251251,7 +251221,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewCommentEditedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -251945,7 +251915,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewDismissedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -252155,7 +252125,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewDismissedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -252499,7 +252469,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewDismissedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -252709,7 +252679,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewDismissedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -253428,7 +253398,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewEditedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -253619,7 +253589,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewEditedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -253947,7 +253917,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewEditedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -254138,7 +254108,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewEditedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -254817,7 +254787,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewSubmittedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -255027,7 +254997,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewSubmittedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -255371,7 +255341,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewSubmittedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -255581,7 +255551,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewSubmittedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -256275,7 +256245,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadResolvedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -256479,7 +256449,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadResolvedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -256812,7 +256782,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadResolvedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -257016,7 +256986,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadResolvedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -257858,7 +257828,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -258062,7 +258032,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -258395,7 +258365,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -258599,7 +258569,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewThreadUnresolvedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -259440,7 +259410,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -259650,7 +259620,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -259994,7 +259964,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -260204,7 +260174,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestStackedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -260898,7 +260868,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestSynchronizePullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -261108,7 +261078,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestSynchronizePullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -261452,7 +261422,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestSynchronizePullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -261662,7 +261632,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestSynchronizePullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -262355,7 +262325,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnassignedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -262565,7 +262535,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnassignedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -262909,7 +262879,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnassignedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -263119,7 +263089,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnassignedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -263813,7 +263783,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlabeledPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -264023,7 +263993,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlabeledPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -264367,7 +264337,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlabeledPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -264577,7 +264547,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlabeledPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -265271,7 +265241,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlockedPullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -265481,7 +265451,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlockedPullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -265825,7 +265795,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlockedPullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -266035,7 +266005,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestUnlockedPullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -266510,10 +266480,10 @@
             "type": "string"
           },
           "author": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataAuthor"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "bugs": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataBugs"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "dependencies": {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDependenciesProperty"
@@ -266531,7 +266501,7 @@
             "type": "string"
           },
           "dist": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDist"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "git_head": {
             "type": "string"
@@ -266546,7 +266516,7 @@
             "type": "string"
           },
           "repository": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataRepository"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "scripts": {
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataScriptsProperty"
@@ -266597,7 +266567,7 @@
             "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataManProperty"
           },
           "directories": {
-            "$ref": "#/components/schemas/WebhookRegistryPackagePublishedRegistryPackagePackageVersionNpmMetadataDirectories"
+            "$ref": "#/components/schemas/DeploymentPayload"
           },
           "os": {
             "type": "array",
@@ -268381,7 +268351,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf1PullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -268591,7 +268561,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf1PullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -268935,7 +268905,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf1PullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -269145,7 +269115,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf1PullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -269838,7 +269808,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf2PullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -270048,7 +270018,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf2PullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -270392,7 +270362,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf2PullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -270602,7 +270572,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestRemovedOneOf2PullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -271295,7 +271265,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf1PullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -271505,7 +271475,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf1PullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -271849,7 +271819,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf1PullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -272059,7 +272029,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf1PullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -272752,7 +272722,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf2PullRequestBaseRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -272962,7 +272932,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf2PullRequestBaseRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -273306,7 +273276,7 @@
             "format": "uri"
           },
           "created_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf2PullRequestHeadRepoCreatedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "default_branch": {
             "type": "string",
@@ -273516,7 +273486,7 @@
             "format": "uri-template"
           },
           "pushed_at": {
-            "$ref": "#/components/schemas/WebhookPullRequestReviewRequestedOneOf2PullRequestHeadRepoPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           "releases_url": {
             "type": "string",
@@ -297921,7 +297891,7 @@
         "additionalProperties": {
           "type": "array",
           "items": {
-            "$ref": "#/components/schemas/CopilotSetCopilotContentExclusionForOrganizationRequestRequestBodyAdditionalPropertiesItem"
+            "$ref": "#/components/schemas/CopilotSetCopilotContentExclusionForOrganizationRequestAdditionalPropertiesItem"
           }
         }
       },
@@ -301727,7 +301697,7 @@
       "WebhookForkForkeePushedAt": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryPushedAt"
+            "$ref": "#/components/schemas/WebhookForkForkeeRepositoryCreatedAt"
           },
           {
             "type": "string"
@@ -310762,7 +310732,7 @@
             "format": "int64"
           },
           "value": {
-            "$ref": "#/components/schemas/IssuesUpdateRequestIssueFieldValuesItemValue"
+            "$ref": "#/components/schemas/IssuesCreateRequestIssueFieldValuesItemValue"
           },
           "rationale": {
             "type": "string",
@@ -310945,7 +310915,7 @@
             "type": "integer"
           },
           "value": {
-            "$ref": "#/components/schemas/PullRequestStacksCreate422ResponseErrorsItemValue"
+            "$ref": "#/components/schemas/PullRequestStacksAdd422ResponseErrorsItemValue"
           }
         }
       },
@@ -407131,6 +407101,41 @@
           "status"
         ]
       },
+      "OrgsUpdate422ResponseError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "documentation_url": {
+            "type": "string"
+          },
+          "errors": {
+            "x-client-untyped-value": true,
+            "x-client-original-field-schemas": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ValidationErrorErrorsItem"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "documentation_url",
+          "message"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/OrgsUpdate422Response"
+        }
+      },
       "ReposCreateOrUpdateFileContents409ResponseError": {
         "type": "object",
         "properties": {
@@ -419782,13 +419787,13 @@
           "is_template": true
         }
       },
-      "projects-v2-item-simple": {
+      "projects-v2-item-simple-org": {
         "value": {
           "id": 17,
           "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
           "content": {
             "id": 38,
-            "node_id": "I_kwDOANN5s85FtLts",
+            "node_id": "DI_kwDOANN5s85FtLts",
             "title": "Example Draft Issue",
             "body": "This is a draft issue in the project.",
             "created_at": "2022-04-28T12:00:00Z",
@@ -419811,6 +419816,7 @@
               "events_url": "https://api.github.com/users/octocat/events{/privacy}",
               "received_events_url": "https://api.github.com/users/octocat/received_events",
               "type": "User",
+              "user_view_type": "public",
               "site_admin": false
             }
           },
@@ -419833,13 +419839,14 @@
             "events_url": "https://api.github.com/users/octocat/events{/privacy}",
             "received_events_url": "https://api.github.com/users/octocat/received_events",
             "type": "User",
+            "user_view_type": "public",
             "site_admin": false
           },
           "created_at": "2022-04-28T12:00:00Z",
           "updated_at": "2022-04-28T12:00:00Z",
           "archived_at": null,
-          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
-          "item_url": "https://api.github.com/users/octocat/projectsV2/items/17"
+          "project_url": "https://api.github.com/orgs/octo-org/projectsV2/1",
+          "item_url": "https://api.github.com/orgs/octo-org/projectsV2/1/items/17"
         }
       },
       "projects-v2-field-items": {
@@ -420982,6 +420989,190 @@
               "value": null
             }
           ]
+        }
+      },
+      "projects-v2-item-issue-org": {
+        "value": {
+          "id": 17,
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
+          "content": {
+            "id": 38,
+            "node_id": "I_kwDOANN5s85FtLts",
+            "url": "https://api.github.com/repos/octocat/hello-world/issues/42",
+            "repository_url": "https://api.github.com/repos/octocat/hello-world",
+            "labels_url": "https://api.github.com/repos/octocat/hello-world/issues/42/labels{/name}",
+            "comments_url": "https://api.github.com/repos/octocat/hello-world/issues/42/comments",
+            "events_url": "https://api.github.com/repos/octocat/hello-world/issues/42/events",
+            "html_url": "https://github.com/octocat/hello-world/issues/42",
+            "number": 42,
+            "state": "open",
+            "title": "Example issue",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "labels": [],
+            "assignee": null,
+            "milestone": null,
+            "locked": false,
+            "comments": 0,
+            "closed_at": null,
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z"
+          },
+          "content_type": "Issue",
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": null,
+          "project_url": "https://api.github.com/orgs/octo-org/projectsV2/1",
+          "item_url": "https://api.github.com/orgs/octo-org/projectsV2/1/items/17"
+        }
+      },
+      "projects-v2-item-pull-request-org": {
+        "value": {
+          "id": 18,
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEJ",
+          "content": {
+            "id": 39,
+            "node_id": "PR_kwDOANN5s85FtLtu",
+            "url": "https://api.github.com/repos/octocat/hello-world/pulls/123",
+            "html_url": "https://github.com/octocat/hello-world/pull/123",
+            "diff_url": "https://github.com/octocat/hello-world/pull/123.diff",
+            "patch_url": "https://github.com/octocat/hello-world/pull/123.patch",
+            "issue_url": "https://api.github.com/repos/octocat/hello-world/issues/123",
+            "comments_url": "https://api.github.com/repos/octocat/hello-world/issues/123/comments",
+            "commits_url": "https://api.github.com/repos/octocat/hello-world/pulls/123/commits",
+            "statuses_url": "https://api.github.com/repos/octocat/hello-world/statuses/abcdef123456",
+            "review_comment_url": "https://api.github.com/repos/octocat/hello-world/pulls/comments{/number}",
+            "review_comments_url": "https://api.github.com/repos/octocat/hello-world/pulls/123/comments",
+            "number": 123,
+            "state": "open",
+            "title": "Example pull request",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "body": "Example pull request body",
+            "labels": [],
+            "assignee": null,
+            "assignees": [],
+            "milestone": null,
+            "locked": false,
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z",
+            "closed_at": null,
+            "merged_at": null,
+            "merge_commit_sha": null,
+            "draft": false,
+            "author_association": "MEMBER",
+            "auto_merge": null,
+            "_links": {
+              "comments": {
+                "href": "https://api.github.com/repos/octocat/hello-world/issues/123/comments"
+              },
+              "commits": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/123/commits"
+              },
+              "statuses": {
+                "href": "https://api.github.com/repos/octocat/hello-world/statuses/abcdef123456"
+              },
+              "html": {
+                "href": "https://github.com/octocat/hello-world/pull/123"
+              },
+              "issue": {
+                "href": "https://api.github.com/repos/octocat/hello-world/issues/123"
+              },
+              "review_comments": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/123/comments"
+              },
+              "review_comment": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/comments{/number}"
+              },
+              "self": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/123"
+              }
+            },
+            "base": {
+              "label": "octocat:main",
+              "ref": "main",
+              "repo": {
+                "id": 2,
+                "node_id": "MDEwOlJlcG9zaXRvcnky",
+                "name": "hello-world",
+                "full_name": "octocat/hello-world",
+                "private": false,
+                "owner": {
+                  "login": "octocat",
+                  "id": 1
+                }
+              },
+              "sha": "abcdef123456",
+              "user": {
+                "login": "octocat",
+                "id": 1
+              }
+            },
+            "head": {
+              "label": "octocat:feature",
+              "ref": "feature",
+              "repo": {
+                "id": 2,
+                "node_id": "MDEwOlJlcG9zaXRvcnky",
+                "name": "hello-world",
+                "full_name": "octocat/hello-world",
+                "private": false,
+                "owner": {
+                  "login": "octocat",
+                  "id": 1
+                }
+              },
+              "sha": "abcdef123456",
+              "user": {
+                "login": "octocat",
+                "id": 1
+              }
+            }
+          },
+          "content_type": "PullRequest",
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": null,
+          "project_url": "https://api.github.com/orgs/octo-org/projectsV2/1",
+          "item_url": "https://api.github.com/orgs/octo-org/projectsV2/1/items/18"
         }
       },
       "projects-v2-view": {
@@ -441598,6 +441789,68 @@
           }
         }
       },
+      "projects-v2-item-simple": {
+        "value": {
+          "id": 17,
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
+          "content": {
+            "id": 38,
+            "node_id": "DI_kwDOANN5s85FtLts",
+            "title": "Example Draft Issue",
+            "body": "This is a draft issue in the project.",
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            }
+          },
+          "content_type": "DraftIssue",
+          "creator": {
+            "login": "octocat",
+            "id": 1,
+            "node_id": "MDQ6VXNlcjE=",
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/octocat",
+            "html_url": "https://github.com/octocat",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": null,
+          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
+          "item_url": "https://api.github.com/users/octocat/projectsV2/1/items/17"
+        }
+      },
       "copilot-spaces-user-list": {
         "summary": "Example response for listing user copilot spaces",
         "value": {
@@ -442030,6 +442283,190 @@
           "metadata": {
             "package_type": "rubygems"
           }
+        }
+      },
+      "projects-v2-item-issue": {
+        "value": {
+          "id": 17,
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEI",
+          "content": {
+            "id": 38,
+            "node_id": "I_kwDOANN5s85FtLts",
+            "url": "https://api.github.com/repos/octocat/hello-world/issues/42",
+            "repository_url": "https://api.github.com/repos/octocat/hello-world",
+            "labels_url": "https://api.github.com/repos/octocat/hello-world/issues/42/labels{/name}",
+            "comments_url": "https://api.github.com/repos/octocat/hello-world/issues/42/comments",
+            "events_url": "https://api.github.com/repos/octocat/hello-world/issues/42/events",
+            "html_url": "https://github.com/octocat/hello-world/issues/42",
+            "number": 42,
+            "state": "open",
+            "title": "Example issue",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "labels": [],
+            "assignee": null,
+            "milestone": null,
+            "locked": false,
+            "comments": 0,
+            "closed_at": null,
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z"
+          },
+          "content_type": "Issue",
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": null,
+          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
+          "item_url": "https://api.github.com/users/octocat/projectsV2/1/items/17"
+        }
+      },
+      "projects-v2-item-pull-request": {
+        "value": {
+          "id": 18,
+          "node_id": "PVTI_lADOANN5s84ACbL0zgBueEJ",
+          "content": {
+            "id": 39,
+            "node_id": "PR_kwDOANN5s85FtLtu",
+            "url": "https://api.github.com/repos/octocat/hello-world/pulls/123",
+            "html_url": "https://github.com/octocat/hello-world/pull/123",
+            "diff_url": "https://github.com/octocat/hello-world/pull/123.diff",
+            "patch_url": "https://github.com/octocat/hello-world/pull/123.patch",
+            "issue_url": "https://api.github.com/repos/octocat/hello-world/issues/123",
+            "comments_url": "https://api.github.com/repos/octocat/hello-world/issues/123/comments",
+            "commits_url": "https://api.github.com/repos/octocat/hello-world/pulls/123/commits",
+            "statuses_url": "https://api.github.com/repos/octocat/hello-world/statuses/abcdef123456",
+            "review_comment_url": "https://api.github.com/repos/octocat/hello-world/pulls/comments{/number}",
+            "review_comments_url": "https://api.github.com/repos/octocat/hello-world/pulls/123/comments",
+            "number": 123,
+            "state": "open",
+            "title": "Example pull request",
+            "user": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "body": "Example pull request body",
+            "labels": [],
+            "assignee": null,
+            "assignees": [],
+            "milestone": null,
+            "locked": false,
+            "created_at": "2022-04-28T12:00:00Z",
+            "updated_at": "2022-04-28T12:00:00Z",
+            "closed_at": null,
+            "merged_at": null,
+            "merge_commit_sha": null,
+            "draft": false,
+            "author_association": "MEMBER",
+            "auto_merge": null,
+            "_links": {
+              "comments": {
+                "href": "https://api.github.com/repos/octocat/hello-world/issues/123/comments"
+              },
+              "commits": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/123/commits"
+              },
+              "statuses": {
+                "href": "https://api.github.com/repos/octocat/hello-world/statuses/abcdef123456"
+              },
+              "html": {
+                "href": "https://github.com/octocat/hello-world/pull/123"
+              },
+              "issue": {
+                "href": "https://api.github.com/repos/octocat/hello-world/issues/123"
+              },
+              "review_comments": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/123/comments"
+              },
+              "review_comment": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/comments{/number}"
+              },
+              "self": {
+                "href": "https://api.github.com/repos/octocat/hello-world/pulls/123"
+              }
+            },
+            "base": {
+              "label": "octocat:main",
+              "ref": "main",
+              "repo": {
+                "id": 2,
+                "node_id": "MDEwOlJlcG9zaXRvcnky",
+                "name": "hello-world",
+                "full_name": "octocat/hello-world",
+                "private": false,
+                "owner": {
+                  "login": "octocat",
+                  "id": 1
+                }
+              },
+              "sha": "abcdef123456",
+              "user": {
+                "login": "octocat",
+                "id": 1
+              }
+            },
+            "head": {
+              "label": "octocat:feature",
+              "ref": "feature",
+              "repo": {
+                "id": 2,
+                "node_id": "MDEwOlJlcG9zaXRvcnky",
+                "name": "hello-world",
+                "full_name": "octocat/hello-world",
+                "private": false,
+                "owner": {
+                  "login": "octocat",
+                  "id": 1
+                }
+              },
+              "sha": "abcdef123456",
+              "user": {
+                "login": "octocat",
+                "id": 1
+              }
+            }
+          },
+          "content_type": "PullRequest",
+          "created_at": "2022-04-28T12:00:00Z",
+          "updated_at": "2022-04-28T12:00:00Z",
+          "archived_at": null,
+          "project_url": "https://api.github.com/users/octocat/projectsV2/1",
+          "item_url": "https://api.github.com/users/octocat/projectsV2/1/items/18"
         }
       },
       "user-received-events-items": {

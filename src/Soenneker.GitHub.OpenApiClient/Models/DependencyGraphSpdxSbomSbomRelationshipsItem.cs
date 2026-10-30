@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("relatedSpdxElement") is { } nullNodeRelatedSpdxElement && nullNodeRelatedSpdxElement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedSpdxElement = null;
-            if (parseNode.GetChildNode("relationshipType") is { } nullNodeRelationshipType && nullNodeRelationshipType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipType = null;
-            if (parseNode.GetChildNode("spdxElementId") is { } nullNodeSpdxElementId && nullNodeSpdxElementId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpdxElementId = null;
+            if (parseNode.GetChildNode("relatedSpdxElement") is null) { _explicitNullValueRelatedSpdxElement = default!; _explicitNullProperties?.Remove("relatedSpdxElement"); }
+            else if (parseNode.GetChildNode("relatedSpdxElement") is { } nullNodeRelatedSpdxElement && nullNodeRelatedSpdxElement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedSpdxElement = null;
+            if (parseNode.GetChildNode("relationshipType") is null) { _explicitNullValueRelationshipType = default!; _explicitNullProperties?.Remove("relationshipType"); }
+            else if (parseNode.GetChildNode("relationshipType") is { } nullNodeRelationshipType && nullNodeRelationshipType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipType = null;
+            if (parseNode.GetChildNode("spdxElementId") is null) { _explicitNullValueSpdxElementId = default!; _explicitNullProperties?.Remove("spdxElementId"); }
+            else if (parseNode.GetChildNode("spdxElementId") is { } nullNodeSpdxElementId && nullNodeSpdxElementId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpdxElementId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The SPDX identifier of the package that is the target of the relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelatedSpdxElement { get => _explicitNullValueRelatedSpdxElement; set { _explicitNullValueRelatedSpdxElement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relatedSpdxElement"); else _explicitNullProperties?.Remove("relatedSpdxElement"); } }
+        public string? RelatedSpdxElement { get => _explicitNullValueRelatedSpdxElement; set { _explicitNullValueRelatedSpdxElement = value; AdditionalData?.Remove("relatedSpdxElement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relatedSpdxElement"); else _explicitNullProperties?.Remove("relatedSpdxElement"); } }
         private string? _explicitNullValueRelatedSpdxElement = default!;
 #nullable restore
 #else
-        public string RelatedSpdxElement { get => _explicitNullValueRelatedSpdxElement; set { _explicitNullValueRelatedSpdxElement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relatedSpdxElement"); else _explicitNullProperties?.Remove("relatedSpdxElement"); } }
+        public string RelatedSpdxElement { get => _explicitNullValueRelatedSpdxElement; set { _explicitNullValueRelatedSpdxElement = value; AdditionalData?.Remove("relatedSpdxElement"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relatedSpdxElement"); else _explicitNullProperties?.Remove("relatedSpdxElement"); } }
         private string _explicitNullValueRelatedSpdxElement = default!;
 #endif
         /// <summary>The type of relationship between the two SPDX elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipType"); else _explicitNullProperties?.Remove("relationshipType"); } }
+        public string? RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; AdditionalData?.Remove("relationshipType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipType"); else _explicitNullProperties?.Remove("relationshipType"); } }
         private string? _explicitNullValueRelationshipType = default!;
 #nullable restore
 #else
-        public string RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipType"); else _explicitNullProperties?.Remove("relationshipType"); } }
+        public string RelationshipType { get => _explicitNullValueRelationshipType; set { _explicitNullValueRelationshipType = value; AdditionalData?.Remove("relationshipType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipType"); else _explicitNullProperties?.Remove("relationshipType"); } }
         private string _explicitNullValueRelationshipType = default!;
 #endif
         /// <summary>The SPDX identifier of the package that is the source of the relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpdxElementId { get => _explicitNullValueSpdxElementId; set { _explicitNullValueSpdxElementId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spdxElementId"); else _explicitNullProperties?.Remove("spdxElementId"); } }
+        public string? SpdxElementId { get => _explicitNullValueSpdxElementId; set { _explicitNullValueSpdxElementId = value; AdditionalData?.Remove("spdxElementId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spdxElementId"); else _explicitNullProperties?.Remove("spdxElementId"); } }
         private string? _explicitNullValueSpdxElementId = default!;
 #nullable restore
 #else
-        public string SpdxElementId { get => _explicitNullValueSpdxElementId; set { _explicitNullValueSpdxElementId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spdxElementId"); else _explicitNullProperties?.Remove("spdxElementId"); } }
+        public string SpdxElementId { get => _explicitNullValueSpdxElementId; set { _explicitNullValueSpdxElementId = value; AdditionalData?.Remove("spdxElementId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spdxElementId"); else _explicitNullProperties?.Remove("spdxElementId"); } }
         private string _explicitNullValueSpdxElementId = default!;
 #endif
         /// <summary>

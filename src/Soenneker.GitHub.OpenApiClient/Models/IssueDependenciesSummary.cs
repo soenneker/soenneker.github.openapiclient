@@ -17,25 +17,29 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blocked_by") is { } nullNodeBlockedBy && nullNodeBlockedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedBy = null;
-            if (parseNode.GetChildNode("blocking") is { } nullNodeBlocking && nullNodeBlocking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocking = null;
-            if (parseNode.GetChildNode("total_blocked_by") is { } nullNodeTotalBlockedBy && nullNodeTotalBlockedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBlockedBy = null;
-            if (parseNode.GetChildNode("total_blocking") is { } nullNodeTotalBlocking && nullNodeTotalBlocking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBlocking = null;
+            if (parseNode.GetChildNode("blocked_by") is null) { _explicitNullValueBlockedBy = default!; _explicitNullProperties?.Remove("blocked_by"); }
+            else if (parseNode.GetChildNode("blocked_by") is { } nullNodeBlockedBy && nullNodeBlockedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockedBy = null;
+            if (parseNode.GetChildNode("blocking") is null) { _explicitNullValueBlocking = default!; _explicitNullProperties?.Remove("blocking"); }
+            else if (parseNode.GetChildNode("blocking") is { } nullNodeBlocking && nullNodeBlocking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Blocking = null;
+            if (parseNode.GetChildNode("total_blocked_by") is null) { _explicitNullValueTotalBlockedBy = default!; _explicitNullProperties?.Remove("total_blocked_by"); }
+            else if (parseNode.GetChildNode("total_blocked_by") is { } nullNodeTotalBlockedBy && nullNodeTotalBlockedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBlockedBy = null;
+            if (parseNode.GetChildNode("total_blocking") is null) { _explicitNullValueTotalBlocking = default!; _explicitNullProperties?.Remove("total_blocking"); }
+            else if (parseNode.GetChildNode("total_blocking") is { } nullNodeTotalBlocking && nullNodeTotalBlocking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBlocking = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The blocked_by property</summary>
-        public int? BlockedBy { get => _explicitNullValueBlockedBy; set { _explicitNullValueBlockedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_by"); else _explicitNullProperties?.Remove("blocked_by"); } }
+        public int? BlockedBy { get => _explicitNullValueBlockedBy; set { _explicitNullValueBlockedBy = value; AdditionalData?.Remove("blocked_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocked_by"); else _explicitNullProperties?.Remove("blocked_by"); } }
         private int? _explicitNullValueBlockedBy = default!;
         /// <summary>The blocking property</summary>
-        public int? Blocking { get => _explicitNullValueBlocking; set { _explicitNullValueBlocking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocking"); else _explicitNullProperties?.Remove("blocking"); } }
+        public int? Blocking { get => _explicitNullValueBlocking; set { _explicitNullValueBlocking = value; AdditionalData?.Remove("blocking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blocking"); else _explicitNullProperties?.Remove("blocking"); } }
         private int? _explicitNullValueBlocking = default!;
         /// <summary>The total_blocked_by property</summary>
-        public int? TotalBlockedBy { get => _explicitNullValueTotalBlockedBy; set { _explicitNullValueTotalBlockedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_blocked_by"); else _explicitNullProperties?.Remove("total_blocked_by"); } }
+        public int? TotalBlockedBy { get => _explicitNullValueTotalBlockedBy; set { _explicitNullValueTotalBlockedBy = value; AdditionalData?.Remove("total_blocked_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_blocked_by"); else _explicitNullProperties?.Remove("total_blocked_by"); } }
         private int? _explicitNullValueTotalBlockedBy = default!;
         /// <summary>The total_blocking property</summary>
-        public int? TotalBlocking { get => _explicitNullValueTotalBlocking; set { _explicitNullValueTotalBlocking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_blocking"); else _explicitNullProperties?.Remove("total_blocking"); } }
+        public int? TotalBlocking { get => _explicitNullValueTotalBlocking; set { _explicitNullValueTotalBlocking = value; AdditionalData?.Remove("total_blocking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_blocking"); else _explicitNullProperties?.Remove("total_blocking"); } }
         private int? _explicitNullValueTotalBlocking = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssueDependenciesSummary"/> and sets the default values.

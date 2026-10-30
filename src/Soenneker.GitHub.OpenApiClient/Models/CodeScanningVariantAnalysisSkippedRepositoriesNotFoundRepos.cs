@@ -17,23 +17,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repository_count") is { } nullNodeRepositoryCount && nullNodeRepositoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryCount = null;
-            if (parseNode.GetChildNode("repository_full_names") is { } nullNodeRepositoryFullNames && nullNodeRepositoryFullNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryFullNames = null;
+            if (parseNode.GetChildNode("repository_count") is null) { _explicitNullValueRepositoryCount = default!; _explicitNullProperties?.Remove("repository_count"); }
+            else if (parseNode.GetChildNode("repository_count") is { } nullNodeRepositoryCount && nullNodeRepositoryCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryCount = null;
+            if (parseNode.GetChildNode("repository_full_names") is null) { _explicitNullValueRepositoryFullNames = default!; _explicitNullProperties?.Remove("repository_full_names"); }
+            else if (parseNode.GetChildNode("repository_full_names") is { } nullNodeRepositoryFullNames && nullNodeRepositoryFullNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryFullNames = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total number of repositories that were skipped for this reason.</summary>
-        public int? RepositoryCount { get => _explicitNullValueRepositoryCount; set { _explicitNullValueRepositoryCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_count"); else _explicitNullProperties?.Remove("repository_count"); } }
+        public int? RepositoryCount { get => _explicitNullValueRepositoryCount; set { _explicitNullValueRepositoryCount = value; AdditionalData?.Remove("repository_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_count"); else _explicitNullProperties?.Remove("repository_count"); } }
         private int? _explicitNullValueRepositoryCount = default!;
         /// <summary>A list of full repository names that were skipped. This list may not include all repositories that were skipped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RepositoryFullNames { get => _explicitNullValueRepositoryFullNames; set { _explicitNullValueRepositoryFullNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_full_names"); else _explicitNullProperties?.Remove("repository_full_names"); } }
+        public List<string>? RepositoryFullNames { get => _explicitNullValueRepositoryFullNames; set { _explicitNullValueRepositoryFullNames = value; AdditionalData?.Remove("repository_full_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_full_names"); else _explicitNullProperties?.Remove("repository_full_names"); } }
         private List<string>? _explicitNullValueRepositoryFullNames = default!;
 #nullable restore
 #else
-        public List<string> RepositoryFullNames { get => _explicitNullValueRepositoryFullNames; set { _explicitNullValueRepositoryFullNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_full_names"); else _explicitNullProperties?.Remove("repository_full_names"); } }
+        public List<string> RepositoryFullNames { get => _explicitNullValueRepositoryFullNames; set { _explicitNullValueRepositoryFullNames = value; AdditionalData?.Remove("repository_full_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_full_names"); else _explicitNullProperties?.Remove("repository_full_names"); } }
         private List<string> _explicitNullValueRepositoryFullNames = default!;
 #endif
         /// <summary>

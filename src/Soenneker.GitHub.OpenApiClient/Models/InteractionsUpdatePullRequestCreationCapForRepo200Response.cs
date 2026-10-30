@@ -17,21 +17,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("include_drafts") is { } nullNodeIncludeDrafts && nullNodeIncludeDrafts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDrafts = null;
-            if (parseNode.GetChildNode("max_open_pull_requests") is { } nullNodeMaxOpenPullRequests && nullNodeMaxOpenPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOpenPullRequests = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("include_drafts") is null) { _explicitNullValueIncludeDrafts = default!; _explicitNullProperties?.Remove("include_drafts"); }
+            else if (parseNode.GetChildNode("include_drafts") is { } nullNodeIncludeDrafts && nullNodeIncludeDrafts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDrafts = null;
+            if (parseNode.GetChildNode("max_open_pull_requests") is null) { _explicitNullValueMaxOpenPullRequests = default!; _explicitNullProperties?.Remove("max_open_pull_requests"); }
+            else if (parseNode.GetChildNode("max_open_pull_requests") is { } nullNodeMaxOpenPullRequests && nullNodeMaxOpenPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxOpenPullRequests = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the pull request creation cap is enabled</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Whether draft pull requests count toward the pull request creation cap</summary>
-        public bool? IncludeDrafts { get => _explicitNullValueIncludeDrafts; set { _explicitNullValueIncludeDrafts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_drafts"); else _explicitNullProperties?.Remove("include_drafts"); } }
+        public bool? IncludeDrafts { get => _explicitNullValueIncludeDrafts; set { _explicitNullValueIncludeDrafts = value; AdditionalData?.Remove("include_drafts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_drafts"); else _explicitNullProperties?.Remove("include_drafts"); } }
         private bool? _explicitNullValueIncludeDrafts = default!;
         /// <summary>The maximum number of open pull requests a user can have at one time</summary>
-        public int? MaxOpenPullRequests { get => _explicitNullValueMaxOpenPullRequests; set { _explicitNullValueMaxOpenPullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_open_pull_requests"); else _explicitNullProperties?.Remove("max_open_pull_requests"); } }
+        public int? MaxOpenPullRequests { get => _explicitNullValueMaxOpenPullRequests; set { _explicitNullValueMaxOpenPullRequests = value; AdditionalData?.Remove("max_open_pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_open_pull_requests"); else _explicitNullProperties?.Remove("max_open_pull_requests"); } }
         private int? _explicitNullValueMaxOpenPullRequests = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.InteractionsUpdatePullRequestCreationCapForRepo200Response"/> and sets the default values.

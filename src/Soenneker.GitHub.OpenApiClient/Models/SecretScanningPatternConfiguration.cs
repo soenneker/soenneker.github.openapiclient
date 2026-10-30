@@ -18,9 +18,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_pattern_overrides") is { } nullNodeCustomPatternOverrides && nullNodeCustomPatternOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternOverrides = null;
-            if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
-            if (parseNode.GetChildNode("provider_pattern_overrides") is { } nullNodeProviderPatternOverrides && nullNodeProviderPatternOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderPatternOverrides = null;
+            if (parseNode.GetChildNode("custom_pattern_overrides") is null) { _explicitNullValueCustomPatternOverrides = default!; _explicitNullProperties?.Remove("custom_pattern_overrides"); }
+            else if (parseNode.GetChildNode("custom_pattern_overrides") is { } nullNodeCustomPatternOverrides && nullNodeCustomPatternOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternOverrides = null;
+            if (parseNode.GetChildNode("pattern_config_version") is null) { _explicitNullValuePatternConfigVersion = default!; _explicitNullProperties?.Remove("pattern_config_version"); }
+            else if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
+            if (parseNode.GetChildNode("provider_pattern_overrides") is null) { _explicitNullValueProviderPatternOverrides = default!; _explicitNullProperties?.Remove("provider_pattern_overrides"); }
+            else if (parseNode.GetChildNode("provider_pattern_overrides") is { } nullNodeProviderPatternOverrides && nullNodeProviderPatternOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderPatternOverrides = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Overrides for custom patterns defined by the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride>? CustomPatternOverrides { get => _explicitNullValueCustomPatternOverrides; set { _explicitNullValueCustomPatternOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_overrides"); else _explicitNullProperties?.Remove("custom_pattern_overrides"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride>? CustomPatternOverrides { get => _explicitNullValueCustomPatternOverrides; set { _explicitNullValueCustomPatternOverrides = value; AdditionalData?.Remove("custom_pattern_overrides"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_overrides"); else _explicitNullProperties?.Remove("custom_pattern_overrides"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride>? _explicitNullValueCustomPatternOverrides = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride> CustomPatternOverrides { get => _explicitNullValueCustomPatternOverrides; set { _explicitNullValueCustomPatternOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_overrides"); else _explicitNullProperties?.Remove("custom_pattern_overrides"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride> CustomPatternOverrides { get => _explicitNullValueCustomPatternOverrides; set { _explicitNullValueCustomPatternOverrides = value; AdditionalData?.Remove("custom_pattern_overrides"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_overrides"); else _explicitNullProperties?.Remove("custom_pattern_overrides"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride> _explicitNullValueCustomPatternOverrides = default!;
 #endif
         /// <summary>The version of the entity. This is used to confirm you&apos;re updating the current version of the entity and mitigate unintentionally overriding someone else&apos;s update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; AdditionalData?.Remove("pattern_config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
         private string? _explicitNullValuePatternConfigVersion = default!;
 #nullable restore
 #else
-        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; AdditionalData?.Remove("pattern_config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
         private string _explicitNullValuePatternConfigVersion = default!;
 #endif
         /// <summary>Overrides for partner patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride>? ProviderPatternOverrides { get => _explicitNullValueProviderPatternOverrides; set { _explicitNullValueProviderPatternOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_overrides"); else _explicitNullProperties?.Remove("provider_pattern_overrides"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride>? ProviderPatternOverrides { get => _explicitNullValueProviderPatternOverrides; set { _explicitNullValueProviderPatternOverrides = value; AdditionalData?.Remove("provider_pattern_overrides"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_overrides"); else _explicitNullProperties?.Remove("provider_pattern_overrides"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride>? _explicitNullValueProviderPatternOverrides = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride> ProviderPatternOverrides { get => _explicitNullValueProviderPatternOverrides; set { _explicitNullValueProviderPatternOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_overrides"); else _explicitNullProperties?.Remove("provider_pattern_overrides"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride> ProviderPatternOverrides { get => _explicitNullValueProviderPatternOverrides; set { _explicitNullValueProviderPatternOverrides = value; AdditionalData?.Remove("provider_pattern_overrides"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_overrides"); else _explicitNullProperties?.Remove("provider_pattern_overrides"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPatternOverride> _explicitNullValueProviderPatternOverrides = default!;
 #endif
         /// <summary>

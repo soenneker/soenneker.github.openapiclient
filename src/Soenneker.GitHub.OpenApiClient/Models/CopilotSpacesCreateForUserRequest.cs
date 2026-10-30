@@ -17,56 +17,61 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_role") is { } nullNodeBaseRole && nullNodeBaseRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseRole = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("general_instructions") is { } nullNodeGeneralInstructions && nullNodeGeneralInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneralInstructions = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("resources_attributes") is { } nullNodeResourcesAttributes && nullNodeResourcesAttributes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcesAttributes = null;
+            if (parseNode.GetChildNode("base_role") is null) { _explicitNullValueBaseRole = default!; _explicitNullProperties?.Remove("base_role"); }
+            else if (parseNode.GetChildNode("base_role") is { } nullNodeBaseRole && nullNodeBaseRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseRole = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("general_instructions") is null) { _explicitNullValueGeneralInstructions = default!; _explicitNullProperties?.Remove("general_instructions"); }
+            else if (parseNode.GetChildNode("general_instructions") is { } nullNodeGeneralInstructions && nullNodeGeneralInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GeneralInstructions = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("resources_attributes") is null) { _explicitNullValueResourcesAttributes = default!; _explicitNullProperties?.Remove("resources_attributes"); }
+            else if (parseNode.GetChildNode("resources_attributes") is { } nullNodeResourcesAttributes && nullNodeResourcesAttributes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcesAttributes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The base role that determines default permissions for the space.- `no_access`: No default access (default)- `reader`: Makes the space publicly readableNote: User spaces do not support writer or admin base roles.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestBaseRole? BaseRole { get => _explicitNullValueBaseRole; set { _explicitNullValueBaseRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_role"); else _explicitNullProperties?.Remove("base_role"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestBaseRole? BaseRole { get => _explicitNullValueBaseRole; set { _explicitNullValueBaseRole = value; AdditionalData?.Remove("base_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_role"); else _explicitNullProperties?.Remove("base_role"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestBaseRole? _explicitNullValueBaseRole = default!;
         /// <summary>A description of the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>General instructions for the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GeneralInstructions { get => _explicitNullValueGeneralInstructions; set { _explicitNullValueGeneralInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("general_instructions"); else _explicitNullProperties?.Remove("general_instructions"); } }
+        public string? GeneralInstructions { get => _explicitNullValueGeneralInstructions; set { _explicitNullValueGeneralInstructions = value; AdditionalData?.Remove("general_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("general_instructions"); else _explicitNullProperties?.Remove("general_instructions"); } }
         private string? _explicitNullValueGeneralInstructions = default!;
 #nullable restore
 #else
-        public string GeneralInstructions { get => _explicitNullValueGeneralInstructions; set { _explicitNullValueGeneralInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("general_instructions"); else _explicitNullProperties?.Remove("general_instructions"); } }
+        public string GeneralInstructions { get => _explicitNullValueGeneralInstructions; set { _explicitNullValueGeneralInstructions = value; AdditionalData?.Remove("general_instructions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("general_instructions"); else _explicitNullProperties?.Remove("general_instructions"); } }
         private string _explicitNullValueGeneralInstructions = default!;
 #endif
         /// <summary>The name of the Copilot Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Resources to attach to the space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestResourcesAttributesItem>? ResourcesAttributes { get => _explicitNullValueResourcesAttributes; set { _explicitNullValueResourcesAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_attributes"); else _explicitNullProperties?.Remove("resources_attributes"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestResourcesAttributesItem>? ResourcesAttributes { get => _explicitNullValueResourcesAttributes; set { _explicitNullValueResourcesAttributes = value; AdditionalData?.Remove("resources_attributes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_attributes"); else _explicitNullProperties?.Remove("resources_attributes"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestResourcesAttributesItem>? _explicitNullValueResourcesAttributes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestResourcesAttributesItem> ResourcesAttributes { get => _explicitNullValueResourcesAttributes; set { _explicitNullValueResourcesAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_attributes"); else _explicitNullProperties?.Remove("resources_attributes"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestResourcesAttributesItem> ResourcesAttributes { get => _explicitNullValueResourcesAttributes; set { _explicitNullValueResourcesAttributes = value; AdditionalData?.Remove("resources_attributes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_attributes"); else _explicitNullProperties?.Remove("resources_attributes"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestResourcesAttributesItem> _explicitNullValueResourcesAttributes = default!;
 #endif
         /// <summary>
@@ -94,7 +99,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "base_role", n => { BaseRole = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestBaseRole>(); } },
+                { "base_role", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpacesCreateForUserRequestBaseRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBaseRole = default; _explicitNullProperties?.Remove("base_role"); AdditionalData["base_role"] = unknown; } else { BaseRole = parsed; AdditionalData.Remove("base_role"); } } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "general_instructions", n => { GeneralInstructions = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },

@@ -19,9 +19,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("download_links") is { } nullNodeDownloadLinks && nullNodeDownloadLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadLinks = null;
-            if (parseNode.GetChildNode("report_end_day") is { } nullNodeReportEndDay && nullNodeReportEndDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportEndDay = null;
-            if (parseNode.GetChildNode("report_start_day") is { } nullNodeReportStartDay && nullNodeReportStartDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportStartDay = null;
+            if (parseNode.GetChildNode("download_links") is null) { _explicitNullValueDownloadLinks = default!; _explicitNullProperties?.Remove("download_links"); }
+            else if (parseNode.GetChildNode("download_links") is { } nullNodeDownloadLinks && nullNodeDownloadLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DownloadLinks = null;
+            if (parseNode.GetChildNode("report_end_day") is null) { _explicitNullValueReportEndDay = default!; _explicitNullProperties?.Remove("report_end_day"); }
+            else if (parseNode.GetChildNode("report_end_day") is { } nullNodeReportEndDay && nullNodeReportEndDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportEndDay = null;
+            if (parseNode.GetChildNode("report_start_day") is null) { _explicitNullValueReportStartDay = default!; _explicitNullProperties?.Remove("report_start_day"); }
+            else if (parseNode.GetChildNode("report_start_day") is { } nullNodeReportStartDay && nullNodeReportStartDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportStartDay = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,18 +32,18 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The URLs to download the latest Copilot usage metrics report for the enterprise/organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
+        public List<string>? DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; AdditionalData?.Remove("download_links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
         private List<string>? _explicitNullValueDownloadLinks = default!;
 #nullable restore
 #else
-        public List<string> DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
+        public List<string> DownloadLinks { get => _explicitNullValueDownloadLinks; set { _explicitNullValueDownloadLinks = value; AdditionalData?.Remove("download_links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("download_links"); else _explicitNullProperties?.Remove("download_links"); } }
         private List<string> _explicitNullValueDownloadLinks = default!;
 #endif
         /// <summary>The end date of the report period in `YYYY-MM-DD` format.</summary>
-        public Date? ReportEndDay { get => _explicitNullValueReportEndDay; set { _explicitNullValueReportEndDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_end_day"); else _explicitNullProperties?.Remove("report_end_day"); } }
+        public Date? ReportEndDay { get => _explicitNullValueReportEndDay; set { _explicitNullValueReportEndDay = value; AdditionalData?.Remove("report_end_day"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_end_day"); else _explicitNullProperties?.Remove("report_end_day"); } }
         private Date? _explicitNullValueReportEndDay = default!;
         /// <summary>The start date of the report period in `YYYY-MM-DD` format.</summary>
-        public Date? ReportStartDay { get => _explicitNullValueReportStartDay; set { _explicitNullValueReportStartDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_start_day"); else _explicitNullProperties?.Remove("report_start_day"); } }
+        public Date? ReportStartDay { get => _explicitNullValueReportStartDay; set { _explicitNullValueReportStartDay = value; AdditionalData?.Remove("report_start_day"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report_start_day"); else _explicitNullProperties?.Remove("report_start_day"); } }
         private Date? _explicitNullValueReportStartDay = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotUsageMetrics28DayReport"/> and sets the default values.

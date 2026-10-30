@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ignored") is { } nullNodeIgnored && nullNodeIgnored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ignored = null;
+            if (parseNode.GetChildNode("ignored") is null) { _explicitNullValueIgnored = default!; _explicitNullProperties?.Remove("ignored"); }
+            else if (parseNode.GetChildNode("ignored") is { } nullNodeIgnored && nullNodeIgnored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ignored = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to block all notifications from a thread.</summary>
-        public bool? Ignored { get => _explicitNullValueIgnored; set { _explicitNullValueIgnored = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored"); else _explicitNullProperties?.Remove("ignored"); } }
+        public bool? Ignored { get => _explicitNullValueIgnored; set { _explicitNullValueIgnored = value; AdditionalData?.Remove("ignored"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored"); else _explicitNullProperties?.Remove("ignored"); } }
         private bool? _explicitNullValueIgnored = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActivitySetThreadSubscriptionRequest"/> and sets the default values.

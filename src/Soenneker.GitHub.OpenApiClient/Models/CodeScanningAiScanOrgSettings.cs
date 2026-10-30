@@ -18,13 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pr_scan") is { } nullNodePrScan && nullNodePrScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrScan = null;
+            if (parseNode.GetChildNode("pr_scan") is null) { _explicitNullValuePrScan = default!; _explicitNullProperties?.Remove("pr_scan"); }
+            else if (parseNode.GetChildNode("pr_scan") is { } nullNodePrScan && nullNodePrScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrScan = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether AI Scan on pull requests is enabled for the organization. The organization setting respects enterprise policy, and repositories inherit it: when disabled, repositories cannot enable AI Scan; when enabled, repositories can still opt out.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgSettingsPrScan? PrScan { get => _explicitNullValuePrScan; set { _explicitNullValuePrScan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pr_scan"); else _explicitNullProperties?.Remove("pr_scan"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgSettingsPrScan? PrScan { get => _explicitNullValuePrScan; set { _explicitNullValuePrScan = value; AdditionalData?.Remove("pr_scan"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pr_scan"); else _explicitNullProperties?.Remove("pr_scan"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgSettingsPrScan? _explicitNullValuePrScan = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgSettings"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "pr_scan", n => { PrScan = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgSettingsPrScan>(); } },
+                { "pr_scan", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningAiScanOrgSettingsPrScan>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePrScan = default; _explicitNullProperties?.Remove("pr_scan"); AdditionalData["pr_scan"] = unknown; } else { PrScan = parsed; AdditionalData.Remove("pr_scan"); } } },
             };
         }
         /// <summary>

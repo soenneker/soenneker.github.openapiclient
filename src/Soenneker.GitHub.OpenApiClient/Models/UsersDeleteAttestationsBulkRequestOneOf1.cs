@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("subject_digests") is { } nullNodeSubjectDigests && nullNodeSubjectDigests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectDigests = null;
+            if (parseNode.GetChildNode("subject_digests") is null) { _explicitNullValueSubjectDigests = default!; _explicitNullProperties?.Remove("subject_digests"); }
+            else if (parseNode.GetChildNode("subject_digests") is { } nullNodeSubjectDigests && nullNodeSubjectDigests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectDigests = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>List of subject digests associated with the artifact attestations to delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SubjectDigests { get => _explicitNullValueSubjectDigests; set { _explicitNullValueSubjectDigests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_digests"); else _explicitNullProperties?.Remove("subject_digests"); } }
+        public List<string>? SubjectDigests { get => _explicitNullValueSubjectDigests; set { _explicitNullValueSubjectDigests = value; AdditionalData?.Remove("subject_digests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_digests"); else _explicitNullProperties?.Remove("subject_digests"); } }
         private List<string>? _explicitNullValueSubjectDigests = default!;
 #nullable restore
 #else
-        public List<string> SubjectDigests { get => _explicitNullValueSubjectDigests; set { _explicitNullValueSubjectDigests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_digests"); else _explicitNullProperties?.Remove("subject_digests"); } }
+        public List<string> SubjectDigests { get => _explicitNullValueSubjectDigests; set { _explicitNullValueSubjectDigests = value; AdditionalData?.Remove("subject_digests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_digests"); else _explicitNullProperties?.Remove("subject_digests"); } }
         private List<string> _explicitNullValueSubjectDigests = default!;
 #endif
         /// <summary>

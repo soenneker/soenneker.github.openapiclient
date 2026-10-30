@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repository_values") is { } nullNodeRepositoryValues && nullNodeRepositoryValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryValues = null;
+            if (parseNode.GetChildNode("repository_values") is null) { _explicitNullValueRepositoryValues = default!; _explicitNullProperties?.Remove("repository_values"); }
+            else if (parseNode.GetChildNode("repository_values") is { } nullNodeRepositoryValues && nullNodeRepositoryValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryValues = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The names of repositories and the values that the named external custom property will be set to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryExternalPropertyPayload>? RepositoryValues { get => _explicitNullValueRepositoryValues; set { _explicitNullValueRepositoryValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_values"); else _explicitNullProperties?.Remove("repository_values"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryExternalPropertyPayload>? RepositoryValues { get => _explicitNullValueRepositoryValues; set { _explicitNullValueRepositoryValues = value; AdditionalData?.Remove("repository_values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_values"); else _explicitNullProperties?.Remove("repository_values"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryExternalPropertyPayload>? _explicitNullValueRepositoryValues = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryExternalPropertyPayload> RepositoryValues { get => _explicitNullValueRepositoryValues; set { _explicitNullValueRepositoryValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_values"); else _explicitNullProperties?.Remove("repository_values"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryExternalPropertyPayload> RepositoryValues { get => _explicitNullValueRepositoryValues; set { _explicitNullValueRepositoryValues = value; AdditionalData?.Remove("repository_values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_values"); else _explicitNullProperties?.Remove("repository_values"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryExternalPropertyPayload> _explicitNullValueRepositoryValues = default!;
 #endif
         /// <summary>

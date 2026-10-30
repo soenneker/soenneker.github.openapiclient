@@ -17,32 +17,36 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ruleset_id") is { } nullNodeRulesetId && nullNodeRulesetId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesetId = null;
-            if (parseNode.GetChildNode("ruleset_source") is { } nullNodeRulesetSource && nullNodeRulesetSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesetSource = null;
-            if (parseNode.GetChildNode("ruleset_source_type") is { } nullNodeRulesetSourceType && nullNodeRulesetSourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesetSourceType = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("ruleset_id") is null) { _explicitNullValueRulesetId = default!; _explicitNullProperties?.Remove("ruleset_id"); }
+            else if (parseNode.GetChildNode("ruleset_id") is { } nullNodeRulesetId && nullNodeRulesetId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesetId = null;
+            if (parseNode.GetChildNode("ruleset_source") is null) { _explicitNullValueRulesetSource = default!; _explicitNullProperties?.Remove("ruleset_source"); }
+            else if (parseNode.GetChildNode("ruleset_source") is { } nullNodeRulesetSource && nullNodeRulesetSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesetSource = null;
+            if (parseNode.GetChildNode("ruleset_source_type") is null) { _explicitNullValueRulesetSourceType = default!; _explicitNullProperties?.Remove("ruleset_source_type"); }
+            else if (parseNode.GetChildNode("ruleset_source_type") is { } nullNodeRulesetSourceType && nullNodeRulesetSourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulesetSourceType = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the ruleset that includes this rule.</summary>
-        public long? RulesetId { get => _explicitNullValueRulesetId; set { _explicitNullValueRulesetId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_id"); else _explicitNullProperties?.Remove("ruleset_id"); } }
+        public long? RulesetId { get => _explicitNullValueRulesetId; set { _explicitNullValueRulesetId = value; AdditionalData?.Remove("ruleset_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_id"); else _explicitNullProperties?.Remove("ruleset_id"); } }
         private long? _explicitNullValueRulesetId = default!;
         /// <summary>The name of the source of the ruleset that includes this rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RulesetSource { get => _explicitNullValueRulesetSource; set { _explicitNullValueRulesetSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_source"); else _explicitNullProperties?.Remove("ruleset_source"); } }
+        public string? RulesetSource { get => _explicitNullValueRulesetSource; set { _explicitNullValueRulesetSource = value; AdditionalData?.Remove("ruleset_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_source"); else _explicitNullProperties?.Remove("ruleset_source"); } }
         private string? _explicitNullValueRulesetSource = default!;
 #nullable restore
 #else
-        public string RulesetSource { get => _explicitNullValueRulesetSource; set { _explicitNullValueRulesetSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_source"); else _explicitNullProperties?.Remove("ruleset_source"); } }
+        public string RulesetSource { get => _explicitNullValueRulesetSource; set { _explicitNullValueRulesetSource = value; AdditionalData?.Remove("ruleset_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_source"); else _explicitNullProperties?.Remove("ruleset_source"); } }
         private string _explicitNullValueRulesetSource = default!;
 #endif
         /// <summary>The type of source for the ruleset that includes this rule.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRulesetInfoRulesetSourceType? RulesetSourceType { get => _explicitNullValueRulesetSourceType; set { _explicitNullValueRulesetSourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_source_type"); else _explicitNullProperties?.Remove("ruleset_source_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRulesetInfoRulesetSourceType? RulesetSourceType { get => _explicitNullValueRulesetSourceType; set { _explicitNullValueRulesetSourceType = value; AdditionalData?.Remove("ruleset_source_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleset_source_type"); else _explicitNullProperties?.Remove("ruleset_source_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRulesetInfoRulesetSourceType? _explicitNullValueRulesetSourceType = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RequiredLinearHistoryType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RequiredLinearHistoryType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RequiredLinearHistoryType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleDetailedOneOf4"/> and sets the default values.
@@ -71,8 +75,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "ruleset_id", n => { RulesetId = n.GetLongValue(); } },
                 { "ruleset_source", n => { RulesetSource = n.GetStringValue(); } },
-                { "ruleset_source_type", n => { RulesetSourceType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRulesetInfoRulesetSourceType>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RequiredLinearHistoryType>(); } },
+                { "ruleset_source_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleRulesetInfoRulesetSourceType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRulesetSourceType = default; _explicitNullProperties?.Remove("ruleset_source_type"); AdditionalData["ruleset_source_type"] = unknown; } else { RulesetSourceType = parsed; AdditionalData.Remove("ruleset_source_type"); } } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RequiredLinearHistoryType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

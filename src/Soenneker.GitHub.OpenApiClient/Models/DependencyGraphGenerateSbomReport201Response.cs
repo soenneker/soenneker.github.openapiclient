@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sbom_url") is { } nullNodeSbomUrl && nullNodeSbomUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SbomUrl = null;
+            if (parseNode.GetChildNode("sbom_url") is null) { _explicitNullValueSbomUrl = default!; _explicitNullProperties?.Remove("sbom_url"); }
+            else if (parseNode.GetChildNode("sbom_url") is { } nullNodeSbomUrl && nullNodeSbomUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SbomUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>URL to poll for the SBOM export result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SbomUrl { get => _explicitNullValueSbomUrl; set { _explicitNullValueSbomUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom_url"); else _explicitNullProperties?.Remove("sbom_url"); } }
+        public string? SbomUrl { get => _explicitNullValueSbomUrl; set { _explicitNullValueSbomUrl = value; AdditionalData?.Remove("sbom_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom_url"); else _explicitNullProperties?.Remove("sbom_url"); } }
         private string? _explicitNullValueSbomUrl = default!;
 #nullable restore
 #else
-        public string SbomUrl { get => _explicitNullValueSbomUrl; set { _explicitNullValueSbomUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom_url"); else _explicitNullProperties?.Remove("sbom_url"); } }
+        public string SbomUrl { get => _explicitNullValueSbomUrl; set { _explicitNullValueSbomUrl = value; AdditionalData?.Remove("sbom_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbom_url"); else _explicitNullProperties?.Remove("sbom_url"); } }
         private string _explicitNullValueSbomUrl = default!;
 #endif
         /// <summary>

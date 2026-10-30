@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("referenceCategory") is { } nullNodeReferenceCategory && nullNodeReferenceCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceCategory = null;
-            if (parseNode.GetChildNode("referenceLocator") is { } nullNodeReferenceLocator && nullNodeReferenceLocator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceLocator = null;
-            if (parseNode.GetChildNode("referenceType") is { } nullNodeReferenceType && nullNodeReferenceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceType = null;
+            if (parseNode.GetChildNode("referenceCategory") is null) { _explicitNullValueReferenceCategory = default!; _explicitNullProperties?.Remove("referenceCategory"); }
+            else if (parseNode.GetChildNode("referenceCategory") is { } nullNodeReferenceCategory && nullNodeReferenceCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceCategory = null;
+            if (parseNode.GetChildNode("referenceLocator") is null) { _explicitNullValueReferenceLocator = default!; _explicitNullProperties?.Remove("referenceLocator"); }
+            else if (parseNode.GetChildNode("referenceLocator") is { } nullNodeReferenceLocator && nullNodeReferenceLocator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceLocator = null;
+            if (parseNode.GetChildNode("referenceType") is null) { _explicitNullValueReferenceType = default!; _explicitNullProperties?.Remove("referenceType"); }
+            else if (parseNode.GetChildNode("referenceType") is { } nullNodeReferenceType && nullNodeReferenceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The category of reference to an external resource this reference refers to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferenceCategory { get => _explicitNullValueReferenceCategory; set { _explicitNullValueReferenceCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCategory"); else _explicitNullProperties?.Remove("referenceCategory"); } }
+        public string? ReferenceCategory { get => _explicitNullValueReferenceCategory; set { _explicitNullValueReferenceCategory = value; AdditionalData?.Remove("referenceCategory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCategory"); else _explicitNullProperties?.Remove("referenceCategory"); } }
         private string? _explicitNullValueReferenceCategory = default!;
 #nullable restore
 #else
-        public string ReferenceCategory { get => _explicitNullValueReferenceCategory; set { _explicitNullValueReferenceCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCategory"); else _explicitNullProperties?.Remove("referenceCategory"); } }
+        public string ReferenceCategory { get => _explicitNullValueReferenceCategory; set { _explicitNullValueReferenceCategory = value; AdditionalData?.Remove("referenceCategory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCategory"); else _explicitNullProperties?.Remove("referenceCategory"); } }
         private string _explicitNullValueReferenceCategory = default!;
 #endif
         /// <summary>A locator for the particular external resource this reference refers to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferenceLocator { get => _explicitNullValueReferenceLocator; set { _explicitNullValueReferenceLocator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceLocator"); else _explicitNullProperties?.Remove("referenceLocator"); } }
+        public string? ReferenceLocator { get => _explicitNullValueReferenceLocator; set { _explicitNullValueReferenceLocator = value; AdditionalData?.Remove("referenceLocator"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceLocator"); else _explicitNullProperties?.Remove("referenceLocator"); } }
         private string? _explicitNullValueReferenceLocator = default!;
 #nullable restore
 #else
-        public string ReferenceLocator { get => _explicitNullValueReferenceLocator; set { _explicitNullValueReferenceLocator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceLocator"); else _explicitNullProperties?.Remove("referenceLocator"); } }
+        public string ReferenceLocator { get => _explicitNullValueReferenceLocator; set { _explicitNullValueReferenceLocator = value; AdditionalData?.Remove("referenceLocator"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceLocator"); else _explicitNullProperties?.Remove("referenceLocator"); } }
         private string _explicitNullValueReferenceLocator = default!;
 #endif
         /// <summary>The category of reference to an external resource this reference refers to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferenceType { get => _explicitNullValueReferenceType; set { _explicitNullValueReferenceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceType"); else _explicitNullProperties?.Remove("referenceType"); } }
+        public string? ReferenceType { get => _explicitNullValueReferenceType; set { _explicitNullValueReferenceType = value; AdditionalData?.Remove("referenceType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceType"); else _explicitNullProperties?.Remove("referenceType"); } }
         private string? _explicitNullValueReferenceType = default!;
 #nullable restore
 #else
-        public string ReferenceType { get => _explicitNullValueReferenceType; set { _explicitNullValueReferenceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceType"); else _explicitNullProperties?.Remove("referenceType"); } }
+        public string ReferenceType { get => _explicitNullValueReferenceType; set { _explicitNullValueReferenceType = value; AdditionalData?.Remove("referenceType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceType"); else _explicitNullProperties?.Remove("referenceType"); } }
         private string _explicitNullValueReferenceType = default!;
 #endif
         /// <summary>

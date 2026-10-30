@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("group_members") is { } nullNodeGroupMembers && nullNodeGroupMembers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupMembers = null;
-            if (parseNode.GetChildNode("group_name") is { } nullNodeGroupName && nullNodeGroupName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupName = null;
-            if (parseNode.GetChildNode("group_url") is { } nullNodeGroupUrl && nullNodeGroupUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupUrl = null;
+            if (parseNode.GetChildNode("group_members") is null) { _explicitNullValueGroupMembers = default!; _explicitNullProperties?.Remove("group_members"); }
+            else if (parseNode.GetChildNode("group_members") is { } nullNodeGroupMembers && nullNodeGroupMembers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupMembers = null;
+            if (parseNode.GetChildNode("group_name") is null) { _explicitNullValueGroupName = default!; _explicitNullProperties?.Remove("group_name"); }
+            else if (parseNode.GetChildNode("group_name") is { } nullNodeGroupName && nullNodeGroupName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupName = null;
+            if (parseNode.GetChildNode("group_url") is null) { _explicitNullValueGroupUrl = default!; _explicitNullProperties?.Remove("group_url"); }
+            else if (parseNode.GetChildNode("group_url") is { } nullNodeGroupUrl && nullNodeGroupUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Items belonging to this workflow run that are either currently holding orwaiting for the concurrency group lease. May be empty if the run nolonger has any active or queued items in this group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem>? GroupMembers { get => _explicitNullValueGroupMembers; set { _explicitNullValueGroupMembers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_members"); else _explicitNullProperties?.Remove("group_members"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem>? GroupMembers { get => _explicitNullValueGroupMembers; set { _explicitNullValueGroupMembers = value; AdditionalData?.Remove("group_members"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_members"); else _explicitNullProperties?.Remove("group_members"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem>? _explicitNullValueGroupMembers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem> GroupMembers { get => _explicitNullValueGroupMembers; set { _explicitNullValueGroupMembers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_members"); else _explicitNullProperties?.Remove("group_members"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem> GroupMembers { get => _explicitNullValueGroupMembers; set { _explicitNullValueGroupMembers = value; AdditionalData?.Remove("group_members"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_members"); else _explicitNullProperties?.Remove("group_members"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ConcurrencyGroupRunListConcurrencyGroupsItemGroupMembersItem> _explicitNullValueGroupMembers = default!;
 #endif
         /// <summary>The name of the concurrency group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroupName { get => _explicitNullValueGroupName; set { _explicitNullValueGroupName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_name"); else _explicitNullProperties?.Remove("group_name"); } }
+        public string? GroupName { get => _explicitNullValueGroupName; set { _explicitNullValueGroupName = value; AdditionalData?.Remove("group_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_name"); else _explicitNullProperties?.Remove("group_name"); } }
         private string? _explicitNullValueGroupName = default!;
 #nullable restore
 #else
-        public string GroupName { get => _explicitNullValueGroupName; set { _explicitNullValueGroupName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_name"); else _explicitNullProperties?.Remove("group_name"); } }
+        public string GroupName { get => _explicitNullValueGroupName; set { _explicitNullValueGroupName = value; AdditionalData?.Remove("group_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_name"); else _explicitNullProperties?.Remove("group_name"); } }
         private string _explicitNullValueGroupName = default!;
 #endif
         /// <summary>API URL for this concurrency group. May return 404 if the grouphas no active items at the time it is requested, since theget-by-name endpoint reports the live repo-wide state of a groupwhile this endpoint lists groups associated with a run byconfiguration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroupUrl { get => _explicitNullValueGroupUrl; set { _explicitNullValueGroupUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_url"); else _explicitNullProperties?.Remove("group_url"); } }
+        public string? GroupUrl { get => _explicitNullValueGroupUrl; set { _explicitNullValueGroupUrl = value; AdditionalData?.Remove("group_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_url"); else _explicitNullProperties?.Remove("group_url"); } }
         private string? _explicitNullValueGroupUrl = default!;
 #nullable restore
 #else
-        public string GroupUrl { get => _explicitNullValueGroupUrl; set { _explicitNullValueGroupUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_url"); else _explicitNullProperties?.Remove("group_url"); } }
+        public string GroupUrl { get => _explicitNullValueGroupUrl; set { _explicitNullValueGroupUrl = value; AdditionalData?.Remove("group_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_url"); else _explicitNullProperties?.Remove("group_url"); } }
         private string _explicitNullValueGroupUrl = default!;
 #endif
         /// <summary>

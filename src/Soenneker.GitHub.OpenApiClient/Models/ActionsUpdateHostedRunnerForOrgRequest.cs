@@ -17,72 +17,81 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enable_static_ip") is { } nullNodeEnableStaticIp && nullNodeEnableStaticIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableStaticIp = null;
-            if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
-            if (parseNode.GetChildNode("image_id") is { } nullNodeImageId && nullNodeImageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageId = null;
-            if (parseNode.GetChildNode("image_source") is { } nullNodeImageSource && nullNodeImageSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageSource = null;
-            if (parseNode.GetChildNode("image_version") is { } nullNodeImageVersion && nullNodeImageVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageVersion = null;
-            if (parseNode.GetChildNode("maximum_runners") is { } nullNodeMaximumRunners && nullNodeMaximumRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumRunners = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("runner_group_id") is { } nullNodeRunnerGroupId && nullNodeRunnerGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupId = null;
-            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("enable_static_ip") is null) { _explicitNullValueEnableStaticIp = default!; _explicitNullProperties?.Remove("enable_static_ip"); }
+            else if (parseNode.GetChildNode("enable_static_ip") is { } nullNodeEnableStaticIp && nullNodeEnableStaticIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableStaticIp = null;
+            if (parseNode.GetChildNode("image_gen") is null) { _explicitNullValueImageGen = default!; _explicitNullProperties?.Remove("image_gen"); }
+            else if (parseNode.GetChildNode("image_gen") is { } nullNodeImageGen && nullNodeImageGen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageGen = null;
+            if (parseNode.GetChildNode("image_id") is null) { _explicitNullValueImageId = default!; _explicitNullProperties?.Remove("image_id"); }
+            else if (parseNode.GetChildNode("image_id") is { } nullNodeImageId && nullNodeImageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageId = null;
+            if (parseNode.GetChildNode("image_source") is null) { _explicitNullValueImageSource = default!; _explicitNullProperties?.Remove("image_source"); }
+            else if (parseNode.GetChildNode("image_source") is { } nullNodeImageSource && nullNodeImageSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageSource = null;
+            if (parseNode.GetChildNode("image_version") is null) { _explicitNullValueImageVersion = default!; _explicitNullProperties?.Remove("image_version"); }
+            else if (parseNode.GetChildNode("image_version") is { } nullNodeImageVersion && nullNodeImageVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageVersion = null;
+            if (parseNode.GetChildNode("maximum_runners") is null) { _explicitNullValueMaximumRunners = default!; _explicitNullProperties?.Remove("maximum_runners"); }
+            else if (parseNode.GetChildNode("maximum_runners") is { } nullNodeMaximumRunners && nullNodeMaximumRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaximumRunners = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("runner_group_id") is null) { _explicitNullValueRunnerGroupId = default!; _explicitNullProperties?.Remove("runner_group_id"); }
+            else if (parseNode.GetChildNode("runner_group_id") is { } nullNodeRunnerGroupId && nullNodeRunnerGroupId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerGroupId = null;
+            if (parseNode.GetChildNode("size") is null) { _explicitNullValueSize = default!; _explicitNullProperties?.Remove("size"); }
+            else if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this runner should be updated with a static public IP. Note limit on account. To list limits on account, use `GET actions/hosted-runners/limits`</summary>
-        public bool? EnableStaticIp { get => _explicitNullValueEnableStaticIp; set { _explicitNullValueEnableStaticIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_static_ip"); else _explicitNullProperties?.Remove("enable_static_ip"); } }
+        public bool? EnableStaticIp { get => _explicitNullValueEnableStaticIp; set { _explicitNullValueEnableStaticIp = value; AdditionalData?.Remove("enable_static_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_static_ip"); else _explicitNullProperties?.Remove("enable_static_ip"); } }
         private bool? _explicitNullValueEnableStaticIp = default!;
         /// <summary>Whether to enable image generation for this runner pool. When enabled, the runner pool is used to build and publish custom runner images.</summary>
-        public bool? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
+        public bool? ImageGen { get => _explicitNullValueImageGen; set { _explicitNullValueImageGen = value; AdditionalData?.Remove("image_gen"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_gen"); else _explicitNullProperties?.Remove("image_gen"); } }
         private bool? _explicitNullValueImageGen = default!;
         /// <summary>The unique identifier of the runner image. To list available images, use `GET /actions/hosted-runners/images/github-owned`, `GET /actions/hosted-runners/images/partner`, or `GET /actions/hosted-runners/images/custom`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_id"); else _explicitNullProperties?.Remove("image_id"); } }
+        public string? ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; AdditionalData?.Remove("image_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_id"); else _explicitNullProperties?.Remove("image_id"); } }
         private string? _explicitNullValueImageId = default!;
 #nullable restore
 #else
-        public string ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_id"); else _explicitNullProperties?.Remove("image_id"); } }
+        public string ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; AdditionalData?.Remove("image_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_id"); else _explicitNullProperties?.Remove("image_id"); } }
         private string _explicitNullValueImageId = default!;
 #endif
         /// <summary>The source type of the runner image to use. Must match the source of the image specified by `image_id`. Can be one of `github`, `partner`, or `custom`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrgRequestImageSource? ImageSource { get => _explicitNullValueImageSource; set { _explicitNullValueImageSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_source"); else _explicitNullProperties?.Remove("image_source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrgRequestImageSource? ImageSource { get => _explicitNullValueImageSource; set { _explicitNullValueImageSource = value; AdditionalData?.Remove("image_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_source"); else _explicitNullProperties?.Remove("image_source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrgRequestImageSource? _explicitNullValueImageSource = default!;
         /// <summary>The version of the runner image to deploy. This is relevant only for runners using custom images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImageVersion { get => _explicitNullValueImageVersion; set { _explicitNullValueImageVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_version"); else _explicitNullProperties?.Remove("image_version"); } }
+        public string? ImageVersion { get => _explicitNullValueImageVersion; set { _explicitNullValueImageVersion = value; AdditionalData?.Remove("image_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_version"); else _explicitNullProperties?.Remove("image_version"); } }
         private string? _explicitNullValueImageVersion = default!;
 #nullable restore
 #else
-        public string ImageVersion { get => _explicitNullValueImageVersion; set { _explicitNullValueImageVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_version"); else _explicitNullProperties?.Remove("image_version"); } }
+        public string ImageVersion { get => _explicitNullValueImageVersion; set { _explicitNullValueImageVersion = value; AdditionalData?.Remove("image_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("image_version"); else _explicitNullProperties?.Remove("image_version"); } }
         private string _explicitNullValueImageVersion = default!;
 #endif
         /// <summary>The maximum amount of runners to scale up to. Runners will not auto-scale above this number. Use this setting to limit your cost.</summary>
-        public int? MaximumRunners { get => _explicitNullValueMaximumRunners; set { _explicitNullValueMaximumRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_runners"); else _explicitNullProperties?.Remove("maximum_runners"); } }
+        public int? MaximumRunners { get => _explicitNullValueMaximumRunners; set { _explicitNullValueMaximumRunners = value; AdditionalData?.Remove("maximum_runners"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum_runners"); else _explicitNullProperties?.Remove("maximum_runners"); } }
         private int? _explicitNullValueMaximumRunners = default!;
         /// <summary>Name of the runner. Must be between 1 and 64 characters and may only contain upper and lowercase letters a-z, numbers 0-9, &apos;.&apos;, &apos;-&apos;, and &apos;_&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The existing runner group to add this runner to.</summary>
-        public long? RunnerGroupId { get => _explicitNullValueRunnerGroupId; set { _explicitNullValueRunnerGroupId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_id"); else _explicitNullProperties?.Remove("runner_group_id"); } }
+        public long? RunnerGroupId { get => _explicitNullValueRunnerGroupId; set { _explicitNullValueRunnerGroupId = value; AdditionalData?.Remove("runner_group_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_group_id"); else _explicitNullProperties?.Remove("runner_group_id"); } }
         private long? _explicitNullValueRunnerGroupId = default!;
         /// <summary>The machine size of the runner. To list available sizes, use `GET actions/hosted-runners/machine-sizes`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        public string? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private string? _explicitNullValueSize = default!;
 #nullable restore
 #else
-        public string Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        public string Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private string _explicitNullValueSize = default!;
 #endif
         /// <summary>
@@ -113,7 +122,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "enable_static_ip", n => { EnableStaticIp = n.GetBoolValue(); } },
                 { "image_gen", n => { ImageGen = n.GetBoolValue(); } },
                 { "image_id", n => { ImageId = n.GetStringValue(); } },
-                { "image_source", n => { ImageSource = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrgRequestImageSource>(); } },
+                { "image_source", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsUpdateHostedRunnerForOrgRequestImageSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueImageSource = default; _explicitNullProperties?.Remove("image_source"); AdditionalData["image_source"] = unknown; } else { ImageSource = parsed; AdditionalData.Remove("image_source"); } } },
                 { "image_version", n => { ImageVersion = n.GetStringValue(); } },
                 { "maximum_runners", n => { MaximumRunners = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },

@@ -17,10 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("configuration_file_path") is { } nullNodeConfigurationFilePath && nullNodeConfigurationFilePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigurationFilePath = null;
-            if (parseNode.GetChildNode("previous_tag_name") is { } nullNodePreviousTagName && nullNodePreviousTagName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousTagName = null;
-            if (parseNode.GetChildNode("tag_name") is { } nullNodeTagName && nullNodeTagName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagName = null;
-            if (parseNode.GetChildNode("target_commitish") is { } nullNodeTargetCommitish && nullNodeTargetCommitish.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetCommitish = null;
+            if (parseNode.GetChildNode("configuration_file_path") is null) { _explicitNullValueConfigurationFilePath = default!; _explicitNullProperties?.Remove("configuration_file_path"); }
+            else if (parseNode.GetChildNode("configuration_file_path") is { } nullNodeConfigurationFilePath && nullNodeConfigurationFilePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigurationFilePath = null;
+            if (parseNode.GetChildNode("previous_tag_name") is null) { _explicitNullValuePreviousTagName = default!; _explicitNullProperties?.Remove("previous_tag_name"); }
+            else if (parseNode.GetChildNode("previous_tag_name") is { } nullNodePreviousTagName && nullNodePreviousTagName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousTagName = null;
+            if (parseNode.GetChildNode("tag_name") is null) { _explicitNullValueTagName = default!; _explicitNullProperties?.Remove("tag_name"); }
+            else if (parseNode.GetChildNode("tag_name") is { } nullNodeTagName && nullNodeTagName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagName = null;
+            if (parseNode.GetChildNode("target_commitish") is null) { _explicitNullValueTargetCommitish = default!; _explicitNullProperties?.Remove("target_commitish"); }
+            else if (parseNode.GetChildNode("target_commitish") is { } nullNodeTargetCommitish && nullNodeTargetCommitish.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetCommitish = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Specifies a path to a file in the repository containing configuration settings used for generating the release notes. If unspecified, the configuration file located in the repository at &apos;.github/release.yml&apos; or &apos;.github/release.yaml&apos; will be used. If that is not present, the default configuration will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConfigurationFilePath { get => _explicitNullValueConfigurationFilePath; set { _explicitNullValueConfigurationFilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_file_path"); else _explicitNullProperties?.Remove("configuration_file_path"); } }
+        public string? ConfigurationFilePath { get => _explicitNullValueConfigurationFilePath; set { _explicitNullValueConfigurationFilePath = value; AdditionalData?.Remove("configuration_file_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_file_path"); else _explicitNullProperties?.Remove("configuration_file_path"); } }
         private string? _explicitNullValueConfigurationFilePath = default!;
 #nullable restore
 #else
-        public string ConfigurationFilePath { get => _explicitNullValueConfigurationFilePath; set { _explicitNullValueConfigurationFilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_file_path"); else _explicitNullProperties?.Remove("configuration_file_path"); } }
+        public string ConfigurationFilePath { get => _explicitNullValueConfigurationFilePath; set { _explicitNullValueConfigurationFilePath = value; AdditionalData?.Remove("configuration_file_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configuration_file_path"); else _explicitNullProperties?.Remove("configuration_file_path"); } }
         private string _explicitNullValueConfigurationFilePath = default!;
 #endif
         /// <summary>The name of the previous tag to use as the starting point for the release notes. Use to manually specify the range for the set of changes considered as part this release.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreviousTagName { get => _explicitNullValuePreviousTagName; set { _explicitNullValuePreviousTagName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_tag_name"); else _explicitNullProperties?.Remove("previous_tag_name"); } }
+        public string? PreviousTagName { get => _explicitNullValuePreviousTagName; set { _explicitNullValuePreviousTagName = value; AdditionalData?.Remove("previous_tag_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_tag_name"); else _explicitNullProperties?.Remove("previous_tag_name"); } }
         private string? _explicitNullValuePreviousTagName = default!;
 #nullable restore
 #else
-        public string PreviousTagName { get => _explicitNullValuePreviousTagName; set { _explicitNullValuePreviousTagName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_tag_name"); else _explicitNullProperties?.Remove("previous_tag_name"); } }
+        public string PreviousTagName { get => _explicitNullValuePreviousTagName; set { _explicitNullValuePreviousTagName = value; AdditionalData?.Remove("previous_tag_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_tag_name"); else _explicitNullProperties?.Remove("previous_tag_name"); } }
         private string _explicitNullValuePreviousTagName = default!;
 #endif
         /// <summary>The tag name for the release. This can be an existing tag or a new one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TagName { get => _explicitNullValueTagName; set { _explicitNullValueTagName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_name"); else _explicitNullProperties?.Remove("tag_name"); } }
+        public string? TagName { get => _explicitNullValueTagName; set { _explicitNullValueTagName = value; AdditionalData?.Remove("tag_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_name"); else _explicitNullProperties?.Remove("tag_name"); } }
         private string? _explicitNullValueTagName = default!;
 #nullable restore
 #else
-        public string TagName { get => _explicitNullValueTagName; set { _explicitNullValueTagName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_name"); else _explicitNullProperties?.Remove("tag_name"); } }
+        public string TagName { get => _explicitNullValueTagName; set { _explicitNullValueTagName = value; AdditionalData?.Remove("tag_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag_name"); else _explicitNullProperties?.Remove("tag_name"); } }
         private string _explicitNullValueTagName = default!;
 #endif
         /// <summary>Specifies the commitish value that will be the target for the release&apos;s tag. Required if the supplied tag_name does not reference an existing tag. Ignored if the tag_name already exists.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetCommitish { get => _explicitNullValueTargetCommitish; set { _explicitNullValueTargetCommitish = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_commitish"); else _explicitNullProperties?.Remove("target_commitish"); } }
+        public string? TargetCommitish { get => _explicitNullValueTargetCommitish; set { _explicitNullValueTargetCommitish = value; AdditionalData?.Remove("target_commitish"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_commitish"); else _explicitNullProperties?.Remove("target_commitish"); } }
         private string? _explicitNullValueTargetCommitish = default!;
 #nullable restore
 #else
-        public string TargetCommitish { get => _explicitNullValueTargetCommitish; set { _explicitNullValueTargetCommitish = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_commitish"); else _explicitNullProperties?.Remove("target_commitish"); } }
+        public string TargetCommitish { get => _explicitNullValueTargetCommitish; set { _explicitNullValueTargetCommitish = value; AdditionalData?.Remove("target_commitish"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_commitish"); else _explicitNullProperties?.Remove("target_commitish"); } }
         private string _explicitNullValueTargetCommitish = default!;
 #endif
         /// <summary>

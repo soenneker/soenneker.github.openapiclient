@@ -18,27 +18,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
-            if (parseNode.GetChildNode("uniques") is { } nullNodeUniques && nullNodeUniques.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uniques = null;
-            if (parseNode.GetChildNode("views") is { } nullNodeViews && nullNodeViews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Views = null;
+            if (parseNode.GetChildNode("count") is null) { _explicitNullValueCount = default!; _explicitNullProperties?.Remove("count"); }
+            else if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("uniques") is null) { _explicitNullValueUniques = default!; _explicitNullProperties?.Remove("uniques"); }
+            else if (parseNode.GetChildNode("uniques") is { } nullNodeUniques && nullNodeUniques.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uniques = null;
+            if (parseNode.GetChildNode("views") is null) { _explicitNullValueViews = default!; _explicitNullProperties?.Remove("views"); }
+            else if (parseNode.GetChildNode("views") is { } nullNodeViews && nullNodeViews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Views = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The count property</summary>
-        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; AdditionalData?.Remove("count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
         private int? _explicitNullValueCount = default!;
         /// <summary>The uniques property</summary>
-        public int? Uniques { get => _explicitNullValueUniques; set { _explicitNullValueUniques = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uniques"); else _explicitNullProperties?.Remove("uniques"); } }
+        public int? Uniques { get => _explicitNullValueUniques; set { _explicitNullValueUniques = value; AdditionalData?.Remove("uniques"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uniques"); else _explicitNullProperties?.Remove("uniques"); } }
         private int? _explicitNullValueUniques = default!;
         /// <summary>The views property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>? Views { get => _explicitNullValueViews; set { _explicitNullValueViews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("views"); else _explicitNullProperties?.Remove("views"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>? Views { get => _explicitNullValueViews; set { _explicitNullValueViews = value; AdditionalData?.Remove("views"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("views"); else _explicitNullProperties?.Remove("views"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic>? _explicitNullValueViews = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic> Views { get => _explicitNullValueViews; set { _explicitNullValueViews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("views"); else _explicitNullProperties?.Remove("views"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic> Views { get => _explicitNullValueViews; set { _explicitNullValueViews = value; AdditionalData?.Remove("views"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("views"); else _explicitNullProperties?.Remove("views"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.Traffic> _explicitNullValueViews = default!;
 #endif
         /// <summary>

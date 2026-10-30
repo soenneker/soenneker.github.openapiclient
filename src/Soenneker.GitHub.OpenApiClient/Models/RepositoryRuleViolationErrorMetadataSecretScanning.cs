@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bypass_placeholders") is { } nullNodeBypassPlaceholders && nullNodeBypassPlaceholders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassPlaceholders = null;
+            if (parseNode.GetChildNode("bypass_placeholders") is null) { _explicitNullValueBypassPlaceholders = default!; _explicitNullProperties?.Remove("bypass_placeholders"); }
+            else if (parseNode.GetChildNode("bypass_placeholders") is { } nullNodeBypassPlaceholders && nullNodeBypassPlaceholders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassPlaceholders = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The bypass_placeholders property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem>? BypassPlaceholders { get => _explicitNullValueBypassPlaceholders; set { _explicitNullValueBypassPlaceholders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_placeholders"); else _explicitNullProperties?.Remove("bypass_placeholders"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem>? BypassPlaceholders { get => _explicitNullValueBypassPlaceholders; set { _explicitNullValueBypassPlaceholders = value; AdditionalData?.Remove("bypass_placeholders"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_placeholders"); else _explicitNullProperties?.Remove("bypass_placeholders"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem>? _explicitNullValueBypassPlaceholders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem> BypassPlaceholders { get => _explicitNullValueBypassPlaceholders; set { _explicitNullValueBypassPlaceholders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_placeholders"); else _explicitNullProperties?.Remove("bypass_placeholders"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem> BypassPlaceholders { get => _explicitNullValueBypassPlaceholders; set { _explicitNullValueBypassPlaceholders = value; AdditionalData?.Remove("bypass_placeholders"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_placeholders"); else _explicitNullProperties?.Remove("bypass_placeholders"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem> _explicitNullValueBypassPlaceholders = default!;
 #endif
         /// <summary>

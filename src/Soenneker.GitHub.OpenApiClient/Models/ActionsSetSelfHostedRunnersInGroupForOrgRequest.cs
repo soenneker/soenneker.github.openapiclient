@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("runners") is { } nullNodeRunners && nullNodeRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runners = null;
+            if (parseNode.GetChildNode("runners") is null) { _explicitNullValueRunners = default!; _explicitNullProperties?.Remove("runners"); }
+            else if (parseNode.GetChildNode("runners") is { } nullNodeRunners && nullNodeRunners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runners = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>List of runner IDs to add to the runner group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? Runners { get => _explicitNullValueRunners; set { _explicitNullValueRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runners"); else _explicitNullProperties?.Remove("runners"); } }
+        public List<int?>? Runners { get => _explicitNullValueRunners; set { _explicitNullValueRunners = value; AdditionalData?.Remove("runners"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runners"); else _explicitNullProperties?.Remove("runners"); } }
         private List<int?>? _explicitNullValueRunners = default!;
 #nullable restore
 #else
-        public List<int?> Runners { get => _explicitNullValueRunners; set { _explicitNullValueRunners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runners"); else _explicitNullProperties?.Remove("runners"); } }
+        public List<int?> Runners { get => _explicitNullValueRunners; set { _explicitNullValueRunners = value; AdditionalData?.Remove("runners"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runners"); else _explicitNullProperties?.Remove("runners"); } }
         private List<int?> _explicitNullValueRunners = default!;
 #endif
         /// <summary>

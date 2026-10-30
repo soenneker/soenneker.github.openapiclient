@@ -18,9 +18,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("file_patterns") is { } nullNodeFilePatterns && nullNodeFilePatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilePatterns = null;
-            if (parseNode.GetChildNode("minimum_approvals") is { } nullNodeMinimumApprovals && nullNodeMinimumApprovals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumApprovals = null;
-            if (parseNode.GetChildNode("reviewer") is { } nullNodeReviewer && nullNodeReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewer = null;
+            if (parseNode.GetChildNode("file_patterns") is null) { _explicitNullValueFilePatterns = default!; _explicitNullProperties?.Remove("file_patterns"); }
+            else if (parseNode.GetChildNode("file_patterns") is { } nullNodeFilePatterns && nullNodeFilePatterns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilePatterns = null;
+            if (parseNode.GetChildNode("minimum_approvals") is null) { _explicitNullValueMinimumApprovals = default!; _explicitNullProperties?.Remove("minimum_approvals"); }
+            else if (parseNode.GetChildNode("minimum_approvals") is { } nullNodeMinimumApprovals && nullNodeMinimumApprovals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumApprovals = null;
+            if (parseNode.GetChildNode("reviewer") is null) { _explicitNullValueReviewer = default!; _explicitNullProperties?.Remove("reviewer"); }
+            else if (parseNode.GetChildNode("reviewer") is { } nullNodeReviewer && nullNodeReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewer = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Array of file patterns. Pull requests which change matching files must be approved by the specified team. File patterns use fnmatch syntax.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FilePatterns { get => _explicitNullValueFilePatterns; set { _explicitNullValueFilePatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_patterns"); else _explicitNullProperties?.Remove("file_patterns"); } }
+        public List<string>? FilePatterns { get => _explicitNullValueFilePatterns; set { _explicitNullValueFilePatterns = value; AdditionalData?.Remove("file_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_patterns"); else _explicitNullProperties?.Remove("file_patterns"); } }
         private List<string>? _explicitNullValueFilePatterns = default!;
 #nullable restore
 #else
-        public List<string> FilePatterns { get => _explicitNullValueFilePatterns; set { _explicitNullValueFilePatterns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_patterns"); else _explicitNullProperties?.Remove("file_patterns"); } }
+        public List<string> FilePatterns { get => _explicitNullValueFilePatterns; set { _explicitNullValueFilePatterns = value; AdditionalData?.Remove("file_patterns"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file_patterns"); else _explicitNullProperties?.Remove("file_patterns"); } }
         private List<string> _explicitNullValueFilePatterns = default!;
 #endif
         /// <summary>Minimum number of approvals required from the specified team. If set to zero, the team will be added to the pull request but approval is optional.</summary>
-        public int? MinimumApprovals { get => _explicitNullValueMinimumApprovals; set { _explicitNullValueMinimumApprovals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_approvals"); else _explicitNullProperties?.Remove("minimum_approvals"); } }
+        public int? MinimumApprovals { get => _explicitNullValueMinimumApprovals; set { _explicitNullValueMinimumApprovals = value; AdditionalData?.Remove("minimum_approvals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_approvals"); else _explicitNullProperties?.Remove("minimum_approvals"); } }
         private int? _explicitNullValueMinimumApprovals = default!;
         /// <summary>A required reviewing team</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer? Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer? Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; AdditionalData?.Remove("reviewer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer? _explicitNullValueReviewer = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; AdditionalData?.Remove("reviewer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsReviewer _explicitNullValueReviewer = default!;
 #endif
         /// <summary>

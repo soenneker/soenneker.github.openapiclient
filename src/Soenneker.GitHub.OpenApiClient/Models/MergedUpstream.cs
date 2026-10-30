@@ -18,9 +18,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_branch") is { } nullNodeBaseBranch && nullNodeBaseBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseBranch = null;
-            if (parseNode.GetChildNode("merge_type") is { } nullNodeMergeType && nullNodeMergeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeType = null;
-            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("base_branch") is null) { _explicitNullValueBaseBranch = default!; _explicitNullProperties?.Remove("base_branch"); }
+            else if (parseNode.GetChildNode("base_branch") is { } nullNodeBaseBranch && nullNodeBaseBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseBranch = null;
+            if (parseNode.GetChildNode("merge_type") is null) { _explicitNullValueMergeType = default!; _explicitNullProperties?.Remove("merge_type"); }
+            else if (parseNode.GetChildNode("merge_type") is { } nullNodeMergeType && nullNodeMergeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeType = null;
+            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessage = default!; _explicitNullProperties?.Remove("message"); }
+            else if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The base_branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseBranch { get => _explicitNullValueBaseBranch; set { _explicitNullValueBaseBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_branch"); else _explicitNullProperties?.Remove("base_branch"); } }
+        public string? BaseBranch { get => _explicitNullValueBaseBranch; set { _explicitNullValueBaseBranch = value; AdditionalData?.Remove("base_branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_branch"); else _explicitNullProperties?.Remove("base_branch"); } }
         private string? _explicitNullValueBaseBranch = default!;
 #nullable restore
 #else
-        public string BaseBranch { get => _explicitNullValueBaseBranch; set { _explicitNullValueBaseBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_branch"); else _explicitNullProperties?.Remove("base_branch"); } }
+        public string BaseBranch { get => _explicitNullValueBaseBranch; set { _explicitNullValueBaseBranch = value; AdditionalData?.Remove("base_branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_branch"); else _explicitNullProperties?.Remove("base_branch"); } }
         private string _explicitNullValueBaseBranch = default!;
 #endif
         /// <summary>The merge_type property</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType? MergeType { get => _explicitNullValueMergeType; set { _explicitNullValueMergeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_type"); else _explicitNullProperties?.Remove("merge_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType? MergeType { get => _explicitNullValueMergeType; set { _explicitNullValueMergeType = value; AdditionalData?.Remove("merge_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_type"); else _explicitNullProperties?.Remove("merge_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType? _explicitNullValueMergeType = default!;
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>
@@ -74,7 +77,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "base_branch", n => { BaseBranch = n.GetStringValue(); } },
-                { "merge_type", n => { MergeType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType>(); } },
+                { "merge_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MergedUpstreamMergeType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMergeType = default; _explicitNullProperties?.Remove("merge_type"); AdditionalData["merge_type"] = unknown; } else { MergeType = parsed; AdditionalData.Remove("merge_type"); } } },
                 { "message", n => { Message = n.GetStringValue(); } },
             };
         }

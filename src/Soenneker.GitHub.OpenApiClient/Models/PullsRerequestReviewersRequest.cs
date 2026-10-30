@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
-            if (parseNode.GetChildNode("team_reviewers") is { } nullNodeTeamReviewers && nullNodeTeamReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamReviewers = null;
+            if (parseNode.GetChildNode("reviewers") is null) { _explicitNullValueReviewers = default!; _explicitNullProperties?.Remove("reviewers"); }
+            else if (parseNode.GetChildNode("reviewers") is { } nullNodeReviewers && nullNodeReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewers = null;
+            if (parseNode.GetChildNode("team_reviewers") is null) { _explicitNullValueTeamReviewers = default!; _explicitNullProperties?.Remove("team_reviewers"); }
+            else if (parseNode.GetChildNode("team_reviewers") is { } nullNodeTeamReviewers && nullNodeTeamReviewers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TeamReviewers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>An array of user `login`s whose reviews will be rerequested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        public List<string>? Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; AdditionalData?.Remove("reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
         private List<string>? _explicitNullValueReviewers = default!;
 #nullable restore
 #else
-        public List<string> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
+        public List<string> Reviewers { get => _explicitNullValueReviewers; set { _explicitNullValueReviewers = value; AdditionalData?.Remove("reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewers"); else _explicitNullProperties?.Remove("reviewers"); } }
         private List<string> _explicitNullValueReviewers = default!;
 #endif
         /// <summary>An array of team `slug`s whose reviews will be rerequested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TeamReviewers { get => _explicitNullValueTeamReviewers; set { _explicitNullValueTeamReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_reviewers"); else _explicitNullProperties?.Remove("team_reviewers"); } }
+        public List<string>? TeamReviewers { get => _explicitNullValueTeamReviewers; set { _explicitNullValueTeamReviewers = value; AdditionalData?.Remove("team_reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_reviewers"); else _explicitNullProperties?.Remove("team_reviewers"); } }
         private List<string>? _explicitNullValueTeamReviewers = default!;
 #nullable restore
 #else
-        public List<string> TeamReviewers { get => _explicitNullValueTeamReviewers; set { _explicitNullValueTeamReviewers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_reviewers"); else _explicitNullProperties?.Remove("team_reviewers"); } }
+        public List<string> TeamReviewers { get => _explicitNullValueTeamReviewers; set { _explicitNullValueTeamReviewers = value; AdditionalData?.Remove("team_reviewers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("team_reviewers"); else _explicitNullProperties?.Remove("team_reviewers"); } }
         private List<string> _explicitNullValueTeamReviewers = default!;
 #endif
         /// <summary>

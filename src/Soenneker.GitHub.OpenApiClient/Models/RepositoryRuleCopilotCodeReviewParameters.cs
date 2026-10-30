@@ -17,17 +17,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("review_draft_pull_requests") is { } nullNodeReviewDraftPullRequests && nullNodeReviewDraftPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewDraftPullRequests = null;
-            if (parseNode.GetChildNode("review_on_push") is { } nullNodeReviewOnPush && nullNodeReviewOnPush.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewOnPush = null;
+            if (parseNode.GetChildNode("review_draft_pull_requests") is null) { _explicitNullValueReviewDraftPullRequests = default!; _explicitNullProperties?.Remove("review_draft_pull_requests"); }
+            else if (parseNode.GetChildNode("review_draft_pull_requests") is { } nullNodeReviewDraftPullRequests && nullNodeReviewDraftPullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewDraftPullRequests = null;
+            if (parseNode.GetChildNode("review_on_push") is null) { _explicitNullValueReviewOnPush = default!; _explicitNullProperties?.Remove("review_on_push"); }
+            else if (parseNode.GetChildNode("review_on_push") is { } nullNodeReviewOnPush && nullNodeReviewOnPush.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewOnPush = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Copilot automatically reviews draft pull requests before they are marked as ready for review.</summary>
-        public bool? ReviewDraftPullRequests { get => _explicitNullValueReviewDraftPullRequests; set { _explicitNullValueReviewDraftPullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_draft_pull_requests"); else _explicitNullProperties?.Remove("review_draft_pull_requests"); } }
+        public bool? ReviewDraftPullRequests { get => _explicitNullValueReviewDraftPullRequests; set { _explicitNullValueReviewDraftPullRequests = value; AdditionalData?.Remove("review_draft_pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_draft_pull_requests"); else _explicitNullProperties?.Remove("review_draft_pull_requests"); } }
         private bool? _explicitNullValueReviewDraftPullRequests = default!;
         /// <summary>Copilot automatically reviews each new push to the pull request.</summary>
-        public bool? ReviewOnPush { get => _explicitNullValueReviewOnPush; set { _explicitNullValueReviewOnPush = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_on_push"); else _explicitNullProperties?.Remove("review_on_push"); } }
+        public bool? ReviewOnPush { get => _explicitNullValueReviewOnPush; set { _explicitNullValueReviewOnPush = value; AdditionalData?.Remove("review_on_push"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_on_push"); else _explicitNullProperties?.Remove("review_on_push"); } }
         private bool? _explicitNullValueReviewOnPush = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCopilotCodeReviewParameters"/> and sets the default values.

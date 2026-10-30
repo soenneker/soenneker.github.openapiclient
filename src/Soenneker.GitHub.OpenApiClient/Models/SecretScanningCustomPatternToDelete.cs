@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_pattern_version") is { } nullNodeCustomPatternVersion && nullNodeCustomPatternVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternVersion = null;
-            if (parseNode.GetChildNode("pattern_id") is { } nullNodePatternId && nullNodePatternId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternId = null;
+            if (parseNode.GetChildNode("custom_pattern_version") is null) { _explicitNullValueCustomPatternVersion = default!; _explicitNullProperties?.Remove("custom_pattern_version"); }
+            else if (parseNode.GetChildNode("custom_pattern_version") is { } nullNodeCustomPatternVersion && nullNodeCustomPatternVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternVersion = null;
+            if (parseNode.GetChildNode("pattern_id") is null) { _explicitNullValuePatternId = default!; _explicitNullProperties?.Remove("pattern_id"); }
+            else if (parseNode.GetChildNode("pattern_id") is { } nullNodePatternId && nullNodePatternId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The version of the entity. This is used to confirm you&apos;re updating the current version of the entity and mitigate unintentionally overriding someone else&apos;s update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
+        public string? CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; AdditionalData?.Remove("custom_pattern_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
         private string? _explicitNullValueCustomPatternVersion = default!;
 #nullable restore
 #else
-        public string CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
+        public string CustomPatternVersion { get => _explicitNullValueCustomPatternVersion; set { _explicitNullValueCustomPatternVersion = value; AdditionalData?.Remove("custom_pattern_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_version"); else _explicitNullProperties?.Remove("custom_pattern_version"); } }
         private string _explicitNullValueCustomPatternVersion = default!;
 #endif
         /// <summary>The ID of the custom pattern to delete.</summary>
-        public long? PatternId { get => _explicitNullValuePatternId; set { _explicitNullValuePatternId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_id"); else _explicitNullProperties?.Remove("pattern_id"); } }
+        public long? PatternId { get => _explicitNullValuePatternId; set { _explicitNullValuePatternId = value; AdditionalData?.Remove("pattern_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_id"); else _explicitNullProperties?.Remove("pattern_id"); } }
         private long? _explicitNullValuePatternId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCustomPatternToDelete"/> and sets the default values.

@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("deployment_records") is { } nullNodeDeploymentRecords && nullNodeDeploymentRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentRecords = null;
-            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("deployment_records") is null) { _explicitNullValueDeploymentRecords = default!; _explicitNullProperties?.Remove("deployment_records"); }
+            else if (parseNode.GetChildNode("deployment_records") is { } nullNodeDeploymentRecords && nullNodeDeploymentRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentRecords = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The deployment_records property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord>? DeploymentRecords { get => _explicitNullValueDeploymentRecords; set { _explicitNullValueDeploymentRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_records"); else _explicitNullProperties?.Remove("deployment_records"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord>? DeploymentRecords { get => _explicitNullValueDeploymentRecords; set { _explicitNullValueDeploymentRecords = value; AdditionalData?.Remove("deployment_records"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_records"); else _explicitNullProperties?.Remove("deployment_records"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord>? _explicitNullValueDeploymentRecords = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord> DeploymentRecords { get => _explicitNullValueDeploymentRecords; set { _explicitNullValueDeploymentRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_records"); else _explicitNullProperties?.Remove("deployment_records"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord> DeploymentRecords { get => _explicitNullValueDeploymentRecords; set { _explicitNullValueDeploymentRecords = value; AdditionalData?.Remove("deployment_records"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_records"); else _explicitNullProperties?.Remove("deployment_records"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ArtifactDeploymentRecord> _explicitNullValueDeploymentRecords = default!;
 #endif
         /// <summary>The number of deployment records created</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords200Response"/> and sets the default values.

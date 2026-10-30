@@ -18,24 +18,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("actions_caches") is { } nullNodeActionsCaches && nullNodeActionsCaches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionsCaches = null;
-            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("actions_caches") is null) { _explicitNullValueActionsCaches = default!; _explicitNullProperties?.Remove("actions_caches"); }
+            else if (parseNode.GetChildNode("actions_caches") is { } nullNodeActionsCaches && nullNodeActionsCaches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionsCaches = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>Array of caches</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem>? ActionsCaches { get => _explicitNullValueActionsCaches; set { _explicitNullValueActionsCaches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_caches"); else _explicitNullProperties?.Remove("actions_caches"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem>? ActionsCaches { get => _explicitNullValueActionsCaches; set { _explicitNullValueActionsCaches = value; AdditionalData?.Remove("actions_caches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_caches"); else _explicitNullProperties?.Remove("actions_caches"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem>? _explicitNullValueActionsCaches = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem> ActionsCaches { get => _explicitNullValueActionsCaches; set { _explicitNullValueActionsCaches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_caches"); else _explicitNullProperties?.Remove("actions_caches"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem> ActionsCaches { get => _explicitNullValueActionsCaches; set { _explicitNullValueActionsCaches = value; AdditionalData?.Remove("actions_caches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions_caches"); else _explicitNullProperties?.Remove("actions_caches"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheListActionsCachesItem> _explicitNullValueActionsCaches = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Total number of caches</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheList"/> and sets the default values.

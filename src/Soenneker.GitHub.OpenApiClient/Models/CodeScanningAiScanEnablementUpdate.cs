@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pr_scan") is { } nullNodePrScan && nullNodePrScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrScan = null;
+            if (parseNode.GetChildNode("pr_scan") is null) { _explicitNullValuePrScan = default!; _explicitNullProperties?.Remove("pr_scan"); }
+            else if (parseNode.GetChildNode("pr_scan") is { } nullNodePrScan && nullNodePrScan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrScan = null;
         }
 
         /// <summary>Whether to enable or disable AI Scan for the repository.</summary>

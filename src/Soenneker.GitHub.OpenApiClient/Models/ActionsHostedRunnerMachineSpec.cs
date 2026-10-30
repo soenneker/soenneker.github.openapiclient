@@ -18,32 +18,36 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cpu_cores") is { } nullNodeCpuCores && nullNodeCpuCores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuCores = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("memory_gb") is { } nullNodeMemoryGb && nullNodeMemoryGb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryGb = null;
-            if (parseNode.GetChildNode("storage_gb") is { } nullNodeStorageGb && nullNodeStorageGb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageGb = null;
+            if (parseNode.GetChildNode("cpu_cores") is null) { _explicitNullValueCpuCores = default!; _explicitNullProperties?.Remove("cpu_cores"); }
+            else if (parseNode.GetChildNode("cpu_cores") is { } nullNodeCpuCores && nullNodeCpuCores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuCores = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("memory_gb") is null) { _explicitNullValueMemoryGb = default!; _explicitNullProperties?.Remove("memory_gb"); }
+            else if (parseNode.GetChildNode("memory_gb") is { } nullNodeMemoryGb && nullNodeMemoryGb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryGb = null;
+            if (parseNode.GetChildNode("storage_gb") is null) { _explicitNullValueStorageGb = default!; _explicitNullProperties?.Remove("storage_gb"); }
+            else if (parseNode.GetChildNode("storage_gb") is { } nullNodeStorageGb && nullNodeStorageGb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageGb = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of cores.</summary>
-        public int? CpuCores { get => _explicitNullValueCpuCores; set { _explicitNullValueCpuCores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_cores"); else _explicitNullProperties?.Remove("cpu_cores"); } }
+        public int? CpuCores { get => _explicitNullValueCpuCores; set { _explicitNullValueCpuCores = value; AdditionalData?.Remove("cpu_cores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_cores"); else _explicitNullProperties?.Remove("cpu_cores"); } }
         private int? _explicitNullValueCpuCores = default!;
         /// <summary>The ID used for the `size` parameter when creating a new runner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The available RAM for the machine spec.</summary>
-        public int? MemoryGb { get => _explicitNullValueMemoryGb; set { _explicitNullValueMemoryGb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_gb"); else _explicitNullProperties?.Remove("memory_gb"); } }
+        public int? MemoryGb { get => _explicitNullValueMemoryGb; set { _explicitNullValueMemoryGb = value; AdditionalData?.Remove("memory_gb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_gb"); else _explicitNullProperties?.Remove("memory_gb"); } }
         private int? _explicitNullValueMemoryGb = default!;
         /// <summary>The available SSD storage for the machine spec.</summary>
-        public int? StorageGb { get => _explicitNullValueStorageGb; set { _explicitNullValueStorageGb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_gb"); else _explicitNullProperties?.Remove("storage_gb"); } }
+        public int? StorageGb { get => _explicitNullValueStorageGb; set { _explicitNullValueStorageGb = value; AdditionalData?.Remove("storage_gb"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_gb"); else _explicitNullProperties?.Remove("storage_gb"); } }
         private int? _explicitNullValueStorageGb = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerMachineSpec"/> and sets the default values.

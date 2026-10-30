@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attestation_ids") is { } nullNodeAttestationIds && nullNodeAttestationIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttestationIds = null;
+            if (parseNode.GetChildNode("attestation_ids") is null) { _explicitNullValueAttestationIds = default!; _explicitNullProperties?.Remove("attestation_ids"); }
+            else if (parseNode.GetChildNode("attestation_ids") is { } nullNodeAttestationIds && nullNodeAttestationIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttestationIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>List of unique IDs associated with the artifact attestations to delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? AttestationIds { get => _explicitNullValueAttestationIds; set { _explicitNullValueAttestationIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation_ids"); else _explicitNullProperties?.Remove("attestation_ids"); } }
+        public List<int?>? AttestationIds { get => _explicitNullValueAttestationIds; set { _explicitNullValueAttestationIds = value; AdditionalData?.Remove("attestation_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation_ids"); else _explicitNullProperties?.Remove("attestation_ids"); } }
         private List<int?>? _explicitNullValueAttestationIds = default!;
 #nullable restore
 #else
-        public List<int?> AttestationIds { get => _explicitNullValueAttestationIds; set { _explicitNullValueAttestationIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation_ids"); else _explicitNullProperties?.Remove("attestation_ids"); } }
+        public List<int?> AttestationIds { get => _explicitNullValueAttestationIds; set { _explicitNullValueAttestationIds = value; AdditionalData?.Remove("attestation_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation_ids"); else _explicitNullProperties?.Remove("attestation_ids"); } }
         private List<int?> _explicitNullValueAttestationIds = default!;
 #endif
         /// <summary>

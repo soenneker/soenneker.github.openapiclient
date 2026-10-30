@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accessible_repositories") is { } nullNodeAccessibleRepositories && nullNodeAccessibleRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessibleRepositories = null;
-            if (parseNode.GetChildNode("default_level") is { } nullNodeDefaultLevel && nullNodeDefaultLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLevel = null;
+            if (parseNode.GetChildNode("accessible_repositories") is null) { _explicitNullValueAccessibleRepositories = default!; _explicitNullProperties?.Remove("accessible_repositories"); }
+            else if (parseNode.GetChildNode("accessible_repositories") is { } nullNodeAccessibleRepositories && nullNodeAccessibleRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessibleRepositories = null;
+            if (parseNode.GetChildNode("default_level") is null) { _explicitNullValueDefaultLevel = default!; _explicitNullProperties?.Remove("default_level"); }
+            else if (parseNode.GetChildNode("default_level") is { } nullNodeDefaultLevel && nullNodeDefaultLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLevel = null;
         }
 
         /// <summary>The accessible_repositories property</summary>

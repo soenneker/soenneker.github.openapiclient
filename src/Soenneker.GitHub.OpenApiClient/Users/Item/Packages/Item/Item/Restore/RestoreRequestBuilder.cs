@@ -76,7 +76,7 @@ namespace Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Restore
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Users.Item.Packages.Item.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.github.com", "/users/{userId}/packages/{packageType}/{packageName}/restore", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

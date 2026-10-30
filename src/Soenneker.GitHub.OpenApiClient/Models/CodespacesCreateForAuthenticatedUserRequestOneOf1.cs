@@ -17,18 +17,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_ip") is { } nullNodeClientIp && nullNodeClientIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientIp = null;
-            if (parseNode.GetChildNode("devcontainer_path") is { } nullNodeDevcontainerPath && nullNodeDevcontainerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevcontainerPath = null;
-            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
-            if (parseNode.GetChildNode("geo") is { } nullNodeGeo && nullNodeGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geo = null;
-            if (parseNode.GetChildNode("idle_timeout_minutes") is { } nullNodeIdleTimeoutMinutes && nullNodeIdleTimeoutMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutMinutes = null;
-            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
-            if (parseNode.GetChildNode("machine") is { } nullNodeMachine && nullNodeMachine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Machine = null;
-            if (parseNode.GetChildNode("multi_repo_permissions_opt_out") is { } nullNodeMultiRepoPermissionsOptOut && nullNodeMultiRepoPermissionsOptOut.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiRepoPermissionsOptOut = null;
-            if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
-            if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
-            if (parseNode.GetChildNode("retention_period_minutes") is { } nullNodeRetentionPeriodMinutes && nullNodeRetentionPeriodMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionPeriodMinutes = null;
-            if (parseNode.GetChildNode("working_directory") is { } nullNodeWorkingDirectory && nullNodeWorkingDirectory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDirectory = null;
+            if (parseNode.GetChildNode("client_ip") is null) { _explicitNullValueClientIp = default!; _explicitNullProperties?.Remove("client_ip"); }
+            else if (parseNode.GetChildNode("client_ip") is { } nullNodeClientIp && nullNodeClientIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientIp = null;
+            if (parseNode.GetChildNode("devcontainer_path") is null) { _explicitNullValueDevcontainerPath = default!; _explicitNullProperties?.Remove("devcontainer_path"); }
+            else if (parseNode.GetChildNode("devcontainer_path") is { } nullNodeDevcontainerPath && nullNodeDevcontainerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevcontainerPath = null;
+            if (parseNode.GetChildNode("display_name") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("display_name"); }
+            else if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("geo") is null) { _explicitNullValueGeo = default!; _explicitNullProperties?.Remove("geo"); }
+            else if (parseNode.GetChildNode("geo") is { } nullNodeGeo && nullNodeGeo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Geo = null;
+            if (parseNode.GetChildNode("idle_timeout_minutes") is null) { _explicitNullValueIdleTimeoutMinutes = default!; _explicitNullProperties?.Remove("idle_timeout_minutes"); }
+            else if (parseNode.GetChildNode("idle_timeout_minutes") is { } nullNodeIdleTimeoutMinutes && nullNodeIdleTimeoutMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdleTimeoutMinutes = null;
+            if (parseNode.GetChildNode("location") is null) { _explicitNullValueLocation = default!; _explicitNullProperties?.Remove("location"); }
+            else if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("machine") is null) { _explicitNullValueMachine = default!; _explicitNullProperties?.Remove("machine"); }
+            else if (parseNode.GetChildNode("machine") is { } nullNodeMachine && nullNodeMachine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Machine = null;
+            if (parseNode.GetChildNode("multi_repo_permissions_opt_out") is null) { _explicitNullValueMultiRepoPermissionsOptOut = default!; _explicitNullProperties?.Remove("multi_repo_permissions_opt_out"); }
+            else if (parseNode.GetChildNode("multi_repo_permissions_opt_out") is { } nullNodeMultiRepoPermissionsOptOut && nullNodeMultiRepoPermissionsOptOut.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiRepoPermissionsOptOut = null;
+            if (parseNode.GetChildNode("ref") is null) { _explicitNullValueRef = default!; _explicitNullProperties?.Remove("ref"); }
+            else if (parseNode.GetChildNode("ref") is { } nullNodeRef && nullNodeRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ref = null;
+            if (parseNode.GetChildNode("repository_id") is null) { _explicitNullValueRepositoryId = default!; _explicitNullProperties?.Remove("repository_id"); }
+            else if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
+            if (parseNode.GetChildNode("retention_period_minutes") is null) { _explicitNullValueRetentionPeriodMinutes = default!; _explicitNullProperties?.Remove("retention_period_minutes"); }
+            else if (parseNode.GetChildNode("retention_period_minutes") is { } nullNodeRetentionPeriodMinutes && nullNodeRetentionPeriodMinutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionPeriodMinutes = null;
+            if (parseNode.GetChildNode("working_directory") is null) { _explicitNullValueWorkingDirectory = default!; _explicitNullProperties?.Remove("working_directory"); }
+            else if (parseNode.GetChildNode("working_directory") is { } nullNodeWorkingDirectory && nullNodeWorkingDirectory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkingDirectory = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,86 +48,86 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>IP for location auto-detection when proxying a request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_ip"); else _explicitNullProperties?.Remove("client_ip"); } }
+        public string? ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; AdditionalData?.Remove("client_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_ip"); else _explicitNullProperties?.Remove("client_ip"); } }
         private string? _explicitNullValueClientIp = default!;
 #nullable restore
 #else
-        public string ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_ip"); else _explicitNullProperties?.Remove("client_ip"); } }
+        public string ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; AdditionalData?.Remove("client_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_ip"); else _explicitNullProperties?.Remove("client_ip"); } }
         private string _explicitNullValueClientIp = default!;
 #endif
         /// <summary>Path to devcontainer.json config to use for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
+        public string? DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; AdditionalData?.Remove("devcontainer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
         private string? _explicitNullValueDevcontainerPath = default!;
 #nullable restore
 #else
-        public string DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
+        public string DevcontainerPath { get => _explicitNullValueDevcontainerPath; set { _explicitNullValueDevcontainerPath = value; AdditionalData?.Remove("devcontainer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("devcontainer_path"); else _explicitNullProperties?.Remove("devcontainer_path"); } }
         private string _explicitNullValueDevcontainerPath = default!;
 #endif
         /// <summary>Display name for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
         private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
         private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The geographic area for this codespace. If not specified, the value is assigned by IP. This property replaces `location`, which is closing down.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1Geo? Geo { get => _explicitNullValueGeo; set { _explicitNullValueGeo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geo"); else _explicitNullProperties?.Remove("geo"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1Geo? Geo { get => _explicitNullValueGeo; set { _explicitNullValueGeo = value; AdditionalData?.Remove("geo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("geo"); else _explicitNullProperties?.Remove("geo"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1Geo? _explicitNullValueGeo = default!;
         /// <summary>Time in minutes before codespace stops from inactivity</summary>
-        public int? IdleTimeoutMinutes { get => _explicitNullValueIdleTimeoutMinutes; set { _explicitNullValueIdleTimeoutMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_minutes"); else _explicitNullProperties?.Remove("idle_timeout_minutes"); } }
+        public int? IdleTimeoutMinutes { get => _explicitNullValueIdleTimeoutMinutes; set { _explicitNullValueIdleTimeoutMinutes = value; AdditionalData?.Remove("idle_timeout_minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idle_timeout_minutes"); else _explicitNullProperties?.Remove("idle_timeout_minutes"); } }
         private int? _explicitNullValueIdleTimeoutMinutes = default!;
         /// <summary>The requested location for a new codespace. Best efforts are made to respect this upon creation. Assigned by IP if not provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private string? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private string _explicitNullValueLocation = default!;
 #endif
         /// <summary>Machine type to use for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
+        public string? Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; AdditionalData?.Remove("machine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
         private string? _explicitNullValueMachine = default!;
 #nullable restore
 #else
-        public string Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
+        public string Machine { get => _explicitNullValueMachine; set { _explicitNullValueMachine = value; AdditionalData?.Remove("machine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("machine"); else _explicitNullProperties?.Remove("machine"); } }
         private string _explicitNullValueMachine = default!;
 #endif
         /// <summary>Whether to authorize requested permissions from devcontainer.json</summary>
-        public bool? MultiRepoPermissionsOptOut { get => _explicitNullValueMultiRepoPermissionsOptOut; set { _explicitNullValueMultiRepoPermissionsOptOut = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_repo_permissions_opt_out"); else _explicitNullProperties?.Remove("multi_repo_permissions_opt_out"); } }
+        public bool? MultiRepoPermissionsOptOut { get => _explicitNullValueMultiRepoPermissionsOptOut; set { _explicitNullValueMultiRepoPermissionsOptOut = value; AdditionalData?.Remove("multi_repo_permissions_opt_out"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_repo_permissions_opt_out"); else _explicitNullProperties?.Remove("multi_repo_permissions_opt_out"); } }
         private bool? _explicitNullValueMultiRepoPermissionsOptOut = default!;
         /// <summary>Git ref (typically a branch name) for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        public string? Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; AdditionalData?.Remove("ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
         private string? _explicitNullValueRef = default!;
 #nullable restore
 #else
-        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
+        public string Ref { get => _explicitNullValueRef; set { _explicitNullValueRef = value; AdditionalData?.Remove("ref"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref"); else _explicitNullProperties?.Remove("ref"); } }
         private string _explicitNullValueRef = default!;
 #endif
         /// <summary>Repository id for this codespace</summary>
-        public long? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
+        public long? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; AdditionalData?.Remove("repository_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
         private long? _explicitNullValueRepositoryId = default!;
         /// <summary>Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).</summary>
-        public int? RetentionPeriodMinutes { get => _explicitNullValueRetentionPeriodMinutes; set { _explicitNullValueRetentionPeriodMinutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_period_minutes"); else _explicitNullProperties?.Remove("retention_period_minutes"); } }
+        public int? RetentionPeriodMinutes { get => _explicitNullValueRetentionPeriodMinutes; set { _explicitNullValueRetentionPeriodMinutes = value; AdditionalData?.Remove("retention_period_minutes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_period_minutes"); else _explicitNullProperties?.Remove("retention_period_minutes"); } }
         private int? _explicitNullValueRetentionPeriodMinutes = default!;
         /// <summary>Working directory for this codespace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkingDirectory { get => _explicitNullValueWorkingDirectory; set { _explicitNullValueWorkingDirectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_directory"); else _explicitNullProperties?.Remove("working_directory"); } }
+        public string? WorkingDirectory { get => _explicitNullValueWorkingDirectory; set { _explicitNullValueWorkingDirectory = value; AdditionalData?.Remove("working_directory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_directory"); else _explicitNullProperties?.Remove("working_directory"); } }
         private string? _explicitNullValueWorkingDirectory = default!;
 #nullable restore
 #else
-        public string WorkingDirectory { get => _explicitNullValueWorkingDirectory; set { _explicitNullValueWorkingDirectory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_directory"); else _explicitNullProperties?.Remove("working_directory"); } }
+        public string WorkingDirectory { get => _explicitNullValueWorkingDirectory; set { _explicitNullValueWorkingDirectory = value; AdditionalData?.Remove("working_directory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("working_directory"); else _explicitNullProperties?.Remove("working_directory"); } }
         private string _explicitNullValueWorkingDirectory = default!;
 #endif
         /// <summary>
@@ -146,7 +158,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "client_ip", n => { ClientIp = n.GetStringValue(); } },
                 { "devcontainer_path", n => { DevcontainerPath = n.GetStringValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
-                { "geo", n => { Geo = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1Geo>(); } },
+                { "geo", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesCreateForAuthenticatedUserRequestOneOf1Geo>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueGeo = default; _explicitNullProperties?.Remove("geo"); AdditionalData["geo"] = unknown; } else { Geo = parsed; AdditionalData.Remove("geo"); } } },
                 { "idle_timeout_minutes", n => { IdleTimeoutMinutes = n.GetIntValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
                 { "machine", n => { Machine = n.GetStringValue(); } },

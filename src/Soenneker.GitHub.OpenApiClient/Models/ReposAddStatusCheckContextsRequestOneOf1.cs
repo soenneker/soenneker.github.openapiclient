@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("contexts") is { } nullNodeContexts && nullNodeContexts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contexts = null;
+            if (parseNode.GetChildNode("contexts") is null) { _explicitNullValueContexts = default!; _explicitNullProperties?.Remove("contexts"); }
+            else if (parseNode.GetChildNode("contexts") is { } nullNodeContexts && nullNodeContexts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contexts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The name of the status checks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Contexts { get => _explicitNullValueContexts; set { _explicitNullValueContexts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts"); else _explicitNullProperties?.Remove("contexts"); } }
+        public List<string>? Contexts { get => _explicitNullValueContexts; set { _explicitNullValueContexts = value; AdditionalData?.Remove("contexts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts"); else _explicitNullProperties?.Remove("contexts"); } }
         private List<string>? _explicitNullValueContexts = default!;
 #nullable restore
 #else
-        public List<string> Contexts { get => _explicitNullValueContexts; set { _explicitNullValueContexts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts"); else _explicitNullProperties?.Remove("contexts"); } }
+        public List<string> Contexts { get => _explicitNullValueContexts; set { _explicitNullValueContexts = value; AdditionalData?.Remove("contexts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contexts"); else _explicitNullProperties?.Remove("contexts"); } }
         private List<string> _explicitNullValueContexts = default!;
 #endif
         /// <summary>

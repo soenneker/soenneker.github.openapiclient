@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tasks") is { } nullNodeTasks && nullNodeTasks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tasks = null;
+            if (parseNode.GetChildNode("tasks") is null) { _explicitNullValueTasks = default!; _explicitNullProperties?.Remove("tasks"); }
+            else if (parseNode.GetChildNode("tasks") is { } nullNodeTasks && nullNodeTasks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tasks = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Tasks created by the automation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200ResponseTasksItem>? Tasks { get => _explicitNullValueTasks; set { _explicitNullValueTasks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tasks"); else _explicitNullProperties?.Remove("tasks"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200ResponseTasksItem>? Tasks { get => _explicitNullValueTasks; set { _explicitNullValueTasks = value; AdditionalData?.Remove("tasks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tasks"); else _explicitNullProperties?.Remove("tasks"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200ResponseTasksItem>? _explicitNullValueTasks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200ResponseTasksItem> Tasks { get => _explicitNullValueTasks; set { _explicitNullValueTasks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tasks"); else _explicitNullProperties?.Remove("tasks"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200ResponseTasksItem> Tasks { get => _explicitNullValueTasks; set { _explicitNullValueTasks = value; AdditionalData?.Remove("tasks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tasks"); else _explicitNullProperties?.Remove("tasks"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.AgentAutomationsListRepoAutomationTasks200ResponseTasksItem> _explicitNullValueTasks = default!;
 #endif
         /// <summary>

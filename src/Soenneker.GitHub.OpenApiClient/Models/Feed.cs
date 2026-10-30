@@ -18,17 +18,28 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_user_actor_url") is { } nullNodeCurrentUserActorUrl && nullNodeCurrentUserActorUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserActorUrl = null;
-            if (parseNode.GetChildNode("current_user_organization_url") is { } nullNodeCurrentUserOrganizationUrl && nullNodeCurrentUserOrganizationUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganizationUrl = null;
-            if (parseNode.GetChildNode("current_user_organization_urls") is { } nullNodeCurrentUserOrganizationUrls && nullNodeCurrentUserOrganizationUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganizationUrls = null;
-            if (parseNode.GetChildNode("current_user_public_url") is { } nullNodeCurrentUserPublicUrl && nullNodeCurrentUserPublicUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserPublicUrl = null;
-            if (parseNode.GetChildNode("current_user_url") is { } nullNodeCurrentUserUrl && nullNodeCurrentUserUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserUrl = null;
-            if (parseNode.GetChildNode("_links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
-            if (parseNode.GetChildNode("repository_discussions_category_url") is { } nullNodeRepositoryDiscussionsCategoryUrl && nullNodeRepositoryDiscussionsCategoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussionsCategoryUrl = null;
-            if (parseNode.GetChildNode("repository_discussions_url") is { } nullNodeRepositoryDiscussionsUrl && nullNodeRepositoryDiscussionsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussionsUrl = null;
-            if (parseNode.GetChildNode("security_advisories_url") is { } nullNodeSecurityAdvisoriesUrl && nullNodeSecurityAdvisoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAdvisoriesUrl = null;
-            if (parseNode.GetChildNode("timeline_url") is { } nullNodeTimelineUrl && nullNodeTimelineUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimelineUrl = null;
-            if (parseNode.GetChildNode("user_url") is { } nullNodeUserUrl && nullNodeUserUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUrl = null;
+            if (parseNode.GetChildNode("current_user_actor_url") is null) { _explicitNullValueCurrentUserActorUrl = default!; _explicitNullProperties?.Remove("current_user_actor_url"); }
+            else if (parseNode.GetChildNode("current_user_actor_url") is { } nullNodeCurrentUserActorUrl && nullNodeCurrentUserActorUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserActorUrl = null;
+            if (parseNode.GetChildNode("current_user_organization_url") is null) { _explicitNullValueCurrentUserOrganizationUrl = default!; _explicitNullProperties?.Remove("current_user_organization_url"); }
+            else if (parseNode.GetChildNode("current_user_organization_url") is { } nullNodeCurrentUserOrganizationUrl && nullNodeCurrentUserOrganizationUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganizationUrl = null;
+            if (parseNode.GetChildNode("current_user_organization_urls") is null) { _explicitNullValueCurrentUserOrganizationUrls = default!; _explicitNullProperties?.Remove("current_user_organization_urls"); }
+            else if (parseNode.GetChildNode("current_user_organization_urls") is { } nullNodeCurrentUserOrganizationUrls && nullNodeCurrentUserOrganizationUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganizationUrls = null;
+            if (parseNode.GetChildNode("current_user_public_url") is null) { _explicitNullValueCurrentUserPublicUrl = default!; _explicitNullProperties?.Remove("current_user_public_url"); }
+            else if (parseNode.GetChildNode("current_user_public_url") is { } nullNodeCurrentUserPublicUrl && nullNodeCurrentUserPublicUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserPublicUrl = null;
+            if (parseNode.GetChildNode("current_user_url") is null) { _explicitNullValueCurrentUserUrl = default!; _explicitNullProperties?.Remove("current_user_url"); }
+            else if (parseNode.GetChildNode("current_user_url") is { } nullNodeCurrentUserUrl && nullNodeCurrentUserUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserUrl = null;
+            if (parseNode.GetChildNode("_links") is null) { _explicitNullValueLinks = default!; _explicitNullProperties?.Remove("_links"); }
+            else if (parseNode.GetChildNode("_links") is { } nullNodeLinks && nullNodeLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Links = null;
+            if (parseNode.GetChildNode("repository_discussions_category_url") is null) { _explicitNullValueRepositoryDiscussionsCategoryUrl = default!; _explicitNullProperties?.Remove("repository_discussions_category_url"); }
+            else if (parseNode.GetChildNode("repository_discussions_category_url") is { } nullNodeRepositoryDiscussionsCategoryUrl && nullNodeRepositoryDiscussionsCategoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussionsCategoryUrl = null;
+            if (parseNode.GetChildNode("repository_discussions_url") is null) { _explicitNullValueRepositoryDiscussionsUrl = default!; _explicitNullProperties?.Remove("repository_discussions_url"); }
+            else if (parseNode.GetChildNode("repository_discussions_url") is { } nullNodeRepositoryDiscussionsUrl && nullNodeRepositoryDiscussionsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussionsUrl = null;
+            if (parseNode.GetChildNode("security_advisories_url") is null) { _explicitNullValueSecurityAdvisoriesUrl = default!; _explicitNullProperties?.Remove("security_advisories_url"); }
+            else if (parseNode.GetChildNode("security_advisories_url") is { } nullNodeSecurityAdvisoriesUrl && nullNodeSecurityAdvisoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAdvisoriesUrl = null;
+            if (parseNode.GetChildNode("timeline_url") is null) { _explicitNullValueTimelineUrl = default!; _explicitNullProperties?.Remove("timeline_url"); }
+            else if (parseNode.GetChildNode("timeline_url") is { } nullNodeTimelineUrl && nullNodeTimelineUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimelineUrl = null;
+            if (parseNode.GetChildNode("user_url") is null) { _explicitNullValueUserUrl = default!; _explicitNullProperties?.Remove("user_url"); }
+            else if (parseNode.GetChildNode("user_url") is { } nullNodeUserUrl && nullNodeUserUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,111 +47,111 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The current_user_actor_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentUserActorUrl { get => _explicitNullValueCurrentUserActorUrl; set { _explicitNullValueCurrentUserActorUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor_url"); else _explicitNullProperties?.Remove("current_user_actor_url"); } }
+        public string? CurrentUserActorUrl { get => _explicitNullValueCurrentUserActorUrl; set { _explicitNullValueCurrentUserActorUrl = value; AdditionalData?.Remove("current_user_actor_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor_url"); else _explicitNullProperties?.Remove("current_user_actor_url"); } }
         private string? _explicitNullValueCurrentUserActorUrl = default!;
 #nullable restore
 #else
-        public string CurrentUserActorUrl { get => _explicitNullValueCurrentUserActorUrl; set { _explicitNullValueCurrentUserActorUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor_url"); else _explicitNullProperties?.Remove("current_user_actor_url"); } }
+        public string CurrentUserActorUrl { get => _explicitNullValueCurrentUserActorUrl; set { _explicitNullValueCurrentUserActorUrl = value; AdditionalData?.Remove("current_user_actor_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor_url"); else _explicitNullProperties?.Remove("current_user_actor_url"); } }
         private string _explicitNullValueCurrentUserActorUrl = default!;
 #endif
         /// <summary>The current_user_organization_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentUserOrganizationUrl { get => _explicitNullValueCurrentUserOrganizationUrl; set { _explicitNullValueCurrentUserOrganizationUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_url"); else _explicitNullProperties?.Remove("current_user_organization_url"); } }
+        public string? CurrentUserOrganizationUrl { get => _explicitNullValueCurrentUserOrganizationUrl; set { _explicitNullValueCurrentUserOrganizationUrl = value; AdditionalData?.Remove("current_user_organization_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_url"); else _explicitNullProperties?.Remove("current_user_organization_url"); } }
         private string? _explicitNullValueCurrentUserOrganizationUrl = default!;
 #nullable restore
 #else
-        public string CurrentUserOrganizationUrl { get => _explicitNullValueCurrentUserOrganizationUrl; set { _explicitNullValueCurrentUserOrganizationUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_url"); else _explicitNullProperties?.Remove("current_user_organization_url"); } }
+        public string CurrentUserOrganizationUrl { get => _explicitNullValueCurrentUserOrganizationUrl; set { _explicitNullValueCurrentUserOrganizationUrl = value; AdditionalData?.Remove("current_user_organization_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_url"); else _explicitNullProperties?.Remove("current_user_organization_url"); } }
         private string _explicitNullValueCurrentUserOrganizationUrl = default!;
 #endif
         /// <summary>The current_user_organization_urls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CurrentUserOrganizationUrls { get => _explicitNullValueCurrentUserOrganizationUrls; set { _explicitNullValueCurrentUserOrganizationUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_urls"); else _explicitNullProperties?.Remove("current_user_organization_urls"); } }
+        public List<string>? CurrentUserOrganizationUrls { get => _explicitNullValueCurrentUserOrganizationUrls; set { _explicitNullValueCurrentUserOrganizationUrls = value; AdditionalData?.Remove("current_user_organization_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_urls"); else _explicitNullProperties?.Remove("current_user_organization_urls"); } }
         private List<string>? _explicitNullValueCurrentUserOrganizationUrls = default!;
 #nullable restore
 #else
-        public List<string> CurrentUserOrganizationUrls { get => _explicitNullValueCurrentUserOrganizationUrls; set { _explicitNullValueCurrentUserOrganizationUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_urls"); else _explicitNullProperties?.Remove("current_user_organization_urls"); } }
+        public List<string> CurrentUserOrganizationUrls { get => _explicitNullValueCurrentUserOrganizationUrls; set { _explicitNullValueCurrentUserOrganizationUrls = value; AdditionalData?.Remove("current_user_organization_urls"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization_urls"); else _explicitNullProperties?.Remove("current_user_organization_urls"); } }
         private List<string> _explicitNullValueCurrentUserOrganizationUrls = default!;
 #endif
         /// <summary>The current_user_public_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentUserPublicUrl { get => _explicitNullValueCurrentUserPublicUrl; set { _explicitNullValueCurrentUserPublicUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public_url"); else _explicitNullProperties?.Remove("current_user_public_url"); } }
+        public string? CurrentUserPublicUrl { get => _explicitNullValueCurrentUserPublicUrl; set { _explicitNullValueCurrentUserPublicUrl = value; AdditionalData?.Remove("current_user_public_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public_url"); else _explicitNullProperties?.Remove("current_user_public_url"); } }
         private string? _explicitNullValueCurrentUserPublicUrl = default!;
 #nullable restore
 #else
-        public string CurrentUserPublicUrl { get => _explicitNullValueCurrentUserPublicUrl; set { _explicitNullValueCurrentUserPublicUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public_url"); else _explicitNullProperties?.Remove("current_user_public_url"); } }
+        public string CurrentUserPublicUrl { get => _explicitNullValueCurrentUserPublicUrl; set { _explicitNullValueCurrentUserPublicUrl = value; AdditionalData?.Remove("current_user_public_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public_url"); else _explicitNullProperties?.Remove("current_user_public_url"); } }
         private string _explicitNullValueCurrentUserPublicUrl = default!;
 #endif
         /// <summary>The current_user_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentUserUrl { get => _explicitNullValueCurrentUserUrl; set { _explicitNullValueCurrentUserUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_url"); else _explicitNullProperties?.Remove("current_user_url"); } }
+        public string? CurrentUserUrl { get => _explicitNullValueCurrentUserUrl; set { _explicitNullValueCurrentUserUrl = value; AdditionalData?.Remove("current_user_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_url"); else _explicitNullProperties?.Remove("current_user_url"); } }
         private string? _explicitNullValueCurrentUserUrl = default!;
 #nullable restore
 #else
-        public string CurrentUserUrl { get => _explicitNullValueCurrentUserUrl; set { _explicitNullValueCurrentUserUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_url"); else _explicitNullProperties?.Remove("current_user_url"); } }
+        public string CurrentUserUrl { get => _explicitNullValueCurrentUserUrl; set { _explicitNullValueCurrentUserUrl = value; AdditionalData?.Remove("current_user_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_url"); else _explicitNullProperties?.Remove("current_user_url"); } }
         private string _explicitNullValueCurrentUserUrl = default!;
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.FeedLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("_links"); else _explicitNullProperties?.Remove("_links"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FeedLinks? Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("_links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("_links"); else _explicitNullProperties?.Remove("_links"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.FeedLinks? _explicitNullValueLinks = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.FeedLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("_links"); else _explicitNullProperties?.Remove("_links"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.FeedLinks Links { get => _explicitNullValueLinks; set { _explicitNullValueLinks = value; AdditionalData?.Remove("_links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("_links"); else _explicitNullProperties?.Remove("_links"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.FeedLinks _explicitNullValueLinks = default!;
 #endif
         /// <summary>A feed of discussions for a given repository and category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepositoryDiscussionsCategoryUrl { get => _explicitNullValueRepositoryDiscussionsCategoryUrl; set { _explicitNullValueRepositoryDiscussionsCategoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category_url"); else _explicitNullProperties?.Remove("repository_discussions_category_url"); } }
+        public string? RepositoryDiscussionsCategoryUrl { get => _explicitNullValueRepositoryDiscussionsCategoryUrl; set { _explicitNullValueRepositoryDiscussionsCategoryUrl = value; AdditionalData?.Remove("repository_discussions_category_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category_url"); else _explicitNullProperties?.Remove("repository_discussions_category_url"); } }
         private string? _explicitNullValueRepositoryDiscussionsCategoryUrl = default!;
 #nullable restore
 #else
-        public string RepositoryDiscussionsCategoryUrl { get => _explicitNullValueRepositoryDiscussionsCategoryUrl; set { _explicitNullValueRepositoryDiscussionsCategoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category_url"); else _explicitNullProperties?.Remove("repository_discussions_category_url"); } }
+        public string RepositoryDiscussionsCategoryUrl { get => _explicitNullValueRepositoryDiscussionsCategoryUrl; set { _explicitNullValueRepositoryDiscussionsCategoryUrl = value; AdditionalData?.Remove("repository_discussions_category_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category_url"); else _explicitNullProperties?.Remove("repository_discussions_category_url"); } }
         private string _explicitNullValueRepositoryDiscussionsCategoryUrl = default!;
 #endif
         /// <summary>A feed of discussions for a given repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepositoryDiscussionsUrl { get => _explicitNullValueRepositoryDiscussionsUrl; set { _explicitNullValueRepositoryDiscussionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_url"); else _explicitNullProperties?.Remove("repository_discussions_url"); } }
+        public string? RepositoryDiscussionsUrl { get => _explicitNullValueRepositoryDiscussionsUrl; set { _explicitNullValueRepositoryDiscussionsUrl = value; AdditionalData?.Remove("repository_discussions_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_url"); else _explicitNullProperties?.Remove("repository_discussions_url"); } }
         private string? _explicitNullValueRepositoryDiscussionsUrl = default!;
 #nullable restore
 #else
-        public string RepositoryDiscussionsUrl { get => _explicitNullValueRepositoryDiscussionsUrl; set { _explicitNullValueRepositoryDiscussionsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_url"); else _explicitNullProperties?.Remove("repository_discussions_url"); } }
+        public string RepositoryDiscussionsUrl { get => _explicitNullValueRepositoryDiscussionsUrl; set { _explicitNullValueRepositoryDiscussionsUrl = value; AdditionalData?.Remove("repository_discussions_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_url"); else _explicitNullProperties?.Remove("repository_discussions_url"); } }
         private string _explicitNullValueRepositoryDiscussionsUrl = default!;
 #endif
         /// <summary>The security_advisories_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecurityAdvisoriesUrl { get => _explicitNullValueSecurityAdvisoriesUrl; set { _explicitNullValueSecurityAdvisoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories_url"); else _explicitNullProperties?.Remove("security_advisories_url"); } }
+        public string? SecurityAdvisoriesUrl { get => _explicitNullValueSecurityAdvisoriesUrl; set { _explicitNullValueSecurityAdvisoriesUrl = value; AdditionalData?.Remove("security_advisories_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories_url"); else _explicitNullProperties?.Remove("security_advisories_url"); } }
         private string? _explicitNullValueSecurityAdvisoriesUrl = default!;
 #nullable restore
 #else
-        public string SecurityAdvisoriesUrl { get => _explicitNullValueSecurityAdvisoriesUrl; set { _explicitNullValueSecurityAdvisoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories_url"); else _explicitNullProperties?.Remove("security_advisories_url"); } }
+        public string SecurityAdvisoriesUrl { get => _explicitNullValueSecurityAdvisoriesUrl; set { _explicitNullValueSecurityAdvisoriesUrl = value; AdditionalData?.Remove("security_advisories_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories_url"); else _explicitNullProperties?.Remove("security_advisories_url"); } }
         private string _explicitNullValueSecurityAdvisoriesUrl = default!;
 #endif
         /// <summary>The timeline_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimelineUrl { get => _explicitNullValueTimelineUrl; set { _explicitNullValueTimelineUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline_url"); else _explicitNullProperties?.Remove("timeline_url"); } }
+        public string? TimelineUrl { get => _explicitNullValueTimelineUrl; set { _explicitNullValueTimelineUrl = value; AdditionalData?.Remove("timeline_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline_url"); else _explicitNullProperties?.Remove("timeline_url"); } }
         private string? _explicitNullValueTimelineUrl = default!;
 #nullable restore
 #else
-        public string TimelineUrl { get => _explicitNullValueTimelineUrl; set { _explicitNullValueTimelineUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline_url"); else _explicitNullProperties?.Remove("timeline_url"); } }
+        public string TimelineUrl { get => _explicitNullValueTimelineUrl; set { _explicitNullValueTimelineUrl = value; AdditionalData?.Remove("timeline_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline_url"); else _explicitNullProperties?.Remove("timeline_url"); } }
         private string _explicitNullValueTimelineUrl = default!;
 #endif
         /// <summary>The user_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserUrl { get => _explicitNullValueUserUrl; set { _explicitNullValueUserUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_url"); else _explicitNullProperties?.Remove("user_url"); } }
+        public string? UserUrl { get => _explicitNullValueUserUrl; set { _explicitNullValueUserUrl = value; AdditionalData?.Remove("user_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_url"); else _explicitNullProperties?.Remove("user_url"); } }
         private string? _explicitNullValueUserUrl = default!;
 #nullable restore
 #else
-        public string UserUrl { get => _explicitNullValueUserUrl; set { _explicitNullValueUserUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_url"); else _explicitNullProperties?.Remove("user_url"); } }
+        public string UserUrl { get => _explicitNullValueUserUrl; set { _explicitNullValueUserUrl = value; AdditionalData?.Remove("user_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_url"); else _explicitNullProperties?.Remove("user_url"); } }
         private string _explicitNullValueUserUrl = default!;
 #endif
         /// <summary>

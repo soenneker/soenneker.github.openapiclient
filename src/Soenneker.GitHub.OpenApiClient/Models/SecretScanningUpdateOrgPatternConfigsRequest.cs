@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_pattern_settings") is { } nullNodeCustomPatternSettings && nullNodeCustomPatternSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternSettings = null;
-            if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
-            if (parseNode.GetChildNode("provider_pattern_settings") is { } nullNodeProviderPatternSettings && nullNodeProviderPatternSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderPatternSettings = null;
+            if (parseNode.GetChildNode("custom_pattern_settings") is null) { _explicitNullValueCustomPatternSettings = default!; _explicitNullProperties?.Remove("custom_pattern_settings"); }
+            else if (parseNode.GetChildNode("custom_pattern_settings") is { } nullNodeCustomPatternSettings && nullNodeCustomPatternSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPatternSettings = null;
+            if (parseNode.GetChildNode("pattern_config_version") is null) { _explicitNullValuePatternConfigVersion = default!; _explicitNullProperties?.Remove("pattern_config_version"); }
+            else if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
+            if (parseNode.GetChildNode("provider_pattern_settings") is null) { _explicitNullValueProviderPatternSettings = default!; _explicitNullProperties?.Remove("provider_pattern_settings"); }
+            else if (parseNode.GetChildNode("provider_pattern_settings") is { } nullNodeProviderPatternSettings && nullNodeProviderPatternSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderPatternSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Pattern settings for custom patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>? CustomPatternSettings { get => _explicitNullValueCustomPatternSettings; set { _explicitNullValueCustomPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_settings"); else _explicitNullProperties?.Remove("custom_pattern_settings"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>? CustomPatternSettings { get => _explicitNullValueCustomPatternSettings; set { _explicitNullValueCustomPatternSettings = value; AdditionalData?.Remove("custom_pattern_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_settings"); else _explicitNullProperties?.Remove("custom_pattern_settings"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem>? _explicitNullValueCustomPatternSettings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem> CustomPatternSettings { get => _explicitNullValueCustomPatternSettings; set { _explicitNullValueCustomPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_settings"); else _explicitNullProperties?.Remove("custom_pattern_settings"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem> CustomPatternSettings { get => _explicitNullValueCustomPatternSettings; set { _explicitNullValueCustomPatternSettings = value; AdditionalData?.Remove("custom_pattern_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_pattern_settings"); else _explicitNullProperties?.Remove("custom_pattern_settings"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestCustomPatternSettingsItem> _explicitNullValueCustomPatternSettings = default!;
 #endif
         /// <summary>The version of the entity. This is used to confirm you&apos;re updating the current version of the entity and mitigate unintentionally overriding someone else&apos;s update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; AdditionalData?.Remove("pattern_config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
         private string? _explicitNullValuePatternConfigVersion = default!;
 #nullable restore
 #else
-        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; AdditionalData?.Remove("pattern_config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
         private string _explicitNullValuePatternConfigVersion = default!;
 #endif
         /// <summary>Pattern settings for provider patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>? ProviderPatternSettings { get => _explicitNullValueProviderPatternSettings; set { _explicitNullValueProviderPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_settings"); else _explicitNullProperties?.Remove("provider_pattern_settings"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>? ProviderPatternSettings { get => _explicitNullValueProviderPatternSettings; set { _explicitNullValueProviderPatternSettings = value; AdditionalData?.Remove("provider_pattern_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_settings"); else _explicitNullProperties?.Remove("provider_pattern_settings"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem>? _explicitNullValueProviderPatternSettings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem> ProviderPatternSettings { get => _explicitNullValueProviderPatternSettings; set { _explicitNullValueProviderPatternSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_settings"); else _explicitNullProperties?.Remove("provider_pattern_settings"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem> ProviderPatternSettings { get => _explicitNullValueProviderPatternSettings; set { _explicitNullValueProviderPatternSettings = value; AdditionalData?.Remove("provider_pattern_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_pattern_settings"); else _explicitNullProperties?.Remove("provider_pattern_settings"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItem> _explicitNullValueProviderPatternSettings = default!;
 #endif
         /// <summary>

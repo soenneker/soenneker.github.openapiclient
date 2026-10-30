@@ -17,11 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access_level") is { } nullNodeAccessLevel && nullNodeAccessLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessLevel = null;
+            if (parseNode.GetChildNode("access_level") is null) { _explicitNullValueAccessLevel = default!; _explicitNullProperties?.Remove("access_level"); }
+            else if (parseNode.GetChildNode("access_level") is { } nullNodeAccessLevel && nullNodeAccessLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessLevel = null;
         }
 
         /// <summary>Defines the level of access that workflows outside of the repository have to actions and reusable workflows within therepository.`none` means the access is only possible from workflows in this repository. `user` level access allows sharing across user owned private repositories only. `organization` level access allows sharing across the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel? AccessLevel { get => _explicitNullValueAccessLevel; set { _explicitNullValueAccessLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_level"); else _explicitNullProperties?.Remove("access_level"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel? AccessLevel { get => _explicitNullValueAccessLevel; set { _explicitNullValueAccessLevel = value; AdditionalData?.Remove("access_level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_level"); else _explicitNullProperties?.Remove("access_level"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel? _explicitNullValueAccessLevel = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "access_level", n => { AccessLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel>(); } },
+                { "access_level", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsWorkflowAccessToRepositoryAccessLevel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccessLevel = default; _explicitNullProperties?.Remove("access_level"); AdditionalData["access_level"] = unknown; } else { AccessLevel = parsed; AdditionalData.Remove("access_level"); } } },
             };
         }
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_actors") is { } nullNodeAllowedActors && nullNodeAllowedActors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActors = null;
+            if (parseNode.GetChildNode("allowed_actors") is null) { _explicitNullValueAllowedActors = default!; _explicitNullProperties?.Remove("allowed_actors"); }
+            else if (parseNode.GetChildNode("allowed_actors") is { } nullNodeAllowedActors && nullNodeAllowedActors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActors = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Select the actors who can run Actions workflows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleParamsActor>? AllowedActors { get => _explicitNullValueAllowedActors; set { _explicitNullValueAllowedActors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actors"); else _explicitNullProperties?.Remove("allowed_actors"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleParamsActor>? AllowedActors { get => _explicitNullValueAllowedActors; set { _explicitNullValueAllowedActors = value; AdditionalData?.Remove("allowed_actors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actors"); else _explicitNullProperties?.Remove("allowed_actors"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleParamsActor>? _explicitNullValueAllowedActors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleParamsActor> AllowedActors { get => _explicitNullValueAllowedActors; set { _explicitNullValueAllowedActors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actors"); else _explicitNullProperties?.Remove("allowed_actors"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleParamsActor> AllowedActors { get => _explicitNullValueAllowedActors; set { _explicitNullValueAllowedActors = value; AdditionalData?.Remove("allowed_actors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actors"); else _explicitNullProperties?.Remove("allowed_actors"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleParamsActor> _explicitNullValueAllowedActors = default!;
 #endif
         /// <summary>

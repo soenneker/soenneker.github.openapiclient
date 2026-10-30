@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pull_requests") is { } nullNodePullRequests && nullNodePullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequests = null;
+            if (parseNode.GetChildNode("pull_requests") is null) { _explicitNullValuePullRequests = default!; _explicitNullProperties?.Remove("pull_requests"); }
+            else if (parseNode.GetChildNode("pull_requests") is { } nullNodePullRequests && nullNodePullRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PullRequests = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>An ordered list of pull request numbers to append to the stack, from the current top upward.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
+        public List<int?>? PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; AdditionalData?.Remove("pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
         private List<int?>? _explicitNullValuePullRequests = default!;
 #nullable restore
 #else
-        public List<int?> PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
+        public List<int?> PullRequests { get => _explicitNullValuePullRequests; set { _explicitNullValuePullRequests = value; AdditionalData?.Remove("pull_requests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull_requests"); else _explicitNullProperties?.Remove("pull_requests"); } }
         private List<int?> _explicitNullValuePullRequests = default!;
 #endif
         /// <summary>

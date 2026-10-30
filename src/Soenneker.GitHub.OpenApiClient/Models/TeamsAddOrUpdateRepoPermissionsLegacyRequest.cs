@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("permission") is { } nullNodePermission && nullNodePermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permission = null;
+            if (parseNode.GetChildNode("permission") is null) { _explicitNullValuePermission = default!; _explicitNullProperties?.Remove("permission"); }
+            else if (parseNode.GetChildNode("permission") is { } nullNodePermission && nullNodePermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permission = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The permission to grant the team on this repository. If no permission is specified, the team&apos;s `permission` attribute will be used to determine what permission to grant the team on this repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsAddOrUpdateRepoPermissionsLegacyRequestPermission? Permission { get => _explicitNullValuePermission; set { _explicitNullValuePermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permission"); else _explicitNullProperties?.Remove("permission"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsAddOrUpdateRepoPermissionsLegacyRequestPermission? Permission { get => _explicitNullValuePermission; set { _explicitNullValuePermission = value; AdditionalData?.Remove("permission"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permission"); else _explicitNullProperties?.Remove("permission"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.TeamsAddOrUpdateRepoPermissionsLegacyRequestPermission? _explicitNullValuePermission = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.TeamsAddOrUpdateRepoPermissionsLegacyRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "permission", n => { Permission = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsAddOrUpdateRepoPermissionsLegacyRequestPermission>(); } },
+                { "permission", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsAddOrUpdateRepoPermissionsLegacyRequestPermission>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePermission = default; _explicitNullProperties?.Remove("permission"); AdditionalData["permission"] = unknown; } else { Permission = parsed; AdditionalData.Remove("permission"); } } },
             };
         }
         /// <summary>

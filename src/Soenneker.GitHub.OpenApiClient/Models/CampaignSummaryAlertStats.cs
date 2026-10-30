@@ -17,9 +17,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("closed_count") is { } nullNodeClosedCount && nullNodeClosedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosedCount = null;
-            if (parseNode.GetChildNode("in_progress_count") is { } nullNodeInProgressCount && nullNodeInProgressCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgressCount = null;
-            if (parseNode.GetChildNode("open_count") is { } nullNodeOpenCount && nullNodeOpenCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenCount = null;
+            if (parseNode.GetChildNode("closed_count") is null) { _explicitNullValueClosedCount = default!; _explicitNullProperties?.Remove("closed_count"); }
+            else if (parseNode.GetChildNode("closed_count") is { } nullNodeClosedCount && nullNodeClosedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClosedCount = null;
+            if (parseNode.GetChildNode("in_progress_count") is null) { _explicitNullValueInProgressCount = default!; _explicitNullProperties?.Remove("in_progress_count"); }
+            else if (parseNode.GetChildNode("in_progress_count") is { } nullNodeInProgressCount && nullNodeInProgressCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InProgressCount = null;
+            if (parseNode.GetChildNode("open_count") is null) { _explicitNullValueOpenCount = default!; _explicitNullProperties?.Remove("open_count"); }
+            else if (parseNode.GetChildNode("open_count") is { } nullNodeOpenCount && nullNodeOpenCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenCount = null;
         }
 
         /// <summary>The number of closed alerts</summary>

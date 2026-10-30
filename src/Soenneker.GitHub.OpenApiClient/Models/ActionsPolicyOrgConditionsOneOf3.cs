@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repository_property") is { } nullNodeRepositoryProperty && nullNodeRepositoryProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryProperty = null;
-            if (parseNode.GetChildNode("workflow_path") is { } nullNodeWorkflowPath && nullNodeWorkflowPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowPath = null;
+            if (parseNode.GetChildNode("repository_property") is null) { _explicitNullValueRepositoryProperty = default!; _explicitNullProperties?.Remove("repository_property"); }
+            else if (parseNode.GetChildNode("repository_property") is { } nullNodeRepositoryProperty && nullNodeRepositoryProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryProperty = null;
+            if (parseNode.GetChildNode("workflow_path") is null) { _explicitNullValueWorkflowPath = default!; _explicitNullProperties?.Remove("workflow_path"); }
+            else if (parseNode.GetChildNode("workflow_path") is { } nullNodeWorkflowPath && nullNodeWorkflowPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowPath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The repository_property property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty? RepositoryProperty { get => _explicitNullValueRepositoryProperty; set { _explicitNullValueRepositoryProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_property"); else _explicitNullProperties?.Remove("repository_property"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty? RepositoryProperty { get => _explicitNullValueRepositoryProperty; set { _explicitNullValueRepositoryProperty = value; AdditionalData?.Remove("repository_property"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_property"); else _explicitNullProperties?.Remove("repository_property"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty? _explicitNullValueRepositoryProperty = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty RepositoryProperty { get => _explicitNullValueRepositoryProperty; set { _explicitNullValueRepositoryProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_property"); else _explicitNullProperties?.Remove("repository_property"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty RepositoryProperty { get => _explicitNullValueRepositoryProperty; set { _explicitNullValueRepositoryProperty = value; AdditionalData?.Remove("repository_property"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_property"); else _explicitNullProperties?.Remove("repository_property"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty _explicitNullValueRepositoryProperty = default!;
 #endif
         /// <summary>The workflow_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath? WorkflowPath { get => _explicitNullValueWorkflowPath; set { _explicitNullValueWorkflowPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_path"); else _explicitNullProperties?.Remove("workflow_path"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath? WorkflowPath { get => _explicitNullValueWorkflowPath; set { _explicitNullValueWorkflowPath = value; AdditionalData?.Remove("workflow_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_path"); else _explicitNullProperties?.Remove("workflow_path"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath? _explicitNullValueWorkflowPath = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath WorkflowPath { get => _explicitNullValueWorkflowPath; set { _explicitNullValueWorkflowPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_path"); else _explicitNullProperties?.Remove("workflow_path"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath WorkflowPath { get => _explicitNullValueWorkflowPath; set { _explicitNullValueWorkflowPath = value; AdditionalData?.Remove("workflow_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_path"); else _explicitNullProperties?.Remove("workflow_path"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsPolicyWorkflowPathConditionWorkflowPath _explicitNullValueWorkflowPath = default!;
 #endif
         /// <summary>

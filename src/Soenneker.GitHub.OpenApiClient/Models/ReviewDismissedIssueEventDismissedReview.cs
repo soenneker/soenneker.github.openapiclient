@@ -17,10 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dismissal_commit_id") is { } nullNodeDismissalCommitId && nullNodeDismissalCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalCommitId = null;
-            if (parseNode.GetChildNode("dismissal_message") is { } nullNodeDismissalMessage && nullNodeDismissalMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalMessage = null;
-            if (parseNode.GetChildNode("review_id") is { } nullNodeReviewId && nullNodeReviewId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewId = null;
-            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("dismissal_commit_id") is null) { _explicitNullValueDismissalCommitId = default!; _explicitNullProperties?.Remove("dismissal_commit_id"); }
+            else if (parseNode.GetChildNode("dismissal_commit_id") is { } nullNodeDismissalCommitId && nullNodeDismissalCommitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalCommitId = null;
+            if (parseNode.GetChildNode("dismissal_message") is null) { _explicitNullValueDismissalMessage = default!; _explicitNullProperties?.Remove("dismissal_message"); }
+            else if (parseNode.GetChildNode("dismissal_message") is { } nullNodeDismissalMessage && nullNodeDismissalMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissalMessage = null;
+            if (parseNode.GetChildNode("review_id") is null) { _explicitNullValueReviewId = default!; _explicitNullProperties?.Remove("review_id"); }
+            else if (parseNode.GetChildNode("review_id") is { } nullNodeReviewId && nullNodeReviewId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewId = null;
+            if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
+            else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The dismissal_commit_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissalCommitId { get => _explicitNullValueDismissalCommitId; set { _explicitNullValueDismissalCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_commit_id"); else _explicitNullProperties?.Remove("dismissal_commit_id"); } }
+        public string? DismissalCommitId { get => _explicitNullValueDismissalCommitId; set { _explicitNullValueDismissalCommitId = value; AdditionalData?.Remove("dismissal_commit_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_commit_id"); else _explicitNullProperties?.Remove("dismissal_commit_id"); } }
         private string? _explicitNullValueDismissalCommitId = default!;
 #nullable restore
 #else
-        public string DismissalCommitId { get => _explicitNullValueDismissalCommitId; set { _explicitNullValueDismissalCommitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_commit_id"); else _explicitNullProperties?.Remove("dismissal_commit_id"); } }
+        public string DismissalCommitId { get => _explicitNullValueDismissalCommitId; set { _explicitNullValueDismissalCommitId = value; AdditionalData?.Remove("dismissal_commit_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_commit_id"); else _explicitNullProperties?.Remove("dismissal_commit_id"); } }
         private string _explicitNullValueDismissalCommitId = default!;
 #endif
         /// <summary>The dismissal_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DismissalMessage { get => _explicitNullValueDismissalMessage; set { _explicitNullValueDismissalMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_message"); else _explicitNullProperties?.Remove("dismissal_message"); } }
+        public string? DismissalMessage { get => _explicitNullValueDismissalMessage; set { _explicitNullValueDismissalMessage = value; AdditionalData?.Remove("dismissal_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_message"); else _explicitNullProperties?.Remove("dismissal_message"); } }
         private string? _explicitNullValueDismissalMessage = default!;
 #nullable restore
 #else
-        public string DismissalMessage { get => _explicitNullValueDismissalMessage; set { _explicitNullValueDismissalMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_message"); else _explicitNullProperties?.Remove("dismissal_message"); } }
+        public string DismissalMessage { get => _explicitNullValueDismissalMessage; set { _explicitNullValueDismissalMessage = value; AdditionalData?.Remove("dismissal_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dismissal_message"); else _explicitNullProperties?.Remove("dismissal_message"); } }
         private string _explicitNullValueDismissalMessage = default!;
 #endif
         /// <summary>The review_id property</summary>
-        public long? ReviewId { get => _explicitNullValueReviewId; set { _explicitNullValueReviewId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_id"); else _explicitNullProperties?.Remove("review_id"); } }
+        public long? ReviewId { get => _explicitNullValueReviewId; set { _explicitNullValueReviewId = value; AdditionalData?.Remove("review_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review_id"); else _explicitNullProperties?.Remove("review_id"); } }
         private long? _explicitNullValueReviewId = default!;
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private string? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private string _explicitNullValueState = default!;
 #endif
         /// <summary>

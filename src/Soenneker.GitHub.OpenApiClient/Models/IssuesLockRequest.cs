@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("lock_reason") is { } nullNodeLockReason && nullNodeLockReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockReason = null;
+            if (parseNode.GetChildNode("lock_reason") is null) { _explicitNullValueLockReason = default!; _explicitNullProperties?.Remove("lock_reason"); }
+            else if (parseNode.GetChildNode("lock_reason") is { } nullNodeLockReason && nullNodeLockReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockReason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reason for locking the issue or pull request conversation. Lock will fail if you don&apos;t use one of these reasons:   * `off-topic`   * `too heated`   * `resolved`   * `spam`</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequestLockReason? LockReason { get => _explicitNullValueLockReason; set { _explicitNullValueLockReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_reason"); else _explicitNullProperties?.Remove("lock_reason"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequestLockReason? LockReason { get => _explicitNullValueLockReason; set { _explicitNullValueLockReason = value; AdditionalData?.Remove("lock_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_reason"); else _explicitNullProperties?.Remove("lock_reason"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequestLockReason? _explicitNullValueLockReason = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequest"/> and sets the default values.
@@ -52,7 +53,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "lock_reason", n => { LockReason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequestLockReason>(); } },
+                { "lock_reason", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssuesLockRequestLockReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLockReason = default; _explicitNullProperties?.Remove("lock_reason"); AdditionalData["lock_reason"] = unknown; } else { LockReason = parsed; AdditionalData.Remove("lock_reason"); } } },
             };
         }
         /// <summary>

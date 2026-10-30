@@ -17,28 +17,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("registration_deprecates_at") is { } nullNodeRegistrationDeprecatesAt && nullNodeRegistrationDeprecatesAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationDeprecatesAt = null;
-            if (parseNode.GetChildNode("runner_version") is { } nullNodeRunnerVersion && nullNodeRunnerVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerVersion = null;
-            if (parseNode.GetChildNode("runtime_deprecates_at") is { } nullNodeRuntimeDeprecatesAt && nullNodeRuntimeDeprecatesAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeDeprecatesAt = null;
+            if (parseNode.GetChildNode("registration_deprecates_at") is null) { _explicitNullValueRegistrationDeprecatesAt = default!; _explicitNullProperties?.Remove("registration_deprecates_at"); }
+            else if (parseNode.GetChildNode("registration_deprecates_at") is { } nullNodeRegistrationDeprecatesAt && nullNodeRegistrationDeprecatesAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationDeprecatesAt = null;
+            if (parseNode.GetChildNode("runner_version") is null) { _explicitNullValueRunnerVersion = default!; _explicitNullProperties?.Remove("runner_version"); }
+            else if (parseNode.GetChildNode("runner_version") is { } nullNodeRunnerVersion && nullNodeRunnerVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerVersion = null;
+            if (parseNode.GetChildNode("runtime_deprecates_at") is null) { _explicitNullValueRuntimeDeprecatesAt = default!; _explicitNullProperties?.Remove("runtime_deprecates_at"); }
+            else if (parseNode.GetChildNode("runtime_deprecates_at") is { } nullNodeRuntimeDeprecatesAt && nullNodeRuntimeDeprecatesAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuntimeDeprecatesAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date after which this runner version can no longer register. Only set for runner versions below the minimum version required to register (currently 2.329.0); `null` for versions with no registration end date.</summary>
-        public DateTimeOffset? RegistrationDeprecatesAt { get => _explicitNullValueRegistrationDeprecatesAt; set { _explicitNullValueRegistrationDeprecatesAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_deprecates_at"); else _explicitNullProperties?.Remove("registration_deprecates_at"); } }
+        public DateTimeOffset? RegistrationDeprecatesAt { get => _explicitNullValueRegistrationDeprecatesAt; set { _explicitNullValueRegistrationDeprecatesAt = value; AdditionalData?.Remove("registration_deprecates_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_deprecates_at"); else _explicitNullProperties?.Remove("registration_deprecates_at"); } }
         private DateTimeOffset? _explicitNullValueRegistrationDeprecatesAt = default!;
         /// <summary>The runner version string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerVersion { get => _explicitNullValueRunnerVersion; set { _explicitNullValueRunnerVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_version"); else _explicitNullProperties?.Remove("runner_version"); } }
+        public string? RunnerVersion { get => _explicitNullValueRunnerVersion; set { _explicitNullValueRunnerVersion = value; AdditionalData?.Remove("runner_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_version"); else _explicitNullProperties?.Remove("runner_version"); } }
         private string? _explicitNullValueRunnerVersion = default!;
 #nullable restore
 #else
-        public string RunnerVersion { get => _explicitNullValueRunnerVersion; set { _explicitNullValueRunnerVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_version"); else _explicitNullProperties?.Remove("runner_version"); } }
+        public string RunnerVersion { get => _explicitNullValueRunnerVersion; set { _explicitNullValueRunnerVersion = value; AdditionalData?.Remove("runner_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_version"); else _explicitNullProperties?.Remove("runner_version"); } }
         private string _explicitNullValueRunnerVersion = default!;
 #endif
         /// <summary>The date after which jobs will no longer be dispatched to runners on this version. `null` when no newer runner release exists yet.</summary>
-        public DateTimeOffset? RuntimeDeprecatesAt { get => _explicitNullValueRuntimeDeprecatesAt; set { _explicitNullValueRuntimeDeprecatesAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_deprecates_at"); else _explicitNullProperties?.Remove("runtime_deprecates_at"); } }
+        public DateTimeOffset? RuntimeDeprecatesAt { get => _explicitNullValueRuntimeDeprecatesAt; set { _explicitNullValueRuntimeDeprecatesAt = value; AdditionalData?.Remove("runtime_deprecates_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runtime_deprecates_at"); else _explicitNullProperties?.Remove("runtime_deprecates_at"); } }
         private DateTimeOffset? _explicitNullValueRuntimeDeprecatesAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsGetRunnerVersionDeprecationForRepo200Response"/> and sets the default values.

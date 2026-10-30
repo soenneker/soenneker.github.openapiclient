@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("policy_state") is { } nullNodePolicyState && nullNodePolicyState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyState = null;
+            if (parseNode.GetChildNode("policy_state") is null) { _explicitNullValuePolicyState = default!; _explicitNullProperties?.Remove("policy_state"); }
+            else if (parseNode.GetChildNode("policy_state") is { } nullNodePolicyState && nullNodePolicyState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyState = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy state for Copilot cloud agent in the enterprise. Can be one of `enabled_for_all_orgs`, `disabled_for_all_orgs`, `enabled_for_selected_orgs`, or `configured_by_org_admins`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicyRequestPolicyState? PolicyState { get => _explicitNullValuePolicyState; set { _explicitNullValuePolicyState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_state"); else _explicitNullProperties?.Remove("policy_state"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicyRequestPolicyState? PolicyState { get => _explicitNullValuePolicyState; set { _explicitNullValuePolicyState = value; AdditionalData?.Remove("policy_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_state"); else _explicitNullProperties?.Remove("policy_state"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicyRequestPolicyState? _explicitNullValuePolicyState = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicyRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "policy_state", n => { PolicyState = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicyRequestPolicyState>(); } },
+                { "policy_state", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSetEnterpriseCodingAgentPolicyRequestPolicyState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePolicyState = default; _explicitNullProperties?.Remove("policy_state"); AdditionalData["policy_state"] = unknown; } else { PolicyState = parsed; AdditionalData.Remove("policy_state"); } } },
             };
         }
         /// <summary>

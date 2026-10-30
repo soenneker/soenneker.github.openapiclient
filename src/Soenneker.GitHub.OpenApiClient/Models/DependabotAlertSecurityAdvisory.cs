@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cvss_severities") is { } nullNodeCvssSeverities && nullNodeCvssSeverities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CvssSeverities = null;
+            if (parseNode.GetChildNode("cvss_severities") is null) { _explicitNullValueCvssSeverities = default!; _explicitNullProperties?.Remove("cvss_severities"); }
+            else if (parseNode.GetChildNode("cvss_severities") is { } nullNodeCvssSeverities && nullNodeCvssSeverities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CvssSeverities = null;
         }
 
         /// <summary>The classification of the advisory.</summary>

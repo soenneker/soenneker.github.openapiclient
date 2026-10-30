@@ -17,28 +17,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("github_owned_allowed") is { } nullNodeGithubOwnedAllowed && nullNodeGithubOwnedAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubOwnedAllowed = null;
-            if (parseNode.GetChildNode("patterns_allowed") is { } nullNodePatternsAllowed && nullNodePatternsAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternsAllowed = null;
-            if (parseNode.GetChildNode("verified_allowed") is { } nullNodeVerifiedAllowed && nullNodeVerifiedAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedAllowed = null;
+            if (parseNode.GetChildNode("github_owned_allowed") is null) { _explicitNullValueGithubOwnedAllowed = default!; _explicitNullProperties?.Remove("github_owned_allowed"); }
+            else if (parseNode.GetChildNode("github_owned_allowed") is { } nullNodeGithubOwnedAllowed && nullNodeGithubOwnedAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubOwnedAllowed = null;
+            if (parseNode.GetChildNode("patterns_allowed") is null) { _explicitNullValuePatternsAllowed = default!; _explicitNullProperties?.Remove("patterns_allowed"); }
+            else if (parseNode.GetChildNode("patterns_allowed") is { } nullNodePatternsAllowed && nullNodePatternsAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternsAllowed = null;
+            if (parseNode.GetChildNode("verified_allowed") is null) { _explicitNullValueVerifiedAllowed = default!; _explicitNullProperties?.Remove("verified_allowed"); }
+            else if (parseNode.GetChildNode("verified_allowed") is { } nullNodeVerifiedAllowed && nullNodeVerifiedAllowed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerifiedAllowed = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization.</summary>
-        public bool? GithubOwnedAllowed { get => _explicitNullValueGithubOwnedAllowed; set { _explicitNullValueGithubOwnedAllowed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_owned_allowed"); else _explicitNullProperties?.Remove("github_owned_allowed"); } }
+        public bool? GithubOwnedAllowed { get => _explicitNullValueGithubOwnedAllowed; set { _explicitNullValueGithubOwnedAllowed = value; AdditionalData?.Remove("github_owned_allowed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_owned_allowed"); else _explicitNullProperties?.Remove("github_owned_allowed"); } }
         private bool? _explicitNullValueGithubOwnedAllowed = default!;
         /// <summary>Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.&gt; [!NOTE]&gt; The `patterns_allowed` setting only applies to public repositories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PatternsAllowed { get => _explicitNullValuePatternsAllowed; set { _explicitNullValuePatternsAllowed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns_allowed"); else _explicitNullProperties?.Remove("patterns_allowed"); } }
+        public List<string>? PatternsAllowed { get => _explicitNullValuePatternsAllowed; set { _explicitNullValuePatternsAllowed = value; AdditionalData?.Remove("patterns_allowed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns_allowed"); else _explicitNullProperties?.Remove("patterns_allowed"); } }
         private List<string>? _explicitNullValuePatternsAllowed = default!;
 #nullable restore
 #else
-        public List<string> PatternsAllowed { get => _explicitNullValuePatternsAllowed; set { _explicitNullValuePatternsAllowed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns_allowed"); else _explicitNullProperties?.Remove("patterns_allowed"); } }
+        public List<string> PatternsAllowed { get => _explicitNullValuePatternsAllowed; set { _explicitNullValuePatternsAllowed = value; AdditionalData?.Remove("patterns_allowed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patterns_allowed"); else _explicitNullProperties?.Remove("patterns_allowed"); } }
         private List<string> _explicitNullValuePatternsAllowed = default!;
 #endif
         /// <summary>Whether actions from GitHub Marketplace verified creators are allowed. Set to `true` to allow all actions by GitHub Marketplace verified creators.</summary>
-        public bool? VerifiedAllowed { get => _explicitNullValueVerifiedAllowed; set { _explicitNullValueVerifiedAllowed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_allowed"); else _explicitNullProperties?.Remove("verified_allowed"); } }
+        public bool? VerifiedAllowed { get => _explicitNullValueVerifiedAllowed; set { _explicitNullValueVerifiedAllowed = value; AdditionalData?.Remove("verified_allowed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verified_allowed"); else _explicitNullProperties?.Remove("verified_allowed"); } }
         private bool? _explicitNullValueVerifiedAllowed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SelectedActions"/> and sets the default values.

@@ -17,23 +17,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("push_protection_setting") is { } nullNodePushProtectionSetting && nullNodePushProtectionSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionSetting = null;
-            if (parseNode.GetChildNode("token_type") is { } nullNodeTokenType && nullNodeTokenType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenType = null;
+            if (parseNode.GetChildNode("push_protection_setting") is null) { _explicitNullValuePushProtectionSetting = default!; _explicitNullProperties?.Remove("push_protection_setting"); }
+            else if (parseNode.GetChildNode("push_protection_setting") is { } nullNodePushProtectionSetting && nullNodePushProtectionSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PushProtectionSetting = null;
+            if (parseNode.GetChildNode("token_type") is null) { _explicitNullValueTokenType = default!; _explicitNullProperties?.Remove("token_type"); }
+            else if (parseNode.GetChildNode("token_type") is { } nullNodeTokenType && nullNodeTokenType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Push protection setting to set for the pattern.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItemPushProtectionSetting? PushProtectionSetting { get => _explicitNullValuePushProtectionSetting; set { _explicitNullValuePushProtectionSetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_setting"); else _explicitNullProperties?.Remove("push_protection_setting"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItemPushProtectionSetting? PushProtectionSetting { get => _explicitNullValuePushProtectionSetting; set { _explicitNullValuePushProtectionSetting = value; AdditionalData?.Remove("push_protection_setting"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push_protection_setting"); else _explicitNullProperties?.Remove("push_protection_setting"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItemPushProtectionSetting? _explicitNullValuePushProtectionSetting = default!;
         /// <summary>The ID of the pattern to configure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        public string? TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; AdditionalData?.Remove("token_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
         private string? _explicitNullValueTokenType = default!;
 #nullable restore
 #else
-        public string TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
+        public string TokenType { get => _explicitNullValueTokenType; set { _explicitNullValueTokenType = value; AdditionalData?.Remove("token_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_type"); else _explicitNullProperties?.Remove("token_type"); } }
         private string _explicitNullValueTokenType = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "push_protection_setting", n => { PushProtectionSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItemPushProtectionSetting>(); } },
+                { "push_protection_setting", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningUpdateOrgPatternConfigsRequestProviderPatternSettingsItemPushProtectionSetting>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePushProtectionSetting = default; _explicitNullProperties?.Remove("push_protection_setting"); AdditionalData["push_protection_setting"] = unknown; } else { PushProtectionSetting = parsed; AdditionalData.Remove("push_protection_setting"); } } },
                 { "token_type", n => { TokenType = n.GetStringValue(); } },
             };
         }

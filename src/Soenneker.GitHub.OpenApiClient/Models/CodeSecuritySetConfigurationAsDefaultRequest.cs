@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("default_for_new_repos") is { } nullNodeDefaultForNewRepos && nullNodeDefaultForNewRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultForNewRepos = null;
+            if (parseNode.GetChildNode("default_for_new_repos") is null) { _explicitNullValueDefaultForNewRepos = default!; _explicitNullProperties?.Remove("default_for_new_repos"); }
+            else if (parseNode.GetChildNode("default_for_new_repos") is { } nullNodeDefaultForNewRepos && nullNodeDefaultForNewRepos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultForNewRepos = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specify which types of repository this security configuration should be applied to by default.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefaultRequestDefaultForNewRepos? DefaultForNewRepos { get => _explicitNullValueDefaultForNewRepos; set { _explicitNullValueDefaultForNewRepos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_for_new_repos"); else _explicitNullProperties?.Remove("default_for_new_repos"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefaultRequestDefaultForNewRepos? DefaultForNewRepos { get => _explicitNullValueDefaultForNewRepos; set { _explicitNullValueDefaultForNewRepos = value; AdditionalData?.Remove("default_for_new_repos"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_for_new_repos"); else _explicitNullProperties?.Remove("default_for_new_repos"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefaultRequestDefaultForNewRepos? _explicitNullValueDefaultForNewRepos = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefaultRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "default_for_new_repos", n => { DefaultForNewRepos = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefaultRequestDefaultForNewRepos>(); } },
+                { "default_for_new_repos", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecuritySetConfigurationAsDefaultRequestDefaultForNewRepos>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultForNewRepos = default; _explicitNullProperties?.Remove("default_for_new_repos"); AdditionalData["default_for_new_repos"] = unknown; } else { DefaultForNewRepos = parsed; AdditionalData.Remove("default_for_new_repos"); } } },
             };
         }
         /// <summary>

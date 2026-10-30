@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("usageItems") is { } nullNodeUsageItems && nullNodeUsageItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageItems = null;
+            if (parseNode.GetChildNode("usageItems") is null) { _explicitNullValueUsageItems = default!; _explicitNullProperties?.Remove("usageItems"); }
+            else if (parseNode.GetChildNode("usageItems") is { } nullNodeUsageItems && nullNodeUsageItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageItems = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The usageItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem>? UsageItems { get => _explicitNullValueUsageItems; set { _explicitNullValueUsageItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usageItems"); else _explicitNullProperties?.Remove("usageItems"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem>? UsageItems { get => _explicitNullValueUsageItems; set { _explicitNullValueUsageItems = value; AdditionalData?.Remove("usageItems"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usageItems"); else _explicitNullProperties?.Remove("usageItems"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem>? _explicitNullValueUsageItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem> UsageItems { get => _explicitNullValueUsageItems; set { _explicitNullValueUsageItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usageItems"); else _explicitNullProperties?.Remove("usageItems"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem> UsageItems { get => _explicitNullValueUsageItems; set { _explicitNullValueUsageItems = value; AdditionalData?.Remove("usageItems"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usageItems"); else _explicitNullProperties?.Remove("usageItems"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.BillingUsageReportUserUsageItemsItem> _explicitNullValueUsageItems = default!;
 #endif
         /// <summary>

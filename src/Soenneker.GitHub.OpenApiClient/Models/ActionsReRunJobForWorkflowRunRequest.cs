@@ -17,17 +17,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enable_debugger") is { } nullNodeEnableDebugger && nullNodeEnableDebugger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDebugger = null;
-            if (parseNode.GetChildNode("enable_debug_logging") is { } nullNodeEnableDebugLogging && nullNodeEnableDebugLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDebugLogging = null;
+            if (parseNode.GetChildNode("enable_debugger") is null) { _explicitNullValueEnableDebugger = default!; _explicitNullProperties?.Remove("enable_debugger"); }
+            else if (parseNode.GetChildNode("enable_debugger") is { } nullNodeEnableDebugger && nullNodeEnableDebugger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDebugger = null;
+            if (parseNode.GetChildNode("enable_debug_logging") is null) { _explicitNullValueEnableDebugLogging = default!; _explicitNullProperties?.Remove("enable_debug_logging"); }
+            else if (parseNode.GetChildNode("enable_debug_logging") is { } nullNodeEnableDebugLogging && nullNodeEnableDebugLogging.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableDebugLogging = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to enable the debugger for the re-run of this job.</summary>
-        public bool? EnableDebugger { get => _explicitNullValueEnableDebugger; set { _explicitNullValueEnableDebugger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_debugger"); else _explicitNullProperties?.Remove("enable_debugger"); } }
+        public bool? EnableDebugger { get => _explicitNullValueEnableDebugger; set { _explicitNullValueEnableDebugger = value; AdditionalData?.Remove("enable_debugger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_debugger"); else _explicitNullProperties?.Remove("enable_debugger"); } }
         private bool? _explicitNullValueEnableDebugger = default!;
         /// <summary>Whether to enable debug logging for the re-run.</summary>
-        public bool? EnableDebugLogging { get => _explicitNullValueEnableDebugLogging; set { _explicitNullValueEnableDebugLogging = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_debug_logging"); else _explicitNullProperties?.Remove("enable_debug_logging"); } }
+        public bool? EnableDebugLogging { get => _explicitNullValueEnableDebugLogging; set { _explicitNullValueEnableDebugLogging = value; AdditionalData?.Remove("enable_debug_logging"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_debug_logging"); else _explicitNullProperties?.Remove("enable_debug_logging"); } }
         private bool? _explicitNullValueEnableDebugLogging = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsReRunJobForWorkflowRunRequest"/> and sets the default values.

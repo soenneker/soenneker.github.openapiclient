@@ -18,71 +18,78 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("data_type") is { } nullNodeDataType && nullNodeDataType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataType = null;
-            if (parseNode.GetChildNode("issue_field_id") is { } nullNodeIssueFieldId && nullNodeIssueFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldId = null;
-            if (parseNode.GetChildNode("issue_field_name") is { } nullNodeIssueFieldName && nullNodeIssueFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldName = null;
-            if (parseNode.GetChildNode("multi_select_options") is { } nullNodeMultiSelectOptions && nullNodeMultiSelectOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiSelectOptions = null;
-            if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
-            if (parseNode.GetChildNode("single_select_option") is { } nullNodeSingleSelectOption && nullNodeSingleSelectOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SingleSelectOption = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("data_type") is null) { _explicitNullValueDataType = default!; _explicitNullProperties?.Remove("data_type"); }
+            else if (parseNode.GetChildNode("data_type") is { } nullNodeDataType && nullNodeDataType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataType = null;
+            if (parseNode.GetChildNode("issue_field_id") is null) { _explicitNullValueIssueFieldId = default!; _explicitNullProperties?.Remove("issue_field_id"); }
+            else if (parseNode.GetChildNode("issue_field_id") is { } nullNodeIssueFieldId && nullNodeIssueFieldId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldId = null;
+            if (parseNode.GetChildNode("issue_field_name") is null) { _explicitNullValueIssueFieldName = default!; _explicitNullProperties?.Remove("issue_field_name"); }
+            else if (parseNode.GetChildNode("issue_field_name") is { } nullNodeIssueFieldName && nullNodeIssueFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueFieldName = null;
+            if (parseNode.GetChildNode("multi_select_options") is null) { _explicitNullValueMultiSelectOptions = default!; _explicitNullProperties?.Remove("multi_select_options"); }
+            else if (parseNode.GetChildNode("multi_select_options") is { } nullNodeMultiSelectOptions && nullNodeMultiSelectOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiSelectOptions = null;
+            if (parseNode.GetChildNode("node_id") is null) { _explicitNullValueNodeId = default!; _explicitNullProperties?.Remove("node_id"); }
+            else if (parseNode.GetChildNode("node_id") is { } nullNodeNodeId && nullNodeNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NodeId = null;
+            if (parseNode.GetChildNode("single_select_option") is null) { _explicitNullValueSingleSelectOption = default!; _explicitNullProperties?.Remove("single_select_option"); }
+            else if (parseNode.GetChildNode("single_select_option") is { } nullNodeSingleSelectOption && nullNodeSingleSelectOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SingleSelectOption = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The data type of the issue field</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueDataType? DataType { get => _explicitNullValueDataType; set { _explicitNullValueDataType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_type"); else _explicitNullProperties?.Remove("data_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueDataType? DataType { get => _explicitNullValueDataType; set { _explicitNullValueDataType = value; AdditionalData?.Remove("data_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_type"); else _explicitNullProperties?.Remove("data_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueDataType? _explicitNullValueDataType = default!;
         /// <summary>Unique identifier for the issue field.</summary>
-        public long? IssueFieldId { get => _explicitNullValueIssueFieldId; set { _explicitNullValueIssueFieldId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_id"); else _explicitNullProperties?.Remove("issue_field_id"); } }
+        public long? IssueFieldId { get => _explicitNullValueIssueFieldId; set { _explicitNullValueIssueFieldId = value; AdditionalData?.Remove("issue_field_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_id"); else _explicitNullProperties?.Remove("issue_field_id"); } }
         private long? _explicitNullValueIssueFieldId = default!;
         /// <summary>The human-readable name of the issue field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueFieldName { get => _explicitNullValueIssueFieldName; set { _explicitNullValueIssueFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_name"); else _explicitNullProperties?.Remove("issue_field_name"); } }
+        public string? IssueFieldName { get => _explicitNullValueIssueFieldName; set { _explicitNullValueIssueFieldName = value; AdditionalData?.Remove("issue_field_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_name"); else _explicitNullProperties?.Remove("issue_field_name"); } }
         private string? _explicitNullValueIssueFieldName = default!;
 #nullable restore
 #else
-        public string IssueFieldName { get => _explicitNullValueIssueFieldName; set { _explicitNullValueIssueFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_name"); else _explicitNullProperties?.Remove("issue_field_name"); } }
+        public string IssueFieldName { get => _explicitNullValueIssueFieldName; set { _explicitNullValueIssueFieldName = value; AdditionalData?.Remove("issue_field_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_field_name"); else _explicitNullProperties?.Remove("issue_field_name"); } }
         private string _explicitNullValueIssueFieldName = default!;
 #endif
         /// <summary>Details about the selected options</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem>? MultiSelectOptions { get => _explicitNullValueMultiSelectOptions; set { _explicitNullValueMultiSelectOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_select_options"); else _explicitNullProperties?.Remove("multi_select_options"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem>? MultiSelectOptions { get => _explicitNullValueMultiSelectOptions; set { _explicitNullValueMultiSelectOptions = value; AdditionalData?.Remove("multi_select_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_select_options"); else _explicitNullProperties?.Remove("multi_select_options"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem>? _explicitNullValueMultiSelectOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem> MultiSelectOptions { get => _explicitNullValueMultiSelectOptions; set { _explicitNullValueMultiSelectOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_select_options"); else _explicitNullProperties?.Remove("multi_select_options"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem> MultiSelectOptions { get => _explicitNullValueMultiSelectOptions; set { _explicitNullValueMultiSelectOptions = value; AdditionalData?.Remove("multi_select_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_select_options"); else _explicitNullProperties?.Remove("multi_select_options"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem> _explicitNullValueMultiSelectOptions = default!;
 #endif
         /// <summary>The node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        public string? NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; AdditionalData?.Remove("node_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
         private string? _explicitNullValueNodeId = default!;
 #nullable restore
 #else
-        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
+        public string NodeId { get => _explicitNullValueNodeId; set { _explicitNullValueNodeId = value; AdditionalData?.Remove("node_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("node_id"); else _explicitNullProperties?.Remove("node_id"); } }
         private string _explicitNullValueNodeId = default!;
 #endif
         /// <summary>Details about the selected option (only present for single_select fields)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption? SingleSelectOption { get => _explicitNullValueSingleSelectOption; set { _explicitNullValueSingleSelectOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_select_option"); else _explicitNullProperties?.Remove("single_select_option"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption? SingleSelectOption { get => _explicitNullValueSingleSelectOption; set { _explicitNullValueSingleSelectOption = value; AdditionalData?.Remove("single_select_option"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_select_option"); else _explicitNullProperties?.Remove("single_select_option"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption? _explicitNullValueSingleSelectOption = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption SingleSelectOption { get => _explicitNullValueSingleSelectOption; set { _explicitNullValueSingleSelectOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_select_option"); else _explicitNullProperties?.Remove("single_select_option"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption SingleSelectOption { get => _explicitNullValueSingleSelectOption; set { _explicitNullValueSingleSelectOption = value; AdditionalData?.Remove("single_select_option"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("single_select_option"); else _explicitNullProperties?.Remove("single_select_option"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueSingleSelectOption _explicitNullValueSingleSelectOption = default!;
 #endif
         /// <summary>The value of the issue field</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode _explicitNullValueValue = default!;
 #endif
         /// <summary>
@@ -110,7 +117,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data_type", n => { DataType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueDataType>(); } },
+                { "data_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueDataType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDataType = default; _explicitNullProperties?.Remove("data_type"); AdditionalData["data_type"] = unknown; } else { DataType = parsed; AdditionalData.Remove("data_type"); } } },
                 { "issue_field_id", n => { IssueFieldId = n.GetLongValue(); } },
                 { "issue_field_name", n => { IssueFieldName = n.GetStringValue(); } },
                 { "multi_select_options", n => { MultiSelectOptions = n.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem>(global::Soenneker.GitHub.OpenApiClient.Models.IssueFieldValueMultiSelectOptionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -137,15 +144,13 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="int"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="double"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class IssueFieldValue_value : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="double"/></summary>
             public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="int"/></summary>
-            public int? Integer { get; set; }
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -172,10 +177,6 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 {
                     result.Double = doubleValue;
                 }
-                else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger && parseNode.GetIntValue() is int integerValue)
-                {
-                    result.Integer = integerValue;
-                }
                 else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString && parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
@@ -198,16 +199,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
             // Empty composed wrappers serialize as JSON null.
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (Double == null && Integer == null && String == null) { writer.WriteNullValue(null); return; }
+            if (Double == null && String == null) { writer.WriteNullValue(null); return; }
 
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(Double != null)
                 {
                     writer.WriteDoubleValue(null, Double);
-                }
-                else if(Integer != null)
-                {
-                    writer.WriteIntValue(null, Integer);
                 }
                 else if(String != null)
                 {

@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("base_tree") is { } nullNodeBaseTree && nullNodeBaseTree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseTree = null;
-            if (parseNode.GetChildNode("tree") is { } nullNodeTree && nullNodeTree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tree = null;
+            if (parseNode.GetChildNode("base_tree") is null) { _explicitNullValueBaseTree = default!; _explicitNullProperties?.Remove("base_tree"); }
+            else if (parseNode.GetChildNode("base_tree") is { } nullNodeBaseTree && nullNodeBaseTree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseTree = null;
+            if (parseNode.GetChildNode("tree") is null) { _explicitNullValueTree = default!; _explicitNullProperties?.Remove("tree"); }
+            else if (parseNode.GetChildNode("tree") is { } nullNodeTree && nullNodeTree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tree = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The SHA1 of an existing Git tree object which will be used as the base for the new tree. If provided, a new Git tree object will be created from entries in the Git tree object pointed to by `base_tree` and entries defined in the `tree` parameter. Entries defined in the `tree` parameter will overwrite items from `base_tree` with the same `path`. If you&apos;re creating new changes on a branch, then normally you&apos;d set `base_tree` to the SHA1 of the Git tree object of the current latest commit on the branch you&apos;re working on.If not provided, GitHub will create a new Git tree object from only the entries defined in the `tree` parameter. If you create a new commit pointing to such a tree, then all files which were a part of the parent commit&apos;s tree and were not defined in the `tree` parameter will be listed as deleted by the new commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseTree { get => _explicitNullValueBaseTree; set { _explicitNullValueBaseTree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_tree"); else _explicitNullProperties?.Remove("base_tree"); } }
+        public string? BaseTree { get => _explicitNullValueBaseTree; set { _explicitNullValueBaseTree = value; AdditionalData?.Remove("base_tree"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_tree"); else _explicitNullProperties?.Remove("base_tree"); } }
         private string? _explicitNullValueBaseTree = default!;
 #nullable restore
 #else
-        public string BaseTree { get => _explicitNullValueBaseTree; set { _explicitNullValueBaseTree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_tree"); else _explicitNullProperties?.Remove("base_tree"); } }
+        public string BaseTree { get => _explicitNullValueBaseTree; set { _explicitNullValueBaseTree = value; AdditionalData?.Remove("base_tree"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_tree"); else _explicitNullProperties?.Remove("base_tree"); } }
         private string _explicitNullValueBaseTree = default!;
 #endif
         /// <summary>Objects (of `path`, `mode`, `type`, and `sha`) specifying a tree structure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequestTreeItem>? Tree { get => _explicitNullValueTree; set { _explicitNullValueTree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tree"); else _explicitNullProperties?.Remove("tree"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequestTreeItem>? Tree { get => _explicitNullValueTree; set { _explicitNullValueTree = value; AdditionalData?.Remove("tree"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tree"); else _explicitNullProperties?.Remove("tree"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequestTreeItem>? _explicitNullValueTree = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequestTreeItem> Tree { get => _explicitNullValueTree; set { _explicitNullValueTree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tree"); else _explicitNullProperties?.Remove("tree"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequestTreeItem> Tree { get => _explicitNullValueTree; set { _explicitNullValueTree = value; AdditionalData?.Remove("tree"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tree"); else _explicitNullProperties?.Remove("tree"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.GitCreateTreeRequestTreeItem> _explicitNullValueTree = default!;
 #endif
         /// <summary>

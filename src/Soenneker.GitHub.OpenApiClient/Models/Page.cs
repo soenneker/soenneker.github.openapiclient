@@ -18,91 +18,103 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("build_type") is { } nullNodeBuildType && nullNodeBuildType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildType = null;
-            if (parseNode.GetChildNode("cname") is { } nullNodeCname && nullNodeCname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cname = null;
-            if (parseNode.GetChildNode("custom_404") is { } nullNodeCustom404 && nullNodeCustom404.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Custom404 = null;
-            if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
-            if (parseNode.GetChildNode("https_certificate") is { } nullNodeHttpsCertificate && nullNodeHttpsCertificate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpsCertificate = null;
-            if (parseNode.GetChildNode("https_enforced") is { } nullNodeHttpsEnforced && nullNodeHttpsEnforced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpsEnforced = null;
-            if (parseNode.GetChildNode("pending_domain_unverified_at") is { } nullNodePendingDomainUnverifiedAt && nullNodePendingDomainUnverifiedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingDomainUnverifiedAt = null;
-            if (parseNode.GetChildNode("protected_domain_state") is { } nullNodeProtectedDomainState && nullNodeProtectedDomainState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProtectedDomainState = null;
-            if (parseNode.GetChildNode("public") is { } nullNodePublic && nullNodePublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Public = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("build_type") is null) { _explicitNullValueBuildType = default!; _explicitNullProperties?.Remove("build_type"); }
+            else if (parseNode.GetChildNode("build_type") is { } nullNodeBuildType && nullNodeBuildType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BuildType = null;
+            if (parseNode.GetChildNode("cname") is null) { _explicitNullValueCname = default!; _explicitNullProperties?.Remove("cname"); }
+            else if (parseNode.GetChildNode("cname") is { } nullNodeCname && nullNodeCname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cname = null;
+            if (parseNode.GetChildNode("custom_404") is null) { _explicitNullValueCustom404 = default!; _explicitNullProperties?.Remove("custom_404"); }
+            else if (parseNode.GetChildNode("custom_404") is { } nullNodeCustom404 && nullNodeCustom404.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Custom404 = null;
+            if (parseNode.GetChildNode("html_url") is null) { _explicitNullValueHtmlUrl = default!; _explicitNullProperties?.Remove("html_url"); }
+            else if (parseNode.GetChildNode("html_url") is { } nullNodeHtmlUrl && nullNodeHtmlUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HtmlUrl = null;
+            if (parseNode.GetChildNode("https_certificate") is null) { _explicitNullValueHttpsCertificate = default!; _explicitNullProperties?.Remove("https_certificate"); }
+            else if (parseNode.GetChildNode("https_certificate") is { } nullNodeHttpsCertificate && nullNodeHttpsCertificate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpsCertificate = null;
+            if (parseNode.GetChildNode("https_enforced") is null) { _explicitNullValueHttpsEnforced = default!; _explicitNullProperties?.Remove("https_enforced"); }
+            else if (parseNode.GetChildNode("https_enforced") is { } nullNodeHttpsEnforced && nullNodeHttpsEnforced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpsEnforced = null;
+            if (parseNode.GetChildNode("pending_domain_unverified_at") is null) { _explicitNullValuePendingDomainUnverifiedAt = default!; _explicitNullProperties?.Remove("pending_domain_unverified_at"); }
+            else if (parseNode.GetChildNode("pending_domain_unverified_at") is { } nullNodePendingDomainUnverifiedAt && nullNodePendingDomainUnverifiedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingDomainUnverifiedAt = null;
+            if (parseNode.GetChildNode("protected_domain_state") is null) { _explicitNullValueProtectedDomainState = default!; _explicitNullProperties?.Remove("protected_domain_state"); }
+            else if (parseNode.GetChildNode("protected_domain_state") is { } nullNodeProtectedDomainState && nullNodeProtectedDomainState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProtectedDomainState = null;
+            if (parseNode.GetChildNode("public") is null) { _explicitNullValuePublic = default!; _explicitNullProperties?.Remove("public"); }
+            else if (parseNode.GetChildNode("public") is { } nullNodePublic && nullNodePublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Public = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The process in which the Page will be built.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageBuildType? BuildType { get => _explicitNullValueBuildType; set { _explicitNullValueBuildType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_type"); else _explicitNullProperties?.Remove("build_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PageBuildType? BuildType { get => _explicitNullValueBuildType; set { _explicitNullValueBuildType = value; AdditionalData?.Remove("build_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("build_type"); else _explicitNullProperties?.Remove("build_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PageBuildType? _explicitNullValueBuildType = default!;
         /// <summary>The Pages site&apos;s custom domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cname { get => _explicitNullValueCname; set { _explicitNullValueCname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cname"); else _explicitNullProperties?.Remove("cname"); } }
+        public string? Cname { get => _explicitNullValueCname; set { _explicitNullValueCname = value; AdditionalData?.Remove("cname"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cname"); else _explicitNullProperties?.Remove("cname"); } }
         private string? _explicitNullValueCname = default!;
 #nullable restore
 #else
-        public string Cname { get => _explicitNullValueCname; set { _explicitNullValueCname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cname"); else _explicitNullProperties?.Remove("cname"); } }
+        public string Cname { get => _explicitNullValueCname; set { _explicitNullValueCname = value; AdditionalData?.Remove("cname"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cname"); else _explicitNullProperties?.Remove("cname"); } }
         private string _explicitNullValueCname = default!;
 #endif
         /// <summary>Whether the Page has a custom 404 page.</summary>
-        public bool? Custom404 { get => _explicitNullValueCustom404; set { _explicitNullValueCustom404 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_404"); else _explicitNullProperties?.Remove("custom_404"); } }
+        public bool? Custom404 { get => _explicitNullValueCustom404; set { _explicitNullValueCustom404 = value; AdditionalData?.Remove("custom_404"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_404"); else _explicitNullProperties?.Remove("custom_404"); } }
         private bool? _explicitNullValueCustom404 = default!;
         /// <summary>The web address the Page can be accessed from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        public string? HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; AdditionalData?.Remove("html_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
         private string? _explicitNullValueHtmlUrl = default!;
 #nullable restore
 #else
-        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
+        public string HtmlUrl { get => _explicitNullValueHtmlUrl; set { _explicitNullValueHtmlUrl = value; AdditionalData?.Remove("html_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("html_url"); else _explicitNullProperties?.Remove("html_url"); } }
         private string _explicitNullValueHtmlUrl = default!;
 #endif
         /// <summary>The https_certificate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate? HttpsCertificate { get => _explicitNullValueHttpsCertificate; set { _explicitNullValueHttpsCertificate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_certificate"); else _explicitNullProperties?.Remove("https_certificate"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate? HttpsCertificate { get => _explicitNullValueHttpsCertificate; set { _explicitNullValueHttpsCertificate = value; AdditionalData?.Remove("https_certificate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_certificate"); else _explicitNullProperties?.Remove("https_certificate"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate? _explicitNullValueHttpsCertificate = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate HttpsCertificate { get => _explicitNullValueHttpsCertificate; set { _explicitNullValueHttpsCertificate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_certificate"); else _explicitNullProperties?.Remove("https_certificate"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate HttpsCertificate { get => _explicitNullValueHttpsCertificate; set { _explicitNullValueHttpsCertificate = value; AdditionalData?.Remove("https_certificate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_certificate"); else _explicitNullProperties?.Remove("https_certificate"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate _explicitNullValueHttpsCertificate = default!;
 #endif
         /// <summary>Whether https is enabled on the domain</summary>
-        public bool? HttpsEnforced { get => _explicitNullValueHttpsEnforced; set { _explicitNullValueHttpsEnforced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_enforced"); else _explicitNullProperties?.Remove("https_enforced"); } }
+        public bool? HttpsEnforced { get => _explicitNullValueHttpsEnforced; set { _explicitNullValueHttpsEnforced = value; AdditionalData?.Remove("https_enforced"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("https_enforced"); else _explicitNullProperties?.Remove("https_enforced"); } }
         private bool? _explicitNullValueHttpsEnforced = default!;
         /// <summary>The timestamp when a pending domain becomes unverified.</summary>
-        public DateTimeOffset? PendingDomainUnverifiedAt { get => _explicitNullValuePendingDomainUnverifiedAt; set { _explicitNullValuePendingDomainUnverifiedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_domain_unverified_at"); else _explicitNullProperties?.Remove("pending_domain_unverified_at"); } }
+        public DateTimeOffset? PendingDomainUnverifiedAt { get => _explicitNullValuePendingDomainUnverifiedAt; set { _explicitNullValuePendingDomainUnverifiedAt = value; AdditionalData?.Remove("pending_domain_unverified_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_domain_unverified_at"); else _explicitNullProperties?.Remove("pending_domain_unverified_at"); } }
         private DateTimeOffset? _explicitNullValuePendingDomainUnverifiedAt = default!;
         /// <summary>The state if the domain is verified</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageProtectedDomainState? ProtectedDomainState { get => _explicitNullValueProtectedDomainState; set { _explicitNullValueProtectedDomainState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protected_domain_state"); else _explicitNullProperties?.Remove("protected_domain_state"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PageProtectedDomainState? ProtectedDomainState { get => _explicitNullValueProtectedDomainState; set { _explicitNullValueProtectedDomainState = value; AdditionalData?.Remove("protected_domain_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protected_domain_state"); else _explicitNullProperties?.Remove("protected_domain_state"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PageProtectedDomainState? _explicitNullValueProtectedDomainState = default!;
         /// <summary>Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site.</summary>
-        public bool? Public { get => _explicitNullValuePublic; set { _explicitNullValuePublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public"); else _explicitNullProperties?.Remove("public"); } }
+        public bool? Public { get => _explicitNullValuePublic; set { _explicitNullValuePublic = value; AdditionalData?.Remove("public"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public"); else _explicitNullProperties?.Remove("public"); } }
         private bool? _explicitNullValuePublic = default!;
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash _explicitNullValueSource = default!;
 #endif
         /// <summary>The status of the most recent build of the Page.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PageStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PageStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PageStatus? _explicitNullValueStatus = default!;
         /// <summary>The API address for accessing this Page resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
@@ -131,17 +143,17 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "build_type", n => { BuildType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PageBuildType>(); } },
+                { "build_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PageBuildType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBuildType = default; _explicitNullProperties?.Remove("build_type"); AdditionalData["build_type"] = unknown; } else { BuildType = parsed; AdditionalData.Remove("build_type"); } } },
                 { "cname", n => { Cname = n.GetStringValue(); } },
                 { "custom_404", n => { Custom404 = n.GetBoolValue(); } },
                 { "html_url", n => { HtmlUrl = n.GetStringValue(); } },
                 { "https_certificate", n => { HttpsCertificate = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate>(global::Soenneker.GitHub.OpenApiClient.Models.PagesHttpsCertificate.CreateFromDiscriminatorValue); } },
                 { "https_enforced", n => { HttpsEnforced = n.GetBoolValue(); } },
                 { "pending_domain_unverified_at", n => { PendingDomainUnverifiedAt = n.GetDateTimeOffsetValue(); } },
-                { "protected_domain_state", n => { ProtectedDomainState = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PageProtectedDomainState>(); } },
+                { "protected_domain_state", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PageProtectedDomainState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProtectedDomainState = default; _explicitNullProperties?.Remove("protected_domain_state"); AdditionalData["protected_domain_state"] = unknown; } else { ProtectedDomainState = parsed; AdditionalData.Remove("protected_domain_state"); } } },
                 { "public", n => { Public = n.GetBoolValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash>(global::Soenneker.GitHub.OpenApiClient.Models.PagesSourceHash.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PageStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PageStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }

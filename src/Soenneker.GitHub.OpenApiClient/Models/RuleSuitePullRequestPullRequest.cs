@@ -18,49 +18,54 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
-            if (parseNode.GetChildNode("proof_of_presence") is { } nullNodeProofOfPresence && nullNodeProofOfPresence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProofOfPresence = null;
-            if (parseNode.GetChildNode("reviews") is { } nullNodeReviews && nullNodeReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviews = null;
-            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("number") is null) { _explicitNullValueNumber = default!; _explicitNullProperties?.Remove("number"); }
+            else if (parseNode.GetChildNode("number") is { } nullNodeNumber && nullNodeNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Number = null;
+            if (parseNode.GetChildNode("proof_of_presence") is null) { _explicitNullValueProofOfPresence = default!; _explicitNullProperties?.Remove("proof_of_presence"); }
+            else if (parseNode.GetChildNode("proof_of_presence") is { } nullNodeProofOfPresence && nullNodeProofOfPresence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProofOfPresence = null;
+            if (parseNode.GetChildNode("reviews") is null) { _explicitNullValueReviews = default!; _explicitNullProperties?.Remove("reviews"); }
+            else if (parseNode.GetChildNode("reviews") is { } nullNodeReviews && nullNodeReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviews = null;
+            if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
+            else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier of the pull request.</summary>
-        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private long? _explicitNullValueId = default!;
         /// <summary>The number of the pull request.</summary>
-        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
+        public int? Number { get => _explicitNullValueNumber; set { _explicitNullValueNumber = value; AdditionalData?.Remove("number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number"); else _explicitNullProperties?.Remove("number"); } }
         private int? _explicitNullValueNumber = default!;
         /// <summary>The proof of presence evaluation for the pull request. Null if proof of presence was not evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence? ProofOfPresence { get => _explicitNullValueProofOfPresence; set { _explicitNullValueProofOfPresence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proof_of_presence"); else _explicitNullProperties?.Remove("proof_of_presence"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence? ProofOfPresence { get => _explicitNullValueProofOfPresence; set { _explicitNullValueProofOfPresence = value; AdditionalData?.Remove("proof_of_presence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proof_of_presence"); else _explicitNullProperties?.Remove("proof_of_presence"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence? _explicitNullValueProofOfPresence = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence ProofOfPresence { get => _explicitNullValueProofOfPresence; set { _explicitNullValueProofOfPresence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proof_of_presence"); else _explicitNullProperties?.Remove("proof_of_presence"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence ProofOfPresence { get => _explicitNullValueProofOfPresence; set { _explicitNullValueProofOfPresence = value; AdditionalData?.Remove("proof_of_presence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proof_of_presence"); else _explicitNullProperties?.Remove("proof_of_presence"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestProofOfPresence _explicitNullValueProofOfPresence = default!;
 #endif
         /// <summary>The reviews associated with the pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestReviewsItem>? Reviews { get => _explicitNullValueReviews; set { _explicitNullValueReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviews"); else _explicitNullProperties?.Remove("reviews"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestReviewsItem>? Reviews { get => _explicitNullValueReviews; set { _explicitNullValueReviews = value; AdditionalData?.Remove("reviews"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviews"); else _explicitNullProperties?.Remove("reviews"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestReviewsItem>? _explicitNullValueReviews = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestReviewsItem> Reviews { get => _explicitNullValueReviews; set { _explicitNullValueReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviews"); else _explicitNullProperties?.Remove("reviews"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestReviewsItem> Reviews { get => _explicitNullValueReviews; set { _explicitNullValueReviews = value; AdditionalData?.Remove("reviews"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviews"); else _explicitNullProperties?.Remove("reviews"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestReviewsItem> _explicitNullValueReviews = default!;
 #endif
         /// <summary>The user who created the pull request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RuleSuitePullRequestPullRequestUser _explicitNullValueUser = default!;
 #endif
         /// <summary>

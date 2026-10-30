@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ref_name") is { } nullNodeRefName && nullNodeRefName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefName = null;
-            if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
+            if (parseNode.GetChildNode("ref_name") is null) { _explicitNullValueRefName = default!; _explicitNullProperties?.Remove("ref_name"); }
+            else if (parseNode.GetChildNode("ref_name") is { } nullNodeRefName && nullNodeRefName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefName = null;
+            if (parseNode.GetChildNode("repository_id") is null) { _explicitNullValueRepositoryId = default!; _explicitNullProperties?.Remove("repository_id"); }
+            else if (parseNode.GetChildNode("repository_id") is { } nullNodeRepositoryId && nullNodeRepositoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ref_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName? RefName { get => _explicitNullValueRefName; set { _explicitNullValueRefName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_name"); else _explicitNullProperties?.Remove("ref_name"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName? RefName { get => _explicitNullValueRefName; set { _explicitNullValueRefName = value; AdditionalData?.Remove("ref_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_name"); else _explicitNullProperties?.Remove("ref_name"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName? _explicitNullValueRefName = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName RefName { get => _explicitNullValueRefName; set { _explicitNullValueRefName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_name"); else _explicitNullProperties?.Remove("ref_name"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName RefName { get => _explicitNullValueRefName; set { _explicitNullValueRefName = value; AdditionalData?.Remove("ref_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref_name"); else _explicitNullProperties?.Remove("ref_name"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRefName _explicitNullValueRefName = default!;
 #endif
         /// <summary>The repository_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId? RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; AdditionalData?.Remove("repository_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId? _explicitNullValueRepositoryId = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId RepositoryId { get => _explicitNullValueRepositoryId; set { _explicitNullValueRepositoryId = value; AdditionalData?.Remove("repository_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_id"); else _explicitNullProperties?.Remove("repository_id"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRulesetConditionsRepositoryIdTargetRepositoryId _explicitNullValueRepositoryId = default!;
 #endif
         /// <summary>

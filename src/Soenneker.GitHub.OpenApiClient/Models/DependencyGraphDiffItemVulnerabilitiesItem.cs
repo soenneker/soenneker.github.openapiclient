@@ -17,10 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("advisory_ghsa_id") is { } nullNodeAdvisoryGhsaId && nullNodeAdvisoryGhsaId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvisoryGhsaId = null;
-            if (parseNode.GetChildNode("advisory_summary") is { } nullNodeAdvisorySummary && nullNodeAdvisorySummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvisorySummary = null;
-            if (parseNode.GetChildNode("advisory_url") is { } nullNodeAdvisoryUrl && nullNodeAdvisoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvisoryUrl = null;
-            if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
+            if (parseNode.GetChildNode("advisory_ghsa_id") is null) { _explicitNullValueAdvisoryGhsaId = default!; _explicitNullProperties?.Remove("advisory_ghsa_id"); }
+            else if (parseNode.GetChildNode("advisory_ghsa_id") is { } nullNodeAdvisoryGhsaId && nullNodeAdvisoryGhsaId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvisoryGhsaId = null;
+            if (parseNode.GetChildNode("advisory_summary") is null) { _explicitNullValueAdvisorySummary = default!; _explicitNullProperties?.Remove("advisory_summary"); }
+            else if (parseNode.GetChildNode("advisory_summary") is { } nullNodeAdvisorySummary && nullNodeAdvisorySummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvisorySummary = null;
+            if (parseNode.GetChildNode("advisory_url") is null) { _explicitNullValueAdvisoryUrl = default!; _explicitNullProperties?.Remove("advisory_url"); }
+            else if (parseNode.GetChildNode("advisory_url") is { } nullNodeAdvisoryUrl && nullNodeAdvisoryUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvisoryUrl = null;
+            if (parseNode.GetChildNode("severity") is null) { _explicitNullValueSeverity = default!; _explicitNullProperties?.Remove("severity"); }
+            else if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The advisory_ghsa_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdvisoryGhsaId { get => _explicitNullValueAdvisoryGhsaId; set { _explicitNullValueAdvisoryGhsaId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_ghsa_id"); else _explicitNullProperties?.Remove("advisory_ghsa_id"); } }
+        public string? AdvisoryGhsaId { get => _explicitNullValueAdvisoryGhsaId; set { _explicitNullValueAdvisoryGhsaId = value; AdditionalData?.Remove("advisory_ghsa_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_ghsa_id"); else _explicitNullProperties?.Remove("advisory_ghsa_id"); } }
         private string? _explicitNullValueAdvisoryGhsaId = default!;
 #nullable restore
 #else
-        public string AdvisoryGhsaId { get => _explicitNullValueAdvisoryGhsaId; set { _explicitNullValueAdvisoryGhsaId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_ghsa_id"); else _explicitNullProperties?.Remove("advisory_ghsa_id"); } }
+        public string AdvisoryGhsaId { get => _explicitNullValueAdvisoryGhsaId; set { _explicitNullValueAdvisoryGhsaId = value; AdditionalData?.Remove("advisory_ghsa_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_ghsa_id"); else _explicitNullProperties?.Remove("advisory_ghsa_id"); } }
         private string _explicitNullValueAdvisoryGhsaId = default!;
 #endif
         /// <summary>The advisory_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdvisorySummary { get => _explicitNullValueAdvisorySummary; set { _explicitNullValueAdvisorySummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_summary"); else _explicitNullProperties?.Remove("advisory_summary"); } }
+        public string? AdvisorySummary { get => _explicitNullValueAdvisorySummary; set { _explicitNullValueAdvisorySummary = value; AdditionalData?.Remove("advisory_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_summary"); else _explicitNullProperties?.Remove("advisory_summary"); } }
         private string? _explicitNullValueAdvisorySummary = default!;
 #nullable restore
 #else
-        public string AdvisorySummary { get => _explicitNullValueAdvisorySummary; set { _explicitNullValueAdvisorySummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_summary"); else _explicitNullProperties?.Remove("advisory_summary"); } }
+        public string AdvisorySummary { get => _explicitNullValueAdvisorySummary; set { _explicitNullValueAdvisorySummary = value; AdditionalData?.Remove("advisory_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_summary"); else _explicitNullProperties?.Remove("advisory_summary"); } }
         private string _explicitNullValueAdvisorySummary = default!;
 #endif
         /// <summary>The advisory_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AdvisoryUrl { get => _explicitNullValueAdvisoryUrl; set { _explicitNullValueAdvisoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_url"); else _explicitNullProperties?.Remove("advisory_url"); } }
+        public string? AdvisoryUrl { get => _explicitNullValueAdvisoryUrl; set { _explicitNullValueAdvisoryUrl = value; AdditionalData?.Remove("advisory_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_url"); else _explicitNullProperties?.Remove("advisory_url"); } }
         private string? _explicitNullValueAdvisoryUrl = default!;
 #nullable restore
 #else
-        public string AdvisoryUrl { get => _explicitNullValueAdvisoryUrl; set { _explicitNullValueAdvisoryUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_url"); else _explicitNullProperties?.Remove("advisory_url"); } }
+        public string AdvisoryUrl { get => _explicitNullValueAdvisoryUrl; set { _explicitNullValueAdvisoryUrl = value; AdditionalData?.Remove("advisory_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advisory_url"); else _explicitNullProperties?.Remove("advisory_url"); } }
         private string _explicitNullValueAdvisoryUrl = default!;
 #endif
         /// <summary>The severity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
+        public string? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; AdditionalData?.Remove("severity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
         private string? _explicitNullValueSeverity = default!;
 #nullable restore
 #else
-        public string Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
+        public string Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; AdditionalData?.Remove("severity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
         private string _explicitNullValueSeverity = default!;
 #endif
         /// <summary>

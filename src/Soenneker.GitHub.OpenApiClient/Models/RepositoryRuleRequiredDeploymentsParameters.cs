@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("required_deployment_environments") is { } nullNodeRequiredDeploymentEnvironments && nullNodeRequiredDeploymentEnvironments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredDeploymentEnvironments = null;
+            if (parseNode.GetChildNode("required_deployment_environments") is null) { _explicitNullValueRequiredDeploymentEnvironments = default!; _explicitNullProperties?.Remove("required_deployment_environments"); }
+            else if (parseNode.GetChildNode("required_deployment_environments") is { } nullNodeRequiredDeploymentEnvironments && nullNodeRequiredDeploymentEnvironments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredDeploymentEnvironments = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The environments that must be successfully deployed to before branches can be merged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RequiredDeploymentEnvironments { get => _explicitNullValueRequiredDeploymentEnvironments; set { _explicitNullValueRequiredDeploymentEnvironments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_deployment_environments"); else _explicitNullProperties?.Remove("required_deployment_environments"); } }
+        public List<string>? RequiredDeploymentEnvironments { get => _explicitNullValueRequiredDeploymentEnvironments; set { _explicitNullValueRequiredDeploymentEnvironments = value; AdditionalData?.Remove("required_deployment_environments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_deployment_environments"); else _explicitNullProperties?.Remove("required_deployment_environments"); } }
         private List<string>? _explicitNullValueRequiredDeploymentEnvironments = default!;
 #nullable restore
 #else
-        public List<string> RequiredDeploymentEnvironments { get => _explicitNullValueRequiredDeploymentEnvironments; set { _explicitNullValueRequiredDeploymentEnvironments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_deployment_environments"); else _explicitNullProperties?.Remove("required_deployment_environments"); } }
+        public List<string> RequiredDeploymentEnvironments { get => _explicitNullValueRequiredDeploymentEnvironments; set { _explicitNullValueRequiredDeploymentEnvironments = value; AdditionalData?.Remove("required_deployment_environments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_deployment_environments"); else _explicitNullProperties?.Remove("required_deployment_environments"); } }
         private List<string> _explicitNullValueRequiredDeploymentEnvironments = default!;
 #endif
         /// <summary>

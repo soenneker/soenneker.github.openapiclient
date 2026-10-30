@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
+            if (parseNode.GetChildNode("bundle") is null) { _explicitNullValueBundle = default!; _explicitNullProperties?.Remove("bundle"); }
+            else if (parseNode.GetChildNode("bundle") is { } nullNodeBundle && nullNodeBundle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundle = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The attestation&apos;s Sigstore Bundle.Refer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundle? Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; AdditionalData?.Remove("bundle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundle? _explicitNullValueBundle = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundle Bundle { get => _explicitNullValueBundle; set { _explicitNullValueBundle = value; AdditionalData?.Remove("bundle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundle"); else _explicitNullProperties?.Remove("bundle"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundle _explicitNullValueBundle = default!;
 #endif
         /// <summary>

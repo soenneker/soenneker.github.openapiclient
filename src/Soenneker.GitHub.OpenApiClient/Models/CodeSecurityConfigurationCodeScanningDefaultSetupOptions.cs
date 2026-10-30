@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("runner_label") is { } nullNodeRunnerLabel && nullNodeRunnerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerLabel = null;
-            if (parseNode.GetChildNode("runner_type") is { } nullNodeRunnerType && nullNodeRunnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerType = null;
+            if (parseNode.GetChildNode("runner_label") is null) { _explicitNullValueRunnerLabel = default!; _explicitNullProperties?.Remove("runner_label"); }
+            else if (parseNode.GetChildNode("runner_label") is { } nullNodeRunnerLabel && nullNodeRunnerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerLabel = null;
+            if (parseNode.GetChildNode("runner_type") is null) { _explicitNullValueRunnerType = default!; _explicitNullProperties?.Remove("runner_type"); }
+            else if (parseNode.GetChildNode("runner_type") is { } nullNodeRunnerType && nullNodeRunnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The label of the runner to use for code scanning when runner_type is &apos;labeled&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        public string? RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; AdditionalData?.Remove("runner_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
         private string? _explicitNullValueRunnerLabel = default!;
 #nullable restore
 #else
-        public string RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        public string RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; AdditionalData?.Remove("runner_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
         private string _explicitNullValueRunnerLabel = default!;
 #endif
         /// <summary>Whether to use labeled runners or standard GitHub runners.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetupOptionsRunnerType? RunnerType { get => _explicitNullValueRunnerType; set { _explicitNullValueRunnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_type"); else _explicitNullProperties?.Remove("runner_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetupOptionsRunnerType? RunnerType { get => _explicitNullValueRunnerType; set { _explicitNullValueRunnerType = value; AdditionalData?.Remove("runner_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_type"); else _explicitNullProperties?.Remove("runner_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetupOptionsRunnerType? _explicitNullValueRunnerType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetupOptions"/> and sets the default values.
@@ -65,7 +67,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
-                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetupOptionsRunnerType>(); } },
+                { "runner_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeSecurityConfigurationCodeScanningDefaultSetupOptionsRunnerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRunnerType = default; _explicitNullProperties?.Remove("runner_type"); AdditionalData["runner_type"] = unknown; } else { RunnerType = parsed; AdditionalData.Remove("runner_type"); } } },
             };
         }
         /// <summary>

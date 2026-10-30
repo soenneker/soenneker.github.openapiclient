@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
-            if (parseNode.GetChildNode("total_seats") is { } nullNodeTotalSeats && nullNodeTotalSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSeats = null;
+            if (parseNode.GetChildNode("seats") is null) { _explicitNullValueSeats = default!; _explicitNullProperties?.Remove("seats"); }
+            else if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
+            if (parseNode.GetChildNode("total_seats") is null) { _explicitNullValueTotalSeats = default!; _explicitNullProperties?.Remove("total_seats"); }
+            else if (parseNode.GetChildNode("total_seats") is { } nullNodeTotalSeats && nullNodeTotalSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSeats = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The seats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; AdditionalData?.Remove("seats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails>? _explicitNullValueSeats = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails> Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails> Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; AdditionalData?.Remove("seats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSeatDetails> _explicitNullValueSeats = default!;
 #endif
         /// <summary>Total number of Copilot seats for the organization currently being billed.</summary>
-        public int? TotalSeats { get => _explicitNullValueTotalSeats; set { _explicitNullValueTotalSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_seats"); else _explicitNullProperties?.Remove("total_seats"); } }
+        public int? TotalSeats { get => _explicitNullValueTotalSeats; set { _explicitNullValueTotalSeats = value; AdditionalData?.Remove("total_seats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_seats"); else _explicitNullProperties?.Remove("total_seats"); } }
         private int? _explicitNullValueTotalSeats = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotListCopilotSeats200Response"/> and sets the default values.

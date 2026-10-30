@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_events") is { } nullNodeAllowedEvents && nullNodeAllowedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedEvents = null;
+            if (parseNode.GetChildNode("allowed_events") is null) { _explicitNullValueAllowedEvents = default!; _explicitNullProperties?.Remove("allowed_events"); }
+            else if (parseNode.GetChildNode("allowed_events") is { } nullNodeAllowedEvents && nullNodeAllowedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedEvents = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Select the events that can trigger Actions workflows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsParametersAllowedEventsItem?>? AllowedEvents { get => _explicitNullValueAllowedEvents; set { _explicitNullValueAllowedEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_events"); else _explicitNullProperties?.Remove("allowed_events"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsParametersAllowedEventsItem?>? AllowedEvents { get => _explicitNullValueAllowedEvents; set { _explicitNullValueAllowedEvents = value; AdditionalData?.Remove("allowed_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_events"); else _explicitNullProperties?.Remove("allowed_events"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsParametersAllowedEventsItem?>? _explicitNullValueAllowedEvents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsParametersAllowedEventsItem?> AllowedEvents { get => _explicitNullValueAllowedEvents; set { _explicitNullValueAllowedEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_events"); else _explicitNullProperties?.Remove("allowed_events"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsParametersAllowedEventsItem?> AllowedEvents { get => _explicitNullValueAllowedEvents; set { _explicitNullValueAllowedEvents = value; AdditionalData?.Remove("allowed_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_events"); else _explicitNullProperties?.Remove("allowed_events"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.ActionsRuleRestrictActionEventsParametersAllowedEventsItem?> _explicitNullValueAllowedEvents = default!;
 #endif
         /// <summary>

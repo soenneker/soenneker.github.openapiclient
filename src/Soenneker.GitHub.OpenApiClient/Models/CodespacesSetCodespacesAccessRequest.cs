@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("selected_usernames") is { } nullNodeSelectedUsernames && nullNodeSelectedUsernames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedUsernames = null;
-            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+            if (parseNode.GetChildNode("selected_usernames") is null) { _explicitNullValueSelectedUsernames = default!; _explicitNullProperties?.Remove("selected_usernames"); }
+            else if (parseNode.GetChildNode("selected_usernames") is { } nullNodeSelectedUsernames && nullNodeSelectedUsernames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedUsernames = null;
+            if (parseNode.GetChildNode("visibility") is null) { _explicitNullValueVisibility = default!; _explicitNullProperties?.Remove("visibility"); }
+            else if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The usernames of the organization members who should have access to codespaces in the organization. Required when `visibility` is `selected_members`. The provided list of usernames will replace any existing value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
+        public List<string>? SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; AdditionalData?.Remove("selected_usernames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
         private List<string>? _explicitNullValueSelectedUsernames = default!;
 #nullable restore
 #else
-        public List<string> SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
+        public List<string> SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; AdditionalData?.Remove("selected_usernames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
         private List<string> _explicitNullValueSelectedUsernames = default!;
 #endif
         /// <summary>Which users can access codespaces in the organization. `disabled` means that no users can access codespaces in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; AdditionalData?.Remove("visibility"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility? _explicitNullValueVisibility = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequest"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "selected_usernames", n => { SelectedUsernames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility>(); } },
+                { "visibility", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodespacesSetCodespacesAccessRequestVisibility>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVisibility = default; _explicitNullProperties?.Remove("visibility"); AdditionalData["visibility"] = unknown; } else { Visibility = parsed; AdditionalData.Remove("visibility"); } } },
             };
         }
         /// <summary>

@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("artifact") is { } nullNodeArtifact && nullNodeArtifact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifact = null;
-            if (parseNode.GetChildNode("versions") is { } nullNodeVersions && nullNodeVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Versions = null;
+            if (parseNode.GetChildNode("artifact") is null) { _explicitNullValueArtifact = default!; _explicitNullProperties?.Remove("artifact"); }
+            else if (parseNode.GetChildNode("artifact") is { } nullNodeArtifact && nullNodeArtifact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifact = null;
+            if (parseNode.GetChildNode("versions") is null) { _explicitNullValueVersions = default!; _explicitNullProperties?.Remove("versions"); }
+            else if (parseNode.GetChildNode("versions") is { } nullNodeVersions && nullNodeVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Versions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Issue artifacts are named, typed pieces of content attached to an issue.They give people and agents a durable place to preserve context andsupporting material alongside the work. Each artifact has a number uniquewithin the issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact? Artifact { get => _explicitNullValueArtifact; set { _explicitNullValueArtifact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact"); else _explicitNullProperties?.Remove("artifact"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact? Artifact { get => _explicitNullValueArtifact; set { _explicitNullValueArtifact = value; AdditionalData?.Remove("artifact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact"); else _explicitNullProperties?.Remove("artifact"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact? _explicitNullValueArtifact = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact Artifact { get => _explicitNullValueArtifact; set { _explicitNullValueArtifact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact"); else _explicitNullProperties?.Remove("artifact"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact Artifact { get => _explicitNullValueArtifact; set { _explicitNullValueArtifact = value; AdditionalData?.Remove("artifact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifact"); else _explicitNullProperties?.Remove("artifact"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.IssueArtifact _explicitNullValueArtifact = default!;
 #endif
         /// <summary>The artifact version history, ordered from newest to oldest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem>? Versions { get => _explicitNullValueVersions; set { _explicitNullValueVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("versions"); else _explicitNullProperties?.Remove("versions"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem>? Versions { get => _explicitNullValueVersions; set { _explicitNullValueVersions = value; AdditionalData?.Remove("versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("versions"); else _explicitNullProperties?.Remove("versions"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem>? _explicitNullValueVersions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem> Versions { get => _explicitNullValueVersions; set { _explicitNullValueVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("versions"); else _explicitNullProperties?.Remove("versions"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem> Versions { get => _explicitNullValueVersions; set { _explicitNullValueVersions = value; AdditionalData?.Remove("versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("versions"); else _explicitNullProperties?.Remove("versions"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesGetIssueArtifact200ResponseOneOf2VersionsItem> _explicitNullValueVersions = default!;
 #endif
         /// <summary>

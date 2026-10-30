@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
+            if (parseNode.GetChildNode("names") is null) { _explicitNullValueNames = default!; _explicitNullProperties?.Remove("names"); }
+            else if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>An array of topics to add to the repository. Pass one or more topics to _replace_ the set of existing topics. Send an empty array (`[]`) to clear all topics from the repository. **Note:** Topic `names` will be saved as lowercase.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        public List<string>? Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; AdditionalData?.Remove("names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
         private List<string>? _explicitNullValueNames = default!;
 #nullable restore
 #else
-        public List<string> Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        public List<string> Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; AdditionalData?.Remove("names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
         private List<string> _explicitNullValueNames = default!;
 #endif
         /// <summary>

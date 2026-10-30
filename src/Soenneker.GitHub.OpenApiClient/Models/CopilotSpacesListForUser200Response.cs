@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("spaces") is { } nullNodeSpaces && nullNodeSpaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spaces = null;
+            if (parseNode.GetChildNode("spaces") is null) { _explicitNullValueSpaces = default!; _explicitNullProperties?.Remove("spaces"); }
+            else if (parseNode.GetChildNode("spaces") is { } nullNodeSpaces && nullNodeSpaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spaces = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The list of Copilot Spaces on this page of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace>? Spaces { get => _explicitNullValueSpaces; set { _explicitNullValueSpaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaces"); else _explicitNullProperties?.Remove("spaces"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace>? Spaces { get => _explicitNullValueSpaces; set { _explicitNullValueSpaces = value; AdditionalData?.Remove("spaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaces"); else _explicitNullProperties?.Remove("spaces"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace>? _explicitNullValueSpaces = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace> Spaces { get => _explicitNullValueSpaces; set { _explicitNullValueSpaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaces"); else _explicitNullProperties?.Remove("spaces"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace> Spaces { get => _explicitNullValueSpaces; set { _explicitNullValueSpaces = value; AdditionalData?.Remove("spaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaces"); else _explicitNullProperties?.Remove("spaces"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CopilotSpace> _explicitNullValueSpaces = default!;
 #endif
         /// <summary>

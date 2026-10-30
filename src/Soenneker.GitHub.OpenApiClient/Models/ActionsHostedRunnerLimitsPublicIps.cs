@@ -18,17 +18,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_usage") is { } nullNodeCurrentUsage && nullNodeCurrentUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUsage = null;
-            if (parseNode.GetChildNode("maximum") is { } nullNodeMaximum && nullNodeMaximum.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maximum = null;
+            if (parseNode.GetChildNode("current_usage") is null) { _explicitNullValueCurrentUsage = default!; _explicitNullProperties?.Remove("current_usage"); }
+            else if (parseNode.GetChildNode("current_usage") is { } nullNodeCurrentUsage && nullNodeCurrentUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUsage = null;
+            if (parseNode.GetChildNode("maximum") is null) { _explicitNullValueMaximum = default!; _explicitNullProperties?.Remove("maximum"); }
+            else if (parseNode.GetChildNode("maximum") is { } nullNodeMaximum && nullNodeMaximum.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maximum = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current number of static public IP addresses in use by Hosted Runners.</summary>
-        public int? CurrentUsage { get => _explicitNullValueCurrentUsage; set { _explicitNullValueCurrentUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_usage"); else _explicitNullProperties?.Remove("current_usage"); } }
+        public int? CurrentUsage { get => _explicitNullValueCurrentUsage; set { _explicitNullValueCurrentUsage = value; AdditionalData?.Remove("current_usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_usage"); else _explicitNullProperties?.Remove("current_usage"); } }
         private int? _explicitNullValueCurrentUsage = default!;
         /// <summary>The maximum number of static public IP addresses that can be used for Hosted Runners.</summary>
-        public int? Maximum { get => _explicitNullValueMaximum; set { _explicitNullValueMaximum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum"); else _explicitNullProperties?.Remove("maximum"); } }
+        public int? Maximum { get => _explicitNullValueMaximum; set { _explicitNullValueMaximum = value; AdditionalData?.Remove("maximum"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maximum"); else _explicitNullProperties?.Remove("maximum"); } }
         private int? _explicitNullValueMaximum = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps"/> and sets the default values.

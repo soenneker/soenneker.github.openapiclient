@@ -17,34 +17,37 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_alphanumeric") is { } nullNodeIsAlphanumeric && nullNodeIsAlphanumeric.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAlphanumeric = null;
-            if (parseNode.GetChildNode("key_prefix") is { } nullNodeKeyPrefix && nullNodeKeyPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyPrefix = null;
-            if (parseNode.GetChildNode("url_template") is { } nullNodeUrlTemplate && nullNodeUrlTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlTemplate = null;
+            if (parseNode.GetChildNode("is_alphanumeric") is null) { _explicitNullValueIsAlphanumeric = default!; _explicitNullProperties?.Remove("is_alphanumeric"); }
+            else if (parseNode.GetChildNode("is_alphanumeric") is { } nullNodeIsAlphanumeric && nullNodeIsAlphanumeric.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsAlphanumeric = null;
+            if (parseNode.GetChildNode("key_prefix") is null) { _explicitNullValueKeyPrefix = default!; _explicitNullProperties?.Remove("key_prefix"); }
+            else if (parseNode.GetChildNode("key_prefix") is { } nullNodeKeyPrefix && nullNodeKeyPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyPrefix = null;
+            if (parseNode.GetChildNode("url_template") is null) { _explicitNullValueUrlTemplate = default!; _explicitNullProperties?.Remove("url_template"); }
+            else if (parseNode.GetChildNode("url_template") is { } nullNodeUrlTemplate && nullNodeUrlTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlTemplate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this autolink reference matches alphanumeric characters. If true, the `&lt;num&gt;` parameter of the `url_template` matches alphanumeric characters `A-Z` (case insensitive), `0-9`, and `-`. If false, this autolink reference only matches numeric characters.</summary>
-        public bool? IsAlphanumeric { get => _explicitNullValueIsAlphanumeric; set { _explicitNullValueIsAlphanumeric = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_alphanumeric"); else _explicitNullProperties?.Remove("is_alphanumeric"); } }
+        public bool? IsAlphanumeric { get => _explicitNullValueIsAlphanumeric; set { _explicitNullValueIsAlphanumeric = value; AdditionalData?.Remove("is_alphanumeric"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_alphanumeric"); else _explicitNullProperties?.Remove("is_alphanumeric"); } }
         private bool? _explicitNullValueIsAlphanumeric = default!;
         /// <summary>This prefix appended by certain characters will generate a link any time it is found in an issue, pull request, or commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyPrefix { get => _explicitNullValueKeyPrefix; set { _explicitNullValueKeyPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_prefix"); else _explicitNullProperties?.Remove("key_prefix"); } }
+        public string? KeyPrefix { get => _explicitNullValueKeyPrefix; set { _explicitNullValueKeyPrefix = value; AdditionalData?.Remove("key_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_prefix"); else _explicitNullProperties?.Remove("key_prefix"); } }
         private string? _explicitNullValueKeyPrefix = default!;
 #nullable restore
 #else
-        public string KeyPrefix { get => _explicitNullValueKeyPrefix; set { _explicitNullValueKeyPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_prefix"); else _explicitNullProperties?.Remove("key_prefix"); } }
+        public string KeyPrefix { get => _explicitNullValueKeyPrefix; set { _explicitNullValueKeyPrefix = value; AdditionalData?.Remove("key_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("key_prefix"); else _explicitNullProperties?.Remove("key_prefix"); } }
         private string _explicitNullValueKeyPrefix = default!;
 #endif
         /// <summary>The URL must contain `&lt;num&gt;` for the reference number. `&lt;num&gt;` matches different characters depending on the value of `is_alphanumeric`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UrlTemplate { get => _explicitNullValueUrlTemplate; set { _explicitNullValueUrlTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_template"); else _explicitNullProperties?.Remove("url_template"); } }
+        public string? UrlTemplate { get => _explicitNullValueUrlTemplate; set { _explicitNullValueUrlTemplate = value; AdditionalData?.Remove("url_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_template"); else _explicitNullProperties?.Remove("url_template"); } }
         private string? _explicitNullValueUrlTemplate = default!;
 #nullable restore
 #else
-        public string UrlTemplate { get => _explicitNullValueUrlTemplate; set { _explicitNullValueUrlTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_template"); else _explicitNullProperties?.Remove("url_template"); } }
+        public string UrlTemplate { get => _explicitNullValueUrlTemplate; set { _explicitNullValueUrlTemplate = value; AdditionalData?.Remove("url_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_template"); else _explicitNullProperties?.Remove("url_template"); } }
         private string _explicitNullValueUrlTemplate = default!;
 #endif
         /// <summary>

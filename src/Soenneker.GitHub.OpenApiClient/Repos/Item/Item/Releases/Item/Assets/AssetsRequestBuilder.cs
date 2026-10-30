@@ -85,7 +85,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets.AssetsRequestBuilder.AssetsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.github.com", "/repos/{owner}/{repo}/releases/{releaseId}/assets", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -106,7 +106,7 @@ namespace Soenneker.GitHub.OpenApiClient.Repos.Item.Item.Releases.Item.Assets
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/repos/{owner}/{repo}/releases/{releaseId}/assets?name={name}{&label*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/repos/{owner}/{repo}/releases/{releaseId}/assets?name={name}{&label*}", RequestAdapter.BaseUrl, "https://uploads.github.com", "/repos/{owner}/{repo}/releases/{releaseId}/assets", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetStreamContent(body, "application/octet-stream");

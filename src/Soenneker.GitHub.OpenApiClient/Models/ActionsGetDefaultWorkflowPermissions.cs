@@ -17,17 +17,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("can_approve_pull_request_reviews") is { } nullNodeCanApprovePullRequestReviews && nullNodeCanApprovePullRequestReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanApprovePullRequestReviews = null;
-            if (parseNode.GetChildNode("default_workflow_permissions") is { } nullNodeDefaultWorkflowPermissions && nullNodeDefaultWorkflowPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultWorkflowPermissions = null;
+            if (parseNode.GetChildNode("can_approve_pull_request_reviews") is null) { _explicitNullValueCanApprovePullRequestReviews = default!; _explicitNullProperties?.Remove("can_approve_pull_request_reviews"); }
+            else if (parseNode.GetChildNode("can_approve_pull_request_reviews") is { } nullNodeCanApprovePullRequestReviews && nullNodeCanApprovePullRequestReviews.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanApprovePullRequestReviews = null;
+            if (parseNode.GetChildNode("default_workflow_permissions") is null) { _explicitNullValueDefaultWorkflowPermissions = default!; _explicitNullProperties?.Remove("default_workflow_permissions"); }
+            else if (parseNode.GetChildNode("default_workflow_permissions") is { } nullNodeDefaultWorkflowPermissions && nullNodeDefaultWorkflowPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultWorkflowPermissions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.</summary>
-        public bool? CanApprovePullRequestReviews { get => _explicitNullValueCanApprovePullRequestReviews; set { _explicitNullValueCanApprovePullRequestReviews = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_approve_pull_request_reviews"); else _explicitNullProperties?.Remove("can_approve_pull_request_reviews"); } }
+        public bool? CanApprovePullRequestReviews { get => _explicitNullValueCanApprovePullRequestReviews; set { _explicitNullValueCanApprovePullRequestReviews = value; AdditionalData?.Remove("can_approve_pull_request_reviews"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_approve_pull_request_reviews"); else _explicitNullProperties?.Remove("can_approve_pull_request_reviews"); } }
         private bool? _explicitNullValueCanApprovePullRequestReviews = default!;
         /// <summary>The default workflow permissions granted to the GITHUB_TOKEN when running workflows.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsDefaultWorkflowPermissions? DefaultWorkflowPermissions { get => _explicitNullValueDefaultWorkflowPermissions; set { _explicitNullValueDefaultWorkflowPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_workflow_permissions"); else _explicitNullProperties?.Remove("default_workflow_permissions"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsDefaultWorkflowPermissions? DefaultWorkflowPermissions { get => _explicitNullValueDefaultWorkflowPermissions; set { _explicitNullValueDefaultWorkflowPermissions = value; AdditionalData?.Remove("default_workflow_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_workflow_permissions"); else _explicitNullProperties?.Remove("default_workflow_permissions"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsDefaultWorkflowPermissions? _explicitNullValueDefaultWorkflowPermissions = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsGetDefaultWorkflowPermissions"/> and sets the default values.
@@ -55,7 +57,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "can_approve_pull_request_reviews", n => { CanApprovePullRequestReviews = n.GetBoolValue(); } },
-                { "default_workflow_permissions", n => { DefaultWorkflowPermissions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsDefaultWorkflowPermissions>(); } },
+                { "default_workflow_permissions", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ActionsDefaultWorkflowPermissions>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultWorkflowPermissions = default; _explicitNullProperties?.Remove("default_workflow_permissions"); AdditionalData["default_workflow_permissions"] = unknown; } else { DefaultWorkflowPermissions = parsed; AdditionalData.Remove("default_workflow_permissions"); } } },
             };
         }
         /// <summary>

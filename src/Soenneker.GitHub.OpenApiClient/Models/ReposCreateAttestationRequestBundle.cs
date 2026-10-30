@@ -18,9 +18,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dsseEnvelope") is { } nullNodeDsseEnvelope && nullNodeDsseEnvelope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DsseEnvelope = null;
-            if (parseNode.GetChildNode("mediaType") is { } nullNodeMediaType && nullNodeMediaType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaType = null;
-            if (parseNode.GetChildNode("verificationMaterial") is { } nullNodeVerificationMaterial && nullNodeVerificationMaterial.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationMaterial = null;
+            if (parseNode.GetChildNode("dsseEnvelope") is null) { _explicitNullValueDsseEnvelope = default!; _explicitNullProperties?.Remove("dsseEnvelope"); }
+            else if (parseNode.GetChildNode("dsseEnvelope") is { } nullNodeDsseEnvelope && nullNodeDsseEnvelope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DsseEnvelope = null;
+            if (parseNode.GetChildNode("mediaType") is null) { _explicitNullValueMediaType = default!; _explicitNullProperties?.Remove("mediaType"); }
+            else if (parseNode.GetChildNode("mediaType") is { } nullNodeMediaType && nullNodeMediaType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MediaType = null;
+            if (parseNode.GetChildNode("verificationMaterial") is null) { _explicitNullValueVerificationMaterial = default!; _explicitNullProperties?.Remove("verificationMaterial"); }
+            else if (parseNode.GetChildNode("verificationMaterial") is { } nullNodeVerificationMaterial && nullNodeVerificationMaterial.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationMaterial = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The dsseEnvelope property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleDsseEnvelope? DsseEnvelope { get => _explicitNullValueDsseEnvelope; set { _explicitNullValueDsseEnvelope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dsseEnvelope"); else _explicitNullProperties?.Remove("dsseEnvelope"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleDsseEnvelope? DsseEnvelope { get => _explicitNullValueDsseEnvelope; set { _explicitNullValueDsseEnvelope = value; AdditionalData?.Remove("dsseEnvelope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dsseEnvelope"); else _explicitNullProperties?.Remove("dsseEnvelope"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleDsseEnvelope? _explicitNullValueDsseEnvelope = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleDsseEnvelope DsseEnvelope { get => _explicitNullValueDsseEnvelope; set { _explicitNullValueDsseEnvelope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dsseEnvelope"); else _explicitNullProperties?.Remove("dsseEnvelope"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleDsseEnvelope DsseEnvelope { get => _explicitNullValueDsseEnvelope; set { _explicitNullValueDsseEnvelope = value; AdditionalData?.Remove("dsseEnvelope"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dsseEnvelope"); else _explicitNullProperties?.Remove("dsseEnvelope"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleDsseEnvelope _explicitNullValueDsseEnvelope = default!;
 #endif
         /// <summary>The mediaType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MediaType { get => _explicitNullValueMediaType; set { _explicitNullValueMediaType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mediaType"); else _explicitNullProperties?.Remove("mediaType"); } }
+        public string? MediaType { get => _explicitNullValueMediaType; set { _explicitNullValueMediaType = value; AdditionalData?.Remove("mediaType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mediaType"); else _explicitNullProperties?.Remove("mediaType"); } }
         private string? _explicitNullValueMediaType = default!;
 #nullable restore
 #else
-        public string MediaType { get => _explicitNullValueMediaType; set { _explicitNullValueMediaType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mediaType"); else _explicitNullProperties?.Remove("mediaType"); } }
+        public string MediaType { get => _explicitNullValueMediaType; set { _explicitNullValueMediaType = value; AdditionalData?.Remove("mediaType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mediaType"); else _explicitNullProperties?.Remove("mediaType"); } }
         private string _explicitNullValueMediaType = default!;
 #endif
         /// <summary>The verificationMaterial property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleVerificationMaterial? VerificationMaterial { get => _explicitNullValueVerificationMaterial; set { _explicitNullValueVerificationMaterial = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationMaterial"); else _explicitNullProperties?.Remove("verificationMaterial"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleVerificationMaterial? VerificationMaterial { get => _explicitNullValueVerificationMaterial; set { _explicitNullValueVerificationMaterial = value; AdditionalData?.Remove("verificationMaterial"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationMaterial"); else _explicitNullProperties?.Remove("verificationMaterial"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleVerificationMaterial? _explicitNullValueVerificationMaterial = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleVerificationMaterial VerificationMaterial { get => _explicitNullValueVerificationMaterial; set { _explicitNullValueVerificationMaterial = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationMaterial"); else _explicitNullProperties?.Remove("verificationMaterial"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleVerificationMaterial VerificationMaterial { get => _explicitNullValueVerificationMaterial; set { _explicitNullValueVerificationMaterial = value; AdditionalData?.Remove("verificationMaterial"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationMaterial"); else _explicitNullProperties?.Remove("verificationMaterial"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ReposCreateAttestationRequestBundleVerificationMaterial _explicitNullValueVerificationMaterial = default!;
 #endif
         /// <summary>

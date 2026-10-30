@@ -18,8 +18,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("lexical_commit_sha") is { } nullNodeLexicalCommitSha && nullNodeLexicalCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalCommitSha = null;
-            if (parseNode.GetChildNode("lexical_search_ok") is { } nullNodeLexicalSearchOk && nullNodeLexicalSearchOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalSearchOk = null;
+            if (parseNode.GetChildNode("lexical_commit_sha") is null) { _explicitNullValueLexicalCommitSha = default!; _explicitNullProperties?.Remove("lexical_commit_sha"); }
+            else if (parseNode.GetChildNode("lexical_commit_sha") is { } nullNodeLexicalCommitSha && nullNodeLexicalCommitSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalCommitSha = null;
+            if (parseNode.GetChildNode("lexical_search_ok") is null) { _explicitNullValueLexicalSearchOk = default!; _explicitNullProperties?.Remove("lexical_search_ok"); }
+            else if (parseNode.GetChildNode("lexical_search_ok") is { } nullNodeLexicalSearchOk && nullNodeLexicalSearchOk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LexicalSearchOk = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The lexical_commit_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LexicalCommitSha { get => _explicitNullValueLexicalCommitSha; set { _explicitNullValueLexicalCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_commit_sha"); else _explicitNullProperties?.Remove("lexical_commit_sha"); } }
+        public string? LexicalCommitSha { get => _explicitNullValueLexicalCommitSha; set { _explicitNullValueLexicalCommitSha = value; AdditionalData?.Remove("lexical_commit_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_commit_sha"); else _explicitNullProperties?.Remove("lexical_commit_sha"); } }
         private string? _explicitNullValueLexicalCommitSha = default!;
 #nullable restore
 #else
-        public string LexicalCommitSha { get => _explicitNullValueLexicalCommitSha; set { _explicitNullValueLexicalCommitSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_commit_sha"); else _explicitNullProperties?.Remove("lexical_commit_sha"); } }
+        public string LexicalCommitSha { get => _explicitNullValueLexicalCommitSha; set { _explicitNullValueLexicalCommitSha = value; AdditionalData?.Remove("lexical_commit_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_commit_sha"); else _explicitNullProperties?.Remove("lexical_commit_sha"); } }
         private string _explicitNullValueLexicalCommitSha = default!;
 #endif
         /// <summary>The lexical_search_ok property</summary>
-        public bool? LexicalSearchOk { get => _explicitNullValueLexicalSearchOk; set { _explicitNullValueLexicalSearchOk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_search_ok"); else _explicitNullProperties?.Remove("lexical_search_ok"); } }
+        public bool? LexicalSearchOk { get => _explicitNullValueLexicalSearchOk; set { _explicitNullValueLexicalSearchOk = value; AdditionalData?.Remove("lexical_search_ok"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lexical_search_ok"); else _explicitNullProperties?.Remove("lexical_search_ok"); } }
         private bool? _explicitNullValueLexicalSearchOk = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.NullableRepositoryCodeSearchIndexStatus"/> and sets the default values.

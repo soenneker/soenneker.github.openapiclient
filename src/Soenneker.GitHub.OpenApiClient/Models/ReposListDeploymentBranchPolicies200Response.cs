@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("branch_policies") is { } nullNodeBranchPolicies && nullNodeBranchPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchPolicies = null;
-            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("branch_policies") is null) { _explicitNullValueBranchPolicies = default!; _explicitNullProperties?.Remove("branch_policies"); }
+            else if (parseNode.GetChildNode("branch_policies") is { } nullNodeBranchPolicies && nullNodeBranchPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchPolicies = null;
+            if (parseNode.GetChildNode("total_count") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("total_count"); }
+            else if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The branch_policies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy>? BranchPolicies { get => _explicitNullValueBranchPolicies; set { _explicitNullValueBranchPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_policies"); else _explicitNullProperties?.Remove("branch_policies"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy>? BranchPolicies { get => _explicitNullValueBranchPolicies; set { _explicitNullValueBranchPolicies = value; AdditionalData?.Remove("branch_policies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_policies"); else _explicitNullProperties?.Remove("branch_policies"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy>? _explicitNullValueBranchPolicies = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy> BranchPolicies { get => _explicitNullValueBranchPolicies; set { _explicitNullValueBranchPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_policies"); else _explicitNullProperties?.Remove("branch_policies"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy> BranchPolicies { get => _explicitNullValueBranchPolicies; set { _explicitNullValueBranchPolicies = value; AdditionalData?.Remove("branch_policies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_policies"); else _explicitNullProperties?.Remove("branch_policies"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicy> _explicitNullValueBranchPolicies = default!;
 #endif
         /// <summary>The number of deployment branch policies for the environment.</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("total_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ReposListDeploymentBranchPolicies200Response"/> and sets the default values.

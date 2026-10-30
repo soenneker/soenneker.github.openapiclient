@@ -17,11 +17,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fragment") is { } nullNodeFragment && nullNodeFragment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fragment = null;
-            if (parseNode.GetChildNode("matches") is { } nullNodeMatches && nullNodeMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matches = null;
-            if (parseNode.GetChildNode("object_type") is { } nullNodeObjectType && nullNodeObjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectType = null;
-            if (parseNode.GetChildNode("object_url") is { } nullNodeObjectUrl && nullNodeObjectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectUrl = null;
-            if (parseNode.GetChildNode("property") is { } nullNodeProperty && nullNodeProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Property = null;
+            if (parseNode.GetChildNode("fragment") is null) { _explicitNullValueFragment = default!; _explicitNullProperties?.Remove("fragment"); }
+            else if (parseNode.GetChildNode("fragment") is { } nullNodeFragment && nullNodeFragment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fragment = null;
+            if (parseNode.GetChildNode("matches") is null) { _explicitNullValueMatches = default!; _explicitNullProperties?.Remove("matches"); }
+            else if (parseNode.GetChildNode("matches") is { } nullNodeMatches && nullNodeMatches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matches = null;
+            if (parseNode.GetChildNode("object_type") is null) { _explicitNullValueObjectType = default!; _explicitNullProperties?.Remove("object_type"); }
+            else if (parseNode.GetChildNode("object_type") is { } nullNodeObjectType && nullNodeObjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectType = null;
+            if (parseNode.GetChildNode("object_url") is null) { _explicitNullValueObjectUrl = default!; _explicitNullProperties?.Remove("object_url"); }
+            else if (parseNode.GetChildNode("object_url") is { } nullNodeObjectUrl && nullNodeObjectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectUrl = null;
+            if (parseNode.GetChildNode("property") is null) { _explicitNullValueProperty = default!; _explicitNullProperties?.Remove("property"); }
+            else if (parseNode.GetChildNode("property") is { } nullNodeProperty && nullNodeProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Property = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The fragment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Fragment { get => _explicitNullValueFragment; set { _explicitNullValueFragment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fragment"); else _explicitNullProperties?.Remove("fragment"); } }
+        public string? Fragment { get => _explicitNullValueFragment; set { _explicitNullValueFragment = value; AdditionalData?.Remove("fragment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fragment"); else _explicitNullProperties?.Remove("fragment"); } }
         private string? _explicitNullValueFragment = default!;
 #nullable restore
 #else
-        public string Fragment { get => _explicitNullValueFragment; set { _explicitNullValueFragment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fragment"); else _explicitNullProperties?.Remove("fragment"); } }
+        public string Fragment { get => _explicitNullValueFragment; set { _explicitNullValueFragment = value; AdditionalData?.Remove("fragment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fragment"); else _explicitNullProperties?.Remove("fragment"); } }
         private string _explicitNullValueFragment = default!;
 #endif
         /// <summary>The matches property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; AdditionalData?.Remove("matches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem>? _explicitNullValueMatches = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> Matches { get => _explicitNullValueMatches; set { _explicitNullValueMatches = value; AdditionalData?.Remove("matches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matches"); else _explicitNullProperties?.Remove("matches"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.SearchResultTextMatchesItemMatchesItem> _explicitNullValueMatches = default!;
 #endif
         /// <summary>The object_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ObjectType { get => _explicitNullValueObjectType; set { _explicitNullValueObjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_type"); else _explicitNullProperties?.Remove("object_type"); } }
+        public string? ObjectType { get => _explicitNullValueObjectType; set { _explicitNullValueObjectType = value; AdditionalData?.Remove("object_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_type"); else _explicitNullProperties?.Remove("object_type"); } }
         private string? _explicitNullValueObjectType = default!;
 #nullable restore
 #else
-        public string ObjectType { get => _explicitNullValueObjectType; set { _explicitNullValueObjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_type"); else _explicitNullProperties?.Remove("object_type"); } }
+        public string ObjectType { get => _explicitNullValueObjectType; set { _explicitNullValueObjectType = value; AdditionalData?.Remove("object_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_type"); else _explicitNullProperties?.Remove("object_type"); } }
         private string _explicitNullValueObjectType = default!;
 #endif
         /// <summary>The object_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ObjectUrl { get => _explicitNullValueObjectUrl; set { _explicitNullValueObjectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_url"); else _explicitNullProperties?.Remove("object_url"); } }
+        public string? ObjectUrl { get => _explicitNullValueObjectUrl; set { _explicitNullValueObjectUrl = value; AdditionalData?.Remove("object_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_url"); else _explicitNullProperties?.Remove("object_url"); } }
         private string? _explicitNullValueObjectUrl = default!;
 #nullable restore
 #else
-        public string ObjectUrl { get => _explicitNullValueObjectUrl; set { _explicitNullValueObjectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_url"); else _explicitNullProperties?.Remove("object_url"); } }
+        public string ObjectUrl { get => _explicitNullValueObjectUrl; set { _explicitNullValueObjectUrl = value; AdditionalData?.Remove("object_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object_url"); else _explicitNullProperties?.Remove("object_url"); } }
         private string _explicitNullValueObjectUrl = default!;
 #endif
         /// <summary>The property property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Property { get => _explicitNullValueProperty; set { _explicitNullValueProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("property"); else _explicitNullProperties?.Remove("property"); } }
+        public string? Property { get => _explicitNullValueProperty; set { _explicitNullValueProperty = value; AdditionalData?.Remove("property"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("property"); else _explicitNullProperties?.Remove("property"); } }
         private string? _explicitNullValueProperty = default!;
 #nullable restore
 #else
-        public string Property { get => _explicitNullValueProperty; set { _explicitNullValueProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("property"); else _explicitNullProperties?.Remove("property"); } }
+        public string Property { get => _explicitNullValueProperty; set { _explicitNullValueProperty = value; AdditionalData?.Remove("property"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("property"); else _explicitNullProperties?.Remove("property"); } }
         private string _explicitNullValueProperty = default!;
 #endif
         /// <summary>

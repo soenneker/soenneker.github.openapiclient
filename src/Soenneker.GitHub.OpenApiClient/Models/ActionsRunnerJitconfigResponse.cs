@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("encoded_jit_config") is { } nullNodeEncodedJitConfig && nullNodeEncodedJitConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncodedJitConfig = null;
-            if (parseNode.GetChildNode("runner") is { } nullNodeRunner && nullNodeRunner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runner = null;
+            if (parseNode.GetChildNode("encoded_jit_config") is null) { _explicitNullValueEncodedJitConfig = default!; _explicitNullProperties?.Remove("encoded_jit_config"); }
+            else if (parseNode.GetChildNode("encoded_jit_config") is { } nullNodeEncodedJitConfig && nullNodeEncodedJitConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncodedJitConfig = null;
+            if (parseNode.GetChildNode("runner") is null) { _explicitNullValueRunner = default!; _explicitNullProperties?.Remove("runner"); }
+            else if (parseNode.GetChildNode("runner") is { } nullNodeRunner && nullNodeRunner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runner = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The base64 encoded runner configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncodedJitConfig { get => _explicitNullValueEncodedJitConfig; set { _explicitNullValueEncodedJitConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encoded_jit_config"); else _explicitNullProperties?.Remove("encoded_jit_config"); } }
+        public string? EncodedJitConfig { get => _explicitNullValueEncodedJitConfig; set { _explicitNullValueEncodedJitConfig = value; AdditionalData?.Remove("encoded_jit_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encoded_jit_config"); else _explicitNullProperties?.Remove("encoded_jit_config"); } }
         private string? _explicitNullValueEncodedJitConfig = default!;
 #nullable restore
 #else
-        public string EncodedJitConfig { get => _explicitNullValueEncodedJitConfig; set { _explicitNullValueEncodedJitConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encoded_jit_config"); else _explicitNullProperties?.Remove("encoded_jit_config"); } }
+        public string EncodedJitConfig { get => _explicitNullValueEncodedJitConfig; set { _explicitNullValueEncodedJitConfig = value; AdditionalData?.Remove("encoded_jit_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encoded_jit_config"); else _explicitNullProperties?.Remove("encoded_jit_config"); } }
         private string _explicitNullValueEncodedJitConfig = default!;
 #endif
         /// <summary>A self hosted runner</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.Runner? Runner { get => _explicitNullValueRunner; set { _explicitNullValueRunner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner"); else _explicitNullProperties?.Remove("runner"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Runner? Runner { get => _explicitNullValueRunner; set { _explicitNullValueRunner = value; AdditionalData?.Remove("runner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner"); else _explicitNullProperties?.Remove("runner"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.Runner? _explicitNullValueRunner = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.Runner Runner { get => _explicitNullValueRunner; set { _explicitNullValueRunner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner"); else _explicitNullProperties?.Remove("runner"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.Runner Runner { get => _explicitNullValueRunner; set { _explicitNullValueRunner = value; AdditionalData?.Remove("runner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner"); else _explicitNullProperties?.Remove("runner"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.Runner _explicitNullValueRunner = default!;
 #endif
         /// <summary>

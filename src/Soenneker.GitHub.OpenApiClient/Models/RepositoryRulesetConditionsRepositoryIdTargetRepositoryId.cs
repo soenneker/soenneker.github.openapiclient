@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repository_ids") is { } nullNodeRepositoryIds && nullNodeRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIds = null;
+            if (parseNode.GetChildNode("repository_ids") is null) { _explicitNullValueRepositoryIds = default!; _explicitNullProperties?.Remove("repository_ids"); }
+            else if (parseNode.GetChildNode("repository_ids") is { } nullNodeRepositoryIds && nullNodeRepositoryIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The repository IDs that the ruleset applies to. One of these IDs must match for the condition to pass.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? RepositoryIds { get => _explicitNullValueRepositoryIds; set { _explicitNullValueRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids"); else _explicitNullProperties?.Remove("repository_ids"); } }
+        public List<int?>? RepositoryIds { get => _explicitNullValueRepositoryIds; set { _explicitNullValueRepositoryIds = value; AdditionalData?.Remove("repository_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids"); else _explicitNullProperties?.Remove("repository_ids"); } }
         private List<int?>? _explicitNullValueRepositoryIds = default!;
 #nullable restore
 #else
-        public List<int?> RepositoryIds { get => _explicitNullValueRepositoryIds; set { _explicitNullValueRepositoryIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids"); else _explicitNullProperties?.Remove("repository_ids"); } }
+        public List<int?> RepositoryIds { get => _explicitNullValueRepositoryIds; set { _explicitNullValueRepositoryIds = value; AdditionalData?.Remove("repository_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids"); else _explicitNullProperties?.Remove("repository_ids"); } }
         private List<int?> _explicitNullValueRepositoryIds = default!;
 #endif
         /// <summary>

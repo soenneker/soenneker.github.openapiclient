@@ -17,53 +17,59 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bypass_rules") is { } nullNodeBypassRules && nullNodeBypassRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassRules = null;
-            if (parseNode.GetChildNode("commit_message") is { } nullNodeCommitMessage && nullNodeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitMessage = null;
-            if (parseNode.GetChildNode("commit_title") is { } nullNodeCommitTitle && nullNodeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitTitle = null;
-            if (parseNode.GetChildNode("merge_action") is { } nullNodeMergeAction && nullNodeMergeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeAction = null;
-            if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
-            if (parseNode.GetChildNode("sha") is { } nullNodeSha && nullNodeSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha = null;
+            if (parseNode.GetChildNode("bypass_rules") is null) { _explicitNullValueBypassRules = default!; _explicitNullProperties?.Remove("bypass_rules"); }
+            else if (parseNode.GetChildNode("bypass_rules") is { } nullNodeBypassRules && nullNodeBypassRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassRules = null;
+            if (parseNode.GetChildNode("commit_message") is null) { _explicitNullValueCommitMessage = default!; _explicitNullProperties?.Remove("commit_message"); }
+            else if (parseNode.GetChildNode("commit_message") is { } nullNodeCommitMessage && nullNodeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitMessage = null;
+            if (parseNode.GetChildNode("commit_title") is null) { _explicitNullValueCommitTitle = default!; _explicitNullProperties?.Remove("commit_title"); }
+            else if (parseNode.GetChildNode("commit_title") is { } nullNodeCommitTitle && nullNodeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitTitle = null;
+            if (parseNode.GetChildNode("merge_action") is null) { _explicitNullValueMergeAction = default!; _explicitNullProperties?.Remove("merge_action"); }
+            else if (parseNode.GetChildNode("merge_action") is { } nullNodeMergeAction && nullNodeMergeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeAction = null;
+            if (parseNode.GetChildNode("merge_method") is null) { _explicitNullValueMergeMethod = default!; _explicitNullProperties?.Remove("merge_method"); }
+            else if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
+            if (parseNode.GetChildNode("sha") is null) { _explicitNullValueSha = default!; _explicitNullProperties?.Remove("sha"); }
+            else if (parseNode.GetChildNode("sha") is { } nullNodeSha && nullNodeSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sha = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to bypass repository rules that the authenticated actor is permitted to bypass.</summary>
-        public bool? BypassRules { get => _explicitNullValueBypassRules; set { _explicitNullValueBypassRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_rules"); else _explicitNullProperties?.Remove("bypass_rules"); } }
+        public bool? BypassRules { get => _explicitNullValueBypassRules; set { _explicitNullValueBypassRules = value; AdditionalData?.Remove("bypass_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_rules"); else _explicitNullProperties?.Remove("bypass_rules"); } }
         private bool? _explicitNullValueBypassRules = default!;
         /// <summary>Extra detail to append to automatic commit message. Only supported for direct merges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
+        public string? CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; AdditionalData?.Remove("commit_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
         private string? _explicitNullValueCommitMessage = default!;
 #nullable restore
 #else
-        public string CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
+        public string CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; AdditionalData?.Remove("commit_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
         private string _explicitNullValueCommitMessage = default!;
 #endif
         /// <summary>Title for the automatic commit message. Only supported for direct merges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
+        public string? CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; AdditionalData?.Remove("commit_title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
         private string? _explicitNullValueCommitTitle = default!;
 #nullable restore
 #else
-        public string CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
+        public string CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; AdditionalData?.Remove("commit_title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
         private string _explicitNullValueCommitTitle = default!;
 #endif
         /// <summary>The action that will be taken to merge the pull request. `direct_merge` merges the pull request directly without using a merge queue; `merge_queue` adds the pull request to a merge queue; `default` uses a merge queue if one is configured for the target branch, or merges directly otherwise. If omitted, defaults to `default`.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction? MergeAction { get => _explicitNullValueMergeAction; set { _explicitNullValueMergeAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_action"); else _explicitNullProperties?.Remove("merge_action"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction? MergeAction { get => _explicitNullValueMergeAction; set { _explicitNullValueMergeAction = value; AdditionalData?.Remove("merge_action"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_action"); else _explicitNullProperties?.Remove("merge_action"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction? _explicitNullValueMergeAction = default!;
         /// <summary>The merge method to use for a direct merge. Only supported for direct merges.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; AdditionalData?.Remove("merge_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod? _explicitNullValueMergeMethod = default!;
         /// <summary>SHA that pull request head must match to allow merge. If not provided, the current head of the PR at the time of the request will be used; if the PR is pushed in between the merge being requested and being executed, the merge will be cancelled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        public string? Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; AdditionalData?.Remove("sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
         private string? _explicitNullValueSha = default!;
 #nullable restore
 #else
-        public string Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
+        public string Sha { get => _explicitNullValueSha; set { _explicitNullValueSha = value; AdditionalData?.Remove("sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha"); else _explicitNullProperties?.Remove("sha"); } }
         private string _explicitNullValueSha = default!;
 #endif
         /// <summary>
@@ -97,8 +103,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "bypass_rules", n => { BypassRules = n.GetBoolValue(); } },
                 { "commit_message", n => { CommitMessage = n.GetStringValue(); } },
                 { "commit_title", n => { CommitTitle = n.GetStringValue(); } },
-                { "merge_action", n => { MergeAction = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction>(); } },
-                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod>(); } },
+                { "merge_action", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeAction>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMergeAction = default; _explicitNullProperties?.Remove("merge_action"); AdditionalData["merge_action"] = unknown; } else { MergeAction = parsed; AdditionalData.Remove("merge_action"); } } },
+                { "merge_method", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.PullsMergeAsyncRequestMergeMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMergeMethod = default; _explicitNullProperties?.Remove("merge_method"); AdditionalData["merge_method"] = unknown; } else { MergeMethod = parsed; AdditionalData.Remove("merge_method"); } } },
                 { "sha", n => { Sha = n.GetStringValue(); } },
             };
         }

@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repository_ids_to_add") is { } nullNodeRepositoryIdsToAdd && nullNodeRepositoryIdsToAdd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIdsToAdd = null;
-            if (parseNode.GetChildNode("repository_ids_to_remove") is { } nullNodeRepositoryIdsToRemove && nullNodeRepositoryIdsToRemove.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIdsToRemove = null;
+            if (parseNode.GetChildNode("repository_ids_to_add") is null) { _explicitNullValueRepositoryIdsToAdd = default!; _explicitNullProperties?.Remove("repository_ids_to_add"); }
+            else if (parseNode.GetChildNode("repository_ids_to_add") is { } nullNodeRepositoryIdsToAdd && nullNodeRepositoryIdsToAdd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIdsToAdd = null;
+            if (parseNode.GetChildNode("repository_ids_to_remove") is null) { _explicitNullValueRepositoryIdsToRemove = default!; _explicitNullProperties?.Remove("repository_ids_to_remove"); }
+            else if (parseNode.GetChildNode("repository_ids_to_remove") is { } nullNodeRepositoryIdsToRemove && nullNodeRepositoryIdsToRemove.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryIdsToRemove = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>List of repository IDs to add.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? RepositoryIdsToAdd { get => _explicitNullValueRepositoryIdsToAdd; set { _explicitNullValueRepositoryIdsToAdd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_add"); else _explicitNullProperties?.Remove("repository_ids_to_add"); } }
+        public List<int?>? RepositoryIdsToAdd { get => _explicitNullValueRepositoryIdsToAdd; set { _explicitNullValueRepositoryIdsToAdd = value; AdditionalData?.Remove("repository_ids_to_add"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_add"); else _explicitNullProperties?.Remove("repository_ids_to_add"); } }
         private List<int?>? _explicitNullValueRepositoryIdsToAdd = default!;
 #nullable restore
 #else
-        public List<int?> RepositoryIdsToAdd { get => _explicitNullValueRepositoryIdsToAdd; set { _explicitNullValueRepositoryIdsToAdd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_add"); else _explicitNullProperties?.Remove("repository_ids_to_add"); } }
+        public List<int?> RepositoryIdsToAdd { get => _explicitNullValueRepositoryIdsToAdd; set { _explicitNullValueRepositoryIdsToAdd = value; AdditionalData?.Remove("repository_ids_to_add"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_add"); else _explicitNullProperties?.Remove("repository_ids_to_add"); } }
         private List<int?> _explicitNullValueRepositoryIdsToAdd = default!;
 #endif
         /// <summary>List of repository IDs to remove.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? RepositoryIdsToRemove { get => _explicitNullValueRepositoryIdsToRemove; set { _explicitNullValueRepositoryIdsToRemove = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_remove"); else _explicitNullProperties?.Remove("repository_ids_to_remove"); } }
+        public List<int?>? RepositoryIdsToRemove { get => _explicitNullValueRepositoryIdsToRemove; set { _explicitNullValueRepositoryIdsToRemove = value; AdditionalData?.Remove("repository_ids_to_remove"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_remove"); else _explicitNullProperties?.Remove("repository_ids_to_remove"); } }
         private List<int?>? _explicitNullValueRepositoryIdsToRemove = default!;
 #nullable restore
 #else
-        public List<int?> RepositoryIdsToRemove { get => _explicitNullValueRepositoryIdsToRemove; set { _explicitNullValueRepositoryIdsToRemove = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_remove"); else _explicitNullProperties?.Remove("repository_ids_to_remove"); } }
+        public List<int?> RepositoryIdsToRemove { get => _explicitNullValueRepositoryIdsToRemove; set { _explicitNullValueRepositoryIdsToRemove = value; AdditionalData?.Remove("repository_ids_to_remove"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_ids_to_remove"); else _explicitNullProperties?.Remove("repository_ids_to_remove"); } }
         private List<int?> _explicitNullValueRepositoryIdsToRemove = default!;
 #endif
         /// <summary>

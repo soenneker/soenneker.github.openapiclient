@@ -17,21 +17,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_actions") is { } nullNodeAllowedActions && nullNodeAllowedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActions = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("sha_pinning_required") is { } nullNodeShaPinningRequired && nullNodeShaPinningRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShaPinningRequired = null;
+            if (parseNode.GetChildNode("allowed_actions") is null) { _explicitNullValueAllowedActions = default!; _explicitNullProperties?.Remove("allowed_actions"); }
+            else if (parseNode.GetChildNode("allowed_actions") is { } nullNodeAllowedActions && nullNodeAllowedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedActions = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("sha_pinning_required") is null) { _explicitNullValueShaPinningRequired = default!; _explicitNullProperties?.Remove("sha_pinning_required"); }
+            else if (parseNode.GetChildNode("sha_pinning_required") is { } nullNodeShaPinningRequired && nullNodeShaPinningRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShaPinningRequired = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The permissions policy that controls the actions and reusable workflows that are allowed to run.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? AllowedActions { get => _explicitNullValueAllowedActions; set { _explicitNullValueAllowedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actions"); else _explicitNullProperties?.Remove("allowed_actions"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? AllowedActions { get => _explicitNullValueAllowedActions; set { _explicitNullValueAllowedActions = value; AdditionalData?.Remove("allowed_actions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_actions"); else _explicitNullProperties?.Remove("allowed_actions"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions? _explicitNullValueAllowedActions = default!;
         /// <summary>Whether GitHub Actions is enabled on the repository.</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Whether actions must be pinned to a full-length commit SHA.</summary>
-        public bool? ShaPinningRequired { get => _explicitNullValueShaPinningRequired; set { _explicitNullValueShaPinningRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha_pinning_required"); else _explicitNullProperties?.Remove("sha_pinning_required"); } }
+        public bool? ShaPinningRequired { get => _explicitNullValueShaPinningRequired; set { _explicitNullValueShaPinningRequired = value; AdditionalData?.Remove("sha_pinning_required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sha_pinning_required"); else _explicitNullProperties?.Remove("sha_pinning_required"); } }
         private bool? _explicitNullValueShaPinningRequired = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsSetGithubActionsPermissionsRepositoryRequest"/> and sets the default values.
@@ -58,7 +61,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowed_actions", n => { AllowedActions = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>(); } },
+                { "allowed_actions", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AllowedActions>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAllowedActions = default; _explicitNullProperties?.Remove("allowed_actions"); AdditionalData["allowed_actions"] = unknown; } else { AllowedActions = parsed; AdditionalData.Remove("allowed_actions"); } } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "sha_pinning_required", n => { ShaPinningRequired = n.GetBoolValue(); } },
             };

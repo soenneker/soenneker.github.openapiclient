@@ -18,10 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("commit_message") is { } nullNodeCommitMessage && nullNodeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitMessage = null;
-            if (parseNode.GetChildNode("commit_title") is { } nullNodeCommitTitle && nullNodeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitTitle = null;
-            if (parseNode.GetChildNode("enabled_by") is { } nullNodeEnabledBy && nullNodeEnabledBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledBy = null;
-            if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
+            if (parseNode.GetChildNode("commit_message") is null) { _explicitNullValueCommitMessage = default!; _explicitNullProperties?.Remove("commit_message"); }
+            else if (parseNode.GetChildNode("commit_message") is { } nullNodeCommitMessage && nullNodeCommitMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitMessage = null;
+            if (parseNode.GetChildNode("commit_title") is null) { _explicitNullValueCommitTitle = default!; _explicitNullProperties?.Remove("commit_title"); }
+            else if (parseNode.GetChildNode("commit_title") is { } nullNodeCommitTitle && nullNodeCommitTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitTitle = null;
+            if (parseNode.GetChildNode("enabled_by") is null) { _explicitNullValueEnabledBy = default!; _explicitNullProperties?.Remove("enabled_by"); }
+            else if (parseNode.GetChildNode("enabled_by") is { } nullNodeEnabledBy && nullNodeEnabledBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledBy = null;
+            if (parseNode.GetChildNode("merge_method") is null) { _explicitNullValueMergeMethod = default!; _explicitNullProperties?.Remove("merge_method"); }
+            else if (parseNode.GetChildNode("merge_method") is { } nullNodeMergeMethod && nullNodeMergeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MergeMethod = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,35 +33,35 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Commit message for the merge commit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
+        public string? CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; AdditionalData?.Remove("commit_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
         private string? _explicitNullValueCommitMessage = default!;
 #nullable restore
 #else
-        public string CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
+        public string CommitMessage { get => _explicitNullValueCommitMessage; set { _explicitNullValueCommitMessage = value; AdditionalData?.Remove("commit_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_message"); else _explicitNullProperties?.Remove("commit_message"); } }
         private string _explicitNullValueCommitMessage = default!;
 #endif
         /// <summary>Title for the merge commit message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
+        public string? CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; AdditionalData?.Remove("commit_title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
         private string? _explicitNullValueCommitTitle = default!;
 #nullable restore
 #else
-        public string CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
+        public string CommitTitle { get => _explicitNullValueCommitTitle; set { _explicitNullValueCommitTitle = value; AdditionalData?.Remove("commit_title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_title"); else _explicitNullProperties?.Remove("commit_title"); } }
         private string _explicitNullValueCommitTitle = default!;
 #endif
         /// <summary>A GitHub user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? EnabledBy { get => _explicitNullValueEnabledBy; set { _explicitNullValueEnabledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_by"); else _explicitNullProperties?.Remove("enabled_by"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? EnabledBy { get => _explicitNullValueEnabledBy; set { _explicitNullValueEnabledBy = value; AdditionalData?.Remove("enabled_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_by"); else _explicitNullProperties?.Remove("enabled_by"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser? _explicitNullValueEnabledBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser EnabledBy { get => _explicitNullValueEnabledBy; set { _explicitNullValueEnabledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_by"); else _explicitNullProperties?.Remove("enabled_by"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser EnabledBy { get => _explicitNullValueEnabledBy; set { _explicitNullValueEnabledBy = value; AdditionalData?.Remove("enabled_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_by"); else _explicitNullProperties?.Remove("enabled_by"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser _explicitNullValueEnabledBy = default!;
 #endif
         /// <summary>The merge method to use.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod? MergeMethod { get => _explicitNullValueMergeMethod; set { _explicitNullValueMergeMethod = value; AdditionalData?.Remove("merge_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merge_method"); else _explicitNullProperties?.Remove("merge_method"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod? _explicitNullValueMergeMethod = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.AutoMerge"/> and sets the default values.
@@ -89,7 +93,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "commit_message", n => { CommitMessage = n.GetStringValue(); } },
                 { "commit_title", n => { CommitTitle = n.GetStringValue(); } },
                 { "enabled_by", n => { EnabledBy = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser>(global::Soenneker.GitHub.OpenApiClient.Models.SimpleUser.CreateFromDiscriminatorValue); } },
-                { "merge_method", n => { MergeMethod = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod>(); } },
+                { "merge_method", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.AutoMergeMergeMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMergeMethod = default; _explicitNullProperties?.Remove("merge_method"); AdditionalData["merge_method"] = unknown; } else { MergeMethod = parsed; AdditionalData.Remove("merge_method"); } } },
             };
         }
         /// <summary>

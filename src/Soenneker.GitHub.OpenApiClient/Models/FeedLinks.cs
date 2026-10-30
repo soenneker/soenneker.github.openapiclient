@@ -17,16 +17,26 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_user") is { } nullNodeCurrentUser && nullNodeCurrentUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUser = null;
-            if (parseNode.GetChildNode("current_user_actor") is { } nullNodeCurrentUserActor && nullNodeCurrentUserActor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserActor = null;
-            if (parseNode.GetChildNode("current_user_organization") is { } nullNodeCurrentUserOrganization && nullNodeCurrentUserOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganization = null;
-            if (parseNode.GetChildNode("current_user_organizations") is { } nullNodeCurrentUserOrganizations && nullNodeCurrentUserOrganizations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganizations = null;
-            if (parseNode.GetChildNode("current_user_public") is { } nullNodeCurrentUserPublic && nullNodeCurrentUserPublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserPublic = null;
-            if (parseNode.GetChildNode("repository_discussions") is { } nullNodeRepositoryDiscussions && nullNodeRepositoryDiscussions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussions = null;
-            if (parseNode.GetChildNode("repository_discussions_category") is { } nullNodeRepositoryDiscussionsCategory && nullNodeRepositoryDiscussionsCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussionsCategory = null;
-            if (parseNode.GetChildNode("security_advisories") is { } nullNodeSecurityAdvisories && nullNodeSecurityAdvisories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAdvisories = null;
-            if (parseNode.GetChildNode("timeline") is { } nullNodeTimeline && nullNodeTimeline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeline = null;
-            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("current_user") is null) { _explicitNullValueCurrentUser = default!; _explicitNullProperties?.Remove("current_user"); }
+            else if (parseNode.GetChildNode("current_user") is { } nullNodeCurrentUser && nullNodeCurrentUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUser = null;
+            if (parseNode.GetChildNode("current_user_actor") is null) { _explicitNullValueCurrentUserActor = default!; _explicitNullProperties?.Remove("current_user_actor"); }
+            else if (parseNode.GetChildNode("current_user_actor") is { } nullNodeCurrentUserActor && nullNodeCurrentUserActor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserActor = null;
+            if (parseNode.GetChildNode("current_user_organization") is null) { _explicitNullValueCurrentUserOrganization = default!; _explicitNullProperties?.Remove("current_user_organization"); }
+            else if (parseNode.GetChildNode("current_user_organization") is { } nullNodeCurrentUserOrganization && nullNodeCurrentUserOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganization = null;
+            if (parseNode.GetChildNode("current_user_organizations") is null) { _explicitNullValueCurrentUserOrganizations = default!; _explicitNullProperties?.Remove("current_user_organizations"); }
+            else if (parseNode.GetChildNode("current_user_organizations") is { } nullNodeCurrentUserOrganizations && nullNodeCurrentUserOrganizations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserOrganizations = null;
+            if (parseNode.GetChildNode("current_user_public") is null) { _explicitNullValueCurrentUserPublic = default!; _explicitNullProperties?.Remove("current_user_public"); }
+            else if (parseNode.GetChildNode("current_user_public") is { } nullNodeCurrentUserPublic && nullNodeCurrentUserPublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentUserPublic = null;
+            if (parseNode.GetChildNode("repository_discussions") is null) { _explicitNullValueRepositoryDiscussions = default!; _explicitNullProperties?.Remove("repository_discussions"); }
+            else if (parseNode.GetChildNode("repository_discussions") is { } nullNodeRepositoryDiscussions && nullNodeRepositoryDiscussions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussions = null;
+            if (parseNode.GetChildNode("repository_discussions_category") is null) { _explicitNullValueRepositoryDiscussionsCategory = default!; _explicitNullProperties?.Remove("repository_discussions_category"); }
+            else if (parseNode.GetChildNode("repository_discussions_category") is { } nullNodeRepositoryDiscussionsCategory && nullNodeRepositoryDiscussionsCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepositoryDiscussionsCategory = null;
+            if (parseNode.GetChildNode("security_advisories") is null) { _explicitNullValueSecurityAdvisories = default!; _explicitNullProperties?.Remove("security_advisories"); }
+            else if (parseNode.GetChildNode("security_advisories") is { } nullNodeSecurityAdvisories && nullNodeSecurityAdvisories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAdvisories = null;
+            if (parseNode.GetChildNode("timeline") is null) { _explicitNullValueTimeline = default!; _explicitNullProperties?.Remove("timeline"); }
+            else if (parseNode.GetChildNode("timeline") is { } nullNodeTimeline && nullNodeTimeline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeline = null;
+            if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
+            else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,101 +44,101 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUser { get => _explicitNullValueCurrentUser; set { _explicitNullValueCurrentUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user"); else _explicitNullProperties?.Remove("current_user"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUser { get => _explicitNullValueCurrentUser; set { _explicitNullValueCurrentUser = value; AdditionalData?.Remove("current_user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user"); else _explicitNullProperties?.Remove("current_user"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueCurrentUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUser { get => _explicitNullValueCurrentUser; set { _explicitNullValueCurrentUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user"); else _explicitNullProperties?.Remove("current_user"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUser { get => _explicitNullValueCurrentUser; set { _explicitNullValueCurrentUser = value; AdditionalData?.Remove("current_user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user"); else _explicitNullProperties?.Remove("current_user"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueCurrentUser = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserActor { get => _explicitNullValueCurrentUserActor; set { _explicitNullValueCurrentUserActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor"); else _explicitNullProperties?.Remove("current_user_actor"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserActor { get => _explicitNullValueCurrentUserActor; set { _explicitNullValueCurrentUserActor = value; AdditionalData?.Remove("current_user_actor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor"); else _explicitNullProperties?.Remove("current_user_actor"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueCurrentUserActor = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserActor { get => _explicitNullValueCurrentUserActor; set { _explicitNullValueCurrentUserActor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor"); else _explicitNullProperties?.Remove("current_user_actor"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserActor { get => _explicitNullValueCurrentUserActor; set { _explicitNullValueCurrentUserActor = value; AdditionalData?.Remove("current_user_actor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_actor"); else _explicitNullProperties?.Remove("current_user_actor"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueCurrentUserActor = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserOrganization { get => _explicitNullValueCurrentUserOrganization; set { _explicitNullValueCurrentUserOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization"); else _explicitNullProperties?.Remove("current_user_organization"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserOrganization { get => _explicitNullValueCurrentUserOrganization; set { _explicitNullValueCurrentUserOrganization = value; AdditionalData?.Remove("current_user_organization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization"); else _explicitNullProperties?.Remove("current_user_organization"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueCurrentUserOrganization = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserOrganization { get => _explicitNullValueCurrentUserOrganization; set { _explicitNullValueCurrentUserOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization"); else _explicitNullProperties?.Remove("current_user_organization"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserOrganization { get => _explicitNullValueCurrentUserOrganization; set { _explicitNullValueCurrentUserOrganization = value; AdditionalData?.Remove("current_user_organization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organization"); else _explicitNullProperties?.Remove("current_user_organization"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueCurrentUserOrganization = default!;
 #endif
         /// <summary>The current_user_organizations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>? CurrentUserOrganizations { get => _explicitNullValueCurrentUserOrganizations; set { _explicitNullValueCurrentUserOrganizations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organizations"); else _explicitNullProperties?.Remove("current_user_organizations"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>? CurrentUserOrganizations { get => _explicitNullValueCurrentUserOrganizations; set { _explicitNullValueCurrentUserOrganizations = value; AdditionalData?.Remove("current_user_organizations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organizations"); else _explicitNullProperties?.Remove("current_user_organizations"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType>? _explicitNullValueCurrentUserOrganizations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType> CurrentUserOrganizations { get => _explicitNullValueCurrentUserOrganizations; set { _explicitNullValueCurrentUserOrganizations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organizations"); else _explicitNullProperties?.Remove("current_user_organizations"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType> CurrentUserOrganizations { get => _explicitNullValueCurrentUserOrganizations; set { _explicitNullValueCurrentUserOrganizations = value; AdditionalData?.Remove("current_user_organizations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_organizations"); else _explicitNullProperties?.Remove("current_user_organizations"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType> _explicitNullValueCurrentUserOrganizations = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserPublic { get => _explicitNullValueCurrentUserPublic; set { _explicitNullValueCurrentUserPublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public"); else _explicitNullProperties?.Remove("current_user_public"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? CurrentUserPublic { get => _explicitNullValueCurrentUserPublic; set { _explicitNullValueCurrentUserPublic = value; AdditionalData?.Remove("current_user_public"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public"); else _explicitNullProperties?.Remove("current_user_public"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueCurrentUserPublic = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserPublic { get => _explicitNullValueCurrentUserPublic; set { _explicitNullValueCurrentUserPublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public"); else _explicitNullProperties?.Remove("current_user_public"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType CurrentUserPublic { get => _explicitNullValueCurrentUserPublic; set { _explicitNullValueCurrentUserPublic = value; AdditionalData?.Remove("current_user_public"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_user_public"); else _explicitNullProperties?.Remove("current_user_public"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueCurrentUserPublic = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? RepositoryDiscussions { get => _explicitNullValueRepositoryDiscussions; set { _explicitNullValueRepositoryDiscussions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions"); else _explicitNullProperties?.Remove("repository_discussions"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? RepositoryDiscussions { get => _explicitNullValueRepositoryDiscussions; set { _explicitNullValueRepositoryDiscussions = value; AdditionalData?.Remove("repository_discussions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions"); else _explicitNullProperties?.Remove("repository_discussions"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueRepositoryDiscussions = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType RepositoryDiscussions { get => _explicitNullValueRepositoryDiscussions; set { _explicitNullValueRepositoryDiscussions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions"); else _explicitNullProperties?.Remove("repository_discussions"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType RepositoryDiscussions { get => _explicitNullValueRepositoryDiscussions; set { _explicitNullValueRepositoryDiscussions = value; AdditionalData?.Remove("repository_discussions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions"); else _explicitNullProperties?.Remove("repository_discussions"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueRepositoryDiscussions = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? RepositoryDiscussionsCategory { get => _explicitNullValueRepositoryDiscussionsCategory; set { _explicitNullValueRepositoryDiscussionsCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category"); else _explicitNullProperties?.Remove("repository_discussions_category"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? RepositoryDiscussionsCategory { get => _explicitNullValueRepositoryDiscussionsCategory; set { _explicitNullValueRepositoryDiscussionsCategory = value; AdditionalData?.Remove("repository_discussions_category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category"); else _explicitNullProperties?.Remove("repository_discussions_category"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueRepositoryDiscussionsCategory = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType RepositoryDiscussionsCategory { get => _explicitNullValueRepositoryDiscussionsCategory; set { _explicitNullValueRepositoryDiscussionsCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category"); else _explicitNullProperties?.Remove("repository_discussions_category"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType RepositoryDiscussionsCategory { get => _explicitNullValueRepositoryDiscussionsCategory; set { _explicitNullValueRepositoryDiscussionsCategory = value; AdditionalData?.Remove("repository_discussions_category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repository_discussions_category"); else _explicitNullProperties?.Remove("repository_discussions_category"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueRepositoryDiscussionsCategory = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? SecurityAdvisories { get => _explicitNullValueSecurityAdvisories; set { _explicitNullValueSecurityAdvisories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories"); else _explicitNullProperties?.Remove("security_advisories"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? SecurityAdvisories { get => _explicitNullValueSecurityAdvisories; set { _explicitNullValueSecurityAdvisories = value; AdditionalData?.Remove("security_advisories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories"); else _explicitNullProperties?.Remove("security_advisories"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueSecurityAdvisories = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType SecurityAdvisories { get => _explicitNullValueSecurityAdvisories; set { _explicitNullValueSecurityAdvisories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories"); else _explicitNullProperties?.Remove("security_advisories"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType SecurityAdvisories { get => _explicitNullValueSecurityAdvisories; set { _explicitNullValueSecurityAdvisories = value; AdditionalData?.Remove("security_advisories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_advisories"); else _explicitNullProperties?.Remove("security_advisories"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueSecurityAdvisories = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? Timeline { get => _explicitNullValueTimeline; set { _explicitNullValueTimeline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline"); else _explicitNullProperties?.Remove("timeline"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? Timeline { get => _explicitNullValueTimeline; set { _explicitNullValueTimeline = value; AdditionalData?.Remove("timeline"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline"); else _explicitNullProperties?.Remove("timeline"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueTimeline = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType Timeline { get => _explicitNullValueTimeline; set { _explicitNullValueTimeline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline"); else _explicitNullProperties?.Remove("timeline"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType Timeline { get => _explicitNullValueTimeline; set { _explicitNullValueTimeline = value; AdditionalData?.Remove("timeline"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeline"); else _explicitNullProperties?.Remove("timeline"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueTimeline = default!;
 #endif
         /// <summary>Hypermedia Link with Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.LinkWithType _explicitNullValueUser = default!;
 #endif
         /// <summary>

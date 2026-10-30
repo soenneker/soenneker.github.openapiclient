@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("query_suite") is { } nullNodeQuerySuite && nullNodeQuerySuite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuerySuite = null;
+            if (parseNode.GetChildNode("query_suite") is null) { _explicitNullValueQuerySuite = default!; _explicitNullProperties?.Remove("query_suite"); }
+            else if (parseNode.GetChildNode("query_suite") is { } nullNodeQuerySuite && nullNodeQuerySuite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuerySuite = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>CodeQL query suite to be used. If you specify the `query_suite` parameter, the default setup will be configured with this query suite only on all repositories that didn&apos;t have default setup already configured. It will not change the query suite on repositories that already have default setup configured.If you don&apos;t specify any `query_suite` in your request, the preferred query suite of the organization will be applied.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsEnableOrDisableSecurityProductOnAllOrgReposRequestQuerySuite? QuerySuite { get => _explicitNullValueQuerySuite; set { _explicitNullValueQuerySuite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_suite"); else _explicitNullProperties?.Remove("query_suite"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsEnableOrDisableSecurityProductOnAllOrgReposRequestQuerySuite? QuerySuite { get => _explicitNullValueQuerySuite; set { _explicitNullValueQuerySuite = value; AdditionalData?.Remove("query_suite"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_suite"); else _explicitNullProperties?.Remove("query_suite"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OrgsEnableOrDisableSecurityProductOnAllOrgReposRequestQuerySuite? _explicitNullValueQuerySuite = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.OrgsEnableOrDisableSecurityProductOnAllOrgReposRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "query_suite", n => { QuerySuite = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsEnableOrDisableSecurityProductOnAllOrgReposRequestQuerySuite>(); } },
+                { "query_suite", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsEnableOrDisableSecurityProductOnAllOrgReposRequestQuerySuite>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueQuerySuite = default; _explicitNullProperties?.Remove("query_suite"); AdditionalData["query_suite"] = unknown; } else { QuerySuite = parsed; AdditionalData.Remove("query_suite"); } } },
             };
         }
         /// <summary>

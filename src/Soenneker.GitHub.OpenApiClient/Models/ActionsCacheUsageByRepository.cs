@@ -18,27 +18,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active_caches_count") is { } nullNodeActiveCachesCount && nullNodeActiveCachesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveCachesCount = null;
-            if (parseNode.GetChildNode("active_caches_size_in_bytes") is { } nullNodeActiveCachesSizeInBytes && nullNodeActiveCachesSizeInBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveCachesSizeInBytes = null;
-            if (parseNode.GetChildNode("full_name") is { } nullNodeFullName && nullNodeFullName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullName = null;
+            if (parseNode.GetChildNode("active_caches_count") is null) { _explicitNullValueActiveCachesCount = default!; _explicitNullProperties?.Remove("active_caches_count"); }
+            else if (parseNode.GetChildNode("active_caches_count") is { } nullNodeActiveCachesCount && nullNodeActiveCachesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveCachesCount = null;
+            if (parseNode.GetChildNode("active_caches_size_in_bytes") is null) { _explicitNullValueActiveCachesSizeInBytes = default!; _explicitNullProperties?.Remove("active_caches_size_in_bytes"); }
+            else if (parseNode.GetChildNode("active_caches_size_in_bytes") is { } nullNodeActiveCachesSizeInBytes && nullNodeActiveCachesSizeInBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveCachesSizeInBytes = null;
+            if (parseNode.GetChildNode("full_name") is null) { _explicitNullValueFullName = default!; _explicitNullProperties?.Remove("full_name"); }
+            else if (parseNode.GetChildNode("full_name") is { } nullNodeFullName && nullNodeFullName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullName = null;
         }
 
         /// <summary>The number of active caches in the repository.</summary>
-        public int? ActiveCachesCount { get => _explicitNullValueActiveCachesCount; set { _explicitNullValueActiveCachesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_caches_count"); else _explicitNullProperties?.Remove("active_caches_count"); } }
+        public int? ActiveCachesCount { get => _explicitNullValueActiveCachesCount; set { _explicitNullValueActiveCachesCount = value; AdditionalData?.Remove("active_caches_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_caches_count"); else _explicitNullProperties?.Remove("active_caches_count"); } }
         private int? _explicitNullValueActiveCachesCount = default!;
         /// <summary>The sum of the size in bytes of all the active cache items in the repository.</summary>
-        public int? ActiveCachesSizeInBytes { get => _explicitNullValueActiveCachesSizeInBytes; set { _explicitNullValueActiveCachesSizeInBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_caches_size_in_bytes"); else _explicitNullProperties?.Remove("active_caches_size_in_bytes"); } }
+        public int? ActiveCachesSizeInBytes { get => _explicitNullValueActiveCachesSizeInBytes; set { _explicitNullValueActiveCachesSizeInBytes = value; AdditionalData?.Remove("active_caches_size_in_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_caches_size_in_bytes"); else _explicitNullProperties?.Remove("active_caches_size_in_bytes"); } }
         private int? _explicitNullValueActiveCachesSizeInBytes = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The repository owner and name for the cache usage being shown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
+        public string? FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; AdditionalData?.Remove("full_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
         private string? _explicitNullValueFullName = default!;
 #nullable restore
 #else
-        public string FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
+        public string FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; AdditionalData?.Remove("full_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_name"); else _explicitNullProperties?.Remove("full_name"); } }
         private string _explicitNullValueFullName = default!;
 #endif
         /// <summary>

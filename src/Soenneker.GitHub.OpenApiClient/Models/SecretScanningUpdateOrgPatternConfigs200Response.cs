@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
+            if (parseNode.GetChildNode("pattern_config_version") is null) { _explicitNullValuePatternConfigVersion = default!; _explicitNullProperties?.Remove("pattern_config_version"); }
+            else if (parseNode.GetChildNode("pattern_config_version") is { } nullNodePatternConfigVersion && nullNodePatternConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PatternConfigVersion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The updated pattern configuration version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        public string? PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; AdditionalData?.Remove("pattern_config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
         private string? _explicitNullValuePatternConfigVersion = default!;
 #nullable restore
 #else
-        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
+        public string PatternConfigVersion { get => _explicitNullValuePatternConfigVersion; set { _explicitNullValuePatternConfigVersion = value; AdditionalData?.Remove("pattern_config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pattern_config_version"); else _explicitNullProperties?.Remove("pattern_config_version"); } }
         private string _explicitNullValuePatternConfigVersion = default!;
 #endif
         /// <summary>

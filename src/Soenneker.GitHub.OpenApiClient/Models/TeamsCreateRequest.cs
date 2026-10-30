@@ -17,15 +17,24 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("maintainers") is { } nullNodeMaintainers && nullNodeMaintainers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maintainers = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("notification_setting") is { } nullNodeNotificationSetting && nullNodeNotificationSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationSetting = null;
-            if (parseNode.GetChildNode("parent_team_id") is { } nullNodeParentTeamId && nullNodeParentTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentTeamId = null;
-            if (parseNode.GetChildNode("parent_team_slug") is { } nullNodeParentTeamSlug && nullNodeParentTeamSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentTeamSlug = null;
-            if (parseNode.GetChildNode("permission") is { } nullNodePermission && nullNodePermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permission = null;
-            if (parseNode.GetChildNode("privacy") is { } nullNodePrivacy && nullNodePrivacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Privacy = null;
-            if (parseNode.GetChildNode("repo_names") is { } nullNodeRepoNames && nullNodeRepoNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepoNames = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("maintainers") is null) { _explicitNullValueMaintainers = default!; _explicitNullProperties?.Remove("maintainers"); }
+            else if (parseNode.GetChildNode("maintainers") is { } nullNodeMaintainers && nullNodeMaintainers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maintainers = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("notification_setting") is null) { _explicitNullValueNotificationSetting = default!; _explicitNullProperties?.Remove("notification_setting"); }
+            else if (parseNode.GetChildNode("notification_setting") is { } nullNodeNotificationSetting && nullNodeNotificationSetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotificationSetting = null;
+            if (parseNode.GetChildNode("parent_team_id") is null) { _explicitNullValueParentTeamId = default!; _explicitNullProperties?.Remove("parent_team_id"); }
+            else if (parseNode.GetChildNode("parent_team_id") is { } nullNodeParentTeamId && nullNodeParentTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentTeamId = null;
+            if (parseNode.GetChildNode("parent_team_slug") is null) { _explicitNullValueParentTeamSlug = default!; _explicitNullProperties?.Remove("parent_team_slug"); }
+            else if (parseNode.GetChildNode("parent_team_slug") is { } nullNodeParentTeamSlug && nullNodeParentTeamSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentTeamSlug = null;
+            if (parseNode.GetChildNode("permission") is null) { _explicitNullValuePermission = default!; _explicitNullProperties?.Remove("permission"); }
+            else if (parseNode.GetChildNode("permission") is { } nullNodePermission && nullNodePermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permission = null;
+            if (parseNode.GetChildNode("privacy") is null) { _explicitNullValuePrivacy = default!; _explicitNullProperties?.Remove("privacy"); }
+            else if (parseNode.GetChildNode("privacy") is { } nullNodePrivacy && nullNodePrivacy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Privacy = null;
+            if (parseNode.GetChildNode("repo_names") is null) { _explicitNullValueRepoNames = default!; _explicitNullProperties?.Remove("repo_names"); }
+            else if (parseNode.GetChildNode("repo_names") is { } nullNodeRepoNames && nullNodeRepoNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepoNames = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,63 +42,63 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The description of the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>List GitHub usernames for organization members who will become team maintainers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Maintainers { get => _explicitNullValueMaintainers; set { _explicitNullValueMaintainers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintainers"); else _explicitNullProperties?.Remove("maintainers"); } }
+        public List<string>? Maintainers { get => _explicitNullValueMaintainers; set { _explicitNullValueMaintainers = value; AdditionalData?.Remove("maintainers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintainers"); else _explicitNullProperties?.Remove("maintainers"); } }
         private List<string>? _explicitNullValueMaintainers = default!;
 #nullable restore
 #else
-        public List<string> Maintainers { get => _explicitNullValueMaintainers; set { _explicitNullValueMaintainers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintainers"); else _explicitNullProperties?.Remove("maintainers"); } }
+        public List<string> Maintainers { get => _explicitNullValueMaintainers; set { _explicitNullValueMaintainers = value; AdditionalData?.Remove("maintainers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintainers"); else _explicitNullProperties?.Remove("maintainers"); } }
         private List<string> _explicitNullValueMaintainers = default!;
 #endif
         /// <summary>The name of the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The notification setting the team has chosen. The options are:   * `notifications_enabled` - team members receive notifications when the team is @mentioned.   * `notifications_disabled` - no one receives notifications.  Default: `notifications_enabled`</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting? NotificationSetting { get => _explicitNullValueNotificationSetting; set { _explicitNullValueNotificationSetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_setting"); else _explicitNullProperties?.Remove("notification_setting"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting? NotificationSetting { get => _explicitNullValueNotificationSetting; set { _explicitNullValueNotificationSetting = value; AdditionalData?.Remove("notification_setting"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notification_setting"); else _explicitNullProperties?.Remove("notification_setting"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting? _explicitNullValueNotificationSetting = default!;
         /// <summary>The ID of a team to set as the parent team.</summary>
-        public long? ParentTeamId { get => _explicitNullValueParentTeamId; set { _explicitNullValueParentTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_team_id"); else _explicitNullProperties?.Remove("parent_team_id"); } }
+        public long? ParentTeamId { get => _explicitNullValueParentTeamId; set { _explicitNullValueParentTeamId = value; AdditionalData?.Remove("parent_team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_team_id"); else _explicitNullProperties?.Remove("parent_team_id"); } }
         private long? _explicitNullValueParentTeamId = default!;
         /// <summary>The slug of a team to set as the parent team. Ignored when `parent_team_id` is also provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentTeamSlug { get => _explicitNullValueParentTeamSlug; set { _explicitNullValueParentTeamSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_team_slug"); else _explicitNullProperties?.Remove("parent_team_slug"); } }
+        public string? ParentTeamSlug { get => _explicitNullValueParentTeamSlug; set { _explicitNullValueParentTeamSlug = value; AdditionalData?.Remove("parent_team_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_team_slug"); else _explicitNullProperties?.Remove("parent_team_slug"); } }
         private string? _explicitNullValueParentTeamSlug = default!;
 #nullable restore
 #else
-        public string ParentTeamSlug { get => _explicitNullValueParentTeamSlug; set { _explicitNullValueParentTeamSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_team_slug"); else _explicitNullProperties?.Remove("parent_team_slug"); } }
+        public string ParentTeamSlug { get => _explicitNullValueParentTeamSlug; set { _explicitNullValueParentTeamSlug = value; AdditionalData?.Remove("parent_team_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_team_slug"); else _explicitNullProperties?.Remove("parent_team_slug"); } }
         private string _explicitNullValueParentTeamSlug = default!;
 #endif
         /// <summary>**Closing down notice**. The permission that new repositories will be added to the team with when none is specified.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission? Permission { get => _explicitNullValuePermission; set { _explicitNullValuePermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permission"); else _explicitNullProperties?.Remove("permission"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission? Permission { get => _explicitNullValuePermission; set { _explicitNullValuePermission = value; AdditionalData?.Remove("permission"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permission"); else _explicitNullProperties?.Remove("permission"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission? _explicitNullValuePermission = default!;
         /// <summary>The level of privacy this team should have. The options are:  **For a non-nested team:**   * `secret` - only visible to organization owners and members of this team.   * `closed` - visible to all members of this organization.  Default: `secret`  **For a parent or child team:**   * `closed` - visible to all members of this organization.  Default for child team: `closed`</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy? Privacy { get => _explicitNullValuePrivacy; set { _explicitNullValuePrivacy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privacy"); else _explicitNullProperties?.Remove("privacy"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy? Privacy { get => _explicitNullValuePrivacy; set { _explicitNullValuePrivacy = value; AdditionalData?.Remove("privacy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privacy"); else _explicitNullProperties?.Remove("privacy"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy? _explicitNullValuePrivacy = default!;
         /// <summary>The full name (e.g., &quot;organization-name/repository-name&quot;) of repositories to add the team to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RepoNames { get => _explicitNullValueRepoNames; set { _explicitNullValueRepoNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repo_names"); else _explicitNullProperties?.Remove("repo_names"); } }
+        public List<string>? RepoNames { get => _explicitNullValueRepoNames; set { _explicitNullValueRepoNames = value; AdditionalData?.Remove("repo_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repo_names"); else _explicitNullProperties?.Remove("repo_names"); } }
         private List<string>? _explicitNullValueRepoNames = default!;
 #nullable restore
 #else
-        public List<string> RepoNames { get => _explicitNullValueRepoNames; set { _explicitNullValueRepoNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repo_names"); else _explicitNullProperties?.Remove("repo_names"); } }
+        public List<string> RepoNames { get => _explicitNullValueRepoNames; set { _explicitNullValueRepoNames = value; AdditionalData?.Remove("repo_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repo_names"); else _explicitNullProperties?.Remove("repo_names"); } }
         private List<string> _explicitNullValueRepoNames = default!;
 #endif
         /// <summary>
@@ -120,11 +129,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "maintainers", n => { Maintainers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "notification_setting", n => { NotificationSetting = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting>(); } },
+                { "notification_setting", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestNotificationSetting>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNotificationSetting = default; _explicitNullProperties?.Remove("notification_setting"); AdditionalData["notification_setting"] = unknown; } else { NotificationSetting = parsed; AdditionalData.Remove("notification_setting"); } } },
                 { "parent_team_id", n => { ParentTeamId = n.GetLongValue(); } },
                 { "parent_team_slug", n => { ParentTeamSlug = n.GetStringValue(); } },
-                { "permission", n => { Permission = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission>(); } },
-                { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy>(); } },
+                { "permission", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPermission>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePermission = default; _explicitNullProperties?.Remove("permission"); AdditionalData["permission"] = unknown; } else { Permission = parsed; AdditionalData.Remove("permission"); } } },
+                { "privacy", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.TeamsCreateRequestPrivacy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePrivacy = default; _explicitNullProperties?.Remove("privacy"); AdditionalData["privacy"] = unknown; } else { Privacy = parsed; AdditionalData.Remove("privacy"); } } },
                 { "repo_names", n => { RepoNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }

@@ -18,17 +18,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custom_branch_policies") is { } nullNodeCustomBranchPolicies && nullNodeCustomBranchPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomBranchPolicies = null;
-            if (parseNode.GetChildNode("protected_branches") is { } nullNodeProtectedBranches && nullNodeProtectedBranches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProtectedBranches = null;
+            if (parseNode.GetChildNode("custom_branch_policies") is null) { _explicitNullValueCustomBranchPolicies = default!; _explicitNullProperties?.Remove("custom_branch_policies"); }
+            else if (parseNode.GetChildNode("custom_branch_policies") is { } nullNodeCustomBranchPolicies && nullNodeCustomBranchPolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomBranchPolicies = null;
+            if (parseNode.GetChildNode("protected_branches") is null) { _explicitNullValueProtectedBranches = default!; _explicitNullProperties?.Remove("protected_branches"); }
+            else if (parseNode.GetChildNode("protected_branches") is { } nullNodeProtectedBranches && nullNodeProtectedBranches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProtectedBranches = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether only branches that match the specified name patterns can deploy to this environment.  If `custom_branch_policies` is `true`, `protected_branches` must be `false`; if `custom_branch_policies` is `false`, `protected_branches` must be `true`.</summary>
-        public bool? CustomBranchPolicies { get => _explicitNullValueCustomBranchPolicies; set { _explicitNullValueCustomBranchPolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_branch_policies"); else _explicitNullProperties?.Remove("custom_branch_policies"); } }
+        public bool? CustomBranchPolicies { get => _explicitNullValueCustomBranchPolicies; set { _explicitNullValueCustomBranchPolicies = value; AdditionalData?.Remove("custom_branch_policies"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_branch_policies"); else _explicitNullProperties?.Remove("custom_branch_policies"); } }
         private bool? _explicitNullValueCustomBranchPolicies = default!;
         /// <summary>Whether only branches with branch protection rules can deploy to this environment. If `protected_branches` is `true`, `custom_branch_policies` must be `false`; if `protected_branches` is `false`, `custom_branch_policies` must be `true`.</summary>
-        public bool? ProtectedBranches { get => _explicitNullValueProtectedBranches; set { _explicitNullValueProtectedBranches = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protected_branches"); else _explicitNullProperties?.Remove("protected_branches"); } }
+        public bool? ProtectedBranches { get => _explicitNullValueProtectedBranches; set { _explicitNullValueProtectedBranches = value; AdditionalData?.Remove("protected_branches"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protected_branches"); else _explicitNullProperties?.Remove("protected_branches"); } }
         private bool? _explicitNullValueProtectedBranches = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DeploymentBranchPolicySettings"/> and sets the default values.

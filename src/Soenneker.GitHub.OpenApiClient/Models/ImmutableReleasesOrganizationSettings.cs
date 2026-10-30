@@ -18,23 +18,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enforced_repositories") is { } nullNodeEnforcedRepositories && nullNodeEnforcedRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnforcedRepositories = null;
-            if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
+            if (parseNode.GetChildNode("enforced_repositories") is null) { _explicitNullValueEnforcedRepositories = default!; _explicitNullProperties?.Remove("enforced_repositories"); }
+            else if (parseNode.GetChildNode("enforced_repositories") is { } nullNodeEnforcedRepositories && nullNodeEnforcedRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnforcedRepositories = null;
+            if (parseNode.GetChildNode("selected_repositories_url") is null) { _explicitNullValueSelectedRepositoriesUrl = default!; _explicitNullProperties?.Remove("selected_repositories_url"); }
+            else if (parseNode.GetChildNode("selected_repositories_url") is { } nullNodeSelectedRepositoriesUrl && nullNodeSelectedRepositoriesUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedRepositoriesUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policy that controls how immutable releases are enforced in the organization.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? EnforcedRepositories { get => _explicitNullValueEnforcedRepositories; set { _explicitNullValueEnforcedRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforced_repositories"); else _explicitNullProperties?.Remove("enforced_repositories"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? EnforcedRepositories { get => _explicitNullValueEnforcedRepositories; set { _explicitNullValueEnforcedRepositories = value; AdditionalData?.Remove("enforced_repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enforced_repositories"); else _explicitNullProperties?.Remove("enforced_repositories"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories? _explicitNullValueEnforcedRepositories = default!;
         /// <summary>The API URL to use to get or set the selected repositories for immutable releases enforcement, when `enforced_repositories` is set to `selected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        public string? SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; AdditionalData?.Remove("selected_repositories_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
         private string? _explicitNullValueSelectedRepositoriesUrl = default!;
 #nullable restore
 #else
-        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
+        public string SelectedRepositoriesUrl { get => _explicitNullValueSelectedRepositoriesUrl; set { _explicitNullValueSelectedRepositoriesUrl = value; AdditionalData?.Remove("selected_repositories_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_repositories_url"); else _explicitNullProperties?.Remove("selected_repositories_url"); } }
         private string _explicitNullValueSelectedRepositoriesUrl = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "enforced_repositories", n => { EnforcedRepositories = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories>(); } },
+                { "enforced_repositories", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.ImmutableReleasesOrganizationSettingsEnforcedRepositories>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEnforcedRepositories = default; _explicitNullProperties?.Remove("enforced_repositories"); AdditionalData["enforced_repositories"] = unknown; } else { EnforcedRepositories = parsed; AdditionalData.Remove("enforced_repositories"); } } },
                 { "selected_repositories_url", n => { SelectedRepositoriesUrl = n.GetStringValue(); } },
             };
         }

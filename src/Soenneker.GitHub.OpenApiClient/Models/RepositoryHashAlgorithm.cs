@@ -18,13 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hash_algorithm") is { } nullNodeHashAlgorithm && nullNodeHashAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HashAlgorithm = null;
+            if (parseNode.GetChildNode("hash_algorithm") is null) { _explicitNullValueHashAlgorithm = default!; _explicitNullProperties?.Remove("hash_algorithm"); }
+            else if (parseNode.GetChildNode("hash_algorithm") is { } nullNodeHashAlgorithm && nullNodeHashAlgorithm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HashAlgorithm = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Git hash algorithm used by this repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryHashAlgorithmHashAlgorithm? HashAlgorithm { get => _explicitNullValueHashAlgorithm; set { _explicitNullValueHashAlgorithm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hash_algorithm"); else _explicitNullProperties?.Remove("hash_algorithm"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryHashAlgorithmHashAlgorithm? HashAlgorithm { get => _explicitNullValueHashAlgorithm; set { _explicitNullValueHashAlgorithm = value; AdditionalData?.Remove("hash_algorithm"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hash_algorithm"); else _explicitNullProperties?.Remove("hash_algorithm"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryHashAlgorithmHashAlgorithm? _explicitNullValueHashAlgorithm = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryHashAlgorithm"/> and sets the default values.
@@ -51,7 +52,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "hash_algorithm", n => { HashAlgorithm = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryHashAlgorithmHashAlgorithm>(); } },
+                { "hash_algorithm", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryHashAlgorithmHashAlgorithm>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHashAlgorithm = default; _explicitNullProperties?.Remove("hash_algorithm"); AdditionalData["hash_algorithm"] = unknown; } else { HashAlgorithm = parsed; AdditionalData.Remove("hash_algorithm"); } } },
             };
         }
         /// <summary>

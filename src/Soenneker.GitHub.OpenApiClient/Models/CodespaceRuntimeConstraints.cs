@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_port_privacy_settings") is { } nullNodeAllowedPortPrivacySettings && nullNodeAllowedPortPrivacySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedPortPrivacySettings = null;
+            if (parseNode.GetChildNode("allowed_port_privacy_settings") is null) { _explicitNullValueAllowedPortPrivacySettings = default!; _explicitNullProperties?.Remove("allowed_port_privacy_settings"); }
+            else if (parseNode.GetChildNode("allowed_port_privacy_settings") is { } nullNodeAllowedPortPrivacySettings && nullNodeAllowedPortPrivacySettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedPortPrivacySettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The privacy settings a user can select from when forwarding a port.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedPortPrivacySettings { get => _explicitNullValueAllowedPortPrivacySettings; set { _explicitNullValueAllowedPortPrivacySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_port_privacy_settings"); else _explicitNullProperties?.Remove("allowed_port_privacy_settings"); } }
+        public List<string>? AllowedPortPrivacySettings { get => _explicitNullValueAllowedPortPrivacySettings; set { _explicitNullValueAllowedPortPrivacySettings = value; AdditionalData?.Remove("allowed_port_privacy_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_port_privacy_settings"); else _explicitNullProperties?.Remove("allowed_port_privacy_settings"); } }
         private List<string>? _explicitNullValueAllowedPortPrivacySettings = default!;
 #nullable restore
 #else
-        public List<string> AllowedPortPrivacySettings { get => _explicitNullValueAllowedPortPrivacySettings; set { _explicitNullValueAllowedPortPrivacySettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_port_privacy_settings"); else _explicitNullProperties?.Remove("allowed_port_privacy_settings"); } }
+        public List<string> AllowedPortPrivacySettings { get => _explicitNullValueAllowedPortPrivacySettings; set { _explicitNullValueAllowedPortPrivacySettings = value; AdditionalData?.Remove("allowed_port_privacy_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_port_privacy_settings"); else _explicitNullProperties?.Remove("allowed_port_privacy_settings"); } }
         private List<string> _explicitNullValueAllowedPortPrivacySettings = default!;
 #endif
         /// <summary>

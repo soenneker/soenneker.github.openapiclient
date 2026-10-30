@@ -18,13 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("seats_created") is { } nullNodeSeatsCreated && nullNodeSeatsCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatsCreated = null;
+            if (parseNode.GetChildNode("seats_created") is null) { _explicitNullValueSeatsCreated = default!; _explicitNullProperties?.Remove("seats_created"); }
+            else if (parseNode.GetChildNode("seats_created") is { } nullNodeSeatsCreated && nullNodeSeatsCreated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatsCreated = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The seats_created property</summary>
-        public int? SeatsCreated { get => _explicitNullValueSeatsCreated; set { _explicitNullValueSeatsCreated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats_created"); else _explicitNullProperties?.Remove("seats_created"); } }
+        public int? SeatsCreated { get => _explicitNullValueSeatsCreated; set { _explicitNullValueSeatsCreated = value; AdditionalData?.Remove("seats_created"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats_created"); else _explicitNullProperties?.Remove("seats_created"); } }
         private int? _explicitNullValueSeatsCreated = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CopilotAddCopilotSeatsForUsers201Response"/> and sets the default values.

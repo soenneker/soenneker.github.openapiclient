@@ -17,29 +17,34 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("admin") is { } nullNodeAdmin && nullNodeAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Admin = null;
-            if (parseNode.GetChildNode("maintain") is { } nullNodeMaintain && nullNodeMaintain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maintain = null;
-            if (parseNode.GetChildNode("pull") is { } nullNodePull && nullNodePull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pull = null;
-            if (parseNode.GetChildNode("push") is { } nullNodePush && nullNodePush.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Push = null;
-            if (parseNode.GetChildNode("triage") is { } nullNodeTriage && nullNodeTriage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triage = null;
+            if (parseNode.GetChildNode("admin") is null) { _explicitNullValueAdmin = default!; _explicitNullProperties?.Remove("admin"); }
+            else if (parseNode.GetChildNode("admin") is { } nullNodeAdmin && nullNodeAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Admin = null;
+            if (parseNode.GetChildNode("maintain") is null) { _explicitNullValueMaintain = default!; _explicitNullProperties?.Remove("maintain"); }
+            else if (parseNode.GetChildNode("maintain") is { } nullNodeMaintain && nullNodeMaintain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Maintain = null;
+            if (parseNode.GetChildNode("pull") is null) { _explicitNullValuePull = default!; _explicitNullProperties?.Remove("pull"); }
+            else if (parseNode.GetChildNode("pull") is { } nullNodePull && nullNodePull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pull = null;
+            if (parseNode.GetChildNode("push") is null) { _explicitNullValuePush = default!; _explicitNullProperties?.Remove("push"); }
+            else if (parseNode.GetChildNode("push") is { } nullNodePush && nullNodePush.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Push = null;
+            if (parseNode.GetChildNode("triage") is null) { _explicitNullValueTriage = default!; _explicitNullProperties?.Remove("triage"); }
+            else if (parseNode.GetChildNode("triage") is { } nullNodeTriage && nullNodeTriage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The admin property</summary>
-        public bool? Admin { get => _explicitNullValueAdmin; set { _explicitNullValueAdmin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin"); else _explicitNullProperties?.Remove("admin"); } }
+        public bool? Admin { get => _explicitNullValueAdmin; set { _explicitNullValueAdmin = value; AdditionalData?.Remove("admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin"); else _explicitNullProperties?.Remove("admin"); } }
         private bool? _explicitNullValueAdmin = default!;
         /// <summary>The maintain property</summary>
-        public bool? Maintain { get => _explicitNullValueMaintain; set { _explicitNullValueMaintain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintain"); else _explicitNullProperties?.Remove("maintain"); } }
+        public bool? Maintain { get => _explicitNullValueMaintain; set { _explicitNullValueMaintain = value; AdditionalData?.Remove("maintain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintain"); else _explicitNullProperties?.Remove("maintain"); } }
         private bool? _explicitNullValueMaintain = default!;
         /// <summary>The pull property</summary>
-        public bool? Pull { get => _explicitNullValuePull; set { _explicitNullValuePull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull"); else _explicitNullProperties?.Remove("pull"); } }
+        public bool? Pull { get => _explicitNullValuePull; set { _explicitNullValuePull = value; AdditionalData?.Remove("pull"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pull"); else _explicitNullProperties?.Remove("pull"); } }
         private bool? _explicitNullValuePull = default!;
         /// <summary>The push property</summary>
-        public bool? Push { get => _explicitNullValuePush; set { _explicitNullValuePush = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push"); else _explicitNullProperties?.Remove("push"); } }
+        public bool? Push { get => _explicitNullValuePush; set { _explicitNullValuePush = value; AdditionalData?.Remove("push"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("push"); else _explicitNullProperties?.Remove("push"); } }
         private bool? _explicitNullValuePush = default!;
         /// <summary>The triage property</summary>
-        public bool? Triage { get => _explicitNullValueTriage; set { _explicitNullValueTriage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triage"); else _explicitNullProperties?.Remove("triage"); } }
+        public bool? Triage { get => _explicitNullValueTriage; set { _explicitNullValueTriage = value; AdditionalData?.Remove("triage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triage"); else _explicitNullProperties?.Remove("triage"); } }
         private bool? _explicitNullValueTriage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.FullRepositoryPermissions"/> and sets the default values.

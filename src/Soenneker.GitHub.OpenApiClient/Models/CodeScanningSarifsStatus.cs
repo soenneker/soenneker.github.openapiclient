@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("processing_status") is { } nullNodeProcessingStatus && nullNodeProcessingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessingStatus = null;
+            if (parseNode.GetChildNode("processing_status") is null) { _explicitNullValueProcessingStatus = default!; _explicitNullProperties?.Remove("processing_status"); }
+            else if (parseNode.GetChildNode("processing_status") is { } nullNodeProcessingStatus && nullNodeProcessingStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessingStatus = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,7 +40,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         public List<string> Errors { get; private set; }
 #endif
         /// <summary>`pending` files have not yet been processed, while `complete` means results from the SARIF have been stored. `failed` files have either not been processed at all, or could only be partially processed.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus? ProcessingStatus { get => _explicitNullValueProcessingStatus; set { _explicitNullValueProcessingStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processing_status"); else _explicitNullProperties?.Remove("processing_status"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus? ProcessingStatus { get => _explicitNullValueProcessingStatus; set { _explicitNullValueProcessingStatus = value; AdditionalData?.Remove("processing_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processing_status"); else _explicitNullProperties?.Remove("processing_status"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus? _explicitNullValueProcessingStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatus"/> and sets the default values.
@@ -68,7 +69,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 { "analyses_url", n => { AnalysesUrl = n.GetStringValue(); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "processing_status", n => { ProcessingStatus = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus>(); } },
+                { "processing_status", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningSarifsStatusProcessingStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProcessingStatus = default; _explicitNullProperties?.Remove("processing_status"); AdditionalData["processing_status"] = unknown; } else { ProcessingStatus = parsed; AdditionalData.Remove("processing_status"); } } },
             };
         }
         /// <summary>

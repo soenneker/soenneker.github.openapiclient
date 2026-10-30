@@ -17,17 +17,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("replace_parent") is { } nullNodeReplaceParent && nullNodeReplaceParent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplaceParent = null;
-            if (parseNode.GetChildNode("sub_issue_id") is { } nullNodeSubIssueId && nullNodeSubIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubIssueId = null;
+            if (parseNode.GetChildNode("replace_parent") is null) { _explicitNullValueReplaceParent = default!; _explicitNullProperties?.Remove("replace_parent"); }
+            else if (parseNode.GetChildNode("replace_parent") is { } nullNodeReplaceParent && nullNodeReplaceParent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplaceParent = null;
+            if (parseNode.GetChildNode("sub_issue_id") is null) { _explicitNullValueSubIssueId = default!; _explicitNullProperties?.Remove("sub_issue_id"); }
+            else if (parseNode.GetChildNode("sub_issue_id") is { } nullNodeSubIssueId && nullNodeSubIssueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubIssueId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Option that, when true, instructs the operation to replace the sub-issues current parent issue</summary>
-        public bool? ReplaceParent { get => _explicitNullValueReplaceParent; set { _explicitNullValueReplaceParent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replace_parent"); else _explicitNullProperties?.Remove("replace_parent"); } }
+        public bool? ReplaceParent { get => _explicitNullValueReplaceParent; set { _explicitNullValueReplaceParent = value; AdditionalData?.Remove("replace_parent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replace_parent"); else _explicitNullProperties?.Remove("replace_parent"); } }
         private bool? _explicitNullValueReplaceParent = default!;
         /// <summary>The id of the sub-issue to add. The sub-issue must belong to the same repository owner as the parent issue</summary>
-        public long? SubIssueId { get => _explicitNullValueSubIssueId; set { _explicitNullValueSubIssueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_issue_id"); else _explicitNullProperties?.Remove("sub_issue_id"); } }
+        public long? SubIssueId { get => _explicitNullValueSubIssueId; set { _explicitNullValueSubIssueId = value; AdditionalData?.Remove("sub_issue_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sub_issue_id"); else _explicitNullProperties?.Remove("sub_issue_id"); } }
         private long? _explicitNullValueSubIssueId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddSubIssueRequest"/> and sets the default values.

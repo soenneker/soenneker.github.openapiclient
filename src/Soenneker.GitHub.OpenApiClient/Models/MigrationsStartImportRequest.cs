@@ -17,11 +17,16 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tfvc_project") is { } nullNodeTfvcProject && nullNodeTfvcProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TfvcProject = null;
-            if (parseNode.GetChildNode("vcs") is { } nullNodeVcs && nullNodeVcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcs = null;
-            if (parseNode.GetChildNode("vcs_password") is { } nullNodeVcsPassword && nullNodeVcsPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsPassword = null;
-            if (parseNode.GetChildNode("vcs_url") is { } nullNodeVcsUrl && nullNodeVcsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsUrl = null;
-            if (parseNode.GetChildNode("vcs_username") is { } nullNodeVcsUsername && nullNodeVcsUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsUsername = null;
+            if (parseNode.GetChildNode("tfvc_project") is null) { _explicitNullValueTfvcProject = default!; _explicitNullProperties?.Remove("tfvc_project"); }
+            else if (parseNode.GetChildNode("tfvc_project") is { } nullNodeTfvcProject && nullNodeTfvcProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TfvcProject = null;
+            if (parseNode.GetChildNode("vcs") is null) { _explicitNullValueVcs = default!; _explicitNullProperties?.Remove("vcs"); }
+            else if (parseNode.GetChildNode("vcs") is { } nullNodeVcs && nullNodeVcs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vcs = null;
+            if (parseNode.GetChildNode("vcs_password") is null) { _explicitNullValueVcsPassword = default!; _explicitNullProperties?.Remove("vcs_password"); }
+            else if (parseNode.GetChildNode("vcs_password") is { } nullNodeVcsPassword && nullNodeVcsPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsPassword = null;
+            if (parseNode.GetChildNode("vcs_url") is null) { _explicitNullValueVcsUrl = default!; _explicitNullProperties?.Remove("vcs_url"); }
+            else if (parseNode.GetChildNode("vcs_url") is { } nullNodeVcsUrl && nullNodeVcsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsUrl = null;
+            if (parseNode.GetChildNode("vcs_username") is null) { _explicitNullValueVcsUsername = default!; _explicitNullProperties?.Remove("vcs_username"); }
+            else if (parseNode.GetChildNode("vcs_username") is { } nullNodeVcsUsername && nullNodeVcsUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VcsUsername = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>For a tfvc import, the name of the project that is being imported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        public string? TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; AdditionalData?.Remove("tfvc_project"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
         private string? _explicitNullValueTfvcProject = default!;
 #nullable restore
 #else
-        public string TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
+        public string TfvcProject { get => _explicitNullValueTfvcProject; set { _explicitNullValueTfvcProject = value; AdditionalData?.Remove("tfvc_project"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tfvc_project"); else _explicitNullProperties?.Remove("tfvc_project"); } }
         private string _explicitNullValueTfvcProject = default!;
 #endif
         /// <summary>The originating VCS type. Without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs? Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs? Vcs { get => _explicitNullValueVcs; set { _explicitNullValueVcs = value; AdditionalData?.Remove("vcs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs"); else _explicitNullProperties?.Remove("vcs"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs? _explicitNullValueVcs = default!;
         /// <summary>If authentication is required, the password to provide to `vcs_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VcsPassword { get => _explicitNullValueVcsPassword; set { _explicitNullValueVcsPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_password"); else _explicitNullProperties?.Remove("vcs_password"); } }
+        public string? VcsPassword { get => _explicitNullValueVcsPassword; set { _explicitNullValueVcsPassword = value; AdditionalData?.Remove("vcs_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_password"); else _explicitNullProperties?.Remove("vcs_password"); } }
         private string? _explicitNullValueVcsPassword = default!;
 #nullable restore
 #else
-        public string VcsPassword { get => _explicitNullValueVcsPassword; set { _explicitNullValueVcsPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_password"); else _explicitNullProperties?.Remove("vcs_password"); } }
+        public string VcsPassword { get => _explicitNullValueVcsPassword; set { _explicitNullValueVcsPassword = value; AdditionalData?.Remove("vcs_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_password"); else _explicitNullProperties?.Remove("vcs_password"); } }
         private string _explicitNullValueVcsPassword = default!;
 #endif
         /// <summary>The URL of the originating repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VcsUrl { get => _explicitNullValueVcsUrl; set { _explicitNullValueVcsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_url"); else _explicitNullProperties?.Remove("vcs_url"); } }
+        public string? VcsUrl { get => _explicitNullValueVcsUrl; set { _explicitNullValueVcsUrl = value; AdditionalData?.Remove("vcs_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_url"); else _explicitNullProperties?.Remove("vcs_url"); } }
         private string? _explicitNullValueVcsUrl = default!;
 #nullable restore
 #else
-        public string VcsUrl { get => _explicitNullValueVcsUrl; set { _explicitNullValueVcsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_url"); else _explicitNullProperties?.Remove("vcs_url"); } }
+        public string VcsUrl { get => _explicitNullValueVcsUrl; set { _explicitNullValueVcsUrl = value; AdditionalData?.Remove("vcs_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_url"); else _explicitNullProperties?.Remove("vcs_url"); } }
         private string _explicitNullValueVcsUrl = default!;
 #endif
         /// <summary>If authentication is required, the username to provide to `vcs_url`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VcsUsername { get => _explicitNullValueVcsUsername; set { _explicitNullValueVcsUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_username"); else _explicitNullProperties?.Remove("vcs_username"); } }
+        public string? VcsUsername { get => _explicitNullValueVcsUsername; set { _explicitNullValueVcsUsername = value; AdditionalData?.Remove("vcs_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_username"); else _explicitNullProperties?.Remove("vcs_username"); } }
         private string? _explicitNullValueVcsUsername = default!;
 #nullable restore
 #else
-        public string VcsUsername { get => _explicitNullValueVcsUsername; set { _explicitNullValueVcsUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_username"); else _explicitNullProperties?.Remove("vcs_username"); } }
+        public string VcsUsername { get => _explicitNullValueVcsUsername; set { _explicitNullValueVcsUsername = value; AdditionalData?.Remove("vcs_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vcs_username"); else _explicitNullProperties?.Remove("vcs_username"); } }
         private string _explicitNullValueVcsUsername = default!;
 #endif
         /// <summary>
@@ -95,7 +100,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "tfvc_project", n => { TfvcProject = n.GetStringValue(); } },
-                { "vcs", n => { Vcs = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs>(); } },
+                { "vcs", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.MigrationsStartImportRequestVcs>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueVcs = default; _explicitNullProperties?.Remove("vcs"); AdditionalData["vcs"] = unknown; } else { Vcs = parsed; AdditionalData.Remove("vcs"); } } },
                 { "vcs_password", n => { VcsPassword = n.GetStringValue(); } },
                 { "vcs_url", n => { VcsUrl = n.GetStringValue(); } },
                 { "vcs_username", n => { VcsUsername = n.GetStringValue(); } },

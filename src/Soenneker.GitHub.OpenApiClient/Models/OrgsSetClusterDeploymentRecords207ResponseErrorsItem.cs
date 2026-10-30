@@ -17,23 +17,25 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cause") is { } nullNodeCause && nullNodeCause.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cause = null;
-            if (parseNode.GetChildNode("deployment") is { } nullNodeDeployment && nullNodeDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deployment = null;
+            if (parseNode.GetChildNode("cause") is null) { _explicitNullValueCause = default!; _explicitNullProperties?.Remove("cause"); }
+            else if (parseNode.GetChildNode("cause") is { } nullNodeCause && nullNodeCause.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cause = null;
+            if (parseNode.GetChildNode("deployment") is null) { _explicitNullValueDeployment = default!; _explicitNullProperties?.Remove("deployment"); }
+            else if (parseNode.GetChildNode("deployment") is { } nullNodeDeployment && nullNodeDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deployment = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The reason the deployment failed processing.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause? Cause { get => _explicitNullValueCause; set { _explicitNullValueCause = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cause"); else _explicitNullProperties?.Remove("cause"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause? Cause { get => _explicitNullValueCause; set { _explicitNullValueCause = value; AdditionalData?.Remove("cause"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cause"); else _explicitNullProperties?.Remove("cause"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause? _explicitNullValueCause = default!;
         /// <summary>The deployment payload that could not be processed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment? Deployment { get => _explicitNullValueDeployment; set { _explicitNullValueDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment"); else _explicitNullProperties?.Remove("deployment"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment? Deployment { get => _explicitNullValueDeployment; set { _explicitNullValueDeployment = value; AdditionalData?.Remove("deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment"); else _explicitNullProperties?.Remove("deployment"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment? _explicitNullValueDeployment = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment Deployment { get => _explicitNullValueDeployment; set { _explicitNullValueDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment"); else _explicitNullProperties?.Remove("deployment"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment Deployment { get => _explicitNullValueDeployment; set { _explicitNullValueDeployment = value; AdditionalData?.Remove("deployment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment"); else _explicitNullProperties?.Remove("deployment"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment _explicitNullValueDeployment = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cause", n => { Cause = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause>(); } },
+                { "cause", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemCause>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCause = default; _explicitNullProperties?.Remove("cause"); AdditionalData["cause"] = unknown; } else { Cause = parsed; AdditionalData.Remove("cause"); } } },
                 { "deployment", n => { Deployment = n.GetObjectValue<global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment>(global::Soenneker.GitHub.OpenApiClient.Models.OrgsSetClusterDeploymentRecords207ResponseErrorsItemDeployment.CreateFromDiscriminatorValue); } },
             };
         }

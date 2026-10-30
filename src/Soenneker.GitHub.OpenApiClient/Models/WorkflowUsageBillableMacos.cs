@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("total_ms") is { } nullNodeTotalMs && nullNodeTotalMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalMs = null;
+            if (parseNode.GetChildNode("total_ms") is null) { _explicitNullValueTotalMs = default!; _explicitNullProperties?.Remove("total_ms"); }
+            else if (parseNode.GetChildNode("total_ms") is { } nullNodeTotalMs && nullNodeTotalMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalMs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total_ms property</summary>
-        public int? TotalMs { get => _explicitNullValueTotalMs; set { _explicitNullValueTotalMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_ms"); else _explicitNullProperties?.Remove("total_ms"); } }
+        public int? TotalMs { get => _explicitNullValueTotalMs; set { _explicitNullValueTotalMs = value; AdditionalData?.Remove("total_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_ms"); else _explicitNullProperties?.Remove("total_ms"); } }
         private int? _explicitNullValueTotalMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillableMacos"/> and sets the default values.

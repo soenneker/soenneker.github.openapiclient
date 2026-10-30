@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ignored_file_paths") is { } nullNodeIgnoredFilePaths && nullNodeIgnoredFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredFilePaths = null;
-            if (parseNode.GetChildNode("restricted_file_paths") is { } nullNodeRestrictedFilePaths && nullNodeRestrictedFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedFilePaths = null;
+            if (parseNode.GetChildNode("ignored_file_paths") is null) { _explicitNullValueIgnoredFilePaths = default!; _explicitNullProperties?.Remove("ignored_file_paths"); }
+            else if (parseNode.GetChildNode("ignored_file_paths") is { } nullNodeIgnoredFilePaths && nullNodeIgnoredFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredFilePaths = null;
+            if (parseNode.GetChildNode("restricted_file_paths") is null) { _explicitNullValueRestrictedFilePaths = default!; _explicitNullProperties?.Remove("restricted_file_paths"); }
+            else if (parseNode.GetChildNode("restricted_file_paths") is { } nullNodeRestrictedFilePaths && nullNodeRestrictedFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedFilePaths = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Files matching these patterns are allowed even when they also match a restricted path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        public List<string>? IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; AdditionalData?.Remove("ignored_file_paths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
         private List<string>? _explicitNullValueIgnoredFilePaths = default!;
 #nullable restore
 #else
-        public List<string> IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        public List<string> IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; AdditionalData?.Remove("ignored_file_paths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
         private List<string> _explicitNullValueIgnoredFilePaths = default!;
 #endif
         /// <summary>The file paths that are restricted from being pushed to the commit graph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RestrictedFilePaths { get => _explicitNullValueRestrictedFilePaths; set { _explicitNullValueRestrictedFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_paths"); else _explicitNullProperties?.Remove("restricted_file_paths"); } }
+        public List<string>? RestrictedFilePaths { get => _explicitNullValueRestrictedFilePaths; set { _explicitNullValueRestrictedFilePaths = value; AdditionalData?.Remove("restricted_file_paths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_paths"); else _explicitNullProperties?.Remove("restricted_file_paths"); } }
         private List<string>? _explicitNullValueRestrictedFilePaths = default!;
 #nullable restore
 #else
-        public List<string> RestrictedFilePaths { get => _explicitNullValueRestrictedFilePaths; set { _explicitNullValueRestrictedFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_paths"); else _explicitNullProperties?.Remove("restricted_file_paths"); } }
+        public List<string> RestrictedFilePaths { get => _explicitNullValueRestrictedFilePaths; set { _explicitNullValueRestrictedFilePaths = value; AdditionalData?.Remove("restricted_file_paths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_paths"); else _explicitNullProperties?.Remove("restricted_file_paths"); } }
         private List<string> _explicitNullValueRestrictedFilePaths = default!;
 #endif
         /// <summary>

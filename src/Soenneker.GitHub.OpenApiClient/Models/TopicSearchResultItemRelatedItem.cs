@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("topic_relation") is { } nullNodeTopicRelation && nullNodeTopicRelation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicRelation = null;
+            if (parseNode.GetChildNode("topic_relation") is null) { _explicitNullValueTopicRelation = default!; _explicitNullProperties?.Remove("topic_relation"); }
+            else if (parseNode.GetChildNode("topic_relation") is { } nullNodeTopicRelation && nullNodeTopicRelation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicRelation = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The topic_relation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItemTopicRelation? TopicRelation { get => _explicitNullValueTopicRelation; set { _explicitNullValueTopicRelation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_relation"); else _explicitNullProperties?.Remove("topic_relation"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItemTopicRelation? TopicRelation { get => _explicitNullValueTopicRelation; set { _explicitNullValueTopicRelation = value; AdditionalData?.Remove("topic_relation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_relation"); else _explicitNullProperties?.Remove("topic_relation"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItemTopicRelation? _explicitNullValueTopicRelation = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItemTopicRelation TopicRelation { get => _explicitNullValueTopicRelation; set { _explicitNullValueTopicRelation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_relation"); else _explicitNullProperties?.Remove("topic_relation"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItemTopicRelation TopicRelation { get => _explicitNullValueTopicRelation; set { _explicitNullValueTopicRelation = value; AdditionalData?.Remove("topic_relation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_relation"); else _explicitNullProperties?.Remove("topic_relation"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.TopicSearchResultItemRelatedItemTopicRelation _explicitNullValueTopicRelation = default!;
 #endif
         /// <summary>

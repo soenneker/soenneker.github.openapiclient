@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attestations") is { } nullNodeAttestations && nullNodeAttestations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attestations = null;
+            if (parseNode.GetChildNode("attestations") is null) { _explicitNullValueAttestations = default!; _explicitNullProperties?.Remove("attestations"); }
+            else if (parseNode.GetChildNode("attestations") is { } nullNodeAttestations && nullNodeAttestations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attestations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The attestations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem>? Attestations { get => _explicitNullValueAttestations; set { _explicitNullValueAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestations"); else _explicitNullProperties?.Remove("attestations"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem>? Attestations { get => _explicitNullValueAttestations; set { _explicitNullValueAttestations = value; AdditionalData?.Remove("attestations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestations"); else _explicitNullProperties?.Remove("attestations"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem>? _explicitNullValueAttestations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem> Attestations { get => _explicitNullValueAttestations; set { _explicitNullValueAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestations"); else _explicitNullProperties?.Remove("attestations"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem> Attestations { get => _explicitNullValueAttestations; set { _explicitNullValueAttestations = value; AdditionalData?.Remove("attestations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestations"); else _explicitNullProperties?.Remove("attestations"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.OrgsListAttestations200ResponseAttestationsItem> _explicitNullValueAttestations = default!;
 #endif
         /// <summary>

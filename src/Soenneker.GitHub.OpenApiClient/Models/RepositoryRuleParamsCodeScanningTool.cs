@@ -18,27 +18,30 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("alerts_threshold") is { } nullNodeAlertsThreshold && nullNodeAlertsThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertsThreshold = null;
-            if (parseNode.GetChildNode("security_alerts_threshold") is { } nullNodeSecurityAlertsThreshold && nullNodeSecurityAlertsThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAlertsThreshold = null;
-            if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
+            if (parseNode.GetChildNode("alerts_threshold") is null) { _explicitNullValueAlertsThreshold = default!; _explicitNullProperties?.Remove("alerts_threshold"); }
+            else if (parseNode.GetChildNode("alerts_threshold") is { } nullNodeAlertsThreshold && nullNodeAlertsThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertsThreshold = null;
+            if (parseNode.GetChildNode("security_alerts_threshold") is null) { _explicitNullValueSecurityAlertsThreshold = default!; _explicitNullProperties?.Remove("security_alerts_threshold"); }
+            else if (parseNode.GetChildNode("security_alerts_threshold") is { } nullNodeSecurityAlertsThreshold && nullNodeSecurityAlertsThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecurityAlertsThreshold = null;
+            if (parseNode.GetChildNode("tool") is null) { _explicitNullValueTool = default!; _explicitNullProperties?.Remove("tool"); }
+            else if (parseNode.GetChildNode("tool") is { } nullNodeTool && nullNodeTool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tool = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see &quot;[About code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold? AlertsThreshold { get => _explicitNullValueAlertsThreshold; set { _explicitNullValueAlertsThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alerts_threshold"); else _explicitNullProperties?.Remove("alerts_threshold"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold? AlertsThreshold { get => _explicitNullValueAlertsThreshold; set { _explicitNullValueAlertsThreshold = value; AdditionalData?.Remove("alerts_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alerts_threshold"); else _explicitNullProperties?.Remove("alerts_threshold"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold? _explicitNullValueAlertsThreshold = default!;
         /// <summary>The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see &quot;[About code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).&quot;</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold? SecurityAlertsThreshold { get => _explicitNullValueSecurityAlertsThreshold; set { _explicitNullValueSecurityAlertsThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_alerts_threshold"); else _explicitNullProperties?.Remove("security_alerts_threshold"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold? SecurityAlertsThreshold { get => _explicitNullValueSecurityAlertsThreshold; set { _explicitNullValueSecurityAlertsThreshold = value; AdditionalData?.Remove("security_alerts_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("security_alerts_threshold"); else _explicitNullProperties?.Remove("security_alerts_threshold"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold? _explicitNullValueSecurityAlertsThreshold = default!;
         /// <summary>The name of a code scanning tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        public string? Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; AdditionalData?.Remove("tool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
         private string? _explicitNullValueTool = default!;
 #nullable restore
 #else
-        public string Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
+        public string Tool { get => _explicitNullValueTool; set { _explicitNullValueTool = value; AdditionalData?.Remove("tool"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool"); else _explicitNullProperties?.Remove("tool"); } }
         private string _explicitNullValueTool = default!;
 #endif
         /// <summary>
@@ -66,8 +69,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "alerts_threshold", n => { AlertsThreshold = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold>(); } },
-                { "security_alerts_threshold", n => { SecurityAlertsThreshold = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold>(); } },
+                { "alerts_threshold", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolAlertsThreshold>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAlertsThreshold = default; _explicitNullProperties?.Remove("alerts_threshold"); AdditionalData["alerts_threshold"] = unknown; } else { AlertsThreshold = parsed; AdditionalData.Remove("alerts_threshold"); } } },
+                { "security_alerts_threshold", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleParamsCodeScanningToolSecurityAlertsThreshold>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSecurityAlertsThreshold = default; _explicitNullProperties?.Remove("security_alerts_threshold"); AdditionalData["security_alerts_threshold"] = unknown; } else { SecurityAlertsThreshold = parsed; AdditionalData.Remove("security_alerts_threshold"); } } },
                 { "tool", n => { Tool = n.GetStringValue(); } },
             };
         }

@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("public_ips") is { } nullNodePublicIps && nullNodePublicIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicIps = null;
+            if (parseNode.GetChildNode("public_ips") is null) { _explicitNullValuePublicIps = default!; _explicitNullProperties?.Remove("public_ips"); }
+            else if (parseNode.GetChildNode("public_ips") is { } nullNodePublicIps && nullNodePublicIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicIps = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Provides details of static public IP limits for GitHub-hosted Hosted Runners</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps? PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps? PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; AdditionalData?.Remove("public_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps? _explicitNullValuePublicIps = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps PublicIps { get => _explicitNullValuePublicIps; set { _explicitNullValuePublicIps = value; AdditionalData?.Remove("public_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_ips"); else _explicitNullProperties?.Remove("public_ips"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.ActionsHostedRunnerLimitsPublicIps _explicitNullValuePublicIps = default!;
 #endif
         /// <summary>

@@ -17,17 +17,19 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_coverage_drop") is { } nullNodeMaxCoverageDrop && nullNodeMaxCoverageDrop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCoverageDrop = null;
-            if (parseNode.GetChildNode("minimum_coverage") is { } nullNodeMinimumCoverage && nullNodeMinimumCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumCoverage = null;
+            if (parseNode.GetChildNode("max_coverage_drop") is null) { _explicitNullValueMaxCoverageDrop = default!; _explicitNullProperties?.Remove("max_coverage_drop"); }
+            else if (parseNode.GetChildNode("max_coverage_drop") is { } nullNodeMaxCoverageDrop && nullNodeMaxCoverageDrop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCoverageDrop = null;
+            if (parseNode.GetChildNode("minimum_coverage") is null) { _explicitNullValueMinimumCoverage = default!; _explicitNullProperties?.Remove("minimum_coverage"); }
+            else if (parseNode.GetChildNode("minimum_coverage") is { } nullNodeMinimumCoverage && nullNodeMinimumCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumCoverage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</summary>
-        public float? MaxCoverageDrop { get => _explicitNullValueMaxCoverageDrop; set { _explicitNullValueMaxCoverageDrop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_coverage_drop"); else _explicitNullProperties?.Remove("max_coverage_drop"); } }
+        public float? MaxCoverageDrop { get => _explicitNullValueMaxCoverageDrop; set { _explicitNullValueMaxCoverageDrop = value; AdditionalData?.Remove("max_coverage_drop"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_coverage_drop"); else _explicitNullProperties?.Remove("max_coverage_drop"); } }
         private float? _explicitNullValueMaxCoverageDrop = default!;
         /// <summary>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</summary>
-        public float? MinimumCoverage { get => _explicitNullValueMinimumCoverage; set { _explicitNullValueMinimumCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_coverage"); else _explicitNullProperties?.Remove("minimum_coverage"); } }
+        public float? MinimumCoverage { get => _explicitNullValueMinimumCoverage; set { _explicitNullValueMinimumCoverage = value; AdditionalData?.Remove("minimum_coverage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimum_coverage"); else _explicitNullProperties?.Remove("minimum_coverage"); } }
         private float? _explicitNullValueMinimumCoverage = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleCodeCoverageParameters"/> and sets the default values.

@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("placeholder_id") is { } nullNodePlaceholderId && nullNodePlaceholderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlaceholderId = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("placeholder_id") is null) { _explicitNullValuePlaceholderId = default!; _explicitNullProperties?.Remove("placeholder_id"); }
+            else if (parseNode.GetChildNode("placeholder_id") is { } nullNodePlaceholderId && nullNodePlaceholderId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlaceholderId = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The ID of the push protection bypass placeholder. This value is returned on any push protected routes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlaceholderId { get => _explicitNullValuePlaceholderId; set { _explicitNullValuePlaceholderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("placeholder_id"); else _explicitNullProperties?.Remove("placeholder_id"); } }
+        public string? PlaceholderId { get => _explicitNullValuePlaceholderId; set { _explicitNullValuePlaceholderId = value; AdditionalData?.Remove("placeholder_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("placeholder_id"); else _explicitNullProperties?.Remove("placeholder_id"); } }
         private string? _explicitNullValuePlaceholderId = default!;
 #nullable restore
 #else
-        public string PlaceholderId { get => _explicitNullValuePlaceholderId; set { _explicitNullValuePlaceholderId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("placeholder_id"); else _explicitNullProperties?.Remove("placeholder_id"); } }
+        public string PlaceholderId { get => _explicitNullValuePlaceholderId; set { _explicitNullValuePlaceholderId = value; AdditionalData?.Remove("placeholder_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("placeholder_id"); else _explicitNullProperties?.Remove("placeholder_id"); } }
         private string _explicitNullValuePlaceholderId = default!;
 #endif
         /// <summary>The reason for bypassing push protection.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason? _explicitNullValueReason = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningCreatePushProtectionBypassRequest"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "placeholder_id", n => { PlaceholderId = n.GetStringValue(); } },
-                { "reason", n => { Reason = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason>(); } },
+                { "reason", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.SecretScanningPushProtectionBypassReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueReason = default; _explicitNullProperties?.Remove("reason"); AdditionalData["reason"] = unknown; } else { Reason = parsed; AdditionalData.Remove("reason"); } } },
             };
         }
         /// <summary>

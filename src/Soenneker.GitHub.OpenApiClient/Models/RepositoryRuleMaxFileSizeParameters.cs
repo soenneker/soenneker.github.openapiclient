@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ignored_file_paths") is { } nullNodeIgnoredFilePaths && nullNodeIgnoredFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredFilePaths = null;
-            if (parseNode.GetChildNode("max_file_size") is { } nullNodeMaxFileSize && nullNodeMaxFileSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFileSize = null;
+            if (parseNode.GetChildNode("ignored_file_paths") is null) { _explicitNullValueIgnoredFilePaths = default!; _explicitNullProperties?.Remove("ignored_file_paths"); }
+            else if (parseNode.GetChildNode("ignored_file_paths") is { } nullNodeIgnoredFilePaths && nullNodeIgnoredFilePaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredFilePaths = null;
+            if (parseNode.GetChildNode("max_file_size") is null) { _explicitNullValueMaxFileSize = default!; _explicitNullProperties?.Remove("max_file_size"); }
+            else if (parseNode.GetChildNode("max_file_size") is { } nullNodeMaxFileSize && nullNodeMaxFileSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFileSize = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Files matching these patterns may exceed the maximum size.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        public List<string>? IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; AdditionalData?.Remove("ignored_file_paths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
         private List<string>? _explicitNullValueIgnoredFilePaths = default!;
 #nullable restore
 #else
-        public List<string> IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
+        public List<string> IgnoredFilePaths { get => _explicitNullValueIgnoredFilePaths; set { _explicitNullValueIgnoredFilePaths = value; AdditionalData?.Remove("ignored_file_paths"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored_file_paths"); else _explicitNullProperties?.Remove("ignored_file_paths"); } }
         private List<string> _explicitNullValueIgnoredFilePaths = default!;
 #endif
         /// <summary>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</summary>
-        public int? MaxFileSize { get => _explicitNullValueMaxFileSize; set { _explicitNullValueMaxFileSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_file_size"); else _explicitNullProperties?.Remove("max_file_size"); } }
+        public int? MaxFileSize { get => _explicitNullValueMaxFileSize; set { _explicitNullValueMaxFileSize = value; AdditionalData?.Remove("max_file_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_file_size"); else _explicitNullProperties?.Remove("max_file_size"); } }
         private int? _explicitNullValueMaxFileSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleMaxFileSizeParameters"/> and sets the default values.

@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("restricted_file_extensions") is { } nullNodeRestrictedFileExtensions && nullNodeRestrictedFileExtensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedFileExtensions = null;
+            if (parseNode.GetChildNode("restricted_file_extensions") is null) { _explicitNullValueRestrictedFileExtensions = default!; _explicitNullProperties?.Remove("restricted_file_extensions"); }
+            else if (parseNode.GetChildNode("restricted_file_extensions") is { } nullNodeRestrictedFileExtensions && nullNodeRestrictedFileExtensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedFileExtensions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The file extensions that are restricted from being pushed to the commit graph.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RestrictedFileExtensions { get => _explicitNullValueRestrictedFileExtensions; set { _explicitNullValueRestrictedFileExtensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_extensions"); else _explicitNullProperties?.Remove("restricted_file_extensions"); } }
+        public List<string>? RestrictedFileExtensions { get => _explicitNullValueRestrictedFileExtensions; set { _explicitNullValueRestrictedFileExtensions = value; AdditionalData?.Remove("restricted_file_extensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_extensions"); else _explicitNullProperties?.Remove("restricted_file_extensions"); } }
         private List<string>? _explicitNullValueRestrictedFileExtensions = default!;
 #nullable restore
 #else
-        public List<string> RestrictedFileExtensions { get => _explicitNullValueRestrictedFileExtensions; set { _explicitNullValueRestrictedFileExtensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_extensions"); else _explicitNullProperties?.Remove("restricted_file_extensions"); } }
+        public List<string> RestrictedFileExtensions { get => _explicitNullValueRestrictedFileExtensions; set { _explicitNullValueRestrictedFileExtensions = value; AdditionalData?.Remove("restricted_file_extensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_file_extensions"); else _explicitNullProperties?.Remove("restricted_file_extensions"); } }
         private List<string> _explicitNullValueRestrictedFileExtensions = default!;
 #endif
         /// <summary>

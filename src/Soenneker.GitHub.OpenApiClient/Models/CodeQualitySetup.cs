@@ -18,51 +18,58 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ai_findings_option") is { } nullNodeAiFindingsOption && nullNodeAiFindingsOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiFindingsOption = null;
-            if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
-            if (parseNode.GetChildNode("runner_label") is { } nullNodeRunnerLabel && nullNodeRunnerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerLabel = null;
-            if (parseNode.GetChildNode("runner_type") is { } nullNodeRunnerType && nullNodeRunnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerType = null;
-            if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
-            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
-            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("ai_findings_option") is null) { _explicitNullValueAiFindingsOption = default!; _explicitNullProperties?.Remove("ai_findings_option"); }
+            else if (parseNode.GetChildNode("ai_findings_option") is { } nullNodeAiFindingsOption && nullNodeAiFindingsOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiFindingsOption = null;
+            if (parseNode.GetChildNode("languages") is null) { _explicitNullValueLanguages = default!; _explicitNullProperties?.Remove("languages"); }
+            else if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
+            if (parseNode.GetChildNode("runner_label") is null) { _explicitNullValueRunnerLabel = default!; _explicitNullProperties?.Remove("runner_label"); }
+            else if (parseNode.GetChildNode("runner_label") is { } nullNodeRunnerLabel && nullNodeRunnerLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerLabel = null;
+            if (parseNode.GetChildNode("runner_type") is null) { _explicitNullValueRunnerType = default!; _explicitNullProperties?.Remove("runner_type"); }
+            else if (parseNode.GetChildNode("runner_type") is { } nullNodeRunnerType && nullNodeRunnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnerType = null;
+            if (parseNode.GetChildNode("schedule") is null) { _explicitNullValueSchedule = default!; _explicitNullProperties?.Remove("schedule"); }
+            else if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
+            if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
+            else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
+            else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The AI findings configuration for the repository.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? AiFindingsOption { get => _explicitNullValueAiFindingsOption; set { _explicitNullValueAiFindingsOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_findings_option"); else _explicitNullProperties?.Remove("ai_findings_option"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? AiFindingsOption { get => _explicitNullValueAiFindingsOption; set { _explicitNullValueAiFindingsOption = value; AdditionalData?.Remove("ai_findings_option"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_findings_option"); else _explicitNullProperties?.Remove("ai_findings_option"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption? _explicitNullValueAiFindingsOption = default!;
         /// <summary>Languages to be analyzed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?>? _explicitNullValueLanguages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        public List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
         private List<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem?> _explicitNullValueLanguages = default!;
 #endif
         /// <summary>Runner label to be used if the runner type is labeled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        public string? RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; AdditionalData?.Remove("runner_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
         private string? _explicitNullValueRunnerLabel = default!;
 #nullable restore
 #else
-        public string RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
+        public string RunnerLabel { get => _explicitNullValueRunnerLabel; set { _explicitNullValueRunnerLabel = value; AdditionalData?.Remove("runner_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_label"); else _explicitNullProperties?.Remove("runner_label"); } }
         private string _explicitNullValueRunnerLabel = default!;
 #endif
         /// <summary>Runner type to be used.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? RunnerType { get => _explicitNullValueRunnerType; set { _explicitNullValueRunnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_type"); else _explicitNullProperties?.Remove("runner_type"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? RunnerType { get => _explicitNullValueRunnerType; set { _explicitNullValueRunnerType = value; AdditionalData?.Remove("runner_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runner_type"); else _explicitNullProperties?.Remove("runner_type"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType? _explicitNullValueRunnerType = default!;
         /// <summary>The frequency of the periodic analysis.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule? _explicitNullValueSchedule = default!;
         /// <summary>Code quality setup has been configured or not.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState? _explicitNullValueState = default!;
         /// <summary>Timestamp of latest configuration update.</summary>
-        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetup"/> and sets the default values.
@@ -89,12 +96,12 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ai_findings_option", n => { AiFindingsOption = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption>(); } },
+                { "ai_findings_option", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupAiFindingsOption>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAiFindingsOption = default; _explicitNullProperties?.Remove("ai_findings_option"); AdditionalData["ai_findings_option"] = unknown; } else { AiFindingsOption = parsed; AdditionalData.Remove("ai_findings_option"); } } },
                 { "languages", n => { Languages = n.GetCollectionOfEnumValues<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupLanguagesItem>()?.AsList(); } },
                 { "runner_label", n => { RunnerLabel = n.GetStringValue(); } },
-                { "runner_type", n => { RunnerType = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>(); } },
-                { "schedule", n => { Schedule = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>(); } },
+                { "runner_type", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupRunnerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRunnerType = default; _explicitNullProperties?.Remove("runner_type"); AdditionalData["runner_type"] = unknown; } else { RunnerType = parsed; AdditionalData.Remove("runner_type"); } } },
+                { "schedule", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.WeeklySchedule>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSchedule = default; _explicitNullProperties?.Remove("schedule"); AdditionalData["schedule"] = unknown; } else { Schedule = parsed; AdditionalData.Remove("schedule"); } } },
+                { "state", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.CodeQualitySetupState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueState = default; _explicitNullProperties?.Remove("state"); AdditionalData["state"] = unknown; } else { State = parsed; AdditionalData.Remove("state"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

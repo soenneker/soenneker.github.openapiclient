@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("default_level") is { } nullNodeDefaultLevel && nullNodeDefaultLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLevel = null;
+            if (parseNode.GetChildNode("default_level") is null) { _explicitNullValueDefaultLevel = default!; _explicitNullProperties?.Remove("default_level"); }
+            else if (parseNode.GetChildNode("default_level") is { } nullNodeDefaultLevel && nullNodeDefaultLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultLevel = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The default repository access level for Dependabot updates.</summary>
-        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterpriseRequestDefaultLevel? DefaultLevel { get => _explicitNullValueDefaultLevel; set { _explicitNullValueDefaultLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_level"); else _explicitNullProperties?.Remove("default_level"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterpriseRequestDefaultLevel? DefaultLevel { get => _explicitNullValueDefaultLevel; set { _explicitNullValueDefaultLevel = value; AdditionalData?.Remove("default_level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_level"); else _explicitNullProperties?.Remove("default_level"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterpriseRequestDefaultLevel? _explicitNullValueDefaultLevel = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterpriseRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "default_level", n => { DefaultLevel = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterpriseRequestDefaultLevel>(); } },
+                { "default_level", n => { var parsed = n.GetEnumValue<global::Soenneker.GitHub.OpenApiClient.Models.DependabotSetRepositoryAccessDefaultLevelForEnterpriseRequestDefaultLevel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefaultLevel = default; _explicitNullProperties?.Remove("default_level"); AdditionalData["default_level"] = unknown; } else { DefaultLevel = parsed; AdditionalData.Remove("default_level"); } } },
             };
         }
         /// <summary>

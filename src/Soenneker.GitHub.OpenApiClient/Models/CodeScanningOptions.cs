@@ -18,13 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow_advanced") is { } nullNodeAllowAdvanced && nullNodeAllowAdvanced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowAdvanced = null;
+            if (parseNode.GetChildNode("allow_advanced") is null) { _explicitNullValueAllowAdvanced = default!; _explicitNullProperties?.Remove("allow_advanced"); }
+            else if (parseNode.GetChildNode("allow_advanced") is { } nullNodeAllowAdvanced && nullNodeAllowAdvanced.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowAdvanced = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to allow repos which use advanced setup</summary>
-        public bool? AllowAdvanced { get => _explicitNullValueAllowAdvanced; set { _explicitNullValueAllowAdvanced = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_advanced"); else _explicitNullProperties?.Remove("allow_advanced"); } }
+        public bool? AllowAdvanced { get => _explicitNullValueAllowAdvanced; set { _explicitNullValueAllowAdvanced = value; AdditionalData?.Remove("allow_advanced"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_advanced"); else _explicitNullProperties?.Remove("allow_advanced"); } }
         private bool? _explicitNullValueAllowAdvanced = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.CodeScanningOptions"/> and sets the default values.

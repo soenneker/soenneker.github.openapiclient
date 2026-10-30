@@ -18,13 +18,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_cache_retention_days") is { } nullNodeMaxCacheRetentionDays && nullNodeMaxCacheRetentionDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCacheRetentionDays = null;
+            if (parseNode.GetChildNode("max_cache_retention_days") is null) { _explicitNullValueMaxCacheRetentionDays = default!; _explicitNullProperties?.Remove("max_cache_retention_days"); }
+            else if (parseNode.GetChildNode("max_cache_retention_days") is { } nullNodeMaxCacheRetentionDays && nullNodeMaxCacheRetentionDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxCacheRetentionDays = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For repositories in this organization, the maximum duration, in days, for which caches in a repository may be retained.</summary>
-        public int? MaxCacheRetentionDays { get => _explicitNullValueMaxCacheRetentionDays; set { _explicitNullValueMaxCacheRetentionDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_cache_retention_days"); else _explicitNullProperties?.Remove("max_cache_retention_days"); } }
+        public int? MaxCacheRetentionDays { get => _explicitNullValueMaxCacheRetentionDays; set { _explicitNullValueMaxCacheRetentionDays = value; AdditionalData?.Remove("max_cache_retention_days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_cache_retention_days"); else _explicitNullProperties?.Remove("max_cache_retention_days"); } }
         private int? _explicitNullValueMaxCacheRetentionDays = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.ActionsCacheRetentionLimitForOrganization"/> and sets the default values.

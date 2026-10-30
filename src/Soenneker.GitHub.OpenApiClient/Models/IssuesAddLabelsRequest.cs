@@ -56,7 +56,7 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             {
                 
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item> issuesAddLabelsRequestOneOf3ItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => ((item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (item is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("name") && (!shapeMembers1.ContainsKey("name") || (((shapeMembers1["name"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("rationale") || (((shapeMembers1["rationale"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("suggest") || (((shapeMembers1["suggest"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("confidence") || (((shapeMembers1["confidence"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)) && ((shapeMembers1["confidence"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal8 && "low".Equals(literal8.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["confidence"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal9 && "medium".Equals(literal9.GetValue(), global::System.StringComparison.Ordinal)) || (shapeMembers1["confidence"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString literal10 && "high".Equals(literal10.GetValue(), global::System.StringComparison.Ordinal))))))))) && parseNode.GetCollectionOfObjectValues<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item>(global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf3Item> issuesAddLabelsRequestOneOf3ItemValue)
             {
                 result.IssuesAddLabelsRequestOneOf3Item = issuesAddLabelsRequestOneOf3ItemValue;
             }
@@ -66,7 +66,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.IssuesAddLabelsRequestOneOf1 == null && result.IssuesAddLabelsRequestOneOf3Item == null && result.String == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.IssuesAddLabelsRequestOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("labels") || (((shapeMembers1["labels"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.IssuesAddLabelsRequestOneOf1 == null && result.IssuesAddLabelsRequestOneOf3Item == null && result.String == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.IssuesAddLabelsRequestOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.GitHub.OpenApiClient.Models.IssuesAddLabelsRequestOneOf1(), parseNode);
             if (result.IssuesAddLabelsRequestOneOf1 == null && result.IssuesAddLabelsRequestOneOf3Item == null && result.String == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -76,6 +80,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(IssuesAddLabelsRequestOneOf1 != null)
             {
                 return IssuesAddLabelsRequestOneOf1.GetFieldDeserializers();
@@ -90,7 +96,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (IssuesAddLabelsRequestOneOf1 == null && IssuesAddLabelsRequestOneOf3Item == null && String == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (IssuesAddLabelsRequestOneOf1 != null && IssuesAddLabelsRequestOneOf3Item == null && String == null) { if (IssuesAddLabelsRequestOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IssuesAddLabelsRequestOneOf1); return; }
+            int selectedUnionBranches = 0;
+            if (IssuesAddLabelsRequestOneOf1 != null) selectedUnionBranches++;
+            if (IssuesAddLabelsRequestOneOf3Item != null) selectedUnionBranches++;
+            if (String != null) selectedUnionBranches++;
+            if (IssuesAddLabelsRequestOneOf1 != null && selectedUnionBranches == 1) { if (IssuesAddLabelsRequestOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IssuesAddLabelsRequestOneOf1); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(IssuesAddLabelsRequestOneOf1 != null)

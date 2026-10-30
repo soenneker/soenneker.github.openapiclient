@@ -82,7 +82,7 @@ namespace Soenneker.GitHub.OpenApiClient.Enterprises.Item.Copilot.Policies.Codin
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.github.com", "/enterprises/{enterprise}/copilot/policies/coding_agent", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/scim+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

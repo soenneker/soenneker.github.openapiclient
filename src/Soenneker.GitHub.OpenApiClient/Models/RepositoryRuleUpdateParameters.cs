@@ -17,13 +17,14 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("update_allows_fetch_and_merge") is { } nullNodeUpdateAllowsFetchAndMerge && nullNodeUpdateAllowsFetchAndMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdateAllowsFetchAndMerge = null;
+            if (parseNode.GetChildNode("update_allows_fetch_and_merge") is null) { _explicitNullValueUpdateAllowsFetchAndMerge = default!; _explicitNullProperties?.Remove("update_allows_fetch_and_merge"); }
+            else if (parseNode.GetChildNode("update_allows_fetch_and_merge") is { } nullNodeUpdateAllowsFetchAndMerge && nullNodeUpdateAllowsFetchAndMerge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdateAllowsFetchAndMerge = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Branch can pull changes from its upstream repository</summary>
-        public bool? UpdateAllowsFetchAndMerge { get => _explicitNullValueUpdateAllowsFetchAndMerge; set { _explicitNullValueUpdateAllowsFetchAndMerge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("update_allows_fetch_and_merge"); else _explicitNullProperties?.Remove("update_allows_fetch_and_merge"); } }
+        public bool? UpdateAllowsFetchAndMerge { get => _explicitNullValueUpdateAllowsFetchAndMerge; set { _explicitNullValueUpdateAllowsFetchAndMerge = value; AdditionalData?.Remove("update_allows_fetch_and_merge"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("update_allows_fetch_and_merge"); else _explicitNullProperties?.Remove("update_allows_fetch_and_merge"); } }
         private bool? _explicitNullValueUpdateAllowsFetchAndMerge = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.RepositoryRuleUpdateParameters"/> and sets the default values.

@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expected_head_sha") is { } nullNodeExpectedHeadSha && nullNodeExpectedHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedHeadSha = null;
+            if (parseNode.GetChildNode("expected_head_sha") is null) { _explicitNullValueExpectedHeadSha = default!; _explicitNullProperties?.Remove("expected_head_sha"); }
+            else if (parseNode.GetChildNode("expected_head_sha") is { } nullNodeExpectedHeadSha && nullNodeExpectedHeadSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedHeadSha = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The expected SHA of the pull request&apos;s HEAD ref. This is the most recent commit on the pull request&apos;s branch. If the expected SHA does not match the pull request&apos;s HEAD, you will receive a `422 Unprocessable Entity` status. You can use the &quot;[List commits](https://docs.github.com/rest/commits/commits#list-commits)&quot; endpoint to find the most recent commit SHA. Default: SHA of the pull request&apos;s current HEAD ref.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
+        public string? ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; AdditionalData?.Remove("expected_head_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
         private string? _explicitNullValueExpectedHeadSha = default!;
 #nullable restore
 #else
-        public string ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
+        public string ExpectedHeadSha { get => _explicitNullValueExpectedHeadSha; set { _explicitNullValueExpectedHeadSha = value; AdditionalData?.Remove("expected_head_sha"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_head_sha"); else _explicitNullProperties?.Remove("expected_head_sha"); } }
         private string _explicitNullValueExpectedHeadSha = default!;
 #endif
         /// <summary>

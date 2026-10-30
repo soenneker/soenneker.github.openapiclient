@@ -17,7 +17,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("selected_usernames") is { } nullNodeSelectedUsernames && nullNodeSelectedUsernames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedUsernames = null;
+            if (parseNode.GetChildNode("selected_usernames") is null) { _explicitNullValueSelectedUsernames = default!; _explicitNullProperties?.Remove("selected_usernames"); }
+            else if (parseNode.GetChildNode("selected_usernames") is { } nullNodeSelectedUsernames && nullNodeSelectedUsernames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelectedUsernames = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The usernames of the organization members and outside collaborators whose codespaces should not be billed to the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
+        public List<string>? SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; AdditionalData?.Remove("selected_usernames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
         private List<string>? _explicitNullValueSelectedUsernames = default!;
 #nullable restore
 #else
-        public List<string> SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
+        public List<string> SelectedUsernames { get => _explicitNullValueSelectedUsernames; set { _explicitNullValueSelectedUsernames = value; AdditionalData?.Remove("selected_usernames"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selected_usernames"); else _explicitNullProperties?.Remove("selected_usernames"); } }
         private List<string> _explicitNullValueSelectedUsernames = default!;
 #endif
         /// <summary>

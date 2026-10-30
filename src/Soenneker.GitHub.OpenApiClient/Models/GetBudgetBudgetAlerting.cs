@@ -17,8 +17,10 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("alert_recipients") is { } nullNodeAlertRecipients && nullNodeAlertRecipients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertRecipients = null;
-            if (parseNode.GetChildNode("will_alert") is { } nullNodeWillAlert && nullNodeWillAlert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WillAlert = null;
+            if (parseNode.GetChildNode("alert_recipients") is null) { _explicitNullValueAlertRecipients = default!; _explicitNullProperties?.Remove("alert_recipients"); }
+            else if (parseNode.GetChildNode("alert_recipients") is { } nullNodeAlertRecipients && nullNodeAlertRecipients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertRecipients = null;
+            if (parseNode.GetChildNode("will_alert") is null) { _explicitNullValueWillAlert = default!; _explicitNullProperties?.Remove("will_alert"); }
+            else if (parseNode.GetChildNode("will_alert") is { } nullNodeWillAlert && nullNodeWillAlert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WillAlert = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AlertRecipients { get => _explicitNullValueAlertRecipients; set { _explicitNullValueAlertRecipients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_recipients"); else _explicitNullProperties?.Remove("alert_recipients"); } }
+        public List<string>? AlertRecipients { get => _explicitNullValueAlertRecipients; set { _explicitNullValueAlertRecipients = value; AdditionalData?.Remove("alert_recipients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_recipients"); else _explicitNullProperties?.Remove("alert_recipients"); } }
         private List<string>? _explicitNullValueAlertRecipients = default!;
 #nullable restore
 #else
-        public List<string> AlertRecipients { get => _explicitNullValueAlertRecipients; set { _explicitNullValueAlertRecipients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_recipients"); else _explicitNullProperties?.Remove("alert_recipients"); } }
+        public List<string> AlertRecipients { get => _explicitNullValueAlertRecipients; set { _explicitNullValueAlertRecipients = value; AdditionalData?.Remove("alert_recipients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_recipients"); else _explicitNullProperties?.Remove("alert_recipients"); } }
         private List<string> _explicitNullValueAlertRecipients = default!;
 #endif
         /// <summary>Whether alerts are enabled for this budget. Present but not applicable for user-scope as alerting is always disabled for them.</summary>
-        public bool? WillAlert { get => _explicitNullValueWillAlert; set { _explicitNullValueWillAlert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("will_alert"); else _explicitNullProperties?.Remove("will_alert"); } }
+        public bool? WillAlert { get => _explicitNullValueWillAlert; set { _explicitNullValueWillAlert = value; AdditionalData?.Remove("will_alert"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("will_alert"); else _explicitNullProperties?.Remove("will_alert"); } }
         private bool? _explicitNullValueWillAlert = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.GitHub.OpenApiClient.Models.GetBudgetBudgetAlerting"/> and sets the default values.

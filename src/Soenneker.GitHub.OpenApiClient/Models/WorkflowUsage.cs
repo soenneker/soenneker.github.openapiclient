@@ -18,7 +18,8 @@ namespace Soenneker.GitHub.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("billable") is { } nullNodeBillable && nullNodeBillable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Billable = null;
+            if (parseNode.GetChildNode("billable") is null) { _explicitNullValueBillable = default!; _explicitNullProperties?.Remove("billable"); }
+            else if (parseNode.GetChildNode("billable") is { } nullNodeBillable && nullNodeBillable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Billable = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.GitHub.OpenApiClient.Models
         /// <summary>The billable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable? Billable { get => _explicitNullValueBillable; set { _explicitNullValueBillable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable"); else _explicitNullProperties?.Remove("billable"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable? Billable { get => _explicitNullValueBillable; set { _explicitNullValueBillable = value; AdditionalData?.Remove("billable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable"); else _explicitNullProperties?.Remove("billable"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable? _explicitNullValueBillable = default!;
 #nullable restore
 #else
-        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable Billable { get => _explicitNullValueBillable; set { _explicitNullValueBillable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable"); else _explicitNullProperties?.Remove("billable"); } }
+        public global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable Billable { get => _explicitNullValueBillable; set { _explicitNullValueBillable = value; AdditionalData?.Remove("billable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billable"); else _explicitNullProperties?.Remove("billable"); } }
         private global::Soenneker.GitHub.OpenApiClient.Models.WorkflowUsageBillable _explicitNullValueBillable = default!;
 #endif
         /// <summary>
